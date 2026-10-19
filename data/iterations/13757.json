@@ -1,0 +1,3133 @@
+{
+ "project": 13757,
+ "iterations": [
+  {
+   "iteration": 1,
+   "hash": "ooKToE55V7948jVfczQF5QztsUj3ZbnSt5Fah7Wi7eSpnptpSo7",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764367,
+   "minted": "2022-05-28T17:26:14Z",
+   "mint_op": "ooKToE55V7948jVfczQF5QztsUj3ZbnSt5Fah7Wi7eSpnptpSo7",
+   "metadata_uri": "ipfs://QmXKqBQZ51GnHjqKFnSh7y9RSoG1VVzPQo3exYVexqVgre",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #1",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooKToE55V7948jVfczQF5QztsUj3ZbnSt5Fah7Wi7eSpnptpSo7",
+   "display_uri": "ipfs://QmQ3LuvDfrXJ3SbFD3AotfWZktLNxaNNmFJ8ozSKjeBE7a",
+   "thumbnail_uri": "ipfs://QmQMejGxY3MGuXCvPFsGLAdAiEFj2FSnoKwQNWQDkk73JW",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 2,
+   "hash": "ooWxgUHSJZjg9v9YELtPQ9CdMkav4U6t6UCQqUE7EYarfrkM6Jk",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764386,
+   "minted": "2022-05-28T17:28:14Z",
+   "mint_op": "ooWxgUHSJZjg9v9YELtPQ9CdMkav4U6t6UCQqUE7EYarfrkM6Jk",
+   "metadata_uri": "ipfs://QmTEx5TFS8dxMKrPPM9fmPECvxnAR2VJgAodLjMceEC3r2",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #2",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooWxgUHSJZjg9v9YELtPQ9CdMkav4U6t6UCQqUE7EYarfrkM6Jk",
+   "display_uri": "ipfs://QmWgiERWWMY2raaA5e6fsZoyXbt14z1FdrjWwffiY9FGY3",
+   "thumbnail_uri": "ipfs://QmeVAEiM3TNnp5dewaSGKwaYBK4G4hE8Dhx79wo7A92oUN",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 3,
+   "hash": "ongFvxJ2kB6ZL1aDyiCD2aavz8wPxoDARs9WPaApXCmxWeawtHu",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764395,
+   "minted": "2022-05-28T17:28:44Z",
+   "mint_op": "ongFvxJ2kB6ZL1aDyiCD2aavz8wPxoDARs9WPaApXCmxWeawtHu",
+   "metadata_uri": "ipfs://QmSePbj7qATdt4GqvKArhAWszZ9cZh9muDPUTmSSH4LE1d",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #3",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ongFvxJ2kB6ZL1aDyiCD2aavz8wPxoDARs9WPaApXCmxWeawtHu",
+   "display_uri": "ipfs://QmSgKuUJcNjHJSz2En7C9spNnDQ8wz5igMekY5CQr7XMNP",
+   "thumbnail_uri": "ipfs://QmRH9o3s4T3YyR7t2Tthzbhs35TbDYqQL6kHyQCaJ8oqru",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 4,
+   "hash": "oo4HbtmZgjLjLhHSq5gQVqLi6d7W15e7opk46Yj3rgsgttmZCex",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764405,
+   "minted": "2022-05-28T17:29:44Z",
+   "mint_op": "oo4HbtmZgjLjLhHSq5gQVqLi6d7W15e7opk46Yj3rgsgttmZCex",
+   "metadata_uri": "ipfs://QmNeEvWEzL1KsyxAoLoGwhZEsFo3QZrAkPnBm5MnnGZNRn",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #4",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo4HbtmZgjLjLhHSq5gQVqLi6d7W15e7opk46Yj3rgsgttmZCex",
+   "display_uri": "ipfs://QmaPJmSenUs1DpyAGSmThcaGfkvDuzRNQbEkBrrhUf4Fk2",
+   "thumbnail_uri": "ipfs://QmNznVnM4kesazkLTF9p6f28qS4CyR9oYthZon3pHvN8Fn",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 5,
+   "hash": "ooAMhr4X7YtgxYAFdEQwyY8bEu2PZcKAxfUoxKnWusJY98pjbKw",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764416,
+   "minted": "2022-05-28T17:31:14Z",
+   "mint_op": "ooAMhr4X7YtgxYAFdEQwyY8bEu2PZcKAxfUoxKnWusJY98pjbKw",
+   "metadata_uri": "ipfs://QmQosZTcKRsHHXzti1oyLKj7yHLsr72y293N9sGaUEPoHz",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #5",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooAMhr4X7YtgxYAFdEQwyY8bEu2PZcKAxfUoxKnWusJY98pjbKw",
+   "display_uri": "ipfs://QmbGFm1CXjdhFcXMJow1S3JFyAbJ9DbMWT13Ub8K1xYjPj",
+   "thumbnail_uri": "ipfs://QmUdXcofFkZpJjiMDwym8aibWwShfP45Lr1AZVCEFuJvwB",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 6,
+   "hash": "opYKtERgH51JWyFKVri65Kn12p8dznZtouWvvQW1BKqd2EZLaX4",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764430,
+   "minted": "2022-05-28T17:31:44Z",
+   "mint_op": "opYKtERgH51JWyFKVri65Kn12p8dznZtouWvvQW1BKqd2EZLaX4",
+   "metadata_uri": "ipfs://QmRwnTJVgppU6WqzPPGkPcbFzZSSr7sS9yHmyPzWvoFD3y",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #6",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opYKtERgH51JWyFKVri65Kn12p8dznZtouWvvQW1BKqd2EZLaX4",
+   "display_uri": "ipfs://QmSbvXvGcaVFsViNxNp4PUDaAsQphZAs6X1DXuJPqQK4vx",
+   "thumbnail_uri": "ipfs://QmQVRTQ3bZtM8tkDH32sd2DbjPrFXBkSvwBbKavYKZe7Dr",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 7,
+   "hash": "oodTDJQ12KibBjqZ9qPGhchKeSRtJGp9MmKsw9V44PFC55NzapU",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764435,
+   "minted": "2022-05-28T17:32:14Z",
+   "mint_op": "oodTDJQ12KibBjqZ9qPGhchKeSRtJGp9MmKsw9V44PFC55NzapU",
+   "metadata_uri": "ipfs://QmSgAaxvxLL9y7iZw27iGauFaCuqxmgKn1u25Gobs3QLEu",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #7",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oodTDJQ12KibBjqZ9qPGhchKeSRtJGp9MmKsw9V44PFC55NzapU",
+   "display_uri": "ipfs://QmPPjpDycNCneevZeFEd9Uy8XsrT7mZKdfMpAcMaEJhyfd",
+   "thumbnail_uri": "ipfs://QmNorYs5NRy7ggr8uqhHNZxf7qV9NL4iBCY1ARZ5KMqFZC",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 8,
+   "hash": "ooeehQYRJsnij7Gx6XTdrKd2ksK2FCnBXuTvdoesVwR2EHmHpj1",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764436,
+   "minted": "2022-05-28T17:32:44Z",
+   "mint_op": "ooeehQYRJsnij7Gx6XTdrKd2ksK2FCnBXuTvdoesVwR2EHmHpj1",
+   "metadata_uri": "ipfs://QmQWgEPGiee98HbUPKLFpSzv4nJiXvJEKg5waeHgYZfyqC",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #8",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooeehQYRJsnij7Gx6XTdrKd2ksK2FCnBXuTvdoesVwR2EHmHpj1",
+   "display_uri": "ipfs://QmWYgPn1x6zJYA5sM7QH7c73b8jQuvfw9aAZSRubCvKBi2",
+   "thumbnail_uri": "ipfs://QmUTxdbbXXKNB7quRrFcWdZv6G1AczrryPMH76u9JMmHSv",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 9,
+   "hash": "onf82QavxVpRumYbHyjzAi376bapLdp5BAwPkU54bLjhvHAkZUt",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764454,
+   "minted": "2022-05-28T17:34:44Z",
+   "mint_op": "onf82QavxVpRumYbHyjzAi376bapLdp5BAwPkU54bLjhvHAkZUt",
+   "metadata_uri": "ipfs://QmYBFhurC3UcBhuhr1J9ySMaxQS9J8dJnEiCnec1WwK6ZQ",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #9",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onf82QavxVpRumYbHyjzAi376bapLdp5BAwPkU54bLjhvHAkZUt",
+   "display_uri": "ipfs://QmTXxVHD9yuN4z9FieTTAg2LjjRGvxyGRkqVgqWinrssAm",
+   "thumbnail_uri": "ipfs://QmWiZHNU9HVohAfSB8CV5XuJM6aEubkSVN3y7tW4j1e4Ne",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 10,
+   "hash": "oonD9vnZ4JNjD5M5U1dmKhUs7WthDMTL1iwZeGw6pwAQRXwnGpd",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764463,
+   "minted": "2022-05-28T17:35:14Z",
+   "mint_op": "oonD9vnZ4JNjD5M5U1dmKhUs7WthDMTL1iwZeGw6pwAQRXwnGpd",
+   "metadata_uri": "ipfs://QmagDwC54Rk3FBTspHe6MnD7RNTjhtgoABwV2CJsb8V5Gf",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #10",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oonD9vnZ4JNjD5M5U1dmKhUs7WthDMTL1iwZeGw6pwAQRXwnGpd",
+   "display_uri": "ipfs://QmRkK6njQUxnW5qhzKgN7CwrdTqLDFoExQLNF9zroDsvHZ",
+   "thumbnail_uri": "ipfs://QmRKcNdcihXMH6PJk73NcSZJYiJVkrgP5Kh3uxBmZaPptT",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 11,
+   "hash": "opawy8zf11y66itq1NJyMRoeoa5DhAf77RXN2mkBZzSq2MkYGc9",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764464,
+   "minted": "2022-05-28T17:35:14Z",
+   "mint_op": "opawy8zf11y66itq1NJyMRoeoa5DhAf77RXN2mkBZzSq2MkYGc9",
+   "metadata_uri": "ipfs://QmbtFVY1c6n1DBGGDKxkPdjDQEE2dF4QiaeT23t2bWw7yT",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #11",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opawy8zf11y66itq1NJyMRoeoa5DhAf77RXN2mkBZzSq2MkYGc9",
+   "display_uri": "ipfs://QmPBJ3LH6e2oqYsQiHUxCpM91rr2pfwWW54rukKNFPxa1q",
+   "thumbnail_uri": "ipfs://QmWdKLuKEsxrUfRMr3hHAcMPLECiS4vgMHBaHUW1Q3G3TN",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 12,
+   "hash": "oovDULq4GReMBKuBLF2ncGJkv9jqstEFEtDejLU647z6ohUWKdi",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764471,
+   "minted": "2022-05-28T17:36:14Z",
+   "mint_op": "oovDULq4GReMBKuBLF2ncGJkv9jqstEFEtDejLU647z6ohUWKdi",
+   "metadata_uri": "ipfs://QmbZWDyAvRVCb4kVMDYBqbGMEtEs1wdk6kadzkdk46PbZy",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #12",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oovDULq4GReMBKuBLF2ncGJkv9jqstEFEtDejLU647z6ohUWKdi",
+   "display_uri": "ipfs://QmQyBRuHVJKpettgwfNfRGWTCErobaJ7F13Do7Eb82quFH",
+   "thumbnail_uri": "ipfs://QmTeufj5bkLTPeYVyEttVJ2L9bg1q7MXoaeNaLU5FW5iGh",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 13,
+   "hash": "ooK4Hk9VDDLBn1pPi5Ep8UeYDzZo1FmDeYBinwC3DJ99HdhWpXA",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764474,
+   "minted": "2022-05-28T17:36:14Z",
+   "mint_op": "ooK4Hk9VDDLBn1pPi5Ep8UeYDzZo1FmDeYBinwC3DJ99HdhWpXA",
+   "metadata_uri": "ipfs://QmTBBNqktXd4tDJouvcFuPvv4XHgCsryMLPcZRqRBo564G",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #13",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooK4Hk9VDDLBn1pPi5Ep8UeYDzZo1FmDeYBinwC3DJ99HdhWpXA",
+   "display_uri": "ipfs://QmNxwsnRZt3qYN3JJ8xksUUoFc21jQLg1R1yxaB2L9jgQe",
+   "thumbnail_uri": "ipfs://QmbSK8uua2FVE5uDEMsDyxtJsKz4BCAYmQhRcvLUDfHdk1",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 14,
+   "hash": "ooiT7buc7p4jfzgp6EmnCDWca8GhBf6kAbkYzjqY5XTBpgRJY67",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764475,
+   "minted": "2022-05-28T17:36:14Z",
+   "mint_op": "ooiT7buc7p4jfzgp6EmnCDWca8GhBf6kAbkYzjqY5XTBpgRJY67",
+   "metadata_uri": "ipfs://QmVXnSkq5zakNMnf5yac1exdsjGFHqfgT2xQ97LMcQdVZo",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #14",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooiT7buc7p4jfzgp6EmnCDWca8GhBf6kAbkYzjqY5XTBpgRJY67",
+   "display_uri": "ipfs://QmWaxp2MP7SMMnWAj6WkjQzTHVrBCFDbDMcwEB2SkFrxaT",
+   "thumbnail_uri": "ipfs://QmVr91XeuhGTGVSbU3dDo4Uz76wTdG5agq5mg3eMfd2ryA",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 15,
+   "hash": "opHyK2UhSPHR6zQ2VaYeuFAjpyo5RffEBikaXH7fXs77Pe1ZDft",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764476,
+   "minted": "2022-05-28T17:36:14Z",
+   "mint_op": "opHyK2UhSPHR6zQ2VaYeuFAjpyo5RffEBikaXH7fXs77Pe1ZDft",
+   "metadata_uri": "ipfs://QmccB1MgfddxpkNuWmonhAYy5odvhRtEaEKZ7UcsXjFsVw",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #15",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opHyK2UhSPHR6zQ2VaYeuFAjpyo5RffEBikaXH7fXs77Pe1ZDft",
+   "display_uri": "ipfs://QmYGnJd1HLfsQL31sLw6EfqFhbGPoPL4MswDhTfpbSV4Ef",
+   "thumbnail_uri": "ipfs://QmcpbRDeFUNuGCaMfNBjGNMbR3s3g8H6cV6cRCyrqCfmaT",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 16,
+   "hash": "ooGUtjhMCiRwCvZ1tVhaSphyF99L2smGX8EMGe4taLEPB1pgJKY",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764482,
+   "minted": "2022-05-28T17:36:44Z",
+   "mint_op": "ooGUtjhMCiRwCvZ1tVhaSphyF99L2smGX8EMGe4taLEPB1pgJKY",
+   "metadata_uri": "ipfs://Qmch1sTSWzgvzfU5tQbLFYZG1okWWmaenBSMF8SgyTzUNj",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #16",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooGUtjhMCiRwCvZ1tVhaSphyF99L2smGX8EMGe4taLEPB1pgJKY",
+   "display_uri": "ipfs://QmQ2bomFrn7PKSsNPgrF8RnVNcpjqsQ3utKNjxvgvDF8EL",
+   "thumbnail_uri": "ipfs://QmPmbvdCa9nmLPuUdqhmnzz4nvcxUympLA881kHNzFiVFf",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 17,
+   "hash": "ooKocdafPv12deGiQcTnsXmebNwFgQJa6VqAeUB7ygwBWiWv3nM",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764489,
+   "minted": "2022-05-28T17:37:44Z",
+   "mint_op": "ooKocdafPv12deGiQcTnsXmebNwFgQJa6VqAeUB7ygwBWiWv3nM",
+   "metadata_uri": "ipfs://QmTJVG15FyVhqSaz5VYuGXtUxA3vyiwGy8RscXje7Bb4uE",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #17",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooKocdafPv12deGiQcTnsXmebNwFgQJa6VqAeUB7ygwBWiWv3nM",
+   "display_uri": "ipfs://QmYJKqkXW9Y8sFLzFxaHuE12J5izU5TahCYdukG3vy9RPA",
+   "thumbnail_uri": "ipfs://QmefGFjxif58JM4cAYvhqDZNixaFp6wPuztvFJqrHCUffC",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 18,
+   "hash": "ooa4EdYuGQnFWshgAVy67ep5NBUfXsfBkGvxASecNsrimrcpXCL",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764492,
+   "minted": "2022-05-28T17:38:14Z",
+   "mint_op": "ooa4EdYuGQnFWshgAVy67ep5NBUfXsfBkGvxASecNsrimrcpXCL",
+   "metadata_uri": "ipfs://QmXtE6uAmC9FM98mrVeX6nqRoFweNgezJUTGV9QFEDCWRQ",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #18",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooa4EdYuGQnFWshgAVy67ep5NBUfXsfBkGvxASecNsrimrcpXCL",
+   "display_uri": "ipfs://QmZwc4TMvw6wuZG4u1rHU94xxAX4Ms9s2vEtWq9eNYnFuj",
+   "thumbnail_uri": "ipfs://Qmb4Vm1UyRBNtuN2Z93rwf5zBJE5RyYxo2x9M77AFuZqQa",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 19,
+   "hash": "onihiARE2fAqF6KQs9WtDNP7tfkuEGps3tEASJBkRw2q253XVs2",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764525,
+   "minted": "2022-05-28T17:41:44Z",
+   "mint_op": "onihiARE2fAqF6KQs9WtDNP7tfkuEGps3tEASJBkRw2q253XVs2",
+   "metadata_uri": "ipfs://QmPz3KPPevVu8DENQ1Z89pk6npL7juBziXmHcoA32LAQuJ",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #19",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onihiARE2fAqF6KQs9WtDNP7tfkuEGps3tEASJBkRw2q253XVs2",
+   "display_uri": "ipfs://QmcvudTYK3X66ny41ooL8cxxWgp6gpgCG9Ss6sficpMK9X",
+   "thumbnail_uri": "ipfs://QmPETzD4wSuoRDEeYWoqm1sq7G2a1UhCos1JGz2xbuEVLm",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 20,
+   "hash": "ontQhVhmkWKYKUEbNy93Mo2kjcLrhk5sEFtvyCB1qX3iLLfXMy2",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764580,
+   "minted": "2022-05-28T17:46:44Z",
+   "mint_op": "ontQhVhmkWKYKUEbNy93Mo2kjcLrhk5sEFtvyCB1qX3iLLfXMy2",
+   "metadata_uri": "ipfs://QmWhKjW3NWD8awJMSFhgi9rBcaBQ1jorym7biiM3ZmAj5C",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #20",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ontQhVhmkWKYKUEbNy93Mo2kjcLrhk5sEFtvyCB1qX3iLLfXMy2",
+   "display_uri": "ipfs://QmT2ndKw2uaiBfR2BoLmXq6p2vXRg8qvFxDqx5qEciTEej",
+   "thumbnail_uri": "ipfs://QmPsHZpPFT27bB4Bsy2HGMQ1NUskMMcN6tm8aYvx933Ney",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 21,
+   "hash": "onqynspzzbo3oQahEwQnw53ZdiXsdcFPAB4oPP1CJjvGBW7KBLc",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764623,
+   "minted": "2022-05-28T17:49:44Z",
+   "mint_op": "onqynspzzbo3oQahEwQnw53ZdiXsdcFPAB4oPP1CJjvGBW7KBLc",
+   "metadata_uri": "ipfs://QmfJVqms6vCMRHzdxXWBdkzBQQK4vUuVDYGKPeFFQ5yubW",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #21",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onqynspzzbo3oQahEwQnw53ZdiXsdcFPAB4oPP1CJjvGBW7KBLc",
+   "display_uri": "ipfs://Qmd3KyP3d7atMDp8euGUbDZXetM3LGTDeRqcxZdVY7BJrq",
+   "thumbnail_uri": "ipfs://QmWCh4jtBna9HM3YBhX7XZNX6buDFV4iyWxWkLSCMj8mdn",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 22,
+   "hash": "ooqnrD4CtMsXyacoKuXwDe38bdEqhHNHN9GDNn4fKgjrxy9ikzU",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764647,
+   "minted": "2022-05-28T17:52:14Z",
+   "mint_op": "ooqnrD4CtMsXyacoKuXwDe38bdEqhHNHN9GDNn4fKgjrxy9ikzU",
+   "metadata_uri": "ipfs://Qmcz6H7kEMCBNywM4tiR3ZB1TZhneXiUf8ChXV7NFHH1dn",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #22",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooqnrD4CtMsXyacoKuXwDe38bdEqhHNHN9GDNn4fKgjrxy9ikzU",
+   "display_uri": "ipfs://QmP6u4kjmwgyRB6sM5LbBZ1mfn8mVjVMbfgAwAwoWvMj9R",
+   "thumbnail_uri": "ipfs://QmeUorMyjzY6moEX6gV8LCt9QNogA6vmzjv7xV4VBVVw1H",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 23,
+   "hash": "ooQK6Pq2H8JhdySrRwWYHGjJ2TTH5MkgDvQ4xdZoJZZnaaFn7J3",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764774,
+   "minted": "2022-05-28T17:58:14Z",
+   "mint_op": "ooQK6Pq2H8JhdySrRwWYHGjJ2TTH5MkgDvQ4xdZoJZZnaaFn7J3",
+   "metadata_uri": "ipfs://QmWE3fLSUd1TNU3cUVc1Uni73Ni6AK4YGHTPFxWUd2bqXG",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #23",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooQK6Pq2H8JhdySrRwWYHGjJ2TTH5MkgDvQ4xdZoJZZnaaFn7J3",
+   "display_uri": "ipfs://QmXHMvr1sGqGGNKoDwbpGz73Ws4cvxZdt6mo6eKp2CFaC2",
+   "thumbnail_uri": "ipfs://QmSfbNYC6UR3JA516Ru5QRXoonDJQJg731r6i2bGQrsG4U",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 24,
+   "hash": "ooV2DDRGY5DsbufCg3n2RU4XXX1yE9WTChopa8RpVXsWU19caXV",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764821,
+   "minted": "2022-05-28T18:00:44Z",
+   "mint_op": "ooV2DDRGY5DsbufCg3n2RU4XXX1yE9WTChopa8RpVXsWU19caXV",
+   "metadata_uri": "ipfs://QmZgZAGmB3eBp8sqtmQcM8q6MaWULK4yQNDG6qzZC92Vp8",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #24",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooV2DDRGY5DsbufCg3n2RU4XXX1yE9WTChopa8RpVXsWU19caXV",
+   "display_uri": "ipfs://QmYsvKoxP2qk11mpKckPZup12Tt4h4EA1TskGtNbnxdMg6",
+   "thumbnail_uri": "ipfs://QmfQj4JxieR8ABbigJGPF7bvcakB9iHJZEghWbvJye6apS",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 25,
+   "hash": "opWSfySFSr7madGVWKAPhFUtX9kkVEXXtkDoRSXWwL2vtcvPRvw",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 764893,
+   "minted": "2022-05-28T18:04:59Z",
+   "mint_op": "opWSfySFSr7madGVWKAPhFUtX9kkVEXXtkDoRSXWwL2vtcvPRvw",
+   "metadata_uri": "ipfs://QmT6vDT9sSt7a9HJCEHn2v3rkXeK9jhY6iWEb8Ckicd22Y",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #25",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opWSfySFSr7madGVWKAPhFUtX9kkVEXXtkDoRSXWwL2vtcvPRvw",
+   "display_uri": "ipfs://QmbVV6xY2X68MhiZWHxxXiWgZxazmmsH7bPmuphXsTxbeP",
+   "thumbnail_uri": "ipfs://QmaRhLixyrpETU4GeTiyWRgCHVRWnU1tnDPBhuASQxDEMV",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 26,
+   "hash": "ooz7JZtkGvXbXnT7zNcMdicnhkdVGAQxHECKhqir2PA8eGrH9NS",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765100,
+   "minted": "2022-05-28T18:21:29Z",
+   "mint_op": "ooz7JZtkGvXbXnT7zNcMdicnhkdVGAQxHECKhqir2PA8eGrH9NS",
+   "metadata_uri": "ipfs://QmUsBMg7jeWfN6CaxpLh7mb9PmhBwxETZ4QCvVi7kjtQ1Y",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #26",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooz7JZtkGvXbXnT7zNcMdicnhkdVGAQxHECKhqir2PA8eGrH9NS",
+   "display_uri": "ipfs://QmR2W5CHG27Jpe6HAghc7NtGyR5zguQiiBzGva98FKFEcC",
+   "thumbnail_uri": "ipfs://QmTnSr8pB9rju4obhfzLSKdCsJM1ZBSP43ZnwJu8Pb1np7",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 27,
+   "hash": "ooGMMTmRPSq4eW8YZYHxAKt75Hhqfs2VJe5HGH9oZw6iysp74ZM",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765235,
+   "minted": "2022-05-28T18:29:44Z",
+   "mint_op": "ooGMMTmRPSq4eW8YZYHxAKt75Hhqfs2VJe5HGH9oZw6iysp74ZM",
+   "metadata_uri": "ipfs://QmW3mu4KJa5TJkHbvJQmjVhCJut3KrmecDypNCtr6CJ72q",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #27",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooGMMTmRPSq4eW8YZYHxAKt75Hhqfs2VJe5HGH9oZw6iysp74ZM",
+   "display_uri": "ipfs://QmR7KjAfkwta3AcdFURQoA7vTFb2BQSQPxtTqooetNYigB",
+   "thumbnail_uri": "ipfs://QmP1mkvTVgYmVwizUqADp3TQse4AnfpNw4mN7NDE71Y8Cc",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 28,
+   "hash": "oo4cFeBWGQe3jVxpUuKB3jynN63bSRSjps9UvUTxDNtZbhYPbuN",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765237,
+   "minted": "2022-05-28T18:29:44Z",
+   "mint_op": "oo4cFeBWGQe3jVxpUuKB3jynN63bSRSjps9UvUTxDNtZbhYPbuN",
+   "metadata_uri": "ipfs://QmRunG1q1BDR5DMjyzdwZZcx9EWihJHbLiqdLxfAXqMEoY",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #28",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo4cFeBWGQe3jVxpUuKB3jynN63bSRSjps9UvUTxDNtZbhYPbuN",
+   "display_uri": "ipfs://QmaFAtjbsuBDwf7mjbNaZTAkE4DWRdPFbsg7cG36skQDRD",
+   "thumbnail_uri": "ipfs://QmQBTJTPEoM771NG5yvxpH5S4mst4tKduQETaYhCihqANd",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 29,
+   "hash": "ooa5pTTYFz8AH5aMVmyoJncAaD4nHJU2BWaDuDwDzBdM7gk4mNc",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765296,
+   "minted": "2022-05-28T18:32:14Z",
+   "mint_op": "ooa5pTTYFz8AH5aMVmyoJncAaD4nHJU2BWaDuDwDzBdM7gk4mNc",
+   "metadata_uri": "ipfs://QmVhLBv9zx6PREar6ny7qU6EibLAzQ3MFMXv3Wtpm7uJUX",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #29",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooa5pTTYFz8AH5aMVmyoJncAaD4nHJU2BWaDuDwDzBdM7gk4mNc",
+   "display_uri": "ipfs://QmNpuC3aavHK2CgpYu3c98B9AQGVH6B3QcfuQHrf27bqmK",
+   "thumbnail_uri": "ipfs://QmRJaeQtdgvLfv5yTzAQMNDi7ewc1wJSuKbKv1jYYNJ2tV",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 30,
+   "hash": "ooL69nGXCwCFAogB5GhtTbG9UUxdaozWZeR6ifPU8fRMBemw4Zi",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765528,
+   "minted": "2022-05-28T18:45:14Z",
+   "mint_op": "ooL69nGXCwCFAogB5GhtTbG9UUxdaozWZeR6ifPU8fRMBemw4Zi",
+   "metadata_uri": "ipfs://QmQadKFMyNPbvtwctp81Hm3GbnCUV9T4jaqwoBdv6LHdwW",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #30",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooL69nGXCwCFAogB5GhtTbG9UUxdaozWZeR6ifPU8fRMBemw4Zi",
+   "display_uri": "ipfs://QmUmuigQax7gPAGmBuqTd7X3C9hQsq3j6vcFGmfUdaNYCD",
+   "thumbnail_uri": "ipfs://QmZw5r9FeBuzctaaGwVwf64VyfdcfMiSBqrTsW3x7MJrMp",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 31,
+   "hash": "oouWVm242upZLPRabAvFL5CyuPAMFXTy3Vh9EJTvbmKFbJrMZtF",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765556,
+   "minted": "2022-05-28T18:47:44Z",
+   "mint_op": "oouWVm242upZLPRabAvFL5CyuPAMFXTy3Vh9EJTvbmKFbJrMZtF",
+   "metadata_uri": "ipfs://QmTktfoUJxamcpPyE1kWZBpqzPMAGFtVyN3ovgrknwMjZz",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #31",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oouWVm242upZLPRabAvFL5CyuPAMFXTy3Vh9EJTvbmKFbJrMZtF",
+   "display_uri": "ipfs://QmPoGHxpGVVQvNPxnNjVMPFwTBbyfkhcY1JspWBYZLjFoa",
+   "thumbnail_uri": "ipfs://QmWe3Rhh8nyW7m4WzWRcit2oK2bgmBotcS6CyLbDi4nche",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 32,
+   "hash": "ooEYbueKjpvbrrSHoofGHfHH83L3ZYiizr5Mvth44W4B6epxFbk",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765566,
+   "minted": "2022-05-28T18:48:44Z",
+   "mint_op": "ooEYbueKjpvbrrSHoofGHfHH83L3ZYiizr5Mvth44W4B6epxFbk",
+   "metadata_uri": "ipfs://QmTLD6wsQrVqfd3JKkmVuj3sFZE7QSKUzxTVED3EVRrrgB",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #32",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooEYbueKjpvbrrSHoofGHfHH83L3ZYiizr5Mvth44W4B6epxFbk",
+   "display_uri": "ipfs://QmNtavaP2Qj8nJES3yNjHiwYL7mb4oqr6PtRvp4BQUwhLM",
+   "thumbnail_uri": "ipfs://QmSKyd84s2WYcfQ6GgLXxRjo4Bd5NcMp8xioY2iRVYBWxM",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 33,
+   "hash": "oos1G4o9GdYbvi3XgwTFAqc6aKwGzSdyLXaQwjj8VBY9aRzTxit",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765571,
+   "minted": "2022-05-28T18:49:14Z",
+   "mint_op": "oos1G4o9GdYbvi3XgwTFAqc6aKwGzSdyLXaQwjj8VBY9aRzTxit",
+   "metadata_uri": "ipfs://QmaUcvWj1JT8mEwjdCH21aoCdZLxDaMX4szLpQvz5X41Sz",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #33",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oos1G4o9GdYbvi3XgwTFAqc6aKwGzSdyLXaQwjj8VBY9aRzTxit",
+   "display_uri": "ipfs://QmdBiuXKYdgAJP7QL6izWRzWCS1YJXZQb8vvBs2ceQwkGy",
+   "thumbnail_uri": "ipfs://QmaPGde8xNjPRmyeYjNGPp8Kzz3mYddNs66so746cr4mgW",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 34,
+   "hash": "ooE4ShacXK7E3G2sLH9kMw4gUZ8EqwQYDftLx9EeqE1tBumtBmo",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765578,
+   "minted": "2022-05-28T18:49:44Z",
+   "mint_op": "ooE4ShacXK7E3G2sLH9kMw4gUZ8EqwQYDftLx9EeqE1tBumtBmo",
+   "metadata_uri": "ipfs://QmVk9TGKHxoUXjRt3jEoLcp9tjDvcQvqXbkJSq5HpA85ax",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #34",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooE4ShacXK7E3G2sLH9kMw4gUZ8EqwQYDftLx9EeqE1tBumtBmo",
+   "display_uri": "ipfs://Qmdbf8qgmaXGQdcZAKdqsJL1jFEReoJXVL3GicYER1CC5t",
+   "thumbnail_uri": "ipfs://QmQkKeopinhchWHvdbHh9YR6ggvtp81auo82JKHVGZbPjb",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 35,
+   "hash": "oosfa4xiSXjHVGr7XVptennfi8e3xMoWhNDStnhuNsJoh2WrVFw",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 765840,
+   "minted": "2022-05-28T19:02:29Z",
+   "mint_op": "oosfa4xiSXjHVGr7XVptennfi8e3xMoWhNDStnhuNsJoh2WrVFw",
+   "metadata_uri": "ipfs://QmRtx5NZ64Mi5RrxtvNSChXvFbLv6SygtMgnUdA7P8wTZe",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #35",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oosfa4xiSXjHVGr7XVptennfi8e3xMoWhNDStnhuNsJoh2WrVFw",
+   "display_uri": "ipfs://QmVELaghBXpC4Hq6Bj6Sc8HV4LB2R9Vr21ZRcSdm9M6Wbw",
+   "thumbnail_uri": "ipfs://QmUHVW37ZqeXr8MM1Yb791qQnZSsCio7ySXxxoybwNqQH9",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 36,
+   "hash": "op9d81C6udo6v8BUogvnDaENAcXuDtbjtACXW8TwzwGtuJgJmj3",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 766055,
+   "minted": "2022-05-28T19:13:14Z",
+   "mint_op": "op9d81C6udo6v8BUogvnDaENAcXuDtbjtACXW8TwzwGtuJgJmj3",
+   "metadata_uri": "ipfs://QmcYUrsTUZzb79immRbB3B8XXYfinhYJ5Lkit4Fqk4RTPL",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #36",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=op9d81C6udo6v8BUogvnDaENAcXuDtbjtACXW8TwzwGtuJgJmj3",
+   "display_uri": "ipfs://QmNwqRtfz5oVnmxNd1m3kTATC9YAanX7u7QQ7K1GD5RKE3",
+   "thumbnail_uri": "ipfs://QmamkhrnCP2w75wagb6ArGpgFmGASj6x6c18aX49n5Ds4D",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 37,
+   "hash": "ooKc3W1qoP57NsPReB7nngMEobJTEK2Y9orQpHXEKKB2EgVYEsy",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 766706,
+   "minted": "2022-05-28T20:01:44Z",
+   "mint_op": "ooKc3W1qoP57NsPReB7nngMEobJTEK2Y9orQpHXEKKB2EgVYEsy",
+   "metadata_uri": "ipfs://QmXTZi8XN869WAuUSxjS1CSPUdZMRcPYeDEvSyEe7UCyq1",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #37",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooKc3W1qoP57NsPReB7nngMEobJTEK2Y9orQpHXEKKB2EgVYEsy",
+   "display_uri": "ipfs://QmZMJ7oEeCg24sB1kQyjLtxMX6fH6CeFN3Fx76hmaTAqBM",
+   "thumbnail_uri": "ipfs://QmNodN3qVGkCgbnu9K82xEeVm87kAJSNhgqMefhMrTti9K",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 38,
+   "hash": "opCtnUrQU3yDGqF68J2PNVrCxwdP2kAJRtTCgKayAddfDoevye6",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 766721,
+   "minted": "2022-05-28T20:03:44Z",
+   "mint_op": "opCtnUrQU3yDGqF68J2PNVrCxwdP2kAJRtTCgKayAddfDoevye6",
+   "metadata_uri": "ipfs://QmbVMxAfndDZufrdN45iPeY1KeWQ2jFKfTkzRKBdEsoaHD",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #38",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opCtnUrQU3yDGqF68J2PNVrCxwdP2kAJRtTCgKayAddfDoevye6",
+   "display_uri": "ipfs://QmaQozU9DCPYgLUm6Gd5CymwZX5cbNuV3M2Feuq79V71oy",
+   "thumbnail_uri": "ipfs://QmZE1gkDrK6Hxcxv2ygm3es2fkWzqvWeHJbZ9qfwFdUHMU",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 39,
+   "hash": "oodcywpaSVaGtCdAvBBvCfDFzjMJRem5ae9ggpFCuVQTeGZhaKs",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 766742,
+   "minted": "2022-05-28T20:05:44Z",
+   "mint_op": "oodcywpaSVaGtCdAvBBvCfDFzjMJRem5ae9ggpFCuVQTeGZhaKs",
+   "metadata_uri": "ipfs://QmVmozygq4zfDuPn14kZSGagXcELeQca2cp5JQ1ed3Zhx7",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #39",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oodcywpaSVaGtCdAvBBvCfDFzjMJRem5ae9ggpFCuVQTeGZhaKs",
+   "display_uri": "ipfs://QmNQBHs78gykkeHZNc7qGmndKE5WhoAaE6NQ4skzPULQUC",
+   "thumbnail_uri": "ipfs://Qmf2kZn9VyEvC28UibQomjvAgLL9SvXPeaMTog9rUsxWhB",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 40,
+   "hash": "opVK1x9hc6usBCQ7RpHG9wguwDVSrT2wSFDVTuRCn4xRMTcbHc7",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 766832,
+   "minted": "2022-05-28T20:14:14Z",
+   "mint_op": "opVK1x9hc6usBCQ7RpHG9wguwDVSrT2wSFDVTuRCn4xRMTcbHc7",
+   "metadata_uri": "ipfs://QmdWmvbrAwhs8TySZpuHdbYgj7jUCov64SMq6dZSpsdqby",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #40",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opVK1x9hc6usBCQ7RpHG9wguwDVSrT2wSFDVTuRCn4xRMTcbHc7",
+   "display_uri": "ipfs://QmUjFGqwyBt6Fn7DrHu2775d7mN7BC1FaxEYkQ6rNZynRY",
+   "thumbnail_uri": "ipfs://QmYTqBMDhbeJWEtLN4ogxkGcroPsjb921EgYK25Pr8frTL",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 41,
+   "hash": "onvqYz7bGJcy4xUzzcAq9h7jHNvqHGcJVGB3a3ECPrjereJjySZ",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 766865,
+   "minted": "2022-05-28T20:19:14Z",
+   "mint_op": "onvqYz7bGJcy4xUzzcAq9h7jHNvqHGcJVGB3a3ECPrjereJjySZ",
+   "metadata_uri": "ipfs://QmR5cwxkWUFtB3g3i8LHhnxh1qJAPW3g6x1u6jFVUvRYSV",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #41",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onvqYz7bGJcy4xUzzcAq9h7jHNvqHGcJVGB3a3ECPrjereJjySZ",
+   "display_uri": "ipfs://QmX51PMN3yZy76zqwnmHGZu5QbNCDZrAK6R9rkGE9Sn5ZZ",
+   "thumbnail_uri": "ipfs://QmaZMSmEtaWVHuCXWbfpgk4B3Qnfa55bcox7hE1KagaqMo",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 42,
+   "hash": "opQP8ZSKVvTuLo1oZyhVfTTvkjgHA5ppU7oz4z9wCFmqsTFxsAa",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767016,
+   "minted": "2022-05-28T20:41:14Z",
+   "mint_op": "opQP8ZSKVvTuLo1oZyhVfTTvkjgHA5ppU7oz4z9wCFmqsTFxsAa",
+   "metadata_uri": "ipfs://QmbH7a9WnReiuLQu1aPbu9PLc5Mtg4vMhHpbZmEVReHZKz",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #42",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opQP8ZSKVvTuLo1oZyhVfTTvkjgHA5ppU7oz4z9wCFmqsTFxsAa",
+   "display_uri": "ipfs://QmPHsYo7ugSb2R4efn5kcRss3ur4P8AGM1kamLxxTJfF1v",
+   "thumbnail_uri": "ipfs://QmPFPHnrUZ2RzNrYEsQzYQVeuDa9KMD5LgqDKSKNwgabo8",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "fine"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 43,
+   "hash": "opWvSupQeAapKw5MmU9smkTDNoGreFyYEjeyQMog4cVCVqoRYte",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767068,
+   "minted": "2022-05-28T20:47:44Z",
+   "mint_op": "opWvSupQeAapKw5MmU9smkTDNoGreFyYEjeyQMog4cVCVqoRYte",
+   "metadata_uri": "ipfs://Qmce2Gq6pe8Pzi1a4idCBjm8yFeTvStm7gCqJZVhBKrZ3T",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #43",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opWvSupQeAapKw5MmU9smkTDNoGreFyYEjeyQMog4cVCVqoRYte",
+   "display_uri": "ipfs://QmY8ecTrDjM5kqyf6W4Dad3wi12QDn9hqTtGWVjRkmdwoK",
+   "thumbnail_uri": "ipfs://QmVUcRkBs3F76wav4nYzwncoJtJawecavavrqSjSaTDabD",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 44,
+   "hash": "ooGnMWYbBVeFYQjWhVGDThdSwjduss79GtZFf99QziY9JWC2K6P",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767174,
+   "minted": "2022-05-28T21:05:44Z",
+   "mint_op": "ooGnMWYbBVeFYQjWhVGDThdSwjduss79GtZFf99QziY9JWC2K6P",
+   "metadata_uri": "ipfs://QmSMJtjbU4VnzoEaTEhTh6vAGcfm3bEMgchetkeWPFFdks",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #44",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooGnMWYbBVeFYQjWhVGDThdSwjduss79GtZFf99QziY9JWC2K6P",
+   "display_uri": "ipfs://QmPZwgFcxPyzYKnwsnRiPECTiosVbZ53bjUiV5qbMEJN9k",
+   "thumbnail_uri": "ipfs://Qmau2TwXmcGqq23ogiP8rKQXZZaFHJf9LhgPYhWNzDRkVt",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 45,
+   "hash": "onwUcan1ggR1AMEFLah47foGPm8sY7LTKEUHpto6NkaVy913UCd",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767188,
+   "minted": "2022-05-28T21:08:44Z",
+   "mint_op": "onwUcan1ggR1AMEFLah47foGPm8sY7LTKEUHpto6NkaVy913UCd",
+   "metadata_uri": "ipfs://QmXfCvrkKQaDPU3mQq6TUija6r5bscZ1gsu2oJTxp5mgNu",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #45",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onwUcan1ggR1AMEFLah47foGPm8sY7LTKEUHpto6NkaVy913UCd",
+   "display_uri": "ipfs://QmQdK24WUwKauwZRKin6SJnqesA3dRo7BFjAPRCzkjWhjt",
+   "thumbnail_uri": "ipfs://QmbCoJv1u7xqTbkPjNU2T1DbUsHsM62MwVXqREWeUQ66vi",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 46,
+   "hash": "op1jzTaauWX7Wy8hx5zhNAzkV3ZMj9nis2KM6hgBV1cUkHaAqQZ",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767239,
+   "minted": "2022-05-28T21:22:14Z",
+   "mint_op": "op1jzTaauWX7Wy8hx5zhNAzkV3ZMj9nis2KM6hgBV1cUkHaAqQZ",
+   "metadata_uri": "ipfs://QmdqBhQ1n2bpGurRAoM9kGfMauM3rQbRxbWNDMBKM7notq",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #46",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=op1jzTaauWX7Wy8hx5zhNAzkV3ZMj9nis2KM6hgBV1cUkHaAqQZ",
+   "display_uri": "ipfs://QmNkwnwj9FQbQK9LUR9J1T7Wfiua9Lw62Kdg5nGGi66JbY",
+   "thumbnail_uri": "ipfs://QmbsieissGCZqKffHfP4tSfA7ZPA4XGKw2gT34nMCRNnch",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 47,
+   "hash": "onqdFwnoVmVPRM54vJLWimdALM93ePSt6Q5wBSEtAUZLzWmn8fL",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767287,
+   "minted": "2022-05-28T21:29:44Z",
+   "mint_op": "onqdFwnoVmVPRM54vJLWimdALM93ePSt6Q5wBSEtAUZLzWmn8fL",
+   "metadata_uri": "ipfs://QmTB9MXN7N446oNAXLQfCYkFUCqasdC2sLeqEwYpRmmowK",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #47",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onqdFwnoVmVPRM54vJLWimdALM93ePSt6Q5wBSEtAUZLzWmn8fL",
+   "display_uri": "ipfs://QmPaDZEcwNZzw7LzB2iBCoQhVtB6BqUJyNJcWhGxH1fVyE",
+   "thumbnail_uri": "ipfs://QmNT7uURXPGsfVkSP6YdqExaD95e7wTtEpKuM2HfUDWjay",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 48,
+   "hash": "op5i5MBqRUEyY5WW6DKe6rtpdjHCuC28VRXsgnxStTkdist57sB",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767352,
+   "minted": "2022-05-28T21:45:14Z",
+   "mint_op": "op5i5MBqRUEyY5WW6DKe6rtpdjHCuC28VRXsgnxStTkdist57sB",
+   "metadata_uri": "ipfs://QmeiysL7RXaSkVQkF41zghDpassYRBr9ku3PuX8QnNjzuk",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #48",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=op5i5MBqRUEyY5WW6DKe6rtpdjHCuC28VRXsgnxStTkdist57sB",
+   "display_uri": "ipfs://QmR5M6gwEqi5unAhbtz3siBk6ZQn7bgypPCA9vnnqeV2Tw",
+   "thumbnail_uri": "ipfs://Qme2Qhe3AxoTZfuKerGSFg5vxeQbUypxv5MndFXy7H5qHB",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 49,
+   "hash": "oo62YUVBRTvXmuHGM7U8ZrBPQoKDqt32nzB9N7BLEmXucBkyxvH",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767357,
+   "minted": "2022-05-28T21:45:44Z",
+   "mint_op": "oo62YUVBRTvXmuHGM7U8ZrBPQoKDqt32nzB9N7BLEmXucBkyxvH",
+   "metadata_uri": "ipfs://QmSu1RRF36hRF9sk7XmWtvM45VYX9YLsqCk8L6LCspgxaF",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #49",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo62YUVBRTvXmuHGM7U8ZrBPQoKDqt32nzB9N7BLEmXucBkyxvH",
+   "display_uri": "ipfs://QmdLpYrFUibHA3MAvHDb5Ka848zRroFisCJjitzXJkm154",
+   "thumbnail_uri": "ipfs://QmS57XcbfRrHjpjANBBCjWkRnY9mGDVthwwsUC42qrWcaj",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 50,
+   "hash": "ooP7SZYz2oXu71Uf1X2eA66viYqr1HdGZjdwmRvEdfZgg6145P6",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767364,
+   "minted": "2022-05-28T21:46:44Z",
+   "mint_op": "ooP7SZYz2oXu71Uf1X2eA66viYqr1HdGZjdwmRvEdfZgg6145P6",
+   "metadata_uri": "ipfs://QmXzeog8nFCo7MjRK68rcm6HX9V8CHxN3S4aA8bYjfE6qL",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #50",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooP7SZYz2oXu71Uf1X2eA66viYqr1HdGZjdwmRvEdfZgg6145P6",
+   "display_uri": "ipfs://QmcLTwwxvtcK77FKVbtuw4JNKe7YaEhGhymzMNNhMxwtHx",
+   "thumbnail_uri": "ipfs://QmWb8SVx4eDM4HLEPKTSaQAz31PRnc9jSJ8heSx6BpCRT3",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 51,
+   "hash": "opAcNxCesED9xoqnohrDY78cDTYNTcvdPghsJvci5tiHTJBbkaJ",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767458,
+   "minted": "2022-05-28T22:02:44Z",
+   "mint_op": "opAcNxCesED9xoqnohrDY78cDTYNTcvdPghsJvci5tiHTJBbkaJ",
+   "metadata_uri": "ipfs://QmU8B48KPUaQHTDukPPKQmULsasAE3zZ6dKuVXLa3nf3X6",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #51",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opAcNxCesED9xoqnohrDY78cDTYNTcvdPghsJvci5tiHTJBbkaJ",
+   "display_uri": "ipfs://QmSHmybPCTYGPJxnQhPqkE2BMDR5p12cXYTb5uxDbFBm2J",
+   "thumbnail_uri": "ipfs://QmSLAPCpZJDiFy88Kf93KzhN9cNNmoHDnz6wQzr7ydp4LL",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 52,
+   "hash": "oo7kWw6ZtRseAPnN9MmXCaKearTsjt5ERbvGLehNUZ5sPS42SoB",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767643,
+   "minted": "2022-05-28T22:34:29Z",
+   "mint_op": "oo7kWw6ZtRseAPnN9MmXCaKearTsjt5ERbvGLehNUZ5sPS42SoB",
+   "metadata_uri": "ipfs://QmZDvNGgWgv4o31rQ7mMMZvpxRxGuPm23tfcCpEpNsmsTs",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #52",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo7kWw6ZtRseAPnN9MmXCaKearTsjt5ERbvGLehNUZ5sPS42SoB",
+   "display_uri": "ipfs://QmQBWS2ua3TFAFFk6zwc83FYWNfredM5RBB4o6sHSsngcn",
+   "thumbnail_uri": "ipfs://QmVp6P53RqnFbk2DvxhxwTk4b4M5q9FN6QPc99HeuXPSpj",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 53,
+   "hash": "onns4Fe7gfwYGoanvJ3bs5WYf8X79gGEW9gbaFZkd852qxx2Ndp",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767653,
+   "minted": "2022-05-28T22:36:29Z",
+   "mint_op": "onns4Fe7gfwYGoanvJ3bs5WYf8X79gGEW9gbaFZkd852qxx2Ndp",
+   "metadata_uri": "ipfs://QmaNU2X7CPQ1bqvMaHjLUYvdiZrJhZaSmhWFutLWh4YcvN",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #53",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onns4Fe7gfwYGoanvJ3bs5WYf8X79gGEW9gbaFZkd852qxx2Ndp",
+   "display_uri": "ipfs://QmPV1qJxcN6cKin4DYzUj1w5qbQ2CKDGptuiEm3K5Z5gn5",
+   "thumbnail_uri": "ipfs://Qmd84KafTatjjz5MpUdwp7Y62HPpsKPUSjn7cqj8NXVSxX",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 54,
+   "hash": "oozZhy5fL7pM84vPHfdMgCvKbmbQhrP2wovepV4p5LcsbnikYYM",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767670,
+   "minted": "2022-05-28T22:39:59Z",
+   "mint_op": "oozZhy5fL7pM84vPHfdMgCvKbmbQhrP2wovepV4p5LcsbnikYYM",
+   "metadata_uri": "ipfs://QmPBQjjj2xJmtaChQuxAEccHR2icL4dcfYQZtxVaGeQPzP",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #54",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oozZhy5fL7pM84vPHfdMgCvKbmbQhrP2wovepV4p5LcsbnikYYM",
+   "display_uri": "ipfs://Qma61BiLUBfhNHSboQqHVpxM32gJDkVNqzgbEWyZweWGrh",
+   "thumbnail_uri": "ipfs://QmTsYgUFxqxifCsR92w6nMr8QHjNpbk4egNKm4pb521F7o",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "fine"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 55,
+   "hash": "ooi4mx4KWFfPdqLPbcWjJjS2WF8TExtWbfpfCf75EzcStCPF9GY",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767788,
+   "minted": "2022-05-28T23:16:59Z",
+   "mint_op": "ooi4mx4KWFfPdqLPbcWjJjS2WF8TExtWbfpfCf75EzcStCPF9GY",
+   "metadata_uri": "ipfs://QmToh3EbZz6S23k4TCeJBaJTbkFqmSBdqY2YBAvkzyaa91",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #55",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooi4mx4KWFfPdqLPbcWjJjS2WF8TExtWbfpfCf75EzcStCPF9GY",
+   "display_uri": "ipfs://QmW8LezVnEbbLK1reXbaMVW1esCWdWzZDFKSq1x48Fq5W6",
+   "thumbnail_uri": "ipfs://QmXUDKuH7zWoeXemSUyVwQoLegBnG4Mp256AG8oecVhCtp",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 56,
+   "hash": "opWMAKU4NjeeqdsepKe3mgv38H3Wa66m71csXxCJnRqiFqoTHqN",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767791,
+   "minted": "2022-05-28T23:18:29Z",
+   "mint_op": "opWMAKU4NjeeqdsepKe3mgv38H3Wa66m71csXxCJnRqiFqoTHqN",
+   "metadata_uri": "ipfs://QmYGetB3fyKdnCNrVtQGiXXcXQhkGF21GykbDovg8U1Msx",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #56",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opWMAKU4NjeeqdsepKe3mgv38H3Wa66m71csXxCJnRqiFqoTHqN",
+   "display_uri": "ipfs://QmXhbjySiaBQnjNawiFGxhDJ5an6VYW69Hekf4kj9PS8h7",
+   "thumbnail_uri": "ipfs://QmT6rgGV1oe2GpDWbHB1cZdbUBzEmCBqQsoCDkQKtRCiRF",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 57,
+   "hash": "opQMU3jS6mQzgX3DjAbPsvb19iSjfhRiWFnYu9gqGQ98Gqu9v9P",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 767889,
+   "minted": "2022-05-28T23:44:59Z",
+   "mint_op": "opQMU3jS6mQzgX3DjAbPsvb19iSjfhRiWFnYu9gqGQ98Gqu9v9P",
+   "metadata_uri": "ipfs://QmRLCXsYmNvx1aCvBidjAgtDoUKADoHkGcAa2g6pkCEWoZ",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #57",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opQMU3jS6mQzgX3DjAbPsvb19iSjfhRiWFnYu9gqGQ98Gqu9v9P",
+   "display_uri": "ipfs://QmWSZQ6yZ9KkDcf4SjJmuXW7wpfNExG8oWN2FoxBUc2hWN",
+   "thumbnail_uri": "ipfs://QmQNNsk3YBiv6ezdy6gpZW6a2pbmHjVn6FjQW9mcRUs3r8",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 58,
+   "hash": "oonQQYAzMQEyzmoSZz4XLReLDxP8B6mfyGsx7UTVhThRV76mkAB",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 768114,
+   "minted": "2022-05-29T00:18:59Z",
+   "mint_op": "oonQQYAzMQEyzmoSZz4XLReLDxP8B6mfyGsx7UTVhThRV76mkAB",
+   "metadata_uri": "ipfs://QmTFADRKLebqQkMUJKm9JA2La5bXhkyGgSdau5KVsk7JBi",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #58",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oonQQYAzMQEyzmoSZz4XLReLDxP8B6mfyGsx7UTVhThRV76mkAB",
+   "display_uri": "ipfs://QmV3qLdf4S25zDxCGCK5Ph5UQZnghvAB5hpFecZxa7hFkM",
+   "thumbnail_uri": "ipfs://QmZycoJ6GCrM99zp8iFEVnaB9Gzkzy8kFVDf5cjiMsw4Di",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 59,
+   "hash": "op5bttuiVJKfoQcU2hjnZbFQBgVKAMMmPdGRnZGAEEFc66ByLzK",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 768146,
+   "minted": "2022-05-29T00:26:44Z",
+   "mint_op": "op5bttuiVJKfoQcU2hjnZbFQBgVKAMMmPdGRnZGAEEFc66ByLzK",
+   "metadata_uri": "ipfs://QmdZxch7sQECLGNovg2qFyzg6923MUhahG5s7BSLy1zTgE",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #59",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=op5bttuiVJKfoQcU2hjnZbFQBgVKAMMmPdGRnZGAEEFc66ByLzK",
+   "display_uri": "ipfs://QmVMFE5Uosewuc7wPqChQcyr7EwxD4WnRoxV9VsmTCePLd",
+   "thumbnail_uri": "ipfs://QmcZAvs4Sz5hm2eDEp9d2eXtaobRdeAsgspn7eZ6LVPwZ1",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 60,
+   "hash": "onzLPRJGZP2Z8gguGeGPnH1Kyd3PrAUj6Y8FZeKoQKn1sd1FVV2",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 768231,
+   "minted": "2022-05-29T00:39:14Z",
+   "mint_op": "onzLPRJGZP2Z8gguGeGPnH1Kyd3PrAUj6Y8FZeKoQKn1sd1FVV2",
+   "metadata_uri": "ipfs://QmYN8MX91ZTMDMVPPjXtS9tqisRiLJAUXhgGNtjRYCUAbk",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #60",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onzLPRJGZP2Z8gguGeGPnH1Kyd3PrAUj6Y8FZeKoQKn1sd1FVV2",
+   "display_uri": "ipfs://QmQDzhCwWFYyWj6pStqKtDvQdLsehsQBnjW9f3hYe4xym1",
+   "thumbnail_uri": "ipfs://QmdLmBmUKEgqasegGUvPsN2GnU1BekF7eQPWVYFZuHbM75",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "fine"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 61,
+   "hash": "oo1jNvttwp3pWzA7xyC9HD1KGFFpDtczxHZNCkG5pVe8CkrSxYw",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 768247,
+   "minted": "2022-05-29T00:40:44Z",
+   "mint_op": "oo1jNvttwp3pWzA7xyC9HD1KGFFpDtczxHZNCkG5pVe8CkrSxYw",
+   "metadata_uri": "ipfs://Qmes98nynS1qtZWNQKbbxziPZ9ZtScRSuyNrcG5RLuyK7Z",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #61",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo1jNvttwp3pWzA7xyC9HD1KGFFpDtczxHZNCkG5pVe8CkrSxYw",
+   "display_uri": "ipfs://QmVwMiuRrw8ogbjwDC1spPD1bcc1CdmviPc5qJxrhdqtrq",
+   "thumbnail_uri": "ipfs://Qmc3vhCwCLQeG9DeHQEoy8oNep92ehxYcBQ964kUTLmqgT",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 62,
+   "hash": "onnwLdzMA4JspzHCue61BJoad15UEPFMQZdphciN3aknFpVEPJY",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 768252,
+   "minted": "2022-05-29T00:41:44Z",
+   "mint_op": "onnwLdzMA4JspzHCue61BJoad15UEPFMQZdphciN3aknFpVEPJY",
+   "metadata_uri": "ipfs://QmT2zxyhXcyzBkVYf51YRHxzd1eg6oux6ifYbgg9ByNM5q",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #62",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onnwLdzMA4JspzHCue61BJoad15UEPFMQZdphciN3aknFpVEPJY",
+   "display_uri": "ipfs://QmRPAmfzcFmx6UiariFJiV27yCvMy7gRMSJLhynTJrqW9R",
+   "thumbnail_uri": "ipfs://QmdYHia7BGJUohcBHS2fyVNTaq2rmWrpDnBPzXwKerR5pG",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 63,
+   "hash": "oo79AnVb2A5Gmu74PSnXm8RdZZi6WASSaw7a5fo1d5AQdEUAVUb",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 768656,
+   "minted": "2022-05-29T01:54:44Z",
+   "mint_op": "oo79AnVb2A5Gmu74PSnXm8RdZZi6WASSaw7a5fo1d5AQdEUAVUb",
+   "metadata_uri": "ipfs://QmSbFxtXqmzSJPwVhL36YVoTdcWQG4LFHyjb5cyCzhr4WL",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #63",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo79AnVb2A5Gmu74PSnXm8RdZZi6WASSaw7a5fo1d5AQdEUAVUb",
+   "display_uri": "ipfs://QmVMHL2hk7Lv9UsUXpEaT23d9u8tpzSqb9hj9ePEAZg9rq",
+   "thumbnail_uri": "ipfs://QmUBFESo6JK5591NwHQeaHDpoLmX67nv4yHpyxf3oS5WLh",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 64,
+   "hash": "oni1ZMoUrbihXftDugpxbSYDcQUCteUrV5h1TtWpQkh6chGa1ij",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 768680,
+   "minted": "2022-05-29T02:00:44Z",
+   "mint_op": "oni1ZMoUrbihXftDugpxbSYDcQUCteUrV5h1TtWpQkh6chGa1ij",
+   "metadata_uri": "ipfs://QmZg2wQAwnsbU346jvXT1ukY6ZWykpKTt5webPDVi8Yus1",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #64",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oni1ZMoUrbihXftDugpxbSYDcQUCteUrV5h1TtWpQkh6chGa1ij",
+   "display_uri": "ipfs://QmbXN75Ds1AHSk99uh7Rmte5LdtFFWmgCvJBXf5hCrhSa5",
+   "thumbnail_uri": "ipfs://QmfJgFonhD6D1KdktDikj7ZW91JCJRHLdhkug2jzv5toRJ",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 65,
+   "hash": "ooxMzU7jT98J4CKk6zLW1JjTWbxgE6mxAn3EveS9GhDFip9t16b",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 769241,
+   "minted": "2022-05-29T04:31:44Z",
+   "mint_op": "ooxMzU7jT98J4CKk6zLW1JjTWbxgE6mxAn3EveS9GhDFip9t16b",
+   "metadata_uri": "ipfs://QmYWsdotfZHVpnudSHujE3YmpZ94H9vSKTi3w5N8BzkLtB",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #65",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooxMzU7jT98J4CKk6zLW1JjTWbxgE6mxAn3EveS9GhDFip9t16b",
+   "display_uri": "ipfs://QmVhSDNmsxR5JHgFrQrLxvw73ipAr2okiyCnjRvaZcKUtg",
+   "thumbnail_uri": "ipfs://QmeXifHBWo47qT6Qt1pQUQKcdHwDhpatG5XrrZDdjjo6nJ",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 66,
+   "hash": "ooTwCvTXC4tUuuWK9TmqQrgdmQXDyfYmVVoxVXv2ccWvUeFWbYb",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 769249,
+   "minted": "2022-05-29T04:33:14Z",
+   "mint_op": "ooTwCvTXC4tUuuWK9TmqQrgdmQXDyfYmVVoxVXv2ccWvUeFWbYb",
+   "metadata_uri": "ipfs://QmcMNfrbm99W88yNWMTDaizfowiYcowU1y8ry2DBVKDYb7",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #66",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooTwCvTXC4tUuuWK9TmqQrgdmQXDyfYmVVoxVXv2ccWvUeFWbYb",
+   "display_uri": "ipfs://Qmaj2cGtbkcsr7ZPPH6L8Pd2qs3XQLjCbbXxMiKt3EHF73",
+   "thumbnail_uri": "ipfs://QmQPZNuBeeiqLEsHBGAux1i1NxQqkptTdMTgsauMmeWsNC",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "fine"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 67,
+   "hash": "oofxzpouEpsS6s3at87iiB4KfhHKe3MjZL6VS4T1JDtLguqfNjh",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 769282,
+   "minted": "2022-05-29T04:40:14Z",
+   "mint_op": "oofxzpouEpsS6s3at87iiB4KfhHKe3MjZL6VS4T1JDtLguqfNjh",
+   "metadata_uri": "ipfs://QmVgrSjieWSNvFvXoiGn3Xya1upcur5vm9LPEnCU98yJeV",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #67",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oofxzpouEpsS6s3at87iiB4KfhHKe3MjZL6VS4T1JDtLguqfNjh",
+   "display_uri": "ipfs://QmRhxwMPda6ux3dRy7d6HFcpUMCtAouLhHam5rzXWbQReL",
+   "thumbnail_uri": "ipfs://QmeQMUKH4exJJeC9jNCRqNVRzzK8UVhsL48D1Hxd3WBbqv",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 68,
+   "hash": "op8U3q6DgzYwGtzpXvsretmGvTznXKfAPfRyqPcXzEv9FR452Sk",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 769359,
+   "minted": "2022-05-29T04:56:44Z",
+   "mint_op": "op8U3q6DgzYwGtzpXvsretmGvTznXKfAPfRyqPcXzEv9FR452Sk",
+   "metadata_uri": "ipfs://QmUquB4ZYFaTxGoKgjzmGhVLoyYkjXhH4qhoNuPAbc6Uok",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #68",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=op8U3q6DgzYwGtzpXvsretmGvTznXKfAPfRyqPcXzEv9FR452Sk",
+   "display_uri": "ipfs://Qmd3RWn2ZXop2E169WvxAtUs3zWu6R6T21tcTDyQwvLyUC",
+   "thumbnail_uri": "ipfs://QmbSWpGXUkD8b7rBb2xQBu32vPmjaHtvj1ZsVY95EMzWs3",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 69,
+   "hash": "oo6ftMioDu1E46WKNUzskgeWvCyqWc3sv6JHeXJeC6VQFhPLjUF",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 770648,
+   "minted": "2022-05-29T09:33:59Z",
+   "mint_op": "oo6ftMioDu1E46WKNUzskgeWvCyqWc3sv6JHeXJeC6VQFhPLjUF",
+   "metadata_uri": "ipfs://QmaRYDq6NV7oTwH6AHoDRQ378SfCPcLGYFAPoapzfHstH2",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #69",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo6ftMioDu1E46WKNUzskgeWvCyqWc3sv6JHeXJeC6VQFhPLjUF",
+   "display_uri": "ipfs://QmS1eLxXLg3YC7wqzbGr3KjUA4BVn1xTvxBF2CuUNtAuXS",
+   "thumbnail_uri": "ipfs://QmPQdfFcSLiwBqDB6kkt8XQV3dU4V5mF2PhuBbdbdDs6xJ",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 70,
+   "hash": "ooko94WsejZxurjziE6UTapCZyhkLpztxKcETMigfe1zuNa2mhF",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 770661,
+   "minted": "2022-05-29T09:37:59Z",
+   "mint_op": "ooko94WsejZxurjziE6UTapCZyhkLpztxKcETMigfe1zuNa2mhF",
+   "metadata_uri": "ipfs://QmbE5qNQGNdvdr9j9UdhSpm8EtySuTACTfs9mUou56wu39",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #70",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooko94WsejZxurjziE6UTapCZyhkLpztxKcETMigfe1zuNa2mhF",
+   "display_uri": "ipfs://Qmb5xdCucEGdfxTV1Qy3UQ2sZPzSQB4D8pF7iSs6DgTT3n",
+   "thumbnail_uri": "ipfs://Qmd3bGkUdzGZhE6cqjGdbFc2rPP5HXQMfgZcA2fR28Y5tA",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 71,
+   "hash": "oo3LJ8JkUWmnm5xGDqAZunsKWWgofA5CaNUdiyYwyrdXv77qHsK",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 770662,
+   "minted": "2022-05-29T09:38:29Z",
+   "mint_op": "oo3LJ8JkUWmnm5xGDqAZunsKWWgofA5CaNUdiyYwyrdXv77qHsK",
+   "metadata_uri": "ipfs://QmWFnCKkDNMTcTUiWk98eNJ3gEEHdiP4JPhCgSMCD8pTJN",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #71",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo3LJ8JkUWmnm5xGDqAZunsKWWgofA5CaNUdiyYwyrdXv77qHsK",
+   "display_uri": "ipfs://QmeNARxGUNTe7274EmvbRKHMosvWPxgqeEfezUdcnuP2wQ",
+   "thumbnail_uri": "ipfs://QmNvN3fLnNvPZyJkt1BtyuarR8rnhPd3FakiDmxcQHLEEm",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 72,
+   "hash": "oo3kgENqEnQQhd4PSn81BxiWqhUfLaSKsAPpQNjugfFsymSAg6n",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 770680,
+   "minted": "2022-05-29T09:42:59Z",
+   "mint_op": "oo3kgENqEnQQhd4PSn81BxiWqhUfLaSKsAPpQNjugfFsymSAg6n",
+   "metadata_uri": "ipfs://QmPcs9RwpBydSn3y6JK3vpoBAMKMLZL9uVMHTuJR1NFjmG",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #72",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo3kgENqEnQQhd4PSn81BxiWqhUfLaSKsAPpQNjugfFsymSAg6n",
+   "display_uri": "ipfs://QmRsi85qJ1pe18FcnYRnLv4BWmMRiodUdfNAoPj2cBUp8p",
+   "thumbnail_uri": "ipfs://QmStvuaSB2UoyrYk8vroqVEbGjZPNvqkZd3WK8CZbE8eMp",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 73,
+   "hash": "oogZcT4hsT29Uf8ZPVmqG4fCFmm91We2NoQjqoBVD8wBJPX3zce",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 770790,
+   "minted": "2022-05-29T10:04:59Z",
+   "mint_op": "oogZcT4hsT29Uf8ZPVmqG4fCFmm91We2NoQjqoBVD8wBJPX3zce",
+   "metadata_uri": "ipfs://QmNrzzVd1KjVXKrVDafzzbLXRF1a2LBNm3tPAdec3t8NiX",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #73",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oogZcT4hsT29Uf8ZPVmqG4fCFmm91We2NoQjqoBVD8wBJPX3zce",
+   "display_uri": "ipfs://QmWSDsu91f4nXUjPKrpUCDnf1UaomrGnD6dkg8tUPTWNB1",
+   "thumbnail_uri": "ipfs://QmSgjCKWcSR3wKa6oFJaEhTxqnMNnetww1wrWYR6XrWsWr",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 74,
+   "hash": "oosKGA83VXYtg1dSVXEuo4gZzupDDAaAUVuJCqYgRY95zzz3Uis",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 770914,
+   "minted": "2022-05-29T10:20:59Z",
+   "mint_op": "oosKGA83VXYtg1dSVXEuo4gZzupDDAaAUVuJCqYgRY95zzz3Uis",
+   "metadata_uri": "ipfs://Qmedhu6tsFU3vocG13aWVJtGEBYgNhoCsvo22thWQvQC8t",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #74",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oosKGA83VXYtg1dSVXEuo4gZzupDDAaAUVuJCqYgRY95zzz3Uis",
+   "display_uri": "ipfs://QmYTPzGFNDq1JK7xM1XroWzpw8P33G8NGWCbpcz6yTbRyo",
+   "thumbnail_uri": "ipfs://QmcTqNtXE6cDXCg37ttkUN1uUogUW1UMrEoeKc7oKwmicu",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 75,
+   "hash": "opDHabgMprup7QtoYqjh9JacT3B6GQbMY8v32ffr2ANsnpJvX9j",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 770938,
+   "minted": "2022-05-29T10:25:29Z",
+   "mint_op": "opDHabgMprup7QtoYqjh9JacT3B6GQbMY8v32ffr2ANsnpJvX9j",
+   "metadata_uri": "ipfs://QmTMiu3n7GKn8EmQoksm5Wat6Wtc4RTyWcQ7sNF7zvoVPN",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #75",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opDHabgMprup7QtoYqjh9JacT3B6GQbMY8v32ffr2ANsnpJvX9j",
+   "display_uri": "ipfs://QmRpMrUTXQvP8XDK5yAkC6MUgzATicuHpoeUbstGRErwsx",
+   "thumbnail_uri": "ipfs://QmSAjwZUG8k6RUdFUKD6a31C4uoKqQo2HLzEmAC4VYKbV4",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "coarse"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 76,
+   "hash": "opL7czReqd4yjU1vdvkoo13hud2s1Q47C9KMegrN44vQzXKLfEi",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 771032,
+   "minted": "2022-05-29T10:55:14Z",
+   "mint_op": "opL7czReqd4yjU1vdvkoo13hud2s1Q47C9KMegrN44vQzXKLfEi",
+   "metadata_uri": "ipfs://QmaQRC3XhJkAYUunDfJ9mk4BWWEVPCZsyZZRh1hBQmp7ss",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #76",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opL7czReqd4yjU1vdvkoo13hud2s1Q47C9KMegrN44vQzXKLfEi",
+   "display_uri": "ipfs://QmdSAuVou4wnvB5x912wPi7kskLKSLFWFM1M6i4Trw7PYG",
+   "thumbnail_uri": "ipfs://QmbhsycScp7AQfYr5sNXNrqDJRSWwQofJaPHw5VHvH3Gki",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 77,
+   "hash": "op8NF6AXomWLH9wKUyUGC1KcPeQgfCYDz7CmUYhkPeSocmn6j6s",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 771036,
+   "minted": "2022-05-29T10:55:44Z",
+   "mint_op": "op8NF6AXomWLH9wKUyUGC1KcPeQgfCYDz7CmUYhkPeSocmn6j6s",
+   "metadata_uri": "ipfs://QmUK1G6q2qsJfxZWy15m1XniwSh8YrFwAo9PZjkg9nAttB",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #77",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=op8NF6AXomWLH9wKUyUGC1KcPeQgfCYDz7CmUYhkPeSocmn6j6s",
+   "display_uri": "ipfs://QmVadbxvPk25qAiSD6usApdgf8ZXBeYKTkR3tXaFgEvdB5",
+   "thumbnail_uri": "ipfs://QmeNaY18MkzdRHzLKLppdzjK3Yjw5E3Hej4hsNKVhwgHrr",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 78,
+   "hash": "ooj4LXkCP9vhb3KMGVmSrBhJrbspA2oLdPQZFR1FZm1kcPrnpXC",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 771530,
+   "minted": "2022-05-29T13:07:14Z",
+   "mint_op": "ooj4LXkCP9vhb3KMGVmSrBhJrbspA2oLdPQZFR1FZm1kcPrnpXC",
+   "metadata_uri": "ipfs://QmWcAerK7wM6MGxZv9rMF2ndrDiDb5zeoamKziB83hKVZX",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #78",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooj4LXkCP9vhb3KMGVmSrBhJrbspA2oLdPQZFR1FZm1kcPrnpXC",
+   "display_uri": "ipfs://QmP5V3eZeiuRw1hDTBJDrrVh7kcgoFvBR1Rd1M34JTdrMp",
+   "thumbnail_uri": "ipfs://QmVqKKJ5LxyncdgfVYDSr8ts2GYQPBkVu1vVRiUHZVpj41",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 79,
+   "hash": "opYHSmXGtDmPng3vzRMKEznv7WJwFFKQp6NjPh5YFRQHWJqhs5N",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 773334,
+   "minted": "2022-05-29T16:29:59Z",
+   "mint_op": "opYHSmXGtDmPng3vzRMKEznv7WJwFFKQp6NjPh5YFRQHWJqhs5N",
+   "metadata_uri": "ipfs://QmWZKScK4uzvSWqK3SvtwTfnPmgGGUJieP5tmZKJCDGGWM",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #79",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opYHSmXGtDmPng3vzRMKEznv7WJwFFKQp6NjPh5YFRQHWJqhs5N",
+   "display_uri": "ipfs://QmajuNHNsDDXJtAtAb5ZJuoc7XstJ3BpvjAuPE7vi2Qwqj",
+   "thumbnail_uri": "ipfs://QmWU8DMDqDLi6iEKMSrUct6uVcyjL4bQUsbYM1EB4CXrxT",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "fine"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 80,
+   "hash": "oo3LhaRuAcFP85d3C2ZtawM9o6PrrLrTEn5h6tt9zTw2BAKv3MT",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 773337,
+   "minted": "2022-05-29T16:30:29Z",
+   "mint_op": "oo3LhaRuAcFP85d3C2ZtawM9o6PrrLrTEn5h6tt9zTw2BAKv3MT",
+   "metadata_uri": "ipfs://Qmbm4vrgh3jXg1Lvjj8EtPU3h4Ckwm2P2hbhUUVU7JxnmQ",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #80",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo3LhaRuAcFP85d3C2ZtawM9o6PrrLrTEn5h6tt9zTw2BAKv3MT",
+   "display_uri": "ipfs://QmWKCXTBkHC3u7zMSK2N6TJSiHo7JUzK3wtjpWRDbZi6Nf",
+   "thumbnail_uri": "ipfs://QmP6PnYq18ASRB7nFbjXzeUrGuU1azaP13LrQr4XuBCTP4",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 81,
+   "hash": "opaYVXMcD22ENS5MAzbZnYikg92mZPt1i35jCHaSQ1iCxicPfHL",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 773772,
+   "minted": "2022-05-29T17:14:29Z",
+   "mint_op": "opaYVXMcD22ENS5MAzbZnYikg92mZPt1i35jCHaSQ1iCxicPfHL",
+   "metadata_uri": "ipfs://QmPhfbXTxPm4HL8bdh5mXsoEvhHpuJKfQgVdvgz6QRxkfQ",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #81",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opaYVXMcD22ENS5MAzbZnYikg92mZPt1i35jCHaSQ1iCxicPfHL",
+   "display_uri": "ipfs://Qmbpnx2qFEhRzo1R7tE8XB9PVg9868C1sfgk2iZ8Rv2pqk",
+   "thumbnail_uri": "ipfs://QmaMx9LFu4sbeMLXHuHD8TrxhqPY4Xyhgz2WUXv3vfeeLz",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 82,
+   "hash": "oo2mh2byH3DrA4G6FCiKRkLnENhiduoN9G8K5wpvnd5AWc1yuBV",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 774632,
+   "minted": "2022-05-29T19:37:14Z",
+   "mint_op": "oo2mh2byH3DrA4G6FCiKRkLnENhiduoN9G8K5wpvnd5AWc1yuBV",
+   "metadata_uri": "ipfs://QmYVXgJSmcvbM29PNv9xFFyF9e8ra8cB4FkBoURKBnRY7J",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #82",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo2mh2byH3DrA4G6FCiKRkLnENhiduoN9G8K5wpvnd5AWc1yuBV",
+   "display_uri": "ipfs://QmUz8NuNeWA8yegUAmucW8u1fMhU1rf8GpXopxDYe2bGgr",
+   "thumbnail_uri": "ipfs://QmTL1Xfi3V6B6Mr4yPZQ5sd97G6c9HhhFcoohZcoT9RgR6",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 83,
+   "hash": "ooDxyFRMKYiK3ZRMw1X1sVRxkgxFfPcRL6uUVakCKy7WYqeDLcE",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 775965,
+   "minted": "2022-05-30T01:52:29Z",
+   "mint_op": "ooDxyFRMKYiK3ZRMw1X1sVRxkgxFfPcRL6uUVakCKy7WYqeDLcE",
+   "metadata_uri": "ipfs://QmVhTzurwVoBom9g8wGAoJ7c2tWREhr36ucvGoM5sedHfs",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #83",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooDxyFRMKYiK3ZRMw1X1sVRxkgxFfPcRL6uUVakCKy7WYqeDLcE",
+   "display_uri": "ipfs://QmYxyXxWEZyDxZ5inEPPgYRngtQNkSR9uam6b9YX4Eajb5",
+   "thumbnail_uri": "ipfs://QmQL4oZVgcxt3JPcNZNweGUFCBbCigNyBb2yeBX9Hj1cGb",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "highest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 84,
+   "hash": "onqWDQrLXQagyczdf4AJv55ioTeMxK3cXG9m5os7KUsveZfKCid",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 775966,
+   "minted": "2022-05-30T01:53:29Z",
+   "mint_op": "onqWDQrLXQagyczdf4AJv55ioTeMxK3cXG9m5os7KUsveZfKCid",
+   "metadata_uri": "ipfs://QmUd49C3DXLRCE61ULaEcAMQuXqaiM9A6jMo9wZNWzsz1R",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #84",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onqWDQrLXQagyczdf4AJv55ioTeMxK3cXG9m5os7KUsveZfKCid",
+   "display_uri": "ipfs://QmbkUnzaQeSc5NPb9AzBf4Fm8BLtuQhzsbRhn7XXdng7ss",
+   "thumbnail_uri": "ipfs://QmWxRTYM3yV7YeeuUX3qMUD144DTLkEJFuPaNKtRAseHjs",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 85,
+   "hash": "onqBZnRE4PTGHMyH39cFr9tgRN1eNwD4vNW1NREbCjcQPYeJkH7",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 778367,
+   "minted": "2022-05-30T14:11:44Z",
+   "mint_op": "onqBZnRE4PTGHMyH39cFr9tgRN1eNwD4vNW1NREbCjcQPYeJkH7",
+   "metadata_uri": "ipfs://QmRF3HkHourQyQ8LqFgod8cXLejDNoLmm8ThmcVmxtkJUV",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #85",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=onqBZnRE4PTGHMyH39cFr9tgRN1eNwD4vNW1NREbCjcQPYeJkH7",
+   "display_uri": "ipfs://Qmb1UXmi5Nsr9mgbuNivEtRgWReBGv69Y4tJ5ahp4H1Eri",
+   "thumbnail_uri": "ipfs://QmSbyUTNAJ3nRXpitCSZE8pKNxbUvk1S3wWNZhpHSJ6Hma",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 86,
+   "hash": "ooaCyRHX9ehEMP7so26jctqP3DdqaWVCWP5NbLUsqUNEHRPKRTt",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 783707,
+   "minted": "2022-05-31T09:48:29Z",
+   "mint_op": "ooaCyRHX9ehEMP7so26jctqP3DdqaWVCWP5NbLUsqUNEHRPKRTt",
+   "metadata_uri": "ipfs://QmcLJT6raBjyopMdfWPYt5nfHfwmvjBt9CWiqNeqwQCjZV",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #86",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=ooaCyRHX9ehEMP7so26jctqP3DdqaWVCWP5NbLUsqUNEHRPKRTt",
+   "display_uri": "ipfs://Qmb99T4AWt9wGSHumkpEN8fnAhCzceW3amv6M9tg6eyZzg",
+   "thumbnail_uri": "ipfs://Qmaqga6864gA96BGG9YSNk9SBY9NBeYPdNcsqmnhadpL2t",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 87,
+   "hash": "oohrAAGo5gwzpH8wJPjWjtKoqcmWrRzBJvbfh7g2ubUQFDnoHLB",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 783718,
+   "minted": "2022-05-31T09:53:59Z",
+   "mint_op": "oohrAAGo5gwzpH8wJPjWjtKoqcmWrRzBJvbfh7g2ubUQFDnoHLB",
+   "metadata_uri": "ipfs://Qmd6desDLDKxn73dkU4TFBrLVXxLRbancjRGGDffQk2Txz",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #87",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oohrAAGo5gwzpH8wJPjWjtKoqcmWrRzBJvbfh7g2ubUQFDnoHLB",
+   "display_uri": "ipfs://QmXyRH98oUnUH145rcbGUHnG3NU7a15Xip63TXnFJCiqPY",
+   "thumbnail_uri": "ipfs://QmesRX5XmxGULR16xC1xNmYoXD8Hkd8jxdajB7tGF5jbmP",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "lowest"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 88,
+   "hash": "opGozupeoL9CVkmbvuTP5GGEXajzJ7FXUWhcn6L5TnELiJMeqAD",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 783763,
+   "minted": "2022-05-31T10:04:59Z",
+   "mint_op": "opGozupeoL9CVkmbvuTP5GGEXajzJ7FXUWhcn6L5TnELiJMeqAD",
+   "metadata_uri": "ipfs://QmSZyVKdyEbENyAK7MRmS3DGVcaNtJS589RoxsFDHHhzwV",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #88",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opGozupeoL9CVkmbvuTP5GGEXajzJ7FXUWhcn6L5TnELiJMeqAD",
+   "display_uri": "ipfs://QmRa4rfRFoibVYQjU3ftpW8LsgufC2i6dT2qHm79HUsQev",
+   "thumbnail_uri": "ipfs://QmVMFeC9kfEwidZ7Dm3PB776Vt69BvoVmRkYTVWgQ1bzoE",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 89,
+   "hash": "oobGVt38Nd5VdRDGjEGQUgtspfaMYCA5Wx7Grd2W88ttTSPfvy5",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 843129,
+   "minted": "2022-06-08T16:05:29Z",
+   "mint_op": "oobGVt38Nd5VdRDGjEGQUgtspfaMYCA5Wx7Grd2W88ttTSPfvy5",
+   "metadata_uri": "ipfs://QmXeUkjygqcrsE2KptcXDaN4T7K9Z1e14t7mZJZqWrmjtt",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #89",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oobGVt38Nd5VdRDGjEGQUgtspfaMYCA5Wx7Grd2W88ttTSPfvy5",
+   "display_uri": "ipfs://QmVKtSawoBvSAkiDf2RKKSm4kYZXoKPeZrY3hwEpBRUkkd",
+   "thumbnail_uri": "ipfs://Qmb7KPnhReh8oYgkbqUknJ46QTMFACByP2bKNY5WtDx1QL",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "fine"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "medium"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 90,
+   "hash": "opWVrfiLt6R2WgqiGgzFTqmDEw46bgJL6TTWR2v9MvyMd8ZPjdh",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 865205,
+   "minted": "2022-06-12T00:18:29Z",
+   "mint_op": "opWVrfiLt6R2WgqiGgzFTqmDEw46bgJL6TTWR2v9MvyMd8ZPjdh",
+   "metadata_uri": "ipfs://QmcYAX5BNA5e6hV9d5sGKAUg4fnGZHxhQSbyDVQ6Sr3Cri",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #90",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=opWVrfiLt6R2WgqiGgzFTqmDEw46bgJL6TTWR2v9MvyMd8ZPjdh",
+   "display_uri": "ipfs://Qmbbtk2aSDNLqtdoSvNFFHP6wLLwJX9pgegR2FGWfRXt4j",
+   "thumbnail_uri": "ipfs://QmbP1LAYiCPjqcnmLEL6rGGzbz3sbayx9q8LiYfdTigkA1",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "lavender"
+    },
+    {
+     "name": "luma",
+     "value": "low"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 91,
+   "hash": "oo2E99MBphMVKSvT3y4tXxTgAYa5ttRhqagrYPAE7ieihXkVfUT",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 865335,
+   "minted": "2022-06-12T02:31:14Z",
+   "mint_op": "oo2E99MBphMVKSvT3y4tXxTgAYa5ttRhqagrYPAE7ieihXkVfUT",
+   "metadata_uri": "ipfs://QmWfZ1WHeEUpaPddKnsHJYBWpvRLFCWePsXBshK72WMmbL",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #91",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oo2E99MBphMVKSvT3y4tXxTgAYa5ttRhqagrYPAE7ieihXkVfUT",
+   "display_uri": "ipfs://QmWSepnKiHspdM5XwBYLk39tTg9xipG7petLG9KCWnTHD1",
+   "thumbnail_uri": "ipfs://QmUNc4Uns87QH8pS9K9CNnw31Ydki1Wccb5cM9Tixq7mVH",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "ochre"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  },
+  {
+   "iteration": 92,
+   "hash": "oodV5uwueLgQtd8XEkeJo3WSotd18So5jxY148Cgz33AvgXStbk",
+   "hash_source": "metadata, equal to the mint operation",
+   "contract": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+   "token_id": 866010,
+   "minted": "2022-06-12T07:21:14Z",
+   "mint_op": "oodV5uwueLgQtd8XEkeJo3WSotd18So5jxY148Cgz33AvgXStbk",
+   "metadata_uri": "ipfs://QmXReBpo9UnAbGXPqqAfwuHk2KEmxzyvyjMyJugUn79Zrx",
+   "signed": true,
+   "burned": false,
+   "name": "warp&weft3 #92",
+   "artifact_uri": "ipfs://QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT?fxhash=oodV5uwueLgQtd8XEkeJo3WSotd18So5jxY148Cgz33AvgXStbk",
+   "display_uri": "ipfs://QmVWuN1y7XXkL33kgQsBeiS12iamWfcNSEjohspRwrVqYD",
+   "thumbnail_uri": "ipfs://QmatADaJFbNvV3b6h1XsKTDBwsGJHPpa8quKfFY5xfS7pp",
+   "attributes": [
+    {
+     "name": "quality",
+     "value": "medium"
+    },
+    {
+     "name": "highlight",
+     "value": "verdant"
+    },
+    {
+     "name": "luma",
+     "value": "high"
+    },
+    {
+     "name": "chaos",
+     "value": "obnoxious"
+    }
+   ]
+  }
+ ]
+}

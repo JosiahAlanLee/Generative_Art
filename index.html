@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generative Art · Echevarian</title>
+<link rel="icon" href="data:,">
+<meta name="description" content="Code for the generative projects Echevarian published on fxhash, archived so each one still runs.">
+<style>
+  :root {
+    --ground: #232323;
+    --frame: #000000;
+    --ink: #e9e7e2;
+    --muted: #a6a39c;
+    --rule: #3b3b3b;
+    --focus: #ffcf5a;
+    --warn: #ffcf5a;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, ui-serif, serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--ground); }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--ground);
+    font: 17px/1.6 var(--serif);
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+  button, input { font: inherit; color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+
+  /* Index */
+  header.site h1 {
+    font: 600 clamp(28px, 4vw, 40px)/1.15 var(--mono);
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  header.site p { margin: 0; max-width: 62ch; color: var(--muted); }
+  .year {
+    font: 600 15px/1 var(--mono);
+    color: var(--muted);
+    margin: 48px 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  ol.projects { list-style: none; margin: 0; padding: 0; }
+  ol.projects li { border-bottom: 1px solid var(--rule); }
+  ol.projects a {
+    display: grid;
+    grid-template-columns: 56px 5.5em minmax(0, 1fr) auto;
+    gap: 16px;
+    align-items: center;
+    padding: 10px 0;
+    text-decoration: none;
+  }
+  ol.projects a:hover .t { text-decoration: underline; text-underline-offset: 3px; }
+  .thumb {
+    width: 56px; height: 56px; background: var(--frame);
+    display: block; object-fit: cover;
+  }
+  .date { font: 14px/1.2 var(--mono); color: var(--muted); }
+  .t { font: 500 18px/1.3 var(--mono); overflow-wrap: anywhere; }
+  .count { font: 14px/1.2 var(--mono); color: var(--muted); text-align: right; white-space: nowrap; }
+  ol.projects.nothumbs a { grid-template-columns: 5.5em minmax(0, 1fr) auto; }
+  @media (max-width: 560px) {
+    ol.projects a { grid-template-columns: 44px minmax(0, 1fr) auto; column-gap: 12px; row-gap: 2px; }
+    ol.projects.nothumbs a { grid-template-columns: minmax(0, 1fr) auto; }
+    .thumb { width: 44px; height: 44px; grid-column: 1; grid-row: 1 / span 2; }
+    .t { grid-column: 2 / span 2; grid-row: 1; }
+    .date { grid-column: 2; grid-row: 2; }
+    .count { grid-column: 3; grid-row: 2; }
+    ol.projects.nothumbs .t { grid-column: 1 / span 2; }
+    ol.projects.nothumbs .date { grid-column: 1; }
+    ol.projects.nothumbs .count { grid-column: 2; }
+  }
+
+  /* Project */
+  nav.back { font: 15px/1.4 var(--mono); margin-bottom: 20px; }
+  .project h1 { font: 600 clamp(24px, 3.4vw, 34px)/1.2 var(--mono); margin: 0 0 4px; overflow-wrap: anywhere; letter-spacing: -0.01em; }
+  .project .sub { font: 14px/1.5 var(--mono); color: var(--muted); margin: 0 0 20px; }
+  .stage { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
+  @media (max-width: 860px) { .stage { grid-template-columns: minmax(0, 1fr); } }
+  .frame {
+    position: relative;
+    background: var(--frame);
+    aspect-ratio: 1 / 1;
+    max-height: calc(100vh - 140px);
+    width: 100%;
+    margin: 0 auto;
+  }
+  .frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: var(--frame); }
+  .gate {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+    padding: 24px; text-align: center;
+  }
+  .gate p { margin: 0; max-width: 36ch; }
+  .gate.warn p { color: var(--warn); }
+  .controls { display: grid; gap: 16px; font: 15px/1.4 var(--mono); }
+  .controls .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    background: transparent; border: 1px solid var(--muted); border-radius: 2px;
+    padding: 7px 12px; cursor: pointer; font: 15px/1.2 var(--mono);
+  }
+  .btn:hover { border-color: var(--ink); }
+  .btn[disabled] { opacity: .4; cursor: default; }
+  .btn.primary { background: var(--ink); color: var(--ground); border-color: var(--ink); }
+  .controls input[type=number] {
+    width: 5.5em; background: transparent; border: 1px solid var(--muted); border-radius: 2px; padding: 6px 8px;
+  }
+  .hash { font: 13px/1.5 var(--mono); overflow-wrap: anywhere; color: var(--ink); }
+  .note { color: var(--muted); font: 14px/1.5 var(--mono); margin: 0; }
+  .prose { max-width: 66ch; margin-top: 32px; }
+  .prose p { margin: 0 0 1em; }
+  dl.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 20px; font: 14px/1.5 var(--mono); margin: 32px 0 0; max-width: 900px; }
+  dl.facts dt { color: var(--muted); }
+  dl.facts dd { margin: 0; overflow-wrap: anywhere; }
+  dl.facts ul { margin: 0; padding: 0; list-style: none; }
+  @media (max-width: 560px) { dl.facts { grid-template-columns: minmax(0, 1fr); } dl.facts dd { margin-bottom: 8px; } }
+  .error { color: var(--warn); font-family: var(--mono); }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<main class="wrap" id="app" aria-live="polite"></main>
+<script>
+(() => {
+  const app = document.getElementById('app')
+  const ALPHABET = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  let catalog = null
+  const iterationCache = new Map()
+  const consented = new Set()
+
+  const el = (tag, attrs = {}, ...kids) => {
+    const n = document.createElement(tag)
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v === null || v === undefined || v === false) continue
+      if (k === 'class') n.className = v
+      else if (k.startsWith('on')) n.addEventListener(k.slice(2), v)
+      else n.setAttribute(k, v === true ? '' : v)
+    }
+    for (const k of kids.flat()) if (k !== null && k !== undefined && k !== false) n.append(k)
+    return n
+  }
+  const fmtDate = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' })
+  const longDate = (iso) => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
+  const randomHash = () => {
+    const bytes = crypto.getRandomValues(new Uint8Array(49))
+    return 'oo' + Array.from(bytes, b => ALPHABET[b % ALPHABET.length]).join('')
+  }
+  const validHash = (h) => /^o[1-9A-HJ-NP-Za-km-z]{50}$/.test(h)
+  // Descriptions are plain text; turn bare web addresses into links.
+  const linked = (text) => text.split(/(https?:\/\/[^\s<>"]+)/g).map((part, i) =>
+    i % 2 ? el('a', { href: part.replace(/[.,;:!?)]+$/, ''), rel: 'noopener' }, part) : part)
+  const paragraphs = (text) => (text || '').trim().split(/\n\s*\n/).map(t => el('p', {}, ...linked(t.trim())))
+
+  async function loadCatalog () {
+    if (catalog) return catalog
+    const res = await fetch('data/catalog.json', { cache: 'no-cache' })
+    if (!res.ok) throw new Error('data/catalog.json could not be loaded (' + res.status + ').')
+    catalog = await res.json()
+    return catalog
+  }
+  async function loadIterations (id) {
+    if (!iterationCache.has(id)) {
+      const res = await fetch('data/iterations/' + id + '.json', { cache: 'no-cache' })
+      iterationCache.set(id, res.ok ? (await res.json()).iterations : [])
+    }
+    return iterationCache.get(id)
+  }
+
+  function renderIndex () {
+    document.title = 'Generative Art · Echevarian'
+    const ps = catalog.projects.slice().sort((a, b) => a.minted.localeCompare(b.minted))
+    const first = ps[0]; const last = ps[ps.length - 1]
+    const runnable = ps.filter(p => p.generator).length
+    const header = el('header', { class: 'site' },
+      el('h1', {}, 'Generative Art'),
+      el('p', {}, `Code for the ${ps.length} projects Echevarian published on fxhash between ${longDate(first.minted)} and ${longDate(last.minted)}. ` +
+        (runnable === ps.length ? 'Every piece runs here from its archived files.' : `${runnable} of ${ps.length} run here from their archived files so far.`)))
+    const years = new Map()
+    for (const p of ps) {
+      const y = p.minted.slice(0, 4)
+      if (!years.has(y)) years.set(y, [])
+      years.get(y).push(p)
+    }
+    const sections = []
+    const thumbs = ps.some(p => p.thumbnail)
+    for (const [y, list] of years) {
+      sections.push(el('h2', { class: 'year' }, y))
+      sections.push(el('ol', { class: 'projects' + (thumbs ? '' : ' nothumbs') }, list.map(p => el('li', {},
+        el('a', { href: '#/' + p.id },
+          !thumbs ? null : p.thumbnail ? el('img', { class: 'thumb', src: p.thumbnail, alt: '', loading: 'lazy', width: 56, height: 56 }) : el('span', { class: 'thumb', 'aria-hidden': 'true' }),
+          el('span', { class: 'date' }, fmtDate(p.minted)),
+          el('span', { class: 't' }, p.title),
+          el('span', { class: 'count' }, p.iterations_minted === 1 ? '1 iteration' : `${p.iterations_minted} iterations`))))))
+    }
+    app.replaceChildren(header, ...sections)
+  }
+
+  function sourceFor (p, it, hash) {
+    if (it && p.iteration_folders && p.iteration_folders[String(it.iteration)]) {
+      return { src: p.iteration_folders[String(it.iteration)] + 'index.html', exact: true }
+    }
+    if (!p.generator) return null
+    if (p.reads_hash_from_url !== false) {
+      return { src: p.generator + 'index.html?fxhash=' + encodeURIComponent(hash), exact: !!it }
+    }
+    return { inject: true, hash }
+  }
+
+  // Early generators had their hash written into index.html when each token
+  // was minted. For a hash with no token of its own, do the same in memory.
+  async function injectedDoc (p, hash) {
+    const res = await fetch(p.generator + 'index.html')
+    let html = await res.text()
+    const re = /(var|let|const)\s+fxhash\s*=\s*"oo"\s*\+\s*Array\(49\)[^\n;]*/
+    if (!re.test(html)) return null
+    html = html.replace(re, (m, kw) => `${kw} fxhash = "${hash}"`)
+    const base = `<base href="${new URL(p.generator, location.href).href}">`
+    return /<head[^>]*>/i.test(html) ? html.replace(/<head[^>]*>/i, m => m + base) : base + html
+  }
+
+  async function renderProject (id, sel) {
+    const p = catalog.projects.find(x => String(x.id) === String(id))
+    if (!p) { app.replaceChildren(el('p', { class: 'error' }, 'No project with id ' + id + '. '), el('a', { href: '#/' }, 'See all projects')); return }
+    document.title = p.title + ' · Generative Art'
+    const its = await loadIterations(p.id)
+    let it = null; let hash = null
+    if (sel && sel.hash) { hash = sel.hash; it = its.find(x => x.hash === hash) || null }
+    else if (sel && sel.n) { it = its.find(x => x.iteration === sel.n) || null }
+    if (!it && !hash) it = its[0] || null
+    if (it) hash = it.hash
+    if (!hash) hash = p.preview_hash || randomHash()
+
+    const frame = el('div', { class: 'frame' })
+    const label = it ? `Iteration ${it.iteration} of ${its.length}` : (its.length ? 'A hash with no token' : 'No iterations were minted')
+
+    const run = async () => {
+      consented.add(p.id)
+      const s = sourceFor(p, it, hash)
+      if (!s) { frame.replaceChildren(el('div', { class: 'gate' }, el('p', {}, 'The code for this project has not been archived yet.'))); return }
+      const iframe = el('iframe', { title: `${p.title}, ${it ? 'iteration ' + it.iteration : 'hash ' + hash}`, allow: 'fullscreen; autoplay', allowfullscreen: true, loading: 'eager' })
+      if (s.inject) {
+        const doc = await injectedDoc(p, hash)
+        if (!doc) { frame.replaceChildren(el('div', { class: 'gate' }, el('p', {}, 'This early generator cannot take a new hash here. Choose one of its iterations.'))); return }
+        iframe.srcdoc = doc
+      } else {
+        iframe.src = s.src
+        open.href = s.src
+        open.hidden = false
+      }
+      frame.replaceChildren(iframe)
+      full.disabled = false
+    }
+
+    const full = el('button', { class: 'btn', type: 'button', disabled: true, onclick: () => { const f = frame.querySelector('iframe'); if (f && f.requestFullscreen) f.requestFullscreen() } }, 'Full screen')
+    const open = el('a', { class: 'note', href: '#', target: '_blank', rel: 'noopener', hidden: true }, 'Open on its own page')
+    const gateNeeded = p.strobe || reduceMotion
+    if (gateNeeded && !consented.has(p.id)) {
+      frame.append(el('div', { class: 'gate' + (p.strobe ? ' warn' : '') },
+        el('p', {}, p.strobe ? 'This piece flashes rapidly. The artist titled it with a strobe warning.' : 'This piece moves. Your system asks for reduced motion.'),
+        el('button', { class: 'btn primary', type: 'button', onclick: run }, 'Run the piece')))
+    } else {
+      queueMicrotask(run)
+    }
+
+    const go = (n) => { location.hash = `#/${p.id}/${n}` }
+    const idx = it ? its.indexOf(it) : -1
+    const jump = el('input', { type: 'number', min: its.length ? its[0].iteration : 1, max: its.length ? its[its.length - 1].iteration : 1, value: it ? it.iteration : '', 'aria-label': 'Iteration number' })
+    const controls = el('div', { class: 'controls' },
+      el('div', {}, el('div', {}, label), el('div', { class: 'hash' }, hash)),
+      its.length ? el('div', { class: 'row' },
+        el('button', { class: 'btn', type: 'button', disabled: idx <= 0, onclick: () => go(its[idx - 1].iteration) }, 'Previous'),
+        el('button', { class: 'btn', type: 'button', disabled: idx < 0 || idx >= its.length - 1, onclick: () => go(its[idx + 1].iteration) }, 'Next'),
+        el('form', { class: 'row', onsubmit: (e) => { e.preventDefault(); const n = parseInt(jump.value, 10); if (its.some(x => x.iteration === n)) go(n) } },
+          jump, el('button', { class: 'btn', type: 'submit' }, 'Go'))) : null,
+      el('div', { class: 'row' },
+        el('button', { class: 'btn', type: 'button', onclick: () => { location.hash = `#/${p.id}/hash/${randomHash()}` } }, 'Random hash'),
+        full),
+      open,
+      it ? el('p', { class: 'note' }, 'Token ', el('a', { href: `https://tzkt.io/${it.contract}/tokens/${it.token_id}`, target: '_blank', rel: 'noopener' }, it.token_id), ' minted ', longDate(it.minted),
+        it.hash_source.startsWith('mint operation') ? '. ' + it.hash_source.replace('mint operation; ', 'Hash taken from the mint operation: ') + '.' : '.') : null,
+      !it && its.length ? el('p', { class: 'note' }, 'A hash nobody minted. The output is what this hash would have produced.') : null)
+
+    const facts = el('dl', { class: 'facts' },
+      el('dt', {}, 'Published'), el('dd', {}, longDate(p.minted), ' on fxhash, project ', String(p.id)),
+      el('dt', {}, 'Editions'), el('dd', {}, `${p.iterations_minted} minted of ${p.editions}` + (p.editions_at_mint !== p.editions ? ` (${p.editions_at_mint} at launch)` : '')),
+      p.tags.length ? el('dt', {}, 'Tags') : null, p.tags.length ? el('dd', {}, p.tags.join(', ')) : null,
+      el('dt', {}, 'Primary sales'), el('dd', {}, el('ul', {}, p.primary_split.map(s => el('li', {}, `${s.share}% ${s.who}`)))),
+      el('dt', {}, 'Royalties'), el('dd', {}, `${p.royalties}% of resales`, el('ul', {}, p.royalties_split.map(s => el('li', {}, `${s.share}% ${s.who}`)))),
+      el('dt', {}, 'Code'), el('dd', {}, p.generator ? el('a', { href: p.folder ? 'https://github.com/JosiahAlanLee/Generative_Art/tree/main/' + p.generator : p.generator }, p.generator) : 'not archived yet', p.generator_cid ? el('div', {}, 'ipfs://' + p.generator_cid) : null),
+      el('dt', {}, 'Metadata'), el('dd', {}, 'ipfs://' + p.metadata_cid))
+
+    app.replaceChildren(
+      el('nav', { class: 'back' }, el('a', { href: '#/' }, 'All projects')),
+      el('article', { class: 'project' },
+        el('h1', {}, p.title),
+        el('p', { class: 'sub' }, longDate(p.minted)),
+        el('div', { class: 'stage' }, frame, controls),
+        el('div', { class: 'prose' }, paragraphs(p.description)),
+        facts))
+  }
+
+  async function route () {
+    try {
+      await loadCatalog()
+      const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean)
+      if (!parts.length) return renderIndex()
+      const [id, a, b] = parts
+      if (a === 'hash' && b && validHash(b)) return renderProject(id, { hash: b })
+      if (a && /^\d+$/.test(a)) return renderProject(id, { n: parseInt(a, 10) })
+      return renderProject(id, null)
+    } catch (e) {
+      app.replaceChildren(el('p', { class: 'error' }, e.message))
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('input, textarea')) return
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return
+    const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean)
+    if (parts.length < 1) return
+    const its = iterationCache.get(Number(parts[0])) || iterationCache.get(parts[0])
+    if (!its || !its.length) return
+    const n = parts[1] && /^\d+$/.test(parts[1]) ? parseInt(parts[1], 10) : its[0].iteration
+    const i = its.findIndex(x => x.iteration === n)
+    const j = e.key === 'ArrowLeft' ? i - 1 : i + 1
+    if (i >= 0 && j >= 0 && j < its.length) location.hash = `#/${parts[0]}/${its[j].iteration}`
+  })
+  window.addEventListener('hashchange', route)
+  route()
+})()
+</script>
+</body>
+</html>

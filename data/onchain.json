@@ -1,0 +1,1508 @@
+{
+ "author": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+ "source": "https://api.tzkt.io/v1",
+ "issuers": {
+  "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS": "fxhash issuer, beta (Nov 2021 to Jan 2022)",
+  "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr": "fxhash issuer, v1 (to Apr 2022)",
+  "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv": "fxhash issuer, v2 (from Apr 2022; every earlier project was migrated here under the same id)"
+ },
+ "gentk": {
+  "KT1KEa8z6vWXDJrVqtMrAeDVzsvxat3kHaCE": "fxhash gentk v1",
+  "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi": "fxhash gentk v2"
+ },
+ "projects": [
+  {
+   "id": 259,
+   "metadata_uri": "ipfs://QmWrdZXPLmQPqB4DtrSShTBfQ2bUfGorVTPJshhB3xCyLq",
+   "mint": {
+    "op": "op8vsQXsJaavU8TMmQUakM1KaEQNKxjo9E2eZpuCfMzdHgxRtt8",
+    "time": "2021-11-17T10:41:02Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 400,
+    "royalties_permille": 170,
+    "enabled": true,
+    "price_mutez": 1000000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 15,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 170,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "polygon chaos",
+   "description_from_gentk": "The three primary colors have an equal possibility of appearing, and anywhere the layers of color repeat for too long fades into the black. This piece is about the push and pull between the total absence of color and its over-abundance.\n\nThis is my genesis piece with fxhash and my third generative piece minted to date.",
+   "tags_from_gentk": [
+    "abstract",
+    "color",
+    "RGB",
+    "chaos",
+    "repeating",
+    "pattern"
+   ],
+   "iterations_minted": 15,
+   "generator_cids_in_artifacts": []
+  },
+  {
+   "id": 2802,
+   "metadata_uri": "ipfs://QmcYbu7ZJNfkd2ijHhPCxCLZ3sd2uD1qFfstZzw2zDfnDc",
+   "mint": {
+    "op": "onvaXn33sjUwcexEcnx83rSubY8oZgLaSrw7y72GeKZrjnUr4k8",
+    "time": "2021-12-08T21:46:50Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 50,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": 750000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 50,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "banner_day",
+   "description_from_gentk": "This token is based on the code of @Xeronimo but has taken it significantly away from the original sketch (forma). I received his blessing to mint this, the other two major code contributors are @SableRaf for the HeN template and the inventor of the main library used in this piece.\n\n",
+   "tags_from_gentk": [
+    "abstract",
+    "pattern",
+    "p5js",
+    "blendMode"
+   ],
+   "iterations_minted": 50,
+   "generator_cids_in_artifacts": []
+  },
+  {
+   "id": 3034,
+   "metadata_uri": "ipfs://QmQJzC27YNB4ut7Fefy5ZxCWVuQFkZ8DDYiF5F7YNheoD3",
+   "mint": {
+    "op": "oneygB5t2soSm6CMAeDZQda1fj8ZyisR5E34x3vDi7DwcaFxs78",
+    "time": "2021-12-11T14:39:06Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 100,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": 1000000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 100,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "banner_day2",
+   "description_from_gentk": "This is my second iteration on the concept in \"banner_day\", which was originally a remix of Jerome Herrc @jeromeherrcc [forma], and was given his blessing as forked  off concept to mint.\n\nThis also contains code from @SableRaph's Hic Et Nunc generative art template and the code of the inventor of the p5.pattern.js library: Sayama. If you're curious his documentation can be found on his github or an example sketch at his openprocessing page.\n\nhttps://openprocessing.org/sketch/1278485",
+   "tags_from_gentk": [
+    "abstract",
+    "print",
+    "pattern",
+    "artifact",
+    "relaxing"
+   ],
+   "iterations_minted": 100,
+   "generator_cids_in_artifacts": [
+    "QmTB5pCAFy98eRJBbVRLzbkNsHqBsB1imVwMrYVgBiaMGY"
+   ]
+  },
+  {
+   "id": 3733,
+   "metadata_uri": "ipfs://QmaS2Sw9pvRvXwo5KZ5HXHVyFswnrs387ofF4zn4vqp5wB",
+   "mint": {
+    "op": "oorJaphNrQQCPb8qFmkC7TENvB2zcuJUsToJgBU44E4KUrr1nGj",
+    "time": "2021-12-17T18:36:36Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 50,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": 1000000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 25,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "polygon_chaos2 (strobe warning)",
+   "description_from_gentk": "This is my successor mint to my debut piece on fxhash. \n\nI coded this in Hydra and would recommend the documentation on the github for further study.\n\nhttps://github.com/ojack/hydra",
+   "tags_from_gentk": [
+    "abstract",
+    "pulse",
+    "jewel"
+   ],
+   "iterations_minted": 25,
+   "generator_cids_in_artifacts": [
+    "QmeFp4AvZaEUorDBPDCT8V7a3MaSi2ZJxjEkfVkNJqUB6F"
+   ]
+  },
+  {
+   "id": 3795,
+   "metadata_uri": "ipfs://QmbNrqCLGz4nw8Vagn2JABG7DN4VWthjRHK9k9ybVLZLGn",
+   "mint": {
+    "op": "onmQhSSVRqCKRBgNURPJBcB4PKXRS6DhbAHrRsCWru34btcRAmi",
+    "time": "2021-12-18T11:57:46Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 100,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": 1000000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 13,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "polygon_chaos3",
+   "description_from_gentk": "This mint builds upon my previous version and keeps the jewel like tones while cutting back slightly on the \"rave DJ for 15 years\" part of my aesthetic life. This is coded in Hydra and consists of two layers, a layer of rapidly oscillating multi colored polygons that are changing shape based on semideterministic chaos provided by the hash, and a layer of mirrored Voronoi noise that is being used as a filter to reduce some of the harsher flickering from the raw \"oscillators\".\n\nI hope you enjoy it! \n\nI would recommend viewing full screen on a large display, but there are nice surprises to be found on mobile displays as well. You can save screenshots by hitting the \"s\" button on your keyboard. ",
+   "tags_from_gentk": [
+    "polygon",
+    "chaos",
+    "Echevarian"
+   ],
+   "iterations_minted": 13,
+   "generator_cids_in_artifacts": []
+  },
+  {
+   "id": 4364,
+   "metadata_uri": "ipfs://QmeHhNKM3ZHtBtR5mKWVS6N2LDLq4gAmgCaBSF232Uofud",
+   "mint": {
+    "op": "op1mDTdNtwC4QgNtJnq5zF8Hhv3CSByDJ5q1Q7DkesuAbuCAb2k",
+    "time": "2021-12-22T03:35:16Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 150,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": 750000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 19,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "difference_engine",
+   "description_from_gentk": "This is a product of a lot of time learning the Hydra video synthesizer, and a need for a lot of interesting patterns for the \"banner_day3\" piece that is in active development. It also owes it's existence to just a huge amount of frustration with that project and I can't tell you how nice it is to have something complicated work the way it's intended. \n\nThis is entirely based on the difference in hues between each successive layer.\n\nSome will appear almost completely static, some will oscillate..\n\n",
+   "tags_from_gentk": [
+    "hydra",
+    "rage",
+    "live coding",
+    "frustration",
+    "difference"
+   ],
+   "iterations_minted": 19,
+   "generator_cids_in_artifacts": [
+    "QmRsD8upCtXCwFdUr2aVu5PDtia2CX4r1h9uqSPtes7ae9"
+   ]
+  },
+  {
+   "id": 4573,
+   "metadata_uri": "ipfs://QmUok66invoYyfYaDmwiKbLVe1o3HxVwHAFGXqmm4MoWQU",
+   "mint": {
+    "op": "oniyb2coht34GKQyYdFDhkc6TaPjngaGDyJpzGn1s3zPiUwhnyY",
+    "time": "2021-12-23T06:58:20Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 100,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": 1000000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 11,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "difference_engine2 (strobe warning)",
+   "description_from_gentk": "This is building on top of my previous minted piece, this time with a significant amount more feedback and a CMYK palette that is intended to hark back to the printing methods used in cheap comic books in the 1960s and 70s. \n\nThere are multiple layers, but the base layer is a writhing mass of oscillating feedback that depending on the mint will pulse or flicker or depending on the hash of your transaction.\n\nThis is again coded in Hydra, but I feel like I'm getting closer to the fine detail that my p5js sketches allowed without the huge processing cost and inability to animate them.\n\nPress \"s\" to download a PNG snapshot.\n\nEnjoy.",
+   "tags_from_gentk": [
+    "hydra",
+    "CYMK",
+    "print",
+    "noise",
+    "pulse",
+    "feedback"
+   ],
+   "iterations_minted": 11,
+   "generator_cids_in_artifacts": [
+    "Qme6mnXq3dKtmxW5xQg5rxpALh4ALd7djRgKMJaCpZC3fa"
+   ]
+  },
+  {
+   "id": 4841,
+   "metadata_uri": "ipfs://QmYCDJoazrUKzwd2hmEJw8qVhxm3SvSxhhQ3yfiwohcana",
+   "mint": {
+    "op": "onujpECgATLmWkSQ2GSuj6PVDUJ7xJ6wSaMGZDgk1LG9Hdo1ZQY",
+    "time": "2021-12-26T22:08:20Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 100,
+    "royalties_permille": 100,
+    "enabled": false,
+    "price_mutez": 1000000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 100,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 100,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "banner_day3",
+   "description_from_gentk": "This piece became something of an albatross for me, I believe this is something like the fourth version in the last couple of weeks with a different code base. \n\nThis is made in p5js using the pattern library and as with the other versions was partially based on a template created by SableRaph and piece by Jerome Herr. This will also be the final iteration in the series, thank you so much for your support of the artwork!",
+   "tags_from_gentk": [
+    "p5js",
+    "pattern",
+    "textile",
+    "flag"
+   ],
+   "iterations_minted": 100,
+   "generator_cids_in_artifacts": [
+    "Qmau97mUgvsDL2jRpiVKcPmjDWeTM7nkkVRTFnrkEWJpkP"
+   ]
+  },
+  {
+   "id": 5081,
+   "metadata_uri": "ipfs://QmVxi21JFcfqLd4TxgHMWWirhquj8egipP4BUPYCaPCGu6",
+   "mint": {
+    "op": "oodTzvC9cyndridS32FJb5D71i664aPmb154WKYySW4Wfq3PqDK",
+    "time": "2021-12-27T22:03:00Z",
+    "contract": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+    "supply": 50,
+    "royalties_permille": 100,
+    "enabled": false,
+    "price_mutez": 750000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 50,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 100,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "difference_engine3",
+   "description_from_gentk": "This is wrapping up this three part series, and all three sequences of generative pieces that I've created in 2021. As with the previous entries, this was created in Hydra, and was developed along side my \"banner_day3\" piece as a source of potential patterns in an older version.",
+   "tags_from_gentk": [
+    "hydra",
+    "abstract",
+    "starburst"
+   ],
+   "iterations_minted": 50,
+   "generator_cids_in_artifacts": [
+    "QmQmuCHG2AxMcext5uLcTmBq43WMsuBeE41vUbz81cYR6b"
+   ]
+  },
+  {
+   "id": 5527,
+   "metadata_uri": "ipfs://QmSRmMNJqKmavdCrQ46Dcz9hiBbsbtHfRGDfuA5tm3JTLp",
+   "mint": {
+    "op": "onx9QE4pKKB126ZxKHTKRUyz67fPao1Cbw2Kc1j5BHigpKPXaM4",
+    "time": "2022-01-05T12:17:10Z",
+    "contract": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+    "supply": 150,
+    "royalties_permille": 100,
+    "enabled": true,
+    "price_mutez": 1500000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 25,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 100,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "quilt_trail",
+   "description_from_gentk": "I grew up in the farm country of southern Wisconsin and over the last 20 years there has been a tradition of placing quilt pattern squares on the side of barns, these bright geometric patterns are intended to lead you from landmark to landmark, farm to farm. \n\nThis is an homage to this folk art tradition.",
+   "tags_from_gentk": [
+    "hydra",
+    "quilt",
+    "textile"
+   ],
+   "iterations_minted": 25,
+   "generator_cids_in_artifacts": [
+    "QmYjYiP2u4gX1HFeftg1zcrhqekW8n2fucpd6o9ms9SVDi"
+   ]
+  },
+  {
+   "id": 6011,
+   "metadata_uri": "ipfs://QmT9TJvKciamUz6VaD1xakeJedsJoUritLhQRnLmTBhcnp",
+   "mint": {
+    "op": "onxJYPK43Ls4y7LTSvAK2bVZAeNPGRHFeoogtokrBXrxfbNXivr",
+    "time": "2022-01-07T10:11:50Z",
+    "contract": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+    "supply": 128,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": 1000000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 11,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "lensing",
+   "description_from_gentk": "This is a direct descendant of my previous piece \"quilt_trail\" and is something of an experiment in using negative space and distortion to minimize visual clutter on a complicated sketch. \n\nThere are 3 layers of color interacting here beneath the top layer of cutouts, the multicolored blobs, I almost called this piece 'gummi_worms\" instead of \"lensing\". There are also a wide variety of color palettes from full RGB down to just black and white.\n\nThe monochrome versions should be extremely rare, I hope everyone enjoys this!",
+   "tags_from_gentk": [
+    "color",
+    "trippy",
+    "surreal",
+    "movement",
+    "animated"
+   ],
+   "iterations_minted": 11,
+   "generator_cids_in_artifacts": [
+    "QmZ3JZYo5DkTBqVwjQB32tx6bsmqJGsva1iniQ41CbDws5"
+   ]
+  },
+  {
+   "id": 6360,
+   "metadata_uri": "ipfs://Qmba72s1u3do9UhSuY6hspbUbqV4knpPFMxzmUH5Y8yeMG",
+   "mint": {
+    "op": "ooEsKrpRksJpqX2EhgCX9wMFZn3DeFnF36nG1vGoBrRh1FPxeqe",
+    "time": "2022-01-09T15:01:30Z",
+    "contract": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+    "supply": 128,
+    "royalties_permille": 100,
+    "enabled": true,
+    "price_mutez": 1280000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 13,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 100,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "singularity_quilt",
+   "description_from_gentk": "I had one of those moments where I woke up in the middle of the night and realized that I had forgotten something in my code, this will be the final of the three pieces created with this algorithm.\n\nThis will also likely be my last abstract piece on fxhash for some time as I've been getting interested in doing something with the other 3/4 of my artistic talents on here.",
+   "tags_from_gentk": [],
+   "iterations_minted": 13,
+   "generator_cids_in_artifacts": [
+    "QmbrApqRPjarr48ynru71s9aJ2NAjDWHDsz1Bd7WBkZoBh"
+   ]
+  },
+  {
+   "id": 8167,
+   "metadata_uri": "ipfs://QmT2fpfn51TGDehH3mG7sHUBTmG1XhnABP3SWmfKfUiCU8",
+   "mint": {
+    "op": "onrTgZXRxRjSx5jD2UyeExgwLdbEseB3Hea5Behdd1eve94qBgU",
+    "time": "2022-01-28T18:01:38Z",
+    "contract": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+    "supply": 50,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": 500000
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 15,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "lensing2",
+   "description_from_gentk": "One final tweak on the system that I created in the quilt series and in \"lensing\".\n\nThis is all about warp and weft, but mostly just warp.",
+   "tags_from_gentk": [
+    "hydra",
+    "blocks"
+   ],
+   "iterations_minted": 15,
+   "generator_cids_in_artifacts": [
+    "QmRazXX1VbSeHCZuCP41cYuXbFU3SF1SQcFhFLfjZJEiDP"
+   ]
+  },
+  {
+   "id": 8599,
+   "metadata_uri": "ipfs://Qmak6X36ULbSiRh1rn1U7KqAjep2JXEa5CUYQPyEA5vP4Q",
+   "mint": {
+    "op": "opYZcdyVWytDshZcehnChHTQDxCyheCjSSaHDv6M9jnb2KYoTK2",
+    "time": "2022-02-04T03:05:46Z",
+    "contract": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+    "supply": 250,
+    "royalties_permille": 250,
+    "enabled": false,
+    "price_mutez": 0
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 250,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 250,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "rosette",
+   "description_from_gentk": "I have been tinkering with this piece of code and swearing that I'm done with it for over a month.\n\nI hope you enjoy your rosette(s). ",
+   "tags_from_gentk": [
+    "hydra",
+    "abstract",
+    "surreal",
+    "trippy"
+   ],
+   "iterations_minted": 250,
+   "generator_cids_in_artifacts": [
+    "Qmacjfzcfm8RkpACe1cWPUpmZyGxSGBLNmMN9vYqgsasAx"
+   ]
+  },
+  {
+   "id": 8780,
+   "metadata_uri": "ipfs://QmVwMnYK26eAqsPeJnRQzKVEZgaQLRkbMAkeveMgVcNe6f",
+   "mint": {
+    "op": "onhhaTbwuT1zHD275GEjn6anWAmt4sBFHuk9iGnDuaCeo13C8nF",
+    "time": "2022-02-07T03:00:24Z",
+    "contract": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+    "supply": 30,
+    "royalties_permille": 250,
+    "enabled": false,
+    "price_mutez": 0
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 30,
+    "balance": 0,
+    "enabled": false,
+    "royalties_permille": 250,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "maelstrom",
+   "description_from_gentk": "Firstly, this piece is very heavily based on @thingticket's piece \"Game Over\" which very ingenuously used both p5js and Hydra to create a game over screen. I was attempting to create a generic template for using both libraries and got sidetracked by watching the swirling patterns here.\n\nThis also uses a library called GPU.js which forces machines with a dedicated GPU to render p5js with the GPU instead of the CPU, in theory an efficiency step that could expand the potential of the already vast p5js codebase if used in interesting ways.\n\nI suppose this makes this a tech demo, but on the other hand I really enjoy the textures.",
+   "tags_from_gentk": [
+    "hydra",
+    "p5js",
+    "gpu.js",
+    "chroma.js",
+    "abstract",
+    "psychedelic"
+   ],
+   "iterations_minted": 30,
+   "generator_cids_in_artifacts": [
+    "QmPVr6wZpNHGbweodMyS6w6q57sCZBDtibVqeSh9EqQ9wC"
+   ]
+  },
+  {
+   "id": 11099,
+   "metadata_uri": "ipfs://QmQaMWqtez143GTzJEMhMb2ZirX7Xn6qSoAZ7VwHde8XzB",
+   "mint": {
+    "op": "ooKUcsxczjr1RXmDxB3y8CvwAXA1a2EVo7e6shhfdttZTy6jFG9",
+    "time": "2022-04-16T13:56:44Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 75,
+    "royalties_permille": 250,
+    "enabled": false,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 75,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 250,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "maelstrom2",
+   "description_from_gentk": "This is a riff on an experiment I worked with during the beta, this was originally based on a piece by @thingticket but has since changed substantially. Your results will be chaotic, some pieces geometric patterns and some swirling noise, some both. ",
+   "tags_from_gentk": [
+    "hydra"
+   ],
+   "iterations_minted": 75,
+   "generator_cids_in_artifacts": [
+    "QmUfNK4YC8zBeGfnLAMXFnBmJx85fotDBL4iZXquXhfDdr"
+   ]
+  },
+  {
+   "id": 12153,
+   "metadata_uri": "ipfs://QmWtgWYaXsgAehiEgJz21AjvLnWMadJ4M16tZgXnZZYsTD",
+   "mint": {
+    "op": "oowGYfN8Cgrd8XpiJXbcdePVYAvmNiQKmAYhnvk7EJd9VgUHP7w",
+    "time": "2022-04-29T04:20:29Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 50,
+    "royalties_permille": 200,
+    "enabled": false,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 20,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 200,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 200
+     }
+    ]
+   },
+   "title_from_gentk": "cathode_cosmos",
+   "description_from_gentk": "This is a small study in Hydra of various feedback techniques. The goal was to emulate damaged LCD screens, the texture of cathode displays, and the night sky. Everything in this piece is made up of video feedback and a couple of very simple polygons, it is quite chaotic.",
+   "tags_from_gentk": [
+    "hydra",
+    "feedback",
+    "abstract",
+    "sci-fi",
+    "stars"
+   ],
+   "iterations_minted": 20,
+   "generator_cids_in_artifacts": [
+    "QmNaM9MpAQzUj5cyiDXTRjvjmPj5MSV9jDzBSGjn9oHUB9"
+   ]
+  },
+  {
+   "id": 12259,
+   "metadata_uri": "ipfs://QmXPeSdQ5qbUZGr9uukndQ9FKXMAhztrupRBWXKmhEJX3T",
+   "mint": {
+    "op": "onrLDH9fWbf58NxkJWVNhpRNWNycbhWwWbWsQrtx47L8zv1EZTj",
+    "time": "2022-05-02T00:16:59Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 100,
+    "royalties_permille": 200,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 20,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 200,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 700
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 150
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 150
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 900
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 100
+     }
+    ]
+   },
+   "title_from_gentk": "maelstrom3",
+   "description_from_gentk": "This was a bit of technical challenge for me as it's the first piece I've done that heavily integrates both the p5js and hydra libraries. I've created a couple pieces with a bit of either code as an addition but this one required the structure of hydra to display the p5js piece, essentially.\n\nA portion of the price of this piece will go to both the Processing foundation and Hydra's inventor, as well a 10% share of any resale profits for the initial minter.\n\nThis piece rewards about 5 minutes attention as it won't be in a \"mature\" state until the canvas is mostly covered with rectangles. The illusion of depth was made possible by some assistance from the chroma.js library, which really is something of a magic bullet when you begin to fully use it.\n\nCome with me, into a vortex of swirling dollar signs, hurtling forward with no safety net.",
+   "tags_from_gentk": [
+    "hydra",
+    "p5js",
+    "gpu.js",
+    "chroma.js",
+    "abstract",
+    "psychedelic"
+   ],
+   "iterations_minted": 20,
+   "generator_cids_in_artifacts": [
+    "QmWCAicBjAqFKL3EwWUNS5ku7YTxEbNhEZrTTA3GZK5rYx"
+   ]
+  },
+  {
+   "id": 13182,
+   "metadata_uri": "ipfs://QmQcT7Jf2oZ1Vq3xA1VKgC6HEcKdCpBBLdvAweibZdxeL3",
+   "mint": {
+    "op": "ooECnm72rcQM6WHEh8x9qqKkstdvbJ41LDCr8QXfJFGKMMAf2xs",
+    "time": "2022-05-21T04:00:59Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 150,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 15,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 100
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 700
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 100
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 100
+     }
+    ]
+   },
+   "title_from_gentk": "warp (maelstrom4)",
+   "description_from_gentk": "This was another in the series of experiments with using characters (in this case dollar, pound, and yuan symbols) as a way of creating repeating textures in an animated piece. I will donate a portion of all sales to the Processing Foundation and to Hydra's inventor. Another portion of any resale will be shared with the first minter. ",
+   "tags_from_gentk": [
+    "trippy",
+    "p5js",
+    "hydra",
+    "animated"
+   ],
+   "iterations_minted": 15,
+   "generator_cids_in_artifacts": [
+    "QmRmcjbCM9SX2pVWNdX3bL56SbVJK7nDd9QzkqCHvPB2XM"
+   ]
+  },
+  {
+   "id": 13212,
+   "metadata_uri": "ipfs://QmWVuGGp5wwoN4MGBh8AxTUPgyeDZNJC1Fn2NU5es5vT3f",
+   "mint": {
+    "op": "oongQgD9CCVJohQfpBeu9CzBpGENAs3vkZXabEfmxE5GSna4uEj",
+    "time": "2022-05-21T05:02:59Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 250,
+    "royalties_permille": 200,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 55,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 200,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 900
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 100
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 900
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 100
+     }
+    ]
+   },
+   "title_from_gentk": "weft (banner_day4)",
+   "description_from_gentk": "There is a banner day for the 1.0 version of the hash. \n\n",
+   "tags_from_gentk": [
+    "p5js",
+    "pattern",
+    "textile",
+    "flag"
+   ],
+   "iterations_minted": 55,
+   "generator_cids_in_artifacts": [
+    "QmRSgw7ZGu78yRMqhYtAcWPKTcpoGoLBjdoT5K3LbtqS1t"
+   ]
+  },
+  {
+   "id": 13564,
+   "metadata_uri": "ipfs://QmXVQNrgAL8fgZvd7PyLiPMBJhWhhGkyZkd4hP5TgPQQkH",
+   "mint": {
+    "op": "ooeFLZ82nmhpaF34WNnmv71T21e8FANscLnr2Xt2fuXbW1NcwRM",
+    "time": "2022-05-25T03:25:44Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 150,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 50,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 100
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 250
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 250
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 250
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 250
+     }
+    ]
+   },
+   "title_from_gentk": "warp&weft2",
+   "description_from_gentk": "This is a tentative step in a synthesis of my previous two major projects. \n\n",
+   "tags_from_gentk": [
+    "p5js",
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "iterations_minted": 50,
+   "generator_cids_in_artifacts": [
+    "QmTnmWm6qYDToVqoew9Vt5wef7MDDhLAtx6yt68FM28HLf"
+   ]
+  },
+  {
+   "id": 13757,
+   "metadata_uri": "ipfs://QmYgU8aYpsfFPcZZuxvnxTDNJzxNKyoXFGfip6ds7dYvBv",
+   "mint": {
+    "op": "ooCuBoRc9pfdGb113gKQ3MvATqnJVaw4q6JWTm5rk1rWQ4xdLmj",
+    "time": "2022-05-28T17:24:14Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 150,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 92,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "warp&weft3",
+   "description_from_gentk": "I tend to work on long term projects through publishing iterations whenever they're starting to look unique or interesting. My hope for this project is more interactivity and a generative soundtrack, perhaps in version 4. This will shift subtly with mouse movement and you can press the \"s\" in live mode to download a screenshot at your current resolution. \n\nMy inspirations here are papyrus, ink paintings, glitch textures, and pixel art.\n\nCreated using the p5js, hydra, and chroma.js libraries. ",
+   "tags_from_gentk": [
+    "p5js",
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "iterations_minted": 92,
+   "generator_cids_in_artifacts": [
+    "QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT"
+   ]
+  },
+  {
+   "id": 13776,
+   "metadata_uri": "ipfs://QmV2NaLc9zyr5hytASTDkNVWVc4awsbsZ6ygrSUwBXH3ma",
+   "mint": {
+    "op": "onvPTnACec4UJZhMQpja8XwQcPbxAy1Ji7xM3eKi8oV6yb8fceb",
+    "time": "2022-05-29T10:01:59Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 200,
+    "royalties_permille": 250,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 150,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 250,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "title_from_gentk": "generator6",
+   "description_from_gentk": "To eliminate any confusion, this is essentially identical to my previous mint except for one small change to the color and this kaleidoscope effect. This piece is celebrating 1000 followers on Twitter, as well as the new people who have recently picked up my work here.\n\nThe previous iteration in the \"generator\" series can be found here:\n\nhttps://objkt.com/asset/hicetnunc/366931\n\nThis was previously a series I mostly used for giveaways or fun experimentation.\n\nI have spent a significant amount of time at raves in fields, just putting that out there.",
+   "tags_from_gentk": [
+    "p5js",
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "iterations_minted": 150,
+   "generator_cids_in_artifacts": [
+    "QmSNa2fAqfahYHzmFZmgHFNJLU5cnfqzwMHVNeU1GU7LBQ"
+   ]
+  },
+  {
+   "id": 14649,
+   "metadata_uri": "ipfs://QmVM8i1mcJBibAHhDsFwSfym2tA1BnnbvPpgrd5eDV6SFw",
+   "mint": {
+    "op": "opL6aJkWWW4nByJVtMdrPEr39zcffofbXVCMYAsMZkNgDneQScS",
+    "time": "2022-06-11T10:33:14Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 64,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 41,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 900
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 100
+     }
+    ]
+   },
+   "title_from_gentk": "test_pattern",
+   "description_from_gentk": "Is this thing on?",
+   "tags_from_gentk": [
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "iterations_minted": 41,
+   "generator_cids_in_artifacts": [
+    "QmUY6oPLETsKww6mavbB3SsAckZKmLwQ1bnVGWgyxHF6oU"
+   ]
+  },
+  {
+   "id": 14695,
+   "metadata_uri": "ipfs://QmRjoPhpJusYnazPBchmdfo95SBkBGj27iyCxbU6nrgN2K",
+   "mint": {
+    "op": "op57RK69njDoLSYpyMiY9BBJ7ioatfuZzB5eKMRF2GMkbS5MTL1",
+    "time": "2022-06-12T05:25:29Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 128,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 25,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 100
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 700
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 100
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 100
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     }
+    ]
+   },
+   "title_from_gentk": "generator7",
+   "description_from_gentk": "I rebuilt the code that resulted in \"generator6\" and here we are. ",
+   "tags_from_gentk": [
+    "hydra",
+    "p5js",
+    "gpu.js",
+    "chroma.js",
+    "abstract",
+    "psychedelic"
+   ],
+   "iterations_minted": 25,
+   "generator_cids_in_artifacts": [
+    "QmdbzvqH7RTcQJ6CWF2Ba9CG9zE4xSLgYFzEzdmaxgS5BB"
+   ]
+  },
+  {
+   "id": 19333,
+   "metadata_uri": "ipfs://QmfWsbMTmY2RTzvRFPeUXBD55RCGQ1AdYn65ighxXHTNhW",
+   "mint": {
+    "op": "opEe3p7SbLHQbNrG1SfUXpYx6fzhatahyukaGZVZy28KJY6S8TD",
+    "time": "2022-09-13T18:49:29Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 64,
+    "royalties_permille": 150,
+    "enabled": false,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 15,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+      "alias": "aebrer - Andrew B",
+      "permille": 100
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+      "alias": "aebrer - Andrew B",
+      "permille": 100
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     }
+    ]
+   },
+   "title_from_gentk": "test_pattern2",
+   "description_from_gentk": "This piece was an attempt to integrate my hydra sketch \"test_pattern\" with @aebrer's \"entropy locking\" algorithm for manipulation of the fxrand() hash. We've both looked at the code and it doesn't appear to be changing anything at the moment, but it could simply be very subtle..\n\nI'm leaving the algorithm in place and assigning him 10% of the profits from sales, at the very least it's a sort of good luck charm. \n\nIn otherways the algorithm for this piece has been updated significantly, the movement of the color evolves over very long periods so I'd advise leaving it on in the background to enjoy fully. ",
+   "tags_from_gentk": [
+    "hydra"
+   ],
+   "iterations_minted": 15,
+   "generator_cids_in_artifacts": [
+    "QmdNwxCzgwojJnWFEJzjxxpiX8zugk9ZNs2bRJCziaTvVa"
+   ]
+  },
+  {
+   "id": 19732,
+   "metadata_uri": "ipfs://Qmb3jw1Rpfk71sTXZy2yP7QpbVvRJgNfpBtcL7nEDR6Wjy",
+   "mint": {
+    "op": "opS2jgWmtk1GnLk4KmDeHAJMgEuJtpVG3F3Gx5pH1YSatBzVPF7",
+    "time": "2022-09-23T02:55:29Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 64,
+    "royalties_permille": 100,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 64,
+    "balance": 64,
+    "enabled": true,
+    "royalties_permille": 100,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 1000
+     }
+    ]
+   },
+   "iterations_minted": 0,
+   "generator_cids_in_artifacts": []
+  },
+  {
+   "id": 19744,
+   "metadata_uri": "ipfs://QmVRpphbmDRyTBkGGp5QAFijTN1xmV6iHdgav5F1Ujgpd1",
+   "mint": {
+    "op": "opa5FTwZegYMmZw87TuT1xXLED5jcBjF4y2KjbbMxZcQtK7F3ks",
+    "time": "2022-09-23T19:02:14Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 128,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 24,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 800
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 100
+     },
+     {
+      "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+      "alias": "aebrer - Andrew B",
+      "permille": 100
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 250
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 250
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 250
+     },
+     {
+      "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+      "alias": "aebrer - Andrew B",
+      "permille": 250
+     }
+    ]
+   },
+   "title_from_gentk": "test_pattern3 (game of life)",
+   "description_from_gentk": "This is an experiment with combining the Hydra video synthesizer with John Conway's Game of Life and Aebrer's Entropy Locking algorithm. It is intended to be truly long form, the ideal display method would be a very high resolution screen running for a very long period.\n\nThe polygonal wipe movement, the color shifting, and the general theme of the piece are intended to reward patience. That may be a hard sell, but it's something I love about generative art.\n\nOther influence's are Nicthib's early work during the beta such as 56 Modes, and Memo Akten's PixlFlippr work. I am sharing a percentage of all profits with Aebrer as the inventor of the entropy locking algorithm, and a share with Ojack, the inventor of hydra.\n\nRoyalties are split equally between the initial minter, myself, aebrer, and Hydra.",
+   "tags_from_gentk": [
+    "hydra",
+    "entropy",
+    "locking"
+   ],
+   "iterations_minted": 24,
+   "generator_cids_in_artifacts": [
+    "QmYbQa6GFEJYqntpoARBSEsAQFvefY9BY3N3wpNpQhF5us"
+   ]
+  },
+  {
+   "id": 21358,
+   "metadata_uri": "ipfs://QmcMxnpzt32avqeHpQG5HQ5uxoZANedEHvuFXg9wPicF6E",
+   "mint": {
+    "op": "ooQps8EamXSi938cHb5BVH8i7sEfa4MAq6czqEWHyEf7Lict8BJ",
+    "time": "2022-11-15T01:49:14Z",
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 365,
+    "royalties_permille": 150,
+    "enabled": true,
+    "price_mutez": null
+   },
+   "ledger": {
+    "contract": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+    "supply": 50,
+    "balance": 0,
+    "enabled": true,
+    "royalties_permille": 150,
+    "primary_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 500
+     },
+     {
+      "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+      "alias": null,
+      "permille": 250
+     },
+     {
+      "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+      "alias": "ProcessingOrg",
+      "permille": 250
+     }
+    ],
+    "royalties_split": [
+     {
+      "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+      "alias": "Echevarian",
+      "permille": 750
+     },
+     {
+      "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+      "alias": "FXHASH GENTK v2",
+      "permille": 250
+     }
+    ]
+   },
+   "title_from_gentk": "polygon_chaos4",
+   "description_from_gentk": "This is actually a couple days early for my personal year minting date, the first version of this series was minted on 11/17/21. It's been a weird year, I think I learned some interesting things that might have contributed to this piece. \n\nThis is multiple instances of Hydra and P5JS running on top of one another, some basic rectangular shapes, and a number of characters form the \"brushstrokes\"..\n\n50% of profits to charity, 25% of royalties to the first minter.\n\n",
+   "tags_from_gentk": [
+    "fxhashturnsone",
+    "riphen",
+    "hydra",
+    "p5js"
+   ],
+   "iterations_minted": 50,
+   "generator_cids_in_artifacts": [
+    "QmcwpiQaNFyKqdqwatsh78EPataCPF4rpVQCW7eRpqFHMj"
+   ]
+  }
+ ]
+}

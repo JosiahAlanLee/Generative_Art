@@ -1,0 +1,1395 @@
+{
+ "artist": "Echevarian",
+ "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+ "note": "Built by tools/build.py from public chain data and IPFS. See README.md.",
+ "projects": [
+  {
+   "id": 259,
+   "title": "polygon chaos",
+   "minted": "2021-11-17T10:41:02Z",
+   "mint_op": "op8vsQXsJaavU8TMmQUakM1KaEQNKxjo9E2eZpuCfMzdHgxRtt8",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 15,
+   "editions_at_mint": 400,
+   "iterations_minted": 15,
+   "royalties": 17.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "The three primary colors have an equal possibility of appearing, and anywhere the layers of color repeat for too long fades into the black. This piece is about the push and pull between the total absence of color and its over-abundance.\n\nThis is my genesis piece with fxhash and my third generative piece minted to date.",
+   "tags": [
+    "abstract",
+    "color",
+    "RGB",
+    "chaos",
+    "repeating",
+    "pattern"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": null,
+   "metadata_cid": "QmWrdZXPLmQPqB4DtrSShTBfQ2bUfGorVTPJshhB3xCyLq",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 2802,
+   "title": "banner_day",
+   "minted": "2021-12-08T21:46:50Z",
+   "mint_op": "onvaXn33sjUwcexEcnx83rSubY8oZgLaSrw7y72GeKZrjnUr4k8",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 50,
+   "editions_at_mint": 50,
+   "iterations_minted": 50,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This token is based on the code of @Xeronimo but has taken it significantly away from the original sketch (forma). I received his blessing to mint this, the other two major code contributors are @SableRaf for the HeN template and the inventor of the main library used in this piece.\n\n",
+   "tags": [
+    "abstract",
+    "pattern",
+    "p5js",
+    "blendMode"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": null,
+   "metadata_cid": "QmcYbu7ZJNfkd2ijHhPCxCLZ3sd2uD1qFfstZzw2zDfnDc",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 3034,
+   "title": "banner_day2",
+   "minted": "2021-12-11T14:39:06Z",
+   "mint_op": "oneygB5t2soSm6CMAeDZQda1fj8ZyisR5E34x3vDi7DwcaFxs78",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 100,
+   "editions_at_mint": 100,
+   "iterations_minted": 100,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This is my second iteration on the concept in \"banner_day\", which was originally a remix of Jerome Herrc @jeromeherrcc [forma], and was given his blessing as forked  off concept to mint.\n\nThis also contains code from @SableRaph's Hic Et Nunc generative art template and the code of the inventor of the p5.pattern.js library: Sayama. If you're curious his documentation can be found on his github or an example sketch at his openprocessing page.\n\nhttps://openprocessing.org/sketch/1278485",
+   "tags": [
+    "abstract",
+    "print",
+    "pattern",
+    "artifact",
+    "relaxing"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmTB5pCAFy98eRJBbVRLzbkNsHqBsB1imVwMrYVgBiaMGY",
+   "metadata_cid": "QmQJzC27YNB4ut7Fefy5ZxCWVuQFkZ8DDYiF5F7YNheoD3",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 3733,
+   "title": "polygon_chaos2 (strobe warning)",
+   "minted": "2021-12-17T18:36:36Z",
+   "mint_op": "oorJaphNrQQCPb8qFmkC7TENvB2zcuJUsToJgBU44E4KUrr1nGj",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 25,
+   "editions_at_mint": 50,
+   "iterations_minted": 25,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This is my successor mint to my debut piece on fxhash. \n\nI coded this in Hydra and would recommend the documentation on the github for further study.\n\nhttps://github.com/ojack/hydra",
+   "tags": [
+    "abstract",
+    "pulse",
+    "jewel"
+   ],
+   "strobe": true,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmeFp4AvZaEUorDBPDCT8V7a3MaSi2ZJxjEkfVkNJqUB6F",
+   "metadata_cid": "QmaS2Sw9pvRvXwo5KZ5HXHVyFswnrs387ofF4zn4vqp5wB",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 3795,
+   "title": "polygon_chaos3",
+   "minted": "2021-12-18T11:57:46Z",
+   "mint_op": "onmQhSSVRqCKRBgNURPJBcB4PKXRS6DhbAHrRsCWru34btcRAmi",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 13,
+   "editions_at_mint": 100,
+   "iterations_minted": 13,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This mint builds upon my previous version and keeps the jewel like tones while cutting back slightly on the \"rave DJ for 15 years\" part of my aesthetic life. This is coded in Hydra and consists of two layers, a layer of rapidly oscillating multi colored polygons that are changing shape based on semideterministic chaos provided by the hash, and a layer of mirrored Voronoi noise that is being used as a filter to reduce some of the harsher flickering from the raw \"oscillators\".\n\nI hope you enjoy it! \n\nI would recommend viewing full screen on a large display, but there are nice surprises to be found on mobile displays as well. You can save screenshots by hitting the \"s\" button on your keyboard. ",
+   "tags": [
+    "polygon",
+    "chaos",
+    "Echevarian"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": null,
+   "metadata_cid": "QmbNrqCLGz4nw8Vagn2JABG7DN4VWthjRHK9k9ybVLZLGn",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 4364,
+   "title": "difference_engine",
+   "minted": "2021-12-22T03:35:16Z",
+   "mint_op": "op1mDTdNtwC4QgNtJnq5zF8Hhv3CSByDJ5q1Q7DkesuAbuCAb2k",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 19,
+   "editions_at_mint": 150,
+   "iterations_minted": 19,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This is a product of a lot of time learning the Hydra video synthesizer, and a need for a lot of interesting patterns for the \"banner_day3\" piece that is in active development. It also owes it's existence to just a huge amount of frustration with that project and I can't tell you how nice it is to have something complicated work the way it's intended. \n\nThis is entirely based on the difference in hues between each successive layer.\n\nSome will appear almost completely static, some will oscillate..\n\n",
+   "tags": [
+    "hydra",
+    "rage",
+    "live coding",
+    "frustration",
+    "difference"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmRsD8upCtXCwFdUr2aVu5PDtia2CX4r1h9uqSPtes7ae9",
+   "metadata_cid": "QmeHhNKM3ZHtBtR5mKWVS6N2LDLq4gAmgCaBSF232Uofud",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 4573,
+   "title": "difference_engine2 (strobe warning)",
+   "minted": "2021-12-23T06:58:20Z",
+   "mint_op": "oniyb2coht34GKQyYdFDhkc6TaPjngaGDyJpzGn1s3zPiUwhnyY",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 11,
+   "editions_at_mint": 100,
+   "iterations_minted": 11,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This is building on top of my previous minted piece, this time with a significant amount more feedback and a CMYK palette that is intended to hark back to the printing methods used in cheap comic books in the 1960s and 70s. \n\nThere are multiple layers, but the base layer is a writhing mass of oscillating feedback that depending on the mint will pulse or flicker or depending on the hash of your transaction.\n\nThis is again coded in Hydra, but I feel like I'm getting closer to the fine detail that my p5js sketches allowed without the huge processing cost and inability to animate them.\n\nPress \"s\" to download a PNG snapshot.\n\nEnjoy.",
+   "tags": [
+    "hydra",
+    "CYMK",
+    "print",
+    "noise",
+    "pulse",
+    "feedback"
+   ],
+   "strobe": true,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "Qme6mnXq3dKtmxW5xQg5rxpALh4ALd7djRgKMJaCpZC3fa",
+   "metadata_cid": "QmUok66invoYyfYaDmwiKbLVe1o3HxVwHAFGXqmm4MoWQU",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 4841,
+   "title": "banner_day3",
+   "minted": "2021-12-26T22:08:20Z",
+   "mint_op": "onujpECgATLmWkSQ2GSuj6PVDUJ7xJ6wSaMGZDgk1LG9Hdo1ZQY",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 100,
+   "editions_at_mint": 100,
+   "iterations_minted": 100,
+   "royalties": 10.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This piece became something of an albatross for me, I believe this is something like the fourth version in the last couple of weeks with a different code base. \n\nThis is made in p5js using the pattern library and as with the other versions was partially based on a template created by SableRaph and piece by Jerome Herr. This will also be the final iteration in the series, thank you so much for your support of the artwork!",
+   "tags": [
+    "p5js",
+    "pattern",
+    "textile",
+    "flag"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "Qmau97mUgvsDL2jRpiVKcPmjDWeTM7nkkVRTFnrkEWJpkP",
+   "metadata_cid": "QmYCDJoazrUKzwd2hmEJw8qVhxm3SvSxhhQ3yfiwohcana",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 5081,
+   "title": "difference_engine3",
+   "minted": "2021-12-27T22:03:00Z",
+   "mint_op": "oodTzvC9cyndridS32FJb5D71i664aPmb154WKYySW4Wfq3PqDK",
+   "issuer": "KT1AEVuykWeuuFX7QkEAMNtffzwhe1Z98hJS",
+   "editions": 50,
+   "editions_at_mint": 50,
+   "iterations_minted": 50,
+   "royalties": 10.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This is wrapping up this three part series, and all three sequences of generative pieces that I've created in 2021. As with the previous entries, this was created in Hydra, and was developed along side my \"banner_day3\" piece as a source of potential patterns in an older version.",
+   "tags": [
+    "hydra",
+    "abstract",
+    "starburst"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmQmuCHG2AxMcext5uLcTmBq43WMsuBeE41vUbz81cYR6b",
+   "metadata_cid": "QmVxi21JFcfqLd4TxgHMWWirhquj8egipP4BUPYCaPCGu6",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 5527,
+   "title": "quilt_trail",
+   "minted": "2022-01-05T12:17:10Z",
+   "mint_op": "onx9QE4pKKB126ZxKHTKRUyz67fPao1Cbw2Kc1j5BHigpKPXaM4",
+   "issuer": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+   "editions": 25,
+   "editions_at_mint": 150,
+   "iterations_minted": 25,
+   "royalties": 10.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "I grew up in the farm country of southern Wisconsin and over the last 20 years there has been a tradition of placing quilt pattern squares on the side of barns, these bright geometric patterns are intended to lead you from landmark to landmark, farm to farm. \n\nThis is an homage to this folk art tradition.",
+   "tags": [
+    "hydra",
+    "quilt",
+    "textile"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmYjYiP2u4gX1HFeftg1zcrhqekW8n2fucpd6o9ms9SVDi",
+   "metadata_cid": "QmSRmMNJqKmavdCrQ46Dcz9hiBbsbtHfRGDfuA5tm3JTLp",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 6011,
+   "title": "lensing",
+   "minted": "2022-01-07T10:11:50Z",
+   "mint_op": "onxJYPK43Ls4y7LTSvAK2bVZAeNPGRHFeoogtokrBXrxfbNXivr",
+   "issuer": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+   "editions": 11,
+   "editions_at_mint": 128,
+   "iterations_minted": 11,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This is a direct descendant of my previous piece \"quilt_trail\" and is something of an experiment in using negative space and distortion to minimize visual clutter on a complicated sketch. \n\nThere are 3 layers of color interacting here beneath the top layer of cutouts, the multicolored blobs, I almost called this piece 'gummi_worms\" instead of \"lensing\". There are also a wide variety of color palettes from full RGB down to just black and white.\n\nThe monochrome versions should be extremely rare, I hope everyone enjoys this!",
+   "tags": [
+    "color",
+    "trippy",
+    "surreal",
+    "movement",
+    "animated"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmZ3JZYo5DkTBqVwjQB32tx6bsmqJGsva1iniQ41CbDws5",
+   "metadata_cid": "QmT9TJvKciamUz6VaD1xakeJedsJoUritLhQRnLmTBhcnp",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 6360,
+   "title": "singularity_quilt",
+   "minted": "2022-01-09T15:01:30Z",
+   "mint_op": "ooEsKrpRksJpqX2EhgCX9wMFZn3DeFnF36nG1vGoBrRh1FPxeqe",
+   "issuer": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+   "editions": 13,
+   "editions_at_mint": 128,
+   "iterations_minted": 13,
+   "royalties": 10.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "I had one of those moments where I woke up in the middle of the night and realized that I had forgotten something in my code, this will be the final of the three pieces created with this algorithm.\n\nThis will also likely be my last abstract piece on fxhash for some time as I've been getting interested in doing something with the other 3/4 of my artistic talents on here.",
+   "tags": [],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmbrApqRPjarr48ynru71s9aJ2NAjDWHDsz1Bd7WBkZoBh",
+   "metadata_cid": "Qmba72s1u3do9UhSuY6hspbUbqV4knpPFMxzmUH5Y8yeMG",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 8167,
+   "title": "lensing2",
+   "minted": "2022-01-28T18:01:38Z",
+   "mint_op": "onrTgZXRxRjSx5jD2UyeExgwLdbEseB3Hea5Behdd1eve94qBgU",
+   "issuer": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+   "editions": 15,
+   "editions_at_mint": 50,
+   "iterations_minted": 15,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "One final tweak on the system that I created in the quilt series and in \"lensing\".\n\nThis is all about warp and weft, but mostly just warp.",
+   "tags": [
+    "hydra",
+    "blocks"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmRazXX1VbSeHCZuCP41cYuXbFU3SF1SQcFhFLfjZJEiDP",
+   "metadata_cid": "QmT2fpfn51TGDehH3mG7sHUBTmG1XhnABP3SWmfKfUiCU8",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 8599,
+   "title": "rosette",
+   "minted": "2022-02-04T03:05:46Z",
+   "mint_op": "opYZcdyVWytDshZcehnChHTQDxCyheCjSSaHDv6M9jnb2KYoTK2",
+   "issuer": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+   "editions": 250,
+   "editions_at_mint": 250,
+   "iterations_minted": 250,
+   "royalties": 25.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "I have been tinkering with this piece of code and swearing that I'm done with it for over a month.\n\nI hope you enjoy your rosette(s). ",
+   "tags": [
+    "hydra",
+    "abstract",
+    "surreal",
+    "trippy"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "Qmacjfzcfm8RkpACe1cWPUpmZyGxSGBLNmMN9vYqgsasAx",
+   "metadata_cid": "Qmak6X36ULbSiRh1rn1U7KqAjep2JXEa5CUYQPyEA5vP4Q",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 8780,
+   "title": "maelstrom",
+   "minted": "2022-02-07T03:00:24Z",
+   "mint_op": "onhhaTbwuT1zHD275GEjn6anWAmt4sBFHuk9iGnDuaCeo13C8nF",
+   "issuer": "KT1XCoGnfupWk7Sp8536EfrxcP73LmT68Nyr",
+   "editions": 30,
+   "editions_at_mint": 30,
+   "iterations_minted": 30,
+   "royalties": 25.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "Firstly, this piece is very heavily based on @thingticket's piece \"Game Over\" which very ingenuously used both p5js and Hydra to create a game over screen. I was attempting to create a generic template for using both libraries and got sidetracked by watching the swirling patterns here.\n\nThis also uses a library called GPU.js which forces machines with a dedicated GPU to render p5js with the GPU instead of the CPU, in theory an efficiency step that could expand the potential of the already vast p5js codebase if used in interesting ways.\n\nI suppose this makes this a tech demo, but on the other hand I really enjoy the textures.",
+   "tags": [
+    "hydra",
+    "p5js",
+    "gpu.js",
+    "chroma.js",
+    "abstract",
+    "psychedelic"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmPVr6wZpNHGbweodMyS6w6q57sCZBDtibVqeSh9EqQ9wC",
+   "metadata_cid": "QmVwMnYK26eAqsPeJnRQzKVEZgaQLRkbMAkeveMgVcNe6f",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 11099,
+   "title": "maelstrom2",
+   "minted": "2022-04-16T13:56:44Z",
+   "mint_op": "ooKUcsxczjr1RXmDxB3y8CvwAXA1a2EVo7e6shhfdttZTy6jFG9",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 75,
+   "editions_at_mint": 75,
+   "iterations_minted": 75,
+   "royalties": 25.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "This is a riff on an experiment I worked with during the beta, this was originally based on a piece by @thingticket but has since changed substantially. Your results will be chaotic, some pieces geometric patterns and some swirling noise, some both. ",
+   "tags": [
+    "hydra"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmUfNK4YC8zBeGfnLAMXFnBmJx85fotDBL4iZXquXhfDdr",
+   "metadata_cid": "QmQaMWqtez143GTzJEMhMb2ZirX7Xn6qSoAZ7VwHde8XzB",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 12153,
+   "title": "cathode_cosmos",
+   "minted": "2022-04-29T04:20:29Z",
+   "mint_op": "oowGYfN8Cgrd8XpiJXbcdePVYAvmNiQKmAYhnvk7EJd9VgUHP7w",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 20,
+   "editions_at_mint": 50,
+   "iterations_minted": 20,
+   "royalties": 20.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 20.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    }
+   ],
+   "description": "This is a small study in Hydra of various feedback techniques. The goal was to emulate damaged LCD screens, the texture of cathode displays, and the night sky. Everything in this piece is made up of video feedback and a couple of very simple polygons, it is quite chaotic.",
+   "tags": [
+    "hydra",
+    "feedback",
+    "abstract",
+    "sci-fi",
+    "stars"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmNaM9MpAQzUj5cyiDXTRjvjmPj5MSV9jDzBSGjn9oHUB9",
+   "metadata_cid": "QmWtgWYaXsgAehiEgJz21AjvLnWMadJ4M16tZgXnZZYsTD",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 12259,
+   "title": "maelstrom3",
+   "minted": "2022-05-02T00:16:59Z",
+   "mint_op": "onrLDH9fWbf58NxkJWVNhpRNWNycbhWwWbWsQrtx47L8zv1EZTj",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 20,
+   "editions_at_mint": 100,
+   "iterations_minted": 20,
+   "royalties": 20.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 70.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 15.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 15.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 90.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 10.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    }
+   ],
+   "description": "This was a bit of technical challenge for me as it's the first piece I've done that heavily integrates both the p5js and hydra libraries. I've created a couple pieces with a bit of either code as an addition but this one required the structure of hydra to display the p5js piece, essentially.\n\nA portion of the price of this piece will go to both the Processing foundation and Hydra's inventor, as well a 10% share of any resale profits for the initial minter.\n\nThis piece rewards about 5 minutes attention as it won't be in a \"mature\" state until the canvas is mostly covered with rectangles. The illusion of depth was made possible by some assistance from the chroma.js library, which really is something of a magic bullet when you begin to fully use it.\n\nCome with me, into a vortex of swirling dollar signs, hurtling forward with no safety net.",
+   "tags": [
+    "hydra",
+    "p5js",
+    "gpu.js",
+    "chroma.js",
+    "abstract",
+    "psychedelic"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmWCAicBjAqFKL3EwWUNS5ku7YTxEbNhEZrTTA3GZK5rYx",
+   "metadata_cid": "QmXPeSdQ5qbUZGr9uukndQ9FKXMAhztrupRBWXKmhEJX3T",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 13182,
+   "title": "warp (maelstrom4)",
+   "minted": "2022-05-21T04:00:59Z",
+   "mint_op": "ooECnm72rcQM6WHEh8x9qqKkstdvbJ41LDCr8QXfJFGKMMAf2xs",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 15,
+   "editions_at_mint": 150,
+   "iterations_minted": 15,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 10.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 70.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 10.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 10.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    }
+   ],
+   "description": "This was another in the series of experiments with using characters (in this case dollar, pound, and yuan symbols) as a way of creating repeating textures in an animated piece. I will donate a portion of all sales to the Processing Foundation and to Hydra's inventor. Another portion of any resale will be shared with the first minter. ",
+   "tags": [
+    "trippy",
+    "p5js",
+    "hydra",
+    "animated"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmRmcjbCM9SX2pVWNdX3bL56SbVJK7nDd9QzkqCHvPB2XM",
+   "metadata_cid": "QmQcT7Jf2oZ1Vq3xA1VKgC6HEcKdCpBBLdvAweibZdxeL3",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 13212,
+   "title": "weft (banner_day4)",
+   "minted": "2022-05-21T05:02:59Z",
+   "mint_op": "oongQgD9CCVJohQfpBeu9CzBpGENAs3vkZXabEfmxE5GSna4uEj",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 55,
+   "editions_at_mint": 250,
+   "iterations_minted": 55,
+   "royalties": 20.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 90.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 10.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 90.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 10.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    }
+   ],
+   "description": "There is a banner day for the 1.0 version of the hash. \n\n",
+   "tags": [
+    "p5js",
+    "pattern",
+    "textile",
+    "flag"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmRSgw7ZGu78yRMqhYtAcWPKTcpoGoLBjdoT5K3LbtqS1t",
+   "metadata_cid": "QmWVuGGp5wwoN4MGBh8AxTUPgyeDZNJC1Fn2NU5es5vT3f",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 13564,
+   "title": "warp&weft2",
+   "minted": "2022-05-25T03:25:44Z",
+   "mint_op": "ooeFLZ82nmhpaF34WNnmv71T21e8FANscLnr2Xt2fuXbW1NcwRM",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 50,
+   "editions_at_mint": 150,
+   "iterations_minted": 50,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 10.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 25.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 25.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 25.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 25.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    }
+   ],
+   "description": "This is a tentative step in a synthesis of my previous two major projects. \n\n",
+   "tags": [
+    "p5js",
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmTnmWm6qYDToVqoew9Vt5wef7MDDhLAtx6yt68FM28HLf",
+   "metadata_cid": "QmXVQNrgAL8fgZvd7PyLiPMBJhWhhGkyZkd4hP5TgPQQkH",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 13757,
+   "title": "warp&weft3",
+   "minted": "2022-05-28T17:24:14Z",
+   "mint_op": "ooCuBoRc9pfdGb113gKQ3MvATqnJVaw4q6JWTm5rk1rWQ4xdLmj",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 92,
+   "editions_at_mint": 150,
+   "iterations_minted": 92,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "I tend to work on long term projects through publishing iterations whenever they're starting to look unique or interesting. My hope for this project is more interactivity and a generative soundtrack, perhaps in version 4. This will shift subtly with mouse movement and you can press the \"s\" in live mode to download a screenshot at your current resolution. \n\nMy inspirations here are papyrus, ink paintings, glitch textures, and pixel art.\n\nCreated using the p5js, hydra, and chroma.js libraries. ",
+   "tags": [
+    "p5js",
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmW2yQW21zUZymrrR4J5S7CVqAZguRa9Bf8o2EtZReMVjT",
+   "metadata_cid": "QmYgU8aYpsfFPcZZuxvnxTDNJzxNKyoXFGfip6ds7dYvBv",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 13776,
+   "title": "generator6",
+   "minted": "2022-05-29T10:01:59Z",
+   "mint_op": "onvPTnACec4UJZhMQpja8XwQcPbxAy1Ji7xM3eKi8oV6yb8fceb",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 150,
+   "editions_at_mint": 200,
+   "iterations_minted": 150,
+   "royalties": 25.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": "To eliminate any confusion, this is essentially identical to my previous mint except for one small change to the color and this kaleidoscope effect. This piece is celebrating 1000 followers on Twitter, as well as the new people who have recently picked up my work here.\n\nThe previous iteration in the \"generator\" series can be found here:\n\nhttps://objkt.com/asset/hicetnunc/366931\n\nThis was previously a series I mostly used for giveaways or fun experimentation.\n\nI have spent a significant amount of time at raves in fields, just putting that out there.",
+   "tags": [
+    "p5js",
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmSNa2fAqfahYHzmFZmgHFNJLU5cnfqzwMHVNeU1GU7LBQ",
+   "metadata_cid": "QmV2NaLc9zyr5hytASTDkNVWVc4awsbsZ6ygrSUwBXH3ma",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 14649,
+   "title": "test_pattern",
+   "minted": "2022-06-11T10:33:14Z",
+   "mint_op": "opL6aJkWWW4nByJVtMdrPEr39zcffofbXVCMYAsMZkNgDneQScS",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 41,
+   "editions_at_mint": 64,
+   "iterations_minted": 41,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 90.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 10.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    }
+   ],
+   "description": "Is this thing on?",
+   "tags": [
+    "hydra",
+    "abstract",
+    "psychedelic"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmUY6oPLETsKww6mavbB3SsAckZKmLwQ1bnVGWgyxHF6oU",
+   "metadata_cid": "QmVM8i1mcJBibAHhDsFwSfym2tA1BnnbvPpgrd5eDV6SFw",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 14695,
+   "title": "generator7",
+   "minted": "2022-06-12T05:25:29Z",
+   "mint_op": "op57RK69njDoLSYpyMiY9BBJ7ioatfuZzB5eKMRF2GMkbS5MTL1",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 25,
+   "editions_at_mint": 128,
+   "iterations_minted": 25,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 10.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 70.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 10.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 10.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    }
+   ],
+   "description": "I rebuilt the code that resulted in \"generator6\" and here we are. ",
+   "tags": [
+    "hydra",
+    "p5js",
+    "gpu.js",
+    "chroma.js",
+    "abstract",
+    "psychedelic"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmdbzvqH7RTcQJ6CWF2Ba9CG9zE4xSLgYFzEzdmaxgS5BB",
+   "metadata_cid": "QmRjoPhpJusYnazPBchmdfo95SBkBGj27iyCxbU6nrgN2K",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 19333,
+   "title": "test_pattern2",
+   "minted": "2022-09-13T18:49:29Z",
+   "mint_op": "opEe3p7SbLHQbNrG1SfUXpYx6fzhatahyukaGZVZy28KJY6S8TD",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 15,
+   "editions_at_mint": 64,
+   "iterations_minted": 15,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+     "share": 10.0,
+     "who": "aebrer (TzKT alias \"aebrer - Andrew B\")"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+     "share": 10.0,
+     "who": "aebrer (TzKT alias \"aebrer - Andrew B\")"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    }
+   ],
+   "description": "This piece was an attempt to integrate my hydra sketch \"test_pattern\" with @aebrer's \"entropy locking\" algorithm for manipulation of the fxrand() hash. We've both looked at the code and it doesn't appear to be changing anything at the moment, but it could simply be very subtle..\n\nI'm leaving the algorithm in place and assigning him 10% of the profits from sales, at the very least it's a sort of good luck charm. \n\nIn otherways the algorithm for this piece has been updated significantly, the movement of the color evolves over very long periods so I'd advise leaving it on in the background to enjoy fully. ",
+   "tags": [
+    "hydra"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmdNwxCzgwojJnWFEJzjxxpiX8zugk9ZNs2bRJCziaTvVa",
+   "metadata_cid": "QmfWsbMTmY2RTzvRFPeUXBD55RCGQ1AdYn65ighxXHTNhW",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 19732,
+   "title": "project 19732",
+   "minted": "2022-09-23T02:55:29Z",
+   "mint_op": "opS2jgWmtk1GnLk4KmDeHAJMgEuJtpVG3F3Gx5pH1YSatBzVPF7",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 64,
+   "editions_at_mint": 64,
+   "iterations_minted": 0,
+   "royalties": 10.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 100.0,
+     "who": "Echevarian (the artist)"
+    }
+   ],
+   "description": null,
+   "tags": [],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": null,
+   "metadata_cid": "Qmb3jw1Rpfk71sTXZy2yP7QpbVvRJgNfpBtcL7nEDR6Wjy",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 19744,
+   "title": "test_pattern3 (game of life)",
+   "minted": "2022-09-23T19:02:14Z",
+   "mint_op": "opa5FTwZegYMmZw87TuT1xXLED5jcBjF4y2KjbbMxZcQtK7F3ks",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 24,
+   "editions_at_mint": 128,
+   "iterations_minted": 24,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 80.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 10.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+     "share": 10.0,
+     "who": "aebrer (TzKT alias \"aebrer - Andrew B\")"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 25.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 25.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 25.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    },
+    {
+     "address": "tz1ZBMhTa7gxSpaeXoqyc6bTCrxEHfZYSpPt",
+     "share": 25.0,
+     "who": "aebrer (TzKT alias \"aebrer - Andrew B\")"
+    }
+   ],
+   "description": "This is an experiment with combining the Hydra video synthesizer with John Conway's Game of Life and Aebrer's Entropy Locking algorithm. It is intended to be truly long form, the ideal display method would be a very high resolution screen running for a very long period.\n\nThe polygonal wipe movement, the color shifting, and the general theme of the piece are intended to reward patience. That may be a hard sell, but it's something I love about generative art.\n\nOther influence's are Nicthib's early work during the beta such as 56 Modes, and Memo Akten's PixlFlippr work. I am sharing a percentage of all profits with Aebrer as the inventor of the entropy locking algorithm, and a share with Ojack, the inventor of hydra.\n\nRoyalties are split equally between the initial minter, myself, aebrer, and Hydra.",
+   "tags": [
+    "hydra",
+    "entropy",
+    "locking"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmYbQa6GFEJYqntpoARBSEsAQFvefY9BY3N3wpNpQhF5us",
+   "metadata_cid": "QmVRpphbmDRyTBkGGp5QAFijTN1xmV6iHdgav5F1Ujgpd1",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  },
+  {
+   "id": 21358,
+   "title": "polygon_chaos4",
+   "minted": "2022-11-15T01:49:14Z",
+   "mint_op": "ooQps8EamXSi938cHb5BVH8i7sEfa4MAq6czqEWHyEf7Lict8BJ",
+   "issuer": "KT1BJC12dG17CVvPKJ1VYaNnaT5mzfnUTwXv",
+   "editions": 50,
+   "editions_at_mint": 365,
+   "iterations_minted": 50,
+   "royalties": 15.0,
+   "primary_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 50.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "tz1V1WKxhK9g5UFbhRNUnQMmDnnL2vtBzoZJ",
+     "share": 25.0,
+     "who": "Hydra's inventor, as the descriptions put it (no TzKT alias)"
+    },
+    {
+     "address": "tz1aPHze1U5BEEKrGYt3dvY6aAQEeiWm8jjK",
+     "share": 25.0,
+     "who": "Processing Foundation (TzKT alias \"ProcessingOrg\")"
+    }
+   ],
+   "royalties_split": [
+    {
+     "address": "tz1LwHHzSP3oX4Lwpf2oPD52tViuxGCjCZQv",
+     "share": 75.0,
+     "who": "Echevarian (the artist)"
+    },
+    {
+     "address": "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi",
+     "share": 25.0,
+     "who": "each iteration's first minter (fxhash records this share against the gentk contract)"
+    }
+   ],
+   "description": "This is actually a couple days early for my personal year minting date, the first version of this series was minted on 11/17/21. It's been a weird year, I think I learned some interesting things that might have contributed to this piece. \n\nThis is multiple instances of Hydra and P5JS running on top of one another, some basic rectangular shapes, and a number of characters form the \"brushstrokes\"..\n\n50% of profits to charity, 25% of royalties to the first minter.\n\n",
+   "tags": [
+    "fxhashturnsone",
+    "riphen",
+    "hydra",
+    "p5js"
+   ],
+   "strobe": false,
+   "folder": null,
+   "generator": null,
+   "generator_cid": "QmcwpiQaNFyKqdqwatsh78EPataCPF4rpVQCW7eRpqFHMj",
+   "metadata_cid": "QmcMxnpzt32avqeHpQG5HQ5uxoZANedEHvuFXg9wPicF6E",
+   "reads_hash_from_url": null,
+   "iteration_folders": {},
+   "thumbnail_cid": null,
+   "display_cid": null,
+   "preview_hash": null
+  }
+ ]
+}

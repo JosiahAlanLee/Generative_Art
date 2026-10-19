@@ -1,0 +1,20 @@
+name: Verify archive
+
+# Re-hash every archived folder and metadata file and compare it with the
+# original IPFS CID recorded in data/folders.json. Nothing is fetched.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
+        working-directory: tools
+      - run: node tools/verify.mjs
