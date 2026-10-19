@@ -39,6 +39,7 @@ GENTK = {
     "KT1U6EHmNxJTkvaWJ4ThczG4FSDaHC21ssvi": "fxhash gentk v2",
 }
 PLACEHOLDER = "[WAITING TO BE SIGNED]"
+HEN = "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton"  # Hic et Nunc OBJKTs
 
 session = requests.Session()
 
@@ -240,9 +241,38 @@ def main():
         print(f"{p['id']:>6}  {p.get('title_from_gentk', '?'):<34} {len(its):>4} of {p['ledger']['supply']}",
               file=sys.stderr)
 
+    # 4. The interactive pieces on Hic et Nunc (folders rather than images or video).
+    hen = []
+    for t in paged("/tokens", contract=HEN, firstMinter=args.author, select="tokenId,firstTime,totalSupply,metadata"):
+        md = t.get("metadata") or {}
+        formats = md.get("formats") or []
+        if not formats or formats[0].get("mimeType") != "application/x-directory":
+            continue
+        key = t["tokenId"]
+        meta = get(f"/contracts/{HEN}/bigmaps/token_metadata/keys/{key}")["value"]
+        tx = get("/tokens/transfers", **{"token.contract": HEN, "token.tokenId": key, "from.null": "true"},
+                 limit=1, select="transactionId")[0]
+        op = get("/operations/transactions", id=tx, select="hash")[0]
+        hen.append({
+            "token_id": int(key),
+            "contract": HEN,
+            "minted": t["firstTime"],
+            "mint_op": op,
+            "editions": int(t["totalSupply"]),
+            "metadata_uri": decode(meta["token_info"]),
+            "title": (md.get("name") or "").strip(),
+            "description": md.get("description"),
+            "tags": md.get("tags"),
+            "artifact_uri": md.get("artifactUri"),
+            "display_uri": md.get("displayUri"),
+            "thumbnail_uri": md.get("thumbnailUri"),
+        })
+    hen.sort(key=lambda x: x["token_id"])
+    print(f"{len(hen)} interactive pieces on Hic et Nunc", file=sys.stderr)
+
     with open(os.path.join(args.out, "onchain.json"), "w") as f:
         json.dump({"author": args.author, "source": API, "issuers": ISSUERS, "gentk": GENTK,
-                   "projects": projects}, f, indent=1, ensure_ascii=False)
+                   "projects": projects, "hen": hen}, f, indent=1, ensure_ascii=False)
         f.write("\n")
     print(f"{len(projects)} projects, {total} iterations", file=sys.stderr)
 

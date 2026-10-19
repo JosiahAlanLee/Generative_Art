@@ -1,6 +1,6 @@
 # Generative Art
 
-The code for the 29 generative projects Echevarian published on fxhash between November 2021 and November 2022, archived so that each one still runs without fxhash.
+The code for the 29 generative projects Echevarian published on fxhash between November 2021 and November 2022, and for the two interactive pieces before them on Hic et Nunc, archived so that each one still runs without either platform.
 
 The viewer, `index.html`, runs every minted iteration from its archived code, and any project with a new random hash. Pieces titled with a strobe warning wait for a click before they run, and so does every piece when the system asks for reduced motion. To publish it, turn on GitHub Pages for this repository (Settings, Pages, deploy from the `main` branch, root folder); it will then be at https://josiahalanlee.github.io/Generative_Art/.
 
@@ -50,6 +50,15 @@ The viewer, `index.html`, runs every minted iteration from its archived code, an
 | 2022-09-23 | test_pattern3 (game of life) | 24 of 24 (128 at launch) | not yet archived |
 | 2022-11-15 | polygon_chaos4 | 50 of 50 (365 at launch) | not yet archived |
 <!-- projects:end -->
+
+The two interactive p5.js pieces minted before them on Hic et Nunc are kept the same way, in `hen/`:
+
+<!-- hen:start -->
+| Published | Piece | Editions | Code |
+|---|---|---|---|
+| 2021-10-25 | plasma_field (OBJKT 472545) | 25 | not yet archived |
+| 2021-10-25 | catherine_wheel (OBJKT 472865) | 25 | not yet archived |
+<!-- hen:end -->
 
 ## How it was assembled
 

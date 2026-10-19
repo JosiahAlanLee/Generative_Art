@@ -1504,5 +1504,52 @@
     "QmcwpiQaNFyKqdqwatsh78EPataCPF4rpVQCW7eRpqFHMj"
    ]
   }
+ ],
+ "hen": [
+  {
+   "token_id": 472545,
+   "contract": "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton",
+   "minted": "2021-10-25T16:07:34Z",
+   "mint_op": "oopeL8iDKrUGyvwamd7PVgjbtYWqtTG6Hm6VqXAPUzDsuDW81SQ",
+   "editions": 25,
+   "metadata_uri": "ipfs://QmXGqnrKpocygBo3FjJHa5WAqwsGSoTVWkJRkf8s9Ea95z",
+   "title": "plasma_field",
+   "description": "This is my first interactive p5js sketch, it should respond to mouse movement.\n\nThe initial animation was created in VQGAN+CLIP and then the sketch itself was based heavily on @sableRaph's template and tutorial videos, mixed with ideas from the p5js reference manual. \n\nI hope you enjoy it!",
+   "tags": [
+    "hictober",
+    "p5js",
+    "GAN",
+    "CLIP",
+    "learning"
+   ],
+   "artifact_uri": "ipfs://QmWrYU4j1rnzKSx2fJ6djxjigpYY8Pb3sD18zASMoJWTuB",
+   "display_uri": "ipfs://QmfNNJaQidTTAAPPFVDnktJxZoDNo1u9yQwfkFciHcbCdJ",
+   "thumbnail_uri": "ipfs://QmNrhZHUaEqxhyLfqoq1mtHSipkWHeT31LNHb1QEbDHgnc"
+  },
+  {
+   "token_id": 472865,
+   "contract": "KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton",
+   "minted": "2021-10-25T17:17:24Z",
+   "mint_op": "opBCzjMH8ksm8txAZodCXzbfzDQZqeKFkQzVNTmqaQB4cuPHVmi",
+   "editions": 25,
+   "metadata_uri": "ipfs://QmZMrN2AWxwM4Zqm3Ln6hh3Pbi3Vx4vCnQKuG3oCB9TdzV",
+   "title": "catherine_wheel",
+   "description": "This is the original version of \"plasma_fields\" prior to using animation instead of a static image. I'm concerned that the load time for the other version are going to be a problem for mobile users, and I've also received very positive feedback for this original.\n\nA p5js sketch using an asset created as part of a VQGAN+CLIP animation..",
+   "tags": [
+    "HENHALLOWEEN",
+    "hictober",
+    "p5js",
+    "GAN",
+    "CLIP",
+    "stained",
+    "glass",
+    "interactive",
+    "procedural",
+    "dynamic"
+   ],
+   "artifact_uri": "ipfs://QmPhuaxUfSRvrrdwwSTMhqN92eTeqqbBPxMARdPHPwNWY1",
+   "display_uri": "ipfs://QmVdiYqoiVhSwKu6KoXD524ebmiaersMmBHca4RQMnFcL4",
+   "thumbnail_uri": "ipfs://QmNrhZHUaEqxhyLfqoq1mtHSipkWHeT31LNHb1QEbDHgnc"
+  }
  ]
 }

@@ -133,17 +133,42 @@ def main():
             if meta.get(k):
                 cids.append(("capture", cid_of(meta[k]), f"project {pid} {k[:-3]}"))
 
+    hen = []
+    for h in onchain.get("hen", []):
+        art = by_role.get(f"hen {h['token_id']} artifact")
+        if not art:
+            missing.append(f"OBJKT {h['token_id']}")
+        hen.append({
+            "token_id": h["token_id"],
+            "contract": h["contract"],
+            "title": h["title"],
+            "minted": h["minted"],
+            "mint_op": h["mint_op"],
+            "editions": h["editions"],
+            "description": h["description"],
+            "tags": h["tags"] or [],
+            "folder": art[1]["path"] + "/" if art else None,
+            "artifact_cid": cid_of(h["artifact_uri"]),
+            "metadata_cid": cid_of(h["metadata_uri"]),
+        })
+        cids.append(("metadata", cid_of(h["metadata_uri"]), f"OBJKT {h['token_id']} metadata"))
+        cids.append(("hen", cid_of(h["artifact_uri"]), f"OBJKT {h['token_id']} {h['title']}"))
+        for k in ("display_uri", "thumbnail_uri"):
+            if h.get(k):
+                cids.append(("capture", cid_of(h[k]), f"OBJKT {h['token_id']} {k[:-4]}"))
+
     catalog = {
         "artist": "Echevarian",
         "address": onchain["author"],
         "note": "Built by tools/build.py from public chain data and IPFS. See README.md.",
         "projects": projects,
+        "hen": hen,
     }
     with open(os.path.join(DATA, "catalog.json"), "w") as f:
         json.dump(catalog, f, indent=1, ensure_ascii=False)
         f.write("\n")
 
-    update_readme(projects, onchain)
+    update_readme(projects, hen, onchain)
 
     seen = set()
     with open(os.path.join(DATA, "cids.txt"), "w") as f:
@@ -165,7 +190,7 @@ def replace_between(text, name, body):
     return text[:a] + "\n" + body + text[b:]
 
 
-def update_readme(projects, onchain):
+def update_readme(projects, hen, onchain):
     path = os.path.join(ROOT, "README.md")
     with open(path) as f:
         text = f.read()
@@ -180,6 +205,12 @@ def update_readme(projects, onchain):
         title = p["title"].replace("|", "\\|")
         rows.append(f"| {p['minted'][:10]} | {title} | {minted} | {code} |")
     text = replace_between(text, "projects", "\n".join(rows) + "\n")
+
+    rows = ["| Published | Piece | Editions | Code |", "|---|---|---|---|"]
+    for h in hen:
+        code = f"[folder]({h['folder']})" if h["folder"] else "not yet archived"
+        rows.append(f"| {h['minted'][:10]} | {h['title']} (OBJKT {h['token_id']}) | {h['editions']} | {code} |")
+    text = replace_between(text, "hen", "\n".join(rows) + "\n")
 
     def fmt(split):
         return ", ".join(f"{SHORT.get(s['address'], s['address'])} {s['share']:g}%" for s in split)

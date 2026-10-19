@@ -15,6 +15,8 @@ Writes
     projects/<id>-<slug>/iterations/NNN/ the token's own folder, for the early
                                          iterations whose hash fxhash wrote
                                          into the code instead of the URL
+    hen/<token>-<slug>/                  the interactive pieces minted on
+                                         Hic et Nunc, as folders
     data/folders.json                    what was fetched, and whether
                                          `ipfs add -r` of the folder gives the
                                          original CID back
@@ -160,6 +162,26 @@ def main():
                 except RuntimeError as err:
                     problems.append(str(err))
         print(f"{p['id']:>6}  {title:<34} {'; '.join(status)}", file=sys.stderr)
+
+    # The interactive pieces on Hic et Nunc, each a folder like an fxhash generator.
+    for h in onchain.get("hen", []):
+        if args.only and h["token_id"] not in args.only:
+            continue
+        status = []
+        for cid, out, role in (
+            (cid_of(h["metadata_uri"]), os.path.join(DATA, "metadata", f"{cid_of(h['metadata_uri'])}.json"),
+             f"hen {h['token_id']} metadata"),
+            (cid_of(h["artifact_uri"]), os.path.join(ROOT, "hen", f"{h['token_id']}-{slug(h['title'])}"),
+             f"hen {h['token_id']} artifact"),
+        ):
+            try:
+                e = f.get(cid, out, role)
+                status.append(f"{role.split()[-1]} {e['files']} files, {e['size']:,} bytes"
+                              f"{'' if e['readd_matches'] else ', re-add differs'}")
+            except RuntimeError as err:
+                problems.append(str(err))
+                status.append(f"{role.split()[-1]} not retrieved")
+        print(f"{'OBJKT ' + str(h['token_id']):>12}  {h['title']:<28} {'; '.join(status)}", file=sys.stderr)
 
     if problems:
         print(f"\n{len(problems)} not retrieved:", file=sys.stderr)

@@ -180,10 +180,14 @@
     const ps = catalog.projects.slice().sort((a, b) => a.minted.localeCompare(b.minted))
     const first = ps[0]; const last = ps[ps.length - 1]
     const runnable = ps.filter(p => p.generator).length
+    const hen = (catalog.hen || []).slice().sort((a, b) => a.minted.localeCompare(b.minted))
+    const total = ps.length + hen.length
+    const ready = runnable + hen.filter(h => h.folder).length
     const header = el('header', { class: 'site' },
       el('h1', {}, 'Generative Art'),
-      el('p', {}, `Code for the ${ps.length} projects Echevarian published on fxhash between ${longDate(first.minted)} and ${longDate(last.minted)}. ` +
-        (runnable === ps.length ? 'Every piece runs here from its archived files.' : `${runnable} of ${ps.length} run here from their archived files so far.`)))
+      el('p', {}, `Code for the ${ps.length} projects Echevarian published on fxhash between ${longDate(first.minted)} and ${longDate(last.minted)}` +
+        (hen.length ? `, and for the ${hen.length === 2 ? 'two' : hen.length} interactive pieces before them on Hic et Nunc. ` : '. ') +
+        (ready === total ? 'Every piece runs here from its archived files.' : `${ready} of ${total} run here from their archived files so far.`)))
     const years = new Map()
     for (const p of ps) {
       const y = p.minted.slice(0, 4)
@@ -192,8 +196,17 @@
     }
     const sections = []
     const thumbs = ps.some(p => p.thumbnail)
+    if (hen.length) {
+      sections.push(el('h2', { class: 'year' }, 'Hic et Nunc, ' + hen[0].minted.slice(0, 4)))
+      sections.push(el('ol', { class: 'projects' + (thumbs ? '' : ' nothumbs') }, hen.map(h => el('li', {},
+        el('a', { href: '#/objkt/' + h.token_id },
+          thumbs ? el('span', { class: 'thumb', 'aria-hidden': 'true' }) : null,
+          el('span', { class: 'date' }, fmtDate(h.minted)),
+          el('span', { class: 't' }, h.title),
+          el('span', { class: 'count' }, `${h.editions} editions`))))))
+    }
     for (const [y, list] of years) {
-      sections.push(el('h2', { class: 'year' }, y))
+      sections.push(el('h2', { class: 'year' }, 'fxhash, ' + y))
       sections.push(el('ol', { class: 'projects' + (thumbs ? '' : ' nothumbs') }, list.map(p => el('li', {},
         el('a', { href: '#/' + p.id },
           !thumbs ? null : p.thumbnail ? el('img', { class: 'thumb', src: p.thumbnail, alt: '', loading: 'lazy', width: 56, height: 56 }) : el('span', { class: 'thumb', 'aria-hidden': 'true' }),
@@ -308,11 +321,48 @@
         facts))
   }
 
+  function renderObjkt (id) {
+    const h = (catalog.hen || []).find(x => String(x.token_id) === String(id))
+    if (!h) { app.replaceChildren(el('p', { class: 'error' }, 'No Hic et Nunc piece with token ' + id + '. '), el('a', { href: '#/' }, 'See all projects')); return }
+    document.title = h.title + ' · Generative Art'
+    const frame = el('div', { class: 'frame' })
+    const src = h.folder ? h.folder + 'index.html?creator=' + encodeURIComponent(catalog.address) + '&viewer=' : null
+    const full = el('button', { class: 'btn', type: 'button', disabled: true, onclick: () => { const f = frame.querySelector('iframe'); if (f && f.requestFullscreen) f.requestFullscreen() } }, 'Full screen')
+    const run = () => {
+      if (!src) { frame.replaceChildren(el('div', { class: 'gate' }, el('p', {}, 'The code for this piece has not been archived yet.'))); return }
+      frame.replaceChildren(el('iframe', { title: h.title, src, allow: 'fullscreen; autoplay', allowfullscreen: true }))
+      full.disabled = false
+    }
+    if (reduceMotion) {
+      frame.append(el('div', { class: 'gate' }, el('p', {}, 'This piece moves. Your system asks for reduced motion.'),
+        el('button', { class: 'btn primary', type: 'button', onclick: run }, 'Run the piece')))
+    } else queueMicrotask(run)
+    const controls = el('div', { class: 'controls' },
+      el('div', {}, `${h.editions} editions on Hic et Nunc`),
+      el('div', { class: 'row' }, full),
+      src ? el('a', { class: 'note', href: src, target: '_blank', rel: 'noopener' }, 'Open on its own page') : null,
+      el('p', { class: 'note' }, 'Token ', el('a', { href: `https://tzkt.io/${h.contract}/tokens/${h.token_id}`, target: '_blank', rel: 'noopener' }, h.token_id), ' minted ', longDate(h.minted), '.'))
+    const facts = el('dl', { class: 'facts' },
+      el('dt', {}, 'Published'), el('dd', {}, longDate(h.minted), ' on Hic et Nunc, OBJKT ', String(h.token_id)),
+      h.tags.length ? el('dt', {}, 'Tags') : null, h.tags.length ? el('dd', {}, h.tags.join(', ')) : null,
+      el('dt', {}, 'Code'), el('dd', {}, h.folder ? el('a', { href: 'https://github.com/JosiahAlanLee/Generative_Art/tree/main/' + h.folder }, h.folder) : 'not archived yet', el('div', {}, 'ipfs://' + h.artifact_cid)),
+      el('dt', {}, 'Metadata'), el('dd', {}, 'ipfs://' + h.metadata_cid))
+    app.replaceChildren(
+      el('nav', { class: 'back' }, el('a', { href: '#/' }, 'All projects')),
+      el('article', { class: 'project' },
+        el('h1', {}, h.title),
+        el('p', { class: 'sub' }, longDate(h.minted)),
+        el('div', { class: 'stage' }, frame, controls),
+        el('div', { class: 'prose' }, paragraphs(h.description)),
+        facts))
+  }
+
   async function route () {
     try {
       await loadCatalog()
       const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean)
       if (!parts.length) return renderIndex()
+      if (parts[0] === 'objkt') return renderObjkt(parts[1])
       const [id, a, b] = parts
       if (a === 'hash' && b && validHash(b)) return renderProject(id, { hash: b })
       if (a && /^\d+$/.test(a)) return renderProject(id, { n: parseInt(a, 10) })
