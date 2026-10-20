@@ -1,0 +1,60 @@
+{
+ "floor": {
+  "grid": [
+   416,
+   1776
+  ],
+  "lit_share": 0.15236269923769924,
+  "changed_strain": 0.05149857849125972,
+  "trail_on_lit_ground": 0.0005586683982983232
+ },
+ "wall_left": {
+  "grid": [
+   1776,
+   288
+  ],
+  "lit_share": 0.0003206038541317015,
+  "changed_strain": 0.060696986402831374,
+  "trail_on_lit_ground": 3.693562979544222e-21
+ },
+ "wall_right": {
+  "grid": [
+   1776,
+   288
+  ],
+  "lit_share": 0.17319467905405406,
+  "changed_strain": 0.07888885694296695,
+  "trail_on_lit_ground": 0.0015582332853227854
+ },
+ "vault": {
+  "grid": [
+   1776,
+   654
+  ],
+  "lit_share": 0.0539085530484613,
+  "changed_strain": 0.008621863616246212,
+  "trail_on_lit_ground": 7.01622182575079e-09
+ },
+ "rear_wall": {
+  "grid": [
+   416,
+   496
+  ],
+  "lit_share": 0.0,
+  "changed_strain": 0.04662698412698413,
+  "trail_on_lit_ground": 0.0
+ },
+ "plate": {
+  "veins": 614,
+  "hatch_marks_cut": 2922,
+  "ink_near_mould": {
+   "base": 0.3178121102582971,
+   "with_mould": 0.31149600330579424,
+   "pixels": 294900
+  }
+ },
+ "scene": {
+  "trail_on_lit_ground": 0.00048571338993497193,
+  "changed_strain": 0.053663789186733306
+ }
+}

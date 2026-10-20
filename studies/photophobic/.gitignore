@@ -1,0 +1,10 @@
+# Recreated by build.py
+__pycache__/
+mould.npz
+veins.pkl
+hortus/output/*.png
+!hortus/output/shade-map.png
+porticus/output/*.png
+!porticus/output/shade-map.png
+memento/output/*.png
+!memento/output/shade-map.png
