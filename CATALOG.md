@@ -1,6 +1,6 @@
 # Technique catalog
 
-Choose by desired result. `book` means code present in the pinned public book main branch; it does not claim every retained source edition is active in the current binding. `study` means a pre-existing Generative_Art experiment. `sealed-artifact` means the public source does not include a regenerator.
+Choose by desired result. `book` means code present in the pinned public book main branch; it does not claim every retained source edition is active in the current binding. `study` means a pre-existing Generative_Art experiment. `sealed-artifact` means the public source does not include a regenerator. `collection` means code written for this collection rather than imported from the book.
 
 The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83842885aaad5` (20 October 2026). Every tracked Python file is retained; source editions, helpers, model inputs and validators have explicit roles in the [source index](docs/SOURCE_INDEX.md).
 
@@ -74,8 +74,16 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 | [Ray-lit scenes with photophobic cultures](studies/photophobic/common/mould.py) | Grow two shade-seeking strains over scene surfaces | study |
 | [Scan engraving and Trail First primitives](studies/scanned-statue-v2/engrave.py) | Recover mesh contours and place primitives along trails | study |
 
+## [Number systems](techniques/09-number-systems/README.md)
+
+| Technique | What to use it for | Status |
+| --- | --- | --- |
+| [Anglossic Qabbala values](lib/numerics/aq.py) | Turn text into base-36 sums, reductions, seeds and rule numbers | collection |
+| [Numogram arithmetic](lib/numerics/numogram.py) | Compute zones, currents, gates and mesh numbers; export a Graphviz graph | collection |
+| [Tic Xenotation glyphs](lib/numerics/xenotation.py) | Write integers as nested prime tallies and draw them with a book hand | collection |
+
 ## Scope and absent implementations
 
-The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Reaction–diffusion, rival-contact braids and shared-substrate proposals are also not imported implementations. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
+The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Reaction–diffusion, rival-contact braids and shared-substrate proposals are also not imported implementations. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
 
 The source snapshot omits large raster art and edition PDFs. Every included and omitted source path is recorded in [the manifest](catalog/source-manifest.json); no private development repository was imported. The root [notices](NOTICES.md) explain attribution and inherited terms.

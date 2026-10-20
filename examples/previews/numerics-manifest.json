@@ -1,0 +1,40 @@
+{
+  "book_commit": "b789e03f30034bc8403f8a40aaf83842885aaad5",
+  "example": "Small demonstrations of lib/numerics through the book's Hand",
+  "seeds": [
+    31,
+    37,
+    41,
+    43
+  ],
+  "panels": [
+    {
+      "phrase": "HIC ET NUNC",
+      "aq": 178,
+      "xenotation": ":(:::(:))",
+      "style": "capsule"
+    },
+    {
+      "phrase": "HIC ET NUNC",
+      "aq": 178,
+      "xenotation": ":(:::(:))",
+      "style": "parens"
+    },
+    {
+      "range": [
+        2,
+        13
+      ]
+    },
+    {
+      "layout": "circle, syzygies as horizontal rungs"
+    }
+  ],
+  "svg_sha256": "85f2f5c33184ca9af8157083a2b3dd281b77d113b8d978382747714af2faf16e",
+  "script_sha256": "51b246dd34c8c6fe725e6122703f59789dd98746e92207e62eac5b099ec43953",
+  "modules": {
+    "aq.py": "e9568b2ff70da163df24a12fd44122f6a1bb512c41d09a485a58c00fb5025446",
+    "numogram.py": "89a6d3589b55c5778256179c70de1a84094104740a9fe1c1eadb25bcd591a9df",
+    "xenotation.py": "b506178d4128906ff68060ac7f464fa7dacff77ef722bcc351d7d43a546b2db9"
+  }
+}
