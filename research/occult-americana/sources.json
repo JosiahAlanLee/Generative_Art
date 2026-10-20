@@ -1,0 +1,180 @@
+{
+  "scope": "design-oriented survey; source links and limited claims, not an exhaustive bibliography",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Manchester Illuminated Universal Turing Machines",
+      "institution": "Roman Verostko",
+      "source_type": "artist project statement",
+      "urls": [
+        "https://www.verostko.com/manchester/manchester.html"
+      ],
+      "claim_used": "Artist account of plotter illumination of machine code.",
+      "limit": "A precedent for the practice, not evidence of a historical occult lineage.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S02",
+      "title": "Art, Logic, and the Decision Problem",
+      "institution": "Verostko Center for the Arts",
+      "source_type": "institutional exhibition with artist testimony",
+      "urls": [
+        "https://www.verostkocenter.org/art-logic-and-the-decision-problem---roman-verostko-and-the-cloud-of-unknowing.html"
+      ],
+      "claim_used": "Artist books, parent-code variants, plotter production and Alice Wagstaff contribution.",
+      "limit": "Do not inherit a priority claim from curatorial promotional language.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S03",
+      "title": "Anything but Simple: Gift Drawings and the Shaker Aesthetic",
+      "institution": "American Folk Art Museum / Hancock Shaker Village",
+      "source_type": "collection exhibition",
+      "urls": [
+        "https://folkartmuseum.org/exhibitions/anything-but-simple-gift-drawings-and-the-shaker-aesthetic/"
+      ],
+      "claim_used": "Named Shaker gift-drawing makers and spiritual-gift context.",
+      "limit": "Spiritual message does not establish a cipher or a recovered plaintext.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S04",
+      "title": "Pennsylvania German fraktur, broadsides, and related drawings, LOT 12683",
+      "institution": "Library of Congress",
+      "source_type": "collection record",
+      "urls": [
+        "https://www.loc.gov/item/91706456/"
+      ],
+      "claim_used": "Mixed certificate, writing-exercise, blessing and heaven-letter collection.",
+      "limit": "The collection does not make all fraktur magical.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S05",
+      "title": "A Letter from God / Ein Brief von Gott, frk01084",
+      "institution": "Free Library of Philadelphia",
+      "source_type": "object catalog and transcription",
+      "urls": [
+        "https://libwww.freelibrary.org/digital/item/frk01084"
+      ],
+      "claim_used": "The document instructs copying/disclosure and asserts protection.",
+      "limit": "The assertions belong to the historical document; efficacy is not established.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S06",
+      "title": "Written Mnemonics - Deciphering a Controversial Ritual",
+      "institution": "Scottish Rite Masonic Museum & Library",
+      "source_type": "collection research",
+      "urls": [
+        "https://www.srmml.org/written-mnemonics-deciphering-a-controversial-ritual/"
+      ],
+      "claim_used": "Distinguishes mnemonic prompts from keyed encryption in the 1860 Morris publication.",
+      "limit": "This survey does not reconstruct that historical key or equate all ritual books.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S07",
+      "title": "Masonic Ritual Cipher: A Personal Object",
+      "institution": "Scottish Rite Masonic Museum & Library",
+      "source_type": "collection research",
+      "urls": [
+        "https://www.srmml.org/masonic-ritual-cipher-a-personal-object/"
+      ],
+      "claim_used": "A cipher book can also preserve personal participation and ownership history.",
+      "limit": "Provenance/participation is separate from what the owner believed.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S08",
+      "title": "Factory History / Museum collection",
+      "institution": "DeMoulin Museum",
+      "source_type": "manufacturer-history and object collection",
+      "urls": [
+        "https://www.demoulinmuseum.org/factory.html",
+        "https://www.demoulinmuseum.org/museum.html"
+      ],
+      "claim_used": "Fraternal initiation apparatus and related manufacturing.",
+      "limit": "Do not assign every device to Freemasonry; no construction plans are inferred.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S09",
+      "title": "Charles Dellschau / collection label booklet",
+      "institution": "American Visionary Art Museum; American Folk Art Museum",
+      "source_type": "artist and collection interpretation",
+      "urls": [
+        "https://www.avam.org/artists/charles-dellschau",
+        "https://folkartmuseum.org/content/uploads/2020/02/AP-Label-Booklet-Aug17.pdf"
+      ],
+      "claim_used": "Notebook airships, collage and the artist account of a Sonora Aero Club.",
+      "limit": "The account does not independently establish a real club or working anti-gravity technology.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S10",
+      "title": "The Book of the 7 Dispensation / Hampton writings",
+      "institution": "Smithsonian American Art Museum; Archives of American Art",
+      "source_type": "object record, curatorial account and archival finding aid",
+      "urls": [
+        "https://americanart.si.edu/artwork/book-7-dispensation-9898",
+        "https://americanart.si.edu/blog-post/1337/reading-into-the-throne-on-james-hamptons-notebook",
+        "https://sirismm.si.edu/EADpdfs/AAA.hampjame.pdf"
+      ],
+      "claim_used": "A devotional ledger and writings in an unfamiliar script.",
+      "limit": "No decoding key supplied by the inspected evidence; no inference of meaningless writing.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S11",
+      "title": "Untitled, individual element from the Healing Machine",
+      "institution": "Smithsonian American Art Museum",
+      "source_type": "collection record",
+      "urls": [
+        "https://americanart.si.edu/artwork/untitled-individual-element-healing-machine-110153",
+        "https://www.si.edu/object/saam_2015.31.2"
+      ],
+      "claim_used": "Material assemblage associated with Blagdon and his stated purpose.",
+      "limit": "The healing purpose is attributed, not verified therapy.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S12",
+      "title": "Punch Cards / John LaTourette double-cloth coverlet, 1844",
+      "institution": "National Museum of American History",
+      "source_type": "technical collection and textile object record",
+      "urls": [
+        "https://americanhistory.si.edu/collections/object-groups/punch-cards",
+        "https://www.si.edu/object/john-latourette-jacquard-double-cloth-coverlet-1844%3Anmah_620485"
+      ],
+      "claim_used": "Punched-card control and an American Jacquard textile.",
+      "limit": "Programmed ornament is not automatically an encrypted message.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    },
+    {
+      "id": "S13",
+      "title": "Interpreting Sanborn Maps",
+      "institution": "Library of Congress",
+      "source_type": "specialist collection guide",
+      "urls": [
+        "https://guides.loc.gov/fire-insurance-maps/sanborn-interpreting"
+      ],
+      "claim_used": "Purpose-built codes, edition-specific keys and paste-on corrections.",
+      "limit": "Check each edition key; our invented parcels are not historical map data.",
+      "accessed": "2026-10-20",
+      "bundled_assets": false
+    }
+  ]
+}

@@ -129,3 +129,7 @@ The source snapshot omits large raster art and edition PDFs. Every included and 
 ### [Textile scaffold and process couplings](techniques/12-process-art/TEXTILE.md)
 
 A reusable tile grammar supplies joined curves and steps. Adaptive transport follows its graph, Gray–Scott chemistry occupies its pore compartments, and dissolution changes the material and its connectivity. The guide includes a controlled comparison, local placement API, clipped fragments and a building-surface example.
+
+## Research and ideation
+
+[Occult / cipher / code-art / Americana research](research/occult-americana/README.md): documented source pools, interpretive limits, ten proposed generators and four original sketches. The concept register records implementation status; these proposals are not additional production techniques.
