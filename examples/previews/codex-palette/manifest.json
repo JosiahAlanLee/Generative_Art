@@ -2,7 +2,12 @@
   "title": "Codex palette — selected demonstrations",
   "date": "2026-10-20",
   "book_revision": "b789e03f30034bc8403f8a40aaf83842885aaad5",
-  "pixels_reviewed": 2000,
+  "book_revisions": [
+    "b789e03f30034bc8403f8a40aaf83842885aaad5"
+  ],
+  "preview_widths_px": [
+    2000
+  ],
   "selection_basis": "One plate per study, chosen after rendering each study's variants and reviewing them individually and side by side. No numeric beauty ranking.",
   "items": [
     {
@@ -140,7 +145,10 @@
           170,
           220
         ],
-        "svg_sha256": "d31956967dbef6b3ab4cc52f5061ec076c7f6d9e6d7e47d5b0e434ca5d4b9ead"
+        "svg_sha256": "d31956967dbef6b3ab4cc52f5061ec076c7f6d9e6d7e47d5b0e434ca5d4b9ead",
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "book_revision": "b789e03f30034bc8403f8a40aaf83842885aaad5"
       }
     },
     {
@@ -221,7 +229,10 @@
           170,
           220
         ],
-        "svg_sha256": "37289cf694a74b8aa16d6660c178a5543284ef0d187e69a32d294852324b0358"
+        "svg_sha256": "37289cf694a74b8aa16d6660c178a5543284ef0d187e69a32d294852324b0358",
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "book_revision": "b789e03f30034bc8403f8a40aaf83842885aaad5"
       }
     },
     {
@@ -266,13 +277,25 @@
         ],
         "inks": "first and third ring of each drop black, second ring red",
         "model": "Lu, Jaffer et al. 2012 closed-form drop and tine maps applied to polylines",
-        "stroke_count": 107,
-        "pen_down_m": 11.07,
+        "print_repair": {
+          "method": "priority gaps at intersections of simplified, rounded paths",
+          "crossing_pairs_before": 29,
+          "crossing_pairs_after": 0,
+          "repaired_candidates": 35,
+          "clearance_mm": 0.08,
+          "simplification_mm": 0.03,
+          "coordinate_grid_mm": 0.001,
+          "removed_length_mm": 1285.428
+        },
+        "stroke_count": 237,
+        "pen_down_m": 9.79,
         "size_mm": [
           170,
           220
         ],
-        "svg_sha256": "bc3bcf76dbc4e48e9f00cb78560c49418067ac866185e4ad6bd95eadf222550f"
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "d77027aad42130b5450a89593902ac7c2b692fec7d990aa4e81fd34d18e40bdf"
       }
     },
     {
@@ -504,7 +527,10 @@
           170,
           220
         ],
-        "svg_sha256": "19321bc68d407a3c1e33ebf304588095ebf509cd93625fc2260c7dd9608273fa"
+        "svg_sha256": "19321bc68d407a3c1e33ebf304588095ebf509cd93625fc2260c7dd9608273fa",
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "book_revision": "b789e03f30034bc8403f8a40aaf83842885aaad5"
       }
     }
   ]

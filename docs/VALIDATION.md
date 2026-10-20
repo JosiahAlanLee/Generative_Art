@@ -1,5 +1,24 @@
 # Validation of this collection
 
+## Palette repair and combination studies — 20 October 2026
+
+Prepared with ChatGPT/Codex. The palette's 23 tests pass, including rounded
+marbling geometry for seed 7 at all three stages, a two-ink crossing repair,
+requested drop counts, named Git-ref resolution, mixed-revision pack metadata,
+and a history-driven dissolution/control comparison. The selected gel-git
+drawing goes from 29 crossing path pairs to zero. Its explicit print repair
+removes about 1.29 m of crowded path, recorded in the sidecar; this is not a
+claim that the discretized fluid analogy preserves exact topology.
+
+All three combination SVGs import through the book importer with their recorded
+stroke counts (555, 589, 384); hashes, finite numeric arrays and page bounds
+pass. The contact sheet and repaired marbling were visually reviewed. Original
+history, tube and guilloché SVGs are unchanged. The unchanged tube simulation
+was not rerun; its exact stored SVG was re-rasterized for the refreshed contact
+sheet. Collection provenance and local guide links pass with 61 techniques.
+The concurrent Three Gates merge is retained as the PR base; its renderer was
+not rerun. Physical plotting and full book binding were not tested.
+
 Checked on 20 October 2026 with Python 3.12. This records the import/organization change, not a new validation of the three pre-existing scene studies or the whole illustrated edition.
 
 | Check | Observed result |

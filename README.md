@@ -57,3 +57,7 @@ A [textile/process comparison](techniques/12-process-art/TEXTILE.md) adds a shar
 [Barn quilt squares](techniques/13-barn-quilts/README.md) add eight geometric block families, four painted-support studies, adjustable texture and wear, and shared-edge outline SVGs. Includes [research on conventions and materials](research/barn-quilts/README.md).
 
 [Codex palette research](docs/CODEX_PALETTE_RESEARCH.md) maps what the manuscripts name but no plate draws to public datasets, with their terms checked, and to techniques this collection lacked. Four leads are runnable [studies](techniques/14-codex-palette/README.md): a History Flow of the manuscripts' Git revisions, Tero tube networks on Nota V's nodes, marbling on polylines, and guilloché credentials from the Escalationum catalogue.
+
+[Three combination trials](techniques/14-codex-palette/COMBINATIONS.md) put quilt
+geometry around chemical growth, shear catalogue engravings with marbling
+combs, and use recorded manuscript edits to dissolve a textile scaffold.

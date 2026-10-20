@@ -7,6 +7,11 @@ reruns a book input, Nota V's seven nodes, under a different model. One is a
 finishing technique for the bound volume. None of them is installed in the
 book.
 
+[Combination studies](COMBINATIONS.md) add three original trials: quilt edges
+as chemical barriers, guilloché deformed by marbling combs, and recorded
+manuscript turnover driving textile dissolution. They leave Blender and
+Driftless unchanged and are not installed book plates.
+
 ![The four selected studies](../../examples/previews/codex-palette/contact-sheet.jpg)
 
 | Study | What it draws | Book use |
@@ -36,7 +41,11 @@ With it, they read the book at `--rev` (default: the pinned snapshot
 `b789e03`). The tube study takes about a minute at 2,400 steps; the others take
 seconds. Output defaults to `examples/out/codex-palette/`, which is not
 committed. `--package` copies the selected plates, inputs, manifest and contact
-sheet into the preview folder.
+sheet into the preview folder. Its manifest records the resolved commit for
+each input-bearing study and the actual preview sizes. A mixed-revision pack
+lists all revisions and leaves the single `book_revision` field null. The
+tubes still use the pinned snapshot's nodes when `--rev` selects a newer
+history or catalogue; the marbling has no book-data revision.
 
 Each plate writes `.svg` (170 × 220 mm, stroke-only, black and red groups),
 `.png`, `.json` (parameters, inputs, stroke count, pen-down length, SVG hash) and
@@ -90,8 +99,15 @@ drawing choice, not Poiseuille's fourth-power law. The model is not calibrated t
 organism and is not a control run for Nota V.
 
 **Marbled sheet** ([marbling.py](../../lib/codex_palette/marbling.py)). Lu, Jaffer
-et al. (2012). Every operation is a bijection of the plane, so boundaries never
-cross; segments are resampled to 0.5 mm before each operation. Variant 0 is the
+et al. (2012). Segments are resampled to 0.5 mm before each operation. The
+continuous tine map is a shear; a drop maps the punctured plane outside a
+new disc and is singular at its centre. Neither statement guarantees that
+finite, simplified polylines will stay separate. The final print pass rounds
+to the SVG grid, nodes any self-intersections, and cuts 0.08 mm gaps in later
+paths where they meet earlier paths. This is 0.08 mm clearance from those
+earlier paths; near-parallel overlaps can lose longer stretches. It checks the rounded result for
+crossings. This is an explicit print repair, not exact fluid topology; its
+counts and removed length are recorded under `print_repair`. Variant 0 is the
 stone ground (64 sites, three concentric drops each), 1 adds an 18-tine gel-git
 (selected), 2 adds an 88-tine nonpareil comb. The tank is larger than the paper
 and the result is clipped, as a sheet is lifted from a larger bath. The second
@@ -126,4 +142,4 @@ A test reads a marbled sheet back through the book's importer.
   redraws the network without rerunning the model.
 
 Physical plotting was not tested. Pen-down lengths: History Flow 22.5 m,
-credentials 15.7 m, marbled sheet 11.1 m, tubes 3.2 m.
+credentials 15.7 m, marbled sheet about 9.8 m after print repair, tubes 3.2 m.

@@ -261,9 +261,14 @@ def marbling_plate(seed=7, variant=2, step=.5):
                     "tines": 88, "z_mm": 5.0, "lambda_mm": 1.4})
     paper = (12.0, 14.0, 158.0, 206.0)
     plate = Plate(f"Marbled sheet — {MARBLING_STAGES[variant]}")
+    clipped_lines, clipped_tags = [], []
     for p, tag in zip(lines, tags):
         for part in marbling.clip([p], paper):
-            plate.add(part, RED if tag == 1 else INK, .12, simplify=.03)
+            clipped_lines.append(part)
+            clipped_tags.append(tag)
+    printable, owners, repair = marbling.print_paths(clipped_lines)
+    for part, owner in zip(printable, owners):
+        plate.add(part, RED if clipped_tags[owner] == 1 else INK, .12, simplify=0)
     x0, y0, x1, y1 = paper
     plate.add([(x0, y0), (x1, y0), (x1, y1), (x0, y1), (x0, y0)], INK, .16, simplify=0)
     plate.metadata.update({
@@ -271,6 +276,7 @@ def marbling_plate(seed=7, variant=2, step=.5):
         "operations": ops, "resample_step_mm": step, "tank_mm": tank, "paper_mm": paper,
         "inks": "first and third ring of each drop black, second ring red",
         "model": "Lu, Jaffer et al. 2012 closed-form drop and tine maps applied to polylines",
+        "print_repair": repair,
     })
     return plate, {"tags": np.array(tags)}
 

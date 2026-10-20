@@ -17,10 +17,14 @@ publisher states. They are not a legal opinion.
 | Status | Meaning here |
 | --- | --- |
 | **open** | Public domain, CC0, CC BY, MIT, BSD or Apache: usable with the stated attribution |
-| **share-alike** | CC BY-SA or GPL: usable; the obligation travels with what is made from it |
+| **share-alike** | CC BY-SA content and GPL software have different scopes. Sharing an adaptation of CC BY-SA content invokes its share-alike terms. GPL obligations concern covered software; an image is not automatically GPL merely because a GPL program generated it. Embedded covered material can change that analysis. |
 | **non-commercial** | Keep it out of a sold edition without written permission |
 | **no licence** | Link, cite and transcribe facts; do not copy the files |
 | **restricted** | Written permission first |
+
+The software/output distinction is explicit in [GPLv3 §2](https://www.gnu.org/licenses/gpl.en.html#section2).
+Assess the generator's code, bundled assets, input data and exported image
+separately; a code licence alone does not settle the rights in all four.
 
 ## 1. What the text names and no plate draws
 
