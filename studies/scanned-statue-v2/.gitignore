@@ -1,0 +1,9 @@
+# Recreated by build.py
+__pycache__/
+output/light-*.npz
+output/*.png
+!output/front-light.png
+!output/second-light.png
+!output/second-statue-food.png
+!output/second-statue-mask.png
+*.log
