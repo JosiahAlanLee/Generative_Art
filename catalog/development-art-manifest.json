@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "source_repository": "JosiahAlanLee/Librum_Quinque",
+  "source_commit": "52430036c2cba79a53958eedc3dc340aa2a6451f",
+  "authorization": "Author requested public transfer of art generators only on 20 October 2026",
+  "scope": "Explicitly selected artwork code, captions, a drawing source, host masks and generator documentation; no manuscript, personal records, case study or repository history",
+  "files": [
+    {
+      "source_path": "books/01_matricis/generator/artboard.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/artboard.py",
+      "upstream_git_blob": "fa03706856b7cc4f5d0927df4999a151babd00ba",
+      "upstream_sha256": "8b52887bb5c5fdb6f5bd901fc31fe1a1af1bf165684a5d92f858957ef7c13125",
+      "sha256": "cd0e3038895a4d2345c6c1205f43e83b900be5e3bc33217e99d76c4624b9b1e6",
+      "modifications": [
+        "Use the script directory for local imports",
+        "Resolve output paths through portable_paths.OUTPUT"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/artboard2.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/artboard2.py",
+      "upstream_git_blob": "964953819b4893e5c9b239ee15d0457a6221d63a",
+      "upstream_sha256": "9cec4908cc0b62a4ddd96f1025c13e4c736974d1dccb2f4477a03847ee99025b",
+      "sha256": "1e86caa0c18165560944e1cb5e7541b9c85c71aa124e33ab370b8f03a6cf074a",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/build_v2.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/build_v2.py",
+      "upstream_git_blob": "02ff42962012d1ce15aecf64c2a20b8d4092b6d1",
+      "upstream_sha256": "5056f89c4e044c5161d91c721679fd9f195070315ca15053f8255df9070c8f33",
+      "sha256": "d3b5cbe6c6f8b1951f4a3732c061bccaebc2222bebe392423e667287a1872cb4",
+      "modifications": [
+        "Use the script directory for local imports",
+        "Resolve output paths through portable_paths.OUTPUT"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/cipher.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/cipher.py",
+      "upstream_git_blob": "b482a3ccf8ed56c9d18e289c4988ae26df3dd8ba",
+      "upstream_sha256": "ad6da6aea7acdce22170972d722b793fc39926e979a6e81f64146f5c4030e4c7",
+      "sha256": "ad6da6aea7acdce22170972d722b793fc39926e979a6e81f64146f5c4030e4c7",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/core.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/core.py",
+      "upstream_git_blob": "9479a29a25b8fb4feb95597a660159f0a497dfee",
+      "upstream_sha256": "c535401071c41170e77516d2ae0d17e1ef5af99d75ed51fc56d7f151fd6ce4ee",
+      "sha256": "c535401071c41170e77516d2ae0d17e1ef5af99d75ed51fc56d7f151fd6ce4ee",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/eng.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/eng.py",
+      "upstream_git_blob": "47e45c6a4af463140f137f44de3d56276f839502",
+      "upstream_sha256": "f0f4fa0e9d19a30a301f7a96abb32756dab31229c68ea7cd9b3a68e09795b8f7",
+      "sha256": "af4f5c39ac555dcd085e9621ae8d5e7d7136880043f395e706bc4a5f0d96c4f5",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/front.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/front.py",
+      "upstream_git_blob": "ad0ad84fc8b0282c8bdbb7172dc004b85b43d07b",
+      "upstream_sha256": "bc0ef660e4456310d4489f1fbc310e094c51a7d1ed10cef07c28293b7362cfd9",
+      "sha256": "97994f047a48fa545a46c383df955a3de3c0d54ac50be8e8ed7fb679a025f044",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/hands.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/hands.py",
+      "upstream_git_blob": "08b58f62d6540575cac4096d0980af5e0bbfa949",
+      "upstream_sha256": "4c4ced28b97e2ca362cc97acf09e9d103f608256facbb284cd734631069e8f3e",
+      "sha256": "4c4ced28b97e2ca362cc97acf09e9d103f608256facbb284cd734631069e8f3e",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/ii.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/ii.py",
+      "upstream_git_blob": "f64894a1a0cc1db46e4a821107cfdcc9a46b6cb1",
+      "upstream_sha256": "c445defcf9ffffc6cbebf15e840e97e2717b5597fd9995e644a5f14586241872",
+      "sha256": "68ef7ff8df5bc85050374d353b654139ed33f6353dccda512f7dba6e50209682",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/iv.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/iv.py",
+      "upstream_git_blob": "0eb0c102037deeaa48b7fc4673a8b98311fc1e6f",
+      "upstream_sha256": "5c637a158fa40b73fcda06eabaa6e9f0b3a4d9bf949f849bb528aa59795923e5",
+      "sha256": "a7774e02755476eb61aef7ea3611db44aef8dbc82ea3e3683eebf6d6c0f7bb83",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/layout.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/layout.py",
+      "upstream_git_blob": "a27bb903bc100f9610c8b0ea95191e45828b44c4",
+      "upstream_sha256": "4fce176044d7632a3501e39a67dc12fb16e79a7a28bf3edb5f3b29a9bb994cdf",
+      "sha256": "80323444d32952d7da8b47ba4947ab6dbc04f545e1b76eba515b506157bd60b9",
+      "modifications": [
+        "Reuse already-published collection fonts"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/marks.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/marks.py",
+      "upstream_git_blob": "d00d3ff509a4f8b2e147dd9c816d2f40e24cd964",
+      "upstream_sha256": "0bd011a2e1fe72c383eeab71350684d45ebb7cfd3cb017f64f25961ddf149e1b",
+      "sha256": "0bd011a2e1fe72c383eeab71350684d45ebb7cfd3cb017f64f25961ddf149e1b",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/meal.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/meal.py",
+      "upstream_git_blob": "1643a40f9298ff226ebc77c009d2927cd02ba9dd",
+      "upstream_sha256": "70035200e02de505447213e7c95f149f62a6982641c44381d53e6f5787577c33",
+      "sha256": "d37e7d5fd74fd699926163f847725e63798eb79820438a423ff33c3228a92898",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/page1.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/page1.py",
+      "upstream_git_blob": "516be8a3dbc1ce21add51c30f5bb0026880061d8",
+      "upstream_sha256": "0357cfeb2d749e162117fae03543c87d02ed9f206aa70322101286b8554b0bfa",
+      "sha256": "6cfc1f379b4c884ca4c07e4b75da562ec6f09240ff2bc2797b48e3628966da21",
+      "modifications": [
+        "Use the script directory for local imports",
+        "Resolve output paths through portable_paths.OUTPUT"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/page2.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/page2.py",
+      "upstream_git_blob": "14964b9abd7dd33c10ab6712024d058bd8b73c44",
+      "upstream_sha256": "d1d99e40e5dbe5492bee16f4cf46e11598952bc5fd455829d1f73618e8b8207c",
+      "sha256": "84b306ab4708ce66996827ad6ee147896c69ff073c102b3329ff638161a5b0dd",
+      "modifications": [
+        "Use the script directory for local imports",
+        "Resolve output paths through portable_paths.OUTPUT"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/page3.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/page3.py",
+      "upstream_git_blob": "148700c12340fa2bdfe4fe3987ec45841f76d7c8",
+      "upstream_sha256": "004b59bb5f914de9c8c6f51dd20df9b1da0fe320d19f0f2f74bc76237a57b9de",
+      "sha256": "6d2cacad58c93fc72354ebef5aa4df9d854ea3555b32165bd0b46761fc6a9c1f",
+      "modifications": [
+        "Use the script directory for local imports",
+        "Resolve output paths through portable_paths.OUTPUT"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/plate_i.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/plate_i.py",
+      "upstream_git_blob": "7459c5fbc11c7abcba8308dd4b98d61d330a285b",
+      "upstream_sha256": "3f30e7b133b7117cea38e18dffe16c289f4cf3a479a4bc53be83581f36673e4e",
+      "sha256": "7d9afc662d8f47cc1a10d92bc272f8f04db3f7f9305ae806eb63b738531358b9",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/plate_ix.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/plate_ix.py",
+      "upstream_git_blob": "6a4a9e2fb973087e5397e7aba45c6e012a9aeb6e",
+      "upstream_sha256": "1bfc493d919434ff105bd939fb7f72a10b3e9e6ed055d83df6c3eb0f26e5fd9a",
+      "sha256": "d95d12fe389d2ce021860e62bd6c3493a644e93441dd633847556a36dd5d63ed",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/plate_v.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/plate_v.py",
+      "upstream_git_blob": "79c68a8920c5b471419854c97df56eb02e639835",
+      "upstream_sha256": "d04fabdbb04a92395867837c6543e1f2f5aeb3361330470e8388fdf47d603089",
+      "sha256": "7f2d0484eca72a38818086a9d2688f9c864c0a269398cf9f8e99eab79d4fec82",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/plate_vii.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/plate_vii.py",
+      "upstream_git_blob": "2775d094e496ad085c0735a2cf494b37cfd581a7",
+      "upstream_sha256": "8322a7b6fdcefba04d6cc2620e6bfd002e75b188e7829b117a2d7dc54bb8ddaa",
+      "sha256": "92a06460a5318cc993d09d50037fd22bc84819c4f58c2a75830f959146d8f9fb",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/plate_x.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/plate_x.py",
+      "upstream_git_blob": "1b8a49bbca0e36a7e9454bbfbb1302d9994951ee",
+      "upstream_sha256": "07886c541dde69ce8ba49c36591672db7510992a7d4ba04457626ebb8a928725",
+      "sha256": "8cacccf10aac801fff82a786626685ea52aec7e9a467662842839ecd0d4a8dc7",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/plate_xii.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/plate_xii.py",
+      "upstream_git_blob": "685be3c78bc4ac9e09460c0a9001eac5435943d4",
+      "upstream_sha256": "ebd8d685f0e0af811b84d13b5d4f219499f36b7f1d5ce127b4e05715813932fa",
+      "sha256": "4eb96499ade4ae7b50f61ee4e26ed5e446816185ce349e7870b84d84cd2998bf",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/preview.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/preview.py",
+      "upstream_git_blob": "c6044e85202b902d3eac2999c7cf4b0e265f9f0d",
+      "upstream_sha256": "4e3a1395637e4a65793df03990306eac554bfa6bfca4f75c4108dff608472a54",
+      "sha256": "9d25eef2006f532cd3f81fc1a709258364435048b6b41c6a94a65d9f86fb2300",
+      "modifications": [
+        "Use the script directory for local imports",
+        "Resolve output paths through portable_paths.OUTPUT",
+        "Use a local preview output directory"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/ptext.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/ptext.py",
+      "upstream_git_blob": "a652e7042994477ba8d8283ce30bed5505465e68",
+      "upstream_sha256": "f9a5bdad571eb2368e489bd05cd57c534ef050cb34348dfb1b0852c5d1d31d1f",
+      "sha256": "f9a5bdad571eb2368e489bd05cd57c534ef050cb34348dfb1b0852c5d1d31d1f",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/slips.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/slips.py",
+      "upstream_git_blob": "5a9be97c4337aea1cc01bb77cd67084ec49d8115",
+      "upstream_sha256": "5bc977782b5d4d487fe1d5a1b5010a990dfb23ae994df02252716f7f2bceaf9e",
+      "sha256": "60c317045af4d4a84df87d3633ea2f195788dc1a6713da8d82e42520c748944c",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/text1.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/text1.py",
+      "upstream_git_blob": "2f212e345fb9f9f96e574de11317da26bb02dd6b",
+      "upstream_sha256": "e5a874e982c724f86fad54ada25a826a8d33bb3497e223176a08fda467a2f001",
+      "sha256": "e5a874e982c724f86fad54ada25a826a8d33bb3497e223176a08fda467a2f001",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/text2.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/text2.py",
+      "upstream_git_blob": "c16ac2264574e5d1dc324e3729d71ab6aea385d4",
+      "upstream_sha256": "cee2830eafbc591bf2679c63a5f3150f79bc385af1762d8bd5e2b0781f95e922",
+      "sha256": "cee2830eafbc591bf2679c63a5f3150f79bc385af1762d8bd5e2b0781f95e922",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/text3.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/text3.py",
+      "upstream_git_blob": "9b230403bef48d0e215ea2325e8654819208afee",
+      "upstream_sha256": "de2dacf665f5a81331d6fb5a83dab823d5410e1ff51fe370a35e69b8ca0d3b20",
+      "sha256": "de2dacf665f5a81331d6fb5a83dab823d5410e1ff51fe370a35e69b8ca0d3b20",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/tx.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/tx.py",
+      "upstream_git_blob": "dc2a7f4fa426294caca89899d57241ae7625a3f0",
+      "upstream_sha256": "128be13a24e4cf30af488e3a54e41ad07010b6b77a75e727c41b4783d5b6d374",
+      "sha256": "6e32e059e57ad1f21acd2d2c27f96634cf3d94302e66f6beadee69be715b2e73",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/v2_iii.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/v2_iii.py",
+      "upstream_git_blob": "8ec7f1e6e944374358c01730af36551faf0eac62",
+      "upstream_sha256": "b61927ce1f669e3ff98b44787d489d5271f6c163490dd6ac148f51610ddfecb6",
+      "sha256": "0f7a4039643e3f20236ee2cb6bcda39427ac461c6f5881363ee0a23f0a760161",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/v2_viii.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/v2_viii.py",
+      "upstream_git_blob": "7985740f838a456421901f285832eb7f9da82f21",
+      "upstream_sha256": "7f8ea076e76e64ce1012bcc2e4b1ba813f9aa3d331d5e7271bc73718868bd84a",
+      "sha256": "8e8f0ea1aa6bb31337a98fb7703e8a6b7b4186325e1558db2379832a0c80cecb",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/v2_xiii.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/v2_xiii.py",
+      "upstream_git_blob": "d456643b5f42bd74cf1c24bb9e3e158fe8128d95",
+      "upstream_sha256": "5ffb3ba1543da2e7d8e2927c412afaad2edb9781ee386dccf03012d45b93c42c",
+      "sha256": "09541db966ad4a60dd2832e275b22a46ba14636a28cf904c2c6dd203624cfa97",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/vi.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/vi.py",
+      "upstream_git_blob": "eb306f879f570f0198d3f21ad105ee9b9fe1ca27",
+      "upstream_sha256": "a64cbaea74e2d9ce19394bfe540d08b1dac3bb906fb6f54915f7156f303a2b9f",
+      "sha256": "40501553cee1a47ef1bd3b89a8af5dc5ad5e3fbe4af40e0b92d4fdffc17ac28b",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/generator/xi.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/xi.py",
+      "upstream_git_blob": "a6e12e5c29d0fb760f019adafd897635e3e89ea4",
+      "upstream_sha256": "f868cefe2c8c9d6f3841fdda6a3dc66e6f76c4d8ab4bf347ff55c3374002f6d8",
+      "sha256": "4e2d4f13929bf57c17d11259e6577c20556823ce9386fc1baa1ea8e00de34fab",
+      "modifications": [
+        "Use the script directory for local imports"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/plotter/build.py",
+      "local_path": "sources/development-art/books/01_matricis/plotter/build.py",
+      "upstream_git_blob": "41d9d82dd2a3ff28c85125665ed7424308cdd12c",
+      "upstream_sha256": "1e99e3d52921c3c5640fd062a36e72a32daba84764f6137e0f416bddf287cc1c",
+      "sha256": "e5cd434ae867978c5755fc8d68582101848e7806d97c7ebcb91647e3b0cab4fc",
+      "modifications": [
+        "Reuse already-published collection title font"
+      ]
+    },
+    {
+      "source_path": "books/01_matricis/plotter/test_export.py",
+      "local_path": "sources/development-art/books/01_matricis/plotter/test_export.py",
+      "upstream_git_blob": "ae3468bde5b4dbce642258dbbd640c4159ba6cf1",
+      "upstream_sha256": "1a54f4cb457ae06e51da8acd100c1c2f6862e7b91d0ea9be6ff36af0a53d8a7d",
+      "sha256": "1a54f4cb457ae06e51da8acd100c1c2f6862e7b91d0ea9be6ff36af0a53d8a7d",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/plotter/README.md",
+      "local_path": "sources/development-art/books/01_matricis/plotter/README.md",
+      "upstream_git_blob": "3ffa8171b041ecc035f4392f779798b5a1574196",
+      "upstream_sha256": "6a2e03e1a9d3e6936fa4725761a0abfd2ec761d059f8dc63e2e774ecc8a322d3",
+      "sha256": "6a2e03e1a9d3e6936fa4725761a0abfd2ec761d059f8dc63e2e774ecc8a322d3",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/plotter/requirements.txt",
+      "local_path": "sources/development-art/books/01_matricis/plotter/requirements.txt",
+      "upstream_git_blob": "d2de29af25aefd6a83cc13264c136042abe56403",
+      "upstream_sha256": "0935e19cef6b25c54b6fd5df29b2af913e82defb6c31499b5112e0874a2a0247",
+      "sha256": "0935e19cef6b25c54b6fd5df29b2af913e82defb6c31499b5112e0874a2a0247",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/canvas/assets/xi_face.svg",
+      "local_path": "sources/development-art/books/01_matricis/canvas/assets/xi_face.svg",
+      "upstream_git_blob": "02eb270c3c5a964b2f82f9424c96a71909bcd30c",
+      "upstream_sha256": "e82c26008817c6ca2b5a6de48bdb920128ba146cf25e2e45232958fec795ccb1",
+      "sha256": "e82c26008817c6ca2b5a6de48bdb920128ba146cf25e2e45232958fec795ccb1",
+      "modifications": []
+    },
+    {
+      "source_path": "books/03_escalationum/physarum/physarum_plot.py",
+      "local_path": "sources/development-art/books/03_escalationum/physarum/physarum_plot.py",
+      "upstream_git_blob": "88c735f4801378db93a1de4bc3a022c94c2722ba",
+      "upstream_sha256": "2de8ef7977ff4552e0d3e1ecbb1205f1d75c4966f4156d9d280ea416cb7fa1ec",
+      "sha256": "2de8ef7977ff4552e0d3e1ecbb1205f1d75c4966f4156d9d280ea416cb7fa1ec",
+      "modifications": []
+    },
+    {
+      "source_path": "books/03_escalationum/physarum/study.py",
+      "local_path": "sources/development-art/books/03_escalationum/physarum/study.py",
+      "upstream_git_blob": "17fbc3869701548d193bde2da57030a706d7d1f1",
+      "upstream_sha256": "b2c50c3d4c7f9726875a2b0563333ed775f090c3bcb48c4b57d5e17498c740f6",
+      "sha256": "cb245d08f56bc7078e3f4ab8d1a2d377290695171896f10db8d28aad2afa7152",
+      "modifications": [
+        "Allow an explicit original-book asset checkout for the optional comparison study"
+      ]
+    },
+    {
+      "source_path": "books/03_escalationum/physarum/README.md",
+      "local_path": "sources/development-art/books/03_escalationum/physarum/README.md",
+      "upstream_git_blob": "fd0c7053f8030494530e1a9a043359a2e1dcdb53",
+      "upstream_sha256": "61b6a15137ade014c112022d52c3cf7e3c89e23a30210213bd40997be430cc08",
+      "sha256": "61b6a15137ade014c112022d52c3cf7e3c89e23a30210213bd40997be430cc08",
+      "modifications": []
+    },
+    {
+      "source_path": "books/03_escalationum/physarum/requirements.txt",
+      "local_path": "sources/development-art/books/03_escalationum/physarum/requirements.txt",
+      "upstream_git_blob": "8fadab9af52a723b483167d6a6a5532ed04313ab",
+      "upstream_sha256": "0517fcec0767fe81f2163eabbeedc49ba8702a1adbf7544b90c35ac7d8949011",
+      "sha256": "0517fcec0767fe81f2163eabbeedc49ba8702a1adbf7544b90c35ac7d8949011",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/template.html",
+      "local_path": "sources/development-art/common/lattice/template.html",
+      "upstream_git_blob": "5c0c6a37def221e65be503ad2f99dc4c952722f6",
+      "upstream_sha256": "8dc3cd93d6ce943b5280d3d63797489e7be42e042e24c6d762977f4cb18fabe6",
+      "sha256": "8dc3cd93d6ce943b5280d3d63797489e7be42e042e24c6d762977f4cb18fabe6",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/build.mjs",
+      "local_path": "sources/development-art/common/lattice/build.mjs",
+      "upstream_git_blob": "f0eed31b947d2deb51260fe8ee8f612018748829",
+      "upstream_sha256": "915ad610bba84972c9af2674d563fead4d4f6955a1f7d49deb9cef197e903946",
+      "sha256": "915ad610bba84972c9af2674d563fead4d4f6955a1f7d49deb9cef197e903946",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/README.md",
+      "local_path": "sources/development-art/common/lattice/README.md",
+      "upstream_git_blob": "33a30b233919612b6467d3720af5db8dd5415069",
+      "upstream_sha256": "73d79ee2c273fe7ba91bc6c602e5d991993b3e44b5c05ba6ef39f2c1bc569c8a",
+      "sha256": "73d79ee2c273fe7ba91bc6c602e5d991993b3e44b5c05ba6ef39f2c1bc569c8a",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/hosts.json",
+      "local_path": "sources/development-art/common/lattice/hosts.json",
+      "upstream_git_blob": "0ec8d0ede2808a936e653db908a9066dabc618ed",
+      "upstream_sha256": "021320a58d1ad8b552cace85fe0520f5ba6f545247486dbd9d24dd2d3dedbc9a",
+      "sha256": "021320a58d1ad8b552cace85fe0520f5ba6f545247486dbd9d24dd2d3dedbc9a",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/samples.mjs",
+      "local_path": "sources/development-art/common/lattice/samples.mjs",
+      "upstream_git_blob": "df1cdff1550043f6050443b0f32a71d1ac11797e",
+      "upstream_sha256": "18d77708c158424a98e1abb897029354d8b2a6ddaa9d78b684a0ad363f54939b",
+      "sha256": "18d77708c158424a98e1abb897029354d8b2a6ddaa9d78b684a0ad363f54939b",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/requirements.txt",
+      "local_path": "sources/development-art/common/lattice/requirements.txt",
+      "upstream_git_blob": "f0ebb323235b8de5897e7bee187c8af519b16248",
+      "upstream_sha256": "5bab90ec34cb8f8ac6b2de52591be7e64bcb96195078a451e0a4a862de44d2cf",
+      "sha256": "5bab90ec34cb8f8ac6b2de52591be7e64bcb96195078a451e0a4a862de44d2cf",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/lattice.js",
+      "local_path": "sources/development-art/common/lattice/lattice.js",
+      "upstream_git_blob": "4a3105df812bc7022d52c02f1529723e13951d13",
+      "upstream_sha256": "cf9c00cb93097b2f09dea8cd9f45fd8f35c71750b1f4366a5657aaacdf4c87fe",
+      "sha256": "cf9c00cb93097b2f09dea8cd9f45fd8f35c71750b1f4366a5657aaacdf4c87fe",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/render.js",
+      "local_path": "sources/development-art/common/lattice/render.js",
+      "upstream_git_blob": "c0b4c77443d3e1e4f2f531a82a27e55363e43e08",
+      "upstream_sha256": "db63d22d5faaf378b5224640793b30ad0747ccd7aebd983bfa6ccd971609d384",
+      "sha256": "db63d22d5faaf378b5224640793b30ad0747ccd7aebd983bfa6ccd971609d384",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/node-lattice.html",
+      "local_path": "sources/development-art/common/lattice/node-lattice.html",
+      "upstream_git_blob": "76599895355f755e8099fb428c81d09f22068342",
+      "upstream_sha256": "4bd058b7196f32c7454a5376b70b2f70d84376f7b09222a00e1e958cdd6e0c8a",
+      "sha256": "4bd058b7196f32c7454a5376b70b2f70d84376f7b09222a00e1e958cdd6e0c8a",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/plate.mjs",
+      "local_path": "sources/development-art/common/lattice/plate.mjs",
+      "upstream_git_blob": "4ed6a0551b5ce828ac5915ab30f7ad32f414b626",
+      "upstream_sha256": "99e057378759cb012f7466cc8f0ada2298404bb0b3297222be620227de1a8fb3",
+      "sha256": "99e057378759cb012f7466cc8f0ada2298404bb0b3297222be620227de1a8fb3",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/trace_hosts.py",
+      "local_path": "sources/development-art/common/lattice/trace_hosts.py",
+      "upstream_git_blob": "a7d2e18abefe4747da304751a8f322d352cc65aa",
+      "upstream_sha256": "d202cc8ccdb71b85c999d80a03487de9a43dda2badda01e934271c544a6355c4",
+      "sha256": "d202cc8ccdb71b85c999d80a03487de9a43dda2badda01e934271c544a6355c4",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/out/manifest.json",
+      "local_path": "sources/development-art/common/lattice/out/manifest.json",
+      "upstream_git_blob": "049cf27bcd3a077194cb6fb1e0a619258a61fe3c",
+      "upstream_sha256": "07a5dc9cdbbddb036a45352cbd576add7af042b0ac879d5fd238bc0e5d317d2c",
+      "sha256": "07a5dc9cdbbddb036a45352cbd576add7af042b0ac879d5fd238bc0e5d317d2c",
+      "modifications": []
+    },
+    {
+      "source_path": "common/lattice/tests/lattice.test.mjs",
+      "local_path": "sources/development-art/common/lattice/tests/lattice.test.mjs",
+      "upstream_git_blob": "dd6702595708cc58cf7cdc7e51525a8f27089d8b",
+      "upstream_sha256": "38a97af3678cd7c0a08f5ba0f78ae2876349be0e1ff383df6d1a4ec928ef8cd9",
+      "sha256": "b17074225382e6eec123becf3ee7ff77d8517c2370bfb66905297fb5234a1075",
+      "modifications": [
+        "Always check mask/hash metadata; verify omitted source rasters only when GENART_BOOK_SOURCE is provided"
+      ]
+    },
+    {
+      "source_path": "common/lattice/tests/test_svgimport.py",
+      "local_path": "sources/development-art/common/lattice/tests/test_svgimport.py",
+      "upstream_git_blob": "7acd928a05e86dd7caaa7ece5e8baf21093e164b",
+      "upstream_sha256": "74e2495a98fe940af8166a242c7121ac753b3fceae91f2c7e5237fdb17e86e67",
+      "sha256": "74e2495a98fe940af8166a242c7121ac753b3fceae91f2c7e5237fdb17e86e67",
+      "modifications": []
+    },
+    {
+      "source_path": "books/01_matricis/generator/fm.py",
+      "local_path": "sources/development-art/books/01_matricis/generator/frontmatter_marks.py",
+      "upstream_git_blob": "7689a798bbcaaae29ad0d38ee13ba8023376f54c",
+      "upstream_sha256": "d68f72ce219d8be74717b4900efe7a18e9eb9e9d317de01cbf7a98fcfa65d443",
+      "sha256": "c613f8ff8531875b5dce730cce11d26b82e748a149f8b98b8960bc161380fd9e",
+      "modifications": [
+        "Extract art helpers before the prose page builders; omit the prose itself",
+        "Use local imports instead of the old workspace path"
+      ]
+    }
+  ],
+  "equivalent_omitted_art_path": "books/02_intervallorum/plotter/ (identical converter, source drawing and requirements)"
+}

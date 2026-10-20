@@ -1,6 +1,6 @@
 # Technique catalog
 
-Choose by desired result. `book` means code present in the pinned public book main branch; it does not claim every retained source edition is active in the current binding. `study` means a pre-existing Generative_Art experiment. `sealed-artifact` means the public source does not include a regenerator. `collection` means code written for this collection rather than imported from the book.
+Choose by desired result. `book` means code present in the pinned public book main branch; it does not claim every retained source edition is active in the current binding. `study` means a pre-existing Generative_Art experiment. `development-art` means art-only source selected from the private development repository at the author’s request. `sealed-artifact` means the public source does not include a regenerator. `collection` means code written for this collection rather than imported from the book.
 
 The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83842885aaad5` (20 October 2026). Every tracked Python file is retained; source editions, helpers, model inputs and validators have explicit roles in the [source index](docs/SOURCE_INDEX.md).
 
@@ -86,4 +86,16 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 
 The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Reaction–diffusion, rival-contact braids and shared-substrate proposals are also not imported implementations. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
 
-The source snapshot omits large raster art and edition PDFs. Every included and omitted source path is recorded in [the manifest](catalog/source-manifest.json); no private development repository was imported. The root [notices](NOTICES.md) explain attribution and inherited terms.
+The source snapshot omits large raster art and edition PDFs. Every included and omitted source path is recorded in [the manifest](catalog/source-manifest.json); the original public-book snapshot is separate from the later art-only development import. The root [notices](NOTICES.md) explain attribution and inherited terms.
+
+## [Additional development generators](techniques/10-development-generators/README.md)
+
+| Technique | Use | Source |
+| --- | --- | --- |
+| **Original Matricis native plates** | Generate the earlier engineering plates, folds, slips, inscriptions and title ornaments | [build_v2.py](sources/development-art/books/01_matricis/generator/build_v2.py) |
+| **Matricis chalk and cornmeal grounds** | Use dark-board grain, networks and branching growth | [meal.py](sources/development-art/books/01_matricis/generator/meal.py) |
+| **Legacy Tabula XI plotter conversion** | Convert the existing drawing into two-pen strokes with Hershey lettering and registration | [build.py](sources/development-art/books/01_matricis/plotter/build.py) |
+| **Image-fed faithful and feral Physarum cultures** | Separate inks, grow competing or symbiotic cultures, export five vector styles | [physarum_plot.py](sources/development-art/books/03_escalationum/physarum/physarum_plot.py) |
+| **Node lattice and dissolution** | Grow panes, rose windows, membranes, beaded frays and drips inside native or traced hosts | [lattice.js](sources/development-art/common/lattice/lattice.js) |
+
+[Reduced-letter sigils and toner-stock texture](sources/development-art/books/01_matricis/generator/frontmatter_marks.py) are extracted art helpers; the source module’s prose pages are excluded.

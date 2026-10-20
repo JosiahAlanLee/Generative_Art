@@ -1,0 +1,127 @@
+{
+ "generator": "0.1.0",
+ "node": "v22.22.0",
+ "note": "Built by samples.mjs. tests/lattice.test.mjs regenerates every sample and checks it against its file and sha256 here.",
+ "samples": [
+  {
+   "name": "robe-handoff",
+   "file": "out/plot/robe-handoff.svg",
+   "generator": "0.1.0",
+   "host": {
+    "kind": "native",
+    "key": "robe",
+    "label": "Empty robe",
+    "source": null,
+    "sha256": null
+   },
+   "seed": "handoff",
+   "pens": "series",
+   "params": {
+    "cell": 13,
+    "rib": 2.6,
+    "elong": 2.3,
+    "drape": 0.5,
+    "sweep": 0.12,
+    "strut": 2.2,
+    "fray": 105,
+    "drips": 0.55,
+    "roses": 4,
+    "dissolve": 0,
+    "slate": 0.55,
+    "ground": true,
+    "seal": true
+   },
+   "stats": {
+    "sites": 748,
+    "membrane": 185,
+    "panes": 92,
+    "holes": 90,
+    "links": 109,
+    "drips": 113
+   },
+   "paths": 4313,
+   "bytes": 1141924,
+   "sha256": "0ac74771e53eb24496a594d0bf92c5cd7d90101ba10855aae667dcbaeb584d68"
+  },
+  {
+   "name": "robe-handoff-dissolve-50",
+   "file": "out/plot/robe-handoff-dissolve-50.svg",
+   "generator": "0.1.0",
+   "host": {
+    "kind": "native",
+    "key": "robe",
+    "label": "Empty robe",
+    "source": null,
+    "sha256": null
+   },
+   "seed": "handoff",
+   "pens": "series",
+   "params": {
+    "cell": 13,
+    "rib": 2.6,
+    "elong": 2.3,
+    "drape": 0.5,
+    "sweep": 0.12,
+    "strut": 2.2,
+    "fray": 105,
+    "drips": 0.55,
+    "roses": 4,
+    "dissolve": 0.5,
+    "slate": 0.55,
+    "ground": true,
+    "seal": true
+   },
+   "stats": {
+    "sites": 748,
+    "membrane": 33,
+    "panes": 20,
+    "holes": 11,
+    "links": 924,
+    "drips": 67
+   },
+   "paths": 3064,
+   "bytes": 1162243,
+   "sha256": "1db9e593d18acce2f6c64decf48307bab0d5ade6c722db0d8b66ec1e646689f8"
+  },
+  {
+   "name": "choronzon-handoff",
+   "file": "out/plot/choronzon-handoff.svg",
+   "generator": "0.1.0",
+   "host": {
+    "kind": "traced",
+    "key": "choronzon",
+    "label": "Choronzon",
+    "source": "books/06_tarot/extras/choronzon/choronzon-the-dispersal-v02.png",
+    "sha256": "ae5baa465cf01a902b8226d6cb73d2a8b5cdead0a76a176672a5fa0ae83348e8"
+   },
+   "seed": "handoff",
+   "pens": "series",
+   "params": {
+    "cell": 13,
+    "rib": 2.6,
+    "elong": 2.3,
+    "drape": 0.5,
+    "sweep": 0.12,
+    "strut": 2.2,
+    "fray": 105,
+    "drips": 0.55,
+    "roses": 4,
+    "dissolve": 0,
+    "slate": 0.55,
+    "ground": true,
+    "seal": true
+   },
+   "stats": {
+    "sites": 788,
+    "membrane": 197,
+    "panes": 108,
+    "holes": 81,
+    "links": 111,
+    "drips": 121
+   },
+   "paths": 4967,
+   "bytes": 1296221,
+   "sha256": "79f5ddb5d610b99251f2850701c0704a17e495a788a7bc9d8402e28a18cb67ed"
+  }
+ ]
+}

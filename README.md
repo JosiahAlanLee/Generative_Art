@@ -2,6 +2,8 @@
 
 Reusable techniques and scene studies from Josiah Alan-Lee’s book and generative artwork.
 
+The [additional development generators](techniques/10-development-generators/README.md) include the original Matricis plates, two-culture Physarum, the XI plotter converter and an interactive node lattice.
+
 **Choose an effect in the [technique catalog](CATALOG.md), then follow its family guide.** For a first runnable result, see [Getting started](docs/GETTING_STARTED.md). [Recipes](docs/RECIPES.md) cover combining techniques and choosing an output format.
 
 ![Six techniques from the book, generated from the imported source](examples/previews/technique-sampler.png)
@@ -25,6 +27,7 @@ Reusable techniques and scene studies from Josiah Alan-Lee’s book and generati
 | `techniques/` | Guides grouped by visual operation, with source links and tuning advice |
 | `examples/` | Small working examples and committed visual samplers |
 | `lib/` | Small implementations written for this collection, not imported from the book: AQ, numogram and Tic Xenotation |
+| `sources/development-art/` | Art-only generators selected from the development repository, with portability changes recorded |
 | `sources/codex-intervallorum/` | Unchanged source snapshot; original internal paths preserved |
 | `studies/` | Existing Infernal Engine, Photophobic and Scanned Statue studies, at their original paths |
 | `catalog/` | Machine-readable technique catalog, Python module index and per-file provenance |
@@ -34,3 +37,5 @@ Reusable techniques and scene studies from Josiah Alan-Lee’s book and generati
 The source snapshot is pinned to public book main commit [`b789e03`](https://github.com/JosiahAlanLee/Codex-Intervallorum/tree/b789e03f30034bc8403f8a40aaf83842885aaad5). It retains all 117 tracked Python modules, their selected technical inputs, fonts and source SVGs. Large raster art and edition PDFs stay in the book repository; this collection is not a complete illustrated-book distribution. See [provenance and updates](docs/PROVENANCE.md).
 
 The existing studies use their own dependencies and build instructions. Their manifests and source attributions are retained. See [notices](NOTICES.md) before redistributing inherited work.
+
+The separate [development-art manifest](catalog/development-art-manifest.json) records the authorized art-only additions. Book manuscripts, personal records and repository history are excluded.

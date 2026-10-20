@@ -1,0 +1,10 @@
+# Tested with Python 3.12; the original study's requirements remain beside it.
+-r requirements-book.txt
+numpy==2.2.6
+numba==0.61.2
+llvmlite==0.44.0
+scipy==1.17.0
+scikit-image==0.26.0
+skan==0.13.1
+pillow==12.3.0
+Hershey-Fonts==2.1.0

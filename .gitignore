@@ -11,3 +11,7 @@ examples/out/
 sources/codex-intervallorum/build/
 sources/codex-intervallorum/**/out/
 sources/codex-intervallorum/**/output/
+
+# Rebuilt development-art previews, simulations and plot masters
+sources/development-art/**/out/
+sources/development-art/**/plotter/a4/
