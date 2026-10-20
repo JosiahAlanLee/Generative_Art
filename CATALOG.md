@@ -74,6 +74,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 | [Ray-lit scenes with photophobic cultures](studies/photophobic/common/mould.py) | Grow two shade-seeking strains over scene surfaces | study |
 | [Scan engraving and Trail First primitives](studies/scanned-statue-v2/engrave.py) | Recover mesh contours and place primitives along trails | study |
 | [Perspective 3D engraving with landscape strokes](studies/three-gates/README.md) | Draw structures, water and depth-ordered Driftless plants through one perspective camera | study |
+| [Evaluated Blender terrain and mapped symbols](studies/terrain-symbols/README.md) | Drape 2D field marks onto displaced terrain, keep vegetation upright, and share geometry / plant occlusion with crosshatching | study |
 
 ## [Number systems](techniques/09-number-systems/README.md)
 

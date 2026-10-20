@@ -1,0 +1,3 @@
+# The executed model / independent ray checks used the official bpy wheel.
+# Alternatively use Blender 4.5 LTS itself: blender -b -P model.py
+bpy==4.5.14

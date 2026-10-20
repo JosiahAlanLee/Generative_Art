@@ -1,0 +1,8 @@
+output/*
+!output/checks-*.json
+!output/blender-checks.json
+!output/blender-visibility.json
+!output/manifest-*.json
+!output/preview.jpg
+dist/
+__pycache__/

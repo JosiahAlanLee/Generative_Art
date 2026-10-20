@@ -1,0 +1,47 @@
+{
+  "title": "Driftless terrain symbols",
+  "view": "low",
+  "camera": {
+    "kind": "perspective",
+    "eye": [
+      9,
+      -31,
+      8.8
+    ],
+    "target": [
+      0,
+      9,
+      2.1
+    ],
+    "focal_px": 3000.0,
+    "principal_point": [
+      1050.0,
+      787.5
+    ],
+    "resolution": [
+      2100,
+      1575
+    ]
+  },
+  "blender": "4.5.14 LTS",
+  "faces": 53724,
+  "surface": {
+    "field": {
+      "candidates": 372816,
+      "hidden_by_model": 168192,
+      "survives": 204624,
+      "paths": 2418
+    },
+    "rosette": {
+      "candidates": 18145,
+      "hidden_by_model": 9456,
+      "survives": 8689,
+      "paths": 32
+    }
+  },
+  "plants": 216,
+  "plant_samples": 149870,
+  "plant_owner_depth_violations": 0,
+  "engine_sha256": "8ba687057284e68faf66521ec6eb543d27495fe8290095324f15201578a40020",
+  "seconds": 28.4
+}
