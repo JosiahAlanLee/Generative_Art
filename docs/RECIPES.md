@@ -42,3 +42,8 @@ Environment controls apply to the original book scripts; they are not switches o
 The Notoria field records actual agent trajectories. Figure-growth hatches are integrated rendering curves. Photophobic’s transported surface veins and Scanned Statue’s Trail First sampler each use their own algorithms. A similar flowing appearance does not make them interchangeable models.
 
 A drawing can contain both decoration and encoded geometry. Keep masks, clipping, path simplification and sorting away from carrier marks unless the decoder is checked again. A xenotation glyph is read by containment and adjacency, so sorting its paths is safe; clipping or masking it is not. Use the full plot export for a physical drawing; illustrated PDF furniture includes fills, transparency and blend modes.
+
+## Implemented process-art studies
+
+The [process-art guide](../techniques/12-process-art/README.md) adds runnable eroded catchments, folded/faulted beds, chemically biased vein growth, and CSV-driven recurrence art. Their raw fields and millimetre strokes are separate outputs. `Plate.draw(hand)` supplies the existing ink/cornmeal Hand route; the SVG is compatible with `svgimport.strokes_from_svg()`. Further combinations with image-fed Physarum, numerics seals and architectural surfaces are described there, with implemented adapters distinguished from proposed integrations.
+

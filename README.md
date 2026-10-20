@@ -21,6 +21,10 @@ The [additional development generators](techniques/10-development-generators/REA
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |
 | Generate hidden-line landscape plates sized to the book's pages | [Landscape plates](techniques/11-landscape-plates/README.md) |
 
+## Process art R&D
+
+[Process-art generators](techniques/12-process-art/README.md) add eroded catchments, folded/faulted strata, chemical fields coupled to vein growth, and CSV-driven recurrence seals or textiles. Includes [research and primary sources](docs/PROCESS_ART_RESEARCH.md), editable stroke exports and a curated demonstration pack.
+
 ## Where things live
 
 | Path | Purpose |
@@ -40,3 +44,4 @@ The source snapshot is pinned to public book main commit [`b789e03`](https://git
 The existing studies use their own dependencies and build instructions. Their manifests and source attributions are retained. See [notices](NOTICES.md) before redistributing inherited work.
 
 The separate [development-art manifest](catalog/development-art-manifest.json) records the authorized art-only additions. Book manuscripts, personal records and repository history are excluded.
+

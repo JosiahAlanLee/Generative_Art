@@ -400,7 +400,7 @@
     "title": "Restricted SVG stroke import",
     "family": "06-plotter-export",
     "status": "book",
-    "use": "Reuse the book\u2019s generated seal geometry in new plates",
+    "use": "Reuse the book’s generated seal geometry in new plates",
     "guide": "techniques/06-plotter-export/README.md",
     "sources": [
       "sources/codex-intervallorum/common/plot/svgimport.py"
@@ -804,5 +804,76 @@
       "plotStats",
       "renderPlate"
     ]
+  },
+  {
+    "id": "eroded-catchments",
+    "title": "Dendritic ledger: eroded catchments",
+    "use": "Incise a terrain field and engrave contours with a drainage network",
+    "symbols": [
+      "catchment",
+      "drainage",
+      "basin_plate"
+    ],
+    "family": "12-process-art",
+    "status": "collection",
+    "guide": "techniques/12-process-art/README.md",
+    "sources": [
+      "lib/process_art/models.py",
+      "lib/process_art/studies.py",
+      "lib/process_art/drawing.py"
+    ]
+  },
+  {
+    "id": "faulted-stratigraphy",
+    "title": "Fault archive: folded and offset beds",
+    "use": "Draw geological strata with readable discontinuities and marker beds",
+    "symbols": [
+      "stratigraphy",
+      "strata_plate"
+    ],
+    "family": "12-process-art",
+    "status": "collection",
+    "guide": "techniques/12-process-art/README.md",
+    "sources": [
+      "lib/process_art/models.py",
+      "lib/process_art/studies.py",
+      "lib/process_art/drawing.py"
+    ]
+  },
+  {
+    "id": "reaction-venation",
+    "title": "Vascular palimpsest: chemical fields and vein growth",
+    "use": "Bias space-colonization growth with actual Gray-Scott concentration",
+    "symbols": [
+      "gray_scott",
+      "space_colonize",
+      "tissue_plate"
+    ],
+    "family": "12-process-art",
+    "status": "collection",
+    "guide": "techniques/12-process-art/README.md",
+    "sources": [
+      "lib/process_art/models.py",
+      "lib/process_art/studies.py",
+      "lib/process_art/drawing.py"
+    ]
+  },
+  {
+    "id": "recurrence-art",
+    "title": "Time-series recurrence seals and textiles",
+    "use": "Encode declared delay-embedded recurrence pairs and the input trace",
+    "symbols": [
+      "recurrence",
+      "recurrence_plate"
+    ],
+    "family": "12-process-art",
+    "status": "collection",
+    "guide": "techniques/12-process-art/README.md",
+    "sources": [
+      "lib/process_art/models.py",
+      "lib/process_art/studies.py",
+      "lib/process_art/drawing.py"
+    ]
   }
 ]
+
