@@ -1,0 +1,32 @@
+{
+  "alphabet": {
+    "A": "DOMINE",
+    "B": "PATER",
+    "C": "CREATOR",
+    "D": "CUSTOS",
+    "E": "RECTOR",
+    "F": "DUCTOR",
+    "G": "AUCTOR",
+    "H": "OPIFEX",
+    "I": "ARTIFEX",
+    "J": "PASTOR",
+    "K": "MAGISTER",
+    "L": "IUDEX",
+    "M": "ARBITER",
+    "N": "LECTOR",
+    "O": "SCRIBA",
+    "P": "TESTIS",
+    "Q": "QUAESITOR",
+    "R": "MINISTER",
+    "S": "NUNTIE",
+    "T": "VIATOR",
+    "U": "VIGIL",
+    "V": "PORTITOR",
+    "W": "SERVE",
+    "X": "SIGNATOR",
+    "Y": "ORATOR",
+    "Z": "REDACTOR"
+  },
+  "word_boundary": "AMEN",
+  "status": "new adaptation, not historical transcription"
+}

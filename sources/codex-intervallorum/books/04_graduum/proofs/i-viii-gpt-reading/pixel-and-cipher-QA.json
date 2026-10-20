@@ -1,0 +1,98 @@
+[
+  {
+    "plate": "I",
+    "primary_decode_after_render": "THEY WERE NEVER COUNTING THE SAME THING",
+    "countertext_decode_after_render": "THE TWO COUNTS ALIGN",
+    "frame_bits_read_from_png": 372,
+    "frame_decode_from_png": "THE TWO COUNTS ALIGN",
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 102,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  },
+  {
+    "plate": "II",
+    "primary_decode_after_render": "HORAS SHOP STAYED OPEN",
+    "countertext_decode_after_render": "LOOSE PARTS SURVIVE",
+    "frame_bits_read_from_png": 0,
+    "frame_decode_from_png": null,
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 452,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  },
+  {
+    "plate": "III",
+    "primary_decode_after_render": "THE LEFT MOVED THE RIGHT WAS WRITTEN DOWN",
+    "countertext_decode_after_render": "THE RECORD MOVES TOO",
+    "frame_bits_read_from_png": 0,
+    "frame_decode_from_png": null,
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 190,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  },
+  {
+    "plate": "IV",
+    "primary_decode_after_render": "SAY WHAT THE TERRACES ARE FOR",
+    "countertext_decode_after_render": "ALL OBSERVERS DRAW THE SAME STEPS",
+    "frame_bits_read_from_png": 372,
+    "frame_decode_from_png": "ALL OBSERVERS DRAW THE SAME STEPS",
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 179,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  },
+  {
+    "plate": "V",
+    "primary_decode_after_render": "COUNT III M I Y II Y V Y X Y XX Y L Y",
+    "countertext_decode_after_render": "NO SLOWER AT THE TOP",
+    "frame_bits_read_from_png": 0,
+    "frame_decode_from_png": null,
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 447,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  },
+  {
+    "plate": "VI",
+    "primary_decode_after_render": "EACH LEARNED ITS TILE AND NOTHING BEYOND IT",
+    "countertext_decode_after_render": "FULL SIGHT LEARNS AS FAST",
+    "frame_bits_read_from_png": 0,
+    "frame_decode_from_png": null,
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 263,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  },
+  {
+    "plate": "VII",
+    "primary_decode_after_render": "THE CORD IS SOUND THE MOUNT WAS NEVER MADE",
+    "countertext_decode_after_render": "THE UNEXPOSED ANSWER NO SLOWER",
+    "frame_bits_read_from_png": 372,
+    "frame_decode_from_png": "THE UNEXPOSED ANSWER NO SLOWER",
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 278,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  },
+  {
+    "plate": "VIII",
+    "primary_decode_after_render": "THE ONE THAT WAS RIGHT SPOKE AT ORDINARY VOLUME",
+    "countertext_decode_after_render": "THE QUIET ONE WAS HEARD",
+    "frame_bits_read_from_png": 372,
+    "frame_decode_from_png": "THE QUIET ONE WAS HEARD",
+    "red_target": "#a32b24",
+    "exact_target_red_pixels": 219,
+    "opaque_cream_ground": true,
+    "reserved_blank_interior_unchanged": true,
+    "pdf_matches_png": true
+  }
+]

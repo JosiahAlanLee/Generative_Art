@@ -2,3 +2,12 @@ tools/node_modules/
 .cache/
 *.partial
 *.part
+
+# Local Python environments and generated experiments
+.venv/
+__pycache__/
+*.py[cod]
+examples/out/
+sources/codex-intervallorum/build/
+sources/codex-intervallorum/**/out/
+sources/codex-intervallorum/**/output/

@@ -1,0 +1,339 @@
+{
+  "title": "Clavicula Graduum",
+  "status": "IX revised proof: serif hand, seven station markers, no ornament; later plates pending",
+  "plate": {
+    "number": "IX",
+    "title": "The Square Table",
+    "second_text_plain": "The key returns the signs, not the room.",
+    "second_text_normalized": "THE KEY RETURNS THE SIGNS NOT THE ROOM",
+    "second_text_source": "this plate's [F] sentence",
+    "ciphertext": [
+      [
+        [
+          11,
+          2
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      [
+        [
+          2,
+          1
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      [
+        [
+          9,
+          2
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          9,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ]
+      ],
+      [
+        [
+          11,
+          2
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      [
+        [
+          10,
+          2
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          2
+        ]
+      ],
+      [
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          11,
+          2
+        ]
+      ],
+      [
+        [
+          11,
+          2
+        ],
+        [
+          11,
+          1
+        ],
+        [
+          8,
+          1
+        ]
+      ],
+      [
+        [
+          9,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          4,
+          2
+        ]
+      ]
+    ],
+    "ciphertext_codes": "11:2 11:1 08:1 / 02:1 08:1 04:3 / 09:2 08:1 11:2 12:2 09:2 05:2 10:2 / 11:2 11:1 08:1 / 10:2 12:1 10:1 05:2 10:2 / 05:2 06:2 11:2 / 11:2 11:1 08:1 / 09:2 06:2 06:2 04:2",
+    "does_not_claim": "Recovering the normalized signs does not recover the situation in which they were written.",
+    "reserved_blank_mm": {
+      "x": 82,
+      "y": 42,
+      "width": 46,
+      "height": 24
+    }
+  },
+  "codec": {
+    "base_marks": 12,
+    "plaintext_letters": 26,
+    "caption_shift": 3,
+    "station_to_shift": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6
+    },
+    "station_to_shift_status": "editorial assignment; not a context-loss measurement",
+    "modulus": 12,
+    "tally": "unchanged",
+    "row_zero": "identity",
+    "ciphertext_space": "36 base/tally combinations; unshift before plaintext lookup",
+    "normalization": "ASCII letters; uppercase; omit listed punctuation; collapse whitespace; reject other characters",
+    "plaintext_key": {
+      "A": [
+        1,
+        1
+      ],
+      "B": [
+        2,
+        1
+      ],
+      "C": [
+        3,
+        1
+      ],
+      "D": [
+        4,
+        1
+      ],
+      "E": [
+        5,
+        1
+      ],
+      "F": [
+        6,
+        1
+      ],
+      "G": [
+        7,
+        1
+      ],
+      "H": [
+        8,
+        1
+      ],
+      "I": [
+        9,
+        1
+      ],
+      "J": [
+        10,
+        1
+      ],
+      "K": [
+        11,
+        1
+      ],
+      "L": [
+        12,
+        1
+      ],
+      "M": [
+        1,
+        2
+      ],
+      "N": [
+        2,
+        2
+      ],
+      "O": [
+        3,
+        2
+      ],
+      "P": [
+        4,
+        2
+      ],
+      "Q": [
+        5,
+        2
+      ],
+      "R": [
+        6,
+        2
+      ],
+      "S": [
+        7,
+        2
+      ],
+      "T": [
+        8,
+        2
+      ],
+      "U": [
+        9,
+        2
+      ],
+      "V": [
+        10,
+        2
+      ],
+      "W": [
+        11,
+        2
+      ],
+      "X": [
+        12,
+        2
+      ],
+      "Y": [
+        1,
+        3
+      ],
+      "Z": [
+        2,
+        3
+      ]
+    },
+    "caption_register_order": [
+      "A top to bottom",
+      "B top to bottom"
+    ]
+  },
+  "plot": {
+    "width_mm": 210,
+    "height_mm": 297,
+    "physical_plotter_tested": false,
+    "inks": {
+      "black": "#161918",
+      "red": "#a32b24"
+    },
+    "layers": [
+      "art-paths",
+      "text-outlines"
+    ],
+    "lettering": "EMS Nixish centerline serif",
+    "minimum_nominal_H_cap_mm": 2.5,
+    "minimum_cipher_base_mm": 2.6,
+    "ornament": false
+  },
+  "production_order": [
+    "IX",
+    "X",
+    "XI",
+    "V",
+    "VII",
+    "I",
+    "II",
+    "III",
+    "IV",
+    "VI",
+    "VIII",
+    "XII"
+  ],
+  "open_decisions": {
+    "XI": "SVG order is controllable; a letter delimiter and protected export protocol remain to be specified.",
+    "X": "Ave Maria table and actual Foras effect line must be inspected before production.",
+    "books": "The brief does not allocate the twelve plates among the three books.",
+    "XII": "Withheld-key mechanism remains to be designed after the other keys exist.",
+    "seven": "Four thematic occurrences asserted by brief; audit pending, no evidentiary argument."
+  },
+  "validation": {
+    "all_26_letters_at_all_12_shifts": "passed",
+    "caption_at_all_12_shifts": "passed",
+    "reserved_cipher_token": "passed",
+    "invalid_input": "passed"
+  },
+  "source_hashes": {
+    "tx.py": "bb42a2f1b8e92b1e6ffe828714b6c5fda6904c6b0346bc408973422dbf461505",
+    "core.py": "c535401071c41170e77516d2ae0d17e1ef5af99d75ed51fc56d7f151fd6ce4ee"
+  }
+}

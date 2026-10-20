@@ -1,0 +1,13 @@
+# Validated with Python 3.12.14
+reportlab==4.4.9
+svglib==2.3.0
+fonttools==4.61.1
+shapely==2.2.0
+pillow==12.3.0
+charset-normalizer==3.5.2
+lxml==6.1.1
+cssselect2==0.10.1
+tinycss2==1.5.1
+webencodings==0.6.1
+numpy==2.3.5
+

@@ -1,0 +1,404 @@
+{
+  "title": "Clavicula Graduum",
+  "batch": [
+    "X",
+    "XI",
+    "V"
+  ],
+  "plates": {
+    "X": {
+      "number": "X",
+      "title": "The Prayer of the Office",
+      "second_text_plain": "Located the fault in four minutes; left it running while permission was sought.",
+      "second_text_normalized": "LOCATED THE FAULT IN FOUR MINUTES LEFT IT RUNNING WHILE PERMISSION WAS SOUGHT",
+      "reserved_blank_mm": [
+        82,
+        244,
+        46,
+        23
+      ],
+      "files": [
+        "x-prayer-of-the-office.svg",
+        "x-prayer-of-the-office-black-a4.svg",
+        "x-prayer-of-the-office-red-a4.svg",
+        "x-prayer-of-the-office-art-only.svg",
+        "x-prayer-of-the-office-text-only.svg"
+      ],
+      "physical_plotter_tested": false,
+      "carrier": "new 26-word office litany; fixed-column Ave Maria-style adaptation",
+      "table": {
+        "A": "DOMINE",
+        "B": "PATER",
+        "C": "CREATOR",
+        "D": "CUSTOS",
+        "E": "RECTOR",
+        "F": "DUCTOR",
+        "G": "AUCTOR",
+        "H": "OPIFEX",
+        "I": "ARTIFEX",
+        "J": "PASTOR",
+        "K": "MAGISTER",
+        "L": "IUDEX",
+        "M": "ARBITER",
+        "N": "LECTOR",
+        "O": "SCRIBA",
+        "P": "TESTIS",
+        "Q": "QUAESITOR",
+        "R": "MINISTER",
+        "S": "NUNTIE",
+        "T": "VIATOR",
+        "U": "VIGIL",
+        "V": "PORTITOR",
+        "W": "SERVE",
+        "X": "SIGNATOR",
+        "Y": "ORATOR",
+        "Z": "REDACTOR"
+      },
+      "word_boundary": "AMEN",
+      "cipher_tokens": [
+        "IUDEX",
+        "SCRIBA",
+        "CREATOR",
+        "DOMINE",
+        "VIATOR",
+        "RECTOR",
+        "CUSTOS",
+        "AMEN",
+        "VIATOR",
+        "OPIFEX",
+        "RECTOR",
+        "AMEN",
+        "DUCTOR",
+        "DOMINE",
+        "VIGIL",
+        "IUDEX",
+        "VIATOR",
+        "AMEN",
+        "ARTIFEX",
+        "LECTOR",
+        "AMEN",
+        "DUCTOR",
+        "SCRIBA",
+        "VIGIL",
+        "MINISTER",
+        "AMEN",
+        "ARBITER",
+        "ARTIFEX",
+        "LECTOR",
+        "VIGIL",
+        "VIATOR",
+        "RECTOR",
+        "NUNTIE",
+        "AMEN",
+        "IUDEX",
+        "RECTOR",
+        "DUCTOR",
+        "VIATOR",
+        "AMEN",
+        "ARTIFEX",
+        "VIATOR",
+        "AMEN",
+        "MINISTER",
+        "VIGIL",
+        "LECTOR",
+        "LECTOR",
+        "ARTIFEX",
+        "LECTOR",
+        "AUCTOR",
+        "AMEN",
+        "SERVE",
+        "OPIFEX",
+        "ARTIFEX",
+        "IUDEX",
+        "RECTOR",
+        "AMEN",
+        "TESTIS",
+        "RECTOR",
+        "MINISTER",
+        "ARBITER",
+        "ARTIFEX",
+        "NUNTIE",
+        "NUNTIE",
+        "ARTIFEX",
+        "SCRIBA",
+        "LECTOR",
+        "AMEN",
+        "SERVE",
+        "DOMINE",
+        "NUNTIE",
+        "AMEN",
+        "NUNTIE",
+        "SCRIBA",
+        "VIGIL",
+        "AUCTOR",
+        "OPIFEX",
+        "VIATOR"
+      ],
+      "register_order": [
+        "A downward",
+        "B downward"
+      ],
+      "source_effect": "Pseudomonarchia Escalationum, Foras, PDF p. 6",
+      "does_not_claim": "A prayer-shaped record is neither an authorization nor evidence that a repair occurred.",
+      "description": "The original Foras effect line is encoded as an office litany. The table is a new adaptation, not a historical transcription.",
+      "path_counts": {
+        "art-paths": 259,
+        "text-outlines": 539
+      }
+    },
+    "XI": {
+      "number": "XI",
+      "title": "The Lifted Pen",
+      "second_text_plain": "The file keeps the lifts.",
+      "second_text_normalized": "THE FILE KEEPS THE LIFTS",
+      "reserved_blank_mm": [
+        93,
+        38,
+        24,
+        24
+      ],
+      "files": [
+        "xi-lifted-pen.svg",
+        "xi-lifted-pen-black-a4.svg",
+        "xi-lifted-pen-red-a4.svg",
+        "xi-lifted-pen-art-only.svg",
+        "xi-lifted-pen-text-only.svg"
+      ],
+      "physical_plotter_tested": false,
+      "carrier": "document-order SVG paths; each carrier path is one word",
+      "blank_shape": "ring",
+      "letter_boundary": "Q curve; count preceding L commands modulo 26, zero is Z",
+      "word_boundary": "next M path; one physical pen lift between carrier word paths",
+      "path_order": "SVG document order among data-channel=lifted-pen paths",
+      "does_not_claim": "The plate does not claim that rasterization or arbitrary reordering preserves its second text.",
+      "description": "Preserve raw M/L/Q commands and carrier path order. Collinear subdivisions are invisible on paper.",
+      "path_counts": {
+        "art-paths": 26,
+        "text-outlines": 61
+      }
+    },
+    "V": {
+      "number": "V",
+      "title": "The Dial of Seven Keepers",
+      "second_text_plain": "Count III M I Y II Y V Y X Y XX Y L Y.",
+      "second_text_normalized": "COUNT III M I Y II Y V Y X Y XX Y L Y",
+      "reserved_blank_mm": [
+        17,
+        42,
+        40,
+        24
+      ],
+      "files": [
+        "v-dial-of-seven-keepers.svg",
+        "v-dial-of-seven-keepers-black-a4.svg",
+        "v-dial-of-seven-keepers-red-a4.svg",
+        "v-dial-of-seven-keepers-art-only.svg",
+        "v-dial-of-seven-keepers-text-only.svg"
+      ],
+      "physical_plotter_tested": false,
+      "carrier": "Matricis twelve-mark hand; Roman numerals and M/Y unit letters",
+      "cipher_tokens": [
+        [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        [
+          [
+            9,
+            1
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            9,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            9,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            9,
+            1
+          ],
+          [
+            9,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            10,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            12,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            12,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ]
+        ]
+      ],
+      "cipher_codes": "03:1 03:2 09:2 02:2 08:2 / 09:1 09:1 09:1 / 01:2 / 09:1 / 01:3 / 09:1 09:1 / 01:3 / 10:2 / 01:3 / 12:2 / 01:3 / 12:2 12:2 / 01:3 / 12:1 / 01:3",
+      "Jaques_upper_boundaries_years": [
+        0.25,
+        1,
+        2,
+        5,
+        10,
+        20,
+        50
+      ],
+      "Jaques_labels": [
+        "3M",
+        "1Y",
+        "2Y",
+        "5Y",
+        "10Y",
+        "20Y",
+        "50Y"
+      ],
+      "Trithemius_reign_years": 354.3333333333333,
+      "dial_geometry": "inner seven equal stations; outer open 340-degree logarithmic boundary scale",
+      "hands": "seven invented hands with periods equal to the listed Jaques spans; arbitrary phase offsets; snapshot t=.37 years",
+      "hand_phases_radians": [
+        7.728317927830892,
+        1.6515801378872057,
+        1.3867887570846373,
+        1.5869530890133583,
+        2.252073133673369,
+        3.0334321065162015,
+        3.8612866506321635
+      ],
+      "does_not_claim": "The plate does not claim that sharing the number seven establishes a common mechanism or validates either hierarchy.",
+      "description": "Keeper body and projected face reused. The dial replaces the crescent. 354 years and four months per Trithemius reign; seven Jaques upper boundaries remain mismatched.",
+      "path_counts": {
+        "art-paths": 649,
+        "text-outlines": 313
+      }
+    }
+  },
+  "production_status": {
+    "IX": "revised proof in previous package",
+    "X": "first proof",
+    "XI": "ordered SVG proof; physical plot untested",
+    "V": "first proof",
+    "remaining": [
+      "VII",
+      "I",
+      "II",
+      "III",
+      "IV",
+      "VI",
+      "VIII",
+      "XII"
+    ]
+  },
+  "source_sha256": {
+    "source/foras.svg": "75e1833d9e5800111d8e2787180a58d71be03d79fd29b07072c77dfc2ea65580",
+    "source/keeper-face-plot.svg": "c761fcdd405c4a3ae1dc3d6846196d0587423653f39506fcb3f9c211379a6660"
+  },
+  "validation": {
+    "office_litany_alphabet": "passed",
+    "Foras_effect_round_trip": "passed",
+    "XI_master_and_black_sheet": "passed: decoded delivered SVGs",
+    "XI_same_appearance_different_order": "passed: reversing paths reverses decoded words",
+    "XI_collinear_simplification": "passed: same line geometry destroys letter counts",
+    "XI_rendered_counterexamples": {
+      "xi-reversed": {
+        "mean_pixel_difference_0_to_255": 1.4668133480014669e-05,
+        "threshold": 0.02,
+        "decoded": "LIFTS THE KEEPS FILE THE"
+      },
+      "xi-simplified": {
+        "mean_pixel_difference_0_to_255": 0.002287809733354288,
+        "threshold": 0.02,
+        "decoded": "AAA AAAA AAAAA AAA AAAAA"
+      }
+    },
+    "V_Roman_caption_round_trip": "passed",
+    "physical_plotter_tested": false
+  }
+}

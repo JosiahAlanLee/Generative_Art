@@ -1,0 +1,39 @@
+{
+  "written": "The numerical rule is published alongside the model and outputs. Its digests check consistency, not independently verifiable preregistration. The thresholds are executable data.",
+  "comparison": "C (window-bounded gate) against A (universal gate) on expected total harm, cell by cell. C beats A in a cell when harm_C <= (1 - margin) * harm_A; otherwise A holds the cell. B (deference) is reported but does not decide the verdict.",
+  "margin": 0.005,
+  "anchored_region": {
+    "why": "An assumed scenario region, historically named anchored_region. The cited sources do not estimate these bounds. DORA's deployment-level association does not identify the conditional probability of catching a wrong incident proposal; deployment failure is not eps, and lam has not been calibrated to observed incident windows.",
+    "delta": [
+      0.0,
+      0.25
+    ],
+    "lam": [
+      0.3,
+      10.0
+    ],
+    "eps": [
+      0.05,
+      0.6
+    ]
+  },
+  "gate_home": {
+    "why": "where a gate should win if the model lets it: it catches most wrong actions and its latency is a small fraction of the window",
+    "delta_min": 0.75,
+    "lam_max": 0.1
+  },
+  "outcomes": {
+    "1_rigged": "The C win fraction exceeds a declared construction check. This is a local rule label, not proof of intentional rigging or a finding about the book.",
+    "2_region": "The assumed scenario-region C-win criteria and the gate-home A-holds criterion are satisfied. Holds includes ties and sub-margin differences; it does not require A superiority. This is satisfaction of a chosen A-versus-C rule, not empirical validation or selection of C over B.",
+    "3_fails": "The chosen numerical criteria are not satisfied. This is a result about this model and rule; it does not establish that every use of the book is ineffective."
+  },
+  "order": "1_rigged is tested first, then 2_region, then 3_fails.",
+  "booked_accounting": "Wrong actions alone, excluding delay and missed windows, are a chosen accounting function. Report A, B and C comparisons without inferring actual blame allocation or institutional motives.",
+  "thresholds": {
+    "rigged_all_c": 0.95,
+    "rigged_home_c": 0.9,
+    "region_anchored_c": 0.6666666666666666,
+    "region_without_lowest_eps_c": 0.6666666666666666,
+    "region_home_a_holds": 0.25
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "model": "gate_window",
+  "run": "2026-10-18",
+  "partial": false,
+  "every": 1,
+  "cells": 6300,
+  "grid": {
+    "eps": [
+      0.05,
+      0.15,
+      0.3,
+      0.45,
+      0.6
+    ],
+    "delta": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.95
+    ],
+    "phi": [
+      0.0,
+      0.25
+    ],
+    "lam": [
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "sigma": [
+      0.75
+    ],
+    "d": [
+      0.1
+    ],
+    "h_wrong": [
+      0.1,
+      0.5,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "h_window": [
+      1.0,
+      3.0,
+      10.0
+    ]
+  },
+  "n_samples_per_cell": 6000,
+  "seed": 20261018,
+  "max_rounds": 80,
+  "rng": "numpy default_rng(PCG64) seeded with [seed, cell index]; lognormal and uniform draws shared across arrangements within a round",
+  "numpy": "2.3.5",
+  "python": "3.12.14",
+  "verdict_json_sha256": "c73b163eabe271225eec6927ad9b5febb0a2cee5c0ac36f64fdfd69d54ef51e9",
+  "model_py_sha256": "e1a9027c56791447ed875072a0281ddef5423d887f4ec86bf90e59cdda4f4698",
+  "verdict_py_sha256": "87c337a0c2efe99817fc810965c5c99f218235b9cd13849db4c5c2576cea706d",
+  "interpretation": "Supplementary illustration under assumed parameters; no empirical calibration or comparative validation.",
+  "results_sha256": "84303bcbc2327a9157dfa718ce6511918bfd142cb1b9655ffcff64fa962dc525",
+  "elapsed_seconds": 38.0
+}

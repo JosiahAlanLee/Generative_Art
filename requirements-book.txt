@@ -1,0 +1,3 @@
+# Broad upstream book requirements, retained unchanged in sources/.
+# Install the existing studies' own pinned requirements separately.
+-r sources/codex-intervallorum/requirements.txt
