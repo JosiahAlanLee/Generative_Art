@@ -59,7 +59,9 @@ recorded per commit:
 | `claude` | Authored as Claude or carrying a `Co-Authored-By: Claude` trailer; or merged from a `claude/` branch | Dense red threads |
 | `direct` | None of the above | Sparse red threads |
 
-A thread's class is the last commit to change the line. It is not first
+The trailer is checked before the branch, so a Claude-co-authored commit on a
+`codex/` branch counts as `claude`. A thread's class is the last commit to
+change the line. It is not first
 authorship, and the plate assigns no share of authorship. Work done by one
 model under another's branch, or relayed by the author, is classed by what the
 repository records. The public history begins at an import, so most text is
@@ -79,7 +81,7 @@ study uses Tero's saturating response and random food-node pairs on a free mesh.
 
 | Variant | γ, flux | Result |
 | --- | --- | --- |
-| 0 | 1.8, 2.0 | One loop through all seven nodes |
+| 0 | 1.8, 2.0 | A single loop through six nodes, the seventh on a spur |
 | 1 | 1.15, 1.0 | A loop with parallel, redundant tubes and cross-links through the centre node (selected) |
 | 2 | 1.15, 0.2 | A loop with three cross-links from the centre node; conductivities stay lower |
 

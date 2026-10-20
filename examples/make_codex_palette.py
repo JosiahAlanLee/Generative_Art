@@ -146,7 +146,7 @@ SELECTION = [
      "is the red block; everything else is threads carried forward from the import."),
     ("tubes-s53-v1", "Tubes between Nota V's seven nodes",
      "Gamma 1.15 keeps loops and the centre node's cross-links; gamma 1.8 (variant 0) collapses "
-     "to a single loop and reads as a diagram rather than an organism."),
+     "to a single loop with one spur and reads as a diagram rather than an organism."),
     ("marbling-s7-v1", "Marbled sheet, gel-git",
      "The back-and-forth stroke gives the heart and flame rows; the nonpareil comb (variant 2) is "
      "denser and its fine teeth crowd a 0.3 mm pen."),
