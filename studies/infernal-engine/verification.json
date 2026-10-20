@@ -1,0 +1,27 @@
+{
+  "Blender": "4.5.3 LTS",
+  "scenes": [
+    "IE \u2022 01 Common ground",
+    "IE \u2022 02 Hall of obligations"
+  ],
+  "node_groups": [
+    "IE \u2022 01 Portal module",
+    "IE \u2022 02 Archive tower module",
+    "IE \u2022 EXTERIOR \u2022 common ground",
+    "IE \u2022 INTERIOR \u2022 hall of obligations"
+  ],
+  "seed_changes_geometry": true,
+  "same_seed_repeats_geometry": true,
+  "zero_growth_removes_plant_geometry": true,
+  "exterior_vertices_with_growth": 637088,
+  "exterior_vertices_without_growth": 5184,
+  "render_proofs": {
+    "width": 1200,
+    "height": 1500,
+    "samples": 20
+  },
+  "svg_nonempty": {
+    "exterior_ink.svg": 13535,
+    "interior_ink.svg": 4349
+  }
+}
