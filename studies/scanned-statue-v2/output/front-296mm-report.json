@@ -1,0 +1,69 @@
+{
+  "version": "scan-engraving-v2",
+  "camera": "front",
+  "eye": [
+    -3.0,
+    -8.0,
+    3.2
+  ],
+  "plate_mm": 296.0,
+  "pen_mm": 0.09,
+  "pen_units": 0.4560810810810811,
+  "spacing_pen_widths": 1.75,
+  "candidate_spacing_mm": 0.1575,
+  "section_step_scene_units": 0.0022843301846317584,
+  "sample_step_scene_units": 0.0025758542272419065,
+  "source_triangles": 149999,
+  "glb_vertex_records": 94531,
+  "welded_vertices": 74939,
+  "contour_normal_smoothing": 0,
+  "suggestive": {
+    "normal_smoothing": 2,
+    "threshold": 5.0,
+    "max_cos": 0.94
+  },
+  "tone": {
+    "scale": 0.68,
+    "gamma": 1.3,
+    "smooth_samples": 1.5
+  },
+  "light": {
+    "vertex_light_samples": 64,
+    "vertex_ao": 32,
+    "vertex_bounce": 12,
+    "setting_texel": 0.01,
+    "setting_light_samples": 36,
+    "setting_ao": 16,
+    "setting_bounce": 6,
+    "ambient": 0.1,
+    "exposure": 1.6
+  },
+  "treatments": [
+    {
+      "paths": 13928,
+      "treatment": "contour",
+      "file": "front-296mm-contour.svg",
+      "line_metres": 147.70374810934445,
+      "paths_by_layer": {
+        "contours": 299,
+        "features": 538,
+        "hatch_primary": 6263,
+        "hatch_cross": 0,
+        "setting": 6828
+      }
+    },
+    {
+      "paths": 13967,
+      "treatment": "cross",
+      "file": "front-296mm-cross.svg",
+      "line_metres": 149.89260367649004,
+      "paths_by_layer": {
+        "contours": 299,
+        "features": 538,
+        "hatch_primary": 4890,
+        "hatch_cross": 1066,
+        "setting": 7174
+      }
+    }
+  ]
+}

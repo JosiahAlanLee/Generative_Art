@@ -1,0 +1,49 @@
+{
+  "method": "trail-first-plate-scaled (food/swarm: original; mark sampling: original)",
+  "vendor_sampler": "primitive_growth.Swarm, unmodified",
+  "food_source": "second-statue-food.png",
+  "food_sha256": "410209b65682a78518b3419b37164a20e4440e5972a45b1a9e871b2269a5b528",
+  "crop_bbox": [
+    525,
+    159,
+    993,
+    1704
+  ],
+  "grid": [
+    374,
+    1236
+  ],
+  "cell_plate_units": 1.25,
+  "cell_mm": 0.12333333333333334,
+  "statue_cells": 208990,
+  "agents_per_colony": 10450,
+  "steps_per_colony": 280,
+  "sensors_cells": [
+    6,
+    7,
+    8
+  ],
+  "sensors_mm": [
+    0.74,
+    0.8633333333333333,
+    0.9866666666666667
+  ],
+  "trail_weight": 1.8,
+  "primitives": 7200,
+  "ink_allocations": [
+    4320,
+    1440,
+    1440
+  ],
+  "radius_mm": [
+    0.08,
+    0.2
+  ],
+  "plate_mm": 148.0,
+  "seed": 23,
+  "shape_counts": {
+    "triangle": 2400,
+    "square": 2400,
+    "circle": 2400
+  }
+}
