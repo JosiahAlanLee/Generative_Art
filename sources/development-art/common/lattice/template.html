@@ -1,0 +1,382 @@
+<title>Node Lattice</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=IM+Fell+English:ital@0;1&display=swap">
+<style>
+/* Layout: the plate is the page; the controls stand beside it like the knobs of a copy stand,
+   and drop below it on a phone. Faces are the book's own: IM Fell, EB Garamond, IBM Plex Mono. */
+:root {
+  --bg: #e2e6e4;
+  --surface: #eef1ef;
+  --mount: #d3d9d7;
+  --line: #bcc6c4;
+  --fg: #161918;
+  --muted: #55666b;
+  --accent: #3e6470;
+  --accent-ink: #f3f1ea;
+  --red: #a32b24;
+  --display: "IM Fell English", "EB Garamond", Georgia, serif;
+  --body: "EB Garamond", Garamond, Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111516; --surface: #182022; --mount: #0b0e0f; --line: #2c3639;
+    --fg: #e8e4d9; --muted: #95a5a9; --accent: #8db0ba; --accent-ink: #0f1314; --red: #d0544b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111516; --surface: #182022; --mount: #0b0e0f; --line: #2c3639;
+  --fg: #e8e4d9; --muted: #95a5a9; --accent: #8db0ba; --accent-ink: #0f1314; --red: #d0544b;
+  color-scheme: dark;
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 17px/1.45 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 18px; }
+header { display: grid; gap: 4px; }
+h1 { font: 400 clamp(30px, 6vw, 44px)/1.05 var(--display); margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+.lede { margin: 0; color: var(--muted); max-width: 62ch; font-size: 17px; text-wrap: pretty; }
+.layout { display: grid; gap: 22px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 860px) { .layout { grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr); } }
+
+/* the plate */
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.stage { position: relative; background: var(--mount); padding: clamp(8px, 2.4vw, 16px); border: 1px solid var(--line); }
+.stage canvas { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; max-width: 100%; background: #ede6d4; }
+.busy {
+  position: absolute; top: calc(clamp(8px, 2.4vw, 16px) + 10px); left: calc(clamp(8px, 2.4vw, 16px) + 10px);
+  font: 500 12px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+  background: rgba(22, 25, 24, 0.82); color: #ede6d4; padding: 7px 9px; transition: opacity .2s;
+}
+.busy[data-on="false"] { opacity: 0; pointer-events: none; }
+figcaption { display: grid; gap: 3px; font: 13px/1.5 var(--mono); color: var(--muted); min-width: 0; }
+figcaption b { font-weight: 500; color: var(--fg); }
+figcaption span { overflow-wrap: anywhere; }
+
+/* controls */
+.controls { display: grid; gap: 16px; min-width: 0; }
+fieldset { margin: 0; padding: 14px 14px 16px; border: 1px solid var(--line); background: var(--surface); display: grid; gap: 12px; min-width: 0; }
+legend { font: 500 12px/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0 6px; margin-left: -6px; }
+.note { margin: -4px 0 0; font-size: 15px; color: var(--muted); }
+.row { display: grid; gap: 6px; }
+.row label, .check, .seg button, select, input[type="text"], button { font-family: var(--body); }
+.row .top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.row label { font-size: 16px; }
+output { font: 13px/1 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+select, input[type="text"] {
+  width: 100%; font-size: 16px; color: var(--fg); background: var(--bg); border: 1px solid var(--line);
+  padding: 9px 10px; border-radius: 2px; min-width: 0;
+}
+input[type="text"] { font-family: var(--mono); font-size: 15px; }
+.seedrow { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+button {
+  font-size: 16px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); padding: 9px 14px;
+  border-radius: 2px; cursor: pointer; touch-action: manipulation;
+}
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type="range"] { width: 100%; margin: 0; accent-color: var(--accent); height: 26px; background: transparent; }
+.dissolve input[type="range"] { accent-color: var(--red); }
+.checks { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.check { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; cursor: pointer; }
+.check input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
+.seg button { border: 0; border-radius: 0; background: var(--bg); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.saves { display: flex; flex-wrap: wrap; gap: 8px; }
+.status { font: 13px/1.5 var(--mono); color: var(--muted); min-height: 1.5em; margin: 0; overflow-wrap: anywhere; }
+.grid2 { display: grid; gap: 12px 18px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 520px) { .grid2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+details { font-size: 16px; color: var(--muted); }
+details summary { cursor: pointer; color: var(--fg); }
+details p { margin: 8px 0 0; max-width: 64ch; }
+@media (prefers-reduced-motion: reduce) { .busy { transition: none; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Node Lattice</h1>
+    <p class="lede">The cellular lattice from the demon renders, grown from a seed: ribs and panes inside a silhouette, an open net at the edge, beaded tendrils and drips past it.</p>
+  </header>
+  <div class="layout">
+    <figure>
+      <div class="stage">
+        <canvas id="plate" width="1000" height="1500" role="img" aria-label="Generated lattice plate"></canvas>
+        <div class="busy" id="busy" data-on="true">Growing</div>
+      </div>
+      <figcaption>
+        <span id="cap-main"></span>
+        <span id="cap-prov"></span>
+        <span id="cap-stats"></span>
+      </figcaption>
+    </figure>
+
+    <form class="controls" id="controls" autocomplete="off">
+      <fieldset>
+        <legend>Host and seed</legend>
+        <div class="row">
+          <label for="host">Host silhouette</label>
+          <select id="host"></select>
+        </div>
+        <div class="row">
+          <label for="seed">Seed</label>
+          <div class="seedrow">
+            <input type="text" id="seed" spellcheck="false" autocapitalize="off">
+            <button type="button" id="reseed">New seed</button>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Shape</legend>
+        <p class="note">These regrow the packing.</p>
+        <div class="grid2" id="shape"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Dress</legend>
+        <div class="grid2" id="dress"></div>
+        <div class="checks">
+          <label class="check"><input type="checkbox" id="ground"> Ground ring</label>
+          <label class="check"><input type="checkbox" id="sealbox"> Seal</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="dissolve">
+        <legend>Dissolution</legend>
+        <div class="row">
+          <div class="top"><label for="dissolve">Membrane to node web</label><output id="dissolve-out" for="dissolve"></output></div>
+          <input type="range" id="dissolve" min="0" max="1" step="0.05">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>View and save</legend>
+        <div class="seg" role="group" aria-label="View">
+          <button type="button" id="view-ill" aria-pressed="true">Illustrated</button>
+          <button type="button" id="view-plot" aria-pressed="false">Plot</button>
+        </div>
+        <div class="seg" role="group" aria-label="Pens" id="pens" hidden>
+          <button type="button" id="pens-series" aria-pressed="true">Ink and red</button>
+          <button type="button" id="pens-study" aria-pressed="false">Four pens</button>
+        </div>
+        <div class="checks" id="layers" hidden>
+          <label class="check"><input type="checkbox" id="pen-ochre" checked> Ochre</label>
+          <label class="check"><input type="checkbox" id="pen-slate" checked> Slate</label>
+          <label class="check"><input type="checkbox" id="pen-ink" checked> Ink</label>
+          <label class="check"><input type="checkbox" id="pen-red" checked> Red</label>
+        </div>
+        <div class="saves" id="saves" hidden>
+          <button type="button" class="primary" id="save-svg">Save plot SVG</button>
+          <button type="button" id="save-png">Save PNG</button>
+        </div>
+        <p class="status" id="status"></p>
+        <details>
+          <summary>How the plate is made</summary>
+          <p>A circle packing grown inside the host becomes a power diagram. Deep cells stretch along the drape and become panes between curved ribs: chains of round cells, slate panes with veins, lace, dark hollows. A band of small cells at the edge becomes an open net. Past the silhouette the diagram's edges become tendrils that drift outward and down, ending in terminal dots, and drips fall from the undersides.</p>
+          <p>Traced hosts take only the outline of a render; everything inside is regrown. Native hosts use no render at all. The plot SVG is an A4 figure master in millimetres: strokes only, dots as coils, tone as hatching. Ink and red gives the books' two layers and two inks; four pens gives one layer per pen, light to dark.</p>
+        </details>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<script>
+/*__HOSTS__*/
+</script>
+<script>
+/*__LATTICE__*/
+</script>
+<script>
+/*__RENDER__*/
+</script>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const D = NodeLattice.DEFAULTS;
+  const TRACED = 'Traced from the renders';
+  const HOST_LIST = [
+    { key: 'robe', label: 'Empty robe', group: 'Native', kind: 'robe' },
+    { key: 'chair', label: 'Empty chair', group: 'Native', kind: 'chair' },
+    ...HOSTS.map((h) => Object.assign({}, h, { kind: 'traced', group: TRACED })),
+  ];
+  const SHAPE = [
+    { id: 'cell', label: 'Cell size', min: 9, max: 20, step: 0.5, fmt: (v) => v.toFixed(1) },
+    { id: 'rib', label: 'Pane size', min: 1.6, max: 3.4, step: 0.1, fmt: (v) => v.toFixed(1) + '×' },
+    { id: 'elong', label: 'Pane stretch', min: 1.2, max: 3.4, step: 0.1, fmt: (v) => v.toFixed(1) },
+    { id: 'drape', label: 'Drape', min: 0, max: 1, step: 0.05, fmt: (v) => Math.round(v * 100) + '%' },
+  ];
+  const DRESS = [
+    { id: 'strut', label: 'Strut width', min: 1.2, max: 4, step: 0.1, fmt: (v) => v.toFixed(1) },
+    { id: 'sweep', label: 'Rib sweep', min: 0, max: 0.3, step: 0.01, fmt: (v) => Math.round(v * 100) + '%' },
+    { id: 'slate', label: 'Slate', min: 0, max: 1, step: 0.05, fmt: (v) => Math.round(v * 100) + '%' },
+    { id: 'roses', label: 'Rose windows', min: 0, max: 10, step: 1, fmt: (v) => String(v) },
+    { id: 'fray', label: 'Fray reach', min: 0, max: 170, step: 5, fmt: (v) => String(v) },
+    { id: 'drips', label: 'Drips', min: 0, max: 1, step: 0.05, fmt: (v) => Math.round(v * 100) + '%' },
+  ];
+  const state = { host: 'robe', seed: 'handoff', view: 'ill', pens: 'series', params: Object.assign({}, D), show: { ochre: true, slate: true, ink: true, red: true } };
+  const cache = {};
+  let scene = null, strokes = null, timer = 0, downloads = null;
+
+  // ---------------------------------------------------------------- controls
+  const sel = $('host');
+  for (const group of ['Native', TRACED]) {
+    const og = document.createElement('optgroup'); og.label = group;
+    for (const h of HOST_LIST.filter((x) => x.group === group)) {
+      const o = document.createElement('option'); o.value = h.key; o.textContent = h.kind === 'traced' ? h.label + ' (' + h.office + ')' : h.label; og.appendChild(o);
+    }
+    sel.appendChild(og);
+  }
+  sel.value = state.host;
+  $('seed').value = state.seed;
+  function slider(spec, into) {
+    const row = document.createElement('div'); row.className = 'row';
+    row.innerHTML = '<div class="top"><label for="' + spec.id + '"></label><output for="' + spec.id + '"></output></div><input type="range" id="' + spec.id + '">';
+    row.querySelector('label').textContent = spec.label;
+    const input = row.querySelector('input'), out = row.querySelector('output');
+    input.min = spec.min; input.max = spec.max; input.step = spec.step; input.value = state.params[spec.id];
+    out.textContent = spec.fmt(+input.value);
+    input.addEventListener('input', () => { state.params[spec.id] = +input.value; out.textContent = spec.fmt(+input.value); schedule(); });
+    into.appendChild(row);
+  }
+  SHAPE.forEach((s) => slider(s, $('shape')));
+  DRESS.forEach((s) => slider(s, $('dress')));
+  const diss = $('dissolve'), dissOut = $('dissolve-out');
+  diss.value = state.params.dissolve; dissOut.textContent = Math.round(state.params.dissolve * 100) + '%';
+  diss.addEventListener('input', () => { state.params.dissolve = +diss.value; dissOut.textContent = Math.round(+diss.value * 100) + '%'; schedule(); });
+  $('ground').checked = state.params.ground; $('sealbox').checked = state.params.seal;
+  $('ground').addEventListener('change', (e) => { state.params.ground = e.target.checked; schedule(); });
+  $('sealbox').addEventListener('change', (e) => { state.params.seal = e.target.checked; schedule(); });
+  sel.addEventListener('change', () => { state.host = sel.value; schedule(0); });
+  const takeSeed = () => { const v = $('seed').value.trim(); if (v && v !== state.seed) { state.seed = v; schedule(0); } };
+  $('seed').addEventListener('change', takeSeed);
+  $('controls').addEventListener('submit', (e) => { e.preventDefault(); takeSeed(); });
+  $('reseed').addEventListener('click', () => {
+    const a = 'abcdefghjkmnpqrstuvwxyz23456789', r = new Uint32Array(6);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(r); else for (let i = 0; i < r.length; i++) r[i] = Math.floor(Math.random() * 1e9);
+    let s = ''; for (const n of r) s += a[n % a.length];
+    state.seed = s; $('seed').value = s; schedule(0);
+  });
+  function press(on, off) { $(on).setAttribute('aria-pressed', 'true'); $(off).setAttribute('aria-pressed', 'false'); }
+  function setView(v) {
+    state.view = v;
+    if (v === 'ill') press('view-ill', 'view-plot'); else press('view-plot', 'view-ill');
+    $('pens').hidden = v !== 'plot';
+    $('layers').hidden = v !== 'plot' || state.pens !== 'study';
+    draw();
+  }
+  function setPens(p) {
+    state.pens = p;
+    if (p === 'series') press('pens-series', 'pens-study'); else press('pens-study', 'pens-series');
+    $('layers').hidden = state.view !== 'plot' || p !== 'study';
+    draw();
+  }
+  $('view-ill').addEventListener('click', () => setView('ill'));
+  $('view-plot').addEventListener('click', () => setView('plot'));
+  $('pens-series').addEventListener('click', () => setPens('series'));
+  $('pens-study').addEventListener('click', () => setPens('study'));
+  for (const pen of ['ochre', 'slate', 'ink', 'red']) $('pen-' + pen).addEventListener('change', (e) => { state.show[pen] = e.target.checked; draw(); });
+
+  // ---------------------------------------------------------------- generate and draw
+  const current = () => HOST_LIST.find((x) => x.key === state.host);
+  function hostDef() { const h = current(); return h.kind === 'traced' ? h : { kind: h.kind, key: h.key }; }
+  function hostInfo() {
+    const h = current();
+    return h.kind === 'traced' ? { kind: 'traced', label: h.label, source: h.source, sha256: h.sha256 } : { kind: 'native', label: h.label, source: null, sha256: null };
+  }
+  function schedule(delay) {
+    clearTimeout(timer);
+    $('busy').dataset.on = 'true';
+    timer = setTimeout(run, delay === undefined ? 160 : delay);
+  }
+  function run() {
+    // let the indicator paint before the synchronous work starts
+    requestAnimationFrame(() => setTimeout(() => {
+      try {
+        scene = NodeLattice.generate(state.seed, hostDef(), state.params, cache);
+        strokes = null;
+        draw(); caption(); $('status').textContent = '';
+      } catch (err) {
+        $('status').textContent = 'This plate could not be grown: ' + (err && err.message ? err.message : err) + '. Try another seed.';
+      }
+      $('busy').dataset.on = 'false';
+    }, 0));
+  }
+  function draw() {
+    if (!scene) return;
+    const c = $('plate'), w = c.clientWidth || 600, dpr = Math.min(2, window.devicePixelRatio || 1);
+    const px = Math.max(300, Math.round(w * dpr));
+    if (c.width !== px) { c.width = px; c.height = Math.round(px * 1.5); }
+    const ctx = c.getContext('2d'), k = px / 1000;
+    if (state.view === 'plot') { strokes = strokes || LatticeRender.plotStrokes(scene); LatticeRender.drawStrokes(ctx, strokes, k, state.pens, state.show); }
+    else LatticeRender.illuminate(ctx, scene, k);
+  }
+  function caption() {
+    const h = current(), st = scene.stats, b = document.createElement('b');
+    b.textContent = h.label;
+    $('cap-main').replaceChildren(b, document.createTextNode(' · seed ' + state.seed));
+    $('cap-prov').textContent = h.kind === 'traced'
+      ? 'Outline traced from ' + h.source.split('/').pop() + ' (sha256 ' + h.sha256.slice(0, 12) + '…); the lattice is regrown.'
+      : 'Native host: the silhouette comes from the seed. No render used.';
+    $('cap-stats').textContent = st.sites + ' cells · ' + st.panes + ' panes · ' + st.links + ' links · ' + st.drips + ' drips · ' + st.ms + ' ms';
+  }
+  if (window.ResizeObserver) new ResizeObserver(() => draw()).observe($('plate'));
+  else window.addEventListener('resize', draw);
+
+  // ---------------------------------------------------------------- saving
+  // In the claude.ai viewer files go through its download prompt; in a browser tab opened
+  // from a checkout they are ordinary downloads.
+  const inViewer = !!(window.claude && typeof window.claude.use === 'function');
+  function fileBase() { return 'node-lattice-' + state.host + '-' + state.seed.replace(/[^\w-]+/g, '_'); }
+  async function deliver(filename, data) {
+    if (downloads) return downloads.save({ filename, data });
+    if (inViewer) throw { code: 'unavailable' };
+    const blob = data instanceof Blob ? data : new Blob([data], { type: 'image/svg+xml' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+    return { status: 'saved' };
+  }
+  async function save(kind) {
+    if (!scene) return;
+    const btn = $(kind === 'svg' ? 'save-svg' : 'save-png'), status = $('status'), name = fileBase() + (kind === 'svg' && state.pens === 'study' ? '-study' : '') + '.' + kind;
+    btn.disabled = true; status.textContent = 'Preparing ' + name + '…';
+    try {
+      let data;
+      if (kind === 'svg') {
+        strokes = strokes || LatticeRender.plotStrokes(scene);
+        data = LatticeRender.toSVG(strokes, LatticeRender.masterMeta(scene, hostInfo(), state.pens, state.show), state.pens, state.show);
+      } else {
+        const c = document.createElement('canvas'); c.width = 2000; c.height = 3000;
+        LatticeRender.illuminate(c.getContext('2d'), scene, 2);
+        data = await new Promise((res, rej) => c.toBlob((b) => (b ? res(b) : rej(new Error('the image could not be encoded'))), 'image/png'));
+      }
+      await deliver(name, data);
+      status.textContent = 'Saved ' + name + '.';
+    } catch (err) {
+      const code = err && err.code;
+      status.textContent = code === 'declined' ? 'Save cancelled.'
+        : code === 'rate_limited' ? 'A save prompt is already open. Finish it, then try again.'
+        : 'The file could not be saved here (' + (code || (err && err.message) || 'unknown error') + ').';
+    }
+    btn.disabled = false;
+  }
+  $('save-svg').addEventListener('click', () => save('svg'));
+  $('save-png').addEventListener('click', () => save('png'));
+  if (inViewer) window.claude.use('downloads').then((d) => { downloads = d; $('saves').hidden = !d; }).catch(() => {});
+  else $('saves').hidden = false;
+
+  schedule(0);
+})();
+</script>

@@ -574,5 +574,112 @@
       "draw",
       "to_svg"
     ]
+  },
+  {
+    "id": "original-matricis",
+    "title": "Original Matricis native plates",
+    "use": "Generate the earlier engineering plates, folds, slips, inscriptions and title ornaments",
+    "sources": [
+      "sources/development-art/books/01_matricis/generator/build_v2.py",
+      "sources/development-art/books/01_matricis/generator/page3.py",
+      "sources/development-art/books/01_matricis/generator/xi.py",
+      "sources/development-art/books/01_matricis/generator/front.py"
+    ],
+    "symbols": [
+      "build_face",
+      "build_verso",
+      "build_strip",
+      "build_title"
+    ],
+    "family": "10-development-generators",
+    "status": "development-art",
+    "guide": "techniques/10-development-generators/README.md"
+  },
+  {
+    "id": "matricis-chalk",
+    "title": "Matricis chalk and cornmeal grounds",
+    "use": "Use dark-board grain, networks and branching growth",
+    "sources": [
+      "sources/development-art/books/01_matricis/generator/meal.py",
+      "sources/development-art/books/01_matricis/generator/plate_v.py",
+      "sources/development-art/books/01_matricis/generator/plate_x.py"
+    ],
+    "symbols": [
+      "page",
+      "chalk",
+      "network",
+      "grow"
+    ],
+    "family": "10-development-generators",
+    "status": "development-art",
+    "guide": "techniques/10-development-generators/README.md"
+  },
+  {
+    "id": "legacy-tabula-xi",
+    "title": "Legacy Tabula XI plotter conversion",
+    "use": "Convert the existing drawing into two-pen strokes with Hershey lettering and registration",
+    "sources": [
+      "sources/development-art/books/01_matricis/plotter/build.py"
+    ],
+    "symbols": [
+      "monoline",
+      "hershey",
+      "optimize",
+      "validate"
+    ],
+    "family": "10-development-generators",
+    "status": "development-art",
+    "guide": "techniques/10-development-generators/README.md"
+  },
+  {
+    "id": "image-fed-cultures",
+    "title": "Image-fed faithful and feral Physarum cultures",
+    "use": "Separate inks, grow competing or symbiotic cultures, export five vector styles",
+    "sources": [
+      "sources/development-art/books/03_escalationum/physarum/physarum_plot.py",
+      "sources/development-art/books/03_escalationum/physarum/study.py"
+    ],
+    "symbols": [],
+    "family": "10-development-generators",
+    "status": "development-art",
+    "guide": "techniques/10-development-generators/README.md"
+  },
+  {
+    "id": "node-lattice",
+    "title": "Node lattice and dissolution",
+    "use": "Grow panes, rose windows, membranes, beaded frays and drips inside native or traced hosts",
+    "sources": [
+      "sources/development-art/common/lattice/lattice.js",
+      "sources/development-art/common/lattice/render.js",
+      "sources/development-art/common/lattice/plate.mjs",
+      "sources/development-art/common/lattice/node-lattice.html"
+    ],
+    "symbols": [
+      "generate",
+      "plotStrokes",
+      "toSVG",
+      "plate"
+    ],
+    "family": "10-development-generators",
+    "status": "development-art",
+    "guide": "techniques/10-development-generators/README.md"
+  },
+  {
+    "id": "toner-sigil",
+    "title": "Reduced-letter sigils and copier-stock texture",
+    "family": "10-development-generators",
+    "status": "development-art",
+    "use": "Overlay a reduced alphabet into a monogram or sigil and draw toner specks, dropouts, gutter shadows and binding thread",
+    "guide": "techniques/10-development-generators/README.md",
+    "sources": [
+      "sources/development-art/books/01_matricis/generator/frontmatter_marks.py"
+    ],
+    "symbols": [
+      "reduced",
+      "strike_runs",
+      "monogram",
+      "sigil",
+      "sheet"
+    ]
   }
 ]

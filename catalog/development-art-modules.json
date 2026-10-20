@@ -1,0 +1,579 @@
+[
+  {
+    "path": "sources/development-art/books/01_matricis/generator/artboard.py",
+    "description": "",
+    "symbols": [
+      "page"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/artboard2.py",
+    "description": "Artboard sources for the second pass.",
+    "symbols": [
+      "fonts_url",
+      "page"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/build_v2.py",
+    "description": "",
+    "symbols": [
+      "viii",
+      "iii",
+      "xiii",
+      "ii",
+      "iv",
+      "vi",
+      "xi",
+      "slips"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/cipher.py",
+    "description": "The cipher hand: a substitution alphabet built from the sketching marks, with",
+    "symbols": [
+      "L",
+      "P",
+      "C",
+      "A",
+      "D",
+      "O",
+      "T",
+      "CR",
+      "SP",
+      "clean",
+      "measure",
+      "wrap",
+      "write",
+      "glyph_only"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/core.py",
+    "description": "Core drawing kit for the Clavicula Matricis plates.",
+    "symbols": [
+      "f",
+      "num",
+      "pair",
+      "Doc",
+      "lerp",
+      "dist",
+      "rot",
+      "arc_pts",
+      "spiral_pts",
+      "curl_pts",
+      "resample",
+      "Wobble",
+      "clip_lines",
+      "hatch_lines",
+      "lattice",
+      "tri_pts",
+      "vesica",
+      "offset_line",
+      "path_len",
+      "point_at",
+      "bezier",
+      "catmull",
+      "merge"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/eng.py",
+    "description": "Shared engraving-workshop furniture: styles, plate mark, frame, stars, burin rehearsals.",
+    "symbols": [
+      "styles",
+      "order",
+      "page",
+      "plate_frame",
+      "stars",
+      "rehearsals",
+      "heads"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/front.py",
+    "description": "The title leaf and the index of the tables.",
+    "symbols": [
+      "build_title",
+      "title_boxes",
+      "build_index",
+      "index_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/hands.py",
+    "description": "The three recurring hands, the later technical hand, and the record's base faces.",
+    "symbols": [
+      "_box",
+      "cust",
+      "mhand",
+      "unh",
+      "tech",
+      "_runs"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/ii.py",
+    "description": "Tabula II \u00b7 Of the Two Clocks \u2014 engraving, with one clock on a pasted drawing.",
+    "symbols": [
+      "styles",
+      "order",
+      "P",
+      "build_face",
+      "face_boxes",
+      "build_verso",
+      "verso_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/iv.py",
+    "description": "Tabula IV \u00b7 Of the Second Copy \u2014 a mounted record of two deposits; the second copies the first's omission.",
+    "symbols": [
+      "ux",
+      "styles",
+      "unit",
+      "deposit",
+      "spills",
+      "build_face",
+      "face_boxes",
+      "patch_html",
+      "build_verso",
+      "verso_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/layout.py",
+    "description": "Text boxes shared by the artboard HTML and a local preview.",
+    "symbols": [
+      "font",
+      "run_font",
+      "text_w",
+      "layout_lines",
+      "_extra",
+      "_h",
+      "split_cols",
+      "box_height",
+      "preview_svg",
+      "html_box"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/marks.py",
+    "description": "Hands (ink / cornmeal grain / plotter pen), v\u00e8v\u00e8-grammar ornament, and the",
+    "symbols": [
+      "Hand",
+      "asterisk",
+      "curl",
+      "dotted",
+      "fringe",
+      "arrowhead",
+      "lattice_fill",
+      "leaf",
+      "band_x",
+      "sig_standing",
+      "sig_candidate",
+      "sig_gate",
+      "sig_authority",
+      "sig_mark",
+      "sig_ground",
+      "sig_break",
+      "sig_regulation",
+      "sig_bottleneck",
+      "sig_branch",
+      "sig_reflexive",
+      "sig_invariant",
+      "sig_boundary",
+      "sig_substrate_small",
+      "sig_pointer",
+      "XHand",
+      "write_ring",
+      "ring_x"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/meal.py",
+    "description": "Shared cornmeal-workshop furniture: a mounted record of a deposit on dark ground.",
+    "symbols": [
+      "styles",
+      "page",
+      "chalk",
+      "heads"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/page1.py",
+    "description": "",
+    "symbols": [
+      "styles",
+      "XHand",
+      "build"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/page2.py",
+    "description": "",
+    "symbols": [
+      "styles",
+      "seal_ornament",
+      "draw_mark",
+      "build"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/page3.py",
+    "description": "",
+    "symbols": [
+      "U",
+      "styles",
+      "figure_geom",
+      "walk_fill",
+      "build"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/plate_i.py",
+    "description": "Tabula I \u00b7 Of the One Question \u2014 engraving: the scope declared before testing, and nine starting points.",
+    "symbols": [
+      "P",
+      "gear",
+      "build_face",
+      "face_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/plate_ix.py",
+    "description": "Tabula IX \u00b7 Of a Test That Found Nothing \u2014 plotter: two readings of six postmortems draw the same figures.",
+    "symbols": [
+      "row_y",
+      "glyph",
+      "build_face",
+      "face_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/plate_v.py",
+    "description": "Tabula V \u00b7 Of Visibility Read as Command \u2014 a mounted cornmeal record: a network with no centre; outsiders'",
+    "symbols": [
+      "network",
+      "build_face",
+      "face_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/plate_vii.py",
+    "description": "Tabula VII \u00b7 Of the Ten Bindings \u2014 engraving: ten constraints bound to an empty seat, and to the plate itself.",
+    "symbols": [
+      "P",
+      "cord",
+      "build_face",
+      "face_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/plate_x.py",
+    "description": "Tabula X \u00b7 Of an Analogy Taken to Its Limit \u2014 a mounted cornmeal record: a network that thins toward solitary",
+    "symbols": [
+      "grow",
+      "build_face",
+      "face_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/plate_xii.py",
+    "description": "Tabula XII \u00b7 Of the Questions Left Open \u2014 plotter: seven figures the pen left unfinished, and an eighth cell.",
+    "symbols": [
+      "cell",
+      "start",
+      "build_face",
+      "face_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/preview.py",
+    "description": "",
+    "symbols": [
+      "compose"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/ptext.py",
+    "description": "Accurate-ish text preview: PIL with the same font files the artboards load.",
+    "symbols": [
+      "F",
+      "draw_boxes",
+      "_draw"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/slips.py",
+    "description": "Loose slips: the transcription-hand proof sheet; H, a rule for the quiet instrument; I, a receipt for the revised seal.",
+    "symbols": [
+      "base_styles",
+      "build_keyproof",
+      "keyproof_boxes",
+      "torn_edge",
+      "build_h",
+      "h_boxes",
+      "build_i",
+      "i_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/text1.py",
+    "description": "Text boxes for Tabula VIII (Rev 5 \u00a78, verbatim).",
+    "symbols": [
+      "boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/text2.py",
+    "description": "Text for Tabula XIII (Rev 5 \u00a713, verbatim; mark names from Revision 3's sketching marks).",
+    "symbols": [
+      "boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/text3.py",
+    "description": "Text for Tabula III (Rev 5 \u00a73 and \u00a78 verbatim; numbers from the expanded pilot, 11 Oct 2026).",
+    "symbols": [
+      "boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/tx.py",
+    "description": "The twelve-sign transcription hand (Astra's key): base mark I\u2013XII plus a tally of 1\u20133 strokes.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "mark",
+      "tally",
+      "token_width",
+      "write",
+      "width"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/v2_iii.py",
+    "description": "Second pass \u00b7 Tabula III face and its facing slip.",
+    "symbols": [
+      "styles",
+      "walks",
+      "build_face",
+      "face_boxes",
+      "build_slip",
+      "slip_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/v2_viii.py",
+    "description": "Second pass \u00b7 Tabula VIII face and its facing record.",
+    "symbols": [
+      "styles",
+      "ORDER",
+      "route_geom",
+      "build_face",
+      "face_boxes",
+      "build_verso",
+      "verso_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/v2_xiii.py",
+    "description": "Second pass \u00b7 Tabula XIII (a mounted record of a deposit), its verso, and the legacy-key slip.",
+    "symbols": [
+      "styles",
+      "ring_arcs",
+      "build_face",
+      "face_boxes",
+      "build_verso",
+      "verso_boxes",
+      "build_keyslip",
+      "keyslip_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/vi.py",
+    "description": "Tabula VI \u00b7 Of the Borrowed Face \u2014 a plotter foldout: three attempts at a supplied contour.",
+    "symbols": [
+      "perturb",
+      "attempts",
+      "residual",
+      "styles",
+      "plot",
+      "ghost",
+      "witness",
+      "crease",
+      "test_strip",
+      "build_inside",
+      "tab_svg",
+      "tab_html",
+      "inside_boxes",
+      "build_outside",
+      "outside_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/xi.py",
+    "description": "Tabula XI \u00b7 Of the Closed Neck \u2014 engraving with a plotter overlay; its verso; the transposition border strip.",
+    "symbols": [
+      "styles",
+      "order",
+      "plate_frame",
+      "gate_open_form",
+      "big_gate",
+      "closure",
+      "node",
+      "route",
+      "mini_gates",
+      "stop_tick",
+      "build_face",
+      "text_w",
+      "face_boxes",
+      "verso_boxes",
+      "build_verso",
+      "transpose",
+      "untranspose",
+      "strip_styles",
+      "build_strip",
+      "strip_boxes"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/plotter/build.py",
+    "description": "Make a stroke-only, two-pen edition of Tabula XI from its existing SVG.",
+    "symbols": [
+      "monoline",
+      "hershey",
+      "small_caps",
+      "wrap_hershey",
+      "distance_to_segment",
+      "FlattenPen",
+      "Layout",
+      "outline_title",
+      "line_parts",
+      "hatch",
+      "geometry",
+      "lettering",
+      "optimize",
+      "registration",
+      "svg_file",
+      "stats",
+      "test_sheet",
+      "validate",
+      "build",
+      "main"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/plotter/test_export.py",
+    "description": "Release checks for the committed plot files, including two-pass registration.",
+    "symbols": [
+      "PlotExportTest"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/03_escalationum/physarum/physarum_plot.py",
+    "description": "physarum_plot.py - raster image -> Physarum transport network -> layered plotter SVG.",
+    "symbols": [
+      "station_look",
+      "hex2rgb",
+      "srgb_to_lin",
+      "separate",
+      "pctnorm",
+      "structure_flow",
+      "prepare",
+      "_seed",
+      "_sense",
+      "_shuffle",
+      "_step",
+      "_respawn",
+      "_sample_cells",
+      "simulate",
+      "ink_darkness",
+      "home_map",
+      "prepare_cultures",
+      "_territories",
+      "_recall",
+      "simulate_cultures",
+      "_drop_small",
+      "_skeleton_paths",
+      "_plen",
+      "_smooth",
+      "norm_trail",
+      "contours",
+      "_offset",
+      "weighted_network",
+      "agent_paths",
+      "_hatch_runs",
+      "hatch_fill",
+      "lattice_marks",
+      "order_lines",
+      "travel_stats",
+      "write_svg",
+      "_coverage_mask",
+      "composite",
+      "render_preview",
+      "render_plate",
+      "load_image",
+      "vectorize",
+      "export",
+      "main"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/03_escalationum/physarum/study.py",
+    "description": "Physarum figures for two Escalationum office plates: Gremory (station 2) and Orobas (station 4).",
+    "symbols": [
+      "sha",
+      "rel",
+      "balance",
+      "plan",
+      "plate_rgba",
+      "run_one",
+      "office_page",
+      "build_proof",
+      "share",
+      "grid",
+      "save_sheet",
+      "sweep_sheet",
+      "crop",
+      "build_sheets",
+      "select",
+      "manifest",
+      "main"
+    ]
+  },
+  {
+    "path": "sources/development-art/common/lattice/trace_hosts.py",
+    "description": "Trace body silhouettes from the raster demon references, as hosts for the node lattice.",
+    "symbols": [
+      "disk",
+      "trace",
+      "rle",
+      "main"
+    ]
+  },
+  {
+    "path": "sources/development-art/common/lattice/tests/test_svgimport.py",
+    "description": "The plot masters read cleanly through the books' own SVG importer (common/plot/svgimport.py),",
+    "symbols": [
+      "SamplesImport"
+    ]
+  },
+  {
+    "path": "sources/development-art/books/01_matricis/generator/frontmatter_marks.py",
+    "description": "Extracted Matricis sigil and toner-paper helpers; prose page builders omitted.",
+    "symbols": [
+      "_bowl",
+      "reduced",
+      "strike_runs",
+      "monogram",
+      "sigil",
+      "styles",
+      "sheet",
+      "folio"
+    ]
+  }
+]

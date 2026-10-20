@@ -22,6 +22,14 @@ def main():
     python_paths = {f["path"] for f in manifest["files"] if f["path"].endswith(".py")}
     assert python_paths == {m["path"] for m in modules}
     assert all(f["included"] for f in manifest["files"] if f["path"].endswith(".py"))
+    development = json.loads((ROOT / "catalog/development-art-manifest.json").read_text())
+    for entry in development["files"]:
+        data = (ROOT / entry["local_path"]).read_bytes()
+        assert hashlib.sha256(data).hexdigest() == entry["sha256"], entry["local_path"]
+        if not entry["modifications"]:
+            assert hashlib.sha256(data).hexdigest() == entry["upstream_sha256"], entry["local_path"]
+        if entry["local_path"].endswith(".py"):
+            ast.parse(data, filename=entry["local_path"])
     techniques = json.loads((ROOT / "catalog/techniques.json").read_text())
     assert len({t["id"] for t in techniques}) == len(techniques)
     for technique in techniques:
@@ -38,7 +46,7 @@ def main():
                 continue
             local = unquote(target.split("#")[0])
             assert (doc.parent / local).exists(), f"{doc}: {target}"
-    print(f"Verified {len(included)} unchanged source files, all {len(modules)} Python modules, {len(techniques)} techniques and local guide links")
+    print(f"Verified {len(included)} public snapshot files, {len(development['files'])} selected development-art files, {len(techniques)} techniques and local guide links")
 
 
 if __name__ == "__main__":

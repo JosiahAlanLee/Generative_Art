@@ -1,6 +1,6 @@
 # Source provenance and updates
 
-The book source is the public repository [`JosiahAlanLee/Codex-Intervallorum`](https://github.com/JosiahAlanLee/Codex-Intervallorum), main commit `b789e03f30034bc8403f8a40aaf83842885aaad5`, inspected on 20 October 2026. No private development repository was copied. The three pre-existing studies remain at their existing paths and are not part of the imported book snapshot.
+The book source is the public repository [`JosiahAlanLee/Codex-Intervallorum`](https://github.com/JosiahAlanLee/Codex-Intervallorum), main commit `b789e03f30034bc8403f8a40aaf83842885aaad5`, inspected on 20 October 2026. That initial snapshot copied no private development files. A later, separately authorized art-only import is described in [Development generators](DEVELOPMENT_ART.md); its manifest is separate from the immutable public-book snapshot. The three pre-existing studies remain at their existing paths and are not part of the imported book snapshot.
 
 The snapshot preserves all **117 tracked Python modules**, including visual techniques, integration/build code, validators and small model dependencies. It also retains selected technical inputs, fonts/notices and source SVGs. The [full module index](SOURCE_INDEX.md) separates those roles. There are 241 included files and 569 upstream file paths accounted for in [source-manifest.json](../catalog/source-manifest.json).
 
