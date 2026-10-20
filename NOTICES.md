@@ -23,3 +23,5 @@ The process-art models, drawings, tests, guide, research notes and samplers in `
 
 
 The textile/process study in `lib/process_art/textile.py` and `examples/make_textile_study.py` was prepared with ChatGPT/Codex on 20 October 2026. Wright-office design research includes Marion Mahony Griffin and the Smithsonian textile studies executed by Ling Po. The independently implemented geometry derives from the Truchet/Smith tiling precedent; it does not reproduce a Wright textile. Method and source credits are in [the textile guide](techniques/12-process-art/TEXTILE.md). No new blanket license is assigned.
+
+The Americana research packet and original form/carrier sketches were prepared with ChatGPT/Codex on 20 October 2026 at the author's request. Source institutions, artists and collaborators are credited in [the source register](research/occult-americana/sources.json). The proposed combinations are project inventions; no museum images, historic ritual texts or source code are bundled. No new blanket license is assigned.

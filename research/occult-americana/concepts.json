@@ -1,0 +1,171 @@
+{
+  "status": "research proposals, not implemented-technique catalog entries",
+  "ranking_basis": "project fit, formal promise and checkability; editorial judgment",
+  "concepts": [
+    {
+      "id": "correction-atlas",
+      "title": "Correction atlas",
+      "priority": "prototype-next",
+      "source_ids": [
+        "S13"
+      ],
+      "reuse_hooks": [
+        "catchment",
+        "drainage",
+        "native apparatus",
+        "versioned glyph legends"
+      ],
+      "input": "typed synthetic parcels and corrections",
+      "acceptance_check": "Records must round-trip under the correct legend; revision diff must match record changes.",
+      "implementation_status": "Map/slip sketch only"
+    },
+    {
+      "id": "punched-fraktur",
+      "title": "Punched fraktur",
+      "priority": "prototype-next",
+      "source_ids": [
+        "S04",
+        "S05",
+        "S12"
+      ],
+      "reuse_hooks": [
+        "biliteral carrier",
+        "two-ink export",
+        "textile grammar"
+      ],
+      "input": "certificate fields, clause, copy lineage",
+      "acceptance_check": "Carrier round-trip; verify at physical size before applying texture.",
+      "implementation_status": "Small UTF-8 border carrier and original form sketch"
+    },
+    {
+      "id": "ritual-score",
+      "title": "Ritual score compiler",
+      "priority": "prototype-next",
+      "source_ids": [
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "reuse_hooks": [
+        "observer/recipient diagrams",
+        "cipher validators"
+      ],
+      "input": "invented roles, cues, guards, responses",
+      "acceptance_check": "Preserve the difference between a recoverable cipher and a prerequisite-dependent mnemonic.",
+      "implementation_status": "Proposal only"
+    },
+    {
+      "id": "gift-run-log",
+      "title": "Gift drawing from a run log",
+      "priority": "geometry-preparation",
+      "source_ids": [
+        "S03"
+      ],
+      "reuse_hooks": [
+        "space colonization",
+        "telemetry",
+        "paired ornament"
+      ],
+      "input": "declared quantitative channels and missing states",
+      "acceptance_check": "Missing observations stay different from zero; ornament needs no invented data meaning.",
+      "implementation_status": "Proposal only"
+    },
+    {
+      "id": "airship-register",
+      "title": "Airship correction ledger",
+      "priority": "geometry-preparation",
+      "source_ids": [
+        "S09"
+      ],
+      "reuse_hooks": [
+        "native apparatus",
+        "hidden-line scenes",
+        "revision layers"
+      ],
+      "input": "part/support graph and revision log",
+      "acceptance_check": "Supports and index targets must exist; no flight claim.",
+      "implementation_status": "Original form and carrier sketch"
+    },
+    {
+      "id": "witness-instrument",
+      "title": "Witness instrument",
+      "priority": "geometry-preparation",
+      "source_ids": [
+        "S10",
+        "S11"
+      ],
+      "reuse_hooks": [
+        "transport graph",
+        "grain",
+        "lighting"
+      ],
+      "input": "parts, support points, optional declared field",
+      "acceptance_check": "Attachments agree with geometry; distinguish a simulated field from decorative lines.",
+      "implementation_status": "Original form and carrier sketch"
+    },
+    {
+      "id": "two-books-one-press",
+      "title": "Two books from one press",
+      "priority": "geometry-preparation",
+      "source_ids": [
+        "S01",
+        "S02"
+      ],
+      "reuse_hooks": [
+        "deterministic models",
+        "code hashes",
+        "plotter export"
+      ],
+      "input": "small program, seed and data",
+      "acceptance_check": "Facing artwork must regenerate from the exact displayed rule/input.",
+      "implementation_status": "Proposal only"
+    },
+    {
+      "id": "unfamiliar-register",
+      "title": "Register of unfamiliar letters",
+      "priority": "archive-first",
+      "source_ids": [
+        "S10"
+      ],
+      "reuse_hooks": [
+        "reversible alphabets",
+        "original decorative glyphs"
+      ],
+      "input": "observations, transcriptions, hypotheses, demonstrated recoveries",
+      "acceptance_check": "Do not promote unknown historical meaning into either solved text or null meaning.",
+      "implementation_status": "Proposal only"
+    },
+    {
+      "id": "legend-concordance",
+      "title": "Legend-dependent concordance",
+      "priority": "after-atlas",
+      "source_ids": [
+        "S06",
+        "S13"
+      ],
+      "reuse_hooks": [
+        "versioned legends",
+        "sentence/cipher validation"
+      ],
+      "input": "finite grammar and explicit keys",
+      "acceptance_check": "Enumerate readings; do not assert uniqueness until constraints warrant it.",
+      "implementation_status": "Proposal only"
+    },
+    {
+      "id": "instrument-catalog",
+      "title": "Mail-order instrument catalog",
+      "priority": "archive-first",
+      "source_ids": [
+        "S08"
+      ],
+      "reuse_hooks": [
+        "native apparatus",
+        "cross references",
+        "modular fittings"
+      ],
+      "input": "invented product/part records",
+      "acceptance_check": "Cross-references and supports agree; historical quotations remain separately identified.",
+      "implementation_status": "Proposal only"
+    }
+  ]
+}

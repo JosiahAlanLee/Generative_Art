@@ -47,3 +47,5 @@ The separate [development-art manifest](catalog/development-art-manifest.json) r
 
 
 A [textile/process comparison](techniques/12-process-art/TEXTILE.md) adds a shared-port grammar, adaptive transport, confined chemistry, dissolution and portable fragments for use inside larger compositions.
+
+[Occult print, cipher systems, code art and weird Americana](research/occult-americana/README.md) surveys thirteen source groups and ten generator concepts, with four original form/carrier sketches. This is research and ideation, separate from the implemented-technique catalog.
