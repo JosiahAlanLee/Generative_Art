@@ -1,6 +1,6 @@
 # Technique catalog
 
-Choose by desired result. `book` means code present in the pinned public book main branch; it does not claim every retained source edition is active in the current binding. `study` means a pre-existing Generative_Art experiment. `development-art` means art-only source selected from the private development repository at the author’s request. `sealed-artifact` means the public source does not include a regenerator. `collection` means code written for this collection rather than imported from the book.
+Choose by desired result. `book` means code present in the pinned public book main branch; it does not claim every retained source edition is active in the current binding. `study` means a self-contained Generative_Art experiment under `studies/`, with its own runtime. `development-art` means art-only source selected from the private development repository at the author’s request. `sealed-artifact` means the public source does not include a regenerator. `collection` means code written for this collection rather than imported from the book.
 
 The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83842885aaad5` (20 October 2026). Every tracked Python file is retained; source editions, helpers, model inputs and validators have explicit roles in the [source index](docs/SOURCE_INDEX.md).
 
@@ -84,7 +84,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 
 ## Scope and absent implementations
 
-The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Reaction–diffusion, rival-contact braids and shared-substrate proposals are also not imported implementations. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
+The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Driftless Plates seeds with `sfc32` as bryc published it; that is ordinary seeding, not entropy locking. Reaction–diffusion, rival-contact braids and shared-substrate proposals are also not imported implementations. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
 
 The source snapshot omits large raster art and edition PDFs. Every included and omitted source path is recorded in [the manifest](catalog/source-manifest.json); the original public-book snapshot is separate from the later art-only development import. The root [notices](NOTICES.md) explain attribution and inherited terms.
 
@@ -99,3 +99,15 @@ The source snapshot omits large raster art and edition PDFs. Every included and 
 | **Node lattice and dissolution** | Grow panes, rose windows, membranes, beaded frays and drips inside native or traced hosts | [lattice.js](sources/development-art/common/lattice/lattice.js) |
 
 [Reduced-letter sigils and toner-stock texture](sources/development-art/books/01_matricis/generator/frontmatter_marks.py) are extracted art helpers; the source module’s prose pages are excluded.
+
+## [Landscape plates](techniques/11-landscape-plates/README.md)
+
+| Technique | What to use it for | Status |
+| --- | --- | --- |
+| [Hidden-line drawing against an occlusion mask](studies/driftless-plates/engine.js) | Draw near to far so every surviving stroke is visible, with no hidden-line pass | study |
+| [Contour-strip farmland](studies/driftless-plates/engine.js) | Offset field strips down a ridge and fill them with rows, ticks, stipple, bales or woods | study |
+| [Space-colonization trees and boughs](studies/driftless-plates/engine.js) | Grow branch skeletons toward crown attraction points and dress them in clustered foliage | study |
+| [Tufted meadow and wildflowers](studies/driftless-plates/engine.js) | Fill a foreground in depth order with occluding grass tufts and seasonal flowers | study |
+| [Ruled structures and monuments](studies/driftless-plates/engine.js) | Draw silos, barns, water towers, sandstone towers and monuments shaded by line spacing | study |
+| [Print hand and text clearing](studies/driftless-plates/engine.js) | Add wobble, ink skips and misregistration; fade or lighten linework inside the book's text block | study |
+| [Plot export with pen-travel ordering](studies/driftless-plates/engine.js) | Write millimetre SVG with one layer per pen, ordered to shorten pen-up travel | study |

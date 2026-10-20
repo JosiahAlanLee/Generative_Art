@@ -13,6 +13,7 @@ These are construction recipes. The small sampler and native Notoria command are
 | Industrial form converted into a primitive network | Produce a clear light/mask pass; use the statue study’s Trail First/primitive code as the starting point | Sampling cell size, contrast food, primitive count, support layer | SVG; requires adapting that study’s input loading |
 | A phrase-derived prime seal | `aq.aq` the phrase; `xenotation.encode` the value; draw with `xenotation.draw` through `marks.Hand` or `PlotHand`; check `decode` | Phrase normalization, factor order, capsule or parens, size and weight | SVG; `PlotHand` layer for a plot |
 | Vellum without texture crossing text | Compose PDF; inspect clear paper; optionally add scribal marks; run vellum with light profile | Stable page identity, content protection, seed and profile | PDF with retained text, vectors and images |
+| A landscape plate behind a Codex text page | Driftless Plates at the `codex` trim with `--zone codex`; Lighten keeps the drawing in the tint pen, Fade out clears it | Zone treatment, ink strength, density, frame | SVG at the 7 × 10 in trim, or 300 dpi PNG |
 
 ## Know which units and paths you are using
 
@@ -23,6 +24,7 @@ These are construction recipes. The small sampler and native Notoria command are
 | `common/illum` | ReportLab points; y up; raster pixels for source masks | Use `platekit.Map` and the existing placement helpers |
 | `binding` finishing | PDF page coordinates and rendered protection masks | Preserve the source document and inspection log |
 | `lib/numerics` glyphs | Unitless layout scaled by `size` into the calling hand's units | Draws through `marks.Hand` or `PlotHand`; `to_svg` writes millimetres |
+| `studies/driftless-plates` | Millimetres; y down; four pen layers | Its own JavaScript engine; Codex sizes read from the snapshot and checked by its `test.js` |
 
 ## Useful controls already in the book
 

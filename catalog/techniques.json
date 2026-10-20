@@ -681,5 +681,128 @@
       "sigil",
       "sheet"
     ]
+  },
+  {
+    "id": "occlusion-mask-hidden-line",
+    "title": "Hidden-line drawing against an occlusion mask",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Draw near to far so every surviving stroke is visible, with no hidden-line pass",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "Mask",
+      "Scene.line",
+      "Scene.fill",
+      "Scene.halo"
+    ]
+  },
+  {
+    "id": "contour-strip-farmland",
+    "title": "Contour-strip farmland",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Offset field strips down a ridge and fill them with rows, ticks, stipple, bales or woods",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "buildBands",
+      "farm",
+      "patchRows",
+      "patchTicks",
+      "bales"
+    ]
+  },
+  {
+    "id": "space-colonization-trees",
+    "title": "Space-colonization trees and boughs",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Grow branch skeletons toward crown attraction points and dress them in clustered foliage",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "colonize",
+      "drawBranches",
+      "oak",
+      "bough",
+      "foliageCluster"
+    ]
+  },
+  {
+    "id": "tufted-meadow",
+    "title": "Tufted meadow and wildflowers",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Fill a foreground in depth order with occluding grass tufts and seasonal flowers",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "tallGround",
+      "tuft",
+      "plant",
+      "plantPick"
+    ]
+  },
+  {
+    "id": "ruled-structures",
+    "title": "Ruled structures and monuments",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Draw silos, barns, water towers, sandstone towers and monuments shaded by line spacing",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "silo",
+      "barn",
+      "waterTower",
+      "rockTower",
+      "monument"
+    ]
+  },
+  {
+    "id": "print-hand-text-clearing",
+    "title": "Print hand and text clearing",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Add wobble, ink skips and misregistration; fade or lighten linework inside the book's text block",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "post",
+      "textZone",
+      "misregistration",
+      "CODEX"
+    ]
+  },
+  {
+    "id": "plot-export-travel-ordering",
+    "title": "Plot export with pen-travel ordering",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Write millimetre SVG with one layer per pen, ordered to shorten pen-up travel",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js",
+      "studies/driftless-plates/cli.js"
+    ],
+    "symbols": [
+      "toSVG",
+      "orderPaths",
+      "plotStats",
+      "renderPlate"
+    ]
   }
 ]
