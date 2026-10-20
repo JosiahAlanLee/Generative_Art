@@ -155,7 +155,7 @@
       "study": "tero-tubes",
       "stem": "tubes-s53-v1",
       "label": "Tubes between Nota V's seven nodes",
-      "reason": "Gamma 1.15 keeps loops and the centre node's cross-links; gamma 1.8 (variant 0) collapses to a single loop and reads as a diagram rather than an organism.",
+      "reason": "Gamma 1.15 keeps loops and the centre node's cross-links; gamma 1.8 (variant 0) collapses to a single loop with one spur and reads as a diagram rather than an organism.",
       "settings": {
         "study": "tero-tubes",
         "seed": 53,
