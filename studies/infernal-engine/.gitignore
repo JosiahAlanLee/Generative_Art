@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+*.blend[0-9]*
+*.log

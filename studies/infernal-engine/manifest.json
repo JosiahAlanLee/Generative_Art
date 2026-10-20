@@ -1,0 +1,23 @@
+{
+  "study": "Infernal Engine 0.1",
+  "created": "2026-10-20",
+  "tested_blender": "4.5.3 LTS",
+  "files": {
+    ".gitattributes": "95a956d1a08c77cead9131badba761fcc1ae002db2d5a60a67b9b14e1929644c",
+    ".gitignore": "af5830f9a7509c21e30622c0ce5ec24e700a65958f5646bf41992e3e4609ab5e",
+    "Infernal_Engine_0_1.blend": "2bdc0a64212682e90aaa7a778ef1bd6cc91944a9e736ed1b7e5615aebc08aff5",
+    "README.md": "d3e321d948bcf7048ebc915579843b29c8698466e486cc26b2f6af9cfa6c5265",
+    "RESEARCH.md": "0520658e89c1b6d9e286546ff5a4759bc04ecad8242df1abf5c617d66801d527",
+    "build_infernal.py": "6d58e87d72ea3701cf34afdb3ff17615153a0798713ac01295e92170fd2d6b63",
+    "export_ink.py": "08e401d2e168c1bb87cb78778dbe801f6358fb10a1605037a905a545f0941046",
+    "exterior.png": "d6241ad2c45866d1ae1e1c98f3633a844d3e4bb635402724ee14e5705604695f",
+    "exterior_ink.png": "19eb8c1a263fff855d1206e073b49dcf6df702bb2c20a30ffc1b73c669e4de59",
+    "exterior_ink.svg": "642aad12309108209f8e244522f7c1e4f89b7129c250f20d9abde966c2a10fb7",
+    "interior.png": "45b117ea11e8823412f21020e5caf2901262114794d382e482a5a1f202f3b361",
+    "interior_ink.png": "39091d6a093cb33a091374303da1bea54f2dd99ef55ce19650d4210a09212b22",
+    "interior_ink.svg": "686aa4426ee66118d9b63aa11eaca030b5d70c04cd423fc2fb32bbc363364ae9",
+    "preview.png": "f48071ce09e9ef2ed34a510d755795703a26b94bfcf341dc055e44e6506c6ca8",
+    "shaded_preview.png": "40126f70343de19a98fab8ea68dfc9945389945ba4331cb855f133fec5a5ddc6",
+    "verification.json": "ccdbc4a7665d2b4bc9bffa0b90cea3cad08450932a60249dcbb9edbf40616336"
+  }
+}
