@@ -30,3 +30,17 @@ Checked on 20 October 2026 with Python 3.13. This covers `lib/numerics`, its gui
 | Collection verifier | 241 unchanged source files, all 117 Python modules, 33 techniques and all local guide links |
 
 Physical plotting was not tested.
+
+## Driftless Plates addition
+
+Checked on 20 October 2026 with Node 22 and Chromium through Playwright. This covers `studies/driftless-plates` and its guide; no imported or development-art source file changed.
+
+| Check | Observed result |
+| --- | --- |
+| `node studies/driftless-plates/test.js` | 26 passed: the Codex page, text block (in three builders), plot sheet and extent, and four inks match the snapshot lines; the six preview plates regenerate byte for byte; three A4 plot masters stay within 8–202 × 10–288 mm; text blocks land correctly at trim, on a spread and with bleed; `index.html` is the current build |
+| Page in Chromium, 390 px and 1,360 px wide | Plates drew with no script errors and no horizontal overflow; new plate, contact sheet, keep, zoom, the three Codex formats and the text block worked; SVG and PNG downloads saved |
+| Exported files | SVG 177.8 mm wide with four pen layers, rasterized by librsvg; PNG 2,100 × 3,000 px with 300 dpi recorded |
+| Pen-travel ordering | Pen-up travel across the six preview plates fell from 664 m in drawing order to 111 m |
+| Collection verifier | 241 public snapshot files, 58 selected development-art files, 46 techniques and all local guide links |
+
+Physical plotting was not tested.

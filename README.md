@@ -19,6 +19,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Finish pages with vellum, specks and sparse pen flourishes | [Page finishing](techniques/07-page-finishing/README.md) |
 | Build a Blender scene, a light-aware culture or a scan engraving | [Existing scene studies](techniques/08-scene-studies/README.md) |
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |
+| Generate hidden-line landscape plates sized to the book's pages | [Landscape plates](techniques/11-landscape-plates/README.md) |
 
 ## Where things live
 
@@ -29,7 +30,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | `lib/` | Small implementations written for this collection, not imported from the book: AQ, numogram and Tic Xenotation |
 | `sources/development-art/` | Art-only generators selected from the development repository, with portability changes recorded |
 | `sources/codex-intervallorum/` | Unchanged source snapshot; original internal paths preserved |
-| `studies/` | Existing Infernal Engine, Photophobic and Scanned Statue studies, at their original paths |
+| `studies/` | The Infernal Engine, Photophobic and Scanned Statue studies at their original paths, and the Driftless Plates generator |
 | `catalog/` | Machine-readable technique catalog, Python module index and per-file provenance |
 | `docs/` | Setup, recipes, full code index, snapshot scope, validation results and [outside techniques](docs/HEN_CCRU_TECHNIQUES.md) with their license status |
 | `tools/` | Snapshot import and collection verification |

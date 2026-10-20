@@ -4,6 +4,8 @@ The three existing studies remain at their original paths.
 
 Infernal Engine is the Blender Geometry Nodes starter for procedural scene construction. Photophobic combines three ray-lit scenes with surface-grown shade-seeking cultures. Scanned Statue v2 works on a Smithsonian scan, recovering contour detail and comparing engraving with Trail First sampling. These are adjacent experiments, not code imported from the book’s current main branch.
 
+Driftless Plates, the landscape plate generator, is also a study; its techniques have their own guide, [Landscape plates](../11-landscape-plates/README.md).
+
 Use each study’s own environment and README. Photophobic and Scanned Statue use pinned NumPy/Numba environments; do not replace those with the book’s broad dependencies. Blender is a separate runtime. Their source attributions, manifests and existing outputs remain intact.
 
 | Technique | Use | Entry points |

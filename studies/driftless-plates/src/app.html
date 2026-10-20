@@ -1,0 +1,350 @@
+<title>Driftless Plates</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IM+Fell+English+SC&display=swap">
+<style>
+/* Layout: a proof table. The plate lies on a self-healing cutting mat with crop marks;
+   the instrument panel sits beside it on wide screens and below it on phones. */
+:root {
+  --mat: #dbe2d8;
+  --mat-line: #c8d1c4;
+  --mat-line-2: #b3beae;
+  --surface: #f3f5f0;
+  --surface-2: #e8ece5;
+  --ink: #17201c;
+  --ink-soft: #55605a;
+  --rule: #c7cfc4;
+  --accent: #1b6a97;
+  --accent-ink: #ffffff;
+  --guide: #4fb0dd;
+  --keep: #ad3f29;
+  --shadow: 0 1px 2px rgba(23, 32, 28, .14), 0 10px 28px -14px rgba(23, 32, 28, .45);
+  --display: "IM Fell English SC", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ui: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --t-xs: 12px; --t-sm: 13.5px; --t-md: 15px; --t-lg: 18px; --t-xl: 26px;
+  --grid: 24px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --mat: #18241f; --mat-line: #22312a; --mat-line-2: #2c3e35; --surface: #0f1613; --surface-2: #17211c;
+    --ink: #e2e9e1; --ink-soft: #9ba79f; --rule: #2a3831; --accent: #7cc3ea; --accent-ink: #08151d;
+    --guide: #4fb0dd; --keep: #e47a62; --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 12px 30px -12px rgba(0, 0, 0, .7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --mat: #18241f; --mat-line: #22312a; --mat-line-2: #2c3e35; --surface: #0f1613; --surface-2: #17211c;
+  --ink: #e2e9e1; --ink-soft: #9ba79f; --rule: #2a3831; --accent: #7cc3ea; --accent-ink: #08151d;
+  --guide: #4fb0dd; --keep: #e47a62; --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 12px 30px -12px rgba(0, 0, 0, .7);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--surface); color: var(--ink);
+  font-family: var(--ui); font-size: var(--t-md); line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 14px 40px;
+}
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 0 auto 12px; max-width: 1240px; }
+.mark { font-family: var(--display); font-weight: 400; font-size: var(--t-xl); letter-spacing: .02em; margin: 0; line-height: 1.1; }
+.sub { margin: 0; color: var(--ink-soft); font-size: var(--t-sm); }
+
+.layout { display: grid; gap: 18px; max-width: 1240px; margin: 0 auto; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); align-items: start; }
+  .stage { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); }
+}
+.stage { min-width: 0; display: grid; gap: 10px; }
+
+/* the cutting mat */
+.mat {
+  position: relative; border-radius: 12px; background-color: var(--mat);
+  background-image:
+    linear-gradient(var(--mat-line-2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mat-line-2) 1px, transparent 1px),
+    linear-gradient(var(--mat-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mat-line) 1px, transparent 1px);
+  background-size: calc(var(--grid) * 5) calc(var(--grid) * 5), calc(var(--grid) * 5) calc(var(--grid) * 5), var(--grid) var(--grid), var(--grid) var(--grid);
+  background-position: 10px 10px;
+  padding: 22px 22px 42px;
+  overflow: auto; max-height: 82vh;
+  overscroll-behavior: contain;
+}
+.mat-inner { position: relative; margin: 0 auto; width: max-content; }
+.sheet { position: relative; box-shadow: var(--shadow); line-height: 0; }
+.sheet canvas { display: block; max-width: none; }
+.marks { position: absolute; inset: -16px; width: calc(100% + 32px); height: calc(100% + 32px); pointer-events: none; overflow: visible; }
+.marks line { stroke: var(--ink); stroke-width: 1; }
+.mat-label {
+  position: absolute; left: 22px; bottom: 9px; font-family: var(--mono); font-size: 11px; color: var(--ink-soft);
+  letter-spacing: .02em; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.busy {
+  position: absolute; right: 12px; bottom: 7px; font-family: var(--mono); font-size: 11px; color: var(--ink-soft);
+  display: flex; align-items: center; gap: 6px;
+}
+.busy i { width: 18px; height: 2px; background: var(--accent); display: inline-block; transform-origin: left; animation: pen 0.9s ease-in-out infinite alternate; }
+@keyframes pen { from { transform: scaleX(.15); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .busy i { animation: none; } }
+.sheet.stale canvas { opacity: .55; transition: opacity .2s; }
+
+.caption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; padding: 0 2px; }
+.plate-no { margin: 0; font-family: var(--display); font-size: var(--t-lg); display: flex; align-items: baseline; gap: 8px; }
+.seed-input {
+  font-family: var(--mono); font-size: var(--t-sm); width: 11ch; padding: 2px 6px; border: 1px solid transparent;
+  border-radius: 4px; background: transparent; letter-spacing: .03em;
+}
+.seed-input:hover { border-color: var(--rule); }
+.seed-input:focus { border-color: var(--accent); background: var(--surface); outline: none; }
+.plate-desc { margin: 0; color: var(--ink-soft); font-size: var(--t-sm); min-width: 0; }
+
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 0 14px;
+  border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); font-weight: 500; font-size: var(--t-md);
+}
+.btn:hover { border-color: var(--ink-soft); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.icon { width: 40px; padding: 0; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn[aria-pressed="true"] { color: var(--keep); border-color: var(--keep); }
+.btn:disabled { opacity: .5; cursor: default; }
+.zoom { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; margin-left: auto; }
+.zoom button { border: 0; background: transparent; min-height: 38px; padding: 0 11px; font-family: var(--mono); font-size: var(--t-xs); }
+.zoom button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+
+.kept { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.kept-label { font-size: var(--t-xs); color: var(--ink-soft); text-transform: uppercase; letter-spacing: .08em; margin-right: 2px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface);
+  padding: 3px 10px; font-size: var(--t-xs); min-height: 30px;
+}
+.chip b { font-family: var(--mono); font-weight: 500; }
+.chip.on { border-color: var(--ink); }
+
+/* instrument panel */
+.controls { min-width: 0; border: 1px solid var(--rule); border-radius: 12px; background: var(--surface); }
+.tabs { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--rule); }
+.tabs button {
+  border: 0; background: transparent; padding: 12px 6px 10px; font-weight: 500; color: var(--ink-soft);
+  border-bottom: 2px solid transparent; margin-bottom: -1px; font-size: var(--t-md);
+}
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.panel { padding: 16px; display: grid; gap: 16px; }
+.group { display: grid; gap: 10px; }
+.group h2 { margin: 0; font-size: var(--t-xs); font-weight: 600; text-transform: uppercase; letter-spacing: .09em; color: var(--ink-soft); }
+.row { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); align-items: center; gap: 10px; }
+.row > label, .row > .lbl { font-size: var(--t-sm); color: var(--ink-soft); }
+.sel {
+  width: 100%; min-height: 38px; border: 1px solid var(--rule); border-radius: 7px; background: var(--surface); padding: 0 10px;
+}
+.slider { display: grid; grid-template-columns: minmax(0, 1fr) 3.4em; align-items: center; gap: 10px; }
+.slider output { font-family: var(--mono); font-size: var(--t-xs); text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+input[type="range"] { width: 100%; accent-color: var(--accent); min-height: 30px; }
+.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--rule); border-radius: 7px; overflow: hidden; }
+.seg button { border: 0; background: transparent; min-height: 36px; padding: 0 12px; font-size: var(--t-sm); border-right: 1px solid var(--rule); }
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.check { display: flex; align-items: center; gap: 9px; font-size: var(--t-sm); min-height: 32px; }
+.check input { width: 18px; height: 18px; accent-color: var(--accent); }
+.hint { margin: 0; font-size: var(--t-xs); color: var(--ink-soft); max-width: 60ch; }
+
+.palettes { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+.pal { border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); padding: 6px; display: grid; gap: 5px; text-align: left; }
+.pal[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.pal .chipset { height: 30px; border-radius: 4px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; padding: 5px; }
+.pal .chipset span { border-radius: 2px; }
+.pal small { font-size: var(--t-xs); }
+
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.stat { border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; }
+.stat b { display: block; font-family: var(--mono); font-weight: 500; font-size: var(--t-md); font-variant-numeric: tabular-nums; }
+.stat span { font-size: var(--t-xs); color: var(--ink-soft); }
+.traits { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; font-size: var(--t-sm); }
+.traits dt { color: var(--ink-soft); }
+.traits dd { margin: 0; }
+.layers { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-size: var(--t-sm); }
+.layers li { display: flex; align-items: center; gap: 8px; }
+.layers i { width: 22px; height: 4px; border-radius: 2px; display: inline-block; }
+.layers code { font-family: var(--mono); font-size: var(--t-xs); }
+.layers em { font-style: normal; color: var(--ink-soft); margin-left: auto; font-family: var(--mono); font-size: var(--t-xs); font-variant-numeric: tabular-nums; }
+
+/* contact sheet */
+.contact { display: grid; gap: 12px; }
+.contact-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.contact-head h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: var(--t-lg); }
+.thumbs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 560px) { .thumbs { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.thumb { border: 0; background: transparent; padding: 0; display: grid; gap: 6px; text-align: left; min-width: 0; }
+.thumb .pic { background: var(--mat); border-radius: 8px; padding: 8px; display: grid; place-items: center; aspect-ratio: var(--ar, 2 / 3); max-width: 100%; }
+.thumb canvas { width: 100%; height: auto; box-shadow: var(--shadow); display: block; }
+.thumb .t-name { font-size: var(--t-xs); color: var(--ink-soft); display: flex; gap: 6px; min-width: 0; }
+.thumb .t-name b { font-family: var(--mono); font-weight: 500; color: var(--ink); }
+.thumb:hover .pic { outline: 1px solid var(--ink-soft); }
+
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+  background: var(--ink); color: var(--surface); padding: 10px 14px; border-radius: 8px; font-size: var(--t-sm);
+  max-width: min(92vw, 520px); box-shadow: var(--shadow); z-index: 20;
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+
+<header class="top">
+  <h1 class="mark">Driftless Plates</h1>
+  <p class="sub">Hidden-line landscapes for the page and the plotter</p>
+</header>
+
+<main class="layout">
+  <section class="stage" aria-label="Plate">
+    <div class="mat" id="mat">
+      <div class="mat-inner" id="matInner">
+        <div class="sheet" id="sheet">
+          <canvas id="plate" aria-label="Generated plate"></canvas>
+          <svg class="marks" id="marks" aria-hidden="true"></svg>
+        </div>
+      </div>
+      <div class="mat-label" id="matLabel">152.4 × 228.6 mm</div>
+      <div class="busy" id="busy" hidden><i></i><span>Drawing</span></div>
+    </div>
+
+    <div class="caption">
+      <p class="plate-no">Plate <label class="sr" for="seed">Seed</label><input class="seed-input" id="seed" spellcheck="false" autocomplete="off" maxlength="40"></p>
+      <p class="plate-desc" id="desc"></p>
+    </div>
+
+    <div class="bar">
+      <button class="btn icon" id="prev" aria-label="Previous plate" title="Previous plate"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12.5 4 6.5 10l6 6"/></svg></button>
+      <button class="btn primary" id="new">New plate</button>
+      <button class="btn icon" id="next" aria-label="Next plate" title="Next plate"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m7.5 4 6 6-6 6"/></svg></button>
+      <button class="btn" id="keep" aria-pressed="false"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5.5 3.5h9v13l-4.5-3.2-4.5 3.2z"/></svg><span>Keep</span></button>
+      <button class="btn" id="sheetBtn">Contact sheet</button>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button data-zoom="1" aria-pressed="true">Fit</button><button data-zoom="2" aria-pressed="false">2×</button><button data-zoom="4" aria-pressed="false">4×</button>
+      </div>
+    </div>
+    <div class="kept" id="kept" hidden></div>
+
+    <section class="contact" id="contact" hidden aria-label="Contact sheet">
+      <div class="contact-head">
+        <h2>Contact sheet</h2>
+        <span class="hint">Current settings, fresh seeds. Tap one to open it.</span>
+        <div class="bar" style="margin-left:auto">
+          <button class="btn" id="moreSheet">Another sheet</button>
+          <button class="btn" id="closeSheet">Close</button>
+        </div>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </section>
+  </section>
+
+  <section class="controls" aria-label="Settings">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-scene" aria-controls="p-scene" aria-selected="true">Scene</button>
+      <button role="tab" id="tab-ink" aria-controls="p-ink" aria-selected="false">Ink</button>
+      <button role="tab" id="tab-page" aria-controls="p-page" aria-selected="false">Page</button>
+      <button role="tab" id="tab-export" aria-controls="p-export" aria-selected="false">Export</button>
+    </div>
+
+    <div class="panel" id="p-scene" role="tabpanel" aria-labelledby="tab-scene">
+      <div class="group">
+        <h2>Subject</h2>
+        <div class="row"><label for="focal">Focus</label><select class="sel" id="focal"></select></div>
+        <div class="row"><label for="season">Season</label><select class="sel" id="season"></select></div>
+        <div class="row"><label for="time">Light</label><select class="sel" id="time"></select></div>
+        <div class="row"><label for="frame">Frame</label><select class="sel" id="frame"></select></div>
+      </div>
+      <div class="group">
+        <h2>Motif weights</h2>
+        <div class="row"><label for="flora">Flora</label><div class="slider"><input type="range" id="flora" min="0" max="100"><output for="flora"></output></div></div>
+        <div class="row"><label for="land">Land</label><div class="slider"><input type="range" id="land" min="0" max="100"><output for="land"></output></div></div>
+        <div class="row"><label for="built">Built</label><div class="slider"><input type="range" id="built" min="0" max="100"><output for="built"></output></div></div>
+        <div class="row"><label for="sky">Sky</label><div class="slider"><input type="range" id="sky" min="0" max="100"><output for="sky"></output></div></div>
+        <p class="hint">Weights bias what Auto picks and how much of the page each motif gets. They blend in one scene rather than switching modes.</p>
+      </div>
+      <div class="group">
+        <h2>Hand</h2>
+        <div class="row"><label for="density">Density</label><div class="slider"><input type="range" id="density" min="50" max="160" step="5"><output for="density"></output></div></div>
+        <div class="row"><label for="imperfection">Imperfection</label><div class="slider"><input type="range" id="imperfection" min="0" max="100" step="5"><output for="imperfection"></output></div></div>
+        <p class="hint">Imperfection adds wobble, ink skips, ruled-line overshoot and pen misregistration.</p>
+      </div>
+    </div>
+
+    <div class="panel" id="p-ink" role="tabpanel" aria-labelledby="tab-ink" hidden>
+      <div class="group">
+        <h2>Palette</h2>
+        <div class="palettes" id="palettes"></div>
+      </div>
+      <div class="group">
+        <h2>Strength</h2>
+        <div class="row"><label for="strength">Ink strength</label><div class="slider"><input type="range" id="strength" min="15" max="100" step="5"><output for="strength"></output></div></div>
+        <p class="hint">Lower strength mixes every ink toward the paper colour, for plates that sit behind text.</p>
+      </div>
+      <div class="group">
+        <h2>Pen</h2>
+        <div class="row"><label for="penWidth">Nib</label><div class="slider"><input type="range" id="penWidth" min="0.2" max="0.8" step="0.05"><output for="penWidth"></output></div></div>
+        <label class="check"><input type="checkbox" id="riso"> Offset the colour layers like a risograph pass</label>
+      </div>
+    </div>
+
+    <div class="panel" id="p-page" role="tabpanel" aria-labelledby="tab-page" hidden>
+      <div class="group">
+        <h2>Trim</h2>
+        <div class="row"><label for="format">Size</label><select class="sel" id="format"></select></div>
+        <div class="row"><span class="lbl">Orientation</span><div class="seg" id="orient"><button data-v="portrait">Portrait</button><button data-v="landscape">Landscape</button></div></div>
+        <label class="check"><input type="checkbox" id="bleed"> Add 0.125 in (3.175 mm) bleed on every edge</label>
+        <p class="hint">The A4 plot master keeps every stroke inside the extent the Codex plate validator checks: 8 mm from each side, 10 mm from the top and 9 mm from the foot. It takes no bleed and no colour offset.</p>
+      </div>
+      <div class="group">
+        <h2>Text area</h2>
+        <div class="row"><span class="lbl">Position</span><div class="seg" id="textZone"><button data-v="none">None</button><button data-v="codex">Text block</button><button data-v="top">Top</button><button data-v="middle">Middle</button><button data-v="bottom">Bottom</button></div></div>
+        <div class="row"><span class="lbl">Treatment</span><div class="seg" id="zoneMode"><button data-v="fade">Fade out</button><button data-v="tint">Lighten</button></div></div>
+        <p class="hint">Text block is the Codex frame shared by the Clavis, De Vinculis and both parables: 52–452 pt across, from 82 pt below the top to 55 pt above the foot of the 7 × 10 in page. Other trims scale it; a spread gets one block per page. Fade out thins the linework to a clearing for type. Lighten keeps the drawing but moves it into the tint ink.</p>
+      </div>
+      <div class="group">
+        <h2>Guides</h2>
+        <label class="check"><input type="checkbox" id="guides"> Show trim, gutter and text-area guides (preview only)</label>
+      </div>
+    </div>
+
+    <div class="panel" id="p-export" role="tabpanel" aria-labelledby="tab-export" hidden>
+      <div class="group">
+        <h2>Files</h2>
+        <div class="bar">
+          <button class="btn primary" id="saveSvg">Download SVG</button>
+          <button class="btn" id="savePng">Download PNG</button>
+          <button class="btn" id="copySvg" disabled>Copy SVG</button>
+        </div>
+        <label class="check"><input type="checkbox" id="optimize"> Order paths to cut pen-up travel</label>
+        <label class="check"><input type="checkbox" id="paperSvg"> Include a paper rectangle in the SVG</label>
+        <p class="hint" id="exportNote">SVG is millimetre-true with one Inkscape layer per pen, ready for AxiDraw-type plotters or vpype. PNG renders at 300 dpi with the resolution stored in the file.</p>
+      </div>
+      <div class="group">
+        <h2>Plot</h2>
+        <div class="stats" id="stats"></div>
+        <ul class="layers" id="layers"></ul>
+      </div>
+      <div class="group">
+        <h2>Colophon</h2>
+        <dl class="traits" id="traits"></dl>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script id="engine">
+/*ENGINE*/
+</script>
+<script>
+/*APP*/
+</script>

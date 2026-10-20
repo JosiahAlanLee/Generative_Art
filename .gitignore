@@ -15,3 +15,7 @@ sources/codex-intervallorum/**/output/
 # Rebuilt development-art previews, simulations and plot masters
 sources/development-art/**/out/
 sources/development-art/**/plotter/a4/
+
+# Driftless Plates batch output and the optional preview dependency
+studies/driftless-plates/out/
+studies/driftless-plates/node_modules/

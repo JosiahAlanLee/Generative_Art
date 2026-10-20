@@ -46,6 +46,17 @@ python examples/make_numerics_sampler.py
 
 The SVG is a stroke-only glyph sized in millimetres. The sampler draws the same glyphs through the book's ink and cornmeal hands; see [Number systems](../techniques/09-number-systems/README.md).
 
+## Draw a landscape plate
+
+Driftless Plates needs only a browser, or Node 18 or later for batch output:
+
+```sh
+node studies/driftless-plates/cli.js --count 6
+node studies/driftless-plates/test.js
+```
+
+The SVGs land in `studies/driftless-plates/out/`, set to the Codex 7 × 10 in page. Open `studies/driftless-plates/index.html` for the interactive version; see [Landscape plates](../techniques/11-landscape-plates/README.md).
+
 ## Verify the collection
 
 ```sh
