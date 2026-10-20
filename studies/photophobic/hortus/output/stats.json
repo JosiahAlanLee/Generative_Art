@@ -1,0 +1,81 @@
+{
+ "ground": {
+  "grid": [
+   776,
+   700
+  ],
+  "lit_share": 0.8597565083489727,
+  "changed_strain": 0.16852793022233742,
+  "trail_on_lit_ground": 0.03910233452916145
+ },
+ "rear wall": {
+  "grid": [
+   800,
+   250
+  ],
+  "lit_share": 0.8345008645240033,
+  "changed_strain": 0.1734863354975087,
+  "trail_on_lit_ground": 0.01683860644698143
+ },
+ "left wall": {
+  "grid": [
+   620,
+   80
+  ],
+  "lit_share": 0.0,
+  "changed_strain": 0.11019689119170985,
+  "trail_on_lit_ground": 0.0
+ },
+ "bed 1": {
+  "grid": [
+   173,
+   100
+  ],
+  "lit_share": 0.8589017341040462,
+  "changed_strain": 0.008557980316645272,
+  "trail_on_lit_ground": 0.07470257580280304
+ },
+ "bed 2": {
+  "grid": [
+   173,
+   77
+  ],
+  "lit_share": 0.5514601005930486,
+  "changed_strain": 0.3136975985273199,
+  "trail_on_lit_ground": 0.06949568539857864
+ },
+ "bed 3": {
+  "grid": [
+   132,
+   100
+  ],
+  "lit_share": 0.9426515151515151,
+  "changed_strain": 0.270935960591133,
+  "trail_on_lit_ground": 0.47389888763427734
+ },
+ "bed 4": {
+  "grid": [
+   132,
+   77
+  ],
+  "lit_share": 0.9252262888626525,
+  "changed_strain": 0.0,
+  "trail_on_lit_ground": 0.0
+ },
+ "plate": {
+  "veins": 90,
+  "hatch_marks_cut": 501,
+  "ink_near_mould": {
+   "base": 0.15447656521799952,
+   "with_mould": 0.15785448778597846,
+   "pixels": 76836
+  },
+  "sol_fans_removed": 138,
+  "cast_shadow_marks": 636
+ },
+ "scene": {
+  "trail_on_lit_ground": 0.02723412588238716,
+  "changed_strain": 0.1611327959987158
+ },
+ "base_identical_to_sol": true
+}

@@ -1,0 +1,68 @@
+{
+ "sill top": {
+  "grid": [
+   538,
+   282
+  ],
+  "lit_share": 0.49538663136280126,
+  "changed_strain": 0.10030689546182159,
+  "trail_on_lit_ground": 0.05156514048576355
+ },
+ "wall": {
+  "grid": [
+   550,
+   513
+  ],
+  "lit_share": 0.0,
+  "changed_strain": 0.1879721879420883,
+  "trail_on_lit_ground": 0.0
+ },
+ "book cover": {
+  "grid": [
+   197,
+   153
+  ],
+  "lit_share": 0.6417836170000996,
+  "changed_strain": 0.23946372442106614,
+  "trail_on_lit_ground": 0.08625651150941849
+ },
+ "skull": {
+  "grid": [
+   236,
+   236
+  ],
+  "lit_share": 0.20047927039225721,
+  "changed_strain": 0.22877669575954873,
+  "trail_on_lit_ground": 0.005646904930472374
+ },
+ "candle": {
+  "grid": [
+   99,
+   185
+  ],
+  "lit_share": 0.34217854217854216,
+  "changed_strain": 0.10883950617283951,
+  "trail_on_lit_ground": 0.0056341951712965965
+ },
+ "plate": {
+  "veins": 157,
+  "hatch_marks_cut": 1187,
+  "ink_near_mould": {
+   "base": 0.1927523708663084,
+   "with_mould": 0.16771498560702078,
+   "pixels": 210554
+  }
+ },
+ "base_identical_to_sol": true,
+ "scene": {
+  "trail_on_lit_ground": 0.031527724117040634,
+  "changed_strain": 0.1508961894429766
+ },
+ "checks": [
+  "window passes light ray",
+  "stone jamb blocks light ray",
+  "known sill intersection",
+  "two empty eye sockets",
+  "solid cranial vault"
+ ]
+}
