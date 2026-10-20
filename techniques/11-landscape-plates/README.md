@@ -12,7 +12,9 @@ Hidden-line landscapes sized to the book's pages, from one seeded generator.
 | **Contour-strip farmland** (`study`) | Offset strips down a ridge that relax toward level, divided into fields of rows, ticks, stipple, bales or woods | `buildBands`, `farm`, `patchRows`, `patchTicks`, `bales` |
 | **Space-colonization trees and boughs** (`study`) | Grow branch skeletons toward attraction points in a crown, taper them by pipe model, dress them in clustered foliage | `colonize`, `drawBranches`, `oak`, `bough`, `foliageCluster` |
 | **Tufted meadow and wildflowers** (`study`) | Fill a foreground in depth order with occluding tufts and seasonal flowers that drift in patches | `tallGround`, `tuft`, `plant`, `plantPick` |
-| **Ruled structures and monuments** (`study`) | Silos, gambrel barns, water towers, sandstone towers and geometric monuments shaded by line spacing | `silo`, `barn`, `waterTower`, `rockTower`, `monument` |
+| **Ruled structures and monuments** (`study`) | Silos, gambrel barns, water towers and geometric monuments shaded by line spacing | `silo`, `barn`, `waterTower`, `monument` |
+| **Rock types and lake bluffs** (`study`) | Sandstone towers, dolomite ledges with red cedar or jointed quartzite over talus; bluffs rising from a lake, after Devil's Lake | `rockTower`, `limestoneOutcrop`, `quartziteCrag`, `lakeBluff`, `crestFeature`, `angularBlock`, `cedar` |
+| **Prairie and rock-top houses** (`study`) | Low hipped-roof houses with banded casements and coursed stone, after Wright; a house on a sandstone chimney with a cantilevered room, after the House on the Rock | `prairieHouse`, `rockTopHouse`, `hipRoofO`, `prairieWalls` |
 | **Print hand and text clearing** (`study`) | Add wobble, ink skips, ruled overshoot and misregistration; fade or lighten linework inside the book's text block | `post`, `textZone`, `misregistration` |
 | **Plot export with pen-travel ordering** (`study`) | Write millimetre SVG with one layer per pen, ordered to shorten pen-up travel, and estimate plot time | `toSVG`, `orderPaths`, `plotStats` |
 
@@ -24,6 +26,7 @@ From the study folder:
 node cli.js --count 6                                    # Codex 7 × 10 in plates into out/
 node cli.js --seeds e2 --zone codex --zone-mode fade     # clear the Codex text block
 node cli.js --count 6 --format codexPlot                 # A4 plot masters inside the validator's extent
+node cli.js --count 6 --rock limestone                   # dolomite ledges instead of sandstone
 node test.js
 ```
 
@@ -38,6 +41,7 @@ The trim, text block, plot-master extent and inks come from the pinned book snap
 | Control | Effect |
 | --- | --- |
 | Flora, Land, Built, Sky | Bias which subject Auto picks and how much of the page each motif takes |
+| Rock | Sandstone, limestone or quartzite for every outcrop, mesa face and bluff; Auto mixes them |
 | Density | Tightens or loosens line spacing and mark counts across the plate; plot time follows |
 | Imperfection | Wobble, ink skips, ruled overshoot and misregistration together; 0 turns them off |
 | Text area and treatment | `codex` uses the book's text block; Fade out thins the lines, Lighten moves them to the tint pen |
@@ -47,6 +51,7 @@ The trim, text block, plot-master extent and inks come from the pinned book snap
 
 - The mask is a raster of about 0.13 mm cells on a Codex page, so occlusion is exact only to that resolution.
 - A seed reproduces exactly within one JavaScript engine; another engine can round trigonometry differently.
+- Engine 1.2 draws about half of all seeds differently from 1.1. `--compat 1.1` reproduces a 1.1 plate; the page does this for plates kept under 1.1.
 - Physical plotting was not tested.
 
 [Start here](../../docs/GETTING_STARTED.md) · [Recipes](../../docs/RECIPES.md) · [Full catalog](../../CATALOG.md)

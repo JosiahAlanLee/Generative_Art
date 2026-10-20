@@ -757,7 +757,7 @@
     "title": "Ruled structures and monuments",
     "family": "11-landscape-plates",
     "status": "study",
-    "use": "Draw silos, barns, water towers, sandstone towers and monuments shaded by line spacing",
+    "use": "Draw silos, barns, water towers and monuments shaded by line spacing",
     "guide": "techniques/11-landscape-plates/README.md",
     "sources": [
       "studies/driftless-plates/engine.js"
@@ -766,8 +766,45 @@
       "silo",
       "barn",
       "waterTower",
-      "rockTower",
       "monument"
+    ]
+  },
+  {
+    "id": "rock-types-lake-bluffs",
+    "title": "Rock types and lake bluffs",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Draw sandstone towers, dolomite ledges or quartzite crags, and bluffs rising from a lake",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "rockTower",
+      "limestoneOutcrop",
+      "quartziteCrag",
+      "rockFacesBedded",
+      "lakeBluff",
+      "crestFeature",
+      "angularBlock",
+      "cedar"
+    ]
+  },
+  {
+    "id": "prairie-rock-top-houses",
+    "title": "Prairie and rock-top houses",
+    "family": "11-landscape-plates",
+    "status": "study",
+    "use": "Draw low hipped-roof houses after Wright and a house on a rock chimney with a cantilevered room",
+    "guide": "techniques/11-landscape-plates/README.md",
+    "sources": [
+      "studies/driftless-plates/engine.js"
+    ],
+    "symbols": [
+      "prairieHouse",
+      "rockTopHouse",
+      "hipRoofO",
+      "prairieWalls"
     ]
   },
   {

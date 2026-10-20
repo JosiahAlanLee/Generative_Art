@@ -66,9 +66,12 @@ async function main() {
     console.log('sharp is not installed; preview.jpg was not redrawn (npm install sharp)');
   }
   if (fs.existsSync(path.join(HERE, 'preview.jpg'))) files['preview.jpg'] = sha256(fs.readFileSync(path.join(HERE, 'preview.jpg')));
+  // engine 1.1 reference geometry for the compat check is recorded once and carried forward
+  let compat11 = [];
+  try { compat11 = JSON.parse(fs.readFileSync(path.join(HERE, 'manifest.json'), 'utf8')).compat_1_1 || []; } catch (e) { compat11 = []; }
   const manifest = {
     study: 'Driftless Plates', engine_version: E.version, codex_source: E.CODEX.source,
-    generated_with: `Node ${process.version}`, plates, files,
+    generated_with: `Node ${process.version}`, plates, files, compat_1_1: compat11,
   };
   fs.writeFileSync(path.join(HERE, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   console.log('wrote manifest.json');

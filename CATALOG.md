@@ -108,7 +108,9 @@ The source snapshot omits large raster art and edition PDFs. Every included and 
 | [Contour-strip farmland](studies/driftless-plates/engine.js) | Offset field strips down a ridge and fill them with rows, ticks, stipple, bales or woods | study |
 | [Space-colonization trees and boughs](studies/driftless-plates/engine.js) | Grow branch skeletons toward crown attraction points and dress them in clustered foliage | study |
 | [Tufted meadow and wildflowers](studies/driftless-plates/engine.js) | Fill a foreground in depth order with occluding grass tufts and seasonal flowers | study |
-| [Ruled structures and monuments](studies/driftless-plates/engine.js) | Draw silos, barns, water towers, sandstone towers and monuments shaded by line spacing | study |
+| [Ruled structures and monuments](studies/driftless-plates/engine.js) | Draw silos, barns, water towers and monuments shaded by line spacing | study |
+| [Rock types and lake bluffs](studies/driftless-plates/engine.js) | Draw sandstone towers, dolomite ledges or quartzite crags, and bluffs rising from a lake | study |
+| [Prairie and rock-top houses](studies/driftless-plates/engine.js) | Draw low hipped-roof houses after Wright and a house on a rock chimney with a cantilevered room | study |
 | [Print hand and text clearing](studies/driftless-plates/engine.js) | Add wobble, ink skips and misregistration; fade or lighten linework inside the book's text block | study |
 | [Plot export with pen-travel ordering](studies/driftless-plates/engine.js) | Write millimetre SVG with one layer per pen, ordered to shorten pen-up travel | study |
 

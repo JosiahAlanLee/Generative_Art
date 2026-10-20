@@ -76,3 +76,17 @@ Checked on 20 October 2026 using the process-art environment above.
 | Visual review | Contact sheet and individual panel/context images inspected; plinth strokes and texture geometrically occluded by the building silhouette |
 
 The tests cover model and interface properties. The material rates are illustrative; physical plotting and a full book binding were not performed. References and implementation choices are in [the textile guide](../techniques/12-process-art/TEXTILE.md).
+
+## Driftless Plates 1.2
+
+Checked on 20 October 2026 with Node 22 and Chromium through Playwright. This covers rock types, lake bluffs and the two houses in `studies/driftless-plates`; no imported or development-art source file changed.
+
+| Check | Observed result |
+| --- | --- |
+| `node studies/driftless-plates/test.js` | 39 passed: the Codex geometry checks; the nine preview plates regenerate byte for byte; six A4 plot masters, including lake bluffs, a rock-top house and a quartzite crag, stay within 8–202 × 10–288 mm; the text-block and build checks; the six engine 1.1 preview plates draw the same geometry with `compat: '1.1'` |
+| Compatibility with 1.1 | 48 of 48 seeds across four formats drew identical geometry under engine 1.1 and under 1.2 with `compat: '1.1'`; without it, 24 of 48 drew differently |
+| Page in Chromium | No script errors or horizontal overflow at 390 px and 1,360 px; a plate kept under 1.1 redrew as kept; the Rock control and the three new subjects drew; SVG and PNG downloads saved |
+| Generation time | Over 92 plates, median 187 ms and slowest 431 ms in Node; the largest had 24,627 strokes |
+| Collection verifier | 241 public snapshot files, 58 selected development-art files, 53 techniques and all local guide links |
+
+Physical plotting was not tested.

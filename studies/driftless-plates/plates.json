@@ -1,11 +1,14 @@
 {
-  "note": "The six preview plates. make_preview.js renders them and records their SVG hashes in manifest.json; test.js regenerates them and compares.",
+  "note": "The nine preview plates. make_preview.js renders them and records their SVG hashes in manifest.json; test.js regenerates them and compares.",
   "plates": [
     { "seed": "e2", "format": "codex" },
-    { "seed": "f1", "format": "codex" },
     { "seed": "f2", "format": "codex" },
+    { "seed": "m4", "format": "codex", "focal": "rock", "rock": "limestone" },
+    { "seed": "g8", "format": "codex", "focal": "bluff" },
+    { "seed": "h2", "format": "codex", "focal": "prairie" },
+    { "seed": "k3", "format": "codex", "focal": "rocktop" },
     { "seed": "f5", "format": "codex" },
     { "seed": "f4", "format": "codex", "zone": "codex", "zoneMode": "fade" },
-    { "seed": "f7", "format": "codexPlot" }
+    { "seed": "g4", "format": "codexPlot", "focal": "bluff" }
   ]
 }

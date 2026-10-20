@@ -375,7 +375,7 @@ Scene.prototype.fill = function (poly) { this.mask.fillRings([poly]); };
 Scene.prototype.halo = function (pts, w) { this.mask.stamp(pts, w); };
 
 /* ------------------------------------------------------------ composition */
-const FOCALS = ['oak', 'pine', 'grove', 'farmstead', 'watertower', 'monument', 'rock', 'sun', 'vista'];
+const FOCALS = ['oak', 'pine', 'grove', 'farmstead', 'watertower', 'monument', 'rock', 'sun', 'vista', 'bluff', 'prairie', 'rocktop'];
 
 function compose(sc) {
   const P = sc.P, r = sc.rng('compose'), W = sc.W, H = sc.H, wt = P.weights;
@@ -393,6 +393,18 @@ function compose(sc) {
     ['rock', 0.6 * wt.built + 0.5 * wt.land], ['sun', 1.0 * wt.sky], ['vista', 0.7 * wt.land + 0.15],
   ]);
   c.focal = P.focal && P.focal !== 'auto' ? P.focal : focal;
+  // engine 1.2: the rock type and three further subjects come from their own stream, so a seed that
+  // draws none of the new subjects keeps its 1.1 composition
+  const r2 = sc.rng('compose-1.2');
+  // compat '1.1' draws a plate exactly as engine 1.1 did: sandstone only, none of the new subjects
+  const compat = P.compat === '1.1';
+  const rockDraw = r2.weighted([['sandstone', 1.2], ['limestone', 1.5], ['quartzite', 0.6]]);
+  const extra = r2.weighted([['none', 6], ['bluff', 0.3 + 0.9 * wt.land], ['prairie', 0.9 * wt.built], ['rocktop', 0.6 * wt.built]]);
+  if (!compat && (!P.focal || P.focal === 'auto') && extra !== 'none') c.focal = extra;
+  const lakeRock = r2.weighted([['quartzite', 3], ['limestone', 1.2], ['sandstone', 1]]);
+  // the rock-top house always stands on a sandstone chimney
+  c.rock = compat || c.focal === 'rocktop' ? 'sandstone' : P.rock && P.rock !== 'auto' ? P.rock : c.focal === 'bluff' ? lakeRock : rockDraw;
+  if (c.focal === 'bluff') hz += 0.05;
   if (c.focal === 'sun') hz += 0.08;
   c.hzFrac = clamp(hz, 0.16, 0.72);
   const fx = P.spread
@@ -548,8 +560,10 @@ function buildBands(sc) {
   const P = sc.P, c = sc.comp, r = sc.rng('bands'), W = sc.W, H = sc.H, v = sc.view;
   const pad = 8, dx = 0.5, x0 = -pad, nS = Math.ceil((W + 2 * pad) / dx) + 1;
   const viewH = v.y1 - v.y0;
-  const nB = clamp(Math.round(r.range(3.6, 6.4) + (P.weights.land - 0.5) * 2.5), 3, 8);
-  const fgH = viewH * (c.focal === 'vista' || c.focal === 'sun' ? r.range(0.07, 0.16) : r.range(0.13, 0.3)) * lerp(1.15, 0.85, P.weights.sky);
+  const lake = c.focal === 'bluff';
+  const nB0 = clamp(Math.round(r.range(3.6, 6.4) + (P.weights.land - 0.5) * 2.5), 3, 8);
+  const nB = lake ? Math.max(4, nB0) : nB0;
+  const fgH = viewH * (c.focal === 'vista' || c.focal === 'sun' || lake ? r.range(0.07, 0.16) : r.range(0.13, 0.3)) * lerp(1.15, 0.85, P.weights.sky);
   const yFg = v.y1 - fgH;
   const expo = r.range(1.1, 1.6);
   const bands = [];
@@ -572,8 +586,8 @@ function buildBands(sc) {
     bands.push(b);
   }
   // a river or pond in the middle distance: a band with a dead-flat far shore
-  if (nB >= 4 && r.chance(0.16 + 0.14 * P.weights.land)) {
-    const b = bands[r.int(Math.max(1, Math.floor(nB * 0.45)), nB - 2)];
+  if (nB >= 4 && (lake || r.chance(0.16 + 0.14 * P.weights.land))) {
+    const b = bands[lake ? nB - 2 : r.int(Math.max(1, Math.floor(nB * 0.45)), nB - 2)];
     b.water = true; b.type = 'water'; b.blocks = null;
     const lvl = b.mean + b.amp * r.range(0.1, 0.6);
     b.R.fill(lvl); b.mean = lvl; b.amp = 0;
@@ -1015,6 +1029,15 @@ function prairieBand(sc, b) {
     }
     if (!any && yy < y - 4) break;
   }
+  // limestone country: red cedar coming into the prairie
+  if (sc.comp.rock === 'limestone' && b.t > 0.25) {
+    const rc = sc.rng('prairie-cedar' + b.k);
+    for (let i = 0, n = Math.round(W / rc.range(8, 18)); i < n; i++) {
+      const x = rc.range(0, W), tt = top.at(x), bb = Math.min(bot.at(x), sc.H);
+      if (bb - tt < 1) continue;
+      cedar(sc, x, lerp(tt + 0.5, bb, Math.pow(rc.rnd(), 1.5)), lerp(1, 4, b.t) * rc.range(0.7, 1.3), rc.chance(0.6) ? FLORA : KEY, rc);
+    }
+  }
 }
 function waterBand(sc, b) {
   const r = sc.rng('water' + b.k), W = sc.W, c = sc.comp, N = sc.noise, v = sc.view;
@@ -1054,6 +1077,8 @@ function waterBand(sc, b) {
 }
 function rockFaces(sc, b) {
   if (!b.blocks) return;
+  sc.hasRock = true;
+  if (sc.comp.rock !== 'sandstone') { rockFacesBedded(sc, b, sc.comp.rock); return; }
   const r = sc.rng('rock' + b.k), lx = sc.comp.lightX;
   for (const k of b.blocks) {
     const cliffH = Math.max(2, (b.mean + b.amp) - k.topY) * r.range(0.45, 0.75);
@@ -1089,6 +1114,56 @@ function rockFaces(sc, b) {
       const x = r.range(xa - 3, xb + 3), yy = yEnd + Math.abs(r.gauss()) * cliffH * 0.4;
       if (yy > b.curve.at(x)) sc.fleck(x, yy, r.rnd() * PI, 0.3, KEY);
     }
+    const tal = cliffH * 0.5, poly = [];
+    for (let x = xa - tal; x <= xb + tal; x += 0.5) poly.push(x, Math.max(b.curve.at(x), Math.min(yEnd, k.topY + (Math.max(0, xa - x, x - xb) / tal) * cliffH)));
+    poly.push(xb + tal, yEnd + 0.5, xa - tal, yEnd + 0.5);
+    sc.fill(poly);
+  }
+}
+
+// limestone: thin regular beds with joints offset bed to bed, red cedars along the rim;
+// quartzite: massive beds broken by close vertical joints, the shadow flank hatched, angular talus
+function rockFacesBedded(sc, b, rock) {
+  const r = sc.rng('rock' + b.k), lx = sc.comp.lightX, N = sc.noise;
+  for (const k of b.blocks) {
+    const cliffH = Math.max(2, (b.mean + b.amp) - k.topY) * r.range(0.45, 0.75);
+    const xa = k.a - k.e, xb = k.b + k.e, yEnd = k.topY + cliffH;
+    const inside = (x, yy) => yy > b.curve.at(x) + 0.25;
+    if (rock === 'quartzite') {
+      const tal = [];
+      for (let i = 0, n = Math.round((xb - xa) * 0.9 * Math.sqrt(sc.dens)); i < n; i++) {
+        const s = Math.max(0.45, cliffH * r.range(0.06, 0.14));
+        tal.push([r.range(xa - 2, xb + 2), yEnd + Math.abs(r.gauss()) * cliffH * 0.35, s * r.range(1, 1.5), s * r.range(0.55, 0.85)]);
+      }
+      tal.sort((p, q) => q[1] - p[1]);
+      for (const [cx, cy, w, h] of tal) if (cy > b.curve.at(cx) + 0.5) angularBlock(sc, cx, cy, w, h, r);
+      for (let y = k.topY + r.range(0.6, 1.4); y < yEnd; y += r.range(1.4, 3.4) * lerp(0.6, 1.2, b.t)) {
+        const pts = [];
+        for (let x = xa; x <= xb; x += 0.6) pts.push(x, y + N.n2(x * 0.1, y) * 0.3 + (x - xa) * 0.04);
+        for (const pc of clipPred(pts, (x, yy) => inside(x, yy) && N.n2(x * 0.3, yy * 1.7) > -0.3, 0.3)) sc.line(pc, KEY, TEX);
+      }
+      for (let x = xa + r.range(0.3, 1.5); x < xb; x += r.range(1.4, 3.4) * lerp(0.8, 1.2, b.t)) {
+        const y0 = b.curve.at(x) + 0.3, len = cliffH * r.range(0.5, 1), pts = [];
+        let xx = x;
+        for (let yy = y0; yy < y0 + len; yy += 0.7) { pts.push(xx, yy); xx += r.range(-0.12, 0.12); }
+        sc.line(pts, KEY, ORG);
+      }
+    } else {
+      for (let y = k.topY + r.range(0.25, 0.5); y < yEnd;) {
+        const t = r.range(0.6, 1.1) * lerp(0.9, 1.3, b.t), pts = [];
+        for (let x = xa; x <= xb; x += 0.6) pts.push(x, y + N.n2(x * 0.12, y) * 0.12);
+        for (const pc of clipPred(pts, (x, yy) => inside(x, yy) && N.n2(x * 0.25, yy * 2.3) > -0.55, 0.3)) sc.line(pc, KEY, TEX);
+        for (let x = xa + r.range(0.6, 3); x < xb; x += r.range(2, 5)) if (inside(x, y + t * 0.5)) sc.seg(x, y + 0.1, x, Math.min(yEnd, y + t), KEY, TEX);
+        y += t;
+      }
+      for (let i = 0, n = r.int(1, 5); i < n; i++) {
+        const x = r.range(k.a, k.b);
+        cedar(sc, x, b.curve.at(x) + 0.3, Math.max(0.9, cliffH * r.range(0.25, 0.5)), r.chance(0.6) ? FLORA : KEY, r);
+      }
+    }
+    const side = lx < 0 ? 1 : -1;
+    const fx0 = side > 0 ? k.b - (k.b - k.a) * 0.12 : k.a - k.e, fx1 = side > 0 ? k.b + k.e : k.a + (k.b - k.a) * 0.12;
+    for (let x = fx0; x < fx1; x += 0.8) { const yt = b.curve.at(x) + 0.3; sc.seg(x, yt, x, yt + cliffH * r.range(0.6, 1), KEY, TEX); }
     const tal = cliffH * 0.5, poly = [];
     for (let x = xa - tal; x <= xb + tal; x += 0.5) poly.push(x, Math.max(b.curve.at(x), Math.min(yEnd, k.topY + (Math.max(0, xa - x, x - xb) / tal) * cliffH)));
     poly.push(xb + tal, yEnd + 0.5, xa - tal, yEnd + 0.5);
@@ -1833,6 +1908,7 @@ function waterTower(sc, x, yb, h, o) {
 }
 function rockTower(sc, x, yb, h, o) {
   const r = o.r, N = sc.noise, lx = sc.comp.lightX;
+  sc.hasRock = true;
   const shape = o.shape || r.weighted([['chimney', 2], ['mushroom', 1.5], ['butte', 1.4], ['twin', 0.8]]);
   if (shape === 'twin') {
     const g = h * r.range(0.18, 0.3);
@@ -1840,10 +1916,10 @@ function rockTower(sc, x, yb, h, o) {
     rockTower(sc, x - g * 0.6, yb, h, { r, shape: r.pick(['chimney', 'mushroom']) });
     return;
   }
-  const wb = h * (shape === 'butte' ? r.range(0.9, 1.5) : shape === 'mushroom' ? r.range(0.35, 0.5) : r.range(0.28, 0.42)), steps = 70;
+  const wb = o.wb ?? h * (shape === 'butte' ? r.range(0.9, 1.5) : shape === 'mushroom' ? r.range(0.35, 0.5) : r.range(0.28, 0.42)), steps = 70;
   const capT = shape === 'mushroom' ? r.range(0.7, 0.82) : r.range(0.82, 0.93);
   const Lx = [], Rx = [], Ys = [];
-  const lean = r.range(-0.08, 0.08) * h;
+  const lean = o.lean ?? r.range(-0.08, 0.08) * h;
   for (let i = 0; i <= steps; i++) {
     const t = i / steps, y = yb - h * t;
     let w;
@@ -1857,7 +1933,7 @@ function rockTower(sc, x, yb, h, o) {
   for (let i = 0; i <= steps; i++) out.push(Lx[i], Ys[i]);
   for (let i = steps; i >= 0; i--) out.push(Rx[i], Ys[i] + (i === steps ? r.range(-0.3, 0.3) : 0));
   // vegetation on top
-  const nt = shape === 'butte' ? r.int(3, 9) : r.int(1, 3);
+  const nt = o.noTrees ? 0 : shape === 'butte' ? r.int(3, 9) : r.int(1, 3);
   for (let q = 0; q < nt; q++) {
     const tx = lerp(Lx[steps], Rx[steps], r.range(0.1, 0.9));
     smallTree(sc, tx, yb - h + 0.3, h * r.range(0.04, 0.09) * (shape === 'butte' ? 0.7 : 1) + 1, r, { kind: r.chance(0.6) ? 'conifer' : 'round', pen: KEY });
@@ -1988,6 +2064,655 @@ function poleLine(sc, b, r) {
   } };
 }
 
+/* ------------------------------------------- rock types, lake bluffs, houses */
+// Engine 1.2. Three rock types: sandstone (the towers), limestone (thin dolomite beds, as on Driftless
+// ridgetops and bluff prairies) and quartzite (blocky, jointed bluffs over talus, after Devil's Lake).
+
+// an angular block or boulder: 4-7 corners, one facet edge, the side away from the light hatched
+function angularBlock(sc, cx, cy, w, h, r, o) {
+  o = o || {};
+  const n = o.corners || r.int(5, 7), ph = r.range(0, TAU), pen = o.pen ?? KEY;
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    const a = ph + TAU * i / n + r.range(-0.22, 0.22), k = r.range(0.8, 1.05);
+    pts.push(cx + Math.cos(a) * w / 2 * k, cy - Math.sin(a) * h / 2 * k);
+  }
+  sc.loop(pts, pen, ORG);
+  if (w > 0.9 && h > 0.6) {
+    let ti = 0, bi = 0;
+    for (let i = 1; i < n; i++) {
+      if (pts[2 * i + 1] < pts[2 * ti + 1]) ti = i;
+      if (pts[2 * i + 1] > pts[2 * bi + 1]) bi = i;
+    }
+    const sd = -sc.comp.lightX;
+    const mx = (pts[2 * ti] + pts[2 * bi]) / 2 + sd * w * 0.12;
+    sc.line([pts[2 * ti], pts[2 * ti + 1], mx, cy, pts[2 * bi], pts[2 * bi + 1]], pen, TEX);
+    const sp = Math.max(0.42, Math.min(w, h) / r.range(3.5, 6)) / Math.sqrt(sc.dens);
+    const ang = o.hatch ?? (sd > 0 ? -PI / 3 : PI / 3);
+    for (const sg of hatchPoly(pts, ang, sp, r.rnd() * sp)) {
+      for (const pc of clipPred(sg, (px) => (px - mx) * sd > 0, 0.25)) sc.line(pc, pen, TEX);
+    }
+  }
+  sc.fill(pts);
+  return pts;
+}
+
+// an eastern red cedar: a narrow, ragged spire
+function cedar(sc, x, yb, h, pen, r) {
+  const w = h * r.range(0.24, 0.34), n = Math.max(6, Math.round(h * 2.5));
+  const L = [], R = [];
+  for (let i = 0; i <= n; i++) {
+    const t = i / n, prof = Math.pow(1 - t, 0.8) * (0.75 + 0.25 * Math.sin(PI * Math.min(1, t * 1.6)));
+    L.push(x - w / 2 * prof * (i % 2 ? 0.78 : 1) * r.range(0.9, 1.1), yb - 0.25 - t * h);
+    R.push(x + w / 2 * prof * (i % 2 ? 1 : 0.8) * r.range(0.9, 1.1), yb - 0.25 - t * h);
+  }
+  const out = L.concat(revPts(R).slice(2));
+  sc.line(out, pen, ORG);
+  const sd = -sc.comp.lightX;
+  if (h > 2) {
+    for (let q = 0; q < Math.round(h * 1.2); q++) {
+      const t = r.range(0.1, 0.8), yy = yb - t * h, hw = w / 2 * Math.pow(1 - t, 0.8);
+      const xx = x + sd * hw * r.range(0.1, 0.7);
+      sc.seg(xx, yy, xx - sd * hw * 0.35, yy - h * 0.06, pen, TEX);
+    }
+  }
+  sc.seg(x, yb, x, yb - 0.6, pen, ORG);
+  const poly = out.slice(); poly.push(x, yb);
+  sc.fill(poly);
+}
+
+// a bunch of prairie grass: three to five short blades from one root
+function bunch(sc, x, y, h, pen, r) {
+  const n = r.int(3, 5), lean = r.range(-0.3, 0.3);
+  for (let i = 0; i < n; i++) {
+    const a = HALF + lean + (i - (n - 1) / 2) * r.range(0.18, 0.32);
+    const bh = h * r.range(0.6, 1);
+    const pts = [x, y, x + Math.cos(a) * bh * 0.5, y - Math.sin(a) * bh * 0.5, x + Math.cos(a + lean * 0.4) * bh, y - Math.sin(a + lean * 0.4) * bh];
+    sc.line(pts, pen, ORG); sc.halo(pts, sc.penW * 1.3);
+  }
+}
+
+// Devil's Lake crest forms: a doorway of stacked blocks, a balanced rock, or a needle
+function crestFeature(sc, kind, x, yb, s, r) {
+  if (kind === 'doorway') {
+    const pw = s * 0.42, gap = s * r.range(0.4, 0.6), ph = s * r.range(0.9, 1.2);
+    const lw = pw * 2 + gap + s * 0.25, lh = s * r.range(0.38, 0.5);
+    angularBlock(sc, x + r.range(-0.08, 0.08) * s, yb - ph - lh * 0.42, lw, lh, r, { corners: 5 });
+    for (const sgn of [-1, 1]) {
+      const px = x + sgn * (gap / 2 + pw / 2);
+      angularBlock(sc, px + r.range(-0.1, 0.1) * pw, yb - ph * 0.74, pw * r.range(0.85, 1.05), ph * 0.5, r, { corners: r.int(4, 6) });
+      angularBlock(sc, px, yb - ph * 0.26, pw * r.range(0.95, 1.15), ph * 0.56, r, { corners: r.int(4, 6) });
+    }
+  } else if (kind === 'balanced') {
+    const pdw = s * r.range(0.32, 0.42), pdh = s * r.range(0.5, 0.7);
+    const cw = s * r.range(0.9, 1.2), ch = s * r.range(0.55, 0.75), off = r.range(-0.15, 0.15) * s;
+    angularBlock(sc, x + off, yb - pdh - ch * 0.42, cw, ch, r, { corners: r.int(5, 7) });
+    angularBlock(sc, x, yb - pdh * 0.5, pdw, pdh, r, { corners: r.int(4, 6) });
+  } else if (kind === 'needle') {
+    const parts = [];
+    let y = yb, w = s * r.range(0.45, 0.6);
+    for (let i = 0, n = r.int(3, 5); i < n; i++) {
+      const hh = s * r.range(0.4, 0.6);
+      parts.push([x + r.range(-0.06, 0.06) * s, y - hh / 2, w, hh]);
+      y -= hh * 0.92; w *= r.range(0.75, 0.92);
+    }
+    for (const [cx, cy, ww, hh] of parts) angularBlock(sc, cx, cy, ww, hh, r, { corners: r.int(4, 6) });
+  }
+}
+
+// a low dolomite ledge along a ridge crest: thin beds, joints, a shadow under each lip, red cedars
+function ledge(sc, x, yb, h, r) {
+  sc.hasRock = true;
+  const beds = r.int(2, 4), w = h * r.range(3, 6), t = h / beds;
+  const boxes = [];
+  for (let i = 0; i < beds; i++) {
+    const ya = yb - h + i * t, inset = (beds - 1 - i) * r.range(0.04, 0.12) * w;
+    const a = x - w / 2 + inset * r.range(0.5, 1.5), b = x + w / 2 - inset * r.range(0.5, 1.5);
+    boxes.push([a, ya, b, ya + t]);
+  }
+  for (const [a, ya, b, yb2] of boxes) {
+    sc.line([a, yb2, a, ya, b, ya, b, yb2], KEY, ORG);
+    for (let xx = a + 0.3; xx < b - 0.3; xx += 0.45 / Math.sqrt(sc.dens)) sc.seg(xx, ya + 0.18, xx, ya + Math.min(t * 0.42, 0.75), KEY, TEX);
+    for (let xx = a + r.range(0.5, 2); xx < b - 0.5; xx += r.range(1.2, 3.5) * Math.max(0.6, h / 2)) sc.seg(xx, ya + 0.2, xx + r.range(-0.2, 0.2), yb2, KEY, TEX);
+  }
+  for (const [a, ya, b, yb2] of boxes) sc.fill([a, ya, b, ya, b, yb2, a, yb2]);
+  for (let i = 0, n = r.int(0, 3); i < n; i++) cedar(sc, x + r.range(-0.45, 0.45) * w, yb - h + 0.2, h * r.range(1.3, 2.4), r.chance(0.6) ? FLORA : KEY, r);
+  for (let i = 0, n = Math.round(w * 1.5 * sc.dens); i < n; i++) {
+    const xx = x + r.gauss() * w * 0.4, yy = yb + Math.abs(r.gauss()) * h * 0.6;
+    sc.fleck(xx, yy, r.rnd() * PI, 0.3, KEY);
+  }
+}
+
+// a small pile of quartzite blocks on a crest
+function blockPile(sc, x, yb, h, r) {
+  sc.hasRock = true;
+  const n = r.int(3, 7), parts = [];
+  for (let i = 0; i < n; i++) {
+    const s = h * r.range(0.5, 1.1);
+    parts.push([x + r.gauss() * h * 0.9, yb - s * 0.4 - (i > n / 2 ? s * 0.55 : 0), s * r.range(1, 1.5), s * r.range(0.6, 0.9)]);
+  }
+  parts.sort((p, q) => q[1] - p[1]);
+  for (const [cx, cy, w, hh] of parts) angularBlock(sc, cx, cy, w, hh, r);
+}
+
+// a dolomite outcrop: thin uneven beds whose faces step in and out, ragged edges, cracks that do
+// not line up bed to bed, shadow under the overhangs, red cedars rooted on the ledges
+function limestoneOutcrop(sc, x, yb, h, o) {
+  const r = o.r, N = sc.noise, sd = -sc.comp.lightX, dn = Math.sqrt(sc.dens);
+  sc.hasRock = true;
+  const wb = h * r.range(2.0, 3.0), nb = r.int(7, 13), steps = 90;
+  const tb = [0];
+  for (let i = 1; i < nb; i++) tb.push(i / nb + r.range(-0.3, 0.3) / nb);
+  tb.push(1);
+  const hl = [], hr = [];
+  let l = wb / 2, rr = wb / 2;
+  for (let i = 0; i < nb; i++) {
+    hl.push(l); hr.push(rr);
+    l = Math.max(wb * 0.32, l * r.range(0.93, 1.03) - (r.chance(0.15) ? wb * r.range(0.04, 0.1) : 0));
+    rr = Math.max(wb * 0.32, rr * r.range(0.93, 1.03) - (r.chance(0.15) ? wb * r.range(0.04, 0.1) : 0));
+  }
+  const bedOf = (t) => { let i = 0; while (i < nb - 1 && t > tb[i + 1]) i++; return i; };
+  const n0 = r.range(0, 99);
+  const Lx = [], Rx = [], Ys = [];
+  for (let st = 0; st <= steps; st++) {
+    const t = st / steps, i = bedOf(t);
+    Lx.push(x - hl[i] + 0.018 * wb * N.n2(t * 8, n0)); Rx.push(x + hr[i] + 0.018 * wb * N.n2(t * 7, n0 + 40)); Ys.push(yb - h * t);
+  }
+  const out = [];
+  for (let st = 0; st <= steps; st++) out.push(Lx[st], Ys[st]);
+  for (let st = steps; st >= 0; st--) out.push(Rx[st], Ys[st]);
+  const inside = (px, py) => inPoly(out, px, py);
+  // the foot: broken rock and bluff grass, nearest the eye
+  for (let i = 0, n = Math.round(wb * 2 * sc.dens); i < n; i++) {
+    const xx = x + r.gauss() * wb * 0.45, yy = yb + 0.3 + Math.abs(r.gauss()) * h * 0.12;
+    if (r.chance(0.55)) sc.fleck(xx, yy, r.rnd() * PI, 0.35, KEY);
+    else bunch(sc, xx, yy, Math.max(0.6, h * r.range(0.03, 0.06)), r.chance(0.7) ? FLORA : KEY, r);
+  }
+  // cedars on the ledges, where a bed is wider than the one above it
+  for (let i = 0; i < nb - 1; i++) {
+    const y = yb - h * tb[i + 1];
+    if (hl[i] - hl[i + 1] > h * 0.06 && r.chance(0.55)) cedar(sc, x - lerp(hl[i + 1], hl[i], r.range(0.35, 0.75)), y + 0.15, h * r.range(0.13, 0.28), r.chance(0.6) ? FLORA : KEY, r);
+    if (hr[i] - hr[i + 1] > h * 0.06 && r.chance(0.55)) cedar(sc, x + lerp(hr[i + 1], hr[i], r.range(0.35, 0.75)), y + 0.15, h * r.range(0.13, 0.28), r.chance(0.6) ? FLORA : KEY, r);
+  }
+  sc.line(out, KEY, ORG);
+  // bedding planes: the ledge line at each boundary, broken where it has weathered back
+  for (let i = 1; i < nb; i++) {
+    const y = yb - h * tb[i], a = x - Math.max(hl[i], hl[i - 1]), b = x + Math.max(hr[i], hr[i - 1]);
+    const pts = [];
+    for (let xx = a; xx <= b; xx += 0.5) pts.push(xx, y + 0.12 * N.n2(xx * 0.5, i * 2.3));
+    for (const pc of clipPred(pts, (px, py) => inside(px, py + 0.05) && N.n2(px * 0.22, py * 1.3 + 7) > -0.5, 0.3)) sc.line(pc, KEY, TEX);
+    // shadow under an overhang: the upper bed reaching past the lower one
+    for (const [ox0, ox1] of [[x - hl[i], x - hl[i - 1]], [x + hr[i - 1], x + hr[i]]]) {
+      for (let xx = ox0 + 0.2; xx < ox1 - 0.2; xx += 0.35) sc.seg(xx, y + 0.1, xx, y + Math.min(0.9, h * (tb[i] - tb[i - 1]) * 0.5), KEY, TEX);
+    }
+  }
+  // cracks within each bed, offset from the bed above
+  for (let i = 0; i < nb; i++) {
+    const y0 = yb - h * tb[i + 1], y1 = yb - h * tb[i];
+    for (let q = 0, m = r.int(0, 3); q < m; q++) {
+      const xx = lerp(x - hl[i], x + hr[i], r.range(0.1, 0.9));
+      const pts = [xx, y0 + 0.2, xx + r.range(-0.3, 0.3), (y0 + y1) / 2, xx + r.range(-0.3, 0.3), y1 - 0.1];
+      for (const pc of clipPred(pts, inside, 0.25)) sc.line(pc, KEY, TEX);
+    }
+  }
+  // the side away from the light
+  const sf = r.range(0.2, 0.32), strip = [];
+  for (let st = 0; st <= steps; st++) strip.push(sd > 0 ? Rx[st] : Lx[st], Ys[st]);
+  for (let st = steps; st >= 0; st--) strip.push(sd > 0 ? lerp(Lx[st], Rx[st], 1 - sf) : lerp(Lx[st], Rx[st], sf), Ys[st]);
+  for (const sg of hatchPoly(strip, HALF, r.range(0.7, 0.95) / dn, r.rnd())) {
+    for (const pc of clipPred(sg, (px, py) => N.n2(px * 0.5, py * 0.4) > -0.25, 0.3)) sc.line(pc, KEY, TEX);
+  }
+  sc.fill(out);
+  for (let i = 0, n = r.int(1, 4); i < n; i++) {
+    const tx = x + r.range(-0.8, 0.8) * Math.min(hl[nb - 1], hr[nb - 1]);
+    if (r.chance(0.7)) cedar(sc, tx, yb - h + 0.25, h * r.range(0.2, 0.36), r.chance(0.6) ? FLORA : KEY, r);
+    else crown(sc, tx, yb - h + 0.25, h * r.range(0.1, 0.16), 'round', r.chance(0.6) ? FLORA : KEY, r, sc.comp.crownStyle);
+  }
+}
+
+// a crag of jointed quartzite: angular sides in a few straight runs, a faceted top, full-height joints,
+// a dipping bedding plane or two, the side away from the light hatched, talus at the foot
+function quartziteCrag(sc, x, yb, h, o) {
+  const r = o.r, N = sc.noise, sd = -sc.comp.lightX, dn = Math.sqrt(sc.dens);
+  sc.hasRock = true;
+  const wb = h * r.range(1.0, 1.6);
+  const runs = () => {
+    const pp = [[0, wb / 2 * r.range(0.9, 1.1)]];
+    for (let t = 0; t < 1;) {
+      t = Math.min(1, t + r.range(0.12, 0.3));
+      pp.push([t, Math.max(wb * 0.14, pp[pp.length - 1][1] * r.range(0.72, 1.04) + r.range(-0.08, 0.08) * wb)]);
+    }
+    return pp;
+  };
+  const Lp = runs(), Rp = runs();
+  const halfAt = (pp, t) => {
+    for (let i = 1; i < pp.length; i++) if (t <= pp[i][0]) return lerp(pp[i - 1][1], pp[i][1], (t - pp[i - 1][0]) / (pp[i][0] - pp[i - 1][0]));
+    return pp[pp.length - 1][1];
+  };
+  const xl = x - halfAt(Lp, 1), xr = x + halfAt(Rp, 1), yt = yb - h;
+  const out = [];
+  for (const [t, hw] of Lp) out.push(x - hw, yb - h * t);
+  const nt = r.int(3, 6), skyline = [];
+  for (let i = 1; i < nt; i++) skyline.push(lerp(xl, xr, i / nt) + r.range(-0.08, 0.08) * (xr - xl), yt + r.range(-0.08, 0.2) * h);
+  out.push(...skyline);
+  for (let i = Rp.length - 1; i >= 0; i--) out.push(x + Rp[i][1], yb - h * Rp[i][0]);
+  const inside = (px, py) => inPoly(out, px, py);
+  // talus at the foot first
+  const tal = [];
+  for (let i = 0, m = Math.round(wb * 1.1 * dn); i < m; i++) {
+    const sz = Math.max(0.6, h * r.range(0.04, 0.09));
+    tal.push([x + r.gauss() * wb * 0.7, yb + Math.abs(r.gauss()) * h * 0.1 + sz * 0.2, sz * r.range(1, 1.5), sz * r.range(0.6, 0.9)]);
+  }
+  tal.sort((p, q) => q[1] - p[1]);
+  for (const [cx, cy, bw, bh] of tal) angularBlock(sc, cx, cy, bw, bh, r);
+  // a crest form on the highest point of the skyline
+  let topY = Infinity, topX = x;
+  for (let i = 0; i < out.length; i += 2) if (out[i + 1] < topY) { topY = out[i + 1]; topX = out[i]; }
+  const kind = r.weighted([['doorway', 1], ['balanced', 1.2], ['needle', 0.8], ['none', 0.8]]);
+  crestFeature(sc, kind, clamp(topX, xl + wb * 0.15, xr - wb * 0.15), topY + 0.4, h * r.range(0.18, 0.26), r);
+  sc.loop(out, KEY, ORG);
+  // joints, near vertical, broken; they divide the crag into slabs
+  const nj = r.int(3, 6), js = [];
+  for (let i = 0; i < nj; i++) js.push(lerp(x - wb * 0.45, x + wb * 0.45, (i + r.range(0.2, 0.8)) / nj));
+  for (const jx of js) {
+    const lean = r.range(-0.06, 0.06), pts = [];
+    for (let yy = yt - 1; yy < yb; yy += 0.5) pts.push(jx + lean * (yb - yy) + 0.12 * N.n2(yy * 0.3, jx), yy);
+    for (const pc of clipPred(pts, (px, py) => inside(px, py) && N.n2(px * 0.5, py * 0.3 + 11) > -0.45, 0.3)) sc.line(pc, KEY, ORG);
+  }
+  const dip = r.range(-0.2, 0.2);
+  for (let j = 0, m = r.int(1, 3); j < m; j++) {
+    const yy0 = yb - h * r.range(0.25, 0.75);
+    for (const pc of clipPred(subdivide([x - wb, yy0 - dip * wb, x + wb, yy0 + dip * wb], 0.5), (px, py) => inside(px, py) && N.n2(px * 0.3, py + j) > -0.35, 0.3)) sc.line(pc, KEY, TEX);
+  }
+  // slabs shaded by which way they face
+  const edges = [x - wb, ...js, x + wb];
+  for (let i = 0; i < edges.length - 1; i++) {
+    const u = ((edges[i] + edges[i + 1]) / 2 - x) / (wb / 2) * sd;
+    const shade = 0.2 + 0.6 * smooth(-0.8, 0.9, u) + 0.2 * N.n2(edges[i] * 0.2, 5);
+    if (shade < 0.42) continue;
+    const sp = lerp(1.1, 0.45, clamp((shade - 0.42) / 0.45, 0, 1)) / dn;
+    for (let xx = edges[i] + sp / 2; xx < edges[i + 1] - 0.1; xx += sp) {
+      for (const pc of clipPred([xx, yt - 2, xx, yb], (px, py) => inside(px, py) && N.n2(px * 0.4, py * 0.35 + 3) > -0.5, 0.3)) sc.line(pc, KEY, TEX);
+    }
+  }
+  sc.fill(out);
+  for (let i = 0, m = r.int(0, 2); i < m; i++) crown(sc, lerp(xl, xr, r.range(0.15, 0.85)), topY + h * 0.08, h * r.range(0.06, 0.1), r.chance(0.8) ? 'round' : 'conifer', r.chance(0.6) ? FLORA : KEY, r, sc.comp.crownStyle);
+}
+
+// Bluffs rising from a lake at one side of the page, after the quartzite bluffs around Devil's Lake.
+// The crest and the shore converge as the bluff recedes. A cliff band runs along the top in broken
+// outcrops; below it the slope is talus fields and woods (quartzite), bluff prairie with red cedar on
+// sunny faces and woods on shady ones (limestone), or woods under a taller bedded cliff (sandstone).
+function lakeBluff(sc, b, side, r) {
+  const c = sc.comp, v = sc.view, N = sc.noise, lx = c.lightX, rock = c.rock;
+  sc.hasRock = true;
+  const y0 = b.mean, vw = v.x1 - v.x0;
+  const xe = side < 0 ? v.x0 - 1.5 : v.x1 + 1.5;
+  const D = vw * r.range(0.3, 0.44), nose = D * r.range(0.1, 0.2), DN = D + nose;
+  const X = (d) => xe - side * d;
+  const nearBase = Math.min(b.Ec.at(X(0)), sc.H + 2);
+  const Hc = Math.max(12, Math.min((y0 - v.y0) * r.range(0.5, 0.74), vw * r.range(0.32, 0.46)));
+  const farK = r.range(0.15, 0.32), conv = r.range(0.7, 1.1), sn = side * 7.3 + r.range(0, 50);
+  const crestRaw = (d) => lerp(y0 - Hc, y0 - Hc * farK, Math.pow(d / D, conv)) + Hc * 0.035 * N.n2(d * 0.05, sn) + 0.3 * N.n2(d * 0.35, sn + 3);
+  const noseTop = crestRaw(D);
+  const crest = (d) => (d <= D ? crestRaw(d) : lerp(noseTop, y0, smooth(0, 1, (d - D) / nose)));
+  const base = (d) => lerp(nearBase, y0, Math.pow(clamp(d / DN, 0, 1), 0.5));
+  const hgt = (d) => Math.max(0, base(d) - crest(d));
+  const ps = (d) => lerp(1, 0.3, clamp(d / DN, 0, 1));
+  const lit = -side === lx;
+  const season = c.season;
+  const dn = Math.sqrt(sc.dens);
+  const leafPen = () => (season === 'autumn' ? r.weighted([[ACC, 2], [FLORA, 1], [KEY, 1]]) : season === 'winter' ? KEY : r.weighted([[FLORA, 3], [KEY, 1]]));
+  const treeKind = () => (season === 'winter' ? (r.chance(0.25) ? 'conifer' : 'bare') : rock === 'sandstone' ? (r.chance(0.55) ? 'conifer' : 'round') : r.chance(0.1) ? 'conifer' : 'round');
+  // zones down the face: a broken cliff band, then the slope
+  const cf0 = rock === 'sandstone' ? r.range(0.3, 0.48) : rock === 'limestone' ? r.range(0.14, 0.24) : r.range(0.2, 0.32);
+  const cliffGate = (d) => smooth(-0.2, 0.25, N.n2(d * 0.035, sn + 31) + (rock === 'sandstone' ? 0.3 : 0.05)) * smooth(D * 0.04, D * 0.22, d);
+  const cliffBot = (d) => crest(d) + hgt(d) * cf0 * cliffGate(d) * (0.85 + 0.3 * N.n2(d * 0.12, sn + 5));
+  const talusGate = (d) => (rock === 'quartzite' ? smooth(-0.35, 0.15, N.n2(d * 0.028, sn + 57) + 0.3 * cliffGate(d)) : 0);
+  const prairieGate = (d) => (rock === 'limestone' ? smooth(-0.3, 0.2, N.n2(d * 0.03, sn + 71) + (lit ? 0.35 : -0.25)) : 0);
+  const outline = [];
+  for (let d = 0; d <= DN; d += 0.6) outline.push(X(d), crest(d));
+  outline.push(X(DN), y0);
+  for (let d = DN; d >= 0; d -= 0.6) outline.push(X(d), base(d));
+  outline.push(xe, base(0), xe, crest(0));
+
+  // 1. the slope below the cliff, nearest first: talus blocks, prairie, cedars and woods sorted by depth
+  const items = [];
+  const treeRad = (d) => Math.max(0.45, hgt(d) * 0.05);
+  const sparse = season === 'winter' ? 1.6 : 1;
+  for (let d = 0.2; d < DN - nose * 0.25; d += treeRad(d) * r.range(1.0, 1.3) * sparse / dn) {
+    const rad = treeRad(d), top = cliffBot(d) + rad * 0.6, bot = base(d);
+    for (let y = bot - rad * 0.2; y > top; y -= rad * r.range(0.75, 1.0) / dn) {
+      const u = r.rnd();
+      if (u < talusGate(d) || u < prairieGate(d)) continue;
+      items.push([y, 'tree', X(d + r.range(-0.25, 0.25) * rad), rad * r.range(0.8, 1.2)]);
+    }
+  }
+  if (rock === 'quartzite') {
+    for (let d = 0.2; d < DN - nose * 0.3;) {
+      const size = Math.max(0.45, hgt(d) * r.range(0.024, 0.042)), top = cliffBot(d), bot = base(d);
+      for (let y = bot - size * 0.3; y > top; y -= size * r.range(0.55, 0.8) / dn) {
+        if (r.rnd() > talusGate(d)) continue;
+        const f = (bot - y) / Math.max(1, bot - top);
+        const sz = size * lerp(1.35, 0.7, f);
+        if (sz >= 0.9) items.push([y, 'block', X(d + r.range(-0.3, 0.3) * sz), sz]);
+        else if (r.chance(0.55)) items.push([y, 'scree', X(d + r.range(-0.4, 0.4) * sz), sz]);
+      }
+      d += size * r.range(0.75, 1.05) / dn;
+    }
+  }
+  if (rock === 'limestone') {
+    for (let d = 0.2; d < DN; d += Math.max(0.35, 1.1 * ps(d)) / dn) {
+      const top = cliffBot(d), bot = base(d);
+      for (let y = bot; y > top; y -= Math.max(0.4, 1.3 * ps(d)) / dn) {
+        if (r.rnd() > prairieGate(d)) continue;
+        if (r.chance(0.04)) items.push([y, 'cedar', X(d), Math.max(0.9, hgt(d) * r.range(0.06, 0.1))]);
+        else if (r.chance(0.6)) items.push([y + r.range(-0.2, 0.2), 'tuft', X(d + r.range(-0.3, 0.3)), Math.max(0.5, 1.4 * ps(d) * r.range(0.6, 1.3))]);
+      }
+    }
+  }
+  items.sort((p, q) => q[0] - p[0]);
+  for (const [y, kind, x, s] of items.slice(0, 2600)) {
+    if (kind === 'tree') crown(sc, x, y, s, treeKind(), leafPen(), r, s > 1.6 ? c.crownStyle : 'cloud');
+    else if (kind === 'block') angularBlock(sc, x, y, s * r.range(1, 1.5), s * r.range(0.55, 0.9), r);
+    else if (kind === 'cedar') cedar(sc, x, y, s, r.chance(0.6) ? FLORA : KEY, r);
+    else if (kind === 'scree') sc.fleck(x, y, r.rnd() * PI, Math.max(0.3, s * 0.8), KEY);
+    else bunch(sc, x, y, s, season === 'autumn' ? (r.chance(0.5) ? ACC : FLORA) : r.chance(0.75) ? FLORA : KEY, r);
+  }
+
+  // 2. crest forms at the edge, before the cliff so the cliff does not show through them
+  if (rock === 'quartzite') {
+    const kind = r.weighted([['doorway', 1], ['balanced', 1], ['needle', 0.7], ['none', 1.2]]);
+    if (kind !== 'none') {
+      const df = r.range(0.12, 0.45) * D, s = Math.max(1.2, hgt(df) * r.range(0.07, 0.11));
+      crestFeature(sc, kind, X(df), crest(df) + s * 0.25, s, r);
+    }
+  }
+
+  // 3. the cliff band, in broken outcrops
+  const band = (d) => cliffBot(d) - crest(d);
+  if (rock === 'quartzite') {
+    for (let d = r.range(0.2, 1.5); d < DN;) {
+      const bh = band(d), step = Math.max(0.6, bh * r.range(0.25, 0.55));
+      const d1 = Math.min(DN, d + step);
+      if (bh > 0.8) {
+        const pts = [];
+        for (let y = crest(d) + 0.25; y <= cliffBot(d); y += 0.5) pts.push(X(d) + 0.15 * N.n2(y * 0.3, d), y);
+        for (const pc of clipPred(pts, (px, py) => N.n2(px * 0.4, py * 0.25 + 40) > -0.4, 0.3)) sc.line(pc, KEY, ORG);
+        const shade = (lit ? 0.22 : 0.58) + 0.32 * N.n2(d * 0.07, sn + 20);
+        if (shade > 0.45) {
+          const sp = lerp(1.2, 0.5, clamp((shade - 0.45) / 0.45, 0, 1)) * Math.max(0.6, ps(d)) / dn;
+          for (let dd = d + sp * 0.5; dd < d1 - 0.15; dd += sp) {
+            const t0 = crest(dd) + 0.35, t1 = cliffBot(dd) - 0.2;
+            if (t1 - t0 > 0.5) sc.seg(X(dd), t0, X(dd), t1, KEY, TEX);
+          }
+        }
+        if (bh > 2.5 && r.chance(0.6)) {
+          const f = r.range(0.25, 0.75), ya = lerp(crest(d), cliffBot(d), f), yb2 = lerp(crest(d1), cliffBot(d1), f) + r.range(-0.15, 0.15) * (d1 - d);
+          sc.line([X(d), ya, X(d1), yb2], KEY, TEX);
+        }
+        // the shadowed overhang where the cliff meets the slope
+        for (let dd = d + 0.2; dd < d1; dd += 0.4) if (band(dd) > 0.8) sc.seg(X(dd), cliffBot(dd) - Math.min(0.8, band(dd) * 0.15), X(dd), cliffBot(dd), KEY, TEX);
+      }
+      d = d1;
+    }
+  } else if (rock === 'limestone') {
+    const k = r.int(4, 7);
+    const bed = (i, d) => crest(d) + band(d) * (i / k) + 0.12 * N.n2(d * 0.2, i * 3.7);
+    for (let i = 1; i <= k; i++) {
+      const pts = [];
+      for (let d = 0; d < DN; d += 0.6) pts.push(X(d), bed(i, d));
+      for (const pc of clipPred(pts, (px, py) => band((side < 0 ? px - xe : xe - px)) > 0.6 && N.n2(px * 0.15, py * 0.6 + i) > -0.45, 0.3)) sc.line(pc, KEY, i === k ? ORG : TEX);
+      const sp = (lit ? 0.9 : 0.45) / dn;
+      for (let d = 0.2; d < DN; d += sp * Math.max(0.6, ps(d))) {
+        if (band(d) < 0.6) continue;
+        const ya = bed(i - 1, d), yb2 = bed(i, d);
+        if (N.n2(d * 0.3, i * 5.1) > (lit ? 0.1 : -0.3)) sc.seg(X(d), ya + 0.15, X(d), ya + (yb2 - ya) * 0.55, KEY, TEX);
+      }
+      for (let d = r.range(0.5, 3); d < DN; d += r.range(1.5, 5) * Math.max(0.5, ps(d))) if (band(d) > 0.6) sc.seg(X(d), bed(i - 1, d) + 0.15, X(d), bed(i, d), KEY, TEX);
+    }
+  } else {
+    const k = r.int(3, 6), ff = [];
+    for (let i = 0; i < k; i++) ff.push(r.range(0.12, 0.92));
+    ff.sort((p, q) => p - q);
+    const bedY = (f, d) => lerp(crest(d), cliffBot(d), f) + 0.25 * N.n2(d * 0.1, f * 9);
+    for (const f of ff) {
+      const pts = [];
+      for (let d = 0; d < DN; d += 0.6) pts.push(X(d), bedY(f, d));
+      for (const pc of clipPred(pts, (px) => band(side < 0 ? px - xe : xe - px) > 1, 0.3)) sc.line(pc, KEY, TEX);
+    }
+    for (let i = 0, n = Math.round(D / 3); i < n && ff.length > 1; i++) {
+      const d = r.range(0, DN * 0.9), j = r.int(0, ff.length - 2);
+      if (band(d) < 2) continue;
+      const ya = bedY(ff[j], d), yb2 = bedY(ff[j + 1], d), wd = Math.max(1, (yb2 - ya) * r.range(0.8, 1.6));
+      for (let q = 0; q < 3; q++) sc.line(arcPts(X(d), lerp(ya, yb2, 0.3 + q * 0.2) - wd * 0.15, wd / 2, wd * 0.18, PI + 0.3, TAU - 0.3, 8), KEY, TEX);
+    }
+    for (let i = 0, n = r.int(1, 3); i < n; i++) {
+      const d = r.range(0.1, 0.7) * D;
+      if (band(d) < 3) continue;
+      const ay = lerp(crest(d), cliffBot(d), r.range(0.3, 0.65)), aw = band(d) * r.range(0.3, 0.5), ah = aw * r.range(0.35, 0.55);
+      const al = arcPts(X(d), ay + ah / 2, aw / 2, ah, 0, PI, 18);
+      for (const sg of hatchPoly(al.concat([X(d) + aw / 2, ay + ah / 2]), 0, 0.35, 0)) sc.line(sg, KEY, TEX);
+      sc.line(al, KEY, ORG);
+    }
+    for (let d = 0.2; d < DN; d += 0.4) if (band(d) > 1 && !lit) sc.seg(X(d), cliffBot(d) - Math.min(1, band(d) * 0.12), X(d), cliffBot(d), KEY, TEX);
+  }
+  const edge = [];
+  for (let d = 0; d <= DN; d += 0.6) edge.push(X(d), crest(d));
+  sc.line(edge, KEY, ORG);
+
+  // 4. trees on the plateau behind the edge
+  for (let row = 0; row < 2; row++) {
+    for (let d = r.range(0, 2); d < DN - nose * 0.4;) {
+      const rad = Math.max(0.45, hgt(d) * r.range(0.035, 0.055) * (row ? 0.8 : 1));
+      const yb = crest(d) + rad * 0.3 - row * rad * 0.7;
+      if (rock === 'limestone' && r.chance(0.3)) cedar(sc, X(d), yb, rad * 2.4, r.chance(0.6) ? FLORA : KEY, r);
+      else crown(sc, X(d), yb, rad, treeKind(), leafPen(), r, rad > 1.6 ? c.crownStyle : 'cloud');
+      d += rad * r.range(1.0, 1.45) / dn;
+    }
+  }
+
+  // 5. the reflection in the lake, then the silhouette
+  for (let d = 0.2; d < DN; d += Math.max(0.45, 0.8 * ps(d)) / dn) {
+    const x = X(d), top = base(d) + 0.45, L = hgt(d) * r.range(0.12, 0.3);
+    for (const pc of clipPred([x, top, x, top + L], (px, py) => N.n2(px * 0.3, py * 0.9 + 77) > -0.1, 0.3)) sc.line(pc, TINT, TEX);
+  }
+  sc.fill(outline);
+}
+
+// --- houses: a low hipped roof and walls in the Prairie manner, in a slight oblique view
+function hipRoofO(sc, m, P, e, rise, pen, r, sideV, ky, kx) {
+  const lx = sc.comp.lightX;
+  const y = m.base - m.h, z0 = m.z0 - e, z1 = m.z0 + m.depth + e, xa = m.x0 - e, xb = m.x1 + e;
+  const run = Math.min((xb - xa) / 2, (z1 - z0) / 2), zr = (z0 + z1) / 2;
+  const ra = xa + run, rb = xb - run, yr = y - rise, fh = Math.max(0.45, rise * 0.25);
+  const xe = sideV > 0 ? xb : xa;
+  const front = [...P(xa, z0, y), ...P(ra, zr, yr), ...P(rb, zr, yr), ...P(xb, z0, y)];
+  const end = sideV > 0 ? [...P(xb, z0, y), ...P(rb, zr, yr), ...P(xb, z1, y)] : [...P(xa, z0, y), ...P(ra, zr, yr), ...P(xa, z1, y)];
+  const fasciaF = [...P(xa, z0, y), ...P(xb, z0, y), ...P(xb, z0, y + fh), ...P(xa, z0, y + fh)];
+  const fasciaE = [...P(xe, z0, y), ...P(xe, z1, y), ...P(xe, z1, y + fh), ...P(xe, z0, y + fh)];
+  sc.loop(fasciaF, pen, RULED); sc.loop(fasciaE, pen, RULED);
+  sc.line(front, pen, RULED); sc.line(end, pen, RULED);
+  const sp = Math.max(0.7, rise / r.range(2.6, 3.6)) / Math.sqrt(sc.dens);
+  for (const sg of hatchPoly(front, 0, sp, r.rnd() * sp)) sc.line(sg, pen, TEX);
+  const endLit = sideV === lx;
+  const sp2 = sp * (endLit ? 1.6 : 0.65);
+  for (const sg of hatchPoly(end, Math.atan2(ky, kx), sp2, r.rnd() * sp2)) sc.line(sg, pen, TEX);
+  sc.fill(fasciaF); sc.fill(fasciaE); sc.fill(front); sc.fill(end);
+  return { top: yr };
+}
+function coursedStone(sc, F, x0, x1, yTop, yBot, r, pen) {
+  sc.line([...F(x0, yTop), ...F(x1, yTop)], pen, RULED);
+  let y = yTop;
+  while (y < yBot - 0.3) {
+    const yn = Math.min(yBot, y + r.range(0.35, 0.75));
+    sc.line([...F(x0, yn), ...F(x1, yn)], pen, TEX);
+    for (let xx = x0 + r.range(0.3, 1.5); xx < x1 - 0.3; xx += r.range(0.8, 2.6)) sc.line([...F(xx, y + 0.08), ...F(xx, yn - 0.08)], pen, TEX);
+    y = yn;
+  }
+}
+function prairieWalls(sc, m, P, e, r, sideV, opts) {
+  const pen = KEY, lx = sc.comp.lightX, y0 = m.base - m.h, y1 = m.base;
+  const F = (px, py) => P(px, m.z0, py);
+  const xe = sideV > 0 ? m.x1 : m.x0;
+  const S = (pz, py) => P(xe, pz, py);
+  const front = [...F(m.x0, y1), ...F(m.x0, y0), ...F(m.x1, y0), ...F(m.x1, y1)];
+  const sideF = [...S(m.z0, y1), ...S(m.z0, y0), ...S(m.z0 + m.depth, y0), ...S(m.z0 + m.depth, y1)];
+  sc.loop(front, pen, RULED); sc.loop(sideF, pen, RULED);
+  // the deep shadow under the eaves, across both faces
+  const sh = Math.min(m.h * 0.38, e * 0.62 + 0.3);
+  for (const sg of hatchPoly([...F(m.x0, y0), ...F(m.x1, y0), ...F(m.x1, y0 + sh), ...F(m.x0, y0 + sh)], 0, 0.32, 0)) sc.line(sg, pen, TEX);
+  for (const sg of hatchPoly([...S(m.z0, y0), ...S(m.z0 + m.depth, y0), ...S(m.z0 + m.depth, y0 + sh), ...S(m.z0, y0 + sh)], 0, 0.32, 0)) sc.line(sg, pen, TEX);
+  // a band of casements in the shadow line, art glass in each pane, a projecting sill
+  const wTop = y0 + sh * 0.5, wBot = y0 + m.h * (opts.windowTo || r.range(0.45, 0.58));
+  sc.line([...F(m.x0 + 0.3, wTop), ...F(m.x1 - 0.3, wTop)], pen, RULED);
+  sc.line([...F(m.x0 - 0.25, wBot), ...F(m.x1 + 0.25, wBot)], pen, RULED);
+  sc.line([...F(m.x0 + 0.1, wBot + 0.35), ...F(m.x1 - 0.1, wBot + 0.35)], pen, TEX);
+  const ms = Math.max(0.55, m.h * r.range(0.13, 0.18));
+  for (let xx = m.x0 + 0.3 + ms; xx < m.x1 - 0.3 + 1e-6; xx += ms) {
+    sc.line([...F(xx, wTop), ...F(xx, wBot)], pen, TEX);
+    if (ms > 1.1) {
+      const cx = xx - ms / 2, top = wTop + (wBot - wTop) * 0.22, bot = wTop + (wBot - wTop) * 0.74, q = Math.min(0.35, ms * 0.18);
+      sc.line([...F(cx, top + q * 2), ...F(cx, bot)], pen, TEX);
+      sc.loop([...F(cx - q, top), ...F(cx + q, top), ...F(cx + q, top + q * 2), ...F(cx - q, top + q * 2)], pen, TEX);
+    }
+  }
+  // long horizontal courses below the sill, coursed limestone at the foot
+  const baseTop = y1 - m.h * (opts.stone || r.range(0.16, 0.24));
+  for (let yy = wBot + 0.9; yy < baseTop - 0.3; yy += r.range(0.8, 1.2)) sc.line([...F(m.x0 + 0.2, yy), ...F(m.x1 - 0.2, yy)], pen, TEX);
+  coursedStone(sc, F, m.x0, m.x1, baseTop, y1, r, pen);
+  // the seen end: its windows continue round the corner; it is hatched when it faces away from the light
+  sc.line([...S(m.z0, wTop), ...S(m.z0 + m.depth, wTop)], pen, RULED);
+  sc.line([...S(m.z0, wBot), ...S(m.z0 + m.depth, wBot)], pen, RULED);
+  const lit = sideV === lx, sp = (lit ? 1.5 : 0.6) / Math.sqrt(sc.dens);
+  for (const sg of hatchPoly(sideF, HALF, sp, r.rnd() * sp)) sc.line(sg, pen, TEX);
+  sc.fill(front); sc.fill(sideF);
+}
+
+// a low house in the Prairie manner, after Frank Lloyd Wright's Prairie houses and Taliesin, set high on a ridge
+function prairieHouse(sc, x, yb, s, o) {
+  const r = o.r, pen = KEY;
+  const sideV = r.sign(), kx = sideV * 0.5, ky = -0.24;
+  const P = (px, pz, py) => [px + pz * kx, py + pz * ky];
+  const wingSide = r.sign();
+  const mainW = s * r.range(3.0, 3.9), depth = s * r.range(1.3, 1.8);
+  const main = { x0: x - mainW / 2, x1: x + mainW / 2, z0: 0, depth, h: s, base: yb };
+  const wingW = s * r.range(2.4, 3.6);
+  const wx0 = wingSide > 0 ? main.x1 - s * 0.2 : main.x0 - wingW + s * 0.2;
+  const wing = { x0: wx0, x1: wx0 + wingW, z0: s * r.range(0.35, 0.8), depth: depth * r.range(0.7, 0.9), h: s * r.range(0.62, 0.76), base: yb };
+  const upperW = mainW * r.range(0.48, 0.62);
+  const upper = r.chance(0.55) ? { x0: x - upperW / 2 + r.range(-0.15, 0.15) * mainW, z0: depth * 0.22, depth: depth * 0.55, h: s * r.range(0.62, 0.78) } : null;
+  if (upper) upper.x1 = upper.x0 + upperW;
+  const eave = s * r.range(0.34, 0.48), rise = s * r.range(0.2, 0.3);
+  const roofPen = r.chance(0.35) ? ACC : KEY;
+  // a terrace wall with an urn at the end away from the wing, nearest the eye
+  const tSide = -wingSide, tLen = s * r.range(1.2, 2.2), tH = s * r.range(0.28, 0.38), tz = -s * 0.15;
+  const tx0 = tSide > 0 ? main.x1 + 0.1 : main.x0 - tLen - 0.1, tx1 = tx0 + tLen;
+  const T = (px, py) => P(px, tz, py);
+  const ux = tSide > 0 ? tx1 - tH * 0.55 : tx0 + tH * 0.55, pw = tH * 0.55, ph = tH * 0.42, uw = tH * 1.5, uh = tH * 0.5;
+  const uTop = yb - tH - ph - uh;
+  for (let i = 0, n = r.int(4, 8); i < n; i++) {
+    const sx = ux + r.range(-0.45, 0.45) * uw, drop = r.chance(0.5);
+    const pts = drop ? [sx, uTop + 0.1, sx + r.range(-0.4, 0.4) * uw * 0.3, uTop + uh * r.range(0.6, 1.4)] : [sx, uTop + 0.1, sx + r.range(-0.2, 0.2) * uw * 0.3, uTop - uh * r.range(0.4, 1.1)];
+    const q = T(pts[0], pts[1]).concat(T(pts[2], pts[3]));
+    sc.line(q, FLORA, ORG); sc.halo(q, sc.penW * 1.3);
+  }
+  const bowl = [...T(ux - uw / 2, uTop), ...T(ux + uw / 2, uTop), ...T(ux + uw * 0.32, uTop + uh), ...T(ux - uw * 0.32, uTop + uh)];
+  sc.loop(bowl, pen, RULED);
+  sc.line([...T(ux - uw / 2 - 0.2, uTop + 0.3), ...T(ux + uw / 2 + 0.2, uTop + 0.3)], pen, TEX);
+  sc.fill(bowl);
+  const ped = [...T(ux - pw / 2, yb - tH), ...T(ux - pw / 2, yb - tH - ph), ...T(ux + pw / 2, yb - tH - ph), ...T(ux + pw / 2, yb - tH)];
+  sc.loop(ped, pen, RULED); sc.fill(ped);
+  const coping = [...T(tx0 - 0.25, yb - tH), ...T(tx1 + 0.25, yb - tH), ...T(tx1 + 0.25, yb - tH + 0.35), ...T(tx0 - 0.25, yb - tH + 0.35)];
+  sc.loop(coping, pen, RULED); sc.fill(coping);
+  coursedStone(sc, T, tx0, tx1, yb - tH + 0.35, yb, r, pen);
+  sc.line([...T(tx0, yb), ...T(tx0, yb - tH + 0.35)], pen, RULED);
+  sc.line([...T(tx1, yb), ...T(tx1, yb - tH + 0.35)], pen, RULED);
+  sc.fill([...T(tx0, yb), ...T(tx0, yb - tH), ...T(tx1, yb - tH), ...T(tx1, yb)]);
+  // the main block: roof, a broad stone chimney, walls
+  const roof = hipRoofO(sc, main, P, eave, rise, roofPen, r, sideV, ky, kx);
+  const cw = s * r.range(0.5, 0.75), ccx = x + r.range(-0.2, 0.2) * mainW, cz = depth * 0.45;
+  const cTop = roof.top - s * r.range(0.3, 0.5), cBot = main.base - main.h;
+  const C = (px, py) => P(px, cz, py);
+  const cface = [...C(ccx - cw / 2, cBot), ...C(ccx - cw / 2, cTop), ...C(ccx + cw / 2, cTop), ...C(ccx + cw / 2, cBot)];
+  const cap = [...C(ccx - cw / 2 - 0.3, cTop), ...C(ccx + cw / 2 + 0.3, cTop), ...C(ccx + cw / 2 + 0.3, cTop - 0.4), ...C(ccx - cw / 2 - 0.3, cTop - 0.4)];
+  sc.loop(cap, pen, RULED); sc.fill(cap);
+  sc.loop(cface, pen, RULED);
+  coursedStone(sc, C, ccx - cw / 2, ccx + cw / 2, cTop + 0.4, cBot, r, pen);
+  sc.fill(cface);
+  prairieWalls(sc, main, P, eave, r, sideV, {});
+  if (upper) {
+    upper.base = main.base - main.h - rise * 0.35;
+    hipRoofO(sc, upper, P, eave * 0.85, rise * 0.85, roofPen, r, sideV, ky, kx);
+    prairieWalls(sc, upper, P, eave * 0.85, r, sideV, { windowTo: 0.8, stone: 0.001 });
+  }
+  hipRoofO(sc, wing, P, eave, rise * 0.9, roofPen, r, sideV, ky, kx);
+  prairieWalls(sc, wing, P, eave, r, sideV, {});
+  // a tree behind one end
+  const ts = r.sign();
+  oak(sc, x + ts * mainW * r.range(0.55, 0.9), yb - s * 0.15, s * r.range(3.0, 4.2), { r, segs: 45, detail: 0.5, shadow: false });
+}
+
+// a low house built over the top of a sandstone chimney, with a long room cantilevered out over the
+// valley, after Alex Jordan's House on the Rock near Spring Green
+function rockTopHouse(sc, x, yb, h, o) {
+  const r = o.r, dir = o.dir || r.sign(), c = sc.comp, v = sc.view;
+  sc.hasRock = true;
+  const wb = h * r.range(0.3, 0.38), top = yb - h;
+  const sideV = dir, kx = sideV * 0.35, ky = -0.18;
+  const P = (px, pz, py) => [px + pz * kx, py + pz * ky];
+  const leafPen = () => (c.season === 'autumn' ? r.weighted([[ACC, 2], [FLORA, 1], [KEY, 1]]) : c.season === 'winter' ? KEY : r.weighted([[FLORA, 3], [KEY, 1]]));
+  // woods in front of the rock's foot
+  for (let i = 0, n = r.int(3, 6); i < n; i++) {
+    const rad = h * r.range(0.05, 0.09);
+    crown(sc, x + r.range(-1.6, 1.6) * wb, yb + r.range(0.3, 1.5), rad, c.season === 'winter' ? 'bare' : r.chance(0.3) ? 'conifer' : 'round', leafPen(), r, c.crownStyle);
+  }
+  // the house in two or three stepped levels over the rock's top
+  const hh = h * r.range(0.085, 0.11), levels = [];
+  let lw = wb * r.range(1.35, 1.6), lcx = x + dir * wb * 0.1, base = top + hh * 0.45;
+  for (let i = 0, n = r.int(2, 3); i < n; i++) {
+    const lh = hh * (i ? r.range(0.78, 0.95) : 1);
+    levels.push({ x0: lcx - lw / 2, x1: lcx + lw / 2, z0: 0, depth: lw * 0.5, h: lh, base });
+    base -= lh + hh * 0.12;
+    lcx += dir * lw * r.range(0.12, 0.24);
+    lw *= r.range(0.68, 0.84);
+  }
+  // the long room, from the second level out over the valley
+  const lev = levels[Math.min(1, levels.length - 1)];
+  const rootX = dir > 0 ? lev.x1 : lev.x0, yc = lev.base - lev.h * 0.5, hr = lev.h * 0.9;
+  const room = Math.max(h * 0.6, Math.min(h * r.range(1.5, 2.3), dir > 0 ? v.x1 - 4 - rootX : rootX - (v.x0 + 4)));
+  const tipX = rootX + dir * room;
+  const T0 = [rootX, yc - hr / 2], T1 = [tipX, yc - hr * 0.1], B0 = [rootX, yc + hr / 2], B1 = [tipX, yc + hr * 0.04];
+  const along = (t, f) => [lerp(lerp(T0[0], T1[0], t), lerp(B0[0], B1[0], t), f), lerp(lerp(T0[1], T1[1], t), lerp(B0[1], B1[1], t), f)];
+  const wedge = [...T0, ...T1, ...B1, ...B0];
+  sc.loop(wedge, KEY, RULED);
+  sc.line([...along(0, 0.14), ...along(0.98, 0.14)], KEY, TEX);
+  sc.line([...along(0, 0.84), ...along(0.98, 0.84)], KEY, TEX);
+  sc.line([...along(0, 0.5), ...along(0.97, 0.5)], KEY, TEX);
+  const ms = Math.max(0.45, hr * 0.11) / Math.sqrt(sc.dens);
+  for (let d = ms; d < room - 0.6; d += ms) { const t = d / room; sc.line([...along(t, 0.14), ...along(t, 0.84)], KEY, TEX); }
+  for (const sg of hatchPoly([...along(0, 0.84), ...along(1, 0.84), ...B1, ...B0], 0, 0.3, 0)) sc.line(sg, KEY, TEX);
+  sc.fill(wedge);
+  // levels, top first: each eave is in front of the roof below it
+  for (let i = levels.length - 1; i >= 0; i--) {
+    const m = levels[i];
+    hipRoofO(sc, m, P, hh * 0.35, hh * 0.28, KEY, r, sideV, ky, kx);
+    prairieWalls(sc, m, P, hh * 0.35, r, sideV, { windowTo: 0.62, stone: 0.22 });
+  }
+  // struts under the overhang, onto the rock
+  const l0 = levels[0];
+  for (const sgn of [-1, 1]) {
+    const ex = sgn < 0 ? l0.x0 + 0.4 : l0.x1 - 0.4;
+    sc.line([ex, l0.base, lerp(ex, x + sgn * wb * 0.42, 1), l0.base + hh * 0.9], KEY, RULED);
+  }
+  // the rock, then woods behind it
+  rockTower(sc, x, yb, h, { r, shape: 'chimney', wb, lean: 0, noTrees: true });
+  for (let i = 0, n = r.int(4, 8); i < n; i++) {
+    const rad = h * r.range(0.06, 0.1);
+    crown(sc, x + r.sign() * r.range(0.6, 2.4) * wb, yb - r.range(0, h * 0.05), rad, c.season === 'winter' ? 'bare' : r.chance(0.35) ? 'conifer' : 'round', leafPen(), r, c.crownStyle);
+  }
+}
+
 /* ------------------------------------------------------------- objects */
 function placeObjects(sc) {
   const c = sc.comp, r = sc.rng('objects'), bands = sc.bands, nB = bands.length, W = sc.W, H = sc.H, v = sc.view, wt = sc.P.weights;
@@ -2006,7 +2731,7 @@ function placeObjects(sc) {
   const findSpot = (kPref, x, f) => {
     const offs = [0, 0.06, -0.06, 0.12, -0.12, 0.2, -0.2, 0.3, -0.3];
     const ks = [kPref, kPref + 1, kPref - 1, kPref + 2, kPref - 2].filter((k) => k >= 0 && k < nB);
-    const edge = c.focal === 'farmstead' ? 0.2 : 0.08;
+    const edge = c.focal === 'farmstead' || c.focal === 'prairie' || c.focal === 'rocktop' ? 0.2 : 0.08;
     for (const k of ks) for (const o of offs) {
       const xx = clamp(x + o * viewW, v.x0 + viewW * edge, v.x1 - viewW * edge);
       const y = spot(k, xx, f);
@@ -2064,7 +2789,32 @@ function placeObjects(sc) {
     }
     case 'rock': {
       const f = r.range(0.05, 0.25), hk = r.range(0.35, 0.6);
-      place(Math.max(0, nB - 2 - (r.chance(0.5) ? 1 : 0)), f, () => viewH * 0.4, (s, x, y, k) => rockTower(s, x, y, viewH * hk * Math.max(0.5, scaleK(k)), { r: s.rng('rock') }), 'rock');
+      place(Math.max(0, nB - 2 - (r.chance(0.5) ? 1 : 0)), f, () => viewH * 0.4, (s, x, y, k) => {
+        const h = viewH * hk * Math.max(0.5, scaleK(k));
+        if (c.rock === 'limestone') limestoneOutcrop(s, x, y, h * 0.55, { r: s.rng('rock') });
+        else if (c.rock === 'quartzite') quartziteCrag(s, x, y, h * 0.62, { r: s.rng('rock') });
+        else rockTower(s, x, y, h, { r: s.rng('rock') });
+      }, 'rock');
+      break;
+    }
+    case 'bluff': {
+      const kw = bands.findIndex((b) => b.water);
+      if (kw < 0) break;
+      const sides = r.weighted([[[-1, 1], 2.2], [[-1], 1], [[1], 1]]);
+      for (const sd of sides) {
+        objs.push({ band: kw, x: sd < 0 ? v.x0 : v.x1, y: bands[kw].mean, kind: 'bluff', draw: (s) => lakeBluff(s, bands[kw], sd, s.rng('bluff' + sd)) });
+        taken.push({ k: kw, x: sd < 0 ? v.x0 : v.x1, w: viewW * 0.8 });
+      }
+      break;
+    }
+    case 'prairie': {
+      const f = r.range(0.06, 0.3), sk = r.range(0.052, 0.07), kp = Math.max(1, nB - 2);
+      place(kp, f, () => viewH * sk * 8, (s, x, y, k) => prairieHouse(s, x, y, viewH * sk * Math.max(0.6, scaleK(k) / scaleK(Math.max(0, nB - 2))), { r: s.rng('prairie-house') }), 'house');
+      break;
+    }
+    case 'rocktop': {
+      const f = r.range(0.05, 0.22), hk = r.range(0.26, 0.38);
+      place(Math.max(1, nB - 2), f, () => viewH * 0.5, (s, x, y, k) => rockTopHouse(s, x, y, viewH * hk * Math.max(0.6, scaleK(k) / scaleK(Math.max(0, nB - 2))), { r: s.rng('rock-top'), dir: x < (v.x0 + v.x1) / 2 ? 1 : -1 }), 'house');
       break;
     }
     default: break;
@@ -2084,6 +2834,16 @@ function placeObjects(sc) {
     const s = viewH * r.range(0.1, 0.16) * scaleK(k);
     const y = spot(k, x, r.range(0.05, 0.6));
     if (y != null && s > 1.2 && clear(k, x, s * 3)) add(k, x, y, s * 3, (sc2) => farmstead(sc2, x, y, s, sc2.rng('farm' + i)), 'farm');
+  }
+  // limestone and quartzite: ledges and block piles along ridge crests
+  if (c.rock !== 'sandstone') {
+    const ro = sc.rng('outcrops');
+    for (let i = 0, n = Math.round(ro.range(0, 3.4) * wt.land); i < n; i++) {
+      const k = ro.int(1, Math.max(1, nB - 2)), x = ro.range(0.06, 0.94) * W;
+      const h = Math.max(0.8, viewH * ro.range(0.012, 0.03) * Math.max(0.35, scaleK(k)) * 1.6);
+      const y = spot(k, x, ro.range(0, 0.05));
+      if (y != null && clear(k, x, h * 6)) add(k, x, y, h * 6, (s) => (c.rock === 'limestone' ? ledge(s, x, y, h, s.rng('ledge' + i)) : blockPile(s, x, y, h, s.rng('pile' + i))), 'outcrop');
+    }
   }
   // anomaly
   if (c.anomaly && c.focal !== 'monument') {
@@ -2550,7 +3310,7 @@ function post(sc) {
 /* ---------------------------------------------------------------- public */
 function generate(P0) {
   const t0 = Date.now();
-  const P = Object.assign({ seed: 'driftless', W: 177.8, H: 254, density: 1, imperfection: 0.5, penWidth: 0.35, textZone: 'none', frame: 'auto', season: 'auto', time: 'auto', focal: 'auto', bleed: 0 }, P0);
+  const P = Object.assign({ seed: 'driftless', W: 177.8, H: 254, rock: 'auto', density: 1, imperfection: 0.5, penWidth: 0.35, textZone: 'none', frame: 'auto', season: 'auto', time: 'auto', focal: 'auto', bleed: 0 }, P0);
   P.weights = Object.assign({ flora: 0.6, land: 0.6, built: 0.5, sky: 0.5 }, P0.weights || {});
   const sc = new Scene(P);
   compose(sc);
@@ -2567,17 +3327,19 @@ function generate(P0) {
   const lands = sc.bands.map((b) => b.treat);
   const traits = {
     Season: cap(c.season), Light: c.time === 'day' ? 'Day' : c.time === 'dusk' ? 'Dusk' : 'Night',
-    Subject: FOCAL_NAMES[c.focal] || c.focal, Frame: FRAME_NAMES[c.frame] || c.frame,
+    Subject: (c.focal === 'rock' ? ROCK_SUBJECTS[c.rock] : FOCAL_NAMES[c.focal]) || c.focal, Frame: FRAME_NAMES[c.frame] || c.frame,
     Ground: GROUND_NAMES[sc.bands[sc.bands.length - 1].treat] || sc.bands[sc.bands.length - 1].treat,
     Ridges: String(sc.bands.length), Sky: SKY_NAMES[c.sky] || c.sky, Clouds: CLOUD_NAMES[c.clouds] || c.clouds,
     Fields: lands.filter((t) => t === 'farm').length ? 'Contour strips' : lands.includes('forest') ? 'Woodland' : 'Open',
   };
-  if (sc.bands.some((b) => b.water)) traits.Water = 'River';
+  if (sc.bands.some((b) => b.water)) traits.Water = c.focal === 'bluff' ? 'Lake' : 'River';
+  if (sc.hasRock) traits.Rock = cap(c.rock);
   if (c.anomaly && c.focal !== 'monument') traits.Anomaly = 'Yes';
   return { W: P.W, H: P.H, seed: P.seed, params: P, pens, lengths: len, count: strokes.length, traits, ms: Date.now() - t0, sun: sc.sun || null };
 }
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
-const FOCAL_NAMES = { oak: 'Bur oak', pine: 'White pine', grove: 'Oak grove', farmstead: 'Farmstead', watertower: 'Water tower', monument: 'Monument', rock: 'Sandstone tower', sun: 'Great sun', vista: 'Open vista' };
+const FOCAL_NAMES = { oak: 'Bur oak', pine: 'White pine', grove: 'Oak grove', farmstead: 'Farmstead', watertower: 'Water tower', monument: 'Monument', rock: 'Sandstone tower', sun: 'Great sun', vista: 'Open vista', bluff: 'Lake bluffs', prairie: 'Prairie house', rocktop: 'Rock-top house' };
+const ROCK_SUBJECTS = { sandstone: 'Sandstone tower', limestone: 'Limestone outcrop', quartzite: 'Quartzite crag' };
 const FRAME_NAMES = { none: 'Full bleed', border: 'Ruled border', arch: 'Arched window', oculus: 'Oculus', arcade: 'Arcade' };
 const GROUND_NAMES = { meadow: 'Meadow', snow: 'Snowfield', farm: 'Strip field', prairie: 'Short prairie' };
 const SKY_NAMES = { lines: 'Ruled', dashes: 'Dashed', wind: 'Wind', clear: 'Clear', rays: 'Rays', stars: 'Stars' };
@@ -2687,7 +3449,7 @@ function plotStats(res, speed) {
   return { downMeters: down / 1000, lifts, hours: secs / 3600 };
 }
 
-const API = { generate, toSVG, textZone, CODEX, orderPaths, travelLength, PALETTES, PEN_NAMES, misregistration, plotStats, inkColors, version: '1.1.0' };
+const API = { generate, toSVG, textZone, CODEX, orderPaths, travelLength, PALETTES, PEN_NAMES, misregistration, plotStats, inkColors, version: '1.2.0' };
 if (typeof module !== 'undefined' && module.exports) module.exports = API;
 else G.PlateEngine = API;
 })(typeof self !== 'undefined' ? self : this);

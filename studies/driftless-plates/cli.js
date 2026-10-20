@@ -33,9 +33,10 @@ function renderPlate(spec) {
     inset: plot ? CX.plotMasterMM.inset : null,
     density: num(spec.density, 100) / 100, imperfection: num(spec.imperfection, 50) / 100,
     weights: { flora: num(spec.flora, 60) / 100, land: num(spec.land, 60) / 100, built: num(spec.built, 50) / 100, sky: num(spec.sky, 50) / 100 },
-    focal: spec.focal || 'auto', season: spec.season || 'auto', time: spec.time || 'auto', frame: spec.frame || 'auto',
+    focal: spec.focal || 'auto', rock: spec.rock || 'auto', season: spec.season || 'auto', time: spec.time || 'auto', frame: spec.frame || 'auto',
     textZone: spec.zone || 'none', zoneMode: spec.zoneMode || spec['zone-mode'] || 'fade',
   };
+  if (spec.compat) P.compat = String(spec.compat);
   const res = E.generate(P);
   const svg = E.toSVG(res, {
     palette, strength: num(spec.strength, 100) / 100, background: !!spec.paper, optimize: !spec['no-optimize'],
@@ -67,6 +68,8 @@ function main() {
   --strength 0-100     mix inks toward the paper colour (default 100)
   --zone codex|top|middle|bottom   text area (codex = the book's text block); --zone-mode fade|tint
   --focal --season --time --frame   overrides (same names as the web page)
+  --rock auto|sandstone|limestone|quartzite
+  --compat 1.1         draw a plate as engine 1.1 did
   --flora --land --built --sky 0-100   motif weights
   --density 50-160 --imperfection 0-100
   --paper              include a paper rectangle layer
