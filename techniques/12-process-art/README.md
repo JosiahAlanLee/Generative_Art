@@ -108,3 +108,7 @@ third are documented integration recipes, not completed plate builds.
 
 Read the [R&D notes and primary sources](../../docs/PROCESS_ART_RESEARCH.md) for
 equations, implementation choices, model scope and follow-up experiments.
+
+## Textile scaffold extension
+
+The [textile/process study](TEXTILE.md) treats a shared geometric grammar as a portable element. It supplies a control, adaptive conduit transport, wall-constrained reaction–diffusion, irreversible dissolution, and placement/clipping examples. Run `python examples/make_textile_study.py` for the comparison.

@@ -63,3 +63,16 @@ reasons. `examples/package_process_art.py` rebuilds the selected set. Full
 upstream-byte verification requires the complete collection checkout; local
 verification here covers authored changes and exported compatibility.
 
+
+## Textile/process component study
+
+Checked on 20 October 2026 using the process-art environment above.
+
+| Check | Observed result |
+| --- | --- |
+| Process-art test suite | 17 passed, including seven new checks for shared tile ports, Kirchhoff balance and prescribed source/drain flows, conservative blocked diffusion, bounded/reproducible chemistry, irreversible material loss, geometric component clipping and seeded motif changes |
+| Controlled comparison | Same seeded scaffold in all four modes; selected dissolution run changes four-neighbor pore components from 236 to 113 at the declared raster resolution/threshold |
+| Demonstration | Four comparison panels, an architectural placement, three fragments and four borderless component SVGs; PNG/alpha versions, numeric states, settings and source fingerprints included |
+| Visual review | Contact sheet and individual panel/context images inspected; plinth strokes and texture geometrically occluded by the building silhouette |
+
+The tests cover model and interface properties. The material rates are illustrative; physical plotting and a full book binding were not performed. References and implementation choices are in [the textile guide](../techniques/12-process-art/TEXTILE.md).

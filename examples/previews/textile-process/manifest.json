@@ -1,0 +1,194 @@
+{
+  "title": "Textile grammar / three process couplings",
+  "seed": 17,
+  "comparison": "The identical seeded scaffold is used for all four modes.",
+  "reference": "Wright-office design research; original Truchet/Smith-derived geometry, not a reproduction of a Wright textile.",
+  "items": [
+    {
+      "stem": "textile-s17-control",
+      "stroke_count": 372,
+      "size_mm": [
+        170,
+        220
+      ],
+      "svg_sha256": "007c13a74a85a6132e1415fd00c42c5e6c2a7828ac61781e4465cd1ca4879723",
+      "label": "Unchanged scaffold",
+      "mode": "control",
+      "key": "same geometry / same seed",
+      "settings": {
+        "seed": 17,
+        "mode": "control",
+        "tile_grid": [
+          6,
+          8
+        ],
+        "raster_pixels_per_tile": 40,
+        "solid_width_pixels": 2,
+        "steps": 0,
+        "component_svg": "textile-s17-control-component.svg",
+        "component_size_mm": [
+          132,
+          176
+        ]
+      }
+    },
+    {
+      "stem": "textile-s17-veins",
+      "stroke_count": 461,
+      "size_mm": [
+        170,
+        220
+      ],
+      "svg_sha256": "36c162e55c92ab24b43d923c07e8a3620ed9d9b78377481d7351a78b3d4307cc",
+      "label": "Transport on joints",
+      "mode": "veins",
+      "key": "same geometry / same seed",
+      "settings": {
+        "seed": 17,
+        "mode": "veins",
+        "tile_grid": [
+          6,
+          8
+        ],
+        "raster_pixels_per_tile": 40,
+        "solid_width_pixels": 2,
+        "steps": 90,
+        "component_svg": "textile-s17-veins-component.svg",
+        "component_size_mm": [
+          132,
+          176
+        ],
+        "source_flow": 1,
+        "drain_flow": "equal shares totaling -1",
+        "pressure_gauge": "source=0",
+        "requested_drain_targets": 6,
+        "actual_drain_nodes": 6,
+        "max_free_node_residual": 1.7780915628762273e-15,
+        "adaptation": "D <- .82 D + .18 (.015 + abs(Q)/max(abs(Q)))"
+      }
+    },
+    {
+      "stem": "textile-s17-chemistry",
+      "stroke_count": 538,
+      "size_mm": [
+        170,
+        220
+      ],
+      "svg_sha256": "6dc69e121aa9deafa2c80b3a01f55068a3a486febc31e1c3275d6f11bdd4fd24",
+      "label": "Confined chemistry",
+      "mode": "chemistry",
+      "key": "same geometry / same seed",
+      "settings": {
+        "seed": 17,
+        "mode": "chemistry",
+        "tile_grid": [
+          6,
+          8
+        ],
+        "raster_pixels_per_tile": 40,
+        "solid_width_pixels": 2,
+        "steps": 1800,
+        "component_svg": "textile-s17-chemistry-component.svg",
+        "component_size_mm": [
+          132,
+          176
+        ],
+        "Du": 0.16,
+        "Dv": 0.08,
+        "feed": 0.035,
+        "kill": 0.061,
+        "dt": 1,
+        "boundary": "zero face flux through solid; reflecting outer edges",
+        "inoculated_patches": 21
+      }
+    },
+    {
+      "stem": "textile-s17-erosion",
+      "stroke_count": 622,
+      "size_mm": [
+        170,
+        220
+      ],
+      "svg_sha256": "04b4dd43753392680ec1d0b69836c7d1d7b4c25f19ecb86966abf36ed1bb2ced",
+      "label": "Dissolving scaffold",
+      "mode": "erosion",
+      "key": "236 -> 113 pore components",
+      "settings": {
+        "seed": 17,
+        "mode": "erosion",
+        "tile_grid": [
+          6,
+          8
+        ],
+        "raster_pixels_per_tile": 40,
+        "solid_width_pixels": 2,
+        "steps": 2200,
+        "component_svg": "textile-s17-erosion-component.svg",
+        "component_size_mm": [
+          132,
+          176
+        ],
+        "permeability": ".025 + .19*(1-material)",
+        "material_loss": ".022*acid*material per step",
+        "acid_consumption": ".35*material_loss",
+        "vent_value": 1,
+        "compartments_before": 236,
+        "compartments_after": 113,
+        "compartment_threshold": "material < .35, four-neighbor connectivity"
+      }
+    },
+    {
+      "stem": "textile-s17-context",
+      "stroke_count": 1183,
+      "size_mm": [
+        170,
+        220
+      ],
+      "svg_sha256": "86bf5be1e23bf9555ef69b62fc0438309344c98d306b6d30f0c8c1e44bc19881",
+      "label": "A surface among others",
+      "mode": "context",
+      "key": "affine placement / same process outputs"
+    },
+    {
+      "stem": "textile-s17-arch",
+      "stroke_count": 413,
+      "size_mm": [
+        80,
+        100
+      ],
+      "svg_sha256": "c96816127ed4e8518e67528d35ddb9f95b88ceb50cbabff9721b04a7d72c9102",
+      "label": "Arch fragment",
+      "mode": "fragment",
+      "key": "portable strokes / transparent ground"
+    },
+    {
+      "stem": "textile-s17-medallion",
+      "stroke_count": 369,
+      "size_mm": [
+        80,
+        100
+      ],
+      "svg_sha256": "82ec9ae3e5005a06be82453df3e8999aaadacae6109e903f6c5f2ffbf5b66999",
+      "label": "Medallion fragment",
+      "mode": "fragment",
+      "key": "portable strokes / transparent ground"
+    },
+    {
+      "stem": "textile-s17-corner",
+      "stroke_count": 317,
+      "size_mm": [
+        80,
+        100
+      ],
+      "svg_sha256": "2105c3a5fec9c892b88910e4a4dc9e5553f3f770fd01d750eba71608942c087a",
+      "label": "Corner fragment",
+      "mode": "fragment",
+      "key": "portable strokes / transparent ground"
+    }
+  ],
+  "code_sha256": {
+    "lib/process_art/textile.py": "42ba3950994abb45088c3a6197ce846af577c8176d3bfbd25337ae661f4ad691",
+    "examples/make_textile_study.py": "96a5f3adf8801fe182702a17e3562601f71308549df4e2498900822858c646ef",
+    "lib/process_art/drawing.py": "ded877c86b0893ff9bceccfc6061242cf19eae2f7c0895ad0a9970bf9860c141"
+  }
+}
