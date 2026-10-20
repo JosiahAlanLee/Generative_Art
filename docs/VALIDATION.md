@@ -44,3 +44,22 @@ Checked on 20 October 2026 with Node 22 and Chromium through Playwright. This co
 | Collection verifier | 241 public snapshot files, 58 selected development-art files, 46 techniques and all local guide links |
 
 Physical plotting was not tested.
+
+## Process-art R&D
+
+Checked on 20 October 2026 with Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0,
+ContourPy 1.3.3 and Shapely 2.2.0. This addition is separate from the retained
+source snapshots and preserves the concurrent Driftless Plates addition.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s lib/process_art/tests -v` | 10 passed: strictly descending drainage, outlet runoff conservation, terrain evolution, chemical reproducibility/bounds, growth genealogy/step lengths, known recurrence pairs, missing-window row identity, constant/invalid series, book SVG import, and actual book ink/cornmeal Hand integration |
+| Candidate review | 16 first-round and 24 second-round candidates rendered; selected tissue outlines refined analytically; eight final plates reviewed individually and as a contact sheet |
+| Export | Each selected plate has a 2000-pixel PNG, alpha PNG, stroke-only SVG, numeric NPZ and parameter JSON; exact synthetic input CSVs accompany recurrence art |
+| Scope | No preserved source file changed. No book text, cipher carrier, art slot or binding changed. No full book rebuild or physical plotting performed |
+
+The companion ZIP includes the editable drawings, process states and selection
+reasons. `examples/package_process_art.py` rebuilds the selected set. Full
+upstream-byte verification requires the complete collection checkout; local
+verification here covers authored changes and exported compatibility.
+

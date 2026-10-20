@@ -84,7 +84,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 
 ## Scope and absent implementations
 
-The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Driftless Plates seeds with `sfc32` as bryc published it; that is ordinary seeding, not entropy locking. Reaction–diffusion, rival-contact braids and shared-substrate proposals are also not imported implementations. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
+The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Driftless Plates seeds with `sfc32` as bryc published it; that is ordinary seeding, not entropy locking. Reaction–diffusion is newly implemented in the collection's [process-art studies](techniques/12-process-art/README.md), separately from imported source. Rival-contact braids and shared-substrate proposals remain unimplemented. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
 
 The source snapshot omits large raster art and edition PDFs. Every included and omitted source path is recorded in [the manifest](catalog/source-manifest.json); the original public-book snapshot is separate from the later art-only development import. The root [notices](NOTICES.md) explain attribution and inherited terms.
 
@@ -111,3 +111,15 @@ The source snapshot omits large raster art and edition PDFs. Every included and 
 | [Ruled structures and monuments](studies/driftless-plates/engine.js) | Draw silos, barns, water towers, sandstone towers and monuments shaded by line spacing | study |
 | [Print hand and text clearing](studies/driftless-plates/engine.js) | Add wobble, ink skips and misregistration; fade or lighten linework inside the book's text block | study |
 | [Plot export with pen-travel ordering](studies/driftless-plates/engine.js) | Write millimetre SVG with one layer per pen, ordered to shorten pen-up travel | study |
+
+## [Process art R&D](techniques/12-process-art/README.md)
+
+| Technique | Use | Status |
+| --- | --- | --- |
+| [D8 catchments and incision](lib/process_art/models.py) | Evolved terrain contours with red drainage | collection |
+| [Folded and faulted stratigraphy](lib/process_art/models.py) | Interrupted age contours, marker beds and geological hatching | collection |
+| [Gray–Scott × space colonization](lib/process_art/studies.py) | Chemical contours coupled to red vein growth around a reserved aperture | collection |
+| [Time-series recurrence seals and textiles](lib/process_art/studies.py) | Declared data relationships with a recoverable matrix and input CSV | collection |
+
+[Research and primary sources](docs/PROCESS_ART_RESEARCH.md) · [Selected demonstrations](examples/previews/process-art/selection.json). These are new collection studies, not installed book plates.
+

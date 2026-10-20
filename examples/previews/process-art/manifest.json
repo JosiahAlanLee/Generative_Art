@@ -1,0 +1,258 @@
+{
+  "title": "Process Art \u2014 selected demonstrations",
+  "date": "2026-10-20",
+  "review": "Selected after contact-sheet and individual-image inspection from 24 second-round candidates; earlier trial presets were also rendered. Selected tissue boundaries were refined analytically and rechecked in the final export.",
+  "selection_basis": "Contour rhythm, readable negative space, red/black hierarchy, and variety of composition. No numerical beauty ranking.",
+  "pixels": 2000,
+  "items": [
+    {
+      "study": "basin",
+      "seed": 11,
+      "variant": 0,
+      "label": "Dendritic ledger I",
+      "reason": "Asymmetric relief with the clearest central branching and several quiet contour basins.",
+      "stem": "basin-s11-v0",
+      "settings": {
+        "model": "dimensionless D8 + stream-power-inspired incision",
+        "seed": 11,
+        "variant": 0,
+        "n": 176,
+        "steps": 42,
+        "incision": 0.022,
+        "contour_count": 78,
+        "channel_threshold_cells": 44,
+        "channel_segments": 157,
+        "rendering": "height smoothed sigma=.65 cells; channel geometry sigma=.8 cells",
+        "limits": "open edges; depression fill; no sediment deposition; not calibrated",
+        "stroke_count": 479,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "d640257cb726ac14f7054e5c2ced3ebb067b3b59c034a0a1709bfc635d238b2e"
+      }
+    },
+    {
+      "study": "basin",
+      "seed": 83,
+      "variant": 0,
+      "label": "Dendritic ledger II",
+      "reason": "A more open drainage pattern and a different rhythm of ridges; retains the model's visible D8 direction bias.",
+      "stem": "basin-s83-v0",
+      "settings": {
+        "model": "dimensionless D8 + stream-power-inspired incision",
+        "seed": 83,
+        "variant": 0,
+        "n": 176,
+        "steps": 42,
+        "incision": 0.022,
+        "contour_count": 78,
+        "channel_threshold_cells": 44,
+        "channel_segments": 136,
+        "rendering": "height smoothed sigma=.65 cells; channel geometry sigma=.8 cells",
+        "limits": "open edges; depression fill; no sediment deposition; not calibrated",
+        "stroke_count": 399,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "b549b67dff1ace43558753bcc16d5f6a29d0c6ab773734c18702de55d6435c5e"
+      }
+    },
+    {
+      "study": "strata",
+      "seed": 37,
+      "variant": 1,
+      "label": "Fault archive I",
+      "reason": "Readable marker-bed offsets and a broad, calm field of bent layers.",
+      "stem": "strata-s37-v1",
+      "settings": {
+        "model": "kinematic folded stratigraphy with two offset faults",
+        "seed": 37,
+        "variant": 1,
+        "n": 320,
+        "throw": 0.37,
+        "fold": 0.31,
+        "contour_count": 112,
+        "red": "marker beds and faults",
+        "limits": "illustrative deformation, no rock mechanics; hatch is a rendering choice",
+        "stroke_count": 986,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "fd90f736a1fe23eb748b65d47116cc6a5d7581365a0de09d92b6495f45882f4c"
+      }
+    },
+    {
+      "study": "strata",
+      "seed": 83,
+      "variant": 1,
+      "label": "Fault archive II",
+      "reason": "A stronger lower fold and a visibly different cut through the two faults.",
+      "stem": "strata-s83-v1",
+      "settings": {
+        "model": "kinematic folded stratigraphy with two offset faults",
+        "seed": 83,
+        "variant": 1,
+        "n": 320,
+        "throw": 0.37,
+        "fold": 0.31,
+        "contour_count": 112,
+        "red": "marker beds and faults",
+        "limits": "illustrative deformation, no rock mechanics; hatch is a rendering choice",
+        "stroke_count": 1041,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "6a741d818bff3ddb0d25e6cfff9f803dd416fd11c5c7f25829a0ce3ed0980a47"
+      }
+    },
+    {
+      "study": "tissue",
+      "seed": 11,
+      "variant": 0,
+      "label": "Vascular palimpsest - leaf",
+      "reason": "Pointed silhouette, strong stem, chemical detail and an empty seal aperture.",
+      "stem": "tissue-s11-v0",
+      "settings": {
+        "model": "Gray-Scott -> biased attractors -> space colonization",
+        "seed": 11,
+        "variant": 0,
+        "n": 192,
+        "steps": 1900,
+        "feed": 0.036,
+        "kill": 0.061,
+        "Du": 0.16,
+        "Dv": 0.08,
+        "dt": 1,
+        "boundaries": "reflecting chemical field; geometry clipped to specimen",
+        "attractor_count": 3741,
+        "nodes": 1046,
+        "space_colonization": {
+          "step": 0.012,
+          "kill": 0.025,
+          "influence": 0.2,
+          "iterations": 260
+        },
+        "red": "tree edges, stem and aperture; width from subtree mass",
+        "limits": "one-way coupling; not Physarum, vasculature physiology, or a Turing-instability claim",
+        "stroke_count": 1237,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "2498df3306809d23b5dcfdb484e1367f7b4251ac3f9ffd2d2d4e123032edfe37"
+      }
+    },
+    {
+      "study": "tissue",
+      "seed": 37,
+      "variant": 1,
+      "label": "Vascular palimpsest - annulus",
+      "reason": "Radial red growth reads clearly against winding black chemical contours; smooth analytic edges replace pixel-stepped trial boundaries.",
+      "stem": "tissue-s37-v1",
+      "settings": {
+        "model": "Gray-Scott -> biased attractors -> space colonization",
+        "seed": 37,
+        "variant": 1,
+        "n": 192,
+        "steps": 1900,
+        "feed": 0.028,
+        "kill": 0.057,
+        "Du": 0.16,
+        "Dv": 0.08,
+        "dt": 1,
+        "boundaries": "reflecting chemical field; geometry clipped to specimen",
+        "attractor_count": 4137,
+        "nodes": 1128,
+        "space_colonization": {
+          "step": 0.012,
+          "kill": 0.025,
+          "influence": 0.2,
+          "iterations": 260
+        },
+        "red": "tree edges, stem and aperture; width from subtree mass",
+        "limits": "one-way coupling; not Physarum, vasculature physiology, or a Turing-instability claim",
+        "stroke_count": 1345,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "6ed39f91fb8822d8ef7a5a26abad251b37fb61c5ffec5ece90d8c5c1e9e0fdcc"
+      }
+    },
+    {
+      "study": "recurrence",
+      "seed": 83,
+      "variant": 0,
+      "label": "The return engine",
+      "reason": "Dense woven perimeter with several distinct pale openings rather than a solid central knot.",
+      "stem": "recurrence-s83-v0",
+      "settings": {
+        "model": "delay-embedded recurrence chords",
+        "source": "synthetic demonstration series",
+        "synthetic": true,
+        "seed": 83,
+        "variant": 0,
+        "input_rows": 240,
+        "embedding_dimension": 3,
+        "delay_rows": 2,
+        "theiler_rows": 5,
+        "epsilon": 0.48,
+        "metric": "Euclidean, per-coordinate population z-score",
+        "pair_count": 1776,
+        "eligible_pairs": 26565,
+        "sampling": "all eligible undirected pairs, no thinning",
+        "red": "min-max normalized input series in original row order",
+        "limits": "angular spacing encodes row order, not elapsed time; curves are decorative; no causal inference",
+        "stroke_count": 1848,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "6cc0e7a4dd467c290e04d68e9f73438069b75ec817b71fc5379dca25d83af705"
+      }
+    },
+    {
+      "study": "recurrence",
+      "seed": 11,
+      "variant": 1,
+      "label": "Recurrence loom",
+      "reason": "Sparse textile-like matrix provides contrast to the circular return engine and makes its repeated diagonals readable.",
+      "stem": "recurrence-s11-v1",
+      "settings": {
+        "model": "delay-embedded recurrence matrix",
+        "source": "synthetic demonstration series",
+        "synthetic": true,
+        "seed": 11,
+        "variant": 1,
+        "input_rows": 240,
+        "embedding_dimension": 3,
+        "delay_rows": 2,
+        "theiler_rows": 5,
+        "epsilon": 0.62,
+        "metric": "Euclidean, per-coordinate population z-score",
+        "pair_count": 2605,
+        "eligible_pairs": 26565,
+        "sampling": "both symmetric matrix entries; no thinning",
+        "red": "upper triangle and min-max normalized input trace",
+        "limits": "row order, not elapsed time; no causal inference",
+        "stroke_count": 5232,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "d032ce60c866df362a361b01177e164d57203287a25514eb8a76ea9b77a0b78d"
+      }
+    }
+  ],
+  "code_sha256": {
+    "lib/process_art/studies.py": "4b4fa53c9beb3eb1bfb96bc0073187643f6dfe5174d2fc180012a7aff3b66a84",
+    "lib/process_art/models.py": "1069100a0a6b63e10d4aaba3aaed4d317a8e37e54cca2f20da5a9e524e4ab5a9",
+    "lib/process_art/__init__.py": "0d17fb771153edf3f9e721c1efbf798ffb0bdf6985e89e19a7e2d15d750c940e",
+    "lib/process_art/drawing.py": "ded877c86b0893ff9bceccfc6061242cf19eae2f7c0895ad0a9970bf9860c141",
+    "examples/package_process_art.py": "072c8373c19d386e1e08b971407010b47632e8b0c5f2f535d7b9ccebb00659cd"
+  }
+}

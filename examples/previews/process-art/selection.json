@@ -1,0 +1,17 @@
+{
+  "title": "Process Art — selected demonstrations",
+  "date": "2026-10-20",
+  "review": "Selected after contact-sheet and individual-image inspection from 24 second-round candidates; earlier trial presets were also rendered. Selected tissue boundaries were refined analytically and rechecked in the final export.",
+  "selection_basis": "Contour rhythm, readable negative space, red/black hierarchy, and variety of composition. No numerical beauty ranking.",
+  "pixels": 2000,
+  "items": [
+    {"study": "basin", "seed": 11, "variant": 0, "label": "Dendritic ledger I", "reason": "Asymmetric relief with the clearest central branching and several quiet contour basins."},
+    {"study": "basin", "seed": 83, "variant": 0, "label": "Dendritic ledger II", "reason": "A more open drainage pattern and a different rhythm of ridges; retains the model's visible D8 direction bias."},
+    {"study": "strata", "seed": 37, "variant": 1, "label": "Fault archive I", "reason": "Readable marker-bed offsets and a broad, calm field of bent layers."},
+    {"study": "strata", "seed": 83, "variant": 1, "label": "Fault archive II", "reason": "A stronger lower fold and a visibly different cut through the two faults."},
+    {"study": "tissue", "seed": 11, "variant": 0, "label": "Vascular palimpsest - leaf", "reason": "Pointed silhouette, strong stem, chemical detail and an empty seal aperture."},
+    {"study": "tissue", "seed": 37, "variant": 1, "label": "Vascular palimpsest - annulus", "reason": "Radial red growth reads clearly against winding black chemical contours; smooth analytic edges replace pixel-stepped trial boundaries."},
+    {"study": "recurrence", "seed": 83, "variant": 0, "label": "The return engine", "reason": "Dense woven perimeter with several distinct pale openings rather than a solid central knot."},
+    {"study": "recurrence", "seed": 11, "variant": 1, "label": "Recurrence loom", "reason": "Sparse textile-like matrix provides contrast to the circular return engine and makes its repeated diagonals readable."}
+  ]
+}
