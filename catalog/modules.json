@@ -1,0 +1,1882 @@
+[
+  {
+    "path": "binding/backmatter.py",
+    "local_path": "sources/codex-intervallorum/binding/backmatter.py",
+    "role": "book-integration",
+    "description": "One house style for citations, inspection notes, and preparation records.",
+    "symbols": [
+      "clean",
+      "identity",
+      "escalationum_record",
+      "is_project_record",
+      "citation_form",
+      "opening_records",
+      "collect",
+      "consolidate",
+      "register_fonts",
+      "Writer",
+      "write"
+    ]
+  },
+  {
+    "path": "binding/bind.py",
+    "local_path": "sources/codex-intervallorum/binding/bind.py",
+    "role": "book-integration",
+    "description": "Bind the active books into one 7 x 10 in PDF with front matter and an outline.",
+    "symbols": [
+      "fonts",
+      "paper",
+      "wrapped_lines",
+      "front_matter",
+      "numeral",
+      "label",
+      "colophon",
+      "blank_leaf",
+      "bibliography_pages",
+      "add_source_page",
+      "bibliography_cover",
+      "main"
+    ]
+  },
+  {
+    "path": "binding/bind_illustrated.py",
+    "local_path": "sources/codex-intervallorum/binding/bind_illustrated.py",
+    "role": "book-integration",
+    "description": "Bind the consolidated opening, illustrated Books III-IV, Notoria, and De Potestate et Accusatione as Book VI.",
+    "symbols": [
+      "bibliography_pages",
+      "front_matter",
+      "colophon"
+    ]
+  },
+  {
+    "path": "binding/scribal.py",
+    "local_path": "sources/codex-intervallorum/binding/scribal.py",
+    "role": "visual-technique",
+    "description": "Sparse pen finishing for the illustrated binding; never redraw source content.",
+    "symbols": [
+      "seed_for",
+      "lines",
+      "text_boxes",
+      "clear",
+      "bezier",
+      "pen",
+      "scene_mount",
+      "finish_page",
+      "vector_record",
+      "verify",
+      "apply"
+    ]
+  },
+  {
+    "path": "binding/tests/test_backmatter.py",
+    "local_path": "sources/codex-intervallorum/binding/tests/test_backmatter.py",
+    "role": "validation",
+    "description": "",
+    "symbols": [
+      "BackmatterTests"
+    ]
+  },
+  {
+    "path": "binding/tests/test_binding.py",
+    "local_path": "sources/codex-intervallorum/binding/tests/test_binding.py",
+    "role": "validation",
+    "description": "Exercise binding across odd/even component lengths and an actual facing spread.",
+    "symbols": [
+      "component",
+      "BindingTests"
+    ]
+  },
+  {
+    "path": "binding/tests/test_scribal.py",
+    "local_path": "sources/codex-intervallorum/binding/tests/test_scribal.py",
+    "role": "validation",
+    "description": "Protect functional marks and retained PDF content during pen finishing.",
+    "symbols": [
+      "ScribalTests"
+    ]
+  },
+  {
+    "path": "binding/tests/test_vellum.py",
+    "local_path": "sources/codex-intervallorum/binding/tests/test_vellum.py",
+    "role": "validation",
+    "description": "Regression checks for content-aware paper: preserve functional marks exactly.",
+    "symbols": [
+      "VellumTests"
+    ]
+  },
+  {
+    "path": "binding/unified.py",
+    "local_path": "sources/codex-intervallorum/binding/unified.py",
+    "role": "book-integration",
+    "description": "Bind reading pages and rebuild a single, consistently typeset back section.",
+    "symbols": [
+      "normalized",
+      "clean_source",
+      "front",
+      "citation_links",
+      "relink",
+      "relink_septimus",
+      "main"
+    ]
+  },
+  {
+    "path": "binding/validate.py",
+    "local_path": "sources/codex-intervallorum/binding/validate.py",
+    "role": "validation",
+    "description": "Check the final binding, including physical spread parity and input provenance.",
+    "symbols": [
+      "require",
+      "validate"
+    ]
+  },
+  {
+    "path": "binding/validate_typeset.py",
+    "local_path": "sources/codex-intervallorum/binding/validate_typeset.py",
+    "role": "validation",
+    "description": "Validate retained body pages and the newly typeset back section.",
+    "symbols": [
+      "normalized",
+      "validate"
+    ]
+  },
+  {
+    "path": "binding/vellum.py",
+    "local_path": "sources/codex-intervallorum/binding/vellum.py",
+    "role": "visual-technique",
+    "description": "Content-aware, deterministic paper finishing for reading PDFs.",
+    "symbols": [
+      "seed_for",
+      "text_record",
+      "text_boxes",
+      "protection",
+      "field",
+      "make_texture",
+      "png",
+      "add_texture",
+      "is_texture",
+      "source_images",
+      "source_image_info",
+      "identities",
+      "paths",
+      "images",
+      "links",
+      "verify_page",
+      "apply"
+    ]
+  },
+  {
+    "path": "books/00_accusator/build.py",
+    "local_path": "sources/codex-intervallorum/books/00_accusator/build.py",
+    "role": "book-integration",
+    "description": "Reading edition of De Officio Accusatoris, the parable bound after the Clavis; no network at build time.",
+    "symbols": [
+      "sha",
+      "plain",
+      "norm",
+      "paragraphs",
+      "sections",
+      "source_blocks",
+      "figures",
+      "references",
+      "fonts",
+      "markup",
+      "inscription",
+      "Book",
+      "build"
+    ]
+  },
+  {
+    "path": "books/00_accusator/validate.py",
+    "local_path": "sources/codex-intervallorum/books/00_accusator/validate.py",
+    "role": "validation",
+    "description": "Validate the parable's reading edition: text coverage, plates, inscriptions and the end apparatus.",
+    "symbols": [
+      "require",
+      "validate"
+    ]
+  },
+  {
+    "path": "books/00_matres/build.py",
+    "local_path": "sources/codex-intervallorum/books/00_matres/build.py",
+    "role": "book-integration",
+    "description": "Reading edition of De Matribus Noctis, the parable bound before Book VI; no network at build time.",
+    "symbols": [
+      "sha",
+      "plain",
+      "norm",
+      "paragraphs",
+      "sections",
+      "source_blocks",
+      "references",
+      "fonts",
+      "markup",
+      "Book",
+      "build"
+    ]
+  },
+  {
+    "path": "books/00_matres/validate.py",
+    "local_path": "sources/codex-intervallorum/books/00_matres/validate.py",
+    "role": "validation",
+    "description": "Validate the parable's reading edition: text coverage, title page, bounds and the end apparatus.",
+    "symbols": [
+      "require",
+      "validate"
+    ]
+  },
+  {
+    "path": "books/01_matricis/generator/cipher.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis/generator/cipher.py",
+    "role": "visual-technique",
+    "description": "The cipher hand: a substitution alphabet built from the sketching marks, with",
+    "symbols": [
+      "L",
+      "P",
+      "C",
+      "A",
+      "D",
+      "O",
+      "T",
+      "CR",
+      "SP",
+      "clean",
+      "measure",
+      "wrap",
+      "write",
+      "glyph_only"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/build.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/build.py",
+    "role": "book-integration",
+    "description": "Build the consolidated opening book from editable JSON and local assets.",
+    "symbols": [
+      "mount_rect",
+      "mount_frame",
+      "mount_originals",
+      "fonts",
+      "markup",
+      "Book",
+      "Plate",
+      "question",
+      "outage",
+      "measure",
+      "bindings",
+      "questions",
+      "interleaf_chapter",
+      "interleaf_paths",
+      "plate_paths",
+      "render_plate",
+      "front",
+      "glyph_key",
+      "appendices",
+      "markdown",
+      "validate",
+      "main"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/models/gate_window/model.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/model.py",
+    "role": "model-support",
+    "description": "Gate and window: a harm-accounting model in which the book's arrangement can lose.",
+    "symbols": [
+      "Params",
+      "Stats",
+      "_stats",
+      "simulate_cell",
+      "expected_harm_deference",
+      "cell_rng"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/models/gate_window/report.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/report.py",
+    "role": "model-support",
+    "description": "Apply the verdict rule to results.csv and write REPORT.md and region.svg.",
+    "symbols": [
+      "fmt",
+      "lookup",
+      "key",
+      "frac",
+      "region_svg",
+      "render_report",
+      "main"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/models/gate_window/run.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/run.py",
+    "role": "model-support",
+    "description": "Run the sweep once and write results.csv and manifest.json.",
+    "symbols": [
+      "run_cells",
+      "write_results",
+      "main"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/models/gate_window/tests/test_gate_window.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/tests/test_gate_window.py",
+    "role": "validation",
+    "description": "Checks on the model's arithmetic and limits, and on the verdict rule.",
+    "symbols": [
+      "base",
+      "ModelArithmetic",
+      "synthetic",
+      "VerdictRule"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/models/gate_window/validate.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/validate.py",
+    "role": "validation",
+    "description": "Check that results.csv regenerates from manifest.json and that REPORT.md follows it.",
+    "symbols": [
+      "main"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/models/gate_window/verdict.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/verdict.py",
+    "role": "model-support",
+    "description": "The sweep grid and the verdict rule, applied to a results table.",
+    "symbols": [
+      "cells",
+      "sha256_file",
+      "load_rule",
+      "read_results",
+      "c_beats_a",
+      "a_beats_c_booked",
+      "_in",
+      "in_anchored",
+      "in_gate_home",
+      "_frac",
+      "apply"
+    ]
+  },
+  {
+    "path": "books/01_matricis_intervallorum/tests/test_combined.py",
+    "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/tests/test_combined.py",
+    "role": "validation",
+    "description": "Checks of the consolidation's source routing, identity, and cipher carriers.",
+    "symbols": [
+      "CombinedTests"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/__init__.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/__init__.py",
+    "role": "visual-technique",
+    "description": "Portable manuscript, diagram, and PDF generation for Clavicula Intervallorum.",
+    "symbols": []
+  },
+  {
+    "path": "books/02_intervallorum/generator/build.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/build.py",
+    "role": "visual-technique",
+    "description": "Build the book, standalone HTML, SVG plates, and an input provenance manifest.",
+    "symbols": [
+      "register_fonts",
+      "markup",
+      "Book",
+      "render_plate",
+      "front_matter",
+      "html_text_page",
+      "build_pdf",
+      "appendices",
+      "write_html",
+      "write_markdown",
+      "main"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/core.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/core.py",
+    "role": "visual-technique",
+    "description": "Core drawing kit for the Clavicula Matricis plates.",
+    "symbols": [
+      "f",
+      "num",
+      "pair",
+      "Doc",
+      "lerp",
+      "dist",
+      "rot",
+      "arc_pts",
+      "spiral_pts",
+      "curl_pts",
+      "resample",
+      "Wobble",
+      "clip_lines",
+      "hatch_lines",
+      "lattice",
+      "tri_pts",
+      "vesica",
+      "offset_line",
+      "path_len",
+      "point_at",
+      "bezier",
+      "catmull",
+      "merge"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/hands.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/hands.py",
+    "role": "visual-technique",
+    "description": "The three recurring hands, the later technical hand, and the record's base faces.",
+    "symbols": [
+      "_box",
+      "cust",
+      "mhand",
+      "unh",
+      "tech",
+      "_runs"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/marks.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/marks.py",
+    "role": "visual-technique",
+    "description": "Hands (ink / cornmeal grain / plotter pen), v\u00e8v\u00e8-grammar ornament, and the",
+    "symbols": [
+      "Hand",
+      "asterisk",
+      "curl",
+      "dotted",
+      "fringe",
+      "arrowhead",
+      "lattice_fill",
+      "leaf",
+      "band_x",
+      "sig_standing",
+      "sig_candidate",
+      "sig_gate",
+      "sig_authority",
+      "sig_mark",
+      "sig_ground",
+      "sig_break",
+      "sig_regulation",
+      "sig_bottleneck",
+      "sig_branch",
+      "sig_reflexive",
+      "sig_invariant",
+      "sig_boundary",
+      "sig_substrate_small",
+      "sig_pointer",
+      "XHand",
+      "write_ring",
+      "ring_x"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/plates.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/plates.py",
+    "role": "visual-technique",
+    "description": "Twelve original, deterministic SVG plates. Lettering is local font outlines.",
+    "symbols": [
+      "Plate",
+      "plate_1",
+      "plate_2",
+      "plate_3",
+      "network",
+      "plate_4",
+      "plate_5",
+      "gate",
+      "plate_6",
+      "plate_7",
+      "plate_8",
+      "plate_9",
+      "plate_10",
+      "plate_11",
+      "plate_12",
+      "build_plates"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/reachability.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/reachability.py",
+    "role": "model-support",
+    "description": "A deliberately small, deterministic scheduling model, not an institutional simulator.",
+    "symbols": [
+      "Task",
+      "Result",
+      "evaluate",
+      "specimen_cases"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/refusal.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/refusal.py",
+    "role": "model-support",
+    "description": "A deliberately small, deterministic model of a refusal, not a prediction about people.",
+    "symbols": [
+      "Station",
+      "Outcome",
+      "_check",
+      "evaluate",
+      "smallest_opening_refusal",
+      "specimen_cases"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/generator/tx.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/tx.py",
+    "role": "visual-technique",
+    "description": "The twelve-sign transcription hand (Astra's key): base mark I\u2013XII plus a tally of 1\u20133 strokes.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "mark",
+      "tally",
+      "token_width",
+      "write",
+      "width"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/illustrated/build.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/illustrated/build.py",
+    "role": "book-integration",
+    "description": "Clavicula Intervallorum, illustrated edition.",
+    "symbols": [
+      "R",
+      "fit",
+      "plate_3",
+      "plate_6",
+      "plate_7",
+      "plate_8",
+      "plate_12",
+      "render_plate",
+      "start",
+      "main"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/tests/test_portability.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/tests/test_portability.py",
+    "role": "validation",
+    "description": "",
+    "symbols": [
+      "PortableSourceTests"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/tests/test_reachability.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/tests/test_reachability.py",
+    "role": "validation",
+    "description": "",
+    "symbols": [
+      "ReachabilityTests"
+    ]
+  },
+  {
+    "path": "books/02_intervallorum/tests/test_refusal.py",
+    "local_path": "sources/codex-intervallorum/books/02_intervallorum/tests/test_refusal.py",
+    "role": "validation",
+    "description": "",
+    "symbols": [
+      "RefusalTests"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/generator/__init__.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/__init__.py",
+    "role": "visual-technique",
+    "description": "",
+    "symbols": []
+  },
+  {
+    "path": "books/03_escalationum/generator/art.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/art.py",
+    "role": "visual-technique",
+    "description": "Deterministic path-only art, retaining Intervallorum's geometry and twelve marks.",
+    "symbols": [
+      "font",
+      "label",
+      "doc",
+      "hand",
+      "l",
+      "rect",
+      "arrow",
+      "title",
+      "annotate",
+      "cipher",
+      "anchor",
+      "seal",
+      "portrait",
+      "matrix",
+      "vessel",
+      "clocks",
+      "gate",
+      "crumple",
+      "cord",
+      "runbook",
+      "office_seal",
+      "build_art",
+      "plot_export"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/generator/build.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/build.py",
+    "role": "visual-technique",
+    "description": "Portable book build. Adapts Intervallorum's Canvas/Paragraph, SVG and manifest pipeline.",
+    "symbols": [
+      "register",
+      "esc",
+      "key",
+      "pages",
+      "Book",
+      "fields",
+      "pdf_entry",
+      "build_pdf",
+      "entry_html",
+      "html_body",
+      "build_html",
+      "markdown",
+      "digest",
+      "build"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/generator/core.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/core.py",
+    "role": "visual-technique",
+    "description": "Core drawing kit for the Clavicula Matricis plates.",
+    "symbols": [
+      "f",
+      "num",
+      "pair",
+      "Doc",
+      "lerp",
+      "dist",
+      "rot",
+      "arc_pts",
+      "spiral_pts",
+      "curl_pts",
+      "resample",
+      "Wobble",
+      "clip_lines",
+      "hatch_lines",
+      "lattice",
+      "tri_pts",
+      "vesica",
+      "offset_line",
+      "path_len",
+      "point_at",
+      "bezier",
+      "catmull",
+      "merge"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/generator/marks.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/marks.py",
+    "role": "visual-technique",
+    "description": "Hands (ink / cornmeal grain / plotter pen), v\u00e8v\u00e8-grammar ornament, and the",
+    "symbols": [
+      "Hand",
+      "asterisk",
+      "curl",
+      "dotted",
+      "fringe",
+      "arrowhead",
+      "lattice_fill",
+      "leaf",
+      "band_x",
+      "sig_standing",
+      "sig_candidate",
+      "sig_gate",
+      "sig_authority",
+      "sig_mark",
+      "sig_ground",
+      "sig_break",
+      "sig_regulation",
+      "sig_bottleneck",
+      "sig_branch",
+      "sig_reflexive",
+      "sig_invariant",
+      "sig_boundary",
+      "sig_substrate_small",
+      "sig_pointer",
+      "XHand",
+      "write_ring",
+      "ring_x"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/generator/reachability.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/reachability.py",
+    "role": "model-support",
+    "description": "A deliberately small, deterministic scheduling model, not an institutional simulator.",
+    "symbols": [
+      "Task",
+      "Result",
+      "evaluate",
+      "escalation_tasks",
+      "executable_record",
+      "specimen_cases"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/generator/tx.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/tx.py",
+    "role": "visual-technique",
+    "description": "The twelve-sign transcription hand (Astra's key): base mark I\u2013XII plus a tally of 1\u20133 strokes.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "mark",
+      "tally",
+      "token_width",
+      "write",
+      "width"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/illustrated/build.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/illustrated/build.py",
+    "role": "book-integration",
+    "description": "Pseudomonarchia Escalationum, illustrated edition.",
+    "symbols": [
+      "render_for",
+      "wrap_hand",
+      "IllBook",
+      "portrait_plate",
+      "station_ladder",
+      "illustrated_interlude",
+      "illustrated_workshop",
+      "entry_compact",
+      "entry_single",
+      "pages",
+      "build_pdf",
+      "draw_plain",
+      "main"
+    ]
+  },
+  {
+    "path": "books/03_escalationum/tests/test_book.py",
+    "local_path": "sources/codex-intervallorum/books/03_escalationum/tests/test_book.py",
+    "role": "validation",
+    "description": "Tests of catalogue coverage, decodable seals, dependency semantics and portable output.",
+    "symbols": [
+      "Scheduling",
+      "Catalogue",
+      "PortableOutput"
+    ]
+  },
+  {
+    "path": "books/04_graduum/build_book.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/build_book.py",
+    "role": "book-integration",
+    "description": "Clavicula Graduum: the book. Manuscript text from manuscript/book.json set on 7 x 10 in leaves,",
+    "symbols": [
+      "Book"
+    ]
+  },
+  {
+    "path": "books/04_graduum/illustrated/build.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/illustrated/build.py",
+    "role": "book-integration",
+    "description": "Clavicula Graduum, illustrated edition: the same manuscript and pagination as build_book.py,",
+    "symbols": [
+      "paper",
+      "render",
+      "IllBook"
+    ]
+  },
+  {
+    "path": "books/04_graduum/illustrated/plates.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/illustrated/plates.py",
+    "role": "book-integration",
+    "description": "Clavicula Graduum: the illustrated plates.",
+    "symbols": [
+      "material_call",
+      "R",
+      "load",
+      "record",
+      "foot_box",
+      "furniture_skip",
+      "Leaf",
+      "carrier_under",
+      "carrier_roundtrip",
+      "capture_plate",
+      "run_build",
+      "plate_i",
+      "plate_ii",
+      "plate_iii",
+      "plate_iv",
+      "plate_v",
+      "plate_vi",
+      "plate_vii",
+      "plate_viii",
+      "proof_doc",
+      "proof_skip",
+      "plate_ix",
+      "plate_x",
+      "plate_xi",
+      "plate_xii",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/manuscript/make_book.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/manuscript/make_book.py",
+    "role": "book-integration",
+    "description": "Clavicula Graduum - manuscript skeleton (DRAFT). Writes book.json and reading-edition.md.",
+    "symbols": [
+      "chapter",
+      "build"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/i-native/tabula_i.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/i-native/tabula_i.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula I - The Nine and the Seven (native vector plate).",
+    "symbols": [
+      "station_points",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/ii-native/tabula_ii.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/ii-native/tabula_ii.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula II - The Two Watchmakers (native vector plate).",
+    "symbols": [
+      "ten",
+      "timeline",
+      "hora",
+      "tempus",
+      "returning_trace",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/iii-native/tabula_iii.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/iii-native/tabula_iii.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula III - The Cut (native vector plate).",
+    "symbols": [
+      "Shift",
+      "measurer",
+      "streams",
+      "table",
+      "frame_and_seam",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/iv-native/tabula_iv.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/iv-native/tabula_iv.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula IV - The Observer's Ladder (native vector plate).",
+    "symbols": [
+      "intervals",
+      "bar_heights",
+      "panel",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/v-native/figure.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/v-native/figure.py",
+    "role": "visual-technique",
+    "description": "The Keeper: a hooded, hunched figure in right profile, built from control",
+    "symbols": [
+      "edge_fn",
+      "robe_outline",
+      "head_local",
+      "hood_outline",
+      "sleeve_path",
+      "ribbon",
+      "flow_lines",
+      "clip_polyline",
+      "draw_keeper"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/v-native/tabula_v.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/v-native/tabula_v.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula V, The Dial of Seven Keepers. Native vector edition.",
+    "symbols": [
+      "label",
+      "draw_dial",
+      "draw_ground",
+      "draw_cord",
+      "draw_furniture",
+      "draw_caption",
+      "build"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/v-native/validate.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/v-native/validate.py",
+    "role": "validation",
+    "description": "Structure, cipher and plot checks for the Tabula V package. Run after tabula_v.py.",
+    "symbols": [
+      "paths",
+      "pts_of",
+      "check_structure",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/vi-native/tabula_vi.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vi-native/tabula_vi.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula VI - The Feudal Register (native vector plate).",
+    "symbols": [
+      "label",
+      "carve",
+      "wall_segments",
+      "draw_maze",
+      "solve",
+      "draw_flow",
+      "draw_glyphs",
+      "drop",
+      "tile",
+      "draw_landings",
+      "draw_twin_register",
+      "draw_furniture",
+      "write_shifted",
+      "draw_caption",
+      "build"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/vi-native/validate.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vi-native/validate.py",
+    "role": "validation",
+    "description": "Structure, cipher and plot checks for the Tabula VI package. Run after tabula_vi.py.",
+    "symbols": [
+      "paths",
+      "pts_of",
+      "check_structure",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/vii-native/figures.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vii-native/figures.py",
+    "role": "visual-technique",
+    "description": "Small figures for the building plates: a robed office-holder with any number of",
+    "symbols": [
+      "_flow",
+      "hand_up",
+      "robed_figure"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/vii-native/tabula_vii.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vii-native/tabula_vii.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula VII, The Cord Without a Mount. Native vector edition.",
+    "symbols": [
+      "label",
+      "litany_table",
+      "encode_litany",
+      "floor_y",
+      "hatch_band",
+      "draw_building",
+      "draw_top_floor",
+      "draw_cord",
+      "draw_floor_of_hands",
+      "draw_specimens",
+      "draw_furniture",
+      "draw_scale",
+      "build"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/vii-native/validate.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vii-native/validate.py",
+    "role": "validation",
+    "description": "Structure, cipher and plot checks for the Tabula VII package. Run after tabula_vii.py.",
+    "symbols": [
+      "paths",
+      "pts_of",
+      "check_structure",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/viii-native/apparatus.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/viii-native/apparatus.py",
+    "role": "visual-technique",
+    "description": "The handoff demons of Book III drawn as apparatus (the series rule: offices are persons",
+    "symbols": [
+      "_box",
+      "_tripod",
+      "_hatch",
+      "repetiel",
+      "culpax",
+      "calmor",
+      "instantor",
+      "choraz",
+      "viridon",
+      "posthum",
+      "exceptor",
+      "velaroth",
+      "quarteroth",
+      "severion",
+      "redacth",
+      "viridon_cracked"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/viii-native/tabula_viii.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/viii-native/tabula_viii.py",
+    "role": "visual-technique",
+    "description": "Clavicula Graduum - Tabula VIII - The Council of the Loudest (native vector plate).",
+    "symbols": [
+      "label",
+      "draw_tiers",
+      "draw_voices",
+      "draw_glyphs",
+      "draw_flows",
+      "draw_decision",
+      "draw_furniture",
+      "write_shifted",
+      "draw_caption",
+      "draw_scale",
+      "build"
+    ]
+  },
+  {
+    "path": "books/04_graduum/plates/viii-native/validate.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/plates/viii-native/validate.py",
+    "role": "validation",
+    "description": "Structure, cipher and plot checks for the Tabula VIII package. Run after tabula_viii.py.",
+    "symbols": [
+      "paths",
+      "pts_of",
+      "check_structure",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/ix-gpt/build.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/build.py",
+    "role": "visual-technique",
+    "description": "Native stroke-only A4 plate and tagged reading/key leaves. Run python build.py.",
+    "symbols": [
+      "f",
+      "Drawing",
+      "plate",
+      "key_leaf",
+      "make_reading",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/ix-gpt/codec.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/codec.py",
+    "role": "visual-technique",
+    "description": "Graduum IX: shift Matricis base signs modulo twelve; preserve tally and spaces.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "validate"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/ix-gpt/lettering.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/lettering.py",
+    "role": "visual-technique",
+    "description": "EMS Nixish centerline serif, calibrated by measured H rather than font metadata.",
+    "symbols": [
+      "PolyPen",
+      "SerifHand"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/ix-gpt/vendor/core.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/vendor/core.py",
+    "role": "visual-technique",
+    "description": "Core drawing kit for the Clavicula Matricis plates.",
+    "symbols": [
+      "f",
+      "num",
+      "pair",
+      "Doc",
+      "lerp",
+      "dist",
+      "rot",
+      "arc_pts",
+      "spiral_pts",
+      "curl_pts",
+      "resample",
+      "Wobble",
+      "clip_lines",
+      "hatch_lines",
+      "lattice",
+      "tri_pts",
+      "vesica",
+      "offset_line",
+      "path_len",
+      "point_at",
+      "bezier",
+      "catmull",
+      "merge"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/ix-gpt/vendor/tx.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/vendor/tx.py",
+    "role": "visual-technique",
+    "description": "The twelve-sign transcription hand (Astra's key): base mark I\u2013XII plus a tally of 1\u20133 strokes.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "mark",
+      "tally",
+      "token_width",
+      "write",
+      "width"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/x-xi-v-gpt/build.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/build.py",
+    "role": "visual-technique",
+    "description": "Next production batch: X, XI, V. Native paths, two inks, exact second texts.",
+    "symbols": [
+      "pts",
+      "arc",
+      "bez",
+      "base",
+      "blank",
+      "finish",
+      "prayer",
+      "litany_leaf",
+      "lifted_pen",
+      "keeper_dial",
+      "readings",
+      "main"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/x-xi-v-gpt/ciphers.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/ciphers.py",
+    "role": "visual-technique",
+    "description": "Graduum's explicitly new office litany and ordered-path carrier.",
+    "symbols": [
+      "prayer_encode",
+      "prayer_decode",
+      "ordered_decode",
+      "validate"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/x-xi-v-gpt/ix_codec.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/ix_codec.py",
+    "role": "visual-technique",
+    "description": "Graduum IX: shift Matricis base signs modulo twelve; preserve tally and spaces.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "validate"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/x-xi-v-gpt/lettering.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/lettering.py",
+    "role": "visual-technique",
+    "description": "EMS Nixish centerline serif, calibrated by measured H rather than font metadata.",
+    "symbols": [
+      "PolyPen",
+      "SerifHand"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/x-xi-v-gpt/sheet.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/sheet.py",
+    "role": "visual-technique",
+    "description": "Native stroke-only A4 plate and tagged reading/key leaves. Run python build.py.",
+    "symbols": [
+      "f",
+      "Drawing"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/x-xi-v-gpt/vendor/core.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/vendor/core.py",
+    "role": "visual-technique",
+    "description": "Core drawing kit for the Clavicula Matricis plates.",
+    "symbols": [
+      "f",
+      "num",
+      "pair",
+      "Doc",
+      "lerp",
+      "dist",
+      "rot",
+      "arc_pts",
+      "spiral_pts",
+      "curl_pts",
+      "resample",
+      "Wobble",
+      "clip_lines",
+      "hatch_lines",
+      "lattice",
+      "tri_pts",
+      "vesica",
+      "offset_line",
+      "path_len",
+      "point_at",
+      "bezier",
+      "catmull",
+      "merge"
+    ]
+  },
+  {
+    "path": "books/04_graduum/proofs/x-xi-v-gpt/vendor/tx.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/vendor/tx.py",
+    "role": "visual-technique",
+    "description": "The twelve-sign transcription hand (Astra's key): base mark I\u2013XII plus a tally of 1\u20133 strokes.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "mark",
+      "tally",
+      "token_width",
+      "write",
+      "width"
+    ]
+  },
+  {
+    "path": "books/04_graduum/reading/build.py",
+    "local_path": "sources/codex-intervallorum/books/04_graduum/reading/build.py",
+    "role": "book-integration",
+    "description": "The serif reading edition of the Graduum plates: every native plate rebuilt with",
+    "symbols": [
+      "main"
+    ]
+  },
+  {
+    "path": "books/05_notoria/fields/physarum.py",
+    "local_path": "sources/codex-intervallorum/books/05_notoria/fields/physarum.py",
+    "role": "visual-technique",
+    "description": "Deterministic trace fields for the Notoria: a multi-agent model after Jones (2010),",
+    "symbols": [
+      "code_hash",
+      "spec_with",
+      "_diffuse",
+      "run",
+      "output_hash",
+      "manifest",
+      "manifest_id",
+      "regenerate_and_check"
+    ]
+  },
+  {
+    "path": "books/05_notoria/manuscript/check_math.py",
+    "local_path": "sources/codex-intervallorum/books/05_notoria/manuscript/check_math.py",
+    "role": "validation",
+    "description": "Independent exact checks for the manuscript's finite counts and model consequences.",
+    "symbols": [
+      "check"
+    ]
+  },
+  {
+    "path": "books/05_notoria/manuscript/make_book.py",
+    "local_path": "sources/codex-intervallorum/books/05_notoria/manuscript/make_book.py",
+    "role": "book-integration",
+    "description": "Build the developmental Notoria: canonical Markdown, the five computed notae from the serif",
+    "symbols": [
+      "leaves",
+      "TurnedHand",
+      "ring_text",
+      "ornament",
+      "rich",
+      "register",
+      "build",
+      "validate"
+    ]
+  },
+  {
+    "path": "books/05_notoria/plates/notae.py",
+    "local_path": "sources/codex-intervallorum/books/05_notoria/plates/notae.py",
+    "role": "visual-technique",
+    "description": "Ars Notoria Stigmatum - the five notae as native plotter plates.",
+    "symbols": [
+      "Nota",
+      "Field",
+      "draw_field",
+      "ring_text",
+      "standing_dots",
+      "legend",
+      "spec_legend",
+      "disc_frame",
+      "scatter_stars",
+      "small_disc",
+      "run_for",
+      "hidden_for",
+      "write_manifest",
+      "nota_i",
+      "nota_ii",
+      "nota_iii",
+      "nota_iv",
+      "nota_v",
+      "build"
+    ]
+  },
+  {
+    "path": "books/05_notoria/plates/validate.py",
+    "local_path": "sources/codex-intervallorum/books/05_notoria/plates/validate.py",
+    "role": "validation",
+    "description": "Validate the Notoria plates: the shared structural checks (two layers, two inks, no fills,",
+    "symbols": [
+      "validate_dir",
+      "main"
+    ]
+  },
+  {
+    "path": "books/05_notoria/reading/build.py",
+    "local_path": "sources/codex-intervallorum/books/05_notoria/reading/build.py",
+    "role": "book-integration",
+    "description": "The serif reading edition of the Notoria plates: the five notae rebuilt with",
+    "symbols": [
+      "main"
+    ]
+  },
+  {
+    "path": "books/06_disputationes/build.py",
+    "local_path": "sources/codex-intervallorum/books/06_disputationes/build.py",
+    "role": "book-integration",
+    "description": "De Potestate et Accusatione: reading edition of Book VI; no network at build time.",
+    "symbols": [
+      "sha",
+      "norm",
+      "paragraphs",
+      "parse",
+      "source_blocks",
+      "references",
+      "plates_meta",
+      "fonts",
+      "markup",
+      "Book",
+      "build",
+      "merge_with_outline"
+    ]
+  },
+  {
+    "path": "books/06_disputationes/plates/reading.py",
+    "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/reading.py",
+    "role": "visual-technique",
+    "description": "The serif reading edition of the nine plates for the bound book.",
+    "symbols": [
+      "sha",
+      "main"
+    ]
+  },
+  {
+    "path": "books/06_disputationes/plates/tabulae.py",
+    "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/tabulae.py",
+    "role": "visual-technique",
+    "description": "De Potestate et Accusatione: the nine plates, native and stroke-only.",
+    "symbols": [
+      "legend",
+      "boxed",
+      "clear_runs",
+      "text_box",
+      "dashed",
+      "open_ring",
+      "tally",
+      "bracket",
+      "finish",
+      "tabula_i",
+      "tabula_ii",
+      "tabula_iii",
+      "tabula_viii",
+      "gate_rows",
+      "tabula_iv",
+      "tabula_v",
+      "tabula_vi",
+      "tally_width",
+      "tabula_vii",
+      "counted_text",
+      "sentences",
+      "tabula_ix",
+      "main"
+    ]
+  },
+  {
+    "path": "books/06_disputationes/plates/vendor/refusal.py",
+    "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/vendor/refusal.py",
+    "role": "model-support",
+    "description": "A deliberately small, deterministic model of a refusal, not a prediction about people.",
+    "symbols": [
+      "Station",
+      "Outcome",
+      "_check",
+      "evaluate",
+      "smallest_opening_refusal",
+      "specimen_cases"
+    ]
+  },
+  {
+    "path": "books/06_disputationes/plates/viplate.py",
+    "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/viplate.py",
+    "role": "visual-technique",
+    "description": "Plate furniture for Book VI, De Potestate et Accusatione.",
+    "symbols": [
+      "free",
+      "runs",
+      "VIPlate"
+    ]
+  },
+  {
+    "path": "books/06_disputationes/validate.py",
+    "local_path": "sources/codex-intervallorum/books/06_disputationes/validate.py",
+    "role": "validation",
+    "description": "Validate the reading edition of Book VI: inputs, trim, text coverage in order,",
+    "symbols": [
+      "require",
+      "validate"
+    ]
+  },
+  {
+    "path": "books/06_tarot/book/make_book.py",
+    "local_path": "sources/codex-intervallorum/books/06_tarot/book/make_book.py",
+    "role": "book-integration",
+    "description": "Tarot of Intervals: a reading edition in book form. Each card on a recto, its commentary on the",
+    "symbols": [
+      "fonts",
+      "PageHand",
+      "flourish",
+      "margin_threads",
+      "cipher_strip",
+      "wrap",
+      "para",
+      "labelled",
+      "paper",
+      "folio",
+      "verso",
+      "light_image",
+      "recto",
+      "title_pages",
+      "load_cards",
+      "validate_initial_sources",
+      "main"
+    ]
+  },
+  {
+    "path": "books/06_tarot/book/validate_book.py",
+    "local_path": "sources/codex-intervallorum/books/06_tarot/book/validate_book.py",
+    "role": "validation",
+    "description": "Validate the initial 52-illustration reading mockup, independently of its build log.",
+    "symbols": [
+      "require",
+      "normalized",
+      "validate",
+      "previews"
+    ]
+  },
+  {
+    "path": "books/07_septimus/build.py",
+    "local_path": "sources/codex-intervallorum/books/07_septimus/build.py",
+    "role": "book-integration",
+    "description": "Portable reading editions for the two parts of Septimus; no network at build time.",
+    "symbols": [
+      "sha",
+      "plain",
+      "norm",
+      "paragraphs",
+      "clavis_sections",
+      "vinculis_sections",
+      "all_source_blocks",
+      "fonts",
+      "markup",
+      "glyph",
+      "seal",
+      "Book",
+      "gathering",
+      "build"
+    ]
+  },
+  {
+    "path": "books/07_septimus/clausa/build.py",
+    "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/build.py",
+    "role": "book-integration",
+    "description": "Reading edition of the Nota Clausa: Tabula, Regula and seven plates at 7 x 10 in.",
+    "symbols": [
+      "fonts",
+      "inline",
+      "Book",
+      "main"
+    ]
+  },
+  {
+    "path": "books/07_septimus/clausa/validate.py",
+    "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/validate.py",
+    "role": "validation",
+    "description": "Public checks for the Nota Clausa. Needs no key and reads nothing.",
+    "symbols": [
+      "inside",
+      "marks",
+      "digests",
+      "main"
+    ]
+  },
+  {
+    "path": "books/07_septimus/semiphoras/semiphoras.py",
+    "local_path": "sources/codex-intervallorum/books/07_septimus/semiphoras/semiphoras.py",
+    "role": "visual-technique",
+    "description": "Semiphoras Vinculorum: seventy-two names from three sentences.",
+    "symbols": [
+      "letters",
+      "names",
+      "recover",
+      "records",
+      "manifest",
+      "main"
+    ]
+  },
+  {
+    "path": "books/07_septimus/tests/test_semiphoras.py",
+    "local_path": "sources/codex-intervallorum/books/07_septimus/tests/test_semiphoras.py",
+    "role": "validation",
+    "description": "",
+    "symbols": [
+      "SemiphorasTests"
+    ]
+  },
+  {
+    "path": "books/07_septimus/validate.py",
+    "local_path": "sources/codex-intervallorum/books/07_septimus/validate.py",
+    "role": "validation",
+    "description": "Validate coverage and material boundaries in the generated reading editions.",
+    "symbols": [
+      "validate"
+    ]
+  },
+  {
+    "path": "common/geometry/core.py",
+    "local_path": "sources/codex-intervallorum/common/geometry/core.py",
+    "role": "visual-technique",
+    "description": "Core drawing kit for the Clavicula Matricis plates.",
+    "symbols": [
+      "f",
+      "num",
+      "pair",
+      "Doc",
+      "lerp",
+      "dist",
+      "rot",
+      "arc_pts",
+      "spiral_pts",
+      "curl_pts",
+      "resample",
+      "Wobble",
+      "clip_lines",
+      "hatch_lines",
+      "lattice",
+      "tri_pts",
+      "vesica",
+      "offset_line",
+      "path_len",
+      "point_at",
+      "bezier",
+      "catmull",
+      "merge"
+    ]
+  },
+  {
+    "path": "common/geometry/marks.py",
+    "local_path": "sources/codex-intervallorum/common/geometry/marks.py",
+    "role": "visual-technique",
+    "description": "Hands (ink / cornmeal grain / plotter pen), v\u00e8v\u00e8-grammar ornament, and the",
+    "symbols": [
+      "Hand",
+      "asterisk",
+      "curl",
+      "dotted",
+      "fringe",
+      "arrowhead",
+      "lattice_fill",
+      "leaf",
+      "band_x",
+      "sig_standing",
+      "sig_candidate",
+      "sig_gate",
+      "sig_authority",
+      "sig_mark",
+      "sig_ground",
+      "sig_break",
+      "sig_regulation",
+      "sig_bottleneck",
+      "sig_branch",
+      "sig_reflexive",
+      "sig_invariant",
+      "sig_boundary",
+      "sig_substrate_small",
+      "sig_pointer",
+      "XHand",
+      "write_ring",
+      "ring_x"
+    ]
+  },
+  {
+    "path": "common/geometry/tx.py",
+    "local_path": "sources/codex-intervallorum/common/geometry/tx.py",
+    "role": "visual-technique",
+    "description": "The twelve-sign transcription hand (Astra's key): base mark I\u2013XII plus a tally of 1\u20133 strokes.",
+    "symbols": [
+      "normalize",
+      "encode",
+      "decode",
+      "codes",
+      "mark",
+      "tally",
+      "token_width",
+      "write",
+      "width"
+    ]
+  },
+  {
+    "path": "common/illum/figure_growth.py",
+    "local_path": "sources/codex-intervallorum/common/illum/figure_growth.py",
+    "role": "visual-technique",
+    "description": "Progressive image-guided Physarum masks for the illustrated figures.",
+    "symbols": [
+      "smooth",
+      "resize",
+      "blur",
+      "subject",
+      "configure",
+      "protection",
+      "simulate",
+      "masks",
+      "edge_masks",
+      "contours",
+      "render_material",
+      "appearance",
+      "cornmeal_path",
+      "flowing_rule"
+    ]
+  },
+  {
+    "path": "common/illum/furniture.py",
+    "local_path": "sources/codex-intervallorum/common/illum/furniture.py",
+    "role": "visual-technique",
+    "description": "Plate furniture for the illustrated edition, in Book I's vocabulary, drawn straight onto a",
+    "symbols": [
+      "rgb",
+      "fonts",
+      "Hand",
+      "YDown",
+      "ground",
+      "specks",
+      "rope_frame",
+      "ruled_frame",
+      "register",
+      "stars",
+      "orn_rule",
+      "wave_rule",
+      "glyph_band",
+      "hand_note",
+      "wrap",
+      "spaced",
+      "ground_line",
+      "wash",
+      "blot",
+      "mark_seal"
+    ]
+  },
+  {
+    "path": "common/illum/platekit.py",
+    "local_path": "sources/codex-intervallorum/common/illum/platekit.py",
+    "role": "visual-technique",
+    "description": "Bringing a native stroke plate into the illustrated edition.",
+    "symbols": [
+      "_filled_dot",
+      "filled_dots",
+      "Map",
+      "MapHand",
+      "AnisoHand",
+      "_subpaths",
+      "bbox_of",
+      "draw_doc",
+      "inside",
+      "tmpdir",
+      "compact"
+    ]
+  },
+  {
+    "path": "common/illum/raster.py",
+    "local_path": "sources/codex-intervallorum/common/illum/raster.py",
+    "role": "visual-technique",
+    "description": "Raster figures for the illustrated edition.",
+    "symbols": [
+      "_ground",
+      "_smooth",
+      "key",
+      "silhouette",
+      "figure_box",
+      "place",
+      "place_fit_figure",
+      "to_page",
+      "figure_extent",
+      "red_point",
+      "mask_cells",
+      "Slot"
+    ]
+  },
+  {
+    "path": "common/illum/tests/test_figure_growth.py",
+    "local_path": "sources/codex-intervallorum/common/illum/tests/test_figure_growth.py",
+    "role": "validation",
+    "description": "Guard the reading-order, protected-pixel and carrier boundaries.",
+    "symbols": [
+      "FigureGrowthTests"
+    ]
+  },
+  {
+    "path": "common/plot/bookpage.py",
+    "local_path": "sources/codex-intervallorum/common/plot/bookpage.py",
+    "role": "visual-technique",
+    "description": "Shared page engine for the series' ReportLab books: 7 x 10 in, the series ground, IM Fell",
+    "symbols": [
+      "fonts",
+      "PageHand",
+      "paper",
+      "wrap",
+      "flow_rule"
+    ]
+  },
+  {
+    "path": "common/plot/ornament.py",
+    "local_path": "sources/codex-intervallorum/common/plot/ornament.py",
+    "role": "visual-technique",
+    "description": "The fourth carrier: a biliteral cipher after Bacon (De augmentis, 1623), five marks",
+    "symbols": [
+      "codes",
+      "bits",
+      "decode",
+      "b_fraction",
+      "scale_positions",
+      "scale_frame"
+    ]
+  },
+  {
+    "path": "common/plot/plate.py",
+    "local_path": "sources/codex-intervallorum/common/plot/plate.py",
+    "role": "visual-technique",
+    "description": "Shared furniture for the Graduum plates: frame, title block, reserved blank, caption strip in",
+    "symbols": [
+      "lettering",
+      "Plate",
+      "png_preview",
+      "_paths",
+      "_pts",
+      "_structure",
+      "validate"
+    ]
+  },
+  {
+    "path": "common/plot/plotkit.py",
+    "local_path": "sources/codex-intervallorum/common/plot/plotkit.py",
+    "role": "visual-technique",
+    "description": "Stroke-only plate kit for the plotter editions: a plotter Hand over the Matricis",
+    "symbols": [
+      "fmt",
+      "PlotDoc",
+      "PlotHand",
+      "SVGFont",
+      "OutlineFont",
+      "_FlattenPen",
+      "vertical_fill",
+      "voronoi_net",
+      "roman_year_angles"
+    ]
+  },
+  {
+    "path": "common/plot/svgimport.py",
+    "local_path": "sources/codex-intervallorum/common/plot/svgimport.py",
+    "role": "visual-technique",
+    "description": "Import stroke geometry from the books' own SVG plates (M / l / L / a / A / Z paths)",
+    "symbols": [
+      "_arc",
+      "parse_path",
+      "strokes_from_svg",
+      "place"
+    ]
+  },
+  {
+    "path": "docs/objections/tests/test_validate.py",
+    "local_path": "sources/codex-intervallorum/docs/objections/tests/test_validate.py",
+    "role": "validation",
+    "description": "Tests for the objections register check.",
+    "symbols": [
+      "problems",
+      "FormTests",
+      "HistoryTests",
+      "RegisterTests"
+    ]
+  },
+  {
+    "path": "docs/objections/validate.py",
+    "local_path": "sources/codex-intervallorum/docs/objections/validate.py",
+    "role": "validation",
+    "description": "Check the objections register: entry form, dispositions, and append-only history.",
+    "symbols": [
+      "_is_date",
+      "_split",
+      "parse",
+      "check",
+      "status",
+      "_entry_lines",
+      "append_only",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/build.py",
+    "local_path": "sources/codex-intervallorum/scripts/build.py",
+    "role": "book-integration",
+    "description": "Build Codex Intervallorum from checked-in source inputs.",
+    "symbols": [
+      "run",
+      "tests",
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/check_project.py",
+    "local_path": "sources/codex-intervallorum/scripts/check_project.py",
+    "role": "validation",
+    "description": "Check the migration's source inputs, local documentation links, and bound title.",
+    "symbols": [
+      "main"
+    ]
+  },
+  {
+    "path": "scripts/proof_figure_growth.py",
+    "local_path": "sources/codex-intervallorum/scripts/proof_figure_growth.py",
+    "role": "book-integration",
+    "description": "Build reading-size, before/after figure and Graduum material proofs.",
+    "symbols": [
+      "main"
+    ]
+  }
+]

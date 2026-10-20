@@ -1,0 +1,11 @@
+# union of the books' requirements; the per-book lock files record the exact versions each was built with
+reportlab>=4.4
+svglib>=1.5
+fonttools>=4.50
+shapely>=2.0
+pillow>=10
+numpy
+pypdf>=4
+cairosvg
+pymupdf>=1.26
+

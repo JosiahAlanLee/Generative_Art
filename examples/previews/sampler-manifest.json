@@ -1,0 +1,47 @@
+{
+  "book_commit": "b789e03f30034bc8403f8a40aaf83842885aaad5",
+  "example": "Small demonstrations, not reproductions of book plates",
+  "seeds": [
+    17,
+    19,
+    21,
+    23,
+    29
+  ],
+  "svg_sha256": "0dcee105128c106e5fcc29c5f126a62fe6f306191e8a5af07f505e76c80ed69a",
+  "field": {
+    "code": "notoria-fields-1",
+    "code_sha256": "e2db9e3ec6d7cba589c7ee0fed283fab8982ede8ac9cd5b4b40e5c9b85b104fc",
+    "spec": {
+      "model": "jones-2010-agent",
+      "grid": [
+        80,
+        80
+      ],
+      "agents": 180,
+      "steps": 100,
+      "sensor_angle_deg": 45.0,
+      "rotation_angle_deg": 45.0,
+      "sensor_offset": 9.0,
+      "step_size": 1.0,
+      "deposit": 5.0,
+      "evaporation": 0.08,
+      "diffusion": 1,
+      "spawn": "disc",
+      "spawn_radius": 0.75,
+      "exclusion": true,
+      "arena": "disc",
+      "arena_radius": 0.47,
+      "stop_deposit_at": null,
+      "nodes": [],
+      "snapshots": [
+        100
+      ],
+      "record_paths": true,
+      "seed": 23
+    },
+    "output_sha256": "238215dbcec777586f7b967db637efd4cad3f4caeb0fabf1775ef9b60f06a2a8",
+    "id": "QIVRWMMNTXNX"
+  },
+  "script_sha256": "2c3a569b166bc766457a757c130f9bde6cfd1af79eb9158ddca167c67f84aa69"
+}

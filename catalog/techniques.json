@@ -1,0 +1,509 @@
+[
+  {
+    "id": "seeded-wobble",
+    "title": "Seeded pen tremor",
+    "family": "01-linework-materials",
+    "status": "book",
+    "use": "Give otherwise exact curves a stable drawn hand",
+    "guide": "techniques/01-linework-materials/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/geometry/core.py"
+    ],
+    "symbols": [
+      "Wobble",
+      "resample"
+    ]
+  },
+  {
+    "id": "curves-and-hatching",
+    "title": "Curves, clipping and lattice hatching",
+    "family": "01-linework-materials",
+    "status": "book",
+    "use": "Build curls, spirals, clipped hatch and cellular-looking fills",
+    "guide": "techniques/01-linework-materials/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/geometry/core.py",
+      "sources/codex-intervallorum/common/geometry/marks.py"
+    ],
+    "symbols": [
+      "bezier",
+      "catmull",
+      "hatch_lines",
+      "lattice_fill"
+    ]
+  },
+  {
+    "id": "cornmeal-hand",
+    "title": "Cornmeal / granular stroke hand",
+    "family": "01-linework-materials",
+    "status": "book",
+    "use": "Render the same scaffold as dispersed grains",
+    "guide": "techniques/01-linework-materials/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/geometry/marks.py"
+    ],
+    "symbols": [
+      "Hand._grain_stroke",
+      "Hand.fill_poly"
+    ]
+  },
+  {
+    "id": "sigils-ornament",
+    "title": "Seeded sigils and ornament vocabulary",
+    "family": "01-linework-materials",
+    "status": "book",
+    "use": "Compose stable seal cores with curls, fringes and bands",
+    "guide": "techniques/01-linework-materials/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/geometry/marks.py",
+      "sources/codex-intervallorum/books/03_escalationum/generator/art.py"
+    ],
+    "symbols": [
+      "sig_mark",
+      "sig_ground",
+      "seal",
+      "office_seal"
+    ]
+  },
+  {
+    "id": "notoria-agents",
+    "title": "Notoria three-sensor agent fields",
+    "family": "02-fields-growth",
+    "status": "book",
+    "use": "Generate reproducible deposit/sense/decay/follow/food-node plates",
+    "guide": "techniques/02-fields-growth/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/05_notoria/fields/physarum.py",
+      "sources/codex-intervallorum/books/05_notoria/plates/notae.py"
+    ],
+    "symbols": [
+      "run",
+      "spec_with",
+      "draw_field"
+    ]
+  },
+  {
+    "id": "field-contours",
+    "title": "Marching-squares field contours",
+    "family": "02-fields-growth",
+    "status": "book",
+    "use": "Turn a scalar field into joined level curves",
+    "guide": "techniques/02-fields-growth/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/illum/figure_growth.py"
+    ],
+    "symbols": [
+      "contours"
+    ]
+  },
+  {
+    "id": "figure-growth",
+    "title": "Image-fed progressive figure replacement",
+    "family": "02-fields-growth",
+    "status": "book",
+    "use": "Move selected portions of a source figure into flow and grain",
+    "guide": "techniques/02-fields-growth/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/illum/figure_growth.py"
+    ],
+    "symbols": [
+      "simulate",
+      "protection",
+      "masks",
+      "render_material",
+      "appearance"
+    ]
+  },
+  {
+    "id": "contour-fringe",
+    "title": "Selected contour fringe",
+    "family": "02-fields-growth",
+    "status": "book",
+    "use": "Dissolve only a narrow physical edge into sketch and grain",
+    "guide": "techniques/02-fields-growth/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/illum/figure_growth.py",
+      "sources/codex-intervallorum/docs/EDGE-GRAIN-2026-10-19.md"
+    ],
+    "symbols": [
+      "edge_masks",
+      "appearance"
+    ]
+  },
+  {
+    "id": "granular-structure",
+    "title": "Selected granular hatching and flowing footer",
+    "family": "02-fields-growth",
+    "status": "book",
+    "use": "Put grain beside explicitly selected structural/decorative paths",
+    "guide": "techniques/02-fields-growth/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/illum/figure_growth.py",
+      "sources/codex-intervallorum/common/illum/platekit.py"
+    ],
+    "symbols": [
+      "cornmeal_path",
+      "flowing_rule",
+      "draw_doc"
+    ]
+  },
+  {
+    "id": "procedural-keeper",
+    "title": "Procedural Keeper and robe flow",
+    "family": "03-figures-apparatus",
+    "status": "book",
+    "use": "Draw a figure from control curves, ribbons and clipped cloth flow",
+    "guide": "techniques/03-figures-apparatus/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/04_graduum/plates/v-native/figure.py"
+    ],
+    "symbols": [
+      "robe_outline",
+      "ribbon",
+      "flow_lines",
+      "draw_keeper"
+    ]
+  },
+  {
+    "id": "native-mechanisms",
+    "title": "Native mechanisms, registers and tiers",
+    "family": "03-figures-apparatus",
+    "status": "book",
+    "use": "Construct diagrams, watchmakers and organizational apparatus",
+    "guide": "techniques/03-figures-apparatus/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/04_graduum/plates/ii-native/tabula_ii.py",
+      "sources/codex-intervallorum/books/04_graduum/plates/vi-native/tabula_vi.py",
+      "sources/codex-intervallorum/books/04_graduum/plates/viii-native/apparatus.py",
+      "sources/codex-intervallorum/books/04_graduum/plates/viii-native/tabula_viii.py"
+    ],
+    "symbols": [
+      "hora",
+      "tempus",
+      "main"
+    ]
+  },
+  {
+    "id": "observer-and-cut",
+    "title": "Flows, cuts and observer ladders",
+    "family": "03-figures-apparatus",
+    "status": "book",
+    "use": "Use fields, seams and competing partitions in diagram compositions",
+    "guide": "techniques/03-figures-apparatus/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/04_graduum/plates/iii-native/tabula_iii.py",
+      "sources/codex-intervallorum/books/04_graduum/plates/iv-native/tabula_iv.py",
+      "sources/codex-intervallorum/books/02_intervallorum/generator/plates.py"
+    ],
+    "symbols": [
+      "streams",
+      "table",
+      "panel",
+      "build_plates"
+    ]
+  },
+  {
+    "id": "data-plates",
+    "title": "Procedural and record-driven Book VI plates",
+    "family": "03-figures-apparatus",
+    "status": "book",
+    "use": "Distinguish seeded forms from plots carrying declared records",
+    "guide": "techniques/03-figures-apparatus/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/06_disputationes/plates/tabulae.py",
+      "sources/codex-intervallorum/books/06_disputationes/plates/viplate.py"
+    ],
+    "symbols": [
+      "tabula_i",
+      "tabula_iv",
+      "tabula_v",
+      "tabula_ix"
+    ]
+  },
+  {
+    "id": "substitution-hand",
+    "title": "Matricis substitution alphabet",
+    "family": "04-ciphers-seals",
+    "status": "book",
+    "use": "Write recoverable text with dot/ring terminals",
+    "guide": "techniques/04-ciphers-seals/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/01_matricis/generator/cipher.py"
+    ],
+    "symbols": [
+      "clean",
+      "measure",
+      "wrap",
+      "write"
+    ]
+  },
+  {
+    "id": "twelve-sign-hand",
+    "title": "Twelve-sign plus tally transcription",
+    "family": "04-ciphers-seals",
+    "status": "book",
+    "use": "Generate script strips and circular inscriptions",
+    "guide": "techniques/04-ciphers-seals/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/geometry/tx.py",
+      "sources/codex-intervallorum/common/geometry/marks.py"
+    ],
+    "symbols": [
+      "encode",
+      "decode",
+      "write",
+      "write_ring"
+    ]
+  },
+  {
+    "id": "biliteral-carrier",
+    "title": "Biliteral drawing carrier",
+    "family": "04-ciphers-seals",
+    "status": "book",
+    "use": "Carry five-bit letters in scale ticks or head/no-head marks",
+    "guide": "techniques/04-ciphers-seals/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/plot/ornament.py"
+    ],
+    "symbols": [
+      "bits",
+      "decode",
+      "scale_frame"
+    ]
+  },
+  {
+    "id": "shifted-carriers",
+    "title": "Shifted signs, office litany and ordered paths",
+    "family": "04-ciphers-seals",
+    "status": "book",
+    "use": "Use position, form or drawing order as a text carrier",
+    "guide": "techniques/04-ciphers-seals/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/codec.py",
+      "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/ciphers.py",
+      "sources/codex-intervallorum/books/04_graduum/plates/vii-native/tabula_vii.py"
+    ],
+    "symbols": [
+      "encode",
+      "prayer_encode",
+      "ordered_decode"
+    ]
+  },
+  {
+    "id": "semiphoras",
+    "title": "Semiphoras 72-name transposition",
+    "family": "04-ciphers-seals",
+    "status": "book",
+    "use": "Generate trigrams and indexed seals from three sentences",
+    "guide": "techniques/04-ciphers-seals/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/07_septimus/semiphoras/semiphoras.py",
+      "sources/codex-intervallorum/books/07_septimus/build.py"
+    ],
+    "symbols": [
+      "names",
+      "recover",
+      "records",
+      "manifest"
+    ]
+  },
+  {
+    "id": "nota-clausa",
+    "title": "Nota Clausa field carrier",
+    "family": "04-ciphers-seals",
+    "status": "sealed-artifact",
+    "use": "Inspect the public rule and sealed SVGs; validate a proposed reading",
+    "guide": "techniques/04-ciphers-seals/README.md",
+    "sources": [
+      "sources/codex-intervallorum/books/07_septimus/clausa/REGULA.md",
+      "sources/codex-intervallorum/books/07_septimus/clausa/TABULA.md",
+      "sources/codex-intervallorum/books/07_septimus/clausa/validate.py"
+    ],
+    "symbols": [
+      "marks",
+      "digests"
+    ]
+  },
+  {
+    "id": "raster-keying",
+    "title": "Paper keying and red-ink remap",
+    "family": "05-compositing",
+    "status": "book",
+    "use": "Integrate a raster figure with the page ground",
+    "guide": "techniques/05-compositing/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/illum/raster.py"
+    ],
+    "symbols": [
+      "key",
+      "place",
+      "place_fit_figure"
+    ]
+  },
+  {
+    "id": "silhouettes-and-slots",
+    "title": "Silhouettes, anchors and native plate slots",
+    "family": "05-compositing",
+    "status": "book",
+    "use": "Preserve geometry while replacing illustrated appearance",
+    "guide": "techniques/05-compositing/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/illum/raster.py",
+      "sources/codex-intervallorum/common/illum/platekit.py",
+      "sources/codex-intervallorum/books/04_graduum/illustrated/plates.py"
+    ],
+    "symbols": [
+      "silhouette",
+      "Slot",
+      "Map",
+      "draw_doc",
+      "capture_plate"
+    ]
+  },
+  {
+    "id": "stroke-export",
+    "title": "Two-layer, two-ink stroke export",
+    "family": "06-plotter-export",
+    "status": "book",
+    "use": "Write separate art/text layers and ink passes",
+    "guide": "techniques/06-plotter-export/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/plot/plotkit.py",
+      "sources/codex-intervallorum/common/plot/plate.py"
+    ],
+    "symbols": [
+      "PlotDoc",
+      "PlotHand",
+      "Plate",
+      "validate"
+    ]
+  },
+  {
+    "id": "lettering",
+    "title": "Centreline and outline lettering",
+    "family": "06-plotter-export",
+    "status": "book",
+    "use": "Choose actual pen lettering or reading-edition outlines",
+    "guide": "techniques/06-plotter-export/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/plot/plotkit.py",
+      "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/lettering.py"
+    ],
+    "symbols": [
+      "SVGFont",
+      "OutlineFont",
+      "SerifHand"
+    ]
+  },
+  {
+    "id": "svg-import",
+    "title": "Restricted SVG stroke import",
+    "family": "06-plotter-export",
+    "status": "book",
+    "use": "Reuse the book\u2019s generated seal geometry in new plates",
+    "guide": "techniques/06-plotter-export/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/plot/svgimport.py"
+    ],
+    "symbols": [
+      "parse_path",
+      "strokes_from_svg",
+      "place"
+    ]
+  },
+  {
+    "id": "furniture",
+    "title": "Frames, paper specks, washes and hand notes",
+    "family": "07-page-finishing",
+    "status": "book",
+    "use": "Unify illustrated pages with a shared visual vocabulary",
+    "guide": "techniques/07-page-finishing/README.md",
+    "sources": [
+      "sources/codex-intervallorum/common/illum/furniture.py",
+      "sources/codex-intervallorum/common/plot/bookpage.py"
+    ],
+    "symbols": [
+      "specks",
+      "rope_frame",
+      "glyph_band",
+      "hand_note",
+      "wash",
+      "blot"
+    ]
+  },
+  {
+    "id": "scribal",
+    "title": "Content-aware scribal flourishes",
+    "family": "07-page-finishing",
+    "status": "book",
+    "use": "Add stable vector pen trials in verified clear paper",
+    "guide": "techniques/07-page-finishing/README.md",
+    "sources": [
+      "sources/codex-intervallorum/binding/scribal.py"
+    ],
+    "symbols": [
+      "clear",
+      "pen",
+      "finish_page",
+      "apply"
+    ]
+  },
+  {
+    "id": "vellum",
+    "title": "Content-aware vellum and ink spots",
+    "family": "07-page-finishing",
+    "status": "book",
+    "use": "Add low-frequency mottling, grain and fibres around content",
+    "guide": "techniques/07-page-finishing/README.md",
+    "sources": [
+      "sources/codex-intervallorum/binding/vellum.py"
+    ],
+    "symbols": [
+      "protection",
+      "field",
+      "make_texture",
+      "apply"
+    ]
+  },
+  {
+    "id": "infernal-engine",
+    "title": "Infernal Engine / Blender nodes",
+    "family": "08-scene-studies",
+    "status": "study",
+    "use": "Construct procedural interior/exterior scene studies",
+    "guide": "techniques/08-scene-studies/README.md",
+    "sources": [
+      "studies/infernal-engine/build_infernal.py",
+      "studies/infernal-engine/export_ink.py"
+    ],
+    "symbols": []
+  },
+  {
+    "id": "photophobic",
+    "title": "Ray-lit scenes with photophobic cultures",
+    "family": "08-scene-studies",
+    "status": "study",
+    "use": "Grow two shade-seeking strains over scene surfaces",
+    "guide": "techniques/08-scene-studies/README.md",
+    "sources": [
+      "studies/photophobic/common/mould.py",
+      "studies/photophobic/porticus/render.py"
+    ],
+    "symbols": []
+  },
+  {
+    "id": "statue-trails",
+    "title": "Scan engraving and Trail First primitives",
+    "family": "08-scene-studies",
+    "status": "study",
+    "use": "Recover mesh contours and place primitives along trails",
+    "guide": "techniques/08-scene-studies/README.md",
+    "sources": [
+      "studies/scanned-statue-v2/engrave.py",
+      "studies/scanned-statue-v2/trail_v2.py",
+      "studies/scanned-statue-v2/vendor/primitive_growth.py",
+      "studies/scanned-statue-v2/vendor/trail_study.py"
+    ],
+    "symbols": []
+  }
+]

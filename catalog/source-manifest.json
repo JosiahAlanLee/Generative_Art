@@ -1,0 +1,3905 @@
+{
+  "schema_version": 1,
+  "repository": "JosiahAlanLee/Codex-Intervallorum",
+  "ref": "main",
+  "commit": "b789e03f30034bc8403f8a40aaf83842885aaad5",
+  "scope": "All public Python source, source SVGs, fonts/notices and selected technical inputs; manuscript and upstream provenance records excluded",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "git_blob_sha": "447ab0aeb5d3e05295b6413aad2b57a16c1af698",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "git_blob_sha": "b74b99d8f73e81aaf59adf1270420a690f3cef4f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": ".github/workflows/objections.yml",
+      "git_blob_sha": "e4360f82fc7556b556afa015eea78315b252eef8",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": ".gitignore",
+      "git_blob_sha": "b0deea11c0dd25dc064f4b50fd7612d8300e95a5",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob_sha": "b453f544f21da0543044e3cff9d69c05b62ffb3e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "CLAUDE.md",
+      "git_blob_sha": "278eaa5208ffeef589ae83f15b410740c54d8e5a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha": "bb81042a539fa1fc714f7908d65e92510a854c58",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "SOURCES.json",
+      "git_blob_sha": "1dfa3185fb18d58624179a037b81e3221f268196",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "binding/README.md",
+      "git_blob_sha": "cb279015e8be37bda8814fe7367481195d49fcc3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "binding/backmatter.py",
+      "git_blob_sha": "f722aec500504320919e8bd676980d13e38959a0",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/backmatter.py",
+      "sha256": "820464b69208200ac7c55ff8c6f80a3228020c2876a429c3749c67497c6c9fb9",
+      "bytes": 24351
+    },
+    {
+      "path": "binding/bind.py",
+      "git_blob_sha": "7fe1972787e0f92862b09ca3b6a19a9b00a383dd",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/bind.py",
+      "sha256": "99e5f6c06239d11b231b71709c5149227c0717e42baa2500bda1107a45db9ee0",
+      "bytes": 19573
+    },
+    {
+      "path": "binding/bind_illustrated.py",
+      "git_blob_sha": "11744ae0c5a993470adc04e43dfdeb994740fa1c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/bind_illustrated.py",
+      "sha256": "f172535f461a1d8ebbf64aeddf269da0fb35847f5e88655311e2e9a096c44fbb",
+      "bytes": 6554
+    },
+    {
+      "path": "binding/scribal.py",
+      "git_blob_sha": "e73a3bbeb42cb7ae57e22fdaeddec9ba0ceb56cf",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/scribal.py",
+      "sha256": "107acd5b9d52dc9d08083916b175b2a213d18ca321ef36629e9e807c5d9781d0",
+      "bytes": 12733
+    },
+    {
+      "path": "binding/tests/test_backmatter.py",
+      "git_blob_sha": "d0b89eaad5cb2b29d5b8957cbbe041b64d40ed8c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/tests/test_backmatter.py",
+      "sha256": "f9eed367b7a57c6309fa6fdfaabda7cc35226e95126699980638e25bd00f9151",
+      "bytes": 13869
+    },
+    {
+      "path": "binding/tests/test_binding.py",
+      "git_blob_sha": "bd46beaca18ca053ed5bb3c35b81f3a167e1a193",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/tests/test_binding.py",
+      "sha256": "87989c061bbe2a712e302fbe4b48d59e71753f086d8ac559e1f3225cace7581d",
+      "bytes": 6041
+    },
+    {
+      "path": "binding/tests/test_scribal.py",
+      "git_blob_sha": "2c26f7cd1376a9596f7564e42da0cbebac9de94c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/tests/test_scribal.py",
+      "sha256": "27311ca23d4ddd06d0ba5cf5a273036b64a5d14c835d7e556d2e7d95d0fba5dd",
+      "bytes": 3852
+    },
+    {
+      "path": "binding/tests/test_vellum.py",
+      "git_blob_sha": "9862251c50ed9a3cab3d1be2c379dddb22979a18",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/tests/test_vellum.py",
+      "sha256": "d61819e555f4facddf8a8fed356f07fbeb46f7b367e486ab628d0c852a8b141c",
+      "bytes": 7119
+    },
+    {
+      "path": "binding/unified.py",
+      "git_blob_sha": "08ca5b03fcb7fdc25776acd8af5d38c0fe361c21",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/unified.py",
+      "sha256": "c1144f26a358ab61b1edd6f7565f1c00715d45a1be2be40f603be14f98a41b30",
+      "bytes": 15946
+    },
+    {
+      "path": "binding/validate.py",
+      "git_blob_sha": "1a6785209a6ffa6555f22d03704cbd85aa52e59c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/validate.py",
+      "sha256": "bf5e4752bb627b9bbda216847f27acef90182c21fd7f044e13c981ae2c3dc6e5",
+      "bytes": 7457
+    },
+    {
+      "path": "binding/validate_typeset.py",
+      "git_blob_sha": "27063a3f6b549966bd097a72e96528f1f47d3354",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/validate_typeset.py",
+      "sha256": "f3db7ddaa376001a60b03cac55d2c3d2da649045c889a939e7189487d2250edf",
+      "bytes": 11940
+    },
+    {
+      "path": "binding/vellum.py",
+      "git_blob_sha": "cca27a6914c9761c27e8c81e22ba05559c827568",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/binding/vellum.py",
+      "sha256": "ec19e86ee889277f02856b5b9bb299146240051ef7a35964a591f165b90ee429",
+      "bytes": 14613
+    },
+    {
+      "path": "books/00_accusator/README.md",
+      "git_blob_sha": "8579d2300f73178e734d7757ba0e42af71dd3ddd",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_accusator/assets/exhibit-i-the-office-v02.png",
+      "git_blob_sha": "385bd102d0071b96f61ee281a28a9ee41be46f78",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_accusator/assets/exhibit-i-the-office.png",
+      "git_blob_sha": "7391fa53bd71c5cb62904dad27106e599c556861",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_accusator/assets/exhibit-ii-the-man-in-uz.png",
+      "git_blob_sha": "93caea93e6da61c5eda3f65febf3b721276b097e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_accusator/assets/figures.json",
+      "git_blob_sha": "e3653fb2f583c3578992a9af827803356c6fef7a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_accusator/build.py",
+      "git_blob_sha": "ee6af897b4bdc7824c0b5a5012b94d8c9213c5ec",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/00_accusator/build.py",
+      "sha256": "bbba2a036933ebdf9b718e2ce8525394df68393624a68578f30109fdee9e8f18",
+      "bytes": 13455
+    },
+    {
+      "path": "books/00_accusator/manuscript/de-officio-accusatoris.md",
+      "git_blob_sha": "61e40f562339f3ca999053b3e8dc4b2707aca1b0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_accusator/manuscript/references.json",
+      "git_blob_sha": "ca456542372cd9296fe5da47c1cfae59b19c6ae7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_accusator/validate.py",
+      "git_blob_sha": "0d8512596fc33c30ae49866114d1150fa810f48e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/00_accusator/validate.py",
+      "sha256": "afc21c766bcc98e6d9c48c5970c96ef81d93cfe5f8529e770bec9f36225561bc",
+      "bytes": 5976
+    },
+    {
+      "path": "books/00_matres/README.md",
+      "git_blob_sha": "424291206367d4230be28a0df78776431a636db2",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_matres/build.py",
+      "git_blob_sha": "d88d63ef6eeceec9bce307b8741bd8f0cf5f45e4",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/00_matres/build.py",
+      "sha256": "3288c2d5456235cf6f7a32696b26b201fc8976732cd98c56a58db08a59a7bf90",
+      "bytes": 10576
+    },
+    {
+      "path": "books/00_matres/manuscript/de-matribus-noctis.md",
+      "git_blob_sha": "d01c79cbece1027087ccff16ab0dfd8a42ba7a7c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_matres/manuscript/references.json",
+      "git_blob_sha": "57404ae363ceb89637f5db463b225478cbfec4d2",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/00_matres/validate.py",
+      "git_blob_sha": "d656ea34ec36bcbe8181353c5c6e51f5c0e0b295",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/00_matres/validate.py",
+      "sha256": "7c8f663d0ef3e57b5a6dd5cfec820145aefdbecfb91db013ff91777a0911f10a",
+      "bytes": 5392
+    },
+    {
+      "path": "books/01_matricis/generator/cipher.py",
+      "git_blob_sha": "b482a3ccf8ed56c9d18e289c4988ae26df3dd8ba",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis/generator/cipher.py",
+      "sha256": "ad6da6aea7acdce22170972d722b793fc39926e979a6e81f64146f5c4030e4c7",
+      "bytes": 7741
+    },
+    {
+      "path": "books/01_matricis/pdf/Clavicula_Matricis_ereader.pdf",
+      "git_blob_sha": "2533bfce573646f710e18449cbe90bfe85e566cd",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/README.md",
+      "git_blob_sha": "b070e22def70e453c45fbb50f85d25f22886023f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/fed-vessel.jpeg",
+      "git_blob_sha": "f98bd0c52c4e5506e90ed866d70ed5aa51af8ac1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/figures.json",
+      "git_blob_sha": "dcd7352c71b997b667956c3af018c9dfed70ee34",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/frontispiece-prompt.txt",
+      "git_blob_sha": "4fd2240226795b0c0b8a0829d5595490e7bb8e55",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/house-kept-in-abeyance.jpeg",
+      "git_blob_sha": "661476599bc134eae78bc86b84950a850210c932",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/keeper-of-intervals-original.jpeg",
+      "git_blob_sha": "af45382b130f4a84ba231b553ace1b6b9955afc1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/open-inventory.jpeg",
+      "git_blob_sha": "23e6c904102ed35a43a5935dfbd7dfa49ff406cc",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/second-neck.jpeg",
+      "git_blob_sha": "fb5e05cfe1d5e24a4a2bf8fcd62d267b2621231d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/assets/the-maintained-workshop.jpg",
+      "git_blob_sha": "4851af201bb1b4c178851d7b3bf17226d4bc05f7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/build.py",
+      "git_blob_sha": "4ae75f060ddd843b63da8dfe89ffc7bcd189d988",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/build.py",
+      "sha256": "54bd85abd4201afc962f11c413b0bdb26df51deda6d5ddb6c948b45c73762817",
+      "bytes": 31470
+    },
+    {
+      "path": "books/01_matricis_intervallorum/manuscript/book.json",
+      "git_blob_sha": "49e449c7fdf6a3929e167f553e8911b02e3b25d4",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/manuscript/reading-edition.md",
+      "git_blob_sha": "a5d8e9742d12fb014838400a0cb6f9d4ab605aaa",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/README.md",
+      "git_blob_sha": "4e982f8b8a57b45d623f949e6c412e272d23b720",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/REPORT.md",
+      "git_blob_sha": "5a5dbceb70af0c2eca38cfa389b9fca2c29feb7a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/manifest.json",
+      "git_blob_sha": "6ae5548e42f2b69b19bfe1ddc4a82f9d86641187",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/manifest.json",
+      "sha256": "2757b23a8fd18b99afe5e12bf42987707b921e0cffa1b2cd8f9d6ffe96ba77df",
+      "bytes": 1393
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/model.py",
+      "git_blob_sha": "398078aec481ebc34f155a8c73c8dda1e217e32e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/model.py",
+      "sha256": "e1a9027c56791447ed875072a0281ddef5423d887f4ec86bf90e59cdda4f4698",
+      "bytes": 7264
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/region.svg",
+      "git_blob_sha": "7b388ca1d12d7b5cc73b971af8c17186a4155920",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/region.svg",
+      "sha256": "2cd8b13fe7d939cae8a0930536d2ca62ce79a51f8ee4ed70096da9626b6cd0bc",
+      "bytes": 34923
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/report.py",
+      "git_blob_sha": "a268e4550295313e02403bad74632d0e0a08415e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/report.py",
+      "sha256": "e4333ec1960577b5d8a3ffb31791982b63cf8351c487adf2c4b0bdf790b5d503",
+      "bytes": 12119
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/results.csv",
+      "git_blob_sha": "1fff8c7ef04e3d680d21f2ccd9af14d8d40df411",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/results.csv",
+      "sha256": "84303bcbc2327a9157dfa718ce6511918bfd142cb1b9655ffcff64fa962dc525",
+      "bytes": 1827235
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/run.py",
+      "git_blob_sha": "1b74cc20c1c7b8c5b9877257aef97761282d9282",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/run.py",
+      "sha256": "67b55e1e17d8d9d3fde5a41cc75a37a9d44aaf59283c56ebd52cd4ac80d510ae",
+      "bytes": 3642
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/tests/test_gate_window.py",
+      "git_blob_sha": "1ab805273a9c85e0be124dcd290fefa810cf8c03",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/tests/test_gate_window.py",
+      "sha256": "5a40589c684b4d70ec1e9d0204d7762235fe2ab1abf2b5708db4f4b8ef9ac66b",
+      "bytes": 5871
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/validate.py",
+      "git_blob_sha": "04dd9f03a86f6cdce96a044ab489aef83ca4ac15",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/validate.py",
+      "sha256": "09fd1212dcf58e986f87b3993011c21b95133c5f8ba7d15bf7d1874e13baab84",
+      "bytes": 4160
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/verdict.json",
+      "git_blob_sha": "c5bc3665c32dbdc224581594d2be3ec80f39af97",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/verdict.json",
+      "sha256": "c73b163eabe271225eec6927ad9b5febb0a2cee5c0ac36f64fdfd69d54ef51e9",
+      "bytes": 2319
+    },
+    {
+      "path": "books/01_matricis_intervallorum/models/gate_window/verdict.py",
+      "git_blob_sha": "bebf309250c44ca32167140d26e4406e789fdae1",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/models/gate_window/verdict.py",
+      "sha256": "87c337a0c2efe99817fc810965c5c99f218235b9cd13849db4c5c2576cea706d",
+      "bytes": 4143
+    },
+    {
+      "path": "books/01_matricis_intervallorum/tests/test_combined.py",
+      "git_blob_sha": "48411a9347e7d551cbf8ba2de2b5508711752f67",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/01_matricis_intervallorum/tests/test_combined.py",
+      "sha256": "efbf99eeb973e0ce44fab63804b450581106580ba3971cfd4b12c993af2771c5",
+      "bytes": 3256
+    },
+    {
+      "path": "books/02_intervallorum/NOTICES.md",
+      "git_blob_sha": "d6e79d12ecc3be9e47d219c21606b64814293a11",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/NOTICES.md",
+      "sha256": "da9f292137dd210ed6c23bba57ba3664eb82fc578c1e8b8f0e0b93f44deb6b94",
+      "bytes": 2335
+    },
+    {
+      "path": "books/02_intervallorum/README.md",
+      "git_blob_sha": "7f6173b90029951db7240ff16e600b629c8f2472",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/docs/ARGUMENT.md",
+      "git_blob_sha": "3d866af19fc068feb63237b06de5c2238aa9fb4b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/docs/EDITORIAL.md",
+      "git_blob_sha": "61fff5322688c9580aa6047bf02b1956ba3ee990",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/docs/IMPORT.md",
+      "git_blob_sha": "68ee28f6e3421349ca8cf38344de30a1e7966192",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/docs/SEPARATE_REPOSITORY.md",
+      "git_blob_sha": "33521ffba9e5fcec75b4a69ebad28edb7c91aacf",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/docs/SOURCES.md",
+      "git_blob_sha": "8e8c5a8e59c8de82e24cd70ba7942dc779565acb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/docs/VALIDATION.md",
+      "git_blob_sha": "c98fbb9b212753efa2a5cce2cf081c8a6c20747d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/fonts/IBMPlexMono-Regular.ttf",
+      "git_blob_sha": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580
+    },
+    {
+      "path": "books/02_intervallorum/fonts/IMFeENit28P.ttf",
+      "git_blob_sha": "d9afa7e097d525cefa294f2575efc4bef66e1dda",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/IMFeENit28P.ttf",
+      "sha256": "47cd75dce54b1f2e0831359d22d5e688f519d68ae45706b664fd310fd0e3ccf7",
+      "bytes": 202368
+    },
+    {
+      "path": "books/02_intervallorum/fonts/IMFeENrm28P.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/IMFeENrm28P.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/02_intervallorum/fonts/IMFeENsc28P.ttf",
+      "git_blob_sha": "c97d4a0748328052055f42ab27c0659981ce8be7",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/IMFeENsc28P.ttf",
+      "sha256": "102324fb5434bb5da7963533426b0ad44c85bbc9e7755067535c9d11464a176b",
+      "bytes": 183932
+    },
+    {
+      "path": "books/02_intervallorum/fonts/SueEllenFrancisco-Regular.ttf",
+      "git_blob_sha": "a4217a825ae82db452a491b1c3a17632523b1d08",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/SueEllenFrancisco-Regular.ttf",
+      "sha256": "d6d72e046e8e92f659eacfb7457cf7e1f2142c112c3d8c43c0b5a3904a5c8621",
+      "bytes": 60728
+    },
+    {
+      "path": "books/02_intervallorum/fonts/licenses/ebgaramond-OFL.txt",
+      "git_blob_sha": "c1ec5e1818415eab6f8fca95a230af477d64eb61",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/licenses/ebgaramond-OFL.txt",
+      "sha256": "0985066662eb755ed3683ae5482a81a9195b49ce3f7e165cc2388b3dbece7dd7",
+      "bytes": 4398
+    },
+    {
+      "path": "books/02_intervallorum/fonts/licenses/ibmplexmono-OFL.txt",
+      "git_blob_sha": "ef89108cef7ca226d16664b01d57234ec4ac26ae",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/licenses/ibmplexmono-OFL.txt",
+      "sha256": "b5895d3f4ea58b2fc80c3041a8c855d372836c34950d6ebc6e3c8897e7b2c8fb",
+      "bytes": 4364
+    },
+    {
+      "path": "books/02_intervallorum/fonts/licenses/imfellenglish-OFL.txt",
+      "git_blob_sha": "ffdcf33df73d774a320d071c1a7dbe3f8c2b5bab",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/licenses/imfellenglish-OFL.txt",
+      "sha256": "5739f50a703e07c5f7b2b91a684ae1f44bb118796f990e3ee7f77574459ca835",
+      "bytes": 4360
+    },
+    {
+      "path": "books/02_intervallorum/fonts/licenses/imfellenglishsc-OFL.txt",
+      "git_blob_sha": "ffdcf33df73d774a320d071c1a7dbe3f8c2b5bab",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/licenses/imfellenglishsc-OFL.txt",
+      "sha256": "5739f50a703e07c5f7b2b91a684ae1f44bb118796f990e3ee7f77574459ca835",
+      "bytes": 4360
+    },
+    {
+      "path": "books/02_intervallorum/fonts/licenses/sueellenfrancisco-OFL.txt",
+      "git_blob_sha": "06117d9dfe08e8ac9818115cc1898c05a197c27f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/licenses/sueellenfrancisco-OFL.txt",
+      "sha256": "0e441ae9f18ad0c294cc5b6ae3974c2db1614cab220598578b1b58c4cc334485",
+      "bytes": 4362
+    },
+    {
+      "path": "books/02_intervallorum/fonts/static/EBGaramond-Italic400.ttf",
+      "git_blob_sha": "9e2ccfb1df49224fdba3ca4ba2b8eb78838b1db3",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/static/EBGaramond-Italic400.ttf",
+      "sha256": "d3b99e7b6b31393dbd551f221011c2bbf4a67c8d882cdfce93ec1fd7a7b919b3",
+      "bytes": 463492
+    },
+    {
+      "path": "books/02_intervallorum/fonts/static/EBGaramond-Regular400.ttf",
+      "git_blob_sha": "ac096d6334bb7f18db723d167feec981abbb08ee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/fonts/static/EBGaramond-Regular400.ttf",
+      "sha256": "afcf4e8a8d51aa9b7ade98b8c3aedb5f69bf16eed93c32a5eec08008246287bc",
+      "bytes": 518872
+    },
+    {
+      "path": "books/02_intervallorum/generator/__init__.py",
+      "git_blob_sha": "92af19297d935b42a41d4c607684a33ea1384a3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/__init__.py",
+      "sha256": "85246255cb610b212ccc76a7c77754055b888799b7212af2c615534dbe2ab5c6",
+      "bytes": 84
+    },
+    {
+      "path": "books/02_intervallorum/generator/build.py",
+      "git_blob_sha": "c7ac85183c2935a52483c458e278f5b8aaa80a1c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/build.py",
+      "sha256": "ce71c4195447d46eaa0d5bb9f2b5e26cce7de437e27d32c16c71b500d43636de",
+      "bytes": 24572
+    },
+    {
+      "path": "books/02_intervallorum/generator/core.py",
+      "git_blob_sha": "9479a29a25b8fb4feb95597a660159f0a497dfee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/core.py",
+      "sha256": "c535401071c41170e77516d2ae0d17e1ef5af99d75ed51fc56d7f151fd6ce4ee",
+      "bytes": 12270
+    },
+    {
+      "path": "books/02_intervallorum/generator/hands.py",
+      "git_blob_sha": "08b58f62d6540575cac4096d0980af5e0bbfa949",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/hands.py",
+      "sha256": "4c4ced28b97e2ca362cc97acf09e9d103f608256facbb284cd734631069e8f3e",
+      "bytes": 2140
+    },
+    {
+      "path": "books/02_intervallorum/generator/marks.py",
+      "git_blob_sha": "d00d3ff509a4f8b2e147dd9c816d2f40e24cd964",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/marks.py",
+      "sha256": "0bd011a2e1fe72c383eeab71350684d45ebb7cfd3cb017f64f25961ddf149e1b",
+      "bytes": 24948
+    },
+    {
+      "path": "books/02_intervallorum/generator/plates.py",
+      "git_blob_sha": "a3bdbb06456d8e841d33ee74b83b562eba117970",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/plates.py",
+      "sha256": "9de6deca7fe399452d578b7d19e7f14ac4d7fff6a850ec2bf08a07d4b378680d",
+      "bytes": 21548
+    },
+    {
+      "path": "books/02_intervallorum/generator/reachability.py",
+      "git_blob_sha": "46db45ac4760b7f4cb6fe2df60bf3868d704b8df",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/reachability.py",
+      "sha256": "243819c5bef6cd3eaff9896f10d5844a02ef7df686794b03f1bc3c2d2b4c27a4",
+      "bytes": 3737
+    },
+    {
+      "path": "books/02_intervallorum/generator/refusal.py",
+      "git_blob_sha": "16ac11d51d278d1f7067f8d6fb64208caebb465b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/refusal.py",
+      "sha256": "290aeee83267718fad8a0ef6e10cfd785f1e9876f1321fd3c8c42a72277cc0b6",
+      "bytes": 5158
+    },
+    {
+      "path": "books/02_intervallorum/generator/tx.py",
+      "git_blob_sha": "06ba1ad76e469093e8c12678e404697565112453",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/generator/tx.py",
+      "sha256": "bb42a2f1b8e92b1e6ffe828714b6c5fda6904c6b0346bc408973422dbf461505",
+      "bytes": 4696
+    },
+    {
+      "path": "books/02_intervallorum/illustrated/build.py",
+      "git_blob_sha": "676476afaa8ad1ea4700df94ff88f3bea812e795",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/illustrated/build.py",
+      "sha256": "162485ff6c865c8f4c7e3c1829e714444a50aead6c6706d990c68041830e6e6c",
+      "bytes": 11952
+    },
+    {
+      "path": "books/02_intervallorum/illustrated/captions.json",
+      "git_blob_sha": "1f89d6a7db6f53203366bc9f24fb905b64166207",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/manuscript/book.json",
+      "git_blob_sha": "c43c990a2f0effc8326b6005ebadf514fbd7c42a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/manuscript/reading-edition.md",
+      "git_blob_sha": "1cd7375dec8f131e1a3a1c9ba5a47711854e2ac7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/02_intervallorum/tests/test_portability.py",
+      "git_blob_sha": "d13c2292d32dc34b8ed043311e37c990714fe0d9",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/tests/test_portability.py",
+      "sha256": "9afb65ad5427e43e61a851d6a58dc67852f56729c13ae797bc64a19094db9f6d",
+      "bytes": 1752
+    },
+    {
+      "path": "books/02_intervallorum/tests/test_reachability.py",
+      "git_blob_sha": "088306c31271d7acd9d7270dcff95634e832eff8",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/tests/test_reachability.py",
+      "sha256": "ea0dce025ec1eb3528866c3b4e82f540d268dd9add1e78c4d71583663d1cee4c",
+      "bytes": 1837
+    },
+    {
+      "path": "books/02_intervallorum/tests/test_refusal.py",
+      "git_blob_sha": "747a5893fa1b18e200ff03443814ae6ba8a625ad",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/02_intervallorum/tests/test_refusal.py",
+      "sha256": "4615f14a936019766808f07a397c81ac3ebdbcf5549ea0ec04f71c62256cfb52",
+      "bytes": 3101
+    },
+    {
+      "path": "books/03_escalationum/NOTICES.md",
+      "git_blob_sha": "3b29e26f66a363d56f704f7444ad9fd6d1b69465",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/NOTICES.md",
+      "sha256": "9850f1bb1cda6e5685269cd840e36245604b9ff66fb7437760380e8e643406ae",
+      "bytes": 1843
+    },
+    {
+      "path": "books/03_escalationum/README.md",
+      "git_blob_sha": "532b14d1d3063c55a10d7f2b34857edf9b691756",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/03_escalationum/docs/PROVENANCE.json",
+      "git_blob_sha": "7d7ecfd8499cd5ccecf05330f06156abeef5904b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/03_escalationum/fonts/IBMPlexMono-Regular.ttf",
+      "git_blob_sha": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580
+    },
+    {
+      "path": "books/03_escalationum/fonts/IMFeENit28P.ttf",
+      "git_blob_sha": "d9afa7e097d525cefa294f2575efc4bef66e1dda",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/IMFeENit28P.ttf",
+      "sha256": "47cd75dce54b1f2e0831359d22d5e688f519d68ae45706b664fd310fd0e3ccf7",
+      "bytes": 202368
+    },
+    {
+      "path": "books/03_escalationum/fonts/IMFeENrm28P.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/IMFeENrm28P.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/03_escalationum/fonts/IMFeENsc28P.ttf",
+      "git_blob_sha": "c97d4a0748328052055f42ab27c0659981ce8be7",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/IMFeENsc28P.ttf",
+      "sha256": "102324fb5434bb5da7963533426b0ad44c85bbc9e7755067535c9d11464a176b",
+      "bytes": 183932
+    },
+    {
+      "path": "books/03_escalationum/fonts/SueEllenFrancisco-Regular.ttf",
+      "git_blob_sha": "a4217a825ae82db452a491b1c3a17632523b1d08",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/SueEllenFrancisco-Regular.ttf",
+      "sha256": "d6d72e046e8e92f659eacfb7457cf7e1f2142c112c3d8c43c0b5a3904a5c8621",
+      "bytes": 60728
+    },
+    {
+      "path": "books/03_escalationum/fonts/licenses/ebgaramond-OFL.txt",
+      "git_blob_sha": "206cb7b5505b518310f1ec7a782fa952f469a810",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/licenses/ebgaramond-OFL.txt",
+      "sha256": "01e2177f1c2a0795729f1a397e41370d963f896c809a219b9cfaa2676ef7a446",
+      "bytes": 4399
+    },
+    {
+      "path": "books/03_escalationum/fonts/licenses/ibmplexmono-OFL.txt",
+      "git_blob_sha": "ef89108cef7ca226d16664b01d57234ec4ac26ae",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/licenses/ibmplexmono-OFL.txt",
+      "sha256": "b5895d3f4ea58b2fc80c3041a8c855d372836c34950d6ebc6e3c8897e7b2c8fb",
+      "bytes": 4364
+    },
+    {
+      "path": "books/03_escalationum/fonts/licenses/imfellenglish-OFL.txt",
+      "git_blob_sha": "ffdcf33df73d774a320d071c1a7dbe3f8c2b5bab",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/licenses/imfellenglish-OFL.txt",
+      "sha256": "5739f50a703e07c5f7b2b91a684ae1f44bb118796f990e3ee7f77574459ca835",
+      "bytes": 4360
+    },
+    {
+      "path": "books/03_escalationum/fonts/licenses/imfellenglishsc-OFL.txt",
+      "git_blob_sha": "ffdcf33df73d774a320d071c1a7dbe3f8c2b5bab",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/licenses/imfellenglishsc-OFL.txt",
+      "sha256": "5739f50a703e07c5f7b2b91a684ae1f44bb118796f990e3ee7f77574459ca835",
+      "bytes": 4360
+    },
+    {
+      "path": "books/03_escalationum/fonts/licenses/sueellenfrancisco-OFL.txt",
+      "git_blob_sha": "710acf2b591c4b96f65ccda1a1ccfd466fcb8a3e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/licenses/sueellenfrancisco-OFL.txt",
+      "sha256": "5866a76a76aaa90c1e36dc7f506fb049f1e9f9b1052ef4d64067266882b80ea5",
+      "bytes": 4363
+    },
+    {
+      "path": "books/03_escalationum/fonts/static/EBGaramond-Italic400.ttf",
+      "git_blob_sha": "9e2ccfb1df49224fdba3ca4ba2b8eb78838b1db3",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/static/EBGaramond-Italic400.ttf",
+      "sha256": "d3b99e7b6b31393dbd551f221011c2bbf4a67c8d882cdfce93ec1fd7a7b919b3",
+      "bytes": 463492
+    },
+    {
+      "path": "books/03_escalationum/fonts/static/EBGaramond-Regular400.ttf",
+      "git_blob_sha": "ac096d6334bb7f18db723d167feec981abbb08ee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/fonts/static/EBGaramond-Regular400.ttf",
+      "sha256": "afcf4e8a8d51aa9b7ade98b8c3aedb5f69bf16eed93c32a5eec08008246287bc",
+      "bytes": 518872
+    },
+    {
+      "path": "books/03_escalationum/generator/__init__.py",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "books/03_escalationum/generator/art.py",
+      "git_blob_sha": "8babec1ef8fb08716e85db75a1c9f5ac9e6971a7",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/art.py",
+      "sha256": "04d934bf31093b16b0528a0d867ca98807e0eb13d2b2c84af100453fba978d0e",
+      "bytes": 16264
+    },
+    {
+      "path": "books/03_escalationum/generator/build.py",
+      "git_blob_sha": "2aafbae37c901739619d4783ff7b6013476b62a5",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/build.py",
+      "sha256": "b9658218222eb49ae7f6b26c0927bea6a7a815c4723f9b506e3063e474a684d1",
+      "bytes": 16866
+    },
+    {
+      "path": "books/03_escalationum/generator/core.py",
+      "git_blob_sha": "9a1068bf73bc9ee2c5651421075e03e48142ff5c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/core.py",
+      "sha256": "095f6125c77490524fbfa42def7105fcdb289113709dcab49697a1d3f4491d3c",
+      "bytes": 12271
+    },
+    {
+      "path": "books/03_escalationum/generator/marks.py",
+      "git_blob_sha": "c238e34bd79fae3ee76e44bcd101dbaeef3a7c7e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/marks.py",
+      "sha256": "de021ffe6d7f88b5f680da05aa726d49d0e24618b511efd7380b2123d2b927d4",
+      "bytes": 24950
+    },
+    {
+      "path": "books/03_escalationum/generator/reachability.py",
+      "git_blob_sha": "d8427d1d2c47c81f364279eb40fc97efe272a28b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/reachability.py",
+      "sha256": "0eaf88e1720f7a468aea8257a31979fbe5966c5470a71bb79d1d02ba698e03c5",
+      "bytes": 4778
+    },
+    {
+      "path": "books/03_escalationum/generator/tx.py",
+      "git_blob_sha": "2162ee0c4cb7e12143b5a1b23e1e92aee0fc3a7c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/generator/tx.py",
+      "sha256": "1e6871b5fbb20e1ce4468571e9ed022a2f7eb2bad3379afd45c56ff1123a7f6d",
+      "bytes": 4698
+    },
+    {
+      "path": "books/03_escalationum/illustrated/build.py",
+      "git_blob_sha": "608233655edf0ef99f7ba3c64fa0542f122fbec4",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/illustrated/build.py",
+      "sha256": "6341a9e50b0690809b96f234d1c0141f2d8936e27f8171cecfc048e6bf8472ad",
+      "bytes": 18819
+    },
+    {
+      "path": "books/03_escalationum/manuscript/catalogue.json",
+      "git_blob_sha": "6b3f5fa20d5f58321db77d57b9862a4cbc48c5be",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/03_escalationum/requirements-lock.txt",
+      "git_blob_sha": "a7e4f310e127b44d3169b7a0ffdc563b962e11c2",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/requirements-lock.txt",
+      "sha256": "bfc52c4d1287ea03f8762bf378b69003160ad6776d056dce86b0ea841d0eb277",
+      "bytes": 218
+    },
+    {
+      "path": "books/03_escalationum/tests/test_book.py",
+      "git_blob_sha": "6a8d34f837df4771b404a04fac62f502c75a98e1",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/03_escalationum/tests/test_book.py",
+      "sha256": "b312cc58a871bf2f344d0bc62113edad26e21b8336ab691db6129835effe23f9",
+      "bytes": 7081
+    },
+    {
+      "path": "books/04_graduum/README.md",
+      "git_blob_sha": "e264fddd97b730ed5a5d6e354838ae4be257608c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/04_graduum/build_book.py",
+      "git_blob_sha": "e74d14a9ce464c22f1c54b3aa7e49a00995b2ddd",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/build_book.py",
+      "sha256": "94730621dfa985d2308a05363952adcf657647f6db775d829b515427458412ff",
+      "bytes": 14008
+    },
+    {
+      "path": "books/04_graduum/illustrated/build.py",
+      "git_blob_sha": "d87d5325e30879e4874cef85a3744c7da52c819e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/illustrated/build.py",
+      "sha256": "b6d22f18c05213d60efa47e9d6cc70a25b6e70b48de390b6e3c68ea1a28b067c",
+      "bytes": 6919
+    },
+    {
+      "path": "books/04_graduum/illustrated/captions.json",
+      "git_blob_sha": "5385b67c7f06c652e24010a8da7addfed99f53bc",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/04_graduum/illustrated/plates.py",
+      "git_blob_sha": "b7638bf13457e68625fc1d2caebc9a870a6def9f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/illustrated/plates.py",
+      "sha256": "6be683a10cef211c70b3a93b9a45b1f6926ac9ced06f50914f449486e15a9ed0",
+      "bytes": 49513
+    },
+    {
+      "path": "books/04_graduum/manuscript/README.md",
+      "git_blob_sha": "1069997219e21d3d4b324a6bda88027e52ac8479",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/04_graduum/manuscript/book.json",
+      "git_blob_sha": "ad5d4a20c51cb67d7f8b31ad0cea7d09d72195fb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/04_graduum/manuscript/make_book.py",
+      "git_blob_sha": "0c612e4024f8b0523e8cf2b7aaa23b08a0f3df3a",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/manuscript/make_book.py",
+      "sha256": "628baa334cb8f35804d52ba2018c0c85b16ef81b9ab7215382562a477a65a352",
+      "bytes": 48095
+    },
+    {
+      "path": "books/04_graduum/manuscript/reading-edition.md",
+      "git_blob_sha": "ced6a6aae58b646d2287071d55f8be73e09a755d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/04_graduum/plates/i-native/tabula_i.py",
+      "git_blob_sha": "6e51b540d4a9b10c66af89f6a7de5873595cfdcd",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/i-native/tabula_i.py",
+      "sha256": "8ff4d68dbbb1c0c1d33de4f140322fa83015b9f9fff71a5cc012defab05955fc",
+      "bytes": 4823
+    },
+    {
+      "path": "books/04_graduum/plates/ii-native/tabula_ii.py",
+      "git_blob_sha": "f84b5888b594530a41961e3b4aa4ebd081b1877d",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/ii-native/tabula_ii.py",
+      "sha256": "38886eda31ca551693318c15bc7b4b44b8881f7950ac6b54df3c04f47393899b",
+      "bytes": 8991
+    },
+    {
+      "path": "books/04_graduum/plates/iii-native/tabula_iii.py",
+      "git_blob_sha": "bd6d1ab19e711c0ebc9f57c2d72cb014c6b1e2e6",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/iii-native/tabula_iii.py",
+      "sha256": "05e604eccabd3dc47f444e32bfaa36d90dfa3c8fc937f52124d26faf5a136968",
+      "bytes": 9117
+    },
+    {
+      "path": "books/04_graduum/plates/iv-native/tabula_iv.py",
+      "git_blob_sha": "ebf6438a62ffa9490fa07465a8b2214c7efdd14a",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/iv-native/tabula_iv.py",
+      "sha256": "af46bf2cec905a5c5f2494af3aeefba25a46e7cd8012666a87c5d25aa145449f",
+      "bytes": 4943
+    },
+    {
+      "path": "books/04_graduum/plates/v-native/figure.py",
+      "git_blob_sha": "cff926fc1aa8a3ae17bd1d373a333a3c148b3bbe",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/v-native/figure.py",
+      "sha256": "c09ef9b5c77b464696f9cb0bdc245869381ce5f7b7e2c287426c9428537a3227",
+      "bytes": 10922
+    },
+    {
+      "path": "books/04_graduum/plates/v-native/tabula_v.py",
+      "git_blob_sha": "65050a97a3bd848082d69f610722f7a4739fa305",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/v-native/tabula_v.py",
+      "sha256": "c88b893e1b9a8806b85658a4fa175c0e9e216f6013b0eafb5924521cde7eecf5",
+      "bytes": 11350
+    },
+    {
+      "path": "books/04_graduum/plates/v-native/validate.py",
+      "git_blob_sha": "9ac4bc6898719ef7ed7aa945b2cf5a66e29a6984",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/v-native/validate.py",
+      "sha256": "b1dc87998df35f200d0f146e04e49ec52cd85ed6557ff70d0e0232559a3f5c1e",
+      "bytes": 6261
+    },
+    {
+      "path": "books/04_graduum/plates/vi-native/tabula_vi.py",
+      "git_blob_sha": "3d7dcc0bda58cfa4e05700b9e67e734e887b75fa",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vi-native/tabula_vi.py",
+      "sha256": "568ed6326c747e474d0ee2d2a9b37929727e849963ae0116eb9919cbdf914056",
+      "bytes": 15855
+    },
+    {
+      "path": "books/04_graduum/plates/vi-native/validate.py",
+      "git_blob_sha": "fb16720af0e256d1098726252557f8313db2f547",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vi-native/validate.py",
+      "sha256": "2cc43fb1147c0ce3bd67bef29cbbc1407710c593e9081d979fdd43fa8a3aa7ec",
+      "bytes": 6620
+    },
+    {
+      "path": "books/04_graduum/plates/vii-native/figures.py",
+      "git_blob_sha": "fa415f9f8c73fd3c43528199b014cda90f993f54",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vii-native/figures.py",
+      "sha256": "f5eff8d356558a1c08bba165ff3b9f444134ebe70c8a5d6cb19fc3de3574103a",
+      "bytes": 5907
+    },
+    {
+      "path": "books/04_graduum/plates/vii-native/tabula_vii.py",
+      "git_blob_sha": "183e97dfd4264cd516c488a05190cf4d3ab4020a",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vii-native/tabula_vii.py",
+      "sha256": "4afdaaf87783236126c5064697bea0b1c9539e2fb27f44443baf9169f95b8f0c",
+      "bytes": 16093
+    },
+    {
+      "path": "books/04_graduum/plates/vii-native/validate.py",
+      "git_blob_sha": "f6e9a70b925778260b73d24808e1c49f9f1535ba",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/vii-native/validate.py",
+      "sha256": "114c682a7339ef950d73850e1f3ee36dc955620c9b99038644e4c7621f0c7f3a",
+      "bytes": 6455
+    },
+    {
+      "path": "books/04_graduum/plates/viii-native/apparatus.py",
+      "git_blob_sha": "2ad1fff410fa34cb6d9a114d03372c27c1104051",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/viii-native/apparatus.py",
+      "sha256": "224b153d3d47963e92b8375227190b2e8a7040e0432c810a8c7416e212bbf978",
+      "bytes": 17743
+    },
+    {
+      "path": "books/04_graduum/plates/viii-native/tabula_viii.py",
+      "git_blob_sha": "481e6c482af792ebe6747e9d22c3627192971ad5",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/viii-native/tabula_viii.py",
+      "sha256": "75f7302e30241b757d7ef47c49b35321a465610fcb7c526af4c8819c497f779d",
+      "bytes": 16710
+    },
+    {
+      "path": "books/04_graduum/plates/viii-native/validate.py",
+      "git_blob_sha": "942ab40c72ac0b8b2583683fec3da3042ec7550b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/plates/viii-native/validate.py",
+      "sha256": "acaa18dbe7336ad4146e8d9e226d55779b09e3390e995c1b9a068220f7dd439a",
+      "bytes": 6758
+    },
+    {
+      "path": "books/04_graduum/proofs/i-viii-gpt-reading/fonts/IMFellEnglish-Regular.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/i-viii-gpt-reading/fonts/IMFellEnglish-Regular.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/04_graduum/proofs/i-viii-gpt-reading/fonts/OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/i-viii-gpt-reading/fonts/OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "books/04_graduum/proofs/i-viii-gpt-reading/pixel-and-cipher-QA.json",
+      "git_blob_sha": "31eed353ff8b8b444138e2b2b2177199ff55f571",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/i-viii-gpt-reading/pixel-and-cipher-QA.json",
+      "sha256": "7ed8d7c27c4edbb07b286ff0adfd7406ab84df6da0c5f997974bbf6cbfa9334c",
+      "bytes": 3424
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/build.py",
+      "git_blob_sha": "6822a12d586a3a441d55b4216331d910c695a3a2",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/build.py",
+      "sha256": "ce4e1c509911771b338a1b074e201025238a389381825bd8bcaa40896adbe682",
+      "bytes": 20309
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/codec.py",
+      "git_blob_sha": "25aee9aeec86cdd5cee8c9fdde6e274d0d43e939",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/codec.py",
+      "sha256": "e7a9c0fb18cec6f7ab3732c6668d2732903b7a6c50e2c161a3b6a45c03995609",
+      "bytes": 2910
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/fonts/EMSNixish.svg",
+      "git_blob_sha": "6710f2b80ff6ce82fd1278c0258cf8a039b4f757",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/fonts/EMSNixish.svg",
+      "sha256": "b4f581939e11d03710b56a4f81baa38772566a00e02a57acbafbbeb4d455b83e",
+      "bytes": 56860
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/fonts/IBMPlexMono-Regular.ttf",
+      "git_blob_sha": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/fonts/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/fonts/IMFeENrm28P.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/fonts/IMFeENrm28P.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/fonts/licenses/ems-svg-fonts-OFL.txt",
+      "git_blob_sha": "1456c1809da62fb01a5ef2403d6e6f271cfedb13",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/fonts/licenses/ems-svg-fonts-OFL.txt",
+      "sha256": "ce243fd4a62b1b76c959ffba6ec16a7a3146b2362d441ae4f9f7f32fc3750d6c",
+      "bytes": 4599
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/fonts/licenses/ibmplexmono-OFL.txt",
+      "git_blob_sha": "01497cc60dc7de39750e702c395530760cb014cf",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/fonts/licenses/ibmplexmono-OFL.txt",
+      "sha256": "37784b44044a4ffd9256702b7c0982c37e5c8887ba90c6dca0479aea93dc898d",
+      "bytes": 4363
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/fonts/licenses/imfellenglish-OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/fonts/licenses/imfellenglish-OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/ix-square-table.svg",
+      "git_blob_sha": "b4d3e4fdd8c9c567b729025cc0cfe3d30df545e4",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/ix-square-table.svg",
+      "sha256": "85a94c0f9fdb133fb1ca98dd301dbf167a1bc991992d656e089ec6227f77ea22",
+      "bytes": 440979
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/lettering.py",
+      "git_blob_sha": "51860ea3bf4b7f6308c34f56da88e7734d915150",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/lettering.py",
+      "sha256": "f1c01b5fb245fae8d89488556997fe982e6cafbf038bc3b32556abc0183ac90f",
+      "bytes": 1772
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/manuscript.json",
+      "git_blob_sha": "abc777828c1bf78a81b86392c3e139f55873a41b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/manuscript.json",
+      "sha256": "909a1885c5144fdd075e5539bb3539e4acd3c11b30e44df23bba8724c04697e2",
+      "bytes": 5644
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/vendor/core.py",
+      "git_blob_sha": "9479a29a25b8fb4feb95597a660159f0a497dfee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/vendor/core.py",
+      "sha256": "c535401071c41170e77516d2ae0d17e1ef5af99d75ed51fc56d7f151fd6ce4ee",
+      "bytes": 12270
+    },
+    {
+      "path": "books/04_graduum/proofs/ix-gpt/vendor/tx.py",
+      "git_blob_sha": "06ba1ad76e469093e8c12678e404697565112453",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/ix-gpt/vendor/tx.py",
+      "sha256": "bb42a2f1b8e92b1e6ffe828714b6c5fda6904c6b0346bc408973422dbf461505",
+      "bytes": 4696
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/build.py",
+      "git_blob_sha": "daf0babe2bd7d2d3c41821b89035c2194c1b5557",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/build.py",
+      "sha256": "ba917a95a1dab9e3bcf1b6edbc42f21bb95c1e4c02843d6b6b71eb898e57d143",
+      "bytes": 28891
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/ciphers.py",
+      "git_blob_sha": "b5697710c3f50a964c51252aae134d21a08e7813",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/ciphers.py",
+      "sha256": "cb3d8cc6cbe044d47e97b579c5f682205302b98217d661cd424ee1a7ec301dae",
+      "bytes": 2637
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/fonts/EMSNixish.svg",
+      "git_blob_sha": "6710f2b80ff6ce82fd1278c0258cf8a039b4f757",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/fonts/EMSNixish.svg",
+      "sha256": "b4f581939e11d03710b56a4f81baa38772566a00e02a57acbafbbeb4d455b83e",
+      "bytes": 56860
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/fonts/IBMPlexMono-Regular.ttf",
+      "git_blob_sha": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/fonts/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/fonts/IMFeENrm28P.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/fonts/IMFeENrm28P.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/fonts/licenses/ems-svg-fonts-OFL.txt",
+      "git_blob_sha": "1456c1809da62fb01a5ef2403d6e6f271cfedb13",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/fonts/licenses/ems-svg-fonts-OFL.txt",
+      "sha256": "ce243fd4a62b1b76c959ffba6ec16a7a3146b2362d441ae4f9f7f32fc3750d6c",
+      "bytes": 4599
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/fonts/licenses/ibmplexmono-OFL.txt",
+      "git_blob_sha": "01497cc60dc7de39750e702c395530760cb014cf",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/fonts/licenses/ibmplexmono-OFL.txt",
+      "sha256": "37784b44044a4ffd9256702b7c0982c37e5c8887ba90c6dca0479aea93dc898d",
+      "bytes": 4363
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/fonts/licenses/imfellenglish-OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/fonts/licenses/imfellenglish-OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/ix_codec.py",
+      "git_blob_sha": "25aee9aeec86cdd5cee8c9fdde6e274d0d43e939",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/ix_codec.py",
+      "sha256": "e7a9c0fb18cec6f7ab3732c6668d2732903b7a6c50e2c161a3b6a45c03995609",
+      "bytes": 2910
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/lettering.py",
+      "git_blob_sha": "51860ea3bf4b7f6308c34f56da88e7734d915150",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/lettering.py",
+      "sha256": "f1c01b5fb245fae8d89488556997fe982e6cafbf038bc3b32556abc0183ac90f",
+      "bytes": 1772
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/manuscript.json",
+      "git_blob_sha": "1908bf3c792ef5382316621c668677c425983d9e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/manuscript.json",
+      "sha256": "5ed6ed81d50c12ebeec94e69da4a4eab2f81be7616f5393d51d3f092bd246f65",
+      "bytes": 9622
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/office-litany.csv",
+      "git_blob_sha": "09a7a7e8a5bed9676a49c323b8a87c2dfdb0e531",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/office-litany.csv",
+      "sha256": "0661d47c83421c577659a6d171fbb1ba3570c5af6976293bcc148ea2e9483693",
+      "bytes": 281
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/office-litany.json",
+      "git_blob_sha": "76b382eeff06a06a09cc6718719b85b434f3e231",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/office-litany.json",
+      "sha256": "5e13a1d4e338e6ac1fc9121484aff587802bc90a49ff94342fadf82845986411",
+      "bytes": 616
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/sheet.py",
+      "git_blob_sha": "b315bf9661219dd8e485f18e9f2f89ca8ecda039",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/sheet.py",
+      "sha256": "b0ed3f65b189ad0c394070eb570cf1a1ca35a31e0b828af09ae460d275020ef0",
+      "bytes": 4544
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/source/foras.svg",
+      "git_blob_sha": "bd9249897697995300c9f21a51a1932051dba578",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/source/foras.svg",
+      "sha256": "75e1833d9e5800111d8e2787180a58d71be03d79fd29b07072c77dfc2ea65580",
+      "bytes": 170138
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/source/keeper-face-plot.svg",
+      "git_blob_sha": "a4ecfae164903b9f740865640926af57083ddba0",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/source/keeper-face-plot.svg",
+      "sha256": "c761fcdd405c4a3ae1dc3d6846196d0587423653f39506fcb3f9c211379a6660",
+      "bytes": 346341
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/vendor/core.py",
+      "git_blob_sha": "9479a29a25b8fb4feb95597a660159f0a497dfee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/vendor/core.py",
+      "sha256": "c535401071c41170e77516d2ae0d17e1ef5af99d75ed51fc56d7f151fd6ce4ee",
+      "bytes": 12270
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/vendor/tx.py",
+      "git_blob_sha": "06ba1ad76e469093e8c12678e404697565112453",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/vendor/tx.py",
+      "sha256": "bb42a2f1b8e92b1e6ffe828714b6c5fda6904c6b0346bc408973422dbf461505",
+      "bytes": 4696
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/x-prayer-of-the-office.svg",
+      "git_blob_sha": "6c3fd84321770d38a55c6a4fc6cd3d2fd9d2e78c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/x-prayer-of-the-office.svg",
+      "sha256": "8cb822968c3411c9ab1f79a331c06b032d1440b05deaf81a5d9120d53d36c9d3",
+      "bytes": 426064
+    },
+    {
+      "path": "books/04_graduum/proofs/x-xi-v-gpt/xi-lifted-pen.svg",
+      "git_blob_sha": "24b488c01159ce6225eb4fe83f51aab74dc7a640",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/proofs/x-xi-v-gpt/xi-lifted-pen.svg",
+      "sha256": "54bcab724dc0686e132d1db29c009771f88039932b6c523d42415a01872a7adc",
+      "bytes": 30855
+    },
+    {
+      "path": "books/04_graduum/reading/build.py",
+      "git_blob_sha": "3a930dd30705622c6cfc1db2501ddaee4ff9f432",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/04_graduum/reading/build.py",
+      "sha256": "5a34f92dc353d5fdb71568049693b27031be5c8cd49685a7117d1a1b7c8a0ea9",
+      "bytes": 3034
+    },
+    {
+      "path": "books/05_notoria/README.md",
+      "git_blob_sha": "cb506d7d1acb3322f6470fac1ddb92661f0f72f8",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/05_notoria/fields/physarum.py",
+      "git_blob_sha": "8d5459b203eaa4125961185997654bc8ded73e5b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/05_notoria/fields/physarum.py",
+      "sha256": "e2db9e3ec6d7cba589c7ee0fed283fab8982ede8ac9cd5b4b40e5c9b85b104fc",
+      "bytes": 9139
+    },
+    {
+      "path": "books/05_notoria/manuscript/EDITORIAL.md",
+      "git_blob_sha": "5b4503e2ba4809b6ed81b64eda06e8f4f8220871",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/05_notoria/manuscript/README.md",
+      "git_blob_sha": "57fbc73797cadc769305c14ebcd9c596d91cfe93",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/05_notoria/manuscript/check_math.py",
+      "git_blob_sha": "934a3dadd5694a080c33d52dd8b8013d439e5e91",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/05_notoria/manuscript/check_math.py",
+      "sha256": "c1d1ee7f63a66233281d5d82fbfefcfa09a4c24f830eab5a36078e06fc540d0e",
+      "bytes": 1680
+    },
+    {
+      "path": "books/05_notoria/manuscript/make_book.py",
+      "git_blob_sha": "de55b04093e9fab6a8b86b249a7864c02a34d24a",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/05_notoria/manuscript/make_book.py",
+      "sha256": "3cab059fc3d0c799ac477d58130413584d15a38bdd1a5ad92a3ab216265296c6",
+      "bytes": 18435
+    },
+    {
+      "path": "books/05_notoria/manuscript/reading-edition.md",
+      "git_blob_sha": "8f028740c65c00baa3b4f474d35b7edd0eee1303",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/05_notoria/plates/notae.py",
+      "git_blob_sha": "243aa35d461ab52b77176f883e0278bd44e36957",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/05_notoria/plates/notae.py",
+      "sha256": "8a26f57406419e321d66e46b09f67a61a20963107de46cd3f2a727fd46a37fe5",
+      "bytes": 33091
+    },
+    {
+      "path": "books/05_notoria/plates/validate.py",
+      "git_blob_sha": "2001a494c5cecbecde6a2f9169173442092a20bd",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/05_notoria/plates/validate.py",
+      "sha256": "318d36da839640605796e78396aa6b3a86b677e4faf66195f67ae5cdc20e99e9",
+      "bytes": 2222
+    },
+    {
+      "path": "books/05_notoria/reading/build.py",
+      "git_blob_sha": "dba329b7d4233ed57f7ad7554360bd0a4c1d4264",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/05_notoria/reading/build.py",
+      "sha256": "e4cf920a05f1eb2913e0cc3fef4ea11eb6c1c4036aa07226cf9044e25cf54d15",
+      "bytes": 3127
+    },
+    {
+      "path": "books/06_disputationes/.gitignore",
+      "git_blob_sha": "352bdaf40524adf615bd601bfffbc2f209f74bee",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_disputationes/README.md",
+      "git_blob_sha": "f221e248ed688d8b98ca243514b60001e027b379",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_disputationes/build.py",
+      "git_blob_sha": "b583787bc675e111a531689ebfd3c6a1c0dea46c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_disputationes/build.py",
+      "sha256": "2dbe0c33f5947c34840675ac834a67a101d94700d6a79ce99b5585bbb996f671",
+      "bytes": 24161
+    },
+    {
+      "path": "books/06_disputationes/manuscript/de-potestate-et-accusatione.md",
+      "git_blob_sha": "af339eef125f8ec178af076b8c1a97259197828d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_disputationes/manuscript/references.json",
+      "git_blob_sha": "7537e85205cd485208d97591eac6deb5e3a9ebe9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_disputationes/plates/README.md",
+      "git_blob_sha": "22fd6ff2ddf9e9845e5c4667f28ec3a81e9a145a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_disputationes/plates/reading.py",
+      "git_blob_sha": "1c468e3ba0f5364fde2498d7817f4c780802932e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/reading.py",
+      "sha256": "2fa572319664b5ecd48f461141324a3318a8a02c56e66af97802b65582940810",
+      "bytes": 2772
+    },
+    {
+      "path": "books/06_disputationes/plates/tabulae.py",
+      "git_blob_sha": "78d2f06795c0afd982c4116105b79dbcfdcead59",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/tabulae.py",
+      "sha256": "dbcb5f52c5b9e2c069c28686390d08699b40198e6ec722307e0e0e39e68e9a85",
+      "bytes": 44270
+    },
+    {
+      "path": "books/06_disputationes/plates/vendor/case.json",
+      "git_blob_sha": "11be9ecc60af1370cc658e9668f61b25efd9fb11",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/vendor/case.json",
+      "sha256": "d575640702beaa02848f27f6f72e55995f9aa4bcff95544e140a56c604e0f78d",
+      "bytes": 44559
+    },
+    {
+      "path": "books/06_disputationes/plates/vendor/refusal.py",
+      "git_blob_sha": "16ac11d51d278d1f7067f8d6fb64208caebb465b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/vendor/refusal.py",
+      "sha256": "290aeee83267718fad8a0ef6e10cfd785f1e9876f1321fd3c8c42a72277cc0b6",
+      "bytes": 5158
+    },
+    {
+      "path": "books/06_disputationes/plates/viplate.py",
+      "git_blob_sha": "82c904e5ff64b2585866ab081fa99af5d2222829",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_disputationes/plates/viplate.py",
+      "sha256": "dc3792b5d875093fecea31409d6a1c13e93a68ebb56393b7eb9915bb32fd07cc",
+      "bytes": 6440
+    },
+    {
+      "path": "books/06_disputationes/research/third-draft-2026-10-18.md",
+      "git_blob_sha": "654a0e814f2e3355f5832cb1e3324e4b3e81d127",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_disputationes/validate.py",
+      "git_blob_sha": "3a675332e680d2cf3fadb5961e4fd1b086559983",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_disputationes/validate.py",
+      "sha256": "67ab1b306ffee4353a119087bf5666578526422711d74d97e3ecd44ea3040e99",
+      "bytes": 7500
+    },
+    {
+      "path": "books/06_tarot/README.md",
+      "git_blob_sha": "de10698eeaa525653b9d3e2c3f7a110d99b7a67f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/book/make_book.py",
+      "git_blob_sha": "50c7f010725f6aaed00797d425f1266c541f4824",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/book/make_book.py",
+      "sha256": "ab217f898d2fb11c21faa32f751d6bf7c249bd9d7d080c4f9692a9ebf7da7e3d",
+      "bytes": 23414
+    },
+    {
+      "path": "books/06_tarot/book/validate_book.py",
+      "git_blob_sha": "3b1c249d82c053d8782c19fe2afd44b0cb94f225",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/book/validate_book.py",
+      "sha256": "c2947ce8647e39ec3fca45107f03fed04aaa1c1950636bfaa351eb0ad48ff0e4",
+      "bytes": 8216
+    },
+    {
+      "path": "books/06_tarot/cups/art/01-ace-of-cups-v01.png",
+      "git_blob_sha": "8956b38c28771e6966cdef6c3ccb3085daae390c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/02-two-of-cups-v01.png",
+      "git_blob_sha": "4668889de0ec9cd362ccfc13c8f1f62c092888a4",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/03-three-of-cups-v01.png",
+      "git_blob_sha": "539991a5322101b40470bc86f7ae13e780184153",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/04-four-of-cups-v01.png",
+      "git_blob_sha": "6fc05372359a231343727f93ce037af64e6c4778",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/05-five-of-cups-v01.png",
+      "git_blob_sha": "dc62cfdb78dec3a0b49860e6916c0fd26c62b7aa",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/06-six-of-cups-v01.png",
+      "git_blob_sha": "8cb64eb713006c8a43ca5ed0963761adcd97a538",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/07-seven-of-cups-v01.png",
+      "git_blob_sha": "73cb30a80fc9621bca2727e41aab0d6f052070bc",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/08-eight-of-cups-v01.png",
+      "git_blob_sha": "5ddbabc302eacb43118ffb9de00349ba4bf149f9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/09-nine-of-cups-v01.png",
+      "git_blob_sha": "af1575c60e596398a6c1d42a0a9c613f3325257a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/10-ten-of-cups-v02.png",
+      "git_blob_sha": "dbcf6961f37d18f66592dc06a6e49a6b8b89de88",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/11-page-of-cups-v01.png",
+      "git_blob_sha": "deee83a9c5c82dd894951e3c78cce3a4a1584de0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/12-knight-of-cups-v01.png",
+      "git_blob_sha": "f6eed55448ec501b391149c4de61fd9909e83bed",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/13-queen-of-cups-v01.png",
+      "git_blob_sha": "7ca5d510ec7d512834ae145e8409267768cf17fb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/art/14-king-of-cups-v01.png",
+      "git_blob_sha": "773adf6f8b471ee4be22e728b240de392cac4903",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/01-ace-of-cups.png",
+      "git_blob_sha": "9a912ab3e9bfa6244d5f5d611e2b0721fce0dc84",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/02-two-of-cups.png",
+      "git_blob_sha": "1878a12cb714b1a92c0b5f7e182cc1cd8bb515c7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/03-three-of-cups.png",
+      "git_blob_sha": "bdb03b8656ca737fb090b33bde6f5c68f4ec10b5",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/04-four-of-cups.png",
+      "git_blob_sha": "829e90f039b2a27068a80b49f6635f5767dd957c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/05-five-of-cups.png",
+      "git_blob_sha": "0c9a4734eaa2dd87f9629b4907aa48ca4f6c6a5e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/06-six-of-cups.png",
+      "git_blob_sha": "67641dd771ad4e3f8f696f62cb91771fa1965519",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/07-seven-of-cups.png",
+      "git_blob_sha": "1063606a2da1a1a04000f58662bdcfd72ab23662",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/08-eight-of-cups.png",
+      "git_blob_sha": "99d8629ac4116962aecdfde0837558f2c4311b4e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/09-nine-of-cups.png",
+      "git_blob_sha": "40a4ad3b85f474db41b877418cc942315ddfaabf",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/10-ten-of-cups.png",
+      "git_blob_sha": "f1d69fdd3580e8b1098a8d5f4386f2abea520943",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/11-page-of-cups.png",
+      "git_blob_sha": "23c242242dfe000fb171f6bd5d78e15b8a6b1a1f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/12-knight-of-cups.png",
+      "git_blob_sha": "088c33d2ea81b6e750525ab32d888676fbddefaf",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/13-queen-of-cups.png",
+      "git_blob_sha": "d01265d99b299cf7b5be8dfc6116e4e8250aa7c1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/14-king-of-cups.png",
+      "git_blob_sha": "88b566b1ac2cd7bdd45da019188f97f6da2f9eba",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cards/card-back.png",
+      "git_blob_sha": "db702405b8ebe48caf0035523f9fc178fbb85d88",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/cups.json",
+      "git_blob_sha": "aacd22298793aa085d8dc786e3111880b4b8dd77",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/cups/fonts/IMFellEnglish-Regular.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/cups/fonts/IMFellEnglish-Regular.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/06_tarot/cups/fonts/LICENSE-NOTICE.txt",
+      "git_blob_sha": "a6a9b55b526d31a541238335eebbe5985353fea6",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/cups/fonts/LICENSE-NOTICE.txt",
+      "sha256": "2b4ec1f3729b0a9cbb150fd32440634d14bde1917c16a76c89e2a453e4e39527",
+      "bytes": 249
+    },
+    {
+      "path": "books/06_tarot/cups/fonts/OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/cups/fonts/OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "books/06_tarot/extras/choronzon/choronzon-the-dispersal-v01.png",
+      "git_blob_sha": "6ed80d6ad203443c7127bcb6caeb9c1c814fd268",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/extras/choronzon/choronzon-the-dispersal-v02.png",
+      "git_blob_sha": "6756b347f0d95b253d6751d5540c06e19d4f75d3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/extras/choronzon/choronzon.json",
+      "git_blob_sha": "005369ff0073fbae7b025194a83273025b7d8a43",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/inventory.json",
+      "git_blob_sha": "6006d779925d2370d87f258559733874ad6ef887",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/15-the-devil-native.png",
+      "git_blob_sha": "8c86d382f7c5f684f2c52339944ed47610c2b730",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/16-the-tower-native.png",
+      "git_blob_sha": "72f8412d827463411e10893998e7729475ec619e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/17-the-star-native.png",
+      "git_blob_sha": "e3729a1ddf7716d917dff9fd85486b81e7fee44c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/19-the-sun-native.png",
+      "git_blob_sha": "5fcf68b634cecb91fa1679b125661f07a6507973",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/bael-raster-reference-v03.png",
+      "git_blob_sha": "de2d17527c0b0e5caf51dbc39922afc4c05561db",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/choraz-raster-reference-v02.png",
+      "git_blob_sha": "16255b12e88b701acebd27845120dec0c62879ed",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/cut-keeper-raster-reference-v01.png",
+      "git_blob_sha": "5d7f68ed3fcdf58f171e7313032af29f4ba7ca1b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/fed-vessel-raster-reference-v01.png",
+      "git_blob_sha": "060f1ffbf7e48b6b1bd8eee8874dbcfb48f980fb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/figure-beneath-cord-raster-reference-v01.png",
+      "git_blob_sha": "083c67c161e99dcff11785feae849fd3d717c36d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/foras-raster-reference-v02.png",
+      "git_blob_sha": "f092d6ff7681c3355416d0278f8bbfb58f825de4",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/hora-and-tempus-raster-reference-v01.png",
+      "git_blob_sha": "cbab052f9ae66210a2363ef8e0f6e405a638c04f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/house-kept-in-abeyance-raster-reference-v01.png",
+      "git_blob_sha": "2a6073f07df6a05397be30b242f6ab7d976d3586",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/keeper-of-intervals-original-raster-reference-v01.png",
+      "git_blob_sha": "62b2009e76f5542bcf8568e05cff78c6377deb8b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/keeper-wearing-dial-raster-reference-v02.png",
+      "git_blob_sha": "428c1d5659121f5b552be8bb4f58d27ee5b4f516",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/measurer-of-absences-original-raster-reference-v01.png",
+      "git_blob_sha": "37478feab2b33a21deb1b0172be95c5a57fc5c51",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/open-inventory-raster-reference-v01.png",
+      "git_blob_sha": "1660a9e1d83d08f3bbf2e4c484a739b74a9cfb94",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/orobas-raster-reference-v01.png",
+      "git_blob_sha": "d77b9d5908d3a48c45b3dfd7ce9f19030f4b3ace",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/redacth-raster-reference-v01.png",
+      "git_blob_sha": "a3729eb256fd52b7b5eb680179499099ba5476aa",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/scriptorax-raster-reference-v01.png",
+      "git_blob_sha": "90404b41d1917f0521bb6f9c776e4fe44edda058",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/second-neck-raster-reference-v01.png",
+      "git_blob_sha": "029b89248689597c6ee6b53aa0fc6089e0ed5291",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/severion-raster-reference-v01.png",
+      "git_blob_sha": "b0210f0a6cc0f5a672d5528523df8b61acd47a93",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/art/twin-register-raster-reference-v01.png",
+      "git_blob_sha": "fdfac82f077334a148a211292f6858758875eff6",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/00-the-open-inventory.png",
+      "git_blob_sha": "71e9bda314182348555e102a3fa60d432ba4be2b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/01-the-operator.png",
+      "git_blob_sha": "4347e1ea8757beb465f67967f0411594eaa208d0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/02-the-veiled-record.png",
+      "git_blob_sha": "7193117662b7ad38376a269b5d2a51820ae2b768",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/03-the-fed-vessel.png",
+      "git_blob_sha": "e7480c79e5f0b54fe8bca7a38ecd41338c125b6f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/04-the-empty-seat.png",
+      "git_blob_sha": "c228e52447f60a3346327e4d348cc56e02731ff4",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/05-the-runbook.png",
+      "git_blob_sha": "b90f158572470d520c34dda83f174c5e3193533b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/06-the-two-watchmakers.png",
+      "git_blob_sha": "a11ce3fec4f81bb78c74029c0b7b5db1503160be",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/07-the-divided-horse.png",
+      "git_blob_sha": "11ddb67d1f14a64ac68e5b014b1a7f04c299409b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/08-the-unused-hand.png",
+      "git_blob_sha": "adb555b3aa58925e33f521c549320c8d73f0ba43",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/09-the-measurer-of-absences.png",
+      "git_blob_sha": "ee5bc087171e34627a706f543b7ad7c0416e6018",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/10-the-keeper-of-intervals.png",
+      "git_blob_sha": "231ba48c0a9c4d55b7800540c05f81381f3d115c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/11-the-balance.png",
+      "git_blob_sha": "ceb97d29e6afb40379fd0968c16c1751a2cbe233",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/12-the-house-in-abeyance.png",
+      "git_blob_sha": "1aa7481c2813c71969a94c17df762e54ee67be16",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/13-the-cut.png",
+      "git_blob_sha": "05a16a14e416a8496039b08223827fdf10d8fea3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/14-the-second-neck.png",
+      "git_blob_sha": "a35af7a6b5584d27d05bc39a0c482169b97c8b21",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/15-the-bond.png",
+      "git_blob_sha": "09e8e0c3cbba14ad266fda5beddfb61f37f217d1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/16-the-exposed-support.png",
+      "git_blob_sha": "d6e6d768b2d92d6703ef861dda7f802f1409caea",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/17-the-renewal.png",
+      "git_blob_sha": "9d79ad94614cc636693cb77154d0e54a602fc5fa",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/18-the-interval.png",
+      "git_blob_sha": "f6942fef50b95e2f3334ca644e409029e2ecb569",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/19-the-visible-ground.png",
+      "git_blob_sha": "283485a33a79561c007f50d0d4139ad68eb57e6d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/20-the-summons.png",
+      "git_blob_sha": "94ef6638653e03f7bb590b8449e85a6a2463e48b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/21-the-twin-register.png",
+      "git_blob_sha": "832112f5890253bf1d10eea3fded3fd50e78649e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/cards/22-card-back.png",
+      "git_blob_sha": "db702405b8ebe48caf0035523f9fc178fbb85d88",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/deck.json",
+      "git_blob_sha": "66c70e5e7a7edd1667d3876f75daa3b71ce5c7c0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/major-arcana/fonts/IMFellEnglish-Regular.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/major-arcana/fonts/IMFellEnglish-Regular.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/06_tarot/major-arcana/fonts/LICENSE-NOTICE.txt",
+      "git_blob_sha": "a6a9b55b526d31a541238335eebbe5985353fea6",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/major-arcana/fonts/LICENSE-NOTICE.txt",
+      "sha256": "2b4ec1f3729b0a9cbb150fd32440634d14bde1917c16a76c89e2a453e4e39527",
+      "bytes": 249
+    },
+    {
+      "path": "books/06_tarot/major-arcana/fonts/OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/major-arcana/fonts/OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/01-ace-of-pentacles-art-v01.png",
+      "git_blob_sha": "b3720dbe8e2eef00e932623f1555cf7e6711a1a7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/02-two-of-pentacles-art-v01.png",
+      "git_blob_sha": "bdb326d8093e2941f4d2371278db9fa0ea134c44",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/03-three-of-pentacles-art-v01.png",
+      "git_blob_sha": "2dfb44d60917b55444ca65808e8e2b59accb0ab9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/04-four-of-pentacles-art-v01.png",
+      "git_blob_sha": "5e49e44876bd5d866ef606473ee8c747629e01d9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/05-five-of-pentacles-art-v01.png",
+      "git_blob_sha": "a2ea47bd906f5e151996be849b8dca9b4dfdcce6",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/06-six-of-pentacles-art-v01.png",
+      "git_blob_sha": "27a853eaa2edcf30e6b2b4d0681d2253a1b0d26f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/07-seven-of-pentacles-art-v01.png",
+      "git_blob_sha": "95e3e19934b078ef6276b78aed9bec8ded57f353",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/08-eight-of-pentacles-art-v01.png",
+      "git_blob_sha": "984f78f610bd3be03b3edf18219c43804c2632e6",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/09-nine-of-pentacles-art-v01.png",
+      "git_blob_sha": "dd24562c291b15f2bf1ceb038fae42ca8e501b43",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/10-ten-of-pentacles-art-v01.png",
+      "git_blob_sha": "27551da524748a410af903e525ee509ea54f8314",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/11-page-of-pentacles-art-v01.png",
+      "git_blob_sha": "5cfe91684a3a49356ad3d326cd4698924f1f07c0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/12-knight-of-pentacles-art-v01.png",
+      "git_blob_sha": "8d549168cd62e5acfb96483363d5d28989f9f027",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/13-queen-of-pentacles-art-v01.png",
+      "git_blob_sha": "197be4630827389bc1d8277de606a010a76ab683",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/art/14-king-of-pentacles-art-v01.png",
+      "git_blob_sha": "3a34992376a48acf127693a69933c3419661e02c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/01-ace-of-pentacles.png",
+      "git_blob_sha": "1d5ffc7a2e38169dd110e162a2e7e9ed95e50e59",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/02-two-of-pentacles.png",
+      "git_blob_sha": "92316402128023aa7fcab47e8c6e5dde69f90d0d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/03-three-of-pentacles.png",
+      "git_blob_sha": "c0f030a5eefdc6cccc0c0029570740b066c06fb4",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/04-four-of-pentacles.png",
+      "git_blob_sha": "701d2ab0b8ad969d9b708c7f986b0e75a0214315",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/05-five-of-pentacles.png",
+      "git_blob_sha": "709448f36e29eec8002c993d422ec35fdb388c35",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/06-six-of-pentacles.png",
+      "git_blob_sha": "6cb2db0a6086e53eec6728b1288f97e9ac9d4225",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/07-seven-of-pentacles.png",
+      "git_blob_sha": "33f1d240e50dd59f647f8c0645b9e3f248e1ead9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/08-eight-of-pentacles.png",
+      "git_blob_sha": "bbdf1e88fa25a2c69c07488181709fbed6510aa3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/09-nine-of-pentacles.png",
+      "git_blob_sha": "6d4c07660ae1e77ab59b41ebe8f752537301bcd7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/10-ten-of-pentacles.png",
+      "git_blob_sha": "658234d1e773d79bd7a2a91e7d2d578f6b8485f1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/11-page-of-pentacles.png",
+      "git_blob_sha": "c06a33494f869c453fdf97382b64d883cccb8ef9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/12-knight-of-pentacles.png",
+      "git_blob_sha": "6589dd275023d7ed7c9d5e200cb60efabcad7f7a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/13-queen-of-pentacles.png",
+      "git_blob_sha": "8fbf49bdb6895baf54bd3a05a9c472dca2cc7a83",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/14-king-of-pentacles.png",
+      "git_blob_sha": "c64c0ffe28910a65416e81496f53de23b34aa591",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/cards/card-back.png",
+      "git_blob_sha": "fc0f4946d7b92cbb89e34d3da902e69269a6af65",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/pentacles/delivered/pentacles-delivered.json",
+      "git_blob_sha": "b2da33d2a6e69ea9a788aee2a7af6de8a818ed1b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/01-ace-of-swords-v01.png",
+      "git_blob_sha": "37f0f41a572cf315fa7c160686694553f7bf8344",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/02-two-of-swords-v01.png",
+      "git_blob_sha": "dff5d29c2c091c98f363af8b7a2717aeac44de10",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/03-three-of-swords-v03.png",
+      "git_blob_sha": "e8647250bc4337cae495105b75daf48d627828a7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/04-four-of-swords-v01.png",
+      "git_blob_sha": "e25e23ded1e232462a75cd720db9f173d4c61e4b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/05-five-of-swords-v02.png",
+      "git_blob_sha": "fb982a8499e6f46527be8ddc0dd3428d9c674ab6",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/06-six-of-swords-v02.png",
+      "git_blob_sha": "a179dac03336e32833c48374bbae4385c345af47",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/07-seven-of-swords-v02.png",
+      "git_blob_sha": "03f01eb6228c438b79903deb3b667845f704fff5",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/08-eight-of-swords-v01.png",
+      "git_blob_sha": "03371f6f959c339e1e496aa6380d3fce510060b3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/09-nine-of-swords-v02.png",
+      "git_blob_sha": "21796fa08032a959b2e1061fb74aad2bf207560a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/10-ten-of-swords-v03.png",
+      "git_blob_sha": "0ebd98d418a784f1f3e96e2ce89f2866949175e5",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/11-page-of-swords-v01.png",
+      "git_blob_sha": "425ab7d67f67629c8f7d62a587430041bf5ef148",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/12-knight-of-swords-v01.png",
+      "git_blob_sha": "c604b899850541ffb2f31cff7e5741f70dbf3e73",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/13-queen-of-swords-v01.png",
+      "git_blob_sha": "112320b78e715228b05841890f58aadbe5a3f6ff",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/art/14-king-of-swords-v01.png",
+      "git_blob_sha": "5737757fdef0b5c4bd5c1a53dcbcd3995cc2080f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/01-ace-of-swords.png",
+      "git_blob_sha": "cce1ff1734c546ae6751fe872ae5d91e398f2711",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/02-two-of-swords.png",
+      "git_blob_sha": "2d79bfe6c4abfe26615084d423d64c088dddaaeb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/03-three-of-swords.png",
+      "git_blob_sha": "7b87fd9ae1436f5fc5fd467026c7953140f5dfdc",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/04-four-of-swords.png",
+      "git_blob_sha": "a37c1199af155ab2dc28ab72c00ff4034330d71a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/05-five-of-swords.png",
+      "git_blob_sha": "329483010cc476fd5ac73dca7d49eaa365d38c35",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/06-six-of-swords.png",
+      "git_blob_sha": "0d0060337d88e4b72ce776237eeb3a5cb6c0cdd5",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/07-seven-of-swords.png",
+      "git_blob_sha": "c7842cdc1d7885baffe0367a31ad00ee6b25178d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/08-eight-of-swords.png",
+      "git_blob_sha": "9adc235cfc79cb187166f7a32f9463ad4bb514f1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/09-nine-of-swords.png",
+      "git_blob_sha": "e63a657050e5c45f63009f67c02d7cf9f8342240",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/10-ten-of-swords.png",
+      "git_blob_sha": "4d677845a5893b555b573213d03fe31934866885",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/11-page-of-swords.png",
+      "git_blob_sha": "45cb3fee411f959f3c19444b285b3754befe4fdf",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/12-knight-of-swords.png",
+      "git_blob_sha": "d40ad283d9f3f8d390e485ab06095c8b25df56bc",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/13-queen-of-swords.png",
+      "git_blob_sha": "9094f537b1f616f3166aa61e0c958585f7c0bdcb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/14-king-of-swords.png",
+      "git_blob_sha": "bf3a658a1ade681b693ef047de19e971964fcd75",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/cards/card-back.png",
+      "git_blob_sha": "db702405b8ebe48caf0035523f9fc178fbb85d88",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/swords/fonts/IMFellEnglish-Regular.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/swords/fonts/IMFellEnglish-Regular.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "books/06_tarot/swords/fonts/LICENSE-NOTICE.txt",
+      "git_blob_sha": "a6a9b55b526d31a541238335eebbe5985353fea6",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/swords/fonts/LICENSE-NOTICE.txt",
+      "sha256": "2b4ec1f3729b0a9cbb150fd32440634d14bde1917c16a76c89e2a453e4e39527",
+      "bytes": 249
+    },
+    {
+      "path": "books/06_tarot/swords/fonts/OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/06_tarot/swords/fonts/OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "books/06_tarot/swords/swords.json",
+      "git_blob_sha": "9083b9ed58c922d168963b1b18f51ed729299ea3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/01-ace-of-wands-art-v01.png",
+      "git_blob_sha": "5b262a6881447aa628fe1fbb410b93a34dd4e9a3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/02-two-of-wands-art-v01.png",
+      "git_blob_sha": "402702f778949f6b93e168af3d982b75bcfc19ba",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/03-three-of-wands-art-v01.png",
+      "git_blob_sha": "416092290d3b2fa272081725cadccae473ee56c1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/04-four-of-wands-art-v01.png",
+      "git_blob_sha": "cc183106f33659d9ccb2ef331e5a1fc1ab7c5bd9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/05-five-of-wands-art-v01.png",
+      "git_blob_sha": "d4d49a9a25f0d0a3d1e78bcfe90e93058fbb9b57",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/06-six-of-wands-art-v01.png",
+      "git_blob_sha": "ed2ddca7187dc295e0adb68433c50bb14826c255",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/07-seven-of-wands-art-v01.png",
+      "git_blob_sha": "759940350e2bbf4344b9d3ffb626acd60068f862",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/08-eight-of-wands-art-v01.png",
+      "git_blob_sha": "e714587858ce668de9f41572fc0f7fbdbe162328",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/09-nine-of-wands-art-v01.png",
+      "git_blob_sha": "878d00beb9dfe569f17a79bbb0de68667574fbf9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/10-ten-of-wands-art-v01.png",
+      "git_blob_sha": "c27cad1c6a7617b69408054c1537baf8cede95d0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/11-page-of-wands-art-v01.png",
+      "git_blob_sha": "bb5d226eed490c1cc04186c2d4e66c875953fe06",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/12-knight-of-wands-art-v01.png",
+      "git_blob_sha": "d0c111443c01277641275ec6483b1a8aa685d95e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/13-queen-of-wands-art-v01.png",
+      "git_blob_sha": "e6f6b9af3b8701ebfc6fb6196edf3fecc79524db",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/art/14-king-of-wands-art-v01.png",
+      "git_blob_sha": "5859b4aaa43197530222400b73d4c4fdd7ccdcc8",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/01-ace-of-wands.png",
+      "git_blob_sha": "41f1e65d5578329205969f533822a0d7f3f72c42",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/02-two-of-wands.png",
+      "git_blob_sha": "f49a1375257e876a2848b81db3cc65108175c248",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/03-three-of-wands.png",
+      "git_blob_sha": "12bd5138c3ac3d4d7e4ddb43ea53720579bc353f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/04-four-of-wands.png",
+      "git_blob_sha": "1e7426697251c2be6d0e31c9fdac62138a6d429c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/05-five-of-wands.png",
+      "git_blob_sha": "8c83e04cd926c2eb25267e160fd54a978779d872",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/06-six-of-wands.png",
+      "git_blob_sha": "d701815f5ea566208156bccd54447dc7d4cbad07",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/07-seven-of-wands.png",
+      "git_blob_sha": "f1e0b74527ceea975309998a3c193fb27b9102ba",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/08-eight-of-wands.png",
+      "git_blob_sha": "e5b17332543bb860d9481c1f872b9f80f94f1ce3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/09-nine-of-wands.png",
+      "git_blob_sha": "4371bb373b3b1db2b4fc6abcbb1606a68c8cc5de",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/10-ten-of-wands.png",
+      "git_blob_sha": "9f4b6850fd7b07fa2914fdd70d4a2a8359350ba9",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/11-page-of-wands.png",
+      "git_blob_sha": "d827ef5636448029b8db93501043ca5d411f3278",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/12-knight-of-wands.png",
+      "git_blob_sha": "2f2f7d1a69798d4917ae4e73384bf850c2b93079",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/13-queen-of-wands.png",
+      "git_blob_sha": "a205a74e6a1dc18691dc7ffb9da7ae22b1d420f3",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/14-king-of-wands.png",
+      "git_blob_sha": "746d195d68ae2248f70c0af2bb0fd3c5265b5969",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/cards/card-back.png",
+      "git_blob_sha": "fc0f4946d7b92cbb89e34d3da902e69269a6af65",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/delivered/wands-delivered.json",
+      "git_blob_sha": "434363017d45b394f571f514411dd0d98e4538d1",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/06_tarot/wands/draft/wands.json",
+      "git_blob_sha": "2cffa6cdaecfbcbf7e380e285406fe1613d1b4b4",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/README.md",
+      "git_blob_sha": "58a9f9d50eb073b8225dcc8103b75d58c3eda878",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/assets/figures.json",
+      "git_blob_sha": "f418e6c42c8b2163a159060d40ea9abd952f9d5c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/assets/the-empty-cabinet-prompt.txt",
+      "git_blob_sha": "fbb0b2547b44a5d7da6b6c43caa9ff3847635733",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/assets/the-empty-cabinet.jpg",
+      "git_blob_sha": "004ea70975ad0b8ddb4e7f64da86efd83e71d615",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/assets/the-open-workshop-prompt.txt",
+      "git_blob_sha": "40cdd308ed2244a9bf0e8985a6c76c8527479f12",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/assets/the-open-workshop-v02-prompt.txt",
+      "git_blob_sha": "667c4551bab664bc33ed1da2c195c75c2195644b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/assets/the-open-workshop-v02.png",
+      "git_blob_sha": "3aec575712d9a14d657c5e382ee2985fddadf6c5",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/assets/the-open-workshop.jpg",
+      "git_blob_sha": "f0adac09d5a21f32798035553aa28770d6a652a0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/build.py",
+      "git_blob_sha": "b499995a60d5deaecaaee4c45d35a0092ffac981",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/build.py",
+      "sha256": "2557b2e679137b89086a03da3cc1833632fed7a70b5edc38e77340b7f3823ec1",
+      "bytes": 17011
+    },
+    {
+      "path": "books/07_septimus/clausa/README.md",
+      "git_blob_sha": "6b4f73f614d5b7046847add83b5ac5b1a75ee707",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/README.md",
+      "sha256": "5d26ff108e9eada074dc099d2ad9ff2b367d3a14a31095c084007099dc98c087",
+      "bytes": 3256
+    },
+    {
+      "path": "books/07_septimus/clausa/REGULA.md",
+      "git_blob_sha": "b15383de37b074f7995a1493340e4ec909598c99",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/REGULA.md",
+      "sha256": "d05858882966d1b69ddc258f61439c8dc957b120c59d71b92fdf9c26c77c32b5",
+      "bytes": 7320
+    },
+    {
+      "path": "books/07_septimus/clausa/TABULA.md",
+      "git_blob_sha": "f166e124b7c73935851e2cf4ea1ae8b53641596c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/TABULA.md",
+      "sha256": "e5f315c9860de51866bc514d594e5b5eeb1f03c27c9d190c08b4ca84c9785d68",
+      "bytes": 2012
+    },
+    {
+      "path": "books/07_septimus/clausa/build.py",
+      "git_blob_sha": "9f5a35585babbe9c3d93d06746fb5ff7e47afd50",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/build.py",
+      "sha256": "b919e99a68953e1ef10b0152a1c3f6a836dd7db6b277db5a0d7c1a17be2d7f25",
+      "bytes": 9696
+    },
+    {
+      "path": "books/07_septimus/clausa/plates/nota-clausa-1.svg",
+      "git_blob_sha": "30d7a83fb56233477b18e0912affe9153e33df6c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/plates/nota-clausa-1.svg",
+      "sha256": "e39f07a3800e53b7d5a06c0ec0605100aaa460068f2ae0e859296b8355c3d29d",
+      "bytes": 820579
+    },
+    {
+      "path": "books/07_septimus/clausa/plates/nota-clausa-2.svg",
+      "git_blob_sha": "c21b0c94d40e5c2251e56f406d67aef027c12d34",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/plates/nota-clausa-2.svg",
+      "sha256": "d2d4f1808f7ef21d770ecea29694b5a0dfc1f0c27f45b69e520fefba6c58cbb3",
+      "bytes": 819682
+    },
+    {
+      "path": "books/07_septimus/clausa/plates/nota-clausa-3.svg",
+      "git_blob_sha": "7cbeb6df2845c9026a9ec72a60206a64e68315bc",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/plates/nota-clausa-3.svg",
+      "sha256": "4e12a9ab29c18ec55ca435c4c3b9b2f5b4c80d24196f646a0891c4b86eb5f601",
+      "bytes": 819065
+    },
+    {
+      "path": "books/07_septimus/clausa/plates/nota-clausa-4.svg",
+      "git_blob_sha": "21742b963e9309d0203409bf7c4d336d879541bc",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/plates/nota-clausa-4.svg",
+      "sha256": "3adae0a8df27399278d96acca4c4a9a9d354ccc426cdda3018ea45aec4473813",
+      "bytes": 819550
+    },
+    {
+      "path": "books/07_septimus/clausa/plates/nota-clausa-5.svg",
+      "git_blob_sha": "897d8f080607d76329ae4beb50d937cb828db831",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/plates/nota-clausa-5.svg",
+      "sha256": "7b12114844fa2b9cd1b1b3cc707b32ab3485cf325318bc52b8c9e5e80c5fc9d7",
+      "bytes": 823647
+    },
+    {
+      "path": "books/07_septimus/clausa/plates/nota-clausa-6.svg",
+      "git_blob_sha": "e5b016eb1fca727cf233f4fd2bbc9ace347004f7",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/plates/nota-clausa-6.svg",
+      "sha256": "fd3f6881aa08a3ad3cc96b298cfb56a9a26586c25783419e42bf5d096a5ffbc7",
+      "bytes": 819269
+    },
+    {
+      "path": "books/07_septimus/clausa/plates/nota-clausa-7.svg",
+      "git_blob_sha": "a257ca67eba534da0e64ab90ebb8764e478064fb",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/plates/nota-clausa-7.svg",
+      "sha256": "1d5a663a9d4921f1494ff20dfdad95988d44d57ef8001c4bdb2f7e3196c714f6",
+      "bytes": 825760
+    },
+    {
+      "path": "books/07_septimus/clausa/validate.py",
+      "git_blob_sha": "ac4ee0dfd13a19718668321f3938238d2184bc30",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/clausa/validate.py",
+      "sha256": "ac5a757aedd2faaaec8b3f9bd0f1da37b290ba9d476c38daffd892d82d02f1b0",
+      "bytes": 3279
+    },
+    {
+      "path": "books/07_septimus/manuscript/clavis.md",
+      "git_blob_sha": "608a781be65a26f56c42e0cc3c3b6c198f6af650",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/manuscript/de-vinculis.md",
+      "git_blob_sha": "16f64566215edc27e39f64d924c52e6c6f34b39b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/manuscript/references.json",
+      "git_blob_sha": "1cd9f1d658173af241e4a2cfd474f424e74fec2d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "books/07_septimus/semiphoras/semiphoras.py",
+      "git_blob_sha": "dc7e251e0a38ed1c296e522171c70d45cfd8717a",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/semiphoras/semiphoras.py",
+      "sha256": "d488dc0f4bf088d7fc3b4d47827b37dbeb15a1edefd82eb82d3ce6c154e80c34",
+      "bytes": 4456
+    },
+    {
+      "path": "books/07_septimus/tests/test_semiphoras.py",
+      "git_blob_sha": "19f78f5c0f4b7470b6395a26e618be825a8ffc2e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/tests/test_semiphoras.py",
+      "sha256": "a9f01b7e4108de2eb2c0106027ba2712bd4fd2e9a0b98c0f00203542cb88f34b",
+      "bytes": 1462
+    },
+    {
+      "path": "books/07_septimus/validate.py",
+      "git_blob_sha": "ff210e03b22c1bc6285a9e6937a687ae6afd9256",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/books/07_septimus/validate.py",
+      "sha256": "5d0228c97503846fdcdb7e69008069084b7c456cb6323c5a25bdd0f3e0d1b4b2",
+      "bytes": 4782
+    },
+    {
+      "path": "common/fonts/Cedarville-Cursive.ttf",
+      "git_blob_sha": "61a7b8273bfee98693103a588a0c66ec73d3ebc2",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/Cedarville-Cursive.ttf",
+      "sha256": "5f86d71d08a68605d5912b9bcb639a060ce9c0debd7e0b715f5e268d4a4bc317",
+      "bytes": 69436
+    },
+    {
+      "path": "common/fonts/CormorantGaramond-Italic[wght].ttf",
+      "git_blob_sha": "0d914e7663b7a1429d06ec60a5c5bb026031a2ef",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/CormorantGaramond-Italic[wght].ttf",
+      "sha256": "0f48ea6abb2084537854f7174c470991a463b13036309e3b50a81511611c530d",
+      "bytes": 715644
+    },
+    {
+      "path": "common/fonts/CormorantGaramond[wght].ttf",
+      "git_blob_sha": "d992a83ce525c330fad3a19087746bcb2dc038ee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/CormorantGaramond[wght].ttf",
+      "sha256": "b20b7d9626dd956b2c5e558692ad328b1f19e3275e2782db4fa07670d83f35e0",
+      "bytes": 1195560
+    },
+    {
+      "path": "common/fonts/CormorantSC-Medium.ttf",
+      "git_blob_sha": "17eed98943cf625359680c08c190598370f669ac",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/CormorantSC-Medium.ttf",
+      "sha256": "7ec02e6b6c20697fd8d5038349452b6f3c628c16440a04156650d42e3fef89bf",
+      "bytes": 762320
+    },
+    {
+      "path": "common/fonts/CutiveMono-Regular.ttf",
+      "git_blob_sha": "dd7c2474d901c22fa035c586c9a92d1b9e51b8a8",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/CutiveMono-Regular.ttf",
+      "sha256": "96a36a00079058684982f61ee334323f8b501d7b68dcecd6049a4f9177e3a62c",
+      "bytes": 80004
+    },
+    {
+      "path": "common/fonts/DMSerifDisplay-Italic.ttf",
+      "git_blob_sha": "5369414a2df59bf462a88aa0f04a81ff18f1eb80",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/DMSerifDisplay-Italic.ttf",
+      "sha256": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45",
+      "bytes": 71208
+    },
+    {
+      "path": "common/fonts/DMSerifDisplay-Regular.ttf",
+      "git_blob_sha": "bc5ed0cea657f264ea9c2a11a54da62ed619c5da",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/DMSerifDisplay-Regular.ttf",
+      "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616",
+      "bytes": 76580
+    },
+    {
+      "path": "common/fonts/EBGaramond-Italic[wght].ttf",
+      "git_blob_sha": "f9ad996001c8ee72fd43b4b8e67c8924b7f615b1",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/EBGaramond-Italic[wght].ttf",
+      "sha256": "bba2c4499c93c9612b90b9825d32b07da52fce2fe57562a1eb6b833553f93c4e",
+      "bytes": 754468
+    },
+    {
+      "path": "common/fonts/EBGaramond[wght].ttf",
+      "git_blob_sha": "52d34b86ec20977f222ce37e8158e6b3002c0a31",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/EBGaramond[wght].ttf",
+      "sha256": "ef9512f92f6d579e5dc75af59a5a4b1b8b47d2eda89e00b954d44520e5369027",
+      "bytes": 851176
+    },
+    {
+      "path": "common/fonts/EMSNixish.svg",
+      "git_blob_sha": "6710f2b80ff6ce82fd1278c0258cf8a039b4f757",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/EMSNixish.svg",
+      "sha256": "b4f581939e11d03710b56a4f81baa38772566a00e02a57acbafbbeb4d455b83e",
+      "bytes": 56860
+    },
+    {
+      "path": "common/fonts/HomemadeApple-Regular.ttf",
+      "git_blob_sha": "bea3c3094de8340f5287e40ef84fe7f670e06f2e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/HomemadeApple-Regular.ttf",
+      "sha256": "dd1baaca3cde1b1f8415aed3b0aea6808655c9d9ca5a99c7282d9accc16c1a58",
+      "bytes": 110004
+    },
+    {
+      "path": "common/fonts/IBMPlexMono-Italic.ttf",
+      "git_blob_sha": "d7f69134614ebdcaa10ebd36b0be1a44a035e157",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IBMPlexMono-Italic.ttf",
+      "sha256": "3362fc791b0652193328b862c1c5f23a789bc7288b1617fa63302f88689a2a34",
+      "bytes": 143920
+    },
+    {
+      "path": "common/fonts/IBMPlexMono-Medium.ttf",
+      "git_blob_sha": "33c546f68b6007a45a3f10e845523abb2db25399",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IBMPlexMono-Medium.ttf",
+      "sha256": "a9b4c49bb299e05b5f6c481e7fb5e78943d2793249a0c8874ab574a2d1ea6755",
+      "bytes": 136704
+    },
+    {
+      "path": "common/fonts/IBMPlexMono-Regular.ttf",
+      "git_blob_sha": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580
+    },
+    {
+      "path": "common/fonts/IMFeENit28P.ttf",
+      "git_blob_sha": "d9afa7e097d525cefa294f2575efc4bef66e1dda",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IMFeENit28P.ttf",
+      "sha256": "47cd75dce54b1f2e0831359d22d5e688f519d68ae45706b664fd310fd0e3ccf7",
+      "bytes": 202368
+    },
+    {
+      "path": "common/fonts/IMFeENrm28P.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IMFeENrm28P.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "common/fonts/IMFeENsc28P.ttf",
+      "git_blob_sha": "c97d4a0748328052055f42ab27c0659981ce8be7",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IMFeENsc28P.ttf",
+      "sha256": "102324fb5434bb5da7963533426b0ad44c85bbc9e7755067535c9d11464a176b",
+      "bytes": 183932
+    },
+    {
+      "path": "common/fonts/IMFePIit28P.ttf",
+      "git_blob_sha": "401eb519e020610d962aa169d73c6bdcff3fddc8",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IMFePIit28P.ttf",
+      "sha256": "e09a00654b5dd266aee743c0c43d129c8404a2d5e0ebf27e5a0e472bd1900b8d",
+      "bytes": 244584
+    },
+    {
+      "path": "common/fonts/IMFePIrm28P.ttf",
+      "git_blob_sha": "ab4c10f69c0704fcf82fb40b305e4feb83dba542",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IMFePIrm28P.ttf",
+      "sha256": "f65e54016dfab4222ba552cfb82260b14a7df6527cce66430f5f66022addb052",
+      "bytes": 216968
+    },
+    {
+      "path": "common/fonts/IMFePIsc28P.ttf",
+      "git_blob_sha": "4827ba2e96128e6774bbc78b5730d43129a35068",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IMFePIsc28P.ttf",
+      "sha256": "7fc01c056b20956bf2e84375340a6274332b67f7845cbbb479fe0b90b41f845d",
+      "bytes": 198012
+    },
+    {
+      "path": "common/fonts/IMFellEnglish-Regular.ttf",
+      "git_blob_sha": "275d754ed6be5d26e37c6ccdb4934a0930dcbe3f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/IMFellEnglish-Regular.ttf",
+      "sha256": "fe9705bbde51af802719246d4608d08d37bde956ab99d9a590da996a5221a24c",
+      "bytes": 194992
+    },
+    {
+      "path": "common/fonts/JustMeAgainDownHere.ttf",
+      "git_blob_sha": "10a4a549f6ff0546a6767fda387041466bf91fd8",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/JustMeAgainDownHere.ttf",
+      "sha256": "0412aa1e460666d339738991b48e9f4bd51e10b6f04e2e1341fce4d2b3244c31",
+      "bytes": 72060
+    },
+    {
+      "path": "common/fonts/Kalam-Light.ttf",
+      "git_blob_sha": "cc5fd24ae151bda2cdb8b47477435e5b4a0762fd",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/Kalam-Light.ttf",
+      "sha256": "2b8f2c0208d397a1823688783da3317d6af18ea007a9a1b56ddb17e27820507e",
+      "bytes": 437512
+    },
+    {
+      "path": "common/fonts/Kalam-Regular.ttf",
+      "git_blob_sha": "0c956a29348e69bff24a1ae8952fd0b42569311c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/Kalam-Regular.ttf",
+      "sha256": "57cecb63d4608019371954274ae1d8c397764debd5b19d4a33c1efa4dc923c0b",
+      "bytes": 427360
+    },
+    {
+      "path": "common/fonts/LaBelleAurore.ttf",
+      "git_blob_sha": "df0b59ef27b8bb8e315cbf558a395469109038d6",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/LaBelleAurore.ttf",
+      "sha256": "ed67462999e05f0cdac92f686374661e4d68c56fdcd7d05725c6df7b41eabd2a",
+      "bytes": 59364
+    },
+    {
+      "path": "common/fonts/NanumPenScript-Regular.ttf",
+      "git_blob_sha": "565747d0573126bb057d0675151c894bf019d7a5",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/NanumPenScript-Regular.ttf",
+      "sha256": "6f0d1ab29c7894010dc88831fb7a0a51edb79136e450344183de5b1a8b52bd43",
+      "bytes": 3201664
+    },
+    {
+      "path": "common/fonts/NothingYouCouldDo.ttf",
+      "git_blob_sha": "5ff49fb944e0df19d6a68dea53d2c43c69141e77",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/NothingYouCouldDo.ttf",
+      "sha256": "1daf8cf79076bf59c5a9117b5efd6ecea35e57a05ef127fe4f95b072b8a5245d",
+      "bytes": 34920
+    },
+    {
+      "path": "common/fonts/OFL-IMFellEnglish.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/OFL-IMFellEnglish.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "common/fonts/ReenieBeanie.ttf",
+      "git_blob_sha": "e910d08d2c3f0c19788f96f3ef5b87ee003d373e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/ReenieBeanie.ttf",
+      "sha256": "0ea608aa325bf9e11c9590cc0b63dcf7cd215e270784f1ebbe6fad4927b31ff8",
+      "bytes": 147036
+    },
+    {
+      "path": "common/fonts/SpecialElite-Regular.ttf",
+      "git_blob_sha": "6654876f95f11cb2b55c7c4254727ef68dbea74c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/SpecialElite-Regular.ttf",
+      "sha256": "a776fcb4ceb8bdf03e2967688ebdad42680de5b91a7e62c17e718ae212d14bc4",
+      "bytes": 166180
+    },
+    {
+      "path": "common/fonts/Spectral-Italic.ttf",
+      "git_blob_sha": "99d6c2def129dea2daa47652c2168c271c7a59a7",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/Spectral-Italic.ttf",
+      "sha256": "7ec97244259db4008c4b1224c7914e5371c797c0044af9d85c2d761ba0e5f787",
+      "bytes": 270468
+    },
+    {
+      "path": "common/fonts/Spectral-Medium.ttf",
+      "git_blob_sha": "77420e8ea8155bd3a36960a94d6edd1fcc0e3661",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/Spectral-Medium.ttf",
+      "sha256": "f385bc588599c879112272711d4acecc126674009d747a27284f59e93a240e83",
+      "bytes": 272920
+    },
+    {
+      "path": "common/fonts/Spectral-Regular.ttf",
+      "git_blob_sha": "25a6c47f8050e4ea3c9713a02a4843a8d6c503d5",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/Spectral-Regular.ttf",
+      "sha256": "c89021dc20720c8d0dcf40b0b2f6e00c13665fa8041717f581396f51b8c78f5d",
+      "bytes": 261088
+    },
+    {
+      "path": "common/fonts/SpectralSC-Medium.ttf",
+      "git_blob_sha": "221830a07d0e103f167e1a15f506bad0b14f979e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/SpectralSC-Medium.ttf",
+      "sha256": "68169569f117fd5aa62dc443cc99683a492922b00fdc3be6df7ccf59dadd8418",
+      "bytes": 272768
+    },
+    {
+      "path": "common/fonts/SpectralSC-Regular.ttf",
+      "git_blob_sha": "6a1724d4b1a842d8176cf007724b2b7ec3a43c3c",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/SpectralSC-Regular.ttf",
+      "sha256": "11b89ee8eff243c4068a9fc105650f8d90005b288f90c98c6d40fecd85a0306d",
+      "bytes": 260936
+    },
+    {
+      "path": "common/fonts/SueEllenFrancisco-Regular.ttf",
+      "git_blob_sha": "a4217a825ae82db452a491b1c3a17632523b1d08",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/SueEllenFrancisco-Regular.ttf",
+      "sha256": "d6d72e046e8e92f659eacfb7457cf7e1f2142c112c3d8c43c0b5a3904a5c8621",
+      "bytes": 60728
+    },
+    {
+      "path": "common/fonts/UnifrakturMaguntia-Book.ttf",
+      "git_blob_sha": "6429ce25445be1568534f5bd7f2b42f42fb6ff17",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/UnifrakturMaguntia-Book.ttf",
+      "sha256": "d64afc0547059dd2e4a78da48bda0aba0a9901be58c7f8c201a8b2b6b4492cc8",
+      "bytes": 88508
+    },
+    {
+      "path": "common/fonts/WaitingfortheSunrise.ttf",
+      "git_blob_sha": "ef89efdaae560c70678ede2da5ba61bf8826dcdb",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/WaitingfortheSunrise.ttf",
+      "sha256": "ac74e70390f5b1be6927c1e079bd6143821a362550b264c5eb7edde34f0899f4",
+      "bytes": 59240
+    },
+    {
+      "path": "common/fonts/Zeyada.ttf",
+      "git_blob_sha": "47620f900bbda00eb087ca56478d400e665af6c1",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/Zeyada.ttf",
+      "sha256": "09f23d0d78b6e166ddb8480793bb550ab4c2aaf6602eda47a394fee93d2a9667",
+      "bytes": 63064
+    },
+    {
+      "path": "common/fonts/licenses/ebgaramond-OFL.txt",
+      "git_blob_sha": "c1ec5e1818415eab6f8fca95a230af477d64eb61",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/licenses/ebgaramond-OFL.txt",
+      "sha256": "0985066662eb755ed3683ae5482a81a9195b49ce3f7e165cc2388b3dbece7dd7",
+      "bytes": 4398
+    },
+    {
+      "path": "common/fonts/licenses/ibmplexmono-OFL.txt",
+      "git_blob_sha": "01497cc60dc7de39750e702c395530760cb014cf",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/licenses/ibmplexmono-OFL.txt",
+      "sha256": "37784b44044a4ffd9256702b7c0982c37e5c8887ba90c6dca0479aea93dc898d",
+      "bytes": 4363
+    },
+    {
+      "path": "common/fonts/licenses/imfellenglish-OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/licenses/imfellenglish-OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "common/fonts/licenses/imfellenglishsc-OFL.txt",
+      "git_blob_sha": "1bf2ab010ece4b4baa3aa63b68829278e9e52287",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/licenses/imfellenglishsc-OFL.txt",
+      "sha256": "8548dead93b1e3272e6f107452f8f3698627b21172b91f7b0fbd505c394bd6d2",
+      "bytes": 4359
+    },
+    {
+      "path": "common/fonts/licenses/sueellenfrancisco-OFL.txt",
+      "git_blob_sha": "06117d9dfe08e8ac9818115cc1898c05a197c27f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/licenses/sueellenfrancisco-OFL.txt",
+      "sha256": "0e441ae9f18ad0c294cc5b6ae3974c2db1614cab220598578b1b58c4cc334485",
+      "bytes": 4362
+    },
+    {
+      "path": "common/fonts/static/EBGaramond-Italic400.ttf",
+      "git_blob_sha": "9e2ccfb1df49224fdba3ca4ba2b8eb78838b1db3",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/static/EBGaramond-Italic400.ttf",
+      "sha256": "d3b99e7b6b31393dbd551f221011c2bbf4a67c8d882cdfce93ec1fd7a7b919b3",
+      "bytes": 463492
+    },
+    {
+      "path": "common/fonts/static/EBGaramond-Regular400.ttf",
+      "git_blob_sha": "ac096d6334bb7f18db723d167feec981abbb08ee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/fonts/static/EBGaramond-Regular400.ttf",
+      "sha256": "afcf4e8a8d51aa9b7ade98b8c3aedb5f69bf16eed93c32a5eec08008246287bc",
+      "bytes": 518872
+    },
+    {
+      "path": "common/geometry/core.py",
+      "git_blob_sha": "9479a29a25b8fb4feb95597a660159f0a497dfee",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/geometry/core.py",
+      "sha256": "c535401071c41170e77516d2ae0d17e1ef5af99d75ed51fc56d7f151fd6ce4ee",
+      "bytes": 12270
+    },
+    {
+      "path": "common/geometry/marks.py",
+      "git_blob_sha": "d00d3ff509a4f8b2e147dd9c816d2f40e24cd964",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/geometry/marks.py",
+      "sha256": "0bd011a2e1fe72c383eeab71350684d45ebb7cfd3cb017f64f25961ddf149e1b",
+      "bytes": 24948
+    },
+    {
+      "path": "common/geometry/tx.py",
+      "git_blob_sha": "180fb87ea1bc072a6dc737fcf7ed15fe7a36154f",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/geometry/tx.py",
+      "sha256": "d7606c02e1a6101dcc7fc886d9e89cd2217a130123a4f82d913ac0547ea1a2c3",
+      "bytes": 4696
+    },
+    {
+      "path": "common/illum/figure_growth.py",
+      "git_blob_sha": "777e49830ebfc70b4d0baff71cf1fda6f5397bf3",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/illum/figure_growth.py",
+      "sha256": "fb37573147914e2eabc99d3e33c5fb4c4a4cf424bfa2dc6d1651774001f3f14f",
+      "bytes": 22117
+    },
+    {
+      "path": "common/illum/furniture.py",
+      "git_blob_sha": "7f56a6b856138ec754eb18e11be41c1ff893d06d",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/illum/furniture.py",
+      "sha256": "b64eda1e433e6163b2e51b711b99efc1b51249bed5bd557b10f32b272b7b9a4a",
+      "bytes": 17171
+    },
+    {
+      "path": "common/illum/platekit.py",
+      "git_blob_sha": "d0ed066e84343e286b8c7e5e5954aa2ccb0a88b1",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/illum/platekit.py",
+      "sha256": "280a2bfe8861ca5bbf7c24c1dbbebd6ab6121ac8dd0e6c2f40442f1ed2959cf3",
+      "bytes": 8585
+    },
+    {
+      "path": "common/illum/raster.py",
+      "git_blob_sha": "f63d173dd0d4c47292acf6bdf0810457c1139fc3",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/illum/raster.py",
+      "sha256": "c8335f8e146f62d81794d263b79adc71d9980002e4e9865196037a242e1f5904",
+      "bytes": 13493
+    },
+    {
+      "path": "common/illum/tests/test_figure_growth.py",
+      "git_blob_sha": "1f7e42fcb72a45fdb9fe42b7069d5e22d16a1b8a",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/illum/tests/test_figure_growth.py",
+      "sha256": "e891e4b2e84e7c3ad6bbbe974e5579f8aa41b44b44521134314eb65dee885dfc",
+      "bytes": 4739
+    },
+    {
+      "path": "common/plot/bookpage.py",
+      "git_blob_sha": "8c02b9da90bbe69ea01c57af4802b9111bf2e218",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/plot/bookpage.py",
+      "sha256": "ebdc927b828869485e404b9520107b8d4d1f68a419ce11b0174ae7e9ccaa16a3",
+      "bytes": 4906
+    },
+    {
+      "path": "common/plot/ornament.py",
+      "git_blob_sha": "2d46266955135d6d5ca83a164459554f3ed72b7b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/plot/ornament.py",
+      "sha256": "4ebd3238e3eb1f260f3c2afe6a71875b22fdddc616a624cee0cddcb4a366736b",
+      "bytes": 3856
+    },
+    {
+      "path": "common/plot/plate.py",
+      "git_blob_sha": "22d2b95faeff079a48bc882e0f8e7fe4ba02ac48",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/plot/plate.py",
+      "sha256": "4ae6606c148ebcc150bf665acca3d7fef49d75e54132c0424c078af3783c75b7",
+      "bytes": 13963
+    },
+    {
+      "path": "common/plot/plotkit.py",
+      "git_blob_sha": "d2093a500356a5adad2bc26fb55cb36c4df3fcf2",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/plot/plotkit.py",
+      "sha256": "7c23cf5ec1962ac5bec9e0d3f57a51309f6fccfd1cab6a0a35b6cb7296bc022e",
+      "bytes": 15054
+    },
+    {
+      "path": "common/plot/svgimport.py",
+      "git_blob_sha": "2f28abcf646ae8e6af9780da72f1f4b1782f62a5",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/common/plot/svgimport.py",
+      "sha256": "71cdc126a93ed99a423ff18f141bec66b7ee4a23092217f176983ceba8c1e018",
+      "bytes": 4634
+    },
+    {
+      "path": "docs/ART-REVIEW-2026-10-19.md",
+      "git_blob_sha": "3683c8cdcb32b9ff01ea7efc967cff2a00eb2996",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/BUILD.md",
+      "git_blob_sha": "b2b4b7eead13db103e7175d36507a783926a6282",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/EDGE-GRAIN-2026-10-19.md",
+      "git_blob_sha": "abde462d85f6298f0d57e1fb890ee4bee4daf001",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/docs/EDGE-GRAIN-2026-10-19.md",
+      "sha256": "87a4ccf2743ff10b499198cd77d2804d29e3eee07c7ae26ea9e56f46466e036d",
+      "bytes": 1884
+    },
+    {
+      "path": "docs/FIGURE-GROWTH-2026-10-19.md",
+      "git_blob_sha": "16c3bd4517d77b26dfbb2c4c34a49e463f277f84",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/docs/FIGURE-GROWTH-2026-10-19.md",
+      "sha256": "67d0638b52e1f36cd5e86e8d3d3abe6ef21a84cec1f623c39fe285ca4a38bcd7",
+      "bytes": 3943
+    },
+    {
+      "path": "docs/MIGRATION.md",
+      "git_blob_sha": "b111cc32bf3aa7bdb2decbb3ded6f8c33b67a67e",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/POTESTATE-2026-10-19.md",
+      "git_blob_sha": "d8305f51a7da410cb1f652d6d7d6851272670c56",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/art-correction-prompts-2026-10-19.json",
+      "git_blob_sha": "58c73546fad0047ec6838420f3e0454ecc60e5df",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/artwork-paths.json",
+      "git_blob_sha": "3baec825f92e22d34b2d173d5cb0c80a1eb387fa",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/objections/register.md",
+      "git_blob_sha": "378699d46de19283f827c2ccce80136ca165fd30",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/objections/tests/test_validate.py",
+      "git_blob_sha": "cffdbbb405ff55ef66d514feb66220a69d206b4b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/docs/objections/tests/test_validate.py",
+      "sha256": "b869da064a44b10cacec112b42e89c0857e2525ab33ba8fb962de148eb91a77c",
+      "bytes": 5734
+    },
+    {
+      "path": "docs/objections/validate.py",
+      "git_blob_sha": "cce854613343f9a31ed102ebfa0664b57e15ec88",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/docs/objections/validate.py",
+      "sha256": "24ab0c542e4832519fa015bb3b3b7124bc1676724e88d331cf683502f3fae736",
+      "bytes": 6757
+    },
+    {
+      "path": "docs/research/evidence/README.md",
+      "git_blob_sha": "03146502705499e32c9f837aef6e51286b21c392",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/evidence/pilot-methods.md",
+      "git_blob_sha": "751538537420eadbc3c7117b3ce739b72db7dd6f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/evidence/publication-note.md",
+      "git_blob_sha": "329e4b174fab37323ce0f35b5f27440ec6a48bd7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/evidence/reports/2026-10-10-pilot-excerpt.txt",
+      "git_blob_sha": "dccc6724f3be6ebf01e8712729e443b61cf85c78",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/evidence/reports/2026-10-11-pilot-excerpt.txt",
+      "git_blob_sha": "1a59c2739062ae3d63742d870f90148eefd4efd0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/evidence/sources.md",
+      "git_blob_sha": "614e5439cf183fc2561b55819797c893fa0ad2ac",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/scapegoating/README.md",
+      "git_blob_sha": "080a4126671fe0f8a77046492a015e5fb7e055ae",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/scapegoating/agrippa-at-metz.md",
+      "git_blob_sha": "3d48dfe4a3f932f51c8755127987ee70044a09db",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/scapegoating/blame-register.md",
+      "git_blob_sha": "668c1213f1e8b7d3172ce54f07317c74394bd4c2",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/scapegoating/modern-cases.md",
+      "git_blob_sha": "c0ca4f38df32ebb8100fc02690d963d369c725ad",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/research/scapegoating/review-2026-10-18.md",
+      "git_blob_sha": "e279d2a8797b3b105b8efcd705ec6e74fbae0b4d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "docs/reviews/Justin_Sledge_Review.md",
+      "git_blob_sha": "c39c42f7a2a871b4ba44d9008db8968e4de46a10",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "migration-source-manifest.json",
+      "git_blob_sha": "a9fba5ce94e5cf98fffc14fdde0f65bebc88e0fe",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/bael-raster-reference-v03.png",
+      "git_blob_sha": "de2d17527c0b0e5caf51dbc39922afc4c05561db",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/bune-raster-reference-v01.png",
+      "git_blob_sha": "dbb304308831c3d7480b4fbc4ec855693e3dd705",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/contact-sheet.png",
+      "git_blob_sha": "5c26f734f6a7a572266147d1fa579f480a6a46c7",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/figures.json",
+      "git_blob_sha": "c2905f6297377896d1f773a6c28822013fcc2cad",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/gremory-raster-reference-v01.png",
+      "git_blob_sha": "ddff72df7d9183af4f3bab908240c8a61a0e682b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/orobas-raster-reference-v01.png",
+      "git_blob_sha": "d77b9d5908d3a48c45b3dfd7ce9f19030f4b3ace",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/paimon-raster-reference-v01.png",
+      "git_blob_sha": "a0cab4161980bc8681abb1d4cc05014a888bb36a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/repetiel-raster-reference-v01.png",
+      "git_blob_sha": "2e3206f82e114cb5a9beb20668e406735522ea31",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-01/vassago-raster-reference-v01.png",
+      "git_blob_sha": "e5739a703062531fbec3dc7230672e4d8a48acf2",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/calmor-raster-reference-v01.png",
+      "git_blob_sha": "52ae8826f80d59e6fcde4d591d66ab41482d60c8",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/contact-sheet.png",
+      "git_blob_sha": "e1c1eaa37061d5efc6625e2fbd041f383c740c58",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/culpax-raster-reference-v01.png",
+      "git_blob_sha": "3847ca802881551fda42f32d9fad08bedc65be42",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/figures.json",
+      "git_blob_sha": "517f275e4e068eb677a66815a0da78bfc73acbe4",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/instantor-raster-reference-v01.png",
+      "git_blob_sha": "cfaf7b1698b583019c3883ec430eabb3d9ede4bc",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/novaroth-raster-reference-v01.png",
+      "git_blob_sha": "abef6fd0021158bf19ebaa8c1bcc116e935bb5fb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/scriptorax-raster-reference-v01.png",
+      "git_blob_sha": "90404b41d1917f0521bb6f9c776e4fe44edda058",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/severion-raster-reference-v01.png",
+      "git_blob_sha": "b0210f0a6cc0f5a672d5528523df8b61acd47a93",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-02/solaciel-raster-reference-v01.png",
+      "git_blob_sha": "0f93ec57b661a24bd63198b40883d13f0844bd62",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/choraz-raster-reference-v02.png",
+      "git_blob_sha": "16255b12e88b701acebd27845120dec0c62879ed",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/consenth-raster-reference-v01.png",
+      "git_blob_sha": "7b62923b52bb8350f851b0a36f1d47bdca8c6aef",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/contact-sheet.png",
+      "git_blob_sha": "d3ee75668344a8c6269273e323ccdbdf1c6211eb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/figures.json",
+      "git_blob_sha": "1799a1be3874592fe2a424f65e0d5059e4bc0ec0",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/probator-raster-reference-v03.png",
+      "git_blob_sha": "6d8e79acabc972d804a3da94d8bed3a59210d319",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/promissor-raster-reference-v01.png",
+      "git_blob_sha": "18773a3dcb8d2d12b05894d85afbe3860f3c66a2",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/redacth-raster-reference-v01.png",
+      "git_blob_sha": "a3729eb256fd52b7b5eb680179499099ba5476aa",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/velaroth-raster-reference-v01.png",
+      "git_blob_sha": "9b26470c29605947038bc82810cee75d16f4e168",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-03/viridon-raster-reference-v01.png",
+      "git_blob_sha": "c5a88370594d4bc295a8738247f7e2b66e177fc2",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/absentiel-raster-reference-v01.png",
+      "git_blob_sha": "c462959ba273e762d834bb0c752e2cb2fc27e412",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/contact-sheet.png",
+      "git_blob_sha": "ace56a215d7dd9f0ced5906dfdc363e41a94688f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/exceptor-raster-reference-v01.png",
+      "git_blob_sha": "a096dc325e18c8ea632d3c1baf66f94dfb5b1a97",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/exceptor-raster-reference-v02.png",
+      "git_blob_sha": "a3b57a156b2c4450d383641773b31bb86aafd3ce",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/fed-vessel-raster-reference-v01.png",
+      "git_blob_sha": "060f1ffbf7e48b6b1bd8eee8874dbcfb48f980fb",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/figures.json",
+      "git_blob_sha": "d8ac5ab80aa8a384d63e0420af7bae34d5788831",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/jurisiel-raster-reference-v01.png",
+      "git_blob_sha": "292175a540712ad892c184ff1f86e0881a0aaa09",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/margor-raster-reference-v01.png",
+      "git_blob_sha": "f9655e0194e203dceeb3e88814bbdd4867f0088b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/posthum-raster-reference-v01.png",
+      "git_blob_sha": "b82f8e0c3644ce40d6f36f5efafda2b73ae5fd4d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-04/quarteroth-raster-reference-v01.png",
+      "git_blob_sha": "d824f0d84152de7a0f07bb1936895c3682b8cefc",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/contact-sheet.png",
+      "git_blob_sha": "44f0357ae776084f6163410fbc7650bc8d5f38e8",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/cut-keeper-raster-reference-v01.png",
+      "git_blob_sha": "5d7f68ed3fcdf58f171e7313032af29f4ba7ca1b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/figures.json",
+      "git_blob_sha": "06e5565635c752a745bd1c3fd1b9669274240c21",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/hora-and-tempus-raster-reference-v01.png",
+      "git_blob_sha": "cbab052f9ae66210a2363ef8e0f6e405a638c04f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/house-kept-in-abeyance-raster-reference-v01.png",
+      "git_blob_sha": "2a6073f07df6a05397be30b242f6ab7d976d3586",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/keeper-of-intervals-original-raster-reference-v01.png",
+      "git_blob_sha": "62b2009e76f5542bcf8568e05cff78c6377deb8b",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/keeper-wearing-dial-raster-reference-v02.png",
+      "git_blob_sha": "428c1d5659121f5b552be8bb4f58d27ee5b4f516",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/open-inventory-raster-reference-v01.png",
+      "git_blob_sha": "1660a9e1d83d08f3bbf2e4c484a739b74a9cfb94",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-05/second-neck-raster-reference-v01.png",
+      "git_blob_sha": "029b89248689597c6ee6b53aa0fc6089e0ed5291",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/contact-sheet.png",
+      "git_blob_sha": "23432701acfb540eca09189673e9bc17469efa8c",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/decision-demon-raster-reference-v01.png",
+      "git_blob_sha": "0870ac848a5ea6f8a2c7288c72a7cfdffca1edb2",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/figure-beneath-cord-raster-reference-v01.png",
+      "git_blob_sha": "083c67c161e99dcff11785feae849fd3d717c36d",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/figures.json",
+      "git_blob_sha": "f737036887d2a0ce9a5b6dc4d23ca2017e72467a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/hooded-manager-01-raster-reference-v01.png",
+      "git_blob_sha": "bfc6c167e6f55103cb1e4b43a1e7d86e134ff7ec",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/hooded-manager-02-raster-reference-v01.png",
+      "git_blob_sha": "ca1f6e25471c18b4e0b1f3276d6d748bafc66f66",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/hooded-manager-03-raster-reference-v01.png",
+      "git_blob_sha": "2fd8fa58b66dc130b6395838e8c80fe413706c5f",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/hooded-manager-04-leaked-tile-raster-reference-v01.png",
+      "git_blob_sha": "7796a069e403cd107d40be0d6412d697e011d6d8",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-06/shouting-tiers-raster-reference-v01.png",
+      "git_blob_sha": "2380c79c159e316e8fee1d706191b0170f62cf47",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-07/contact-sheet.png",
+      "git_blob_sha": "7bdb68473ce61fff1f0fc4cfd56c9ffb65afdee6",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-07/figures.json",
+      "git_blob_sha": "1ed9cb9ce2defe70825c23512142f8d193e27421",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-07/measurer-of-absences-original-raster-reference-v01.png",
+      "git_blob_sha": "37478feab2b33a21deb1b0172be95c5a57fc5c51",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-07/returning-trace-raster-reference-v01.png",
+      "git_blob_sha": "bc0f28036acc680b3732ec849315609f8fa16cca",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-07/series-figures.json",
+      "git_blob_sha": "85b48a73ab93e120198d02686a2f18a4f9eb7c9a",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/batch-07/twin-register-raster-reference-v01.png",
+      "git_blob_sha": "fdfac82f077334a148a211292f6858758875eff6",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/integrated-01/extraction-of-the-hand-v01.jpg",
+      "git_blob_sha": "e4c2f910c18f62a8e0ceafa13982297156927ba6",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/integrated-01/office-without-a-seal-v01.jpg",
+      "git_blob_sha": "cae59cb74e9daaba745bc4984bdb254e2e5fd965",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "references/raster/integrated-01/prompts.json",
+      "git_blob_sha": "278cdbe38d707b19e4f5e56833b30c19be05bb09",
+      "included": false,
+      "reason": "Outside technique code and technical inputs: book prose, editorial/provenance records, rasters, edition PDFs or repository administration"
+    },
+    {
+      "path": "requirements.txt",
+      "git_blob_sha": "a89de70bf5f55bf5c3b8baf2ce2cc0772d9b3155",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/requirements.txt",
+      "sha256": "f4d58a2cf174494a4a63d16452ef4c2322273a2d702dc3c3054bb59f546feb07",
+      "bytes": 212
+    },
+    {
+      "path": "scripts/build.py",
+      "git_blob_sha": "a971920d9f1c009156803f5ee5d81165d713d27b",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/scripts/build.py",
+      "sha256": "c205f24ed2ffed7ae2dabf893423a2306f51aef4cb72f44ceec01f0a8c536b9c",
+      "bytes": 3736
+    },
+    {
+      "path": "scripts/check_project.py",
+      "git_blob_sha": "4eb88dd3ae134fee58e6c49ed466550bc0520a4e",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/scripts/check_project.py",
+      "sha256": "0f243ae720fc3ce3e9ff05dd49a83012b465d2c0b34872ef1538b23576c42b96",
+      "bytes": 2921
+    },
+    {
+      "path": "scripts/proof_figure_growth.py",
+      "git_blob_sha": "8a10457f7f190babc8da9c2b11e00b7efe7a0a8a",
+      "included": true,
+      "local_path": "sources/codex-intervallorum/scripts/proof_figure_growth.py",
+      "sha256": "f01a4e809f20bb85ace37e220e44f6020c77017ab27dbb380127269b802f8c4e",
+      "bytes": 5197
+    }
+  ]
+}
