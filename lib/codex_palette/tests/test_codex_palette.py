@@ -117,6 +117,37 @@ class TubeTests(unittest.TestCase):
 
 
 class MarblingTests(unittest.TestCase):
+    def test_selected_print_has_no_crossings_after_svg_rounding(self):
+        from shapely.geometry import LineString
+        from shapely.strtree import STRtree
+        # The previously committed seed-7 gel-git had 29 crossing pairs.
+        for variant in range(3):
+            plate, _ = marbling_plate(7, variant)
+            paths = [LineString(np.round(s.points, 3)) for s in plate.strokes]
+            hits = STRtree(paths).query(paths, predicate="crosses")
+            self.assertFalse(np.any(hits[0] < hits[1]), variant)
+            self.assertTrue(all(p.is_simple for p in paths))
+            self.assertEqual(plate.metadata["print_repair"]["crossing_pairs_after"], 0)
+
+    def test_crossing_repair_preserves_ink_owner_and_most_length(self):
+        from shapely.geometry import LineString
+        paths, owners, report = marbling.print_paths([
+            np.array([[0, 5], [10, 5]]), np.array([[5, 0], [5, 10]])])
+        self.assertEqual(owners, [0, 1, 1])
+        self.assertEqual(report["crossing_pairs_before"], 1)
+        self.assertLess(report["removed_length_mm"], .2)
+        self.assertFalse(LineString(paths[0]).crosses(LineString(paths[1])))
+
+    def test_requested_site_count_and_invalid_sampling(self):
+        for count in (1, 5, 7, 10):
+            lines, tags = marbling.stone_ground(np.random.default_rng(2), (0, 0, 60, 60),
+                                                count, 2, rings=2)
+            self.assertEqual(len(lines), 2 * count)
+            self.assertEqual(len(tags), len(lines))
+        for step in (0, -1, float("nan")):
+            with self.assertRaises(ValueError):
+                marbling.resample([], step)
+
     def test_drop_moves_a_point_to_the_area_preserving_radius(self):
         out = marbling.drop([np.array([[3.0, 4.0], [3.0, 4.0001]])], (0, 0), 2.0, step=10)
         self.assertAlmostEqual(float(np.hypot(*out[0][0])), np.sqrt(25 + 4), places=6)
@@ -187,6 +218,47 @@ class GuillocheTests(unittest.TestCase):
             self.assertEqual(color, original.color)
             self.assertAlmostEqual(width, original.width)
             np.testing.assert_allclose(points, original.points, atol=.00051)
+
+
+class PackagingTests(unittest.TestCase):
+    def test_pack_records_actual_revisions_and_preview_sizes(self):
+        from examples import make_codex_palette as demo
+        from lib.process_art.drawing import Plate
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as d:
+            out = Path(d) / "out"
+            out.mkdir()
+            for k, (stem, _, _) in enumerate(demo.SELECTION):
+                plate = Plate("Fixture")
+                (out / f"{stem}.svg").write_text(plate.svg())
+                Image.new("RGB", (240, 320), "white").save(out / f"{stem}.png")
+                meta = {"study": stem, "preview_width_px": 240}
+                if k != 2:
+                    meta["book_revision"] = "a" * 40 if k == 0 else "b" * 40
+                (out / f"{stem}.json").write_text(json.dumps(meta))
+            for name in ("history-input.json", "guilloche-input.json"):
+                (out / name).write_text("{}")
+            manifest = demo.package(out, Path(d) / "previews")
+            self.assertIsNone(manifest["book_revision"])
+            self.assertEqual(manifest["book_revisions"], ["a" * 40, "b" * 40])
+            self.assertEqual(manifest["preview_widths_px"], [240])
+            self.assertNotIn(demo.PINNED, manifest["book_revisions"])
+
+    def test_catalogue_resolves_a_named_revision_to_a_commit(self):
+        from examples import make_codex_palette as demo
+        from types import SimpleNamespace
+        with tempfile.TemporaryDirectory() as d:
+            repo = Path(d)
+            _git(repo, "init", "-q", "-b", "main")
+            path = repo / demo.CATALOGUE
+            path.parent.mkdir(parents=True)
+            path.write_text('{"tiers": [], "handoffs": []}')
+            _git(repo, "add", ".")
+            _git(repo, "commit", "-q", "-m", "A different book revision")
+            expected = subprocess.check_output(["git", "-C", d, "rev-parse", "HEAD"], text=True).strip()
+            data = demo.catalogue(SimpleNamespace(codex=repo, rev="main"))
+            self.assertEqual(data["book_revision"], expected)
+            self.assertIn("@" + expected + ":", data["source"])
 
 
 if __name__ == "__main__":

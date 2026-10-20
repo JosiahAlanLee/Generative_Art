@@ -55,11 +55,14 @@ def catalogue(args):
     """Only the identifiers and numbers the plate uses; no catalogue prose."""
     if args.codex:
         import subprocess
-        text = subprocess.run(["git", "-C", str(args.codex), "show", f"{args.rev}:{CATALOGUE}"],
+        revision = subprocess.run(["git", "-C", str(args.codex), "rev-parse", f"{args.rev}^{{commit}}"],
+                                  check=True, capture_output=True, text=True).stdout.strip()
+        text = subprocess.run(["git", "-C", str(args.codex), "show", f"{revision}:{CATALOGUE}"],
                               check=True, capture_output=True, text=True).stdout
         c = json.loads(text)
         return {
-            "source": f"JosiahAlanLee/Codex-Intervallorum@{args.rev}:{CATALOGUE}",
+            "source": f"JosiahAlanLee/Codex-Intervallorum@{revision}:{CATALOGUE}",
+            "book_revision": revision,
             "tiers": [{k: t[k] for k in ("id", "name", "office", "legions", "authority", "competence",
                                           "liability")} for t in c["tiers"]],
             "handoffs": [{k: h[k] for k in ("id", "source", "target", "name", "office", "legions", "mark")}
@@ -77,6 +80,8 @@ def write(out, stem, plate, state, pixels, transparent):
     plate.metadata["pen_down_m"] = round(sum(
         float(np.hypot(*np.diff(s.points, axis=0).T).sum()) for s in plate.strokes) / 1000, 2)
     plate.metadata["size_mm"] = [plate.width, plate.height]
+    plate.metadata["preview_width_px"] = pixels
+    plate.metadata["transparent_preview"] = transparent
     plate.metadata["svg_sha256"] = hashlib.sha256(svg.encode()).hexdigest()
     (out / f"{stem}.json").write_text(json.dumps(plate.metadata, indent=2, ensure_ascii=False) + "\n",
                                       encoding="utf-8")
@@ -109,6 +114,7 @@ def main():
             (args.out / "history-input.json").write_text(json.dumps(record, ensure_ascii=False) + "\n",
                                                           encoding="utf-8")
             plate, state = history_plate(record, args.spacing)
+            plate.metadata["book_revision"] = record["rev"]
             write(args.out, f"history-{args.spacing}", plate, state, args.pixels, args.transparent)
             stems = [f"history-{args.spacing}"]
         elif name == "guilloche":
@@ -117,6 +123,7 @@ def main():
                                                             encoding="utf-8")
             plate, state = guilloche_plate(data["tiers"], data["handoffs"])
             plate.metadata["source"] = data["source"]
+            plate.metadata["book_revision"] = data.get("book_revision") or data["source"].split("@", 1)[1].split(":", 1)[0]
             write(args.out, "guilloche", plate, state, args.pixels, args.transparent)
             stems = ["guilloche"]
         else:
@@ -130,6 +137,9 @@ def main():
                         ap.error(f"{name} variants are {sorted(valid)}")
                     if name == "tubes":
                         plate, state = tubes_plate(seed, variant, steps=args.steps)
+                        # These nodes come from the pinned art snapshot, even
+                        # when --rev selects a newer history/catalogue input.
+                        plate.metadata["book_revision"] = PINNED
                     else:
                         plate, state = marbling_plate(seed, variant)
                     stem = f"{name}-s{seed}-v{variant}"
@@ -156,36 +166,43 @@ SELECTION = [
 ]
 
 
-def package(out):
+def package(out, preview_dir=None):
     """Copy the selected plates into the committed preview folder."""
     import shutil
     from PIL import Image
-    PREVIEWS.mkdir(parents=True, exist_ok=True)
+    previews = PREVIEWS if preview_dir is None else Path(preview_dir)
+    previews.mkdir(parents=True, exist_ok=True)
     items, thumbs = [], []
     for stem, label, reason in SELECTION:
         meta = json.loads((out / f"{stem}.json").read_text(encoding="utf-8"))
-        shutil.copyfile(out / f"{stem}.svg", PREVIEWS / f"{stem}.svg")
+        shutil.copyfile(out / f"{stem}.svg", previews / f"{stem}.svg")
         items.append({"study": meta["study"], "stem": stem, "label": label, "reason": reason,
                       "settings": meta})
-        im = Image.open(out / f"{stem}.png").convert("RGB")
+        with Image.open(out / f"{stem}.png") as image:
+            im = image.convert("RGB")
         thumbs.append(im.resize((900, round(im.height * 900 / im.width)), Image.Resampling.LANCZOS))
     for name in ("history-input.json", "guilloche-input.json"):
-        shutil.copyfile(out / name, PREVIEWS / name)
+        shutil.copyfile(out / name, previews / name)
     gap = 24
     sheet = Image.new("RGB", (len(thumbs) * 900 + (len(thumbs) + 1) * gap,
                               max(t.height for t in thumbs) + 2 * gap), "#ffffff")
     for k, t in enumerate(thumbs):
         sheet.paste(t, (gap + k * (900 + gap), gap))
-    sheet.save(PREVIEWS / "contact-sheet.jpg", quality=88, optimize=True)
+    sheet.save(previews / "contact-sheet.jpg", quality=88, optimize=True)
+    revisions = sorted({item["settings"]["book_revision"] for item in items
+                        if item["settings"].get("book_revision")})
+    widths = sorted({item["settings"]["preview_width_px"] for item in items})
     manifest = {"title": "Codex palette — selected demonstrations", "date": "2026-10-20",
-                "book_revision": PINNED, "pixels_reviewed": 2000,
+                "book_revision": revisions[0] if len(revisions) == 1 else None,
+                "book_revisions": revisions, "preview_widths_px": widths,
                 "selection_basis": "One plate per study, chosen after rendering each study's variants "
                                    "and reviewing them individually and side by side. No numeric "
                                    "beauty ranking.",
                 "items": items}
-    (PREVIEWS / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
+    (previews / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
                                             encoding="utf-8")
-    print(f"packaged {len(items)} plates into {PREVIEWS.relative_to(ROOT)}")
+    print(f"packaged {len(items)} plates into {previews}")
+    return manifest
 
 
 if __name__ == "__main__":

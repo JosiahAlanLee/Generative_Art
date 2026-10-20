@@ -1,0 +1,268 @@
+{
+  "studies": [
+    {
+      "stem": "partitioned-star",
+      "title": "Partitioned star",
+      "caption": "Quilt geometry bounds chemical growth",
+      "study": "quilt-chemistry",
+      "seed": 31,
+      "steps": 2100,
+      "pattern": "ohio-star",
+      "chemical_grid": [
+        321,
+        321
+      ],
+      "wall_pixels": 3,
+      "box_mm": [
+        17.0,
+        35.0,
+        136.0,
+        136.0
+      ],
+      "coupling": "The exact block edges become impermeable raster walls; Gray–Scott exchange uses zero permeability across them, not a clipped full-field run.",
+      "scope": "Original geometry/chemistry combination; no historical or biological claim.",
+      "stroke_count": 555,
+      "svg_sha256": "540d0fa88bdece3b27ce6671984febe8e0631a4a5c2886e606b741baf0e1f933",
+      "size_mm": [
+        170,
+        220
+      ],
+      "preview_width_px": 1800
+    },
+    {
+      "stem": "credentials-current",
+      "title": "Credentials in a current",
+      "caption": "Catalogue engraving deformed by marbling combs",
+      "study": "marbled-credentials",
+      "strength": 1.0,
+      "source": "JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83842885aaad5:books/03_escalationum/manuscript/catalogue.json",
+      "coupling": "Catalogue values construct the original engraving; two alternating closed-form comb shears then move every vertex of that engraving.",
+      "mapping": {
+        "rosette_passes": "3 + 4 * authority",
+        "lobes": "6 + 2 * authority",
+        "rim_reeds": "office legions",
+        "red_centre_rings": "competence",
+        "band_crests": "passage legions",
+        "red_strand_phase_deg": "30 * mark"
+      },
+      "source_strokes": 577,
+      "scope": "Geometric deformation, not simulated corrosion. The source guilloché intentionally has crossings; this composition does not remove them. The deformed ornament is not presented as a decodable cipher.",
+      "stroke_count": 589,
+      "svg_sha256": "b59813f797e6b18682dc300bcb5d14538974301b0330d910114856a33ec2601d",
+      "size_mm": [
+        170,
+        220
+      ],
+      "preview_width_px": 1800
+    },
+    {
+      "stem": "revision-loom",
+      "title": "Revision loom",
+      "caption": "Recorded edits drive textile dissolution",
+      "study": "revision-loom",
+      "seed": 17,
+      "steps": 1400,
+      "book_revision": "b789e03f30034bc8403f8a40aaf83842885aaad5",
+      "files": [
+        "books/07_septimus/manuscript/clavis.md",
+        "books/00_accusator/manuscript/de-officio-accusatoris.md",
+        "books/01_matricis_intervallorum/manuscript/reading-edition.md",
+        "books/03_escalationum/manuscript/catalogue.json",
+        "books/04_graduum/manuscript/reading-edition.md",
+        "books/05_notoria/manuscript/reading-edition.md",
+        "books/00_matres/manuscript/de-matribus-noctis.md",
+        "books/06_disputationes/manuscript/de-potestate-et-accusatione.md",
+        "books/07_septimus/manuscript/de-vinculis.md"
+      ],
+      "versions": [
+        {
+          "commit": "17ee2d281ddac204937d641e0d70a16e68442265",
+          "date": "2026-10-18T13:02:14-05:00",
+          "subject": "Import Codex Intervallorum — Libri Septem"
+        },
+        {
+          "commit": "6df7ad3948d05455fcdfae59cc7b1265ba06ea3a",
+          "date": "2026-10-18T15:16:41-05:00",
+          "subject": "Merge pull request #2 from JosiahAlanLee/claude/answer-red-team-2026-10-18"
+        },
+        {
+          "commit": "7926e1b8a8b6b67e06d4e83311ea33c423aa0e0b",
+          "date": "2026-10-18T18:24:48-05:00",
+          "subject": "Merge pull request #6 from JosiahAlanLee/codex/public-evidence-review"
+        },
+        {
+          "commit": "7046d0c1119e8a1197d734809ddfe2d90dae9ed3",
+          "date": "2026-10-19T01:23:23-05:00",
+          "subject": "Merge pull request #8 from JosiahAlanLee/claude/book-vi-swap-2026-10-19"
+        },
+        {
+          "commit": "775ac08cf98fb7a289cbf38245fe4ac27a260158",
+          "date": "2026-10-19T14:50:42-05:00",
+          "subject": "Merge pull request #11 from JosiahAlanLee/claude/argon-small-fixes-2026-10-19"
+        }
+      ],
+      "turnover": [
+        [
+          0.0,
+          0.0516269861414285,
+          0.14373306082552095,
+          0.08006279434850863,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0053285968028419185,
+          0.06962379289345148,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.04511307461757035,
+          0.03807854308182991,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.001998205204905773,
+          0.005144402172612639
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.005444843732984863,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "vents_row_col_y_x_gain": [
+        [
+          0,
+          1,
+          0,
+          35,
+          0.34313336709947895
+        ],
+        [
+          0,
+          2,
+          0,
+          104,
+          0.472253217899277
+        ],
+        [
+          0,
+          3,
+          0,
+          105,
+          0.39051064200321256
+        ],
+        [
+          2,
+          1,
+          70,
+          69,
+          0.2120476525748822
+        ],
+        [
+          2,
+          2,
+          70,
+          70,
+          0.37428372737565846
+        ],
+        [
+          4,
+          1,
+          140,
+          69,
+          0.3305386285845624
+        ],
+        [
+          4,
+          2,
+          174,
+          104,
+          0.31586665540916326
+        ],
+        [
+          5,
+          3,
+          175,
+          105,
+          0.18799609533286837
+        ],
+        [
+          5,
+          4,
+          209,
+          140,
+          0.21096581476296886
+        ],
+        [
+          7,
+          3,
+          245,
+          139,
+          1.0
+        ],
+        [
+          8,
+          1,
+          314,
+          69,
+          0.2127208067317502
+        ]
+      ],
+      "grid": [
+        316,
+        176
+      ],
+      "removed_material_cells": 1281.1966238387242,
+      "coupling": "Manuscript rows and revision columns locate reagent sources. Source intensity = .15 + .85 sqrt(character turnover); diffusion and irreversible material loss then alter the shared textile paths.",
+      "scope": "An artistic material analogy driven by real Git records. Not an authorship measure, quality score, or empirical model of editing.",
+      "stroke_count": 384,
+      "svg_sha256": "3394e51e3dc4042e783c14fc473c31a2a38ae35bd134d8e4246df845c07ba87e",
+      "size_mm": [
+        170,
+        220
+      ],
+      "preview_width_px": 1800
+    }
+  ],
+  "input_files": {
+    "history-input.json": "e3db63eb6f9a0a15ee55cf5296704010dcd154435148fd7c010ebab53472577d",
+    "guilloche-input.json": "bc971288ac2cd42288fb85cc8075327697e23e99ceae816ad9bf634baee169ce"
+  }
+}
