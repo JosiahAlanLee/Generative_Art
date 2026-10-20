@@ -20,6 +20,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Build a Blender scene, a light-aware culture or a scan engraving | [Existing scene studies](techniques/08-scene-studies/README.md) |
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |
 | Generate hidden-line landscape plates sized to the book's pages | [Landscape plates](techniques/11-landscape-plates/README.md) |
+| Generate painted quilt squares on wood or metal | [Barn quilts](techniques/13-barn-quilts/README.md) |
 
 ## Process art R&D
 
@@ -49,3 +50,5 @@ The separate [development-art manifest](catalog/development-art-manifest.json) r
 A [textile/process comparison](techniques/12-process-art/TEXTILE.md) adds a shared-port grammar, adaptive transport, confined chemistry, dissolution and portable fragments for use inside larger compositions.
 
 [Occult print, cipher systems, code art and weird Americana](research/occult-americana/README.md) surveys thirteen source groups and ten generator concepts, with four original form/carrier sketches. This is research and ideation, separate from the implemented-technique catalog.
+
+[Barn quilt squares](techniques/13-barn-quilts/README.md) add eight geometric block families, four painted-support studies, adjustable texture and wear, and shared-edge outline SVGs. Includes [research on conventions and materials](research/barn-quilts/README.md).

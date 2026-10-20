@@ -1,0 +1,365 @@
+{
+  "generator": "barn-quilts-v1",
+  "samples": [
+    {
+      "file": "ohio-star.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "wood",
+        "seed": 23,
+        "texture": 0.78,
+        "wear": 0.48,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "901d13932b05066d2360de0064ead11320998fdb4f08c8413a93bcda592d5e9b"
+    },
+    {
+      "file": "sawtooth-star.svg",
+      "spec": {
+        "pattern": "sawtooth-star",
+        "palette": "dairy-blue",
+        "material": "mdo",
+        "seed": 24,
+        "texture": 0.78,
+        "wear": 0.3,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "271c5c934d28d138e10a9c00df04b085df84a67f9fd8ba61ed51d66ed1839ad9"
+    },
+    {
+      "file": "churn-dash.svg",
+      "spec": {
+        "pattern": "churn-dash",
+        "palette": "prairie",
+        "material": "wood",
+        "seed": 25,
+        "texture": 0.78,
+        "wear": 0.48,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "9cff48f69176f50f4a5cbf7c6e39a6dd7a28b444dac9a3f70e2254daf0d03a65"
+    },
+    {
+      "file": "pinwheel.svg",
+      "spec": {
+        "pattern": "pinwheel",
+        "palette": "roadside",
+        "material": "aluminum",
+        "seed": 26,
+        "texture": 0.78,
+        "wear": 0.3,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "8821f10e1d5b7f22bb924b3b033df11d9cd7d143d771211388c756d832b5b36d"
+    },
+    {
+      "file": "log-cabin.svg",
+      "spec": {
+        "pattern": "log-cabin",
+        "palette": "harvest",
+        "material": "wood",
+        "seed": 27,
+        "texture": 0.78,
+        "wear": 0.48,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "3a7b0c78dbdc11a3025d292ce83831fac87d17605fe406d6b3cc656234e9a436"
+    },
+    {
+      "file": "flying-geese.svg",
+      "spec": {
+        "pattern": "flying-geese",
+        "palette": "barn-red",
+        "material": "steel",
+        "seed": 28,
+        "texture": 0.78,
+        "wear": 0.3,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "e8ee83da3acfd3223510f038cf5d2f63d51f40ad90f047ba4fcdd70d99923346"
+    },
+    {
+      "file": "rail-fence.svg",
+      "spec": {
+        "pattern": "rail-fence",
+        "palette": "dairy-blue",
+        "material": "mdo",
+        "seed": 29,
+        "texture": 0.78,
+        "wear": 0.48,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "1930868dcc9274f57b05f550cdd5ddd0e7ebfa7bafc4944ca14ab815b511d4b3"
+    },
+    {
+      "file": "square-in-square.svg",
+      "spec": {
+        "pattern": "square-in-square",
+        "palette": "manuscript",
+        "material": "steel",
+        "seed": 30,
+        "texture": 0.78,
+        "wear": 0.3,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "7853f4ad74fc8e1b50318f28385564af436d2ecc55f197e9b086f2f0ddca78fd"
+    },
+    {
+      "file": "surface-wood-fresh.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "wood",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.12,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "e39c8960adb44a3d45ea34e13832b97a8d72bcdcb0cc29f81256eb8a52ade1dd"
+    },
+    {
+      "file": "surface-mdo-fresh.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "mdo",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.12,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "90fbd245162192be2d141e3df925c878fc89d4fd4317ed52eea3739c72c4c225"
+    },
+    {
+      "file": "surface-aluminum-fresh.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "aluminum",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.12,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "56ba0f6bc079f7ba83b7b612edeb47a3e56a1842733e13150d9f17ea4a9bfda6"
+    },
+    {
+      "file": "surface-steel-fresh.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "steel",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.12,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "34c0fe077d5b469f8d6810070ee9ce411ebcb9fea95f8b2211eedfbfb861487a"
+    },
+    {
+      "file": "surface-wood-worn.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "wood",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.82,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "20c8f9aac6c48a29c96d03acee7aac84315603d97d96ca609403725ce70fb4aa"
+    },
+    {
+      "file": "surface-mdo-worn.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "mdo",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.82,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "119675616cd4d8c180d9f898b89397e65e0cc79c84d575c6874cbcf69ac036aa"
+    },
+    {
+      "file": "surface-aluminum-worn.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "aluminum",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.82,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "950e00576f904388be06cde856d6a5c7388bea6eae53efaf0cfbfb8d8856fa27"
+    },
+    {
+      "file": "surface-steel-worn.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "steel",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.82,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "painted",
+        "hardware": true,
+        "colors": null
+      },
+      "sha256": "3c59dc02f16573d0d6a84c2690d0930c3bc144eac8715aa907e46ba7eac3e116"
+    },
+    {
+      "file": "ohio-star-outline.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "wood",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.12,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "outline",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "0ec8422335aee67e1899629c1614a6c5e7f183b631814b5a982b8c58bb1bbe19"
+    },
+    {
+      "file": "ohio-star-flat.svg",
+      "spec": {
+        "pattern": "ohio-star",
+        "palette": "barn-red",
+        "material": "wood",
+        "seed": 71,
+        "texture": 0.9,
+        "wear": 0.12,
+        "border": 0.045,
+        "rotation": 0,
+        "colorway": 0,
+        "detail": 4,
+        "size_mm": 200.0,
+        "mode": "flat",
+        "hardware": false,
+        "colors": null
+      },
+      "sha256": "e138138551f3515cb379b01606789c26da9237a80e9944bf9d1d1b09698865b0"
+    }
+  ]
+}

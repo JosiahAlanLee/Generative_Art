@@ -133,3 +133,13 @@ A reusable tile grammar supplies joined curves and steps. Adaptive transport fol
 ## Research and ideation
 
 [Occult / cipher / code-art / Americana research](research/occult-americana/README.md): documented source pools, interpretive limits, ten proposed generators and four original sketches. The concept register records implementation status; these proposals are not additional production techniques.
+
+## [Barn quilt squares](techniques/13-barn-quilts/README.md)
+
+| Technique | Use | Status |
+| --- | --- | --- |
+| [Quilt-block partitions](lib/barn_quilts/generator.py) | Construct Ohio Star, Sawtooth Star, Churn Dash, Pinwheel, Log Cabin, Flying Geese, Rail Fence, and Square-in-Square | collection |
+| [Painted wood and metal surfaces](lib/barn_quilts/generator.py) | Apply editable brush marks, support relief, fading, and edge chips on wood, MDO, aluminum, or steel | collection |
+| [Shared-edge outline export](lib/barn_quilts/generator.py) | Split T-junctions and draw each block-partition edge once | collection |
+
+[Source research](research/barn-quilts/README.md) · [Block sampler](examples/previews/barn-quilts/block-sampler.svg) · [Controlled material comparison](examples/previews/barn-quilts/material-comparison.svg). These are original geometric interpretations of traditional block families; no book or landscape plate is changed.
