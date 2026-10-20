@@ -1,0 +1,259 @@
+{
+ "source": "JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83842885aaad5:books/03_escalationum/manuscript/catalogue.json",
+ "tiers": [
+  {
+   "id": 0,
+   "name": "FORAS",
+   "office": "Service Desk Analyst",
+   "legions": 1,
+   "authority": 0,
+   "competence": 6,
+   "liability": 6
+  },
+  {
+   "id": 1,
+   "name": "VASSAGO",
+   "office": "Tier 2 Escalation Lead",
+   "legions": 8,
+   "authority": 1,
+   "competence": 5,
+   "liability": 5
+  },
+  {
+   "id": 2,
+   "name": "GREMORY",
+   "office": "Customer Success Manager",
+   "legions": 12,
+   "authority": 2,
+   "competence": 4,
+   "liability": 4
+  },
+  {
+   "id": 3,
+   "name": "BUNE",
+   "office": "Account Executive",
+   "legions": 26,
+   "authority": 3,
+   "competence": 3,
+   "liability": 3
+  },
+  {
+   "id": 4,
+   "name": "OROBAS",
+   "office": "Deputy Department Head",
+   "legions": 40,
+   "authority": 4,
+   "competence": 2,
+   "liability": 2
+  },
+  {
+   "id": 5,
+   "name": "PAIMON",
+   "office": "VP of Operations",
+   "legions": 200,
+   "authority": 5,
+   "competence": 1,
+   "liability": 1
+  },
+  {
+   "id": 6,
+   "name": "BAEL",
+   "office": "Chief Technology Officer",
+   "legions": 66,
+   "authority": 6,
+   "competence": 0,
+   "liability": 0
+  }
+ ],
+ "handoffs": [
+  {
+   "id": "01",
+   "source": 0,
+   "target": 1,
+   "name": "REPETIEL",
+   "office": "Escalation Intake Coordinator",
+   "legions": 6,
+   "mark": 6
+  },
+  {
+   "id": "02",
+   "source": 0,
+   "target": 2,
+   "name": "SOLACIEL",
+   "office": "Customer Communications Specialist",
+   "legions": 4,
+   "mark": 5
+  },
+  {
+   "id": "03",
+   "source": 0,
+   "target": 3,
+   "name": "NOVAROTH",
+   "office": "Service Request Administrator",
+   "legions": 9,
+   "mark": 9
+  },
+  {
+   "id": "04",
+   "source": 0,
+   "target": 4,
+   "name": "SCRIPTORAX",
+   "office": "Knowledge Management Lead",
+   "legions": 11,
+   "mark": 8
+  },
+  {
+   "id": "05",
+   "source": 0,
+   "target": 5,
+   "name": "CULPAX",
+   "office": "Incident Assurance Director",
+   "legions": 3,
+   "mark": 10
+  },
+  {
+   "id": "06",
+   "source": 0,
+   "target": 6,
+   "name": "INSTANTOR",
+   "office": "Executive Escalation Liaison",
+   "legions": 1,
+   "mark": 4
+  },
+  {
+   "id": "12",
+   "source": 1,
+   "target": 2,
+   "name": "CALMOR",
+   "office": "Service Recovery Facilitator",
+   "legions": 5,
+   "mark": 12
+  },
+  {
+   "id": "13",
+   "source": 1,
+   "target": 3,
+   "name": "SEVERION",
+   "office": "Commercial Triage Analyst",
+   "legions": 7,
+   "mark": 7
+  },
+  {
+   "id": "14",
+   "source": 1,
+   "target": 4,
+   "name": "REDACTH",
+   "office": "Information Governance Manager",
+   "legions": 13,
+   "mark": 3
+  },
+  {
+   "id": "15",
+   "source": 1,
+   "target": 5,
+   "name": "CHORAZ",
+   "office": "Major Incident Manager",
+   "legions": 16,
+   "mark": 11
+  },
+  {
+   "id": "16",
+   "source": 1,
+   "target": 6,
+   "name": "PROBATOR",
+   "office": "Director of Technical Assurance",
+   "legions": 2,
+   "mark": 2
+  },
+  {
+   "id": "23",
+   "source": 2,
+   "target": 3,
+   "name": "PROMISSOR",
+   "office": "Renewal Strategy Manager",
+   "legions": 10,
+   "mark": 8
+  },
+  {
+   "id": "24",
+   "source": 2,
+   "target": 4,
+   "name": "CONSENTH",
+   "office": "Stakeholder Engagement Lead",
+   "legions": 14,
+   "mark": 3
+  },
+  {
+   "id": "25",
+   "source": 2,
+   "target": 5,
+   "name": "VIRIDON",
+   "office": "Experience Reporting Director",
+   "legions": 18,
+   "mark": 11
+  },
+  {
+   "id": "26",
+   "source": 2,
+   "target": 6,
+   "name": "VELAROTH",
+   "office": "Executive Briefing Lead",
+   "legions": 2,
+   "mark": 1
+  },
+  {
+   "id": "34",
+   "source": 3,
+   "target": 4,
+   "name": "JURISIEL",
+   "office": "Service Portfolio Manager",
+   "legions": 22,
+   "mark": 12
+  },
+  {
+   "id": "35",
+   "source": 3,
+   "target": 5,
+   "name": "MARGOR",
+   "office": "Commercial Operations Director",
+   "legions": 30,
+   "mark": 5
+  },
+  {
+   "id": "36",
+   "source": 3,
+   "target": 6,
+   "name": "QUARTEROTH",
+   "office": "Strategic Accounts Director",
+   "legions": 4,
+   "mark": 7
+  },
+  {
+   "id": "45",
+   "source": 4,
+   "target": 5,
+   "name": "ABSENTIEL",
+   "office": "Business Continuity Director",
+   "legions": 12,
+   "mark": 8
+  },
+  {
+   "id": "46",
+   "source": 4,
+   "target": 6,
+   "name": "EXCEPTOR",
+   "office": "Policy Exception Manager",
+   "legions": 1,
+   "mark": 6
+  },
+  {
+   "id": "56",
+   "source": 5,
+   "target": 6,
+   "name": "POSTHUM",
+   "office": "Chief of Staff",
+   "legions": 6,
+   "mark": 9
+  }
+ ]
+}
