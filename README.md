@@ -21,6 +21,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |
 | Generate hidden-line landscape plates sized to the book's pages | [Landscape plates](techniques/11-landscape-plates/README.md) |
 | Generate painted quilt squares on wood or metal | [Barn quilts](techniques/13-barn-quilts/README.md) |
+| Draw the manuscripts' revision history, slime-mould tubes, marbled endpapers or guilloché seals | [Codex palette](techniques/14-codex-palette/README.md) |
 
 ## Process art R&D
 
@@ -32,7 +33,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | --- | --- |
 | `techniques/` | Guides grouped by visual operation, with source links and tuning advice |
 | `examples/` | Small working examples and committed visual samplers |
-| `lib/` | Small implementations written for this collection, not imported from the book: AQ, numogram and Tic Xenotation |
+| `lib/` | Small implementations written for this collection, not imported from the book: AQ, numogram and Tic Xenotation; process art; barn quilts; the Codex palette studies |
 | `sources/development-art/` | Art-only generators selected from the development repository, with portability changes recorded |
 | `sources/codex-intervallorum/` | Unchanged source snapshot; original internal paths preserved |
 | `studies/` | The Infernal Engine, Photophobic and Scanned Statue studies at their original paths, and the Driftless Plates generator |
@@ -52,3 +53,5 @@ A [textile/process comparison](techniques/12-process-art/TEXTILE.md) adds a shar
 [Occult print, cipher systems, code art and weird Americana](research/occult-americana/README.md) surveys thirteen source groups and ten generator concepts, with four original form/carrier sketches. This is research and ideation, separate from the implemented-technique catalog.
 
 [Barn quilt squares](techniques/13-barn-quilts/README.md) add eight geometric block families, four painted-support studies, adjustable texture and wear, and shared-edge outline SVGs. Includes [research on conventions and materials](research/barn-quilts/README.md).
+
+[Codex palette research](docs/CODEX_PALETTE_RESEARCH.md) maps what the manuscripts name but no plate draws to public datasets, with their terms checked, and to techniques this collection lacked. Four leads are runnable [studies](techniques/14-codex-palette/README.md): a History Flow of the manuscripts' Git revisions, Tero tube networks on Nota V's nodes, marbling on polylines, and guilloché credentials from the Escalationum catalogue.

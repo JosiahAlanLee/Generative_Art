@@ -978,5 +978,81 @@
     "symbols": [
       "unique_edges"
     ]
+  },
+  {
+    "id": "history-flow",
+    "title": "History Flow of a text's Git revisions",
+    "family": "14-codex-palette",
+    "status": "collection",
+    "use": "Draw which lines of a set of manuscripts survive each revision, classed by the commit that last changed them",
+    "guide": "techniques/14-codex-palette/README.md",
+    "sources": [
+      "lib/codex_palette/historyflow.py",
+      "lib/codex_palette/studies.py"
+    ],
+    "symbols": [
+      "extract",
+      "versions_from_runs",
+      "transitions",
+      "history_plate"
+    ]
+  },
+  {
+    "id": "tero-tubes",
+    "title": "Flux-adapted tube networks (Tero)",
+    "family": "14-codex-palette",
+    "status": "collection",
+    "use": "Grow a slime-mould tube network between fixed nodes by Kirchhoff flow and conductivity adaptation",
+    "guide": "techniques/14-codex-palette/README.md",
+    "sources": [
+      "lib/codex_palette/tubes.py",
+      "lib/codex_palette/studies.py"
+    ],
+    "symbols": [
+      "disc_mesh",
+      "adapt",
+      "chains",
+      "tubes_plate"
+    ]
+  },
+  {
+    "id": "marbling",
+    "title": "Mathematical marbling on polylines",
+    "family": "14-codex-palette",
+    "status": "collection",
+    "use": "Make plottable marbled sheets from closed-form drop and tine operations",
+    "guide": "techniques/14-codex-palette/README.md",
+    "sources": [
+      "lib/codex_palette/marbling.py",
+      "lib/codex_palette/studies.py"
+    ],
+    "symbols": [
+      "drop",
+      "tine",
+      "comb",
+      "vortex",
+      "stone_ground",
+      "marbling_plate"
+    ]
+  },
+  {
+    "id": "guilloche-credentials",
+    "title": "Guilloch\u00e9 rosettes, reeded rims and wave bands",
+    "family": "14-codex-palette",
+    "status": "collection",
+    "use": "Engrave authority as rose-engine ornament from declared catalogue numbers",
+    "guide": "techniques/14-codex-palette/README.md",
+    "sources": [
+      "lib/codex_palette/guilloche.py",
+      "lib/codex_palette/studies.py"
+    ],
+    "symbols": [
+      "rose_pass",
+      "rosette",
+      "trochoid",
+      "reeded_rim",
+      "path_band",
+      "guilloche_plate"
+    ]
   }
 ]

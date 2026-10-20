@@ -1,0 +1,511 @@
+{
+  "title": "Codex palette — selected demonstrations",
+  "date": "2026-10-20",
+  "book_revision": "b789e03f30034bc8403f8a40aaf83842885aaad5",
+  "pixels_reviewed": 2000,
+  "selection_basis": "One plate per study, chosen after rendering each study's variants and reviewing them individually and side by side. No numeric beauty ranking.",
+  "items": [
+    {
+      "study": "history-flow",
+      "stem": "history-version",
+      "label": "History Flow of the public manuscripts",
+      "reason": "The five first-parent revisions that changed a manuscript, evenly spaced. Book VI's arrival is the red block; everything else is threads carried forward from the import.",
+      "settings": {
+        "study": "history-flow",
+        "spacing": "version",
+        "repository_rev": "b789e03f30034bc8403f8a40aaf83842885aaad5",
+        "files": [
+          "books/07_septimus/manuscript/clavis.md",
+          "books/00_accusator/manuscript/de-officio-accusatoris.md",
+          "books/01_matricis_intervallorum/manuscript/reading-edition.md",
+          "books/03_escalationum/manuscript/catalogue.json",
+          "books/04_graduum/manuscript/reading-edition.md",
+          "books/05_notoria/manuscript/reading-edition.md",
+          "books/00_matres/manuscript/de-matribus-noctis.md",
+          "books/06_disputationes/manuscript/de-potestate-et-accusatione.md",
+          "books/07_septimus/manuscript/de-vinculis.md"
+        ],
+        "versions": [
+          {
+            "commit": "17ee2d281ddac204937d641e0d70a16e68442265",
+            "date": "2026-10-18T13:02:14-05:00",
+            "subject": "Import Codex Intervallorum — Libri Septem",
+            "characters": 261997
+          },
+          {
+            "commit": "6df7ad3948d05455fcdfae59cc7b1265ba06ea3a",
+            "date": "2026-10-18T15:16:41-05:00",
+            "subject": "Merge pull request #2 from JosiahAlanLee/claude/answer-red-team-2026-10-18",
+            "characters": 266549
+          },
+          {
+            "commit": "7926e1b8a8b6b67e06d4e83311ea33c423aa0e0b",
+            "date": "2026-10-18T18:24:48-05:00",
+            "subject": "Merge pull request #6 from JosiahAlanLee/codex/public-evidence-review",
+            "characters": 275812
+          },
+          {
+            "commit": "7046d0c1119e8a1197d734809ddfe2d90dae9ed3",
+            "date": "2026-10-19T01:23:23-05:00",
+            "subject": "Merge pull request #8 from JosiahAlanLee/claude/book-vi-swap-2026-10-19",
+            "characters": 331165
+          },
+          {
+            "commit": "775ac08cf98fb7a289cbf38245fe4ac27a260158",
+            "date": "2026-10-19T14:50:42-05:00",
+            "subject": "Merge pull request #11 from JosiahAlanLee/claude/argon-small-fixes-2026-10-19",
+            "characters": 331167
+          }
+        ],
+        "classes": {
+          "base": {
+            "ink": "black",
+            "thread_spacing_mm": 1.1
+          },
+          "codex": {
+            "ink": "black",
+            "thread_spacing_mm": 0.36
+          },
+          "claude": {
+            "ink": "red",
+            "thread_spacing_mm": 0.36
+          },
+          "direct": {
+            "ink": "red",
+            "thread_spacing_mm": 1.1
+          }
+        },
+        "origins": [
+          {
+            "commit": "17ee2d281ddac204937d641e0d70a16e68442265",
+            "class": "base",
+            "via": "17ee2d281ddac204937d641e0d70a16e68442265",
+            "branch": null,
+            "subject": "Import Codex Intervallorum — Libri Septem",
+            "evidence": [
+              "present at the first drawn version"
+            ]
+          },
+          {
+            "commit": "274b4731cc40ab1ffd15ea4b455a3351ee90e38c",
+            "class": "claude",
+            "via": "6df7ad3948d05455fcdfae59cc7b1265ba06ea3a",
+            "branch": "claude/answer-red-team-2026-10-18",
+            "subject": "Answer the red-team reviews: a refusal model, andon sources, two clarifications",
+            "evidence": [
+              "commit author or Co-Authored-By trailer names Claude"
+            ]
+          },
+          {
+            "commit": "005d163525a0a96f71df78c1f4255c4e4f29b4b5",
+            "class": "codex",
+            "via": "7926e1b8a8b6b67e06d4e83311ea33c423aa0e0b",
+            "branch": "codex/public-evidence-review",
+            "subject": "Narrow manuscript premise and align claims with the evidence",
+            "evidence": [
+              "merged from branch codex/public-evidence-review"
+            ]
+          },
+          {
+            "commit": "97df7a9913ae1716ce464e4a796dc49d3a78cf58",
+            "class": "claude",
+            "via": "7046d0c1119e8a1197d734809ddfe2d90dae9ed3",
+            "branch": "claude/book-vi-swap-2026-10-19",
+            "subject": "Bind De Potestate et Accusatione as Book VI in place of the Tarot",
+            "evidence": [
+              "commit author or Co-Authored-By trailer names Claude"
+            ]
+          },
+          {
+            "commit": "e517e856dc090c4bb76e155ab339b3f93e2615f8",
+            "class": "claude",
+            "via": "775ac08cf98fb7a289cbf38245fe4ac27a260158",
+            "branch": "claude/argon-small-fixes-2026-10-19",
+            "subject": "Small fixes: Clavis title leaf, Septimus note, Book IV closing line, Book V wording",
+            "evidence": [
+              "commit author or Co-Authored-By trailer names Claude"
+            ]
+          }
+        ],
+        "threads": {
+          "base": 514,
+          "codex": 54,
+          "claude": 109,
+          "direct": 0
+        },
+        "meaning": "Band class is the class of the last commit to change each line (git blame); not first authorship and not a share of authorship.",
+        "stroke_count": 994,
+        "pen_down_m": 22.52,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "d31956967dbef6b3ab4cc52f5061ec076c7f6d9e6d7e47d5b0e434ca5d4b9ead"
+      }
+    },
+    {
+      "study": "tero-tubes",
+      "stem": "tubes-s53-v1",
+      "label": "Tubes between Nota V's seven nodes",
+      "reason": "Gamma 1.15 keeps loops and the centre node's cross-links; gamma 1.8 (variant 0) collapses to a single loop and reads as a diagram rather than an organism.",
+      "settings": {
+        "study": "tero-tubes",
+        "seed": 53,
+        "variant": 1,
+        "preset": {
+          "gamma": 1.15,
+          "flux": 1.0,
+          "label": "gamma 1.15: loops and cross-links"
+        },
+        "model": "Tero, Kobayashi & Nakagaki 2007 / Tero et al. 2010: Kirchhoff flow between a random source and sink among the food nodes each step; conductivity relaxes toward q^gamma/(1+q^gamma) of the flux it carried",
+        "nodes_cells": [
+          [
+            80,
+            38
+          ],
+          [
+            126,
+            62
+          ],
+          [
+            132,
+            104
+          ],
+          [
+            92,
+            130
+          ],
+          [
+            50,
+            112
+          ],
+          [
+            44,
+            66
+          ],
+          [
+            100,
+            94
+          ]
+        ],
+        "arena": {
+          "grid": 160,
+          "disc_radius_fraction": 0.47
+        },
+        "mesh": {
+          "spacing_cells": 2.0,
+          "points": 5025,
+          "edges": 14901
+        },
+        "steps": 2400,
+        "dt": 0.05,
+        "initial_D": [
+          0.5,
+          1.0
+        ],
+        "threshold": 0.01,
+        "insets_at_steps": [
+          200,
+          600,
+          1200
+        ],
+        "drawn_tube_chains": 33,
+        "edges_above_threshold": 347,
+        "abandoned_edges": 25,
+        "abandoned_rule": "D > 0.04 at step 600 (middle inset) and D < 0.01 at the end",
+        "drawing": "wall width .35-2.6 mm grows with sqrt(D/Dmax); red centre lines where D > .35 Dmax",
+        "comparison": "Same nodes and arena as the book's Nota V (Jones agents). A different model, not a control run for that plate.",
+        "stroke_count": 302,
+        "pen_down_m": 3.21,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "37289cf694a74b8aa16d6660c178a5543284ef0d187e69a32d294852324b0358"
+      }
+    },
+    {
+      "study": "marbling",
+      "stem": "marbling-s7-v1",
+      "label": "Marbled sheet, gel-git",
+      "reason": "The back-and-forth stroke gives the heart and flame rows; the nonpareil comb (variant 2) is denser and its fine teeth crowd a 0.3 mm pen.",
+      "settings": {
+        "study": "marbling",
+        "seed": 7,
+        "variant": 1,
+        "stage": "gel-git",
+        "operations": [
+          {
+            "op": "stone",
+            "sites": 64,
+            "drops": 192,
+            "radius_mm": 17.0,
+            "rings": 3
+          },
+          {
+            "op": "gel-git",
+            "direction": "vertical, alternating",
+            "spacing_mm": 11.0,
+            "tines": 18,
+            "z_mm": 15.0,
+            "lambda_mm": 5.0
+          }
+        ],
+        "resample_step_mm": 0.5,
+        "tank_mm": [
+          -12.0,
+          -12.0,
+          182.0,
+          232.0
+        ],
+        "paper_mm": [
+          12.0,
+          14.0,
+          158.0,
+          206.0
+        ],
+        "inks": "first and third ring of each drop black, second ring red",
+        "model": "Lu, Jaffer et al. 2012 closed-form drop and tine maps applied to polylines",
+        "stroke_count": 107,
+        "pen_down_m": 11.07,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "bc3bcf76dbc4e48e9f00cb78560c49418067ac866185e4ad6bd95eadf222550f"
+      }
+    },
+    {
+      "study": "guilloche-credentials",
+      "stem": "guilloche",
+      "label": "Credentials of the seven offices",
+      "reason": "Rank reads as ornament density, legions as reeds on the rim, competence as red rings; the twenty-one passage bands make the matrix a single engraved field.",
+      "settings": {
+        "study": "guilloche-credentials",
+        "mapping": {
+          "rosette_passes": "3 + 4 * authority",
+          "lobes": "6 + 2 * authority",
+          "rim_reeds": "office legions",
+          "red_centre_rings": "competence",
+          "band_crests": "passage legions",
+          "red_strand_phase_deg": "30 * mark"
+        },
+        "tiers": [
+          {
+            "id": 0,
+            "name": "FORAS",
+            "legions": 1,
+            "authority": 0,
+            "competence": 6,
+            "liability": 6
+          },
+          {
+            "id": 1,
+            "name": "VASSAGO",
+            "legions": 8,
+            "authority": 1,
+            "competence": 5,
+            "liability": 5
+          },
+          {
+            "id": 2,
+            "name": "GREMORY",
+            "legions": 12,
+            "authority": 2,
+            "competence": 4,
+            "liability": 4
+          },
+          {
+            "id": 3,
+            "name": "BUNE",
+            "legions": 26,
+            "authority": 3,
+            "competence": 3,
+            "liability": 3
+          },
+          {
+            "id": 4,
+            "name": "OROBAS",
+            "legions": 40,
+            "authority": 4,
+            "competence": 2,
+            "liability": 2
+          },
+          {
+            "id": 5,
+            "name": "PAIMON",
+            "legions": 200,
+            "authority": 5,
+            "competence": 1,
+            "liability": 1
+          },
+          {
+            "id": 6,
+            "name": "BAEL",
+            "legions": 66,
+            "authority": 6,
+            "competence": 0,
+            "liability": 0
+          }
+        ],
+        "handoffs": [
+          {
+            "source": 0,
+            "target": 1,
+            "name": "REPETIEL",
+            "legions": 6,
+            "mark": 6
+          },
+          {
+            "source": 0,
+            "target": 2,
+            "name": "SOLACIEL",
+            "legions": 4,
+            "mark": 5
+          },
+          {
+            "source": 0,
+            "target": 3,
+            "name": "NOVAROTH",
+            "legions": 9,
+            "mark": 9
+          },
+          {
+            "source": 0,
+            "target": 4,
+            "name": "SCRIPTORAX",
+            "legions": 11,
+            "mark": 8
+          },
+          {
+            "source": 0,
+            "target": 5,
+            "name": "CULPAX",
+            "legions": 3,
+            "mark": 10
+          },
+          {
+            "source": 0,
+            "target": 6,
+            "name": "INSTANTOR",
+            "legions": 1,
+            "mark": 4
+          },
+          {
+            "source": 1,
+            "target": 2,
+            "name": "CALMOR",
+            "legions": 5,
+            "mark": 12
+          },
+          {
+            "source": 1,
+            "target": 3,
+            "name": "SEVERION",
+            "legions": 7,
+            "mark": 7
+          },
+          {
+            "source": 1,
+            "target": 4,
+            "name": "REDACTH",
+            "legions": 13,
+            "mark": 3
+          },
+          {
+            "source": 1,
+            "target": 5,
+            "name": "CHORAZ",
+            "legions": 16,
+            "mark": 11
+          },
+          {
+            "source": 1,
+            "target": 6,
+            "name": "PROBATOR",
+            "legions": 2,
+            "mark": 2
+          },
+          {
+            "source": 2,
+            "target": 3,
+            "name": "PROMISSOR",
+            "legions": 10,
+            "mark": 8
+          },
+          {
+            "source": 2,
+            "target": 4,
+            "name": "CONSENTH",
+            "legions": 14,
+            "mark": 3
+          },
+          {
+            "source": 2,
+            "target": 5,
+            "name": "VIRIDON",
+            "legions": 18,
+            "mark": 11
+          },
+          {
+            "source": 2,
+            "target": 6,
+            "name": "VELAROTH",
+            "legions": 2,
+            "mark": 1
+          },
+          {
+            "source": 3,
+            "target": 4,
+            "name": "JURISIEL",
+            "legions": 22,
+            "mark": 12
+          },
+          {
+            "source": 3,
+            "target": 5,
+            "name": "MARGOR",
+            "legions": 30,
+            "mark": 5
+          },
+          {
+            "source": 3,
+            "target": 6,
+            "name": "QUARTEROTH",
+            "legions": 4,
+            "mark": 7
+          },
+          {
+            "source": 4,
+            "target": 5,
+            "name": "ABSENTIEL",
+            "legions": 12,
+            "mark": 8
+          },
+          {
+            "source": 4,
+            "target": 6,
+            "name": "EXCEPTOR",
+            "legions": 1,
+            "mark": 6
+          },
+          {
+            "source": 5,
+            "target": 6,
+            "name": "POSTHUM",
+            "legions": 6,
+            "mark": 9
+          }
+        ],
+        "source": "JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83842885aaad5:books/03_escalationum/manuscript/catalogue.json",
+        "stroke_count": 589,
+        "pen_down_m": 15.69,
+        "size_mm": [
+          170,
+          220
+        ],
+        "svg_sha256": "19321bc68d407a3c1e33ebf304588095ebf509cd93625fc2260c7dd9608273fa"
+      }
+    }
+  ]
+}

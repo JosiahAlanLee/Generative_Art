@@ -84,7 +84,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 
 ## Scope and absent implementations
 
-The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Driftless Plates seeds with `sfc32` as bryc published it; that is ordinary seeding, not entropy locking. Reaction–diffusion is newly implemented in the collection's [process-art studies](techniques/12-process-art/README.md), separately from imported source. Rival-contact braids and shared-substrate proposals remain unimplemented. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
+The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Driftless Plates seeds with `sfc32` as bryc published it; that is ordinary seeding, not entropy locking. Reaction–diffusion is newly implemented in the collection's [process-art studies](techniques/12-process-art/README.md), separately from imported source. Rival-contact braids and shared-substrate proposals remain unimplemented. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Data sources and further techniques tied to the book's text, with checked terms, are in the [Codex palette research](docs/CODEX_PALETTE_RESEARCH.md); four of its leads are implemented as the [Codex palette studies](techniques/14-codex-palette/README.md). Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
 
 The source snapshot omits large raster art and edition PDFs. Every included and omitted source path is recorded in [the manifest](catalog/source-manifest.json); the original public-book snapshot is separate from the later art-only development import. The root [notices](NOTICES.md) explain attribution and inherited terms.
 
@@ -143,3 +143,14 @@ A reusable tile grammar supplies joined curves and steps. Adaptive transport fol
 | [Shared-edge outline export](lib/barn_quilts/generator.py) | Split T-junctions and draw each block-partition edge once | collection |
 
 [Source research](research/barn-quilts/README.md) · [Block sampler](examples/previews/barn-quilts/block-sampler.svg) · [Controlled material comparison](examples/previews/barn-quilts/material-comparison.svg). These are original geometric interpretations of traditional block families; no book or landscape plate is changed.
+
+## [Codex palette](techniques/14-codex-palette/README.md)
+
+| Technique | Use | Status |
+| --- | --- | --- |
+| [History Flow of Git revisions](lib/codex_palette/historyflow.py) | Columns of revisions; surviving lines carried across, classed by the commit that last changed them | collection |
+| [Tero flux-adapted tubes](lib/codex_palette/tubes.py) | A tube network between fixed nodes from Kirchhoff flow and conductivity adaptation | collection |
+| [Mathematical marbling on polylines](lib/codex_palette/marbling.py) | Plottable stone, gel-git and nonpareil sheets from closed-form drop and tine maps | collection |
+| [Guilloché credentials](lib/codex_palette/guilloche.py) | Rose-engine rosettes, reeded rims and wave bands from declared catalogue numbers | collection |
+
+[Research: data and techniques from the text](docs/CODEX_PALETTE_RESEARCH.md) · [Selected demonstrations](examples/previews/codex-palette/manifest.json). New collection studies, not installed book plates.

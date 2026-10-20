@@ -90,3 +90,17 @@ Checked on 20 October 2026 with Node 22 and Chromium through Playwright. This co
 | Collection verifier | 241 public snapshot files, 58 selected development-art files, 53 techniques and all local guide links |
 
 Physical plotting was not tested.
+
+## Codex palette
+
+Checked on 20 October 2026 with Python 3.13.16, NumPy 2.5.3, SciPy 1.18.1, Shapely 2.2.0, ContourPy 1.4.0, Pillow 12.3.0 and Git 2.43.0. This covers `lib/codex_palette`, its guide, the research notes and `examples/make_codex_palette.py`; no imported source file changed.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s lib/codex_palette/tests -v` | 16 passed: History Flow classes, line survival and band spans on a constructed repository with a base import, a `codex/` merge and a Claude trailer; rebuild from the recorded input; tube mesh vertices, exact Kirchhoff balance at the source, the sink and every other node, repeatability and chain coverage; Nota V's nodes and arena against the snapshot's `notae.py` and `physarum.py`; drop radius, tine area, no crossings after drops and a gel-git comb, the resampling bound, repeatability; trochoid closure, reed and pass counts, one reed per office legion; the book's `svgimport` reads a marbled sheet with ink, width and coordinates intact |
+| Recorded inputs | All four selected SVGs rebuild byte for byte from `examples/previews/codex-palette/` without a book clone; their hashes match `manifest.json` |
+| Book clone | `--codex` on public book main `b789e03` reads five drawn revisions of nine manuscripts in under 4 s and reproduces the recorded inputs |
+| Candidate review | Tube settings γ 0.85–1.8 and flux 0.2–2.0 at 1,200 and 2,400 steps, drawn as strands and as outlined vessels; marbling at the stone, gel-git and nonpareil stages; History Flow at version and time spacing; the four selections reviewed individually and side by side |
+| Existing suites and verifier | Process-art tests: 17 passed. Collection verifier: 241 public snapshot files, 58 selected development-art files, 60 techniques and all local guide links |
+
+Licence statements in the research notes were checked against publisher pages on 20 October 2026; the items that could not be checked are listed there. Physical plotting was not tested.
