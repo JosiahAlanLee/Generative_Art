@@ -21,7 +21,8 @@ const FORMATS = {
   '8x8': { w: 203.2, h: 203.2, label: '8 × 8 in · square' },
   spread6x9: { w: 304.8, h: 228.6, label: '6 × 9 in spread', spread: true },
 };
-const SUBJECTS = [['auto', 'Auto'], ['oak', 'Bur oak'], ['pine', 'White pine'], ['grove', 'Oak grove'], ['farmstead', 'Farmstead'], ['watertower', 'Water tower'], ['monument', 'Monument'], ['rock', 'Sandstone tower'], ['sun', 'Great sun'], ['vista', 'Open vista']];
+const SUBJECTS = [['auto', 'Auto'], ['oak', 'Bur oak'], ['pine', 'White pine'], ['grove', 'Oak grove'], ['farmstead', 'Farmstead'], ['watertower', 'Water tower'], ['prairie', 'Prairie house'], ['rocktop', 'Rock-top house'], ['monument', 'Monument'], ['rock', 'Rock outcrop'], ['bluff', 'Lake bluffs'], ['sun', 'Great sun'], ['vista', 'Open vista']];
+const ROCKS = [['auto', 'Auto'], ['sandstone', 'Sandstone'], ['limestone', 'Limestone'], ['quartzite', 'Quartzite']];
 const SEASONS = [['auto', 'Auto'], ['spring', 'Spring'], ['summer', 'Summer'], ['autumn', 'Autumn'], ['winter', 'Winter']];
 const TIMES = [['auto', 'Auto'], ['day', 'Day'], ['dusk', 'Dusk'], ['night', 'Night']];
 const FRAMES = [['auto', 'Auto'], ['none', 'Full bleed'], ['border', 'Ruled border'], ['arch', 'Arched window'], ['oculus', 'Oculus'], ['arcade', 'Arcade']];
@@ -29,7 +30,7 @@ const PEN_LABELS = ['Key', 'Flora', 'Accent', 'Tint'];
 const FIRST_SEED = 'e2';
 
 const DEFAULTS = {
-  scene: { focal: 'auto', season: 'auto', time: 'auto', frame: 'auto', flora: 60, land: 60, built: 50, sky: 50, density: 100, imperfection: 50 },
+  scene: { focal: 'auto', rock: 'auto', season: 'auto', time: 'auto', frame: 'auto', flora: 60, land: 60, built: 50, sky: 50, density: 100, imperfection: 50 },
   ink: { palette: 'codex', strength: 100, penWidth: 0.35, riso: true },
   page: { format: 'codex', orient: 'portrait', bleed: false, textZone: 'none', zoneMode: 'tint', guides: true },
   out: { optimize: true, paperSvg: false },
@@ -173,13 +174,19 @@ function pageSize() {
   const bleed = state.page.bleed && !f.inset ? 3.175 : 0;
   return { w, h, bleed, W: w + 2 * bleed, H: h + 2 * bleed, spread: !!f.spread, inset: f.inset || null };
 }
+// Plates kept under engine 1.1 redraw with compat '1.1' while their seed and settings are unchanged
 function genParams(seed, extra) {
+  const p = baseParams(seed, extra);
+  if (state.compat && state.compat.key === JSON.stringify(p)) p.compat = state.compat.v;
+  return p;
+}
+function baseParams(seed, extra) {
   const s = state.scene, ps = pageSize();
   return Object.assign({
     seed, W: ps.W, H: ps.H, bleed: ps.bleed, spread: ps.spread, inset: ps.inset,
     density: s.density / 100, imperfection: s.imperfection / 100, penWidth: state.ink.penWidth,
     weights: { flora: s.flora / 100, land: s.land / 100, built: s.built / 100, sky: s.sky / 100 },
-    focal: s.focal, season: s.season, time: s.time, frame: s.frame,
+    focal: s.focal, rock: s.rock, season: s.season, time: s.time, frame: s.frame,
     textZone: state.page.textZone, zoneMode: state.page.zoneMode,
   }, extra || {});
 }
@@ -327,7 +334,8 @@ function updateMeta() {
   const { inks } = inkSet(p);
   $('#layers').innerHTML = [0, 1, 2, 3].filter((i) => p.counts[i]).map((i) => `<li><i style="background:${inks[i]}"></i><code>${i + 1}-${E.PEN_NAMES[i]}</code> ${PEN_LABELS[i]}<em>${p.counts[i].toLocaleString()} · ${(p.lengths[i] / 1000).toFixed(1)} m</em></li>`).join('');
   $('#traits').innerHTML = Object.entries(t).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('') +
-    `<dt>Seed</dt><dd><code>${escapeHtml(p.seed)}</code></dd><dt>Palette</dt><dd>${E.PALETTES[state.ink.palette].name}</dd>`;
+    `<dt>Seed</dt><dd><code>${escapeHtml(p.seed)}</code></dd><dt>Palette</dt><dd>${E.PALETTES[state.ink.palette].name}</dd>`
+    + `<dt>Engine</dt><dd>${p.params.compat ? p.params.compat + ', as kept' : E.version}</dd>`;
   renderKept();
 }
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
@@ -363,6 +371,8 @@ $('#kept').addEventListener('click', (e) => {
   const b = e.target.closest('button[data-i]'); if (!b) return;
   const k = kept[+b.dataset.i]; if (!k) return;
   if (k.cfg) { for (const g of ['scene', 'ink', 'page']) if (k.cfg[g]) state[g] = Object.assign({}, DEFAULTS[g], k.cfg[g]); syncControls(); persist(); }
+  const v = !k.engine || /^1\.1\./.test(k.engine) ? '1.1' : null;
+  state.compat = v ? { v, key: JSON.stringify(baseParams(k.seed)) } : null;
   goSeed(k.seed);
 });
 $('#keep').addEventListener('click', () => {
@@ -370,7 +380,7 @@ $('#keep').addEventListener('click', () => {
   const i = kept.findIndex((k) => k.seed === plate.seed);
   if (i >= 0) { kept.splice(i, 1); toast('Removed from kept plates.'); }
   else {
-    kept.unshift({ seed: plate.seed, title: plate.traits.Subject, cfg: { scene: state.scene, ink: state.ink, page: state.page } });
+    kept.unshift({ seed: plate.seed, title: plate.traits.Subject, engine: plate.params.compat ? plate.params.compat + '.0' : E.version, cfg: { scene: state.scene, ink: state.ink, page: state.page } });
     kept = kept.slice(0, 30);
     toast('Kept. It stays in this browser with its settings.');
   }
@@ -430,12 +440,12 @@ $$('.zoom button').forEach((b) => b.addEventListener('click', () => {
 
 /* -------------------------------------------------------------- controls */
 function fillSelect(id, items) { $(id).innerHTML = items.map(([v, l]) => `<option value="${v}">${l}</option>`).join(''); }
-fillSelect('#focal', SUBJECTS); fillSelect('#season', SEASONS); fillSelect('#time', TIMES); fillSelect('#frame', FRAMES);
+fillSelect('#focal', SUBJECTS); fillSelect('#rock', ROCKS); fillSelect('#season', SEASONS); fillSelect('#time', TIMES); fillSelect('#frame', FRAMES);
 fillSelect('#format', Object.entries(FORMATS).map(([k, f]) => [k, f.label]));
 $('#palettes').innerHTML = Object.entries(E.PALETTES).map(([k, p]) =>
   `<button class="pal" data-pal="${k}" aria-pressed="false"><span class="chipset" style="background:${p.paper}">${p.inks.map((c) => `<span style="background:${c}"></span>`).join('')}</span><small>${p.name}</small></button>`).join('');
 
-const sceneSelects = ['focal', 'season', 'time', 'frame'];
+const sceneSelects = ['focal', 'rock', 'season', 'time', 'frame'];
 const sceneSliders = ['flora', 'land', 'built', 'sky', 'density', 'imperfection'];
 function syncControls() {
   for (const k of sceneSelects) $('#' + k).value = state.scene[k];

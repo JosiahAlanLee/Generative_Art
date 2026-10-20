@@ -1,8 +1,8 @@
 # Driftless Plates
 
-![Six preview plates: a bur oak, a ring monument, a sandstone tower, a farmstead in an arched window, a text-block clearing and an A4 plot master](preview.jpg)
+![Nine preview plates: a bur oak, a sandstone tower, a limestone outcrop, lake bluffs, a prairie house, a rock-top house, a farmstead, a text-block clearing and an A4 plot master](preview.jpg)
 
-A seeded generator of hidden-line landscape plates, made in October 2026 as background material for the book and for the pen plotter. Its subjects are the Driftless: contour-strip fields, coulees and rivers, bur oaks and white pines, silos, barns and round bales, sandstone towers, and an occasional geometric monument. Its density and vegetation follow Zancan's plotter landscapes; its ruled buildings and print imperfections follow Yazid's *Hashed Cities*. No code from either artist is used.
+A seeded generator of hidden-line landscape plates, made in October 2026 as background material for the book and for the pen plotter. Its subjects are the Driftless: contour-strip fields, coulees and rivers, bur oaks and white pines, silos, barns and round bales, sandstone towers and dolomite ledges, quartzite bluffs over a lake, houses after Frank Lloyd Wright and the House on the Rock, and an occasional geometric monument. Its density and vegetation follow Zancan's plotter landscapes; its ruled buildings and print imperfections follow Yazid's *Hashed Cities*. No code from either artist is used.
 
 Every plate is drawn front to back against an occlusion mask, so the SVG holds only visible lines and can go straight to a plotter. By default a plate is set to the Codex Intervallorum page.
 
@@ -10,7 +10,7 @@ Every plate is drawn front to back against an occlusion mask, so the SVG holds o
 
 Open `index.html` in a browser. It needs no server or install; the interface fonts load from Google Fonts when online and fall back to system faces offline.
 
-- **Scene:** subject, season, light and frame, each on Auto or fixed; Flora, Land, Built and Sky weights that blend those motifs within one scene; density and imperfection.
+- **Scene:** subject, rock, season, light and frame, each on Auto or fixed; Flora, Land, Built and Sky weights that blend those motifs within one scene; density and imperfection.
 - **Ink:** ten palettes, ink strength (mixes every ink toward the paper, for plates behind text), nib width and a risograph-style colour offset.
 - **Page:** trim, orientation, bleed, and a text area that either fades the linework or moves it into the tint ink.
 - **Export:** SVG and 300 dpi PNG, path ordering for pen-up travel, a plot-time estimate and the plate's traits.
@@ -21,6 +21,8 @@ Batch rendering needs Node 18 or later:
 node cli.js --count 12                                   # Codex page, Codex inks, into out/
 node cli.js --seeds e2,f1 --zone codex --zone-mode tint  # lighten the Codex text block
 node cli.js --count 6 --format codexPlot                 # A4 plot masters
+node cli.js --count 6 --rock limestone                   # dolomite ledges instead of sandstone
+node cli.js --seeds g8 --focal bluff                     # bluffs over a lake
 node cli.js --help                                       # every option
 node test.js                                             # the checks below
 ```
@@ -43,6 +45,24 @@ The books do not share one text block. Book VI sets 66–452 pt with claim tags 
 
 Placing a plate in a binding is not automated; the generator only writes files.
 
+## Rock and buildings
+
+Rock sets every outcrop, mesa face and lake bluff on the plate. Auto chooses among the three.
+
+| Rock | Drawn as | After |
+| --- | --- | --- |
+| Sandstone | Towers, chimneys and buttes with flared caps, ledges and cross-bedding | The Driftless's sandstone towers and buttes |
+| Limestone | Thin dolomite beds that step in and out, cracks offset bed to bed, red cedar on the ledges and on the slopes below | The dolomite caps of Driftless ridges and the bluff prairies under them, which grow in with red cedar without fire |
+| Quartzite | Jointed crags over talus, with a doorway of stacked blocks, a balanced rock or a needle on top | The 500-foot bluffs around Devil's Lake, with their talus slopes and Cleopatra's Needle |
+
+Three subjects arrived with engine 1.2:
+
+- **Lake bluffs:** one or both sides of the page rise from a lake as broken cliff bands over talus fields, bluff prairie or woods, depending on the rock. The crest and the shore converge toward the far end.
+- **Prairie house:** low hipped roofs with deep eaves, a band of casement windows with art glass, long horizontal courses, a coursed stone base, a broad chimney and a terrace wall with an urn, after Wright's Prairie houses and Taliesin. It stands high on a ridge.
+- **Rock-top house:** a low stepped house over a sandstone chimney, with a long windowed room cantilevered out over the valley, after Alex Jordan's House on the Rock, whose Infinity Room projects 218 feet. It always stands on sandstone.
+
+No plans, photographs or images were traced; the forms are drawn from published descriptions.
+
 ## Output
 
 - **SVG:** millimetre units, one Inkscape/AxiDraw layer per pen: `1-key`, `2-flora`, `3-accent`, `4-tint`. The seed and every setting are stored in `<metadata>`.
@@ -63,19 +83,24 @@ Placing a plate in a binding is not automated; the generator only writes files.
 | Terrain bands and treatments | `buildBands`, `farm`, `forestBand`, `hatchBand`, `waterBand`, `rockFaces` |
 | Foreground grass and flowers | `tallGround`, `tuft`, `plant` |
 | Trees | `colonize`, `drawBranches`, `oak`, `pine`, `bough`, `foliageCluster` |
-| Structures | `silo`, `barn`, `house`, `waterTower`, `rockTower`, `monument`, `poleLine` |
+| Structures | `silo`, `barn`, `house`, `waterTower`, `monument`, `poleLine` |
+| Rock types and lake bluffs | `rockTower`, `limestoneOutcrop`, `quartziteCrag`, `rockFacesBedded`, `lakeBluff`, `crestFeature`, `angularBlock`, `cedar` |
+| Houses after Wright and the House on the Rock | `prairieHouse`, `rockTopHouse`, `hipRoofO`, `prairieWalls` |
 | Sky | `drawSky`, `sun`, `moon`, `clouds`, `windLines` |
 | Hand and text area | `post`, `textZone` |
 | SVG and path ordering | `toSVG`, `orderPaths` |
 
 ## Reproducibility
 
-A seed with the same settings and engine version draws the same plate. `test.js` regenerates the six plates in `plates.json` and compares their SVG hashes with `manifest.json`. That holds within one JavaScript engine: `Math.sin`, `Math.exp` and the like are not required to round identically everywhere, so another browser can shift a plate slightly.
+A seed with the same settings and engine version draws the same plate. `test.js` regenerates the nine plates in `plates.json` and compares their SVG hashes with `manifest.json`. That holds within one JavaScript engine: `Math.sin`, `Math.exp` and the like are not required to round identically everywhere, so another browser can shift a plate slightly.
+
+Engine 1.2 draws about half of all seeds differently from 1.1, because rock type and the new subjects enter the composition. Plates kept in the browser under 1.1 still redraw as they were: the page draws them with `compat: '1.1'` until their seed or a setting changes. `--compat 1.1` does the same from the command line. `test.js` checks it against geometry recorded from engine 1.1 for its six preview plates.
 
 ## Limits
 
 - Physical plotting was not tested.
 - Cumulus clouds read as cartoonish, and the hatched-hillside treatment comes out heavy on some seeds.
+- Lake bluffs are mostly wooded at plate scale, so their talus fields show as patches rather than continuous slopes.
 - Fade out leaves a few specks inside the text area. Lighten keeps every line, drawn in the tint pen.
 - Plates run from about 4,000 to more than 20,000 strokes. The plot-time estimate assumes 25 mm/s and a quarter second per pen lift.
 
@@ -86,3 +111,7 @@ A seed with the same settings and engine version draws the same plate. `test.js`
 - Tree growth by space colonization: Runions, Lane and Prusinkiewicz, [Modeling Trees with a Space Colonization Algorithm](https://www.algorithmicbotany.org/papers/colonization.egwnp2007.html) (2007).
 - Seeding: `xmur3` and `sfc32` as published in bryc's [PRNGs.md](https://github.com/bryc/code/blob/master/jshash/PRNGs.md), public domain. `sfc32` comes from the PractRand suite. This is plain seeding, not aebrer's entropy locking.
 - Noise: 2D simplex noise written after Stefan Gustavson's [Simplex noise demystified](https://cgvr.cs.uni-bremen.de/teaching/cg_literatur/simplexnoise.pdf) (2005).
+- Devil's Lake: the [Wisconsin DNR's geology page](https://dnr.wisconsin.gov/topic/parks/devilslake/geology) (quartzite, 500-foot bluffs, freeze-thaw talus) and [Wikipedia](https://en.wikipedia.org/wiki/Devil%27s_Lake_State_Park_(Wisconsin)) (talus on three sides, Cleopatra's Needle).
+- Bluff prairie, dolomite and red cedar: [Pleasant Valley Conservancy](https://pleasantvalleyconservancy.org/2018/05/02/plant-ecology-and-soil-characteristics-of-a-midwestern-bluff-prairie/).
+- Taliesin's hipped roofs, overhanging eaves, bands of casements and local limestone: the [Frank Lloyd Wright Foundation](https://flwright.org/explore/taliesin).
+- The House on the Rock, Deer Shelter Rock and the Infinity Room: [Wikipedia](https://en.wikipedia.org/wiki/House_on_the_Rock).

@@ -5,6 +5,7 @@
 //  3. Plot masters keep every stroke inside the extent the Codex plate validator checks.
 //  4. Text blocks land where the book sets type, one per page on a spread.
 //  5. index.html is the current build of src/ and engine.js.
+//  6. Plates made under engine 1.1 draw the same geometry with compat '1.1'.
 'use strict';
 const crypto = require('crypto');
 const fs = require('fs');
@@ -61,10 +62,12 @@ for (const rec of manifest.plates) {
     'hash differs; after an intended change run node make_preview.js');
 }
 
-// 3. Plot masters stay inside the validator's extent
+// 3. Plot masters stay inside the validator's extent, including the subjects added in engine 1.2
 const [ex0, ey0, ex1, ey1] = C.plotMasterMM.extent;
-for (const seed of ['f7', 'e2', 'c2']) {
-  const { res } = renderPlate({ seed, format: 'codexPlot' });
+const plotSpecs = [{ seed: 'f7' }, { seed: 'e2' }, { seed: 'c2' }, { seed: 'g4', focal: 'bluff' }, { seed: 'k3', focal: 'rocktop' }, { seed: 'm4', focal: 'rock', rock: 'quartzite' }];
+for (const ps of plotSpecs) {
+  const seed = ps.seed + (ps.focal ? ' (' + ps.focal + ')' : '');
+  const { res } = renderPlate(Object.assign({ format: 'codexPlot' }, ps));
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
   for (const pen of res.pens) for (const p of pen) for (let i = 0; i < p.length; i += 2) {
     if (p[i] < x0) x0 = p[i]; if (p[i] > x1) x1 = p[i]; if (p[i + 1] < y0) y0 = p[i + 1]; if (p[i + 1] > y1) y1 = p[i + 1];
@@ -85,6 +88,22 @@ check('bleed shifts the block by the bleed', Math.abs(zb.rects[0].x0 - 3.175 - w
 
 // 5. The committed page is the current build
 check('index.html is the current build', page() === fs.readFileSync(path.join(HERE, 'index.html'), 'utf8'), 'run node build.js');
+
+// 6. Engine 1.1 plates, by geometry recorded from engine 1.1 itself
+function geometry(res) {
+  const h = crypto.createHash('sha256');
+  for (const pen of res.pens) {
+    h.update('|');
+    for (const p of pen) { h.update(String(p.length)); h.update(Buffer.from(p.buffer, p.byteOffset, p.byteLength)); }
+  }
+  return h.digest('hex');
+}
+const ref11 = manifest.compat_1_1 || [];
+check('manifest records engine 1.1 reference plates', ref11.length >= 6);
+for (const rec of ref11) {
+  const { res } = renderPlate(Object.assign({}, rec.spec, { compat: '1.1' }));
+  check(`1.1 plate ${rec.spec.seed} (${rec.spec.format}) draws the same with compat '1.1'`, geometry(res) === rec.geometry_sha256);
+}
 
 console.log(`\n${passes} passed, ${failures} failed`);
 process.exit(failures ? 1 : 0);

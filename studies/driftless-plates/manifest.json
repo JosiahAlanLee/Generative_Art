@@ -1,6 +1,6 @@
 {
   "study": "Driftless Plates",
-  "engine_version": "1.1.0",
+  "engine_version": "1.2.0",
   "codex_source": "JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83842885aaad5",
   "generated_with": "Node v22.22.0",
   "plates": [
@@ -28,35 +28,8 @@
       "strokes": 17258,
       "pen_down_m": 36.1,
       "pen_up_travel_m": 23.24,
-      "svg_bytes": 1243782,
-      "svg_sha256": "f90b3751e1b24f1370cf99f7bd0da8b320b7a2043c3abd80c792a803ef256569"
-    },
-    {
-      "spec": {
-        "seed": "f1",
-        "format": "codex"
-      },
-      "file": "driftless-plate-f1-codex.svg",
-      "size_mm": [
-        177.8,
-        254
-      ],
-      "traits": {
-        "Season": "Summer",
-        "Light": "Day",
-        "Subject": "Monument",
-        "Frame": "Full bleed",
-        "Ground": "Meadow",
-        "Ridges": "5",
-        "Sky": "Wind",
-        "Clouds": "Cumulus",
-        "Fields": "Contour strips"
-      },
-      "strokes": 16083,
-      "pen_down_m": 38.53,
-      "pen_up_travel_m": 23.17,
-      "svg_bytes": 1187410,
-      "svg_sha256": "0c94fcad383b7a1a486386d37db46607735b52f83d280abb20a2642f144eb092"
+      "svg_bytes": 1243816,
+      "svg_sha256": "47fd8cb8a7d3c12b82f26f18c622fa7f8e92c8d5084fc446026b21d7189205e7"
     },
     {
       "spec": {
@@ -77,13 +50,134 @@
         "Ridges": "4",
         "Sky": "Stars",
         "Clouds": "Mackerel",
-        "Fields": "Contour strips"
+        "Fields": "Contour strips",
+        "Rock": "Sandstone"
       },
       "strokes": 13770,
       "pen_down_m": 25.73,
       "pen_up_travel_m": 19.84,
-      "svg_bytes": 797032,
-      "svg_sha256": "ddb6a4771ff675d521903fe99ed3e127763ce677aa3593bcca97dd922d06e384"
+      "svg_bytes": 797105,
+      "svg_sha256": "eb47b4bef70b313f98f4186cb83144a719e833869d01539c86947fba4da2b33c"
+    },
+    {
+      "spec": {
+        "seed": "m4",
+        "format": "codex",
+        "focal": "rock",
+        "rock": "limestone"
+      },
+      "file": "driftless-plate-m4-codex.svg",
+      "size_mm": [
+        177.8,
+        254
+      ],
+      "traits": {
+        "Season": "Summer",
+        "Light": "Day",
+        "Subject": "Limestone outcrop",
+        "Frame": "Full bleed",
+        "Ground": "Strip field",
+        "Ridges": "6",
+        "Sky": "Dashed",
+        "Clouds": "None",
+        "Fields": "Contour strips",
+        "Water": "River",
+        "Rock": "Limestone"
+      },
+      "strokes": 6989,
+      "pen_down_m": 18.93,
+      "pen_up_travel_m": 13.53,
+      "svg_bytes": 566635,
+      "svg_sha256": "5fb235427c18f4c2ec512ec05724ea9ba14c9485268353b8c700fb0ea9758c61"
+    },
+    {
+      "spec": {
+        "seed": "g8",
+        "format": "codex",
+        "focal": "bluff"
+      },
+      "file": "driftless-plate-g8-codex.svg",
+      "size_mm": [
+        177.8,
+        254
+      ],
+      "traits": {
+        "Season": "Spring",
+        "Light": "Night",
+        "Subject": "Lake bluffs",
+        "Frame": "Arcade",
+        "Ground": "Meadow",
+        "Ridges": "5",
+        "Sky": "Wind",
+        "Clouds": "Stratus",
+        "Fields": "Contour strips",
+        "Water": "Lake",
+        "Rock": "Quartzite"
+      },
+      "strokes": 10413,
+      "pen_down_m": 24.95,
+      "pen_up_travel_m": 12.4,
+      "svg_bytes": 657413,
+      "svg_sha256": "9cce3d7f34b417368fab683362742509b11be96163e41737711590ae496db1ac"
+    },
+    {
+      "spec": {
+        "seed": "h2",
+        "format": "codex",
+        "focal": "prairie"
+      },
+      "file": "driftless-plate-h2-codex.svg",
+      "size_mm": [
+        177.8,
+        254
+      ],
+      "traits": {
+        "Season": "Summer",
+        "Light": "Day",
+        "Subject": "Prairie house",
+        "Frame": "Full bleed",
+        "Ground": "Meadow",
+        "Ridges": "4",
+        "Sky": "Ruled",
+        "Clouds": "Cumulus",
+        "Fields": "Contour strips"
+      },
+      "strokes": 14702,
+      "pen_down_m": 32.86,
+      "pen_up_travel_m": 19.94,
+      "svg_bytes": 1059834,
+      "svg_sha256": "4459918ad587e5f12d0cc41b2a5334358581859f31fa5d1a9012459ba31bccfa"
+    },
+    {
+      "spec": {
+        "seed": "k3",
+        "format": "codex",
+        "focal": "rocktop"
+      },
+      "file": "driftless-plate-k3-codex.svg",
+      "size_mm": [
+        177.8,
+        254
+      ],
+      "traits": {
+        "Season": "Summer",
+        "Light": "Night",
+        "Subject": "Rock-top house",
+        "Frame": "Full bleed",
+        "Ground": "Meadow",
+        "Ridges": "6",
+        "Sky": "Stars",
+        "Clouds": "Stratus",
+        "Fields": "Contour strips",
+        "Water": "River",
+        "Rock": "Sandstone",
+        "Anomaly": "Yes"
+      },
+      "strokes": 19337,
+      "pen_down_m": 34.71,
+      "pen_up_travel_m": 24.77,
+      "svg_bytes": 1049960,
+      "svg_sha256": "c7b0213420dee1442dfcc68f1c749dede39c04815c38f2c959284990693fff29"
     },
     {
       "spec": {
@@ -110,8 +204,8 @@
       "strokes": 4564,
       "pen_down_m": 15.88,
       "pen_up_travel_m": 8.67,
-      "svg_bytes": 356179,
-      "svg_sha256": "af4ea12a00766639fc9ee65374cf86c865609498d39060744a2141b0fad8805c"
+      "svg_bytes": 356213,
+      "svg_sha256": "174821c5b2ac6b7b37107f4b37929830261ebd731c548eb8dcc87f3ebc63f9c0"
     },
     {
       "spec": {
@@ -140,47 +234,96 @@
       "strokes": 5797,
       "pen_down_m": 10.71,
       "pen_up_travel_m": 9.56,
-      "svg_bytes": 300142,
-      "svg_sha256": "f82da8512b442e1a5ff2834bbfd6a8179492d15ace18e9e5111fd0f4d66d2047"
+      "svg_bytes": 300176,
+      "svg_sha256": "3350dad354ede31ef3326c36c61ae96cc122e062ff838fbdff4f27a9090b9542"
+    },
+    {
+      "spec": {
+        "seed": "g4",
+        "format": "codexPlot",
+        "focal": "bluff"
+      },
+      "file": "driftless-plate-g4-codexPlot.svg",
+      "size_mm": [
+        210,
+        297
+      ],
+      "traits": {
+        "Season": "Winter",
+        "Light": "Day",
+        "Subject": "Lake bluffs",
+        "Frame": "Full bleed",
+        "Ground": "Snowfield",
+        "Ridges": "5",
+        "Sky": "Wind",
+        "Clouds": "Stratus",
+        "Fields": "Contour strips",
+        "Water": "Lake",
+        "Rock": "Quartzite"
+      },
+      "strokes": 17692,
+      "pen_down_m": 37.36,
+      "pen_up_travel_m": 20.29,
+      "svg_bytes": 981812,
+      "svg_sha256": "9f550bf9d639c38e69666e17f7964d5f202a05f0bc99f61f189c0104356b56cd"
+    }
+  ],
+  "files": {
+    "engine.js": "8ba687057284e68faf66521ec6eb543d27495fe8290095324f15201578a40020",
+    "cli.js": "c337a80799d5e31c32f97fc97d9a5f872ffe29ee458744685fbf2eecb061be8c",
+    "build.js": "7e90cfd61a598089e8eafc1854ba60a66bf1eb1724042da053560d9d576fe9f3",
+    "make_preview.js": "b3c8b3eff9040bd3934234a2995bdab38a42c189e986ac18c32bf0d9b636abb3",
+    "test.js": "bfac4e815e49689adc34976c0b91811104cfbc8d5d43dcf9dde41713ed7aaf92",
+    "plates.json": "d701c4e8cf17433fbadcca48d04f79d7f2943bb61967a98d01061f52acda2d2a",
+    "src/app.html": "ea9adea5c17772c46d8d2490df1f73f490c2c9db04b12e9d87fe1100f1dd40a7",
+    "src/app.js": "ac50cf51edd2ea0291714fb62ccbbb8b6e437858f05b60d8094a18ab6d63af8e",
+    "index.html": "a29bbebd92cc9473016e9e78d97d0cce8e5f005764b6569d064fdcc0327dcfa1",
+    "preview.jpg": "23a322baa3267a084a4cced731879e0c50c4d2efe9dca50463098648c684c9d4"
+  },
+  "compat_1_1": [
+    {
+      "spec": {
+        "seed": "e2",
+        "format": "codex"
+      },
+      "geometry_sha256": "580bd3616b8dfea7c4fd68ea08810e9704d2b11a63cfa0c72a78b0c7f7dc3bb6"
+    },
+    {
+      "spec": {
+        "seed": "f1",
+        "format": "codex"
+      },
+      "geometry_sha256": "cb472d5200867c298b759c0e3fa341d8e9f0fe854c3132efd0d6129220549b91"
+    },
+    {
+      "spec": {
+        "seed": "f2",
+        "format": "codex"
+      },
+      "geometry_sha256": "b843d1113646c83b854838ce86d3d3cc5adff9b7e433ebbfe62bf09deafaeef9"
+    },
+    {
+      "spec": {
+        "seed": "f5",
+        "format": "codex"
+      },
+      "geometry_sha256": "f731a18a3af40b4a052f703cc4baff8b4f630b73fbe7e6f94fd55a4e22fd1c08"
+    },
+    {
+      "spec": {
+        "seed": "f4",
+        "format": "codex",
+        "zone": "codex",
+        "zoneMode": "fade"
+      },
+      "geometry_sha256": "3b007fba4eb5869097a9d4c7c9db1910ad47581cf4ef02547f89ed0f05f532bd"
     },
     {
       "spec": {
         "seed": "f7",
         "format": "codexPlot"
       },
-      "file": "driftless-plate-f7-codexPlot.svg",
-      "size_mm": [
-        210,
-        297
-      ],
-      "traits": {
-        "Season": "Autumn",
-        "Light": "Night",
-        "Subject": "Monument",
-        "Frame": "Full bleed",
-        "Ground": "Meadow",
-        "Ridges": "6",
-        "Sky": "Stars",
-        "Clouds": "Mackerel",
-        "Fields": "Contour strips"
-      },
-      "strokes": 18689,
-      "pen_down_m": 37.89,
-      "pen_up_travel_m": 26.44,
-      "svg_bytes": 1104776,
-      "svg_sha256": "9c5cd0781f37028583e0be235d8d1c02be852bd95af7a76e7d816f04e59ccffe"
+      "geometry_sha256": "38cf1738870a47d900f5465954fd6c4b806f309fb7d5bd66feb2d0a57cc647f4"
     }
-  ],
-  "files": {
-    "engine.js": "1f24113018a44d716adab5c5a2de401e93cdd935c6874de3790cc85048a2a9d9",
-    "cli.js": "9c572b52c088c82329ae8b774cdc85b4b7f8b3e63be7ada619c65c5b5b8debf7",
-    "build.js": "7e90cfd61a598089e8eafc1854ba60a66bf1eb1724042da053560d9d576fe9f3",
-    "make_preview.js": "84a763abea003b70f07ded619dcb2398de00603849665239216803999ec8874c",
-    "test.js": "c671dfe412fe82b1609452c18c3c24243d7f3df6594b361c6102990c313e3d36",
-    "plates.json": "ab191e4a31ce53af3d1ccfe66d9423c519137310724eee714e4635e55a2c4784",
-    "src/app.html": "433e3576d51eb55442df632dafef9d84e26540cc8a639be4bbafd973a9ec1b75",
-    "src/app.js": "092bd028783e18656e2b1f7c59a5b66f0dd85716a9eb67e29395d4f2685799d5",
-    "index.html": "833c4a5713b483655e06acce8f11cf26d62f556155584ed62eb21818417d134a",
-    "preview.jpg": "3a8a56eebc9c296626b7eb479221ae41544c6ed06f943a04a08813734c360f01"
-  }
+  ]
 }
