@@ -1,0 +1,60 @@
+{
+  "source": "repo/studies/photophobic/porticus/render.py",
+  "source_sha256": "6c5daad0868789a7274625c0c4df8f8b6c8ff50bd8785fd18f49cd4ff96118b0",
+  "functions": [
+    {
+      "name": "coverage_target",
+      "first_line": 43,
+      "last_line": 44,
+      "sha256": "5b021b2609ded6cb01410ce0a02380e48508f36c322a1ec9e74223b470bc1ac2"
+    },
+    {
+      "name": "Strokes",
+      "first_line": 122,
+      "last_line": 148,
+      "sha256": "f47635eb81fc98251375aeca46d4bddff5469cf5eb8196a5d837142913a7d878"
+    },
+    {
+      "name": "resample_screen",
+      "first_line": 151,
+      "last_line": 160,
+      "sha256": "0fc2a03cfa8b027151554c28fa07ecd1a5f05c18b4b80ebb9a74c5ad17d2cc67"
+    },
+    {
+      "name": "spacing_px",
+      "first_line": 163,
+      "last_line": 170,
+      "sha256": "3101b25df45f05ecbb18dbf27e4c961a1d625485613c13fecfbde1238805c98d"
+    },
+    {
+      "name": "hatch_on_surface",
+      "first_line": 173,
+      "last_line": 219,
+      "sha256": "9a6d024b2a65492508e3d9a32cfd4208ff9acf700e8fe51881d900e406b8f501"
+    },
+    {
+      "name": "hatch_on_face",
+      "first_line": 222,
+      "last_line": 262,
+      "sha256": "37ff6b8f4e00b5b6a33a2a4dd7e87e8ed40f0e53caf20e1438aab457edaff3d7"
+    },
+    {
+      "name": "sample",
+      "first_line": 459,
+      "last_line": 460,
+      "sha256": "df8d80fb1ab34b81f828dbe0f5ef4a7e4c48f007c27bc811dd321ed2372c67df"
+    },
+    {
+      "name": "interruptions",
+      "first_line": 531,
+      "last_line": 537,
+      "sha256": "de32def1c398948393e2cfe3faccf779d4f5e16e5c96d729ad577412711eb5e8"
+    },
+    {
+      "name": "allocate_hatch",
+      "first_line": 559,
+      "last_line": 573,
+      "sha256": "031c1041d3e092333ab46355ecc346772e1d915d206f2ac1ff2c9c6c1198e84d"
+    }
+  ]
+}

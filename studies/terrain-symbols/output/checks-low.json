@@ -1,0 +1,89 @@
+{
+  "view": "low",
+  "all_passed": true,
+  "checks": {
+    "native_blender_camera_agreement": {
+      "passed": true,
+      "maximum_error_px": 0.0005446981776913162
+    },
+    "drape_uses_modified_terrain": {
+      "passed": true,
+      "maximum_difference_from_unmodified_formula": 0.03806707144766186
+    },
+    "drape_lies_on_evaluated_triangle": {
+      "passed": true,
+      "max_plane_error": 1.1449174941446927e-14
+    },
+    "host_projection_never_lands_on_barn_roof": {
+      "passed": true,
+      "roof_z": 6.8700975434543,
+      "ground_z": 2.1966211407829803
+    },
+    "host_miss_is_a_gap": {
+      "passed": true
+    },
+    "all_delivered_ground_samples_visible": {
+      "passed": true,
+      "samples": 213313,
+      "violations": 0
+    },
+    "injected_mark_behind_barn_is_rejected": {
+      "passed": true
+    },
+    "blender_native_rays_agree": {
+      "passed": true,
+      "native_ray_samples": 4800,
+      "visible_violations": 0,
+      "buried_fixture_blocked": true
+    },
+    "delivered_hatches_respect_model": {
+      "passed": true,
+      "samples": 2218,
+      "violations": 0
+    },
+    "delivered_plants_respect_owner_depth": {
+      "passed": true,
+      "samples": 149870,
+      "violations": 0
+    },
+    "plant_order_does_not_reveal_far_owner": {
+      "passed": true
+    },
+    "illegal_owner_sample_is_detected": {
+      "passed": true
+    },
+    "camera_rays_roundtrip": {
+      "passed": true
+    },
+    "parallel_plant_planes_order_over_whole_frustum": {
+      "passed": true
+    },
+    "perspective_hatch_spacing_jacobian": {
+      "passed": true
+    },
+    "unchanged_claude_hatching_bodies": {
+      "passed": true
+    },
+    "unchanged_driftless_engine": {
+      "passed": true
+    },
+    "stroke_only_vector": {
+      "passed": true
+    },
+    "study_exercises_real_occlusion": {
+      "passed": true,
+      "field": {
+        "candidates": 372816,
+        "hidden_by_model": 168192,
+        "survives": 204624,
+        "paths": 2418
+      },
+      "rosette": {
+        "candidates": 18145,
+        "hidden_by_model": 9456,
+        "survives": 8689,
+        "paths": 32
+      }
+    }
+  }
+}
