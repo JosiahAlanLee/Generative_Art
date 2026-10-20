@@ -123,3 +123,7 @@ The source snapshot omits large raster art and edition PDFs. Every included and 
 
 [Research and primary sources](docs/PROCESS_ART_RESEARCH.md) · [Selected demonstrations](examples/previews/process-art/selection.json). These are new collection studies, not installed book plates.
 
+
+### [Textile scaffold and process couplings](techniques/12-process-art/TEXTILE.md)
+
+A reusable tile grammar supplies joined curves and steps. Adaptive transport follows its graph, Gray–Scott chemistry occupies its pore compartments, and dissolution changes the material and its connectivity. The guide includes a controlled comparison, local placement API, clipped fragments and a building-surface example.

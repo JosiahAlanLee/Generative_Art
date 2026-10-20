@@ -45,3 +45,5 @@ The existing studies use their own dependencies and build instructions. Their ma
 
 The separate [development-art manifest](catalog/development-art-manifest.json) records the authorized art-only additions. Book manuscripts, personal records and repository history are excluded.
 
+
+A [textile/process comparison](techniques/12-process-art/TEXTILE.md) adds a shared-port grammar, adaptive transport, confined chemistry, dissolution and portable fragments for use inside larger compositions.
