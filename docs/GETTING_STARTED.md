@@ -57,6 +57,18 @@ node studies/driftless-plates/test.js
 
 The SVGs land in `studies/driftless-plates/out/`, set to the Codex 7 × 10 in page. Open `studies/driftless-plates/index.html` for the interactive version; see [Landscape plates](../techniques/11-landscape-plates/README.md).
 
+## Generate a painted barn quilt
+
+This generator uses only the Python standard library:
+
+```sh
+python lib/barn_quilts/generator.py --pattern ohio-star --material wood --output examples/out/barn-quilt.svg
+python examples/make_barn_quilt_sampler.py
+python -m unittest discover -s lib/barn_quilts/tests -v
+```
+
+See [Barn quilt squares](../techniques/13-barn-quilts/README.md) for palette, paint, support, weathering, and outline controls, plus the source research.
+
 ## Verify the collection
 
 ```sh

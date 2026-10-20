@@ -930,5 +930,53 @@
       "dissolve",
       "draw_component"
     ]
+  },
+  {
+    "id": "barn-quilt-geometry",
+    "title": "Barn quilt geometric partitions",
+    "family": "13-barn-quilts",
+    "status": "collection",
+    "use": "Generate exact partitions for eight quilt-block families",
+    "guide": "techniques/13-barn-quilts/README.md",
+    "sources": [
+      "lib/barn_quilts/generator.py",
+      "examples/make_barn_quilt_sampler.py"
+    ],
+    "symbols": [
+      "block",
+      "Patch",
+      "QuiltSpec"
+    ]
+  },
+  {
+    "id": "barn-quilt-surfaces",
+    "title": "Painted wood and metal quilt panels",
+    "family": "13-barn-quilts",
+    "status": "collection",
+    "use": "Apply editable brushwork, subtle support relief, fading and edge chips",
+    "guide": "techniques/13-barn-quilts/README.md",
+    "sources": [
+      "lib/barn_quilts/generator.py",
+      "examples/make_barn_quilt_sampler.py"
+    ],
+    "symbols": [
+      "render_svg",
+      "render_fragment"
+    ]
+  },
+  {
+    "id": "barn-quilt-outlines",
+    "title": "Shared-edge barn quilt outlines",
+    "family": "13-barn-quilts",
+    "status": "collection",
+    "use": "Split collinear T-junctions and export each partition edge once",
+    "guide": "techniques/13-barn-quilts/README.md",
+    "sources": [
+      "lib/barn_quilts/generator.py",
+      "examples/make_barn_quilt_sampler.py"
+    ],
+    "symbols": [
+      "unique_edges"
+    ]
   }
 ]
