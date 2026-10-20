@@ -32,6 +32,8 @@ node test.js
 
 Or open [index.html](../../studies/driftless-plates/index.html) in a browser.
 
+For integration with a modeled scene, see [The Three Gates](../../studies/three-gates/README.md). It reuses the engine's pine, tuft, umbel and local-mask routines with a shared 3D visibility pass and perspective-aware hatching. The new willow and reed heads are separate motifs. Its plant drawings remain vertical planes rather than volumetric meshes.
+
 ## Book sizes
 
 The trim, text block, plot-master extent and inks come from the pinned book snapshot: `binding/bind.py`, the frame shared by the Septimus and parable builders, `common/plot/plate.py`, `common/plot/plotkit.py` and `binding/backmatter.py`. The study README [lists each line](../../studies/driftless-plates/README.md#codex-sizes), and `test.js` fails if the snapshot and the generator disagree.

@@ -1,0 +1,4 @@
+# Keep pinned source and extraction-body hashes independent of checkout conversion.
+* -text
+# Preserve the inherited font license verbatim, including its original whitespace.
+vendor/fonts/licenses/* -whitespace

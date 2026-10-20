@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+.venv/
+dist/
+output/*
+!output/03-three-gates.png
+!output/03-three-gates.svg
+!output/00-orthographic-reference.png
+!output/camera-comparison.png
+!output/manifest.json
+!output/checks.json
