@@ -505,5 +505,74 @@
       "studies/scanned-statue-v2/vendor/trail_study.py"
     ],
     "symbols": []
+  },
+  {
+    "id": "aq-values",
+    "title": "Anglossic Qabbala values",
+    "family": "09-number-systems",
+    "status": "collection",
+    "use": "Turn text into base-36 sums, reductions, seeds and rule numbers",
+    "guide": "techniques/09-number-systems/README.md",
+    "sources": [
+      "lib/numerics/aq.py"
+    ],
+    "symbols": [
+      "char_value",
+      "aq",
+      "words",
+      "reduce",
+      "reduction_chain",
+      "cumulate",
+      "rule",
+      "matches"
+    ]
+  },
+  {
+    "id": "numogram-arithmetic",
+    "title": "Numogram arithmetic",
+    "family": "09-number-systems",
+    "status": "collection",
+    "use": "Compute zones, currents, gates and mesh numbers; export a Graphviz graph",
+    "guide": "techniques/09-number-systems/README.md",
+    "sources": [
+      "lib/numerics/numogram.py"
+    ],
+    "symbols": [
+      "syzygy",
+      "current",
+      "region",
+      "follow_currents",
+      "gate",
+      "channel",
+      "follow_channels",
+      "binodecimal_cycle",
+      "net_spans",
+      "mesh",
+      "net_span",
+      "phase",
+      "to_dot"
+    ]
+  },
+  {
+    "id": "tic-xenotation",
+    "title": "Tic Xenotation glyphs",
+    "family": "09-number-systems",
+    "status": "collection",
+    "use": "Write integers as nested prime tallies and draw them with a book hand",
+    "guide": "techniques/09-number-systems/README.md",
+    "sources": [
+      "lib/numerics/xenotation.py",
+      "examples/make_numerics_sampler.py"
+    ],
+    "symbols": [
+      "encode",
+      "decode",
+      "nth_prime",
+      "prime_index",
+      "stats",
+      "layout",
+      "draw",
+      "to_svg"
+    ]
   }
 ]

@@ -16,3 +16,17 @@ Checked on 20 October 2026 with Python 3.12. This records the import/organizatio
 | Semiphoras command | Generated all 72 names and passed its round trip |
 
 Native Notoria outputs used for these checks are generated under `examples/out/` and are not committed. The committed preview is a small demonstration, not a reproduction of the book plates. Physical plotting was not tested. The existing Blender, Photophobic and statue build records remain as supplied; those studies were not rerun.
+
+## Number systems addition
+
+Checked on 20 October 2026 with Python 3.13. This covers `lib/numerics`, its guide and the numerics sampler; no imported source file changed.
+
+| Check | Observed result |
+| --- | --- |
+| Unit tests (`python -m unittest discover -s lib/numerics/tests`) | 25 passed: aqcalc reference values, base-36 values, reduction and cumulation; syzygies, currents, regions, gates, cycles and all 45 mesh numbers; known xenotations 2–13, nullary forms, and round trips for 2–2,999 in both modes and both factor orders |
+| Glyph geometry | Tic and enclosure counts match the string; every point lies inside the reported box; `draw()` stays inside the size it returns |
+| Book hands | The sampler draws through `marks.Hand` in ink and grain modes; through `plotkit.PlotHand`, 178 = `:(:::(:))` exported 9 strokes in open-arc style |
+| Numerics sampler | SVG, PNG and manifest generated; visual inspection passed; repeat SVG and manifest identical |
+| Collection verifier | 241 unchanged source files, all 117 Python modules, 33 techniques and all local guide links |
+
+Physical plotting was not tested.

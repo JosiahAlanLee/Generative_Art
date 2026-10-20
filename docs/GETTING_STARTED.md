@@ -32,6 +32,20 @@ python sources/codex-intervallorum/books/07_septimus/semiphoras/semiphoras.py
 
 For your own input, pass a text file with exactly three nonempty lines, each containing 72 letters after normalization, followed by an output directory. This is an English transposition adaptation, not a historical name reconstruction.
 
+## Turn a phrase into numbers and glyphs
+
+These use only the Python standard library; the sampler also needs the book requirements.
+
+```sh
+python lib/numerics/aq.py "HIC ET NUNC"
+python lib/numerics/xenotation.py 178 --svg examples/out/178.svg
+python lib/numerics/numogram.py
+python -m unittest discover -s lib/numerics/tests
+python examples/make_numerics_sampler.py
+```
+
+The SVG is a stroke-only glyph sized in millimetres. The sampler draws the same glyphs through the book's ink and cornmeal hands; see [Number systems](../techniques/09-number-systems/README.md).
+
 ## Verify the collection
 
 ```sh

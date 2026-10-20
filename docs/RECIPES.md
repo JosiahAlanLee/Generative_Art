@@ -11,6 +11,7 @@ These are construction recipes. The small sampler and native Notoria command are
 | An encoded mechanical plate | Construct apparatus; reserve its text and carrier; encode; draw; validate round trips | Carrier order, ink conventions, pen width, reserved space | Two-layer SVG and separate ink passes |
 | Architectural illustration with cultures in the shade | Start with Photophobic’s scene/light bake; run its surface cultures and stroke cutting | World-space inoculation, light penalty, vein coverage and hatch compensation | Existing study SVG/proof pipeline |
 | Industrial form converted into a primitive network | Produce a clear light/mask pass; use the statue study’s Trail First/primitive code as the starting point | Sampling cell size, contrast food, primitive count, support layer | SVG; requires adapting that study’s input loading |
+| A phrase-derived prime seal | `aq.aq` the phrase; `xenotation.encode` the value; draw with `xenotation.draw` through `marks.Hand` or `PlotHand`; check `decode` | Phrase normalization, factor order, capsule or parens, size and weight | SVG; `PlotHand` layer for a plot |
 | Vellum without texture crossing text | Compose PDF; inspect clear paper; optionally add scribal marks; run vellum with light profile | Stable page identity, content protection, seed and profile | PDF with retained text, vectors and images |
 
 ## Know which units and paths you are using
@@ -21,6 +22,7 @@ These are construction recipes. The small sampler and native Notoria command are
 | `common/plot` | Millimetres; y down; separate pen layers | Native stroke geometry and centreline lettering |
 | `common/illum` | ReportLab points; y up; raster pixels for source masks | Use `platekit.Map` and the existing placement helpers |
 | `binding` finishing | PDF page coordinates and rendered protection masks | Preserve the source document and inspection log |
+| `lib/numerics` glyphs | Unitless layout scaled by `size` into the calling hand's units | Draws through `marks.Hand` or `PlotHand`; `to_svg` writes millimetres |
 
 ## Useful controls already in the book
 
@@ -37,4 +39,4 @@ Environment controls apply to the original book scripts; they are not switches o
 
 The Notoria field records actual agent trajectories. Figure-growth hatches are integrated rendering curves. Photophobic’s transported surface veins and Scanned Statue’s Trail First sampler each use their own algorithms. A similar flowing appearance does not make them interchangeable models.
 
-A drawing can contain both decoration and encoded geometry. Keep masks, clipping, path simplification and sorting away from carrier marks unless the decoder is checked again. Use the full plot export for a physical drawing; illustrated PDF furniture includes fills, transparency and blend modes.
+A drawing can contain both decoration and encoded geometry. Keep masks, clipping, path simplification and sorting away from carrier marks unless the decoder is checked again. A xenotation glyph is read by containment and adjacency, so sorting its paths is safe; clipping or masking it is not. Use the full plot export for a physical drawing; illustrated PDF furniture includes fills, transparency and blend modes.
