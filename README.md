@@ -36,7 +36,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | `lib/` | Small implementations written for this collection, not imported from the book: AQ, numogram and Tic Xenotation; process art; barn quilts; the Codex palette studies |
 | `sources/development-art/` | Art-only generators selected from the development repository, with portability changes recorded |
 | `sources/codex-intervallorum/` | Unchanged source snapshot; original internal paths preserved |
-| `studies/` | The Infernal Engine, Photophobic and Scanned Statue studies at their original paths, and the Driftless Plates generator |
+| `studies/` | Infernal Engine, Photophobic, Scanned Statue, Driftless Plates, and the Three Gates perspective integration |
 | `catalog/` | Machine-readable technique catalog, Python module index and per-file provenance |
 | `docs/` | Setup, recipes, full code index, snapshot scope, validation results and [outside techniques](docs/HEN_CCRU_TECHNIQUES.md) with their license status |
 | `tools/` | Snapshot import and collection verification |
@@ -44,6 +44,8 @@ The [additional development generators](techniques/10-development-generators/REA
 The source snapshot is pinned to public book main commit [`b789e03`](https://github.com/JosiahAlanLee/Codex-Intervallorum/tree/b789e03f30034bc8403f8a40aaf83842885aaad5). It retains all 117 tracked Python modules, their selected technical inputs, fonts and source SVGs. Large raster art and edition PDFs stay in the book repository; this collection is not a complete illustrated-book distribution. See [provenance and updates](docs/PROVENANCE.md).
 
 The existing studies use their own dependencies and build instructions. Their manifests and source attributions are retained. See [notices](NOTICES.md) before redistributing inherited work.
+
+[The Three Gates](studies/three-gates/README.md) combines modeled architecture and water, surface-aware crosshatching, and depth-ordered Driftless plant strokes through one perspective camera. It includes a finished SVG, previews, a camera comparison, and reproduction checks.
 
 The separate [development-art manifest](catalog/development-art-manifest.json) records the authorized art-only additions. Book manuscripts, personal records and repository history are excluded.
 

@@ -507,6 +507,30 @@
     "symbols": []
   },
   {
+    "id": "three-gates-perspective",
+    "title": "Perspective 3D engraving with depth-ordered landscape strokes",
+    "family": "08-scene-studies",
+    "status": "study",
+    "use": "Draw modeled architecture, water and Driftless plants through one perspective camera, with surface hatching and shared hidden-line visibility",
+    "guide": "techniques/08-scene-studies/README.md",
+    "sources": [
+      "studies/three-gates/render.py",
+      "studies/three-gates/build.py",
+      "studies/three-gates/occlusion.py",
+      "studies/three-gates/plants.cjs"
+    ],
+    "symbols": [
+      "project",
+      "jac",
+      "primary_rays",
+      "engrave",
+      "Instance",
+      "stamp",
+      "plant_strokes",
+      "compose"
+    ]
+  },
+  {
     "id": "aq-values",
     "title": "Anglossic Qabbala values",
     "family": "09-number-systems",

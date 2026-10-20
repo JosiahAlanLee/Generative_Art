@@ -1,0 +1,70 @@
+{
+  "all_passed": true,
+  "checks": {
+    "terrain_pool_and_apron_intersections": {
+      "passed": true,
+      "max_height_error": 5.773159728050814e-15
+    },
+    "bridge_bears_on_piers": {
+      "passed": true,
+      "pier_top": 3.68,
+      "deck_underside": 3.68
+    },
+    "gate_racks_connect_to_leaves": {
+      "passed": true
+    },
+    "near_plant_hides_far_owner_independent_of_input_order": {
+      "passed": true,
+      "far_alone_paths": 1,
+      "far_with_near_paths": 0
+    },
+    "occlusion_check_detects_injected_hidden_stroke": {
+      "passed": true
+    },
+    "perspective_hatch_jacobian": {
+      "passed": true,
+      "max_error_px_per_world": 1.332423948952055e-08
+    },
+    "perspective_ray_projection_roundtrip": {
+      "passed": true,
+      "max_pixel_error": 4.547473508864641e-13
+    },
+    "plane_depth_orders_all_camera_rays": {
+      "passed": true,
+      "minimum_normal_dot_ray": 0.8797753378542515
+    },
+    "distance_changes_projected_scale": {
+      "passed": true,
+      "near_far_size_ratio": 2.000000000000003
+    },
+    "delivered_plant_samples_respect_owner_depth": {
+      "passed": true,
+      "samples": 117625,
+      "violations": 0
+    },
+    "all_plant_placements_reproduce": {
+      "passed": true,
+      "instances": 507
+    },
+    "all_plants_rooted_on_triangle_surface": {
+      "passed": true,
+      "max_root_height_error": 4.2674197509029455e-16
+    },
+    "unchanged_hatching_bodies": {
+      "passed": true,
+      "bodies": 9
+    },
+    "unchanged_driftless_engine": {
+      "passed": true
+    },
+    "stroke_only_svg": {
+      "passed": true
+    },
+    "matched_image_frames": {
+      "passed": true
+    },
+    "blender_script_syntax": {
+      "passed": true
+    }
+  }
+}
