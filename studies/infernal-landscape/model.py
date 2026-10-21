@@ -171,8 +171,9 @@ def oak(name,x,y,height,seed):
     mesh(name+' leaf volume',vs,fs,6,False)
 
 PROFILE=A.get('scene_profile','estate')
-if PROFILE=='spillway':
-    from spillway import build_scene
+if PROFILE in ('spillway','window'):
+    if PROFILE=='window':from window import build_scene
+    else:from spillway import build_scene
     TOP,BASE,FOOTPRINTS,ROUTES=build_scene(A,globals())
 else:
     TOP={};BASE={};FOOTPRINTS=[]
@@ -259,6 +260,8 @@ CAMERAS={}
 camera_specs=[('main',(27,-38,23),(0,9.5,3),3500.),('low',(30,-38,13),(0,9,3),3500.)]
 if PROFILE=='spillway':
     from spillway import CAMERAS as camera_specs
+elif PROFILE=='window':
+    from window import CAMERAS as camera_specs
 for name,eye,target,focal in camera_specs:
     d=bpy.data.cameras.new('IE '+name);ob=bpy.data.objects.new('Camera '+name,d);SC.collection.objects.link(ob)
     ob.location=eye;ob.rotation_euler=(Vector(target)-ob.location).to_track_quat('-Z','Y').to_euler()
@@ -298,6 +301,9 @@ data=dict(vertices=vertices,faces=faces,materials=mats,normals=normals,names=nam
 data['terrain_mode']=TERRAIN_MODE
 if PROFILE=='spillway':
     from spillway import PLANAR_TREES
+    data['planar_trees']=PLANAR_TREES
+if PROFILE=='window':
+    from window import PLANAR_TREES
     data['planar_trees']=PLANAR_TREES
 if EROSION_STATE is not None:
     data['terrain_state']={k:EROSION_STATE[k].tolist() for k in ('x','y','height','area','receiver','fixed_mask')}

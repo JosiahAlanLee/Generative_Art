@@ -131,7 +131,7 @@ def compile_document(doc,case='custom'):
     arch=compile_tasks(tasks,case,target=doc['target'],deadline=doc['deadline'],positions=positions,
                        seed=doc.get('seed',314159),bay_unit=doc.get('bay_unit',1))
     profile=doc.get('scene_profile','estate')
-    if profile not in ('estate','spillway'):raise ValueError('Unknown scene_profile: '+profile)
+    if profile not in ('estate','spillway','window'):raise ValueError('Unknown scene_profile: '+profile)
     arch['scene_profile']=profile
     if profile=='spillway':
         nodes={n['id']:n for n in arch['nodes']}

@@ -2,6 +2,9 @@
 
 ![Four architectural readings of the same task graph](output/preview.jpg)
 
+[Window onto the coulee mill](WINDOW.md) adds a deep, ray-tested masonry aperture,
+waterwheel and bridge to the eroded Blender/Driftless workflow.
+
 [Spillway works](SPILLWAY.md) is a new scene following Claude's PR #23 review:
 horizontal sawtooth bays, an access passage for release wait, visible front
 conduits, a closer camera, Driftless ridge oaks and measured eroded-ground tone.
