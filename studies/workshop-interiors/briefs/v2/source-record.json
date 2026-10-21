@@ -1,0 +1,18 @@
+{
+  "brief_archive": {
+    "library_file_id": "libfile_55bbcc266b888191bee3282c03c6340e",
+    "sha256": "46170ab8921f77f1eb57c09dcd5c49ef35f6dd787ad811b0099c204447e889c5"
+  },
+  "rendering_notes": {
+    "library_file_id": "libfile_040247b794a48191865488a143013d70",
+    "sha256": "8921feeed86389ce469b0429694bb5e1997ea94c59a2e05f2fac22f636db7be2"
+  },
+  "files": {
+    "maintained-workshop.txt": "7269799c9d8de9be5958113e28d8d9ff40302d5d9074ce7ad47605f8072b8fe9",
+    "extraction-of-the-hand.txt": "e8a2f55620a0f37e54dc75b5887ecac48bedfb09e8a4fada73a5c3c9180777d0",
+    "RENDERING-NOTES.md": "8921feeed86389ce469b0429694bb5e1997ea94c59a2e05f2fac22f636db7be2",
+    "office-without-a-seal.txt": "30673e1bc67a899d531266a547d1f03a9f27add19710dd53bac3589ac3425671",
+    "00-COMMON.txt": "c48e889e8b9cdde1f740f2f3dc90dec25eb40a75780a678561910de7ac2279af",
+    "empty-cabinet.txt": "f87d9a8e78084cc90fc4f0aa84adde8facb0cd79ffe0f304690403bf25467911"
+  }
+}

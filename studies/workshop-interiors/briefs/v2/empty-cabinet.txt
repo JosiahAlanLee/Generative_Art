@@ -1,0 +1,89 @@
+THE EMPTY CABINET / brief, second pass
+Interlude leaf, De Vinculis, before Operation VI. Printed 152 x 203 mm, 3:4,
+inside an unclosed printer's rule. Text it serves (Commentarium VI): "The
+cabinet illustration is empty. No pictured body is assigned the role of hidden
+servant." The plate's argument is the emptiness. Everything else is there to
+make the emptiness read.
+
+THE SCENE
+A box that has been opened, not a frame. An eighteenth-century mechanical
+cabinet, taller than wide, with SOLID side panels, a solid top and a solid
+base; two front doors swung fully open on their hinges, their outer faces
+carrying the ornament; two side inspection hatches hinged upward and propped,
+leaving open apertures in the panels. Inside: nothing. The perimeter mechanics
+(pulleys in bearing blocks, a drive belt, the axle to a crank on the right side
+at hand height) run along the inside edges of the frame and never cross the
+central volume. A chessboard folded shut lies on top.
+
+Behind the cabinet, centred on the rear wall, a window: mullions in black,
+panes reserved paper. Seen through the open front, the window fills the empty
+volume with light. That is the device: the void is the brightest region on the
+plate because the room beyond it is.
+
+Foreground, lower right: a workbench with an open ledger of blank ruled
+columns, a pencil, a spool of vermilion thread with a loose end, and a detached
+drive belt lying on the bench beside the ledger (not on the floor). Left: a
+plain chair, unoccupied, four legs on the floor. Bookcases on the SIDE walls
+only; nothing on the rear wall but the window and plaster.
+
+CAMERA
+Three-quarter from front-left, eye at the cabinet's mid-height (about the sill
+of the lower side hatch), so the open front faces the viewer and the window is
+seen through it. Field about 38 degrees. The cabinet occupies at least a third
+of the plate's width.
+
+READING ORDER
+1 the lit void inside the cabinet
+2 the open doors and raised hatches (the fact of opening)
+3 the mechanics at the edges, and the crank
+4 the ledger and the red thread
+5 the chair
+The bookcases are the lowest-ranked tone on the plate.
+
+TONE PLAN
+  interior faces of the side panels, seen through the hatches   0.65-0.75
+  underside of the cabinet top, seen from below                 0.60
+  outer faces of the doors (ornament over a mid tone)           0.40-0.50
+  cabinet exterior panels                                        0.45
+  bench and chair                                                0.35-0.45
+  bookcases (side walls)                                         0.25-0.30
+  rear plaster                                                   0.12-0.20
+  floor                                                          0.10 to 0
+  reserved paper, no hatch:
+     the window panes, seen through the cabinet and above it
+     the pages of the open ledger (rules only)
+     the top face of the folded chessboard (grid only)
+The void is defined by contrast: the darkest faces on the plate are the inside
+surfaces of the box, and what they surround is the lightest.
+
+INK
+Black for everything but the thread. Vermilion: the thread on the spool and its
+loose end, 0.32 mm. No brass; the door ornament is black at ornament weight.
+
+WHAT CHANGES FROM THE FIRST PASS
+- Solid panels and solid doors replace the open frame; a frame can be looked
+  through but not inspected, and the plate is about inspection.
+- The window replaces the rear-wall shelf banks that were filling the void.
+- Crank and pulleys enlarged until they read at 152 mm; the crank is the one
+  mechanism the eye must find.
+- The drive belt comes off the floor onto the bench; on the floor it reads as
+  a stain.
+- The cabinet's turned feet and crown finials are cut to what is visible at
+  printed size (the first pass has 56 foot cylinders; four will do).
+
+CHECKS
+- Void: the 70 inspection rays, as before.
+- The region seen through the open front (project the clear volume to the
+  page) has mean coverage < 0.08 and is lower than every cabinet panel.
+- Chair: four floor contacts, as before.
+- Window panes: coverage < 0.02; at least one pane visible through the front
+  opening.
+- Hierarchy as measured: interior panel faces > door faces > bench > bookcases
+  > rear plaster.
+- Crank: its silhouette at printed size spans >= 6 mm.
+
+AUTHOR'S DECISIONS
+A. A window behind the cabinet (as written) or plain reserved plaster. The
+   window is recommended; plain plaster also reads but with less force.
+B. Whether the chair faces the cabinet or the reader. It faces the cabinet
+   here, so that it is a place someone has left, not a seat offered.

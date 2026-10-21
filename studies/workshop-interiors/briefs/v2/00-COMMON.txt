@@ -1,0 +1,71 @@
+WORKSHOP INTERIORS / BRIEFS, SECOND PASS / COMMON TERMS
+Codex Intervallorum. Stroke-only plates built from Blender geometry.
+Replaces the diffusion-era wording for these four scenes. 21 October 2026.
+
+These briefs are written for the medium the plates are now made in: evaluated
+geometry, hidden-line visibility, two inks, no washes, no tone except hatching.
+"Copperplate", "washes", "slate-blue insets" and the other diffusion vocabulary
+are withdrawn. Where a brief below contradicts the recorded original brief, this
+one governs the vector plate; the original stays in the record as the source of
+the scene.
+
+THE SERIES' RULES THAT APPLY
+1. Black records an arrangement. Red marks an intervention or a question
+   (Matricis, "Reading the hands"). In Book III: black is the route offered,
+   red is what happens to the incident ("Directions for descending").
+2. A reserved blank contains no omitted answer. Reserved paper is a drawn
+   decision, not an unfinished area; it is listed in each brief by name.
+3. Every plate regenerates from its manifest. The scene.json, seed and
+   constants are the plate.
+4. Figures: Book VI's plates carry no figure by its own rule. Books I-III and
+   VII have no such rule; each brief says what it does about hands.
+
+INKS
+Two: black and vermilion. The brass ink used in the first pass is withdrawn
+from these four plates; tracery and instrument ornament are black at the
+ornament weight below. If the author decides to keep brass as a third ink,
+that is a series-wide decision and every plate in the series must re-declare
+its ink count; the briefs below assume two.
+
+PRINTED SIZES (measured from the illustrated binding, 7 x 10 in trim)
+  The Maintained Workshop   156 x 208 mm   frontispiece, Book I-II, ruled border
+  The Empty Cabinet         152 x 203 mm   interlude leaf, Book VII, ruled border
+  The Extraction of the Hand 95 x 119 mm   Book III text page, borderless
+  The Office Without a Seal  95 x 119 mm   Book III text page, borderless
+Masters are engraved AT PRINTED SIZE. No nominal 180 mm master is scaled down.
+All line weights below are millimetres on the printed page.
+
+LINE WEIGHTS, PRINT EDITION (offset or 600 dpi and better)
+  hatch line                 0.10
+  minimum gap, one family    0.22   (cross-hatch may take a pocket to 0.80 cover)
+  crease edge                0.16   x depth factor 0.80 (far) to 1.30 (near)
+  silhouette edge            0.25   x same depth factor
+  backdrop edge (walls, bookcase backing, floor joints)   0.12
+  ornament / tracery / book spines, black                 0.12
+  strands, cords, threads, black                          0.14
+  vermilion route or thread  0.32   vermilion terminal / dot   0.40
+  outline of a reserved region                            0.16
+  The vermilion layer is the heaviest continuous line on every plate.
+
+LINE WEIGHTS, PLOT MASTERS (A4, 0.3 mm fineliner; a separate parameter set)
+  hatch: pen width; gap 0.65 mm; darkest pocket about 0.65 cover by crosshatch
+  silhouettes: double pass offset 0.15 mm; creases: single pass
+  vermilion: 0.5 mm pen, or double pass of 0.3
+  tracery: half the cell count of the print edition
+A plot master is a different drawing with the same geometry. It is not the print
+file scaled. Until a plot master has been cut, the caveat "no physical plot test"
+stays on the print edition's colophon.
+
+TONE PLAN
+Each brief names its zones with target hatch coverage (fraction of area inked,
+measured in 4 mm cells at printed size). The plan is a hierarchy, not a palette:
+the eye must land on the first-named zone first. The darkest zone on every plate
+is a shadow pocket next to the subject, not the subject.
+
+WHAT EVERY PLATE MUST DELIVER
+- A proof at printed size on the Codex page with its caption, rasterised at
+  600 dpi binary, beside the previous selection. That proof is the review
+  object; the 180 mm contact sheet is not.
+- The legibility and hierarchy checks in RENDERING-NOTES.md in addition to the
+  existing geometry checks. "Delivered" is not "visible".
+- The manifest's limits paragraph, unchanged in substance.

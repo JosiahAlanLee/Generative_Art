@@ -1,0 +1,1404 @@
+{
+  "maintained-workshop": {
+    "print_checks": {
+      "plate": "maintained-workshop",
+      "revision": 2,
+      "all_passed": true,
+      "raster": {
+        "dpi": 600,
+        "width_px": 3685,
+        "height_px": 4913,
+        "binary_threshold": 128
+      },
+      "checks": {
+        "measured_hatch_hierarchy": {
+          "passed": true,
+          "order": [
+            "service-bay",
+            "stove",
+            "bookcases",
+            "rear-wall-centre",
+            "deck"
+          ],
+          "coverage": [
+            0.7313807440063729,
+            0.6051398731227139,
+            0.3884375201452328,
+            0.18025626314782942,
+            0.15716996925320936
+          ]
+        },
+        "reserved_clerk-left": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 355.2806514444444,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 1.0088425045524018e-05,
+          "all_ink_coverage": 0.0002673432637063865
+        },
+        "reserved_clerk-right": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 198.72361688888887,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 2.705432508477022e-05,
+          "all_ink_coverage": 0.00045992352644109373
+        },
+        "reserved_stove-mouth": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 77.886941,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.003382342790087665,
+          "all_ink_coverage": 0.003382342790087665
+        },
+        "reserved_vessel": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 638.3033828888889,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.00017407222312689865,
+          "all_ink_coverage": 0.044290150319787516
+        },
+        "reserved_wheel-centre": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 1014.5535264444444,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.0052038253238701196,
+          "all_ink_coverage": 0.0052038253238701196
+        },
+        "red_is_heaviest_line": {
+          "passed": true,
+          "maximum_black_mm": 0.3,
+          "minimum_red_mm": 0.32
+        },
+        "printed_size_and_weights": {
+          "passed": true,
+          "width_mm": 156,
+          "height_mm": 208,
+          "dpi": 600
+        },
+        "two_inks_four_path_layers": {
+          "passed": true
+        },
+        "finite_coordinates_and_page_margins": {
+          "passed": true
+        },
+        "one_red_route_with_short_occlusions": {
+          "passed": true,
+          "source_routes": 1,
+          "delivered_paths": 2,
+          "length_mm": 61.58622757130861,
+          "maximum_hidden_run_mm": 1.2574540745514762
+        },
+        "wheel_and_ruler_ticks_have_visible_printed_lengths": {
+          "passed": true,
+          "wheel_ticks_visible": 72,
+          "wheel_ticks_total": 72,
+          "ruler_ticks_visible": 25,
+          "minimum_visible_mark_mm": 0.4
+        },
+        "nine_upstream_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true
+        },
+        "vendored_raycore_and_all_extracted_files_unchanged": {
+          "passed": true
+        }
+      },
+      "metrics": {
+        "zones": {
+          "service-bay": {
+            "mean_hatch_coverage": 0.7313807440063729,
+            "all_ink_coverage": 0.7460996249349269,
+            "area_mm2": 2791.8635918888885,
+            "cell_mm": 4,
+            "cells": 263,
+            "cell_p10": 0.6981744656419163,
+            "cell_p90": 0.7446355817111815
+          },
+          "stove": {
+            "mean_hatch_coverage": 0.6051398731227139,
+            "all_ink_coverage": 0.649914282779924,
+            "area_mm2": 453.68726466666664,
+            "cell_mm": 4,
+            "cells": 58,
+            "cell_p10": 0.5329374710514126,
+            "cell_p90": 0.6315381205673759
+          },
+          "underside": {
+            "mean_hatch_coverage": 0.5145703988612617,
+            "all_ink_coverage": 0.5766558648051122,
+            "area_mm2": 295.86858388888885,
+            "cell_mm": 4,
+            "cells": 38,
+            "cell_p10": 0.446236574496114,
+            "cell_p90": 0.5303970010605211
+          },
+          "wheel": {
+            "mean_hatch_coverage": 0.46639247496096575,
+            "all_ink_coverage": 0.6013100270383488,
+            "area_mm2": 470.5904566666666,
+            "cell_mm": 4,
+            "cells": 81,
+            "cell_p10": 0.4095744680851064,
+            "cell_p90": 0.5037234042553191
+          },
+          "bookcases": {
+            "mean_hatch_coverage": 0.3884375201452328,
+            "all_ink_coverage": 0.48294179665324,
+            "area_mm2": 1723.5915348888889,
+            "cell_mm": 4,
+            "cells": 204,
+            "cell_p10": 0.3418822988080274,
+            "cell_p90": 0.4164986350469919
+          },
+          "rear-wall": {
+            "mean_hatch_coverage": 0.21203117386252684,
+            "all_ink_coverage": 0.2409884853788947,
+            "area_mm2": 5950.658349555555,
+            "cell_mm": 4,
+            "cells": 573,
+            "cell_p10": 0.14171045430362048,
+            "cell_p90": 0.2918161886643575
+          },
+          "deck": {
+            "mean_hatch_coverage": 0.15716996925320936,
+            "all_ink_coverage": 0.22032271698863778,
+            "area_mm2": 1081.2075149999998,
+            "cell_mm": 4,
+            "cells": 107,
+            "cell_p10": 0.10586206896551724,
+            "cell_p90": 0.17785425207335104
+          },
+          "floor": {
+            "mean_hatch_coverage": 0.017953914826079012,
+            "all_ink_coverage": 0.05376592572355593,
+            "area_mm2": 5405.206035444444,
+            "cell_mm": 4,
+            "cells": 399,
+            "cell_p10": 0.0,
+            "cell_p90": 0.04607562884852605
+          },
+          "structure": {
+            "mean_hatch_coverage": 0.29049600516160057,
+            "all_ink_coverage": 0.4220650815135724,
+            "area_mm2": 2355.4092676666664,
+            "cell_mm": 4,
+            "cells": 338,
+            "cell_p10": 0.20875772560756062,
+            "cell_p90": 0.32800615818503115
+          },
+          "rear-wall-centre": {
+            "mean_hatch_coverage": 0.18025626314782942,
+            "all_ink_coverage": 0.20842656339644292,
+            "area_mm2": 3748.3795999999998,
+            "cell_mm": 4,
+            "cells": 368,
+            "cell_p10": 0.12792275989037427,
+            "cell_p90": 0.23473061909949164
+          }
+        },
+        "reserved_regions": {
+          "clerk-left": {
+            "area_mm2": 355.2806514444444,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 1.0088425045524018e-05,
+            "all_ink_coverage": 0.0002673432637063865
+          },
+          "clerk-right": {
+            "area_mm2": 198.72361688888887,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 2.705432508477022e-05,
+            "all_ink_coverage": 0.00045992352644109373
+          },
+          "stove-mouth": {
+            "area_mm2": 77.886941,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.003382342790087665,
+            "all_ink_coverage": 0.003382342790087665
+          },
+          "vessel": {
+            "area_mm2": 638.3033828888889,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.00017407222312689865,
+            "all_ink_coverage": 0.044290150319787516
+          },
+          "wheel-centre": {
+            "area_mm2": 1014.5535264444444,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.0052038253238701196,
+            "all_ink_coverage": 0.0052038253238701196
+          }
+        },
+        "vermilion": {
+          "source_routes": 1,
+          "delivered_paths": 2,
+          "length_mm": 61.58622757130861,
+          "maximum_hidden_run_mm": 1.2574540745514762
+        }
+      }
+    },
+    "native_checks": {
+      "key": "maintained-workshop",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 79,
+          "maximum_pixel_error": 0.0009255811091861688
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "two_reserved_clerks_with_one_hand_group_each": {
+          "passed": true
+        },
+        "named_reserved_regions_retained": {
+          "passed": true
+        },
+        "cord_has_one_connected_polyline": {
+          "passed": true
+        }
+      }
+    },
+    "regeneration": {
+      "passed": true,
+      "svg_before_sha256": "e9bd6d30778714e3965b3e418c671ca797fb410e4c7f75613c0fbc3c8a15f191",
+      "svg_after_sha256": "e9bd6d30778714e3965b3e418c671ca797fb410e4c7f75613c0fbc3c8a15f191",
+      "scene_sha256": "46481757adbc63ec8f71d151479b03e34330fdae6ba1337b8a0f985207b02719",
+      "scene_unchanged": true,
+      "renderer_sha256": "63132725768b437afa183164dad435e1424f0abf9db78ab8b0e8a4c94cb46948"
+    },
+    "manifest": {
+      "title": "The Maintained Workshop",
+      "revision": 2,
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        3120,
+        4160
+      ],
+      "PRINT_WIDTH_MM": 156,
+      "PRINT_HEIGHT_MM": 208,
+      "PX_PER_MM": 20,
+      "weights_mm": {
+        "hatch": 0.1,
+        "gap": 0.22,
+        "silhouette": 0.25,
+        "crease": 0.16,
+        "backdrop": 0.12,
+        "ornament": 0.12,
+        "strand": 0.14,
+        "cord": 0.14,
+        "red_route": 0.32,
+        "red_terminal": 0.4,
+        "reserved_outline": 0.16
+      },
+      "ink_count": 2,
+      "inks": {
+        "black": "#242820",
+        "red": "#a32b24"
+      },
+      "coverage_cap": 0.82,
+      "gamma": 1.05,
+      "families": [
+        [
+          0.64,
+          0.016654781660675317,
+          2.0
+        ],
+        [
+          -0.72,
+          0.017654068560315837,
+          2.0
+        ]
+      ],
+      "deep_families": [
+        [
+          1.96,
+          0.017154425110495575,
+          2.0
+        ],
+        [
+          0.6000000000000001,
+          0.018153712010136096,
+          2.0
+        ]
+      ],
+      "z_reference": 16.223516590976754,
+      "tone_targets": {
+        "service-bay": 0.75,
+        "stove": 0.625,
+        "underside": 0.55,
+        "wheel": 0.5,
+        "bookcases": 0.4,
+        "rear-wall": 0.27,
+        "deck": 0.18,
+        "floor": 0.07,
+        "structure": 0.35,
+        "reserved": 0
+      },
+      "allocation_multipliers": {
+        "reveal": 1.22,
+        "jig": 1.25,
+        "bookcases": 1.1,
+        "apron": 1.08,
+        "bench": 1.05,
+        "stove": 1.04,
+        "wheel": 1.07,
+        "plinth": 1.05,
+        "back-wall": 1.15,
+        "lattice": 1.13,
+        "instruments": 1.12
+      },
+      "scene_sha256": "46481757adbc63ec8f71d151479b03e34330fdae6ba1337b8a0f985207b02719",
+      "svg_sha256": "e9bd6d30778714e3965b3e418c671ca797fb410e4c7f75613c0fbc3c8a15f191",
+      "hatch_paths": 44797,
+      "deep_paths": 9574,
+      "deep_pass_counts": [
+        5414,
+        4160
+      ],
+      "structure_paths": 1725,
+      "ornament_paths": 277,
+      "red_paths": 2,
+      "maximum_black_contour_mm": 0.3,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py / scenes_v2.py",
+        "brief": "briefs/v2/maintained-workshop.txt"
+      },
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model.",
+        "No physical plot test has been performed; this is the print parameter set, not a scaled plot master."
+      ],
+      "seconds": 44.0
+    }
+  },
+  "empty-cabinet": {
+    "print_checks": {
+      "plate": "empty-cabinet",
+      "revision": 2,
+      "all_passed": true,
+      "raster": {
+        "dpi": 600,
+        "width_px": 3591,
+        "height_px": 4795,
+        "binary_threshold": 128
+      },
+      "checks": {
+        "measured_hatch_hierarchy": {
+          "passed": true,
+          "order": [
+            "interior-panels",
+            "doors",
+            "bench",
+            "bookcases",
+            "rear-wall"
+          ],
+          "coverage": [
+            0.7158924205378973,
+            0.4116854731932889,
+            0.3464218427078788,
+            0.2737682562636943,
+            0.1472129082735136
+          ]
+        },
+        "reserved_chessboard": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 295.36141644444444,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.0,
+          "all_ink_coverage": 0.059934956192510255
+        },
+        "reserved_ledger-pages": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 46.89417144444444,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.001987235831390683,
+          "all_ink_coverage": 0.4970382542897543
+        },
+        "reserved_window": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 3167.382554111111,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.0027469682918949442,
+          "all_ink_coverage": 0.0027469682918949442
+        },
+        "red_is_heaviest_line": {
+          "passed": true,
+          "maximum_black_mm": 0.3,
+          "minimum_red_mm": 0.32
+        },
+        "printed_size_and_weights": {
+          "passed": true,
+          "width_mm": 152,
+          "height_mm": 203,
+          "dpi": 600
+        },
+        "two_inks_four_path_layers": {
+          "passed": true
+        },
+        "finite_coordinates_and_page_margins": {
+          "passed": true
+        },
+        "crank_spans_six_mm": {
+          "passed": true,
+          "span_mm": 29.71599806567276
+        },
+        "crank_is_visible_at_six_mm": {
+          "passed": true,
+          "visible_span_mm": 10.541
+        },
+        "full_depth_inspection_corridor_is_clear_and_reveals_window": {
+          "passed": true,
+          "coverage": 0.044815364857981245,
+          "window_through_mm2": 1369.0564016666665
+        },
+        "window_panes_are_visible_and_clear": {
+          "passed": true,
+          "coverage": 0.027651926940000595,
+          "area_mm2": 3433.8085445555553
+        },
+        "nine_upstream_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true
+        },
+        "vendored_raycore_and_all_extracted_files_unchanged": {
+          "passed": true
+        }
+      },
+      "metrics": {
+        "zones": {
+          "interior-panels": {
+            "mean_hatch_coverage": 0.7158924205378973,
+            "all_ink_coverage": 0.7615190472434734,
+            "area_mm2": 454.4435355555555,
+            "cell_mm": 4,
+            "cells": 53,
+            "cell_p10": 0.677677304964539,
+            "cell_p90": 0.7439454364565165
+          },
+          "top-underside": {
+            "mean_hatch_coverage": 0.5742645558529472,
+            "all_ink_coverage": 0.5966909514264795,
+            "area_mm2": 298.62664288888885,
+            "cell_mm": 4,
+            "cells": 33,
+            "cell_p10": 0.4655291235936397,
+            "cell_p90": 0.5996016863997543
+          },
+          "doors": {
+            "mean_hatch_coverage": 0.4116854731932889,
+            "all_ink_coverage": 0.453181036697429,
+            "area_mm2": 2267.1549638888887,
+            "cell_mm": 4,
+            "cells": 185,
+            "cell_p10": 0.3892118821272284,
+            "cell_p90": 0.4380965230928905
+          },
+          "exterior-panels": {
+            "mean_hatch_coverage": 0.36401212933792293,
+            "all_ink_coverage": 0.4780963330635609,
+            "area_mm2": 1031.886825111111,
+            "cell_mm": 4,
+            "cells": 205,
+            "cell_p10": 0.14563006398818867,
+            "cell_p90": 0.4269960943102493
+          },
+          "bench": {
+            "mean_hatch_coverage": 0.3464218427078788,
+            "all_ink_coverage": 0.4814859914558536,
+            "area_mm2": 1059.643042,
+            "cell_mm": 4,
+            "cells": 127,
+            "cell_p10": 0.2757116647190656,
+            "cell_p90": 0.38449350558902395
+          },
+          "bookcases": {
+            "mean_hatch_coverage": 0.2737682562636943,
+            "all_ink_coverage": 0.3328931230149494,
+            "area_mm2": 2456.190428111111,
+            "cell_mm": 4,
+            "cells": 235,
+            "cell_p10": 0.221035732231255,
+            "cell_p90": 0.31684666623553
+          },
+          "rear-wall": {
+            "mean_hatch_coverage": 0.1472129082735136,
+            "all_ink_coverage": 0.18574240516902954,
+            "area_mm2": 5213.283480222222,
+            "cell_mm": 4,
+            "cells": 618,
+            "cell_p10": 0.0738151095628139,
+            "cell_p90": 0.17922555299924967
+          },
+          "floor": {
+            "mean_hatch_coverage": 0.016023201650527088,
+            "all_ink_coverage": 0.06602741366943783,
+            "area_mm2": 3680.363607,
+            "cell_mm": 4,
+            "cells": 298,
+            "cell_p10": 0.0,
+            "cell_p90": 0.03570446720827763
+          },
+          "mechanics": {
+            "mean_hatch_coverage": 0.3450852769240041,
+            "all_ink_coverage": 0.5110890134394022,
+            "area_mm2": 59.47299933333333,
+            "cell_mm": 4,
+            "cells": 14,
+            "cell_p10": 0.3003358541581803,
+            "cell_p90": 0.3932778668267373
+          },
+          "structure": {
+            "mean_hatch_coverage": null,
+            "all_ink_coverage": null,
+            "area_mm2": 0.0,
+            "cell_mm": 4,
+            "cells": 0,
+            "cell_p10": null,
+            "cell_p90": null
+          }
+        },
+        "reserved_regions": {
+          "chessboard": {
+            "area_mm2": 295.36141644444444,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.0,
+            "all_ink_coverage": 0.059934956192510255
+          },
+          "ledger-pages": {
+            "area_mm2": 46.89417144444444,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.001987235831390683,
+            "all_ink_coverage": 0.4970382542897543
+          },
+          "window": {
+            "area_mm2": 3167.382554111111,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.0027469682918949442,
+            "all_ink_coverage": 0.0027469682918949442
+          }
+        },
+        "vermilion": {
+          "source_routes": 1,
+          "delivered_paths": 7,
+          "length_mm": 47.66646609427001,
+          "maximum_hidden_run_mm": 3.923872861551665
+        }
+      }
+    },
+    "native_checks": {
+      "key": "empty-cabinet",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 151,
+          "maximum_pixel_error": 0.00046311531696119346
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "cabinet_inspection_volume_is_empty": {
+          "passed": true,
+          "rays": 70,
+          "unexpected_objects": []
+        },
+        "four_chair_feet_contact_floor": {
+          "passed": true
+        }
+      }
+    },
+    "regeneration": {
+      "passed": true,
+      "svg_before_sha256": "fd963eae390279d6d757da568b9322a70327c987152e5c69594a367673dc014a",
+      "svg_after_sha256": "fd963eae390279d6d757da568b9322a70327c987152e5c69594a367673dc014a",
+      "scene_sha256": "b7d172ec6d8f2d29e8ddedbe30515076a7d6a938949ee423927d54ffa76b433b",
+      "scene_unchanged": true,
+      "renderer_sha256": "63132725768b437afa183164dad435e1424f0abf9db78ab8b0e8a4c94cb46948"
+    },
+    "manifest": {
+      "title": "The Empty Cabinet",
+      "revision": 2,
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        3040,
+        4060
+      ],
+      "PRINT_WIDTH_MM": 152,
+      "PRINT_HEIGHT_MM": 203,
+      "PX_PER_MM": 20,
+      "weights_mm": {
+        "hatch": 0.1,
+        "gap": 0.22,
+        "silhouette": 0.25,
+        "crease": 0.16,
+        "backdrop": 0.12,
+        "ornament": 0.12,
+        "strand": 0.14,
+        "cord": 0.14,
+        "red_route": 0.32,
+        "red_terminal": 0.4,
+        "reserved_outline": 0.16
+      },
+      "ink_count": 2,
+      "inks": {
+        "black": "#242820",
+        "red": "#a32b24"
+      },
+      "coverage_cap": 0.82,
+      "gamma": 1.05,
+      "families": [
+        [
+          0.64,
+          0.01444479078839861,
+          2.0
+        ],
+        [
+          -0.72,
+          0.015311478235702527,
+          2.0
+        ]
+      ],
+      "deep_families": [
+        [
+          1.96,
+          0.014878134512050568,
+          2.0
+        ],
+        [
+          0.6000000000000001,
+          0.015744821959354484,
+          2.0
+        ]
+      ],
+      "z_reference": 14.492066402453752,
+      "tone_targets": {
+        "interior-panels": 0.7,
+        "top-underside": 0.6,
+        "doors": 0.45,
+        "exterior-panels": 0.45,
+        "bench": 0.39,
+        "bookcases": 0.275,
+        "rear-wall": 0.16,
+        "floor": 0.07,
+        "mechanics": 0.42,
+        "structure": 0.35,
+        "reserved": 0
+      },
+      "allocation_multipliers": {
+        "reveal": 1.22,
+        "jig": 1.25,
+        "bookcases": 1.1,
+        "apron": 1.08,
+        "bench": 1.05,
+        "stove": 1.04,
+        "wheel": 1.07,
+        "plinth": 1.05,
+        "back-wall": 1.15,
+        "lattice": 1.13,
+        "instruments": 1.12
+      },
+      "scene_sha256": "b7d172ec6d8f2d29e8ddedbe30515076a7d6a938949ee423927d54ffa76b433b",
+      "svg_sha256": "fd963eae390279d6d757da568b9322a70327c987152e5c69594a367673dc014a",
+      "hatch_paths": 30366,
+      "deep_paths": 1445,
+      "deep_pass_counts": [
+        741,
+        704
+      ],
+      "structure_paths": 1427,
+      "ornament_paths": 126,
+      "red_paths": 7,
+      "maximum_black_contour_mm": 0.3,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py / scenes_v2.py",
+        "brief": "briefs/v2/empty-cabinet.txt"
+      },
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model.",
+        "No physical plot test has been performed; this is the print parameter set, not a scaled plot master."
+      ],
+      "seconds": 38.2
+    }
+  },
+  "extraction-of-the-hand": {
+    "print_checks": {
+      "plate": "extraction-of-the-hand",
+      "revision": 2,
+      "all_passed": true,
+      "raster": {
+        "dpi": 600,
+        "width_px": 2244,
+        "height_px": 2811,
+        "binary_threshold": 128
+      },
+      "checks": {
+        "measured_hatch_hierarchy": {
+          "passed": true,
+          "order": [
+            "under-bench",
+            "plinth",
+            "jig",
+            "apron",
+            "bookcases",
+            "bench-top"
+          ],
+          "coverage": [
+            0.7307726589757303,
+            0.5403057678943711,
+            0.4576584265553083,
+            0.3705553729871837,
+            0.26493925561295306,
+            0.09346639902745187
+          ]
+        },
+        "reserved_ledger-pages": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 74.95146299999999,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.0013150658728450853,
+          "all_ink_coverage": 0.7855964421490568
+        },
+        "reserved_stool-seat": {
+          "passed": true,
+          "limit": 0.02,
+          "area_mm2": 45.044712777777775,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.0,
+          "all_ink_coverage": 0.0
+        },
+        "red_is_heaviest_line": {
+          "passed": true,
+          "maximum_black_mm": 0.3,
+          "minimum_red_mm": 0.32
+        },
+        "printed_size_and_weights": {
+          "passed": true,
+          "width_mm": 95,
+          "height_mm": 119,
+          "dpi": 600
+        },
+        "two_inks_four_path_layers": {
+          "passed": true
+        },
+        "finite_coordinates_and_page_margins": {
+          "passed": true
+        },
+        "all_twenty_three_strands_unoccluded": {
+          "passed": true,
+          "strands": 23,
+          "hidden_samples": 0
+        },
+        "twenty_two_distinct_ledger_landings": {
+          "passed": true,
+          "minimum_spacing_mm": 0.47630344509429906
+        },
+        "strand_approaches_have_no_projected_crossings": {
+          "passed": true,
+          "crossing_pairs": []
+        },
+        "red_strand_stops_three_mm_from_page_and_rules": {
+          "passed": true,
+          "clearance_mm": 6.338906979206086
+        },
+        "strand_halo_below_six_percent": {
+          "passed": true,
+          "hatch_coverage": 0.0
+        },
+        "nine_upstream_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true
+        },
+        "vendored_raycore_and_all_extracted_files_unchanged": {
+          "passed": true
+        }
+      },
+      "metrics": {
+        "zones": {
+          "under-bench": {
+            "mean_hatch_coverage": 0.7307726589757303,
+            "all_ink_coverage": 0.7441267476506991,
+            "area_mm2": 562.9666159999999,
+            "cell_mm": 4,
+            "cells": 63,
+            "cell_p10": 0.6963917901827511,
+            "cell_p90": 0.7412403802625622
+          },
+          "plinth": {
+            "mean_hatch_coverage": 0.5403057678943711,
+            "all_ink_coverage": 0.599819318971508,
+            "area_mm2": 128.94239444444443,
+            "cell_mm": 4,
+            "cells": 16,
+            "cell_p10": 0.4418394273963656,
+            "cell_p90": 0.5596104948580396
+          },
+          "jig": {
+            "mean_hatch_coverage": 0.4576584265553083,
+            "all_ink_coverage": 0.6668759715914286,
+            "area_mm2": 293.9689461111111,
+            "cell_mm": 4,
+            "cells": 36,
+            "cell_p10": 0.3517609464027635,
+            "cell_p90": 0.5167259141835305
+          },
+          "apron": {
+            "mean_hatch_coverage": 0.3705553729871837,
+            "all_ink_coverage": 0.4780128502951942,
+            "area_mm2": 790.7421461111111,
+            "cell_mm": 4,
+            "cells": 103,
+            "cell_p10": 0.2880629477392836,
+            "cell_p90": 0.4141307881500806
+          },
+          "bookcases": {
+            "mean_hatch_coverage": 0.26493925561295306,
+            "all_ink_coverage": 0.35581972725841765,
+            "area_mm2": 500.9524031111111,
+            "cell_mm": 4,
+            "cells": 40,
+            "cell_p10": 0.21871281545342205,
+            "cell_p90": 0.30582155791243615
+          },
+          "bench-top": {
+            "mean_hatch_coverage": 0.09346639902745187,
+            "all_ink_coverage": 0.24876714984430345,
+            "area_mm2": 443.72133477777777,
+            "cell_mm": 4,
+            "cells": 51,
+            "cell_p10": 0.0,
+            "cell_p90": 0.1476758535582065
+          },
+          "floor": {
+            "mean_hatch_coverage": 0.16848919823435884,
+            "all_ink_coverage": 0.179707913141129,
+            "area_mm2": 2578.8908995555553,
+            "cell_mm": 4,
+            "cells": 222,
+            "cell_p10": 0.03501773049645391,
+            "cell_p90": 0.244895880488909
+          },
+          "structure": {
+            "mean_hatch_coverage": null,
+            "all_ink_coverage": null,
+            "area_mm2": 0.0,
+            "cell_mm": 4,
+            "cells": 0,
+            "cell_p10": null,
+            "cell_p90": null
+          }
+        },
+        "reserved_regions": {
+          "ledger-pages": {
+            "area_mm2": 74.95146299999999,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.0013150658728450853,
+            "all_ink_coverage": 0.7855964421490568
+          },
+          "stool-seat": {
+            "area_mm2": 45.044712777777775,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.0,
+            "all_ink_coverage": 0.0
+          }
+        },
+        "vermilion": {
+          "source_routes": 1,
+          "delivered_paths": 1,
+          "length_mm": 26.00354288859591,
+          "maximum_hidden_run_mm": 0
+        }
+      }
+    },
+    "native_checks": {
+      "key": "extraction-of-the-hand",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 25,
+          "maximum_pixel_error": 0.0005488470230829989
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "five_fingers_and_twenty_three_connected_strands": {
+          "passed": true
+        },
+        "four_stool_feet_contact_floor": {
+          "passed": true
+        }
+      }
+    },
+    "regeneration": {
+      "passed": true,
+      "svg_before_sha256": "5eb1d042932c9e52268f24a0e764aa71a953424d0d3de4a195b1cf25430d2f37",
+      "svg_after_sha256": "5eb1d042932c9e52268f24a0e764aa71a953424d0d3de4a195b1cf25430d2f37",
+      "scene_sha256": "c7a171ae77c762324b7fe1361096c44e5243897bed34989f5f8e3eb44dab5f65",
+      "scene_unchanged": true,
+      "renderer_sha256": "63132725768b437afa183164dad435e1424f0abf9db78ab8b0e8a4c94cb46948"
+    },
+    "manifest": {
+      "title": "The Extraction of the Hand",
+      "revision": 2,
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        1900,
+        2380
+      ],
+      "PRINT_WIDTH_MM": 95,
+      "PRINT_HEIGHT_MM": 119,
+      "PX_PER_MM": 20,
+      "weights_mm": {
+        "hatch": 0.1,
+        "gap": 0.22,
+        "silhouette": 0.25,
+        "crease": 0.16,
+        "backdrop": 0.12,
+        "ornament": 0.12,
+        "strand": 0.14,
+        "cord": 0.14,
+        "red_route": 0.32,
+        "red_terminal": 0.4,
+        "reserved_outline": 0.16
+      },
+      "ink_count": 2,
+      "inks": {
+        "black": "#242820",
+        "red": "#a32b24"
+      },
+      "coverage_cap": 0.82,
+      "gamma": 1.05,
+      "families": [
+        [
+          0.64,
+          0.014441664434650128,
+          2.0
+        ],
+        [
+          -0.72,
+          0.015308164300729137,
+          2.0
+        ]
+      ],
+      "deep_families": [
+        [
+          1.96,
+          0.014874914367689632,
+          2.0
+        ],
+        [
+          0.6000000000000001,
+          0.015741414233768642,
+          2.0
+        ]
+      ],
+      "z_reference": 9.596483917258059,
+      "tone_targets": {
+        "under-bench": 0.75,
+        "plinth": 0.55,
+        "jig": 0.45,
+        "apron": 0.4,
+        "bookcases": 0.3,
+        "bench-top": 0.16,
+        "floor": 0.18,
+        "structure": 0.35,
+        "reserved": 0
+      },
+      "allocation_multipliers": {
+        "reveal": 1.22,
+        "jig": 1.25,
+        "bookcases": 1.1,
+        "apron": 1.08,
+        "bench": 1.05,
+        "stove": 1.04,
+        "wheel": 1.07,
+        "plinth": 1.05,
+        "back-wall": 1.15,
+        "lattice": 1.13,
+        "instruments": 1.12
+      },
+      "scene_sha256": "c7a171ae77c762324b7fe1361096c44e5243897bed34989f5f8e3eb44dab5f65",
+      "svg_sha256": "5eb1d042932c9e52268f24a0e764aa71a953424d0d3de4a195b1cf25430d2f37",
+      "hatch_paths": 12325,
+      "deep_paths": 1932,
+      "deep_pass_counts": [
+        1090,
+        842
+      ],
+      "structure_paths": 627,
+      "ornament_paths": 35,
+      "red_paths": 1,
+      "maximum_black_contour_mm": 0.3,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py / scenes_v2.py",
+        "brief": "briefs/v2/extraction-of-the-hand.txt"
+      },
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model.",
+        "No physical plot test has been performed; this is the print parameter set, not a scaled plot master."
+      ],
+      "seconds": 14.5
+    }
+  },
+  "office-without-a-seal": {
+    "print_checks": {
+      "plate": "office-without-a-seal",
+      "revision": 2,
+      "all_passed": true,
+      "raster": {
+        "dpi": 600,
+        "width_px": 2244,
+        "height_px": 2811,
+        "binary_threshold": 128
+      },
+      "checks": {
+        "measured_hatch_hierarchy": {
+          "passed": true,
+          "order": [
+            "corners",
+            "reveal",
+            "shelf-undersides",
+            "lattice",
+            "back-wall",
+            "halo"
+          ],
+          "coverage": [
+            0.7238543343906978,
+            0.4629147858447331,
+            0.4222014011626669,
+            0.24753406952223306,
+            0.16839067899350943,
+            0.00041564955810816047
+          ]
+        },
+        "reserved_recess": {
+          "passed": true,
+          "limit": 0.01,
+          "area_mm2": 963.4138437777777,
+          "hatch_coverage": 0.0,
+          "unallowed_ink_coverage": 0.0,
+          "all_ink_coverage": 0.0
+        },
+        "red_is_heaviest_line": {
+          "passed": true,
+          "maximum_black_mm": 0.26059,
+          "minimum_red_mm": 0.4
+        },
+        "printed_size_and_weights": {
+          "passed": true,
+          "width_mm": 95,
+          "height_mm": 119,
+          "dpi": 600
+        },
+        "two_inks_four_path_layers": {
+          "passed": true
+        },
+        "finite_coordinates_and_page_margins": {
+          "passed": true
+        },
+        "two_visible_four_mm_red_terminals": {
+          "passed": true,
+          "source_routes": 2,
+          "delivered_paths": 2,
+          "length_mm": 8.608793546611023,
+          "maximum_hidden_run_mm": 0
+        },
+        "recess_halo_below_eight_percent": {
+          "passed": true,
+          "hatch_coverage": 0.00041564955810816047,
+          "all_ink_coverage": 0.12084482533912425
+        },
+        "nine_upstream_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true
+        },
+        "vendored_raycore_and_all_extracted_files_unchanged": {
+          "passed": true
+        }
+      },
+      "metrics": {
+        "zones": {
+          "corners": {
+            "mean_hatch_coverage": 0.7238543343906978,
+            "all_ink_coverage": 0.7529069487162182,
+            "area_mm2": 743.4895524444444,
+            "cell_mm": 4,
+            "cells": 77,
+            "cell_p10": 0.6714893617021277,
+            "cell_p90": 0.735316051906222
+          },
+          "reveal": {
+            "mean_hatch_coverage": 0.4629147858447331,
+            "all_ink_coverage": 0.648659591330416,
+            "area_mm2": 208.0354262222222,
+            "cell_mm": 4,
+            "cells": 42,
+            "cell_p10": 0.43465045592705165,
+            "cell_p90": 0.48600166564216457
+          },
+          "shelf-undersides": {
+            "mean_hatch_coverage": 0.4222014011626669,
+            "all_ink_coverage": 0.5445227600207264,
+            "area_mm2": 252.47798966666664,
+            "cell_mm": 4,
+            "cells": 38,
+            "cell_p10": 0.40567006487488416,
+            "cell_p90": 0.48349371744842196
+          },
+          "instruments": {
+            "mean_hatch_coverage": 0.30525722941873334,
+            "all_ink_coverage": 0.5164203453030627,
+            "area_mm2": 92.27759322222222,
+            "cell_mm": 4,
+            "cells": 18,
+            "cell_p10": 0.2622808655436778,
+            "cell_p90": 0.3960487186215342
+          },
+          "lattice": {
+            "mean_hatch_coverage": 0.24753406952223306,
+            "all_ink_coverage": 0.40935154531643275,
+            "area_mm2": 2529.084547555555,
+            "cell_mm": 4,
+            "cells": 238,
+            "cell_p10": 0.06938709029221524,
+            "cell_p90": 0.29700444205522863
+          },
+          "back-wall": {
+            "mean_hatch_coverage": 0.16839067899350943,
+            "all_ink_coverage": 0.20039246451634185,
+            "area_mm2": 3476.7815768888886,
+            "cell_mm": 4,
+            "cells": 344,
+            "cell_p10": 0.0,
+            "cell_p90": 0.23968990493435943
+          },
+          "floor": {
+            "mean_hatch_coverage": 0.045317904384463564,
+            "all_ink_coverage": 0.05461419023830419,
+            "area_mm2": 451.29121211111107,
+            "cell_mm": 4,
+            "cells": 46,
+            "cell_p10": 0.00950274922304566,
+            "cell_p90": 0.12659574468085105
+          },
+          "structure": {
+            "mean_hatch_coverage": 0.19983177120884402,
+            "all_ink_coverage": 0.6123527998077385,
+            "area_mm2": 14.913948666666666,
+            "cell_mm": 4,
+            "cells": 5,
+            "cell_p10": 0.12632270168855536,
+            "cell_p90": 0.23395470082187572
+          },
+          "halo": {
+            "mean_hatch_coverage": 0.00041564955810816047,
+            "all_ink_coverage": 0.12084482533912425,
+            "area_mm2": 1017.5355993333333,
+            "cell_mm": 4,
+            "cells": 116,
+            "cell_p10": 0.0,
+            "cell_p90": 0.0038395300583095975
+          }
+        },
+        "reserved_regions": {
+          "recess": {
+            "area_mm2": 963.4138437777777,
+            "hatch_coverage": 0.0,
+            "unallowed_ink_coverage": 0.0,
+            "all_ink_coverage": 0.0
+          }
+        },
+        "vermilion": {
+          "source_routes": 2,
+          "delivered_paths": 2,
+          "length_mm": 8.608793546611023,
+          "maximum_hidden_run_mm": 0
+        }
+      }
+    },
+    "native_checks": {
+      "key": "office-without-a-seal",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 19,
+          "maximum_pixel_error": 0.0002587731315770725
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "cord_ends_clear_the_entire_reserved_recess": {
+          "passed": true,
+          "gap_world_units": 3.6399999999999997
+        },
+        "no_detail_strokes_cross_the_reserved_recess": {
+          "passed": true,
+          "unexpected_strokes": []
+        }
+      }
+    },
+    "regeneration": {
+      "passed": true,
+      "svg_before_sha256": "aa30a32ff453627f00efa1d68ff64c01a44bbc145ef80a072cc4dbe0494c3f18",
+      "svg_after_sha256": "aa30a32ff453627f00efa1d68ff64c01a44bbc145ef80a072cc4dbe0494c3f18",
+      "scene_sha256": "c011676033bbca1d6711e45abf79b0eb30a1c3431ec91e8ee11dfa9eceafab52",
+      "scene_unchanged": true,
+      "renderer_sha256": "63132725768b437afa183164dad435e1424f0abf9db78ab8b0e8a4c94cb46948"
+    },
+    "manifest": {
+      "title": "The Office Without a Seal",
+      "revision": 2,
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        1900,
+        2380
+      ],
+      "PRINT_WIDTH_MM": 95,
+      "PRINT_HEIGHT_MM": 119,
+      "PX_PER_MM": 20,
+      "weights_mm": {
+        "hatch": 0.1,
+        "gap": 0.22,
+        "silhouette": 0.25,
+        "crease": 0.16,
+        "backdrop": 0.12,
+        "ornament": 0.12,
+        "strand": 0.14,
+        "cord": 0.14,
+        "red_route": 0.32,
+        "red_terminal": 0.4,
+        "reserved_outline": 0.16
+      },
+      "ink_count": 2,
+      "inks": {
+        "black": "#242820",
+        "red": "#a32b24"
+      },
+      "coverage_cap": 0.82,
+      "gamma": 1.05,
+      "families": [
+        [
+          0.64,
+          0.01865575361438093,
+          2.0
+        ],
+        [
+          -0.72,
+          0.019775098831243787,
+          2.0
+        ]
+      ],
+      "deep_families": [
+        [
+          1.96,
+          0.019215426222812356,
+          2.0
+        ],
+        [
+          0.6000000000000001,
+          0.020334771439675214,
+          2.0
+        ]
+      ],
+      "z_reference": 18.949999809265137,
+      "tone_targets": {
+        "corners": 0.7,
+        "reveal": 0.5,
+        "shelf-undersides": 0.5,
+        "instruments": 0.35,
+        "lattice": 0.3,
+        "back-wall": 0.2,
+        "floor": 0.2,
+        "structure": 0.35,
+        "reserved": 0
+      },
+      "allocation_multipliers": {
+        "reveal": 1.22,
+        "jig": 1.25,
+        "bookcases": 1.1,
+        "apron": 1.08,
+        "bench": 1.05,
+        "stove": 1.04,
+        "wheel": 1.07,
+        "plinth": 1.05,
+        "back-wall": 1.15,
+        "lattice": 1.13,
+        "instruments": 1.12
+      },
+      "scene_sha256": "c011676033bbca1d6711e45abf79b0eb30a1c3431ec91e8ee11dfa9eceafab52",
+      "svg_sha256": "aa30a32ff453627f00efa1d68ff64c01a44bbc145ef80a072cc4dbe0494c3f18",
+      "hatch_paths": 17721,
+      "deep_paths": 2450,
+      "deep_pass_counts": [
+        1268,
+        1182
+      ],
+      "structure_paths": 541,
+      "ornament_paths": 92,
+      "red_paths": 2,
+      "maximum_black_contour_mm": 0.3,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py / scenes_v2.py",
+        "brief": "briefs/v2/office-without-a-seal.txt"
+      },
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model.",
+        "No physical plot test has been performed; this is the print parameter set, not a scaled plot master."
+      ],
+      "seconds": 17.7
+    }
+  }
+}

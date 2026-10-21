@@ -7,7 +7,7 @@ from mathutils import Vector
 from bpy_extras.object_utils import world_to_camera_view
 
 ROOT=Path(__file__).resolve().parent
-KEY=os.environ.get('PLATE','empty-cabinet');OUT=ROOT/'output'/KEY
+KEY=os.environ.get('PLATE','empty-cabinet');OUT=ROOT/'output/v2'/KEY
 D=json.loads((OUT/'scene.json').read_text())
 bpy.ops.wm.open_mainfile(filepath=str(OUT/(KEY+'.blend')))
 sc=bpy.context.scene;deps=bpy.context.evaluated_depsgraph_get();checks={}
@@ -39,8 +39,8 @@ record('delivered_hatching_native_ray_visibility',bad==0,samples=len(p),occluded
 if KEY=='empty-cabinet':
     hits=[]
     for x in np.linspace(-1.0,1.0,7):
-        for z in np.linspace(1.0,4.8,10):
-            hit,loc,n,i,obj,m=sc.ray_cast(deps,Vector((x,2.7,z)),Vector((0,1,0)),distance=2.1)
+        for z in np.linspace(1.0,6.0,10):
+            hit,loc,n,i,obj,m=sc.ray_cast(deps,Vector((x,3.16,z)),Vector((0,1,0)),distance=2.02)
             if hit:hits.append(obj.name)
     record('cabinet_inspection_volume_is_empty',not hits,rays=70,unexpected_objects=hits)
     legs=D['parts']['chair_legs']
@@ -59,8 +59,8 @@ if KEY=='office-without-a-seal':
         if inside.any():crossings.append(s['name'])
     record('no_detail_strokes_cross_the_reserved_recess',not crossings,unexpected_strokes=crossings)
 if KEY=='maintained-workshop':
-    record('figure_free_interpretation',D['parts']['characters_omitted'])
-    record('reserve_vessel_uses_declared_vector_convention',D['parts']['vector_glass_convention']=='paper-reserving silhouette')
+    record('two_reserved_clerks_with_one_hand_group_each',len(D['parts']['clerk_silhouettes'])==2 and len([s for s in D['strokes'] if s['name'].startswith('Clerk hand ')])==2)
+    record('named_reserved_regions_retained',set(['vessel','wheel-centre','stove-mouth','clerk-left','clerk-right']).issubset(set(D['reserved'])))
     record('cord_has_one_connected_polyline',len([s for s in D['strokes'] if s['name']=='Vermilion route'])==1)
 
 result={'key':KEY,'blender':bpy.app.version_string,'all_passed':all(x['passed'] for x in checks.values()),'checks':checks}

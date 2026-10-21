@@ -4,3 +4,5 @@ llvmlite==0.44.0
 scipy>=1.14
 pillow>=11
 cairosvg>=2.7
+reportlab>=4
+pypdf>=5
