@@ -1,0 +1,71 @@
+{
+  "all_passed": true,
+  "checks": {
+    "surface_visible": {
+      "passed": true,
+      "samples": 92570,
+      "violations": 0
+    },
+    "hatch_visible": {
+      "passed": true,
+      "samples": 91484,
+      "violations": 0
+    },
+    "plant_ownership": {
+      "passed": true,
+      "samples": 120622
+    },
+    "reject_mark_behind_left_jamb": {
+      "passed": true
+    },
+    "reject_mark_behind_right_jamb": {
+      "passed": true
+    },
+    "reject_mark_behind_mullion": {
+      "passed": true
+    },
+    "reject_mark_behind_transom": {
+      "passed": true
+    },
+    "open_pane_is_open": {
+      "passed": true
+    },
+    "native_camera": {
+      "passed": true,
+      "error_px": 0.00014277153786679264
+    },
+    "bridge_reaches_exterior_sill": {
+      "passed": true,
+      "near_y": -5.300000190734863,
+      "far_y": 11.199999809265137
+    },
+    "geometry_nodes": {
+      "passed": true
+    },
+    "independent_blender_rays": {
+      "passed": true,
+      "case": "window",
+      "view": "main",
+      "native_ray_samples": 1600,
+      "visible_violations": 0
+    },
+    "erosion_changed_ground": {
+      "passed": true
+    },
+    "foundation_pad_preserved": {
+      "passed": true
+    },
+    "stroke_only": {
+      "passed": true
+    },
+    "print_size": {
+      "passed": true
+    },
+    "driftless_unchanged": {
+      "passed": true
+    },
+    "nine_hatch_bodies_unchanged": {
+      "passed": true
+    }
+  }
+}

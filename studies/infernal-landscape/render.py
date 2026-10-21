@@ -184,13 +184,14 @@ def engrave(field,edges):
         if k==0:
             normals[m]=B.terrain.normal(st.world[m,0],st.world[m,1]);gain[m]=GAIN['terrain']
             if B.TERRAIN_MODE!='original':
-                gain[m]=(.24+.20*np.clip((1-normals[m,2])/.30,0,1) if B.D['architecture'].get('scene_profile')=='spillway'
+                gain[m]=(.24+.20*np.clip((1-normals[m,2])/.30,0,1) if B.D['architecture'].get('scene_profile') in ('spillway','window')
                          else .42+.42*np.clip((1-normals[m,2])/.30,0,1))
         else:
             f=B.FACES[-1-int(k)];normals[m]=B.D['normals'][-1-int(k)]
             albedo[m]=.64 if f['mat']==2 else .77 if f['mat'] in (3,4) else 1.
             name=f['name']
-            if any(name.endswith(t) or t in name for t in PLINTH):gain[m]=GAIN['plinth']
+            if name.startswith('Window '):gain[m]=.78
+            elif any(name.endswith(t) or t in name for t in PLINTH):gain[m]=GAIN['plinth']
             elif name.startswith(FURNITURE):gain[m]=GAIN['furniture']
     x,y=st.xy.T;frame=(x>14)&(x<B.W-14)&(y>14)&(y<B.H-14)&(st.z>B.NEAR)
     seen=np.zeros(len(st.world),bool);seen[frame]=B.visible(st.world[frame],*B.BVH[:6])
@@ -251,7 +252,7 @@ if __name__=='__main__':
                   red_heavier_than_black=bool(max(widths,default=0)<MM['vermilion']*20),
                   architecture=arch,red_edges=[[e['source'],e['target']] for e in arch['edges'] if e['red']],
                   release_marks=[n['id'] for n in arch['nodes'] if n.get('release_mark')],
-                  gains={**GAIN,'eroded_terrain':'.24 + .20 × slope' if arch.get('scene_profile')=='spillway' else '.42 + .42 × slope'},elapsed_seconds=round(time.time()-start,2),
+                  gains={**GAIN,'eroded_terrain':'.24 + .20 × slope' if arch.get('scene_profile') in ('spillway','window') else '.42 + .42 × slope'},elapsed_seconds=round(time.time()-start,2),
                   driftless_sha256=hashlib.sha256((B.ROOT/'vendor/driftless-engine.js').read_bytes()).hexdigest())
     manifest['terrain_mode']=B.TERRAIN_MODE
     (OUT/f'manifest-{B.VIEW_NAME}.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest),flush=True)
