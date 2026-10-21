@@ -1,0 +1,12 @@
+{
+  "target": "restore",
+  "deadline": 10,
+  "seed": 314159,
+  "bay_unit": 1,
+  "tasks": {
+    "read": {"duration": 2, "position": [-4.8, 3.2]},
+    "staff": {"duration": 3, "position": [4.3, 3.2]},
+    "approval": {"duration": 6, "needs": ["read"], "position": [-4.8, 10.5]},
+    "restore": {"duration": 2, "needs": ["staff", "approval"], "position": [3.2, 14.2]}
+  }
+}
