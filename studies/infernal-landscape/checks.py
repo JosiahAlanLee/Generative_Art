@@ -29,11 +29,11 @@ for prefix in ('surface','hatch'):
     record(prefix+'_delivered_samples_visible',seen.all(),samples=len(a),violations=int((~seen).sum()))
 p=np.load(B.OUT/f'plants-audit-{B.VIEW_NAME}.npz')
 record('plant_owners_respected',not (p['nearest_depth']<p['owner_depth']-M.EPS_PLANT).any(),samples=len(p['xy']))
-# Adversarial fixture: place a mark at ground level beneath the approval tower.
-n=next(n for n in B.D['architecture']['nodes'] if n['id']=='approval')
+# Adversarial fixture: place a mark at ground level beneath a task building.
+n=next((n for n in B.D['architecture']['nodes'] if n['id']=='approval'),B.D['architecture']['nodes'][0])
 ground,ok,hit=B.drape([[n['x'],n['y']]])
 record('injected_mark_under_building_rejected',ok.all() and not B.visible(ground,*B.BVH[:6]).any())
-record('terrain_host_independent_of_architecture',B.height(n['x'],n['y'])<B.FACES[next(i for i,f in enumerate(B.FACES) if 'approval roof' in f['name'])]['p'][:,2].min())
+record('terrain_host_independent_of_architecture',B.height(n['x'],n['y'])<min(f['p'][:,2].min() for f in B.FACES if f['name'].startswith(n['id']+' |')))
 extract=json.loads((B.ROOT/'vendor/extraction.json').read_text());s=(B.ROOT/'vendor/claude_hatching.py').read_text()
 hashes={n.name:hashlib.sha256(ast.get_source_segment(s,n).encode()).hexdigest() for n in ast.parse(s).body if isinstance(n,(ast.FunctionDef,ast.ClassDef))}
 record('nine_hatching_bodies_unchanged',all(hashes[x['name']]==x['sha256'] for x in extract['functions']))
@@ -47,16 +47,20 @@ record('red_is_heaviest_line',manifest['red_heavier_than_black'])
 expected_red={'recorded_route':[['read','approval'],['approval','restore']],
               'rehearsed_route':[['read','approval'],['staff','restore'],['approval','restore']],
               'late_opening':[['approval','restore']],'gate_unavailable':[['read','approval']]}
-record('red_follows_critical_path',manifest['red_edges']==expected_red.get(B.CASE,manifest['red_edges']),
+expected_arch=classify_routes(json.loads(json.dumps(B.D['architecture'])))
+expected_edges=[[e['source'],e['target']] for e in expected_arch['edges'] if e['red']]
+record('red_follows_critical_path',manifest['red_edges']==expected_red.get(B.CASE,expected_edges) and manifest['release_marks']==[n['id'] for n in expected_arch['nodes'] if n.get('release_mark')],
        red_edges=manifest['red_edges'],release_marks=manifest['release_marks'])
 # What a reader sees, measured on the rasterised plate at the master resolution.
-seen=Mz.measure(B.D,B.VIEW_NAME,text,B.W,B.H,manifest['px_per_mm'],manifest['red_edges'])
+tree_file=B.OUT/f'tree-zones-{B.VIEW_NAME}.npz'
+tree_zone=np.load(tree_file)['oak'] if tree_file.exists() else None
+seen=Mz.measure(B.D,B.VIEW_NAME,text,B.W,B.H,manifest['px_per_mm'],manifest['red_edges'],tree_zone)
 z=seen['zones'];mean=lambda k:z[k]['mean_ink'] if k in z else 0.
 record('tone_hierarchy_buildings_lead',mean('building')>mean('oak')>mean('terrain')>mean('sky'),
        mean_ink={k:v['mean_ink'] for k,v in z.items()},cell_max=seen['cell_max'],cell_p90=seen['cell_p90'])
 record('open_ground_is_the_lightest_surface',mean('terrain')<.5*mean('building') and mean('sky')<.02)
 for route,r in seen['red'].items():
-    advise('red_route_visible: '+route,r['visible_fraction']>=.6 and r['longest_hidden_mm']<=8,**r)
+    (record if B.D['architecture'].get('scene_profile')=='spillway' else advise)('red_route_visible: '+route,r['visible_fraction']>=.6 and r['longest_hidden_mm']<=8,**r)
 record('shared_volume_and_planar_plants',manifest['plants']>20 and manifest['volume_leaf_faces']>1000,
        planar_instances=manifest['plants'],volume_leaf_faces=manifest['volume_leaf_faces'])
 result=dict(case=B.CASE,view=B.VIEW_NAME,all_passed=all(x['passed'] for x in checks.values()),checks=checks,

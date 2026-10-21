@@ -22,7 +22,11 @@ def make_terrain(mode,architecture,base_height):
     rough=.30*noise(xx.shape,rng)+.10*gaussian_filter(rng.normal(size=xx.shape),1.2)
     fixed=np.zeros(xx.shape,bool)
     for n in architecture['nodes']:
-        w,d=(3.3,3.0) if n['id']=='approval' else (4.1,3.6) if n['id']=='staff' else (3.6,3.2)
+        if architecture.get('scene_profile')=='spillway':
+            from spillway import dimensions
+            w,d=dimensions(n)
+            fixed|=(abs(xx-n['x'])<.95)&(yy>n['y']-d/2-n['wait_length']-.35)&(yy<n['y']-d/2)
+        else:w,d=(3.3,3.0) if n['id']=='approval' else (4.1,3.6) if n['id']=='staff' else (3.6,3.2)
         fixed|=(abs(xx-n['x'])<w/2+.85)&(abs(yy-n['y'])<d/2+.85)
     fixed|=(abs(xx)<2.4)&(yy> -1.2)&(yy<1.2)
     # Fade the perturbation into service pads; their original level is retained.

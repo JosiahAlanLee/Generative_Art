@@ -56,6 +56,10 @@ estate a raised terrain shelf and three matched erosion exposures. It combines
 the repo's runoff/incision model with protected building sites, actual cut-bank
 geometry, field marks that retreat from steep slopes, and shared ray visibility.
 
+[Spillway works](studies/infernal-landscape/SPILLWAY.md) follows Claude's PR #23
+review with a new five-hall scene: horizontal duration bays, a release-wait
+passage, front-routed conduits, lighter eroded ground and two verified cameras.
+
 [Workshop interiors](studies/workshop-interiors/README.md) reconstructs four remaining diffusion-based workshop plates from their recorded briefs as editable Blender scenes and layered, stroke-only SVGs. The study includes the maintained workshop, empty cabinet, extraction of the hand and office without a seal, with native Blender visibility and scene-specific checks.
 
 The separate [development-art manifest](catalog/development-art-manifest.json) records the authorized art-only additions. Book manuscripts, personal records and repository history are excluded.

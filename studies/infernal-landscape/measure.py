@@ -52,7 +52,7 @@ def zone_image(scene,view,W,H):
     items.sort(key=lambda t:-t[0])
     im=Image.new('L',(W,H),0);d=ImageDraw.Draw(im)
     for _,zi,poly in items:d.polygon(poly,fill=zi)
-    return np.asarray(im)
+    return np.asarray(im).copy()
 
 
 def ink_image(svg_text,W,paper='#ede6d4'):
@@ -76,7 +76,10 @@ def red_visibility(scene,view,svg_text,px_per_mm,red_edges):
     out={}
     for s in scene['strokes']:
         m=re.match(r'Dependency (\S+) to (\S+)$',s['name'])
-        if not m or [m.group(1),m.group(2)] not in red_edges:continue
+        wait=re.match(r'Release wait (\S+)$',s['name'])
+        wait_active=wait and any(n['id']==wait.group(1) and n.get('release_mark') for n in scene['architecture']['nodes'])
+        if not ((m and [m.group(1),m.group(2)] in red_edges) or wait_active):continue
+        label=f'{m.group(1)} to {m.group(2)}' if m else 'release wait '+wait.group(1)
         x,y,_=project(np.asarray(s['pts']));xy=np.column_stack([x,y]);dense=[]
         for a,b in zip(xy,xy[1:]):
             n=max(2,int(np.linalg.norm(b-a)/2));dense.extend(np.linspace(a,b,n)[:-1])
@@ -88,13 +91,14 @@ def red_visibility(scene,view,svg_text,px_per_mm,red_edges):
         run=longest=0
         for v in seen:
             run=0 if v else run+1;longest=max(longest,run)
-        out[f'{m.group(1)} to {m.group(2)}']=dict(projected_mm=round(len(dense)*2/px_per_mm,1),
+        out[label]=dict(projected_mm=round(len(dense)*2/px_per_mm,1),
             visible_fraction=round(float(seen.mean()),3),longest_hidden_mm=round(longest*2/px_per_mm,1))
     return out
 
 
-def measure(scene,view,svg_text,W,H,px_per_mm,red_edges):
+def measure(scene,view,svg_text,W,H,px_per_mm,red_edges,tree_zone=None):
     Z=zone_image(scene,view,W,H);ink=ink_image(svg_text,W)
+    if tree_zone is not None:Z[tree_zone]=ZONES.index('oak')
     c=int(round(CELL_MM*px_per_mm));Hc,Wc=H//c,W//c
     cells=ink[:Hc*c,:Wc*c].reshape(Hc,c,Wc,c).mean(axis=(1,3))
     zones={}
@@ -114,7 +118,10 @@ def measure(scene,view,svg_text,W,H,px_per_mm,red_edges):
 if __name__=='__main__':
     import sys
     from pathlib import Path
-    out=Path(sys.argv[1]);case=out.name;view=sys.argv[2] if len(sys.argv)>2 else 'main'
+    out=Path(sys.argv[1]);view=sys.argv[2] if len(sys.argv)>2 else 'main'
     scene=json.loads((out/'scene.json').read_text());manifest=json.loads((out/f'manifest-{view}.json').read_text())
+    case=manifest['case']
     svg=(out/f'Infernal_{case}_{view}.svg').read_text();W,H=map(int,re.search(r'viewBox="0 0 (\d+) (\d+)"',svg).groups())
-    print(json.dumps(measure(scene,view,svg,W,H,manifest['px_per_mm'],manifest.get('red_edges',[])),indent=2))
+    tree_file=out/f'tree-zones-{view}.npz'
+    tree_zone=np.load(tree_file)['oak'] if tree_file.exists() else None
+    print(json.dumps(measure(scene,view,svg,W,H,manifest['px_per_mm'],manifest.get('red_edges',[]),tree_zone),indent=2))

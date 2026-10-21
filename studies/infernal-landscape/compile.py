@@ -119,6 +119,7 @@ def classify_routes(arch):
         n['release_mark']=binding[n['id']]=='release' and n['id'] in critical_nodes and (executable or n['available'])
     arch['red_rule']=('the critical path to the target; a release that set a start is marked on its lift; '
                       'with no executable completion, red stops at the first closed gate')
+    if arch.get('scene_profile')=='spillway':arch['red_rule']=arch['red_rule'].replace('on its lift','on its access passage')
     return arch
 
 
@@ -127,8 +128,22 @@ def compile_document(doc,case='custom'):
                   cost=t.get('cost',0),valid_until=t.get('valid_until',math.inf),available=t.get('available',True))
            for n,t in doc['tasks'].items()}
     positions={n:t['position'] for n,t in doc['tasks'].items() if 'position' in t}
-    return compile_tasks(tasks,case,target=doc['target'],deadline=doc['deadline'],positions=positions,
-                         seed=doc.get('seed',314159),bay_unit=doc.get('bay_unit',1))
+    arch=compile_tasks(tasks,case,target=doc['target'],deadline=doc['deadline'],positions=positions,
+                       seed=doc.get('seed',314159),bay_unit=doc.get('bay_unit',1))
+    profile=doc.get('scene_profile','estate')
+    if profile not in ('estate','spillway'):raise ValueError('Unknown scene_profile: '+profile)
+    arch['scene_profile']=profile
+    if profile=='spillway':
+        nodes={n['id']:n for n in arch['nodes']}
+        for n in arch['nodes']:
+            latest=max((nodes[p]['finish'] for p in n['needs']),default=0)
+            n['plinth']=0
+            n['wait_duration']=max(0,n['release_at']-latest)
+            n['wait_length']=.75*n['wait_duration']
+        arch['duration_encoding']='horizontal 1.6-unit factory bays; ceil(duration / bay_unit)'
+        arch['release_encoding']='horizontal access passage: 0.75 units per unit of effective release wait'
+        arch['red_rule']=arch['red_rule'].replace('on its lift','on its access passage')
+    return arch
 
 
 if __name__ == '__main__':
