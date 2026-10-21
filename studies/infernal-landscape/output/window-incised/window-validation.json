@@ -3,17 +3,17 @@
   "checks": {
     "surface_visible": {
       "passed": true,
-      "samples": 92570,
+      "samples": 93690,
       "violations": 0
     },
     "hatch_visible": {
       "passed": true,
-      "samples": 91484,
+      "samples": 83144,
       "violations": 0
     },
     "plant_ownership": {
       "passed": true,
-      "samples": 120622
+      "samples": 128527
     },
     "reject_mark_behind_left_jamb": {
       "passed": true
@@ -21,14 +21,37 @@
     "reject_mark_behind_right_jamb": {
       "passed": true
     },
-    "reject_mark_behind_mullion": {
+    "reject_mark_behind_head": {
       "passed": true
     },
-    "reject_mark_behind_transom": {
+    "reject_mark_behind_sill": {
       "passed": true
     },
-    "open_pane_is_open": {
+    "opening_is_open": {
       "passed": true
+    },
+    "former_mullion_is_open": {
+      "passed": true
+    },
+    "former_transom_is_open": {
+      "passed": true
+    },
+    "timber_frame_removed": {
+      "passed": true
+    },
+    "stairs_centered_on_door": {
+      "passed": true
+    },
+    "porch_roof_outward_normals": {
+      "passed": true
+    },
+    "wheel_intersects_stream": {
+      "passed": true,
+      "immersion": 0.1048822879791258
+    },
+    "stream_visible": {
+      "passed": true,
+      "visible_samples": 60
     },
     "native_camera": {
       "passed": true,

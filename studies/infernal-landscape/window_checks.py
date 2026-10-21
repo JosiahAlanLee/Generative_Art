@@ -10,16 +10,27 @@ for prefix in ('surface','hatch'):
     record(prefix+'_visible',seen.all(),samples=len(a),violations=int((~seen).sum()))
 p=np.load(B.OUT/'plants-audit-main.npz')
 record('plant_ownership',not (p['nearest_depth']<p['owner_depth']-M.EPS_PLANT).any(),samples=len(p['xy']))
-# Deliberately put marks behind the jamb, mullion and transom. The marks are
-# on the same camera rays as those physical blockers, beyond the entire window.
-fixtures=[('left_jamb',[-4.0,-6.1,6]),('right_jamb',[4.,-6.1,6]),
-          ('mullion',[-1.795,-5.56,6]),('transom',[1.,-5.56,8.70])]
+# Marks behind the masonry remain hidden; the removed timber leaves open rays.
+fixtures=[('left_jamb',[-4.,-6.1,6]),('right_jamb',[4.,-6.1,6]),
+          ('head',[0.,-6.1,10.5]),('sill',[0.,-6.1,3.8])]
 for name,q in fixtures:
     p=B.EYE+2.5*(np.asarray(q)-B.EYE)
     record('reject_mark_behind_'+name,not B.visible(p[None,:],*B.BVH[:6])[0])
-# A sightline through the open right pane must remain open up to the landscape.
-p=np.array([[1.,-5.1,7.]])
-record('open_pane_is_open',B.visible(p,*B.BVH[:6])[0])
+for name,p in [('opening',[1.,-5.1,7.]),('former_mullion',[-1.795,-5.1,6.]),('former_transom',[1.,-5.1,8.7])]:
+    record(name+'_is_open',B.visible(np.asarray([p]),*B.BVH[:6])[0])
+record('timber_frame_removed',not any(n.startswith(('Window timber','Window mullion','Window transom')) for n in B.D['names']))
+from window import DOOR_X,WHEEL_X,WHEEL_Y,river_y,water_z
+steps=np.vstack([f['p'] for f in B.FACES if f['name'].startswith('mill approach step')])
+door=np.vstack([f['p'] for f in B.FACES if f['name'].startswith('mill door')])
+record('stairs_centered_on_door',abs((steps[:,0].min()+steps[:,0].max())/2-(door[:,0].min()+door[:,0].max())/2)<1e-5)
+roof_ids=[i for i,n in enumerate(B.D['names']) if n=='mill porch roof']
+roof_normals=np.asarray(B.D['normals'])[roof_ids]
+record('porch_roof_outward_normals',len(roof_ids)==4 and roof_normals[0,1]<-.99 and (roof_normals[2:,2]>0).all())
+wheel=np.vstack([f['p'] for f in B.FACES if f['name'].startswith('mill wheel rim')])
+water_level=float(water_z(WHEEL_X))
+record('wheel_intersects_stream',abs(float(river_y(WHEEL_X))-WHEEL_Y)<1e-5 and wheel[:,2].min()<water_level and wheel[:,2].min()>water_level-.2,immersion=float(water_level-wheel[:,2].min()))
+q=np.linspace(-15,14,101);river=np.c_[q,river_y(q),water_z(q)+.02]
+seen=B.visible(river,*B.BVH[:6]);record('stream_visible',int(seen.sum())>20,visible_samples=int(seen.sum()))
 native=json.loads((B.OUT/'blender-checks.json').read_text())
 record('native_camera',native['native_camera_max_error_px']<.002,error_px=native['native_camera_max_error_px'])
 bridge=np.vstack([f['p'] for f in B.FACES if f['name'].startswith('Bridge stringer')])

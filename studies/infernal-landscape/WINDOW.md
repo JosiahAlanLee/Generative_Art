@@ -2,9 +2,9 @@
 
 ![A mill seen through a stone window](output/window-preview.jpg)
 
-A close interior-to-exterior plate combining evaluated Blender geometry,
+A revised interior-to-exterior plate combining evaluated Blender geometry,
 Driftless oak and meadow strokes, D8 catchment erosion and print-sized engraved
-hatching. The deep limestone jambs, sill, timber mullion and transom are real
+hatching. The deep limestone jambs and sill are real
 geometry in the same visibility model as the landscape. There is no image mask
 or flat window overlay. Looking through the aperture reveals a mill with a
 waterwheel, a supported loading canopy, a footbridge and an incised coulee.
@@ -13,6 +13,14 @@ The single synthetic task's duration repeats four complete mill storeys through
 Geometry Nodes. It has no dependency edges, so this plate has no red scheduling
 route. The wheel and surrounding architecture are compositional additions,
 not measurements or outputs of the scheduling model.
+
+The stairs and footbridge share the front doorway’s centreline. The inner
+timber frame is removed. Both roof slopes and gables have outward-facing
+normals, so the porch gable and slate surfaces receive engraving. The wheel’s
+lower rim intersects a continuous, curved stream surface; broken flow lines
+and a small wake make the water legible. The stream follows a deliberately
+cut and protected channel, with a composed water level rather than a fluid
+simulation. Its geometry hides terrain strokes beneath the water.
 
 `window.py` declares a broad initial valley and ridge, then runs seventy erosion
 iterations using `lib/process_art/terrain.py`. Tributary channels and contours
@@ -45,7 +53,8 @@ or window clipping mask. It uses the existing 0.10 mm hatch, 0.22 mm minimum
 hatch gap, 0.25 mm silhouette, 0.16 mm crease and 0.08 mm foliage widths.
 The independent Blender audit samples delivered terrain and hatch points.
 `window_checks.py` also injects adversarial marks behind all four window
-blockers and checks an unobstructed pane sightline. These are sampled checks;
+masonry blockers and checks the opening and former timber sightlines. It also
+checks doorway alignment, roof normals, wheel immersion and visible stream samples. These are sampled checks;
 they do not prove visibility at every infinitesimal point.
 
 ## Credits
