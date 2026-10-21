@@ -1,0 +1,363 @@
+{
+  "maintained-workshop": {
+    "native": {
+      "key": "maintained-workshop",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 117,
+          "maximum_pixel_error": 0.0005323366426637222
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "figure_free_interpretation": {
+          "passed": true
+        },
+        "reserve_vessel_uses_declared_vector_convention": {
+          "passed": true
+        },
+        "cord_has_one_connected_polyline": {
+          "passed": true
+        }
+      }
+    },
+    "vector": {
+      "plate": "maintained-workshop",
+      "all_passed": true,
+      "checks": {
+        "stroke_only_svg_without_raster_or_opaque_masks": {
+          "passed": true,
+          "layers": 5,
+          "paths": 24507
+        },
+        "all_vector_coordinates_finite": {
+          "passed": true
+        },
+        "printer_margin_clear": {
+          "passed": true
+        },
+        "vermilion_accents_delivered": {
+          "passed": true,
+          "paths": 4,
+          "length_pixels": 699.62
+        },
+        "png_matches_exported_camera": {
+          "passed": true
+        },
+        "nine_upstream_hatching_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true,
+          "checks": 5
+        }
+      }
+    },
+    "manifest": {
+      "title": "The Maintained Workshop",
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        1800,
+        2400
+      ],
+      "faces": 3617,
+      "triangles": 7466,
+      "candidate_hatch_samples": 2829656,
+      "hatch_paths": 21679,
+      "structure_paths": 2827,
+      "coverage_cap": 0.5,
+      "minimum_gap_pixels": 2.1,
+      "hatch_width_pixels": 0.78,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py",
+        "brief": "maintained-workshop.txt"
+      },
+      "seconds": 29.3,
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model."
+      ]
+    }
+  },
+  "empty-cabinet": {
+    "native": {
+      "key": "empty-cabinet",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 116,
+          "maximum_pixel_error": 0.000142197195486915
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "cabinet_inspection_volume_is_empty": {
+          "passed": true,
+          "rays": 70,
+          "unexpected_objects": []
+        },
+        "four_chair_feet_contact_floor": {
+          "passed": true
+        }
+      }
+    },
+    "vector": {
+      "plate": "empty-cabinet",
+      "all_passed": true,
+      "checks": {
+        "stroke_only_svg_without_raster_or_opaque_masks": {
+          "passed": true,
+          "layers": 5,
+          "paths": 14925
+        },
+        "all_vector_coordinates_finite": {
+          "passed": true
+        },
+        "printer_margin_clear": {
+          "passed": true
+        },
+        "vermilion_accents_delivered": {
+          "passed": true,
+          "paths": 24,
+          "length_pixels": 711.55
+        },
+        "png_matches_exported_camera": {
+          "passed": true
+        },
+        "nine_upstream_hatching_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true,
+          "checks": 4
+        }
+      }
+    },
+    "manifest": {
+      "title": "The Empty Cabinet",
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        1800,
+        2400
+      ],
+      "faces": 3401,
+      "triangles": 7398,
+      "candidate_hatch_samples": 1924698,
+      "hatch_paths": 12363,
+      "structure_paths": 2561,
+      "coverage_cap": 0.5,
+      "minimum_gap_pixels": 2.1,
+      "hatch_width_pixels": 0.78,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py",
+        "brief": "empty-cabinet.txt"
+      },
+      "seconds": 32.8,
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model."
+      ]
+    }
+  },
+  "extraction-of-the-hand": {
+    "native": {
+      "key": "extraction-of-the-hand",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 50,
+          "maximum_pixel_error": 0.0007109705641141773
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "five_fingers_and_twenty_three_connected_strands": {
+          "passed": true
+        },
+        "four_stool_feet_contact_floor": {
+          "passed": true
+        }
+      }
+    },
+    "vector": {
+      "plate": "extraction-of-the-hand",
+      "all_passed": true,
+      "checks": {
+        "stroke_only_svg_without_raster_or_opaque_masks": {
+          "passed": true,
+          "layers": 5,
+          "paths": 8936
+        },
+        "all_vector_coordinates_finite": {
+          "passed": true
+        },
+        "printer_margin_clear": {
+          "passed": true
+        },
+        "vermilion_accents_delivered": {
+          "passed": true,
+          "paths": 1,
+          "length_pixels": 483.09
+        },
+        "no_border_in_original_borderless_brief": {
+          "passed": true
+        },
+        "png_matches_exported_camera": {
+          "passed": true
+        },
+        "nine_upstream_hatching_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true,
+          "checks": 4
+        }
+      }
+    },
+    "manifest": {
+      "title": "The Extraction of the Hand",
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        1800,
+        2250
+      ],
+      "faces": 1379,
+      "triangles": 3210,
+      "candidate_hatch_samples": 904883,
+      "hatch_paths": 7146,
+      "structure_paths": 1790,
+      "coverage_cap": 0.5,
+      "minimum_gap_pixels": 2.1,
+      "hatch_width_pixels": 0.78,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py",
+        "brief": "extraction-of-the-hand.txt"
+      },
+      "seconds": 24.2,
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model."
+      ]
+    }
+  },
+  "office-without-a-seal": {
+    "native": {
+      "key": "office-without-a-seal",
+      "blender": "4.5.14 LTS",
+      "all_passed": true,
+      "checks": {
+        "saved_camera_matches_vector_camera": {
+          "passed": true,
+          "samples": 34,
+          "maximum_pixel_error": 0.0004576405466423239
+        },
+        "delivered_hatching_native_ray_visibility": {
+          "passed": true,
+          "samples": 1600,
+          "occluded_samples": 0,
+          "world_tolerance": 0.035
+        },
+        "cord_ends_clear_the_entire_reserved_recess": {
+          "passed": true,
+          "gap_world_units": 3.6400000000000006
+        },
+        "no_detail_strokes_cross_the_reserved_recess": {
+          "passed": true,
+          "unexpected_strokes": []
+        }
+      }
+    },
+    "vector": {
+      "plate": "office-without-a-seal",
+      "all_passed": true,
+      "checks": {
+        "stroke_only_svg_without_raster_or_opaque_masks": {
+          "passed": true,
+          "layers": 5,
+          "paths": 5843
+        },
+        "all_vector_coordinates_finite": {
+          "passed": true
+        },
+        "printer_margin_clear": {
+          "passed": true
+        },
+        "vermilion_accents_delivered": {
+          "passed": true,
+          "paths": 2,
+          "length_pixels": 15.06
+        },
+        "no_border_in_original_borderless_brief": {
+          "passed": true
+        },
+        "png_matches_exported_camera": {
+          "passed": true
+        },
+        "nine_upstream_hatching_bodies_unchanged": {
+          "passed": true,
+          "bodies": 9
+        },
+        "independent_native_blender_checks": {
+          "passed": true,
+          "checks": 4
+        }
+      }
+    },
+    "manifest": {
+      "title": "The Office Without a Seal",
+      "blender": "4.5.14 LTS",
+      "resolution": [
+        1800,
+        2250
+      ],
+      "faces": 877,
+      "triangles": 2354,
+      "candidate_hatch_samples": 1280845,
+      "hatch_paths": 4660,
+      "structure_paths": 1183,
+      "coverage_cap": 0.44,
+      "minimum_gap_pixels": 2.1,
+      "hatch_width_pixels": 0.78,
+      "generator": {
+        "type": "procedural mesh and stroke construction",
+        "seed": 271,
+        "script": "model.py",
+        "brief": "office-without-a-seal.txt"
+      },
+      "seconds": 21.4,
+      "limits": [
+        "The procedural Blender model was built, saved and rendered.",
+        "The final vector engraving uses evaluated Blender polygons with CPU ray visibility and Claude hatching functions.",
+        "It is an interpretation of the book scene, not an exact reconstruction or a mechanical working model."
+      ]
+    }
+  }
+}

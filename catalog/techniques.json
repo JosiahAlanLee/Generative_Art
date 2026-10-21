@@ -1078,5 +1078,28 @@
       "path_band",
       "guilloche_plate"
     ]
+  },
+  {
+    "id": "workshop-interiors",
+    "title": "Recorded workshop briefs to Blender and hatched SVG",
+    "family": "08-scene-studies",
+    "status": "study",
+    "use": "Reconstruct workshop apparatus and architecture as editable scenes with evaluated-mesh visibility and surface hatching",
+    "guide": "studies/workshop-interiors/README.md",
+    "sources": [
+      "studies/workshop-interiors/model.py",
+      "studies/workshop-interiors/engrave.py",
+      "studies/workshop-interiors/verify_blender.py",
+      "studies/workshop-interiors/checks.py"
+    ],
+    "symbols": [
+      "observation_wheel",
+      "maintained",
+      "cabinet",
+      "extraction",
+      "office",
+      "visible",
+      "light"
+    ]
   }
 ]
