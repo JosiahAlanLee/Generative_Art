@@ -1,0 +1,60 @@
+{
+  "title": "Prairie bluffs and oaks",
+  "view": "main",
+  "camera": {
+    "kind": "perspective",
+    "eye": [
+      27,
+      -43,
+      17
+    ],
+    "target": [
+      0,
+      18,
+      2.9
+    ],
+    "focal_px": 3300.0,
+    "principal_point": [
+      1200.0,
+      800.0
+    ],
+    "resolution": [
+      2400,
+      1600
+    ]
+  },
+  "blender": "4.5.14 LTS",
+  "faces": 108864,
+  "surface": {
+    "prairie": {
+      "candidates": 105931,
+      "hidden": 33114,
+      "visible": 72817
+    },
+    "strata": {
+      "candidates": 148339,
+      "hidden": 76954,
+      "visible": 71385
+    }
+  },
+  "oaks": 9,
+  "grass_symbols": 703,
+  "plant_samples": 290745,
+  "plant_owner_depth_violations": 0,
+  "cmyk": {
+    "paths_per_ink": {
+      "C": 18318,
+      "M": 19589,
+      "Y": 19589,
+      "K": 17240
+    },
+    "mode": "CMYK",
+    "separation_frame": [
+      2400,
+      1600
+    ],
+    "maximum_total_ink": 3.7529411764705882,
+    "output_profile": null
+  },
+  "seconds": 29.5
+}

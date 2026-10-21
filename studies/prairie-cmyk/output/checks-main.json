@@ -1,0 +1,90 @@
+{
+  "view": "main",
+  "all_passed": true,
+  "checks": {
+    "camera_matches_native_blender": {
+      "passed": true,
+      "max_error_px": 0.00032530856219636917
+    },
+    "scene_is_prairie_terrain": {
+      "passed": true
+    },
+    "limestone_faces_exist": {
+      "passed": true,
+      "stone_faces": 5006
+    },
+    "surface_samples_visible": {
+      "passed": true,
+      "samples": 144202,
+      "violations": 0
+    },
+    "hatch_samples_visible": {
+      "passed": true,
+      "samples": 6245,
+      "violations": 0
+    },
+    "plant_owner_depth": {
+      "passed": true,
+      "samples": 290745,
+      "violations": 0
+    },
+    "oak_and_grass_population": {
+      "passed": true
+    },
+    "real_hidden_strata_exercised": {
+      "passed": true,
+      "hidden": 76954
+    },
+    "four_channel_cmyk_tiff": {
+      "passed": true,
+      "mode": "CMYK",
+      "size": [
+        2400,
+        1600
+      ]
+    },
+    "C_separation_exact_in_tiff": {
+      "passed": true,
+      "max_error": 0
+    },
+    "C_vector_has_no_raster_or_mask": {
+      "passed": true
+    },
+    "M_separation_exact_in_tiff": {
+      "passed": true,
+      "max_error": 0
+    },
+    "M_vector_has_no_raster_or_mask": {
+      "passed": true
+    },
+    "Y_separation_exact_in_tiff": {
+      "passed": true,
+      "max_error": 0
+    },
+    "Y_vector_has_no_raster_or_mask": {
+      "passed": true
+    },
+    "K_separation_exact_in_tiff": {
+      "passed": true,
+      "max_error": 0
+    },
+    "K_vector_has_no_raster_or_mask": {
+      "passed": true
+    },
+    "four_svg_ink_layers": {
+      "passed": true
+    },
+    "unchanged_claude_hatch_bodies": {
+      "passed": true
+    },
+    "unchanged_driftless_engine": {
+      "passed": true
+    },
+    "native_blender_visibility": {
+      "passed": true,
+      "native_samples": 4000,
+      "violations": 0,
+      "buried_point_blocked": true
+    }
+  }
+}
