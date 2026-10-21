@@ -1,0 +1,6 @@
+__pycache__/
+dist/
+output/*
+!output/preview.jpg
+!output/validation.json
+!output/architecture-cases.json

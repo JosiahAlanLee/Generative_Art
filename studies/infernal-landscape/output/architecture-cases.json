@@ -1,0 +1,442 @@
+{
+  "recorded_route": {
+    "schema": "infernal-architecture/0.2",
+    "case": "recorded_route",
+    "seed": 314159,
+    "target": "restore",
+    "deadline": 10,
+    "bay_unit": 1,
+    "nodes": [
+      {
+        "id": "read",
+        "x": -4.8,
+        "y": 3.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 2
+      },
+      {
+        "id": "staff",
+        "x": 4.3,
+        "y": 3.2,
+        "duration": 3,
+        "bays": 3,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 3
+      },
+      {
+        "id": "approval",
+        "x": -4.8,
+        "y": 10.5,
+        "duration": 6,
+        "bays": 6,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [
+          "read"
+        ],
+        "start": 2,
+        "finish": 8
+      },
+      {
+        "id": "restore",
+        "x": 3.2,
+        "y": 14.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [
+          "staff",
+          "approval"
+        ],
+        "start": 8,
+        "finish": 10
+      }
+    ],
+    "edges": [
+      {
+        "source": "read",
+        "target": "approval"
+      },
+      {
+        "source": "staff",
+        "target": "restore"
+      },
+      {
+        "source": "approval",
+        "target": "restore"
+      }
+    ],
+    "result": {
+      "feasible": true,
+      "arithmetic_completion": 10,
+      "executable_completion": 10,
+      "reason": "feasible within model",
+      "schedule": {
+        "staff": [
+          0,
+          3
+        ],
+        "read": [
+          0,
+          2
+        ],
+        "approval": [
+          2,
+          8
+        ],
+        "restore": [
+          8,
+          10
+        ]
+      }
+    },
+    "interpretation": "Artistic mappings from an exact scheduling specimen; no institutional simulation.",
+    "source": {
+      "path": "sources/codex-intervallorum/books/02_intervallorum/generator/reachability.py",
+      "sha256": "243819c5bef6cd3eaff9896f10d5844a02ef7df686794b03f1bc3c2d2b4c27a4"
+    }
+  },
+  "rehearsed_route": {
+    "schema": "infernal-architecture/0.2",
+    "case": "rehearsed_route",
+    "seed": 314159,
+    "target": "restore",
+    "deadline": 10,
+    "bay_unit": 1,
+    "nodes": [
+      {
+        "id": "read",
+        "x": -4.8,
+        "y": 3.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 2
+      },
+      {
+        "id": "staff",
+        "x": 4.3,
+        "y": 3.2,
+        "duration": 3,
+        "bays": 3,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 3
+      },
+      {
+        "id": "approval",
+        "x": -4.8,
+        "y": 10.5,
+        "duration": 1,
+        "bays": 1,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [
+          "read"
+        ],
+        "start": 2,
+        "finish": 3
+      },
+      {
+        "id": "restore",
+        "x": 3.2,
+        "y": 14.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [
+          "staff",
+          "approval"
+        ],
+        "start": 3,
+        "finish": 5
+      }
+    ],
+    "edges": [
+      {
+        "source": "read",
+        "target": "approval"
+      },
+      {
+        "source": "staff",
+        "target": "restore"
+      },
+      {
+        "source": "approval",
+        "target": "restore"
+      }
+    ],
+    "result": {
+      "feasible": true,
+      "arithmetic_completion": 5,
+      "executable_completion": 5,
+      "reason": "feasible within model",
+      "schedule": {
+        "staff": [
+          0,
+          3
+        ],
+        "read": [
+          0,
+          2
+        ],
+        "approval": [
+          2,
+          3
+        ],
+        "restore": [
+          3,
+          5
+        ]
+      }
+    },
+    "interpretation": "Artistic mappings from an exact scheduling specimen; no institutional simulation.",
+    "source": {
+      "path": "sources/codex-intervallorum/books/02_intervallorum/generator/reachability.py",
+      "sha256": "243819c5bef6cd3eaff9896f10d5844a02ef7df686794b03f1bc3c2d2b4c27a4"
+    }
+  },
+  "late_opening": {
+    "schema": "infernal-architecture/0.2",
+    "case": "late_opening",
+    "seed": 314159,
+    "target": "restore",
+    "deadline": 10,
+    "bay_unit": 1,
+    "nodes": [
+      {
+        "id": "read",
+        "x": -4.8,
+        "y": 3.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 2
+      },
+      {
+        "id": "staff",
+        "x": 4.3,
+        "y": 3.2,
+        "duration": 3,
+        "bays": 3,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 3
+      },
+      {
+        "id": "approval",
+        "x": -4.8,
+        "y": 10.5,
+        "duration": 1,
+        "bays": 1,
+        "release_at": 8,
+        "plinth": 2.72,
+        "available": true,
+        "needs": [
+          "read"
+        ],
+        "start": 8,
+        "finish": 9
+      },
+      {
+        "id": "restore",
+        "x": 3.2,
+        "y": 14.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [
+          "staff",
+          "approval"
+        ],
+        "start": 9,
+        "finish": 11
+      }
+    ],
+    "edges": [
+      {
+        "source": "read",
+        "target": "approval"
+      },
+      {
+        "source": "staff",
+        "target": "restore"
+      },
+      {
+        "source": "approval",
+        "target": "restore"
+      }
+    ],
+    "result": {
+      "feasible": false,
+      "arithmetic_completion": 11,
+      "executable_completion": 11,
+      "reason": "target deadline missed",
+      "schedule": {
+        "staff": [
+          0,
+          3
+        ],
+        "read": [
+          0,
+          2
+        ],
+        "approval": [
+          8,
+          9
+        ],
+        "restore": [
+          9,
+          11
+        ]
+      }
+    },
+    "interpretation": "Artistic mappings from an exact scheduling specimen; no institutional simulation.",
+    "source": {
+      "path": "sources/codex-intervallorum/books/02_intervallorum/generator/reachability.py",
+      "sha256": "243819c5bef6cd3eaff9896f10d5844a02ef7df686794b03f1bc3c2d2b4c27a4"
+    }
+  },
+  "gate_unavailable": {
+    "schema": "infernal-architecture/0.2",
+    "case": "gate_unavailable",
+    "seed": 314159,
+    "target": "restore",
+    "deadline": 10,
+    "bay_unit": 1,
+    "nodes": [
+      {
+        "id": "read",
+        "x": -4.8,
+        "y": 3.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 2
+      },
+      {
+        "id": "staff",
+        "x": 4.3,
+        "y": 3.2,
+        "duration": 3,
+        "bays": 3,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [],
+        "start": 0,
+        "finish": 3
+      },
+      {
+        "id": "approval",
+        "x": -4.8,
+        "y": 10.5,
+        "duration": 1,
+        "bays": 1,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": false,
+        "needs": [
+          "read"
+        ],
+        "start": 2,
+        "finish": 3
+      },
+      {
+        "id": "restore",
+        "x": 3.2,
+        "y": 14.2,
+        "duration": 2,
+        "bays": 2,
+        "release_at": 0,
+        "plinth": 0.0,
+        "available": true,
+        "needs": [
+          "staff",
+          "approval"
+        ],
+        "start": 3,
+        "finish": 5
+      }
+    ],
+    "edges": [
+      {
+        "source": "read",
+        "target": "approval"
+      },
+      {
+        "source": "staff",
+        "target": "restore"
+      },
+      {
+        "source": "approval",
+        "target": "restore"
+      }
+    ],
+    "result": {
+      "feasible": false,
+      "arithmetic_completion": 5,
+      "executable_completion": null,
+      "reason": "unavailable: approval",
+      "schedule": {
+        "staff": [
+          0,
+          3
+        ],
+        "read": [
+          0,
+          2
+        ],
+        "approval": [
+          2,
+          3
+        ],
+        "restore": [
+          3,
+          5
+        ]
+      }
+    },
+    "interpretation": "Artistic mappings from an exact scheduling specimen; no institutional simulation.",
+    "source": {
+      "path": "sources/codex-intervallorum/books/02_intervallorum/generator/reachability.py",
+      "sha256": "243819c5bef6cd3eaff9896f10d5844a02ef7df686794b03f1bc3c2d2b4c27a4"
+    }
+  }
+}

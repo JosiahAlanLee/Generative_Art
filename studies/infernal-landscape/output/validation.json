@@ -1,0 +1,468 @@
+[
+  {
+    "case": "recorded_route",
+    "checks": {
+      "case": "recorded_route",
+      "view": "main",
+      "all_passed": true,
+      "checks": {
+        "specimen_arithmetic_preserved": {
+          "passed": true
+        },
+        "unavailability_not_reported_as_late_execution": {
+          "passed": true
+        },
+        "release_time_not_added_to_duration": {
+          "passed": true
+        },
+        "native_blender_camera": {
+          "passed": true,
+          "maximum_error_px": 0.0005257158381937188
+        },
+        "geometry_nodes_executed": {
+          "passed": true,
+          "objects": [
+            {
+              "name": "read | duration bays",
+              "faces": 108
+            },
+            {
+              "name": "staff | duration bays",
+              "faces": 162
+            },
+            {
+              "name": "approval | duration bays",
+              "faces": 324
+            },
+            {
+              "name": "restore | duration bays",
+              "faces": 108
+            }
+          ]
+        },
+        "closed_gate_fits_beneath_roof": {
+          "passed": true
+        },
+        "surface_delivered_samples_visible": {
+          "passed": true,
+          "samples": 170005,
+          "violations": 0
+        },
+        "hatch_delivered_samples_visible": {
+          "passed": true,
+          "samples": 19157,
+          "violations": 0
+        },
+        "plant_owners_respected": {
+          "passed": true,
+          "samples": 86503
+        },
+        "injected_mark_under_building_rejected": {
+          "passed": true
+        },
+        "terrain_host_independent_of_architecture": {
+          "passed": true
+        },
+        "nine_hatching_bodies_unchanged": {
+          "passed": true
+        },
+        "driftless_unchanged": {
+          "passed": true
+        },
+        "stroke_only_svg": {
+          "passed": true
+        },
+        "print_size_mm": {
+          "passed": true
+        },
+        "red_is_heaviest_line": {
+          "passed": true
+        },
+        "shared_volume_and_planar_plants": {
+          "passed": true,
+          "planar_instances": 171,
+          "volume_leaf_faces": 3024
+        }
+      }
+    },
+    "native": {
+      "case": "recorded_route",
+      "view": "main",
+      "native_ray_samples": 1600,
+      "visible_violations": 0
+    }
+  },
+  {
+    "case": "rehearsed_route",
+    "checks": {
+      "case": "rehearsed_route",
+      "view": "main",
+      "all_passed": true,
+      "checks": {
+        "specimen_arithmetic_preserved": {
+          "passed": true
+        },
+        "unavailability_not_reported_as_late_execution": {
+          "passed": true
+        },
+        "release_time_not_added_to_duration": {
+          "passed": true
+        },
+        "native_blender_camera": {
+          "passed": true,
+          "maximum_error_px": 0.0005257158381937188
+        },
+        "geometry_nodes_executed": {
+          "passed": true,
+          "objects": [
+            {
+              "name": "read | duration bays",
+              "faces": 108
+            },
+            {
+              "name": "staff | duration bays",
+              "faces": 162
+            },
+            {
+              "name": "approval | duration bays",
+              "faces": 54
+            },
+            {
+              "name": "restore | duration bays",
+              "faces": 108
+            }
+          ]
+        },
+        "closed_gate_fits_beneath_roof": {
+          "passed": true
+        },
+        "surface_delivered_samples_visible": {
+          "passed": true,
+          "samples": 178628,
+          "violations": 0
+        },
+        "hatch_delivered_samples_visible": {
+          "passed": true,
+          "samples": 17049,
+          "violations": 0
+        },
+        "plant_owners_respected": {
+          "passed": true,
+          "samples": 86503
+        },
+        "injected_mark_under_building_rejected": {
+          "passed": true
+        },
+        "terrain_host_independent_of_architecture": {
+          "passed": true
+        },
+        "nine_hatching_bodies_unchanged": {
+          "passed": true
+        },
+        "driftless_unchanged": {
+          "passed": true
+        },
+        "stroke_only_svg": {
+          "passed": true
+        },
+        "print_size_mm": {
+          "passed": true
+        },
+        "red_is_heaviest_line": {
+          "passed": true
+        },
+        "shared_volume_and_planar_plants": {
+          "passed": true,
+          "planar_instances": 171,
+          "volume_leaf_faces": 3024
+        }
+      }
+    },
+    "native": {
+      "case": "rehearsed_route",
+      "view": "main",
+      "native_ray_samples": 1600,
+      "visible_violations": 0
+    }
+  },
+  {
+    "case": "late_opening",
+    "checks": {
+      "case": "late_opening",
+      "view": "main",
+      "all_passed": true,
+      "checks": {
+        "specimen_arithmetic_preserved": {
+          "passed": true
+        },
+        "unavailability_not_reported_as_late_execution": {
+          "passed": true
+        },
+        "release_time_not_added_to_duration": {
+          "passed": true
+        },
+        "native_blender_camera": {
+          "passed": true,
+          "maximum_error_px": 0.0005257158381937188
+        },
+        "geometry_nodes_executed": {
+          "passed": true,
+          "objects": [
+            {
+              "name": "read | duration bays",
+              "faces": 108
+            },
+            {
+              "name": "staff | duration bays",
+              "faces": 162
+            },
+            {
+              "name": "approval | duration bays",
+              "faces": 54
+            },
+            {
+              "name": "restore | duration bays",
+              "faces": 108
+            }
+          ]
+        },
+        "closed_gate_fits_beneath_roof": {
+          "passed": true
+        },
+        "surface_delivered_samples_visible": {
+          "passed": true,
+          "samples": 176157,
+          "violations": 0
+        },
+        "hatch_delivered_samples_visible": {
+          "passed": true,
+          "samples": 18420,
+          "violations": 0
+        },
+        "plant_owners_respected": {
+          "passed": true,
+          "samples": 86503
+        },
+        "injected_mark_under_building_rejected": {
+          "passed": true
+        },
+        "terrain_host_independent_of_architecture": {
+          "passed": true
+        },
+        "nine_hatching_bodies_unchanged": {
+          "passed": true
+        },
+        "driftless_unchanged": {
+          "passed": true
+        },
+        "stroke_only_svg": {
+          "passed": true
+        },
+        "print_size_mm": {
+          "passed": true
+        },
+        "red_is_heaviest_line": {
+          "passed": true
+        },
+        "shared_volume_and_planar_plants": {
+          "passed": true,
+          "planar_instances": 171,
+          "volume_leaf_faces": 3024
+        }
+      }
+    },
+    "native": {
+      "case": "late_opening",
+      "view": "main",
+      "native_ray_samples": 1600,
+      "visible_violations": 0
+    }
+  },
+  {
+    "case": "gate_unavailable",
+    "checks": {
+      "case": "gate_unavailable",
+      "view": "main",
+      "all_passed": true,
+      "checks": {
+        "specimen_arithmetic_preserved": {
+          "passed": true
+        },
+        "unavailability_not_reported_as_late_execution": {
+          "passed": true
+        },
+        "release_time_not_added_to_duration": {
+          "passed": true
+        },
+        "native_blender_camera": {
+          "passed": true,
+          "maximum_error_px": 0.0005257158381937188
+        },
+        "geometry_nodes_executed": {
+          "passed": true,
+          "objects": [
+            {
+              "name": "read | duration bays",
+              "faces": 108
+            },
+            {
+              "name": "staff | duration bays",
+              "faces": 162
+            },
+            {
+              "name": "approval | duration bays",
+              "faces": 54
+            },
+            {
+              "name": "restore | duration bays",
+              "faces": 108
+            }
+          ]
+        },
+        "closed_gate_fits_beneath_roof": {
+          "passed": true
+        },
+        "surface_delivered_samples_visible": {
+          "passed": true,
+          "samples": 178628,
+          "violations": 0
+        },
+        "hatch_delivered_samples_visible": {
+          "passed": true,
+          "samples": 17088,
+          "violations": 0
+        },
+        "plant_owners_respected": {
+          "passed": true,
+          "samples": 86503
+        },
+        "injected_mark_under_building_rejected": {
+          "passed": true
+        },
+        "terrain_host_independent_of_architecture": {
+          "passed": true
+        },
+        "nine_hatching_bodies_unchanged": {
+          "passed": true
+        },
+        "driftless_unchanged": {
+          "passed": true
+        },
+        "stroke_only_svg": {
+          "passed": true
+        },
+        "print_size_mm": {
+          "passed": true
+        },
+        "red_is_heaviest_line": {
+          "passed": true
+        },
+        "shared_volume_and_planar_plants": {
+          "passed": true,
+          "planar_instances": 171,
+          "volume_leaf_faces": 3024
+        }
+      }
+    },
+    "native": {
+      "case": "gate_unavailable",
+      "view": "main",
+      "native_ray_samples": 1600,
+      "visible_violations": 0
+    }
+  },
+  {
+    "case": "recorded_route",
+    "view": "low",
+    "checks": {
+      "case": "recorded_route",
+      "view": "low",
+      "all_passed": true,
+      "checks": {
+        "specimen_arithmetic_preserved": {
+          "passed": true
+        },
+        "unavailability_not_reported_as_late_execution": {
+          "passed": true
+        },
+        "release_time_not_added_to_duration": {
+          "passed": true
+        },
+        "native_blender_camera": {
+          "passed": true,
+          "maximum_error_px": 0.0005257158381937188
+        },
+        "geometry_nodes_executed": {
+          "passed": true,
+          "objects": [
+            {
+              "name": "read | duration bays",
+              "faces": 108
+            },
+            {
+              "name": "staff | duration bays",
+              "faces": 162
+            },
+            {
+              "name": "approval | duration bays",
+              "faces": 324
+            },
+            {
+              "name": "restore | duration bays",
+              "faces": 108
+            }
+          ]
+        },
+        "closed_gate_fits_beneath_roof": {
+          "passed": true
+        },
+        "surface_delivered_samples_visible": {
+          "passed": true,
+          "samples": 152795,
+          "violations": 0
+        },
+        "hatch_delivered_samples_visible": {
+          "passed": true,
+          "samples": 16790,
+          "violations": 0
+        },
+        "plant_owners_respected": {
+          "passed": true,
+          "samples": 88419
+        },
+        "injected_mark_under_building_rejected": {
+          "passed": true
+        },
+        "terrain_host_independent_of_architecture": {
+          "passed": true
+        },
+        "nine_hatching_bodies_unchanged": {
+          "passed": true
+        },
+        "driftless_unchanged": {
+          "passed": true
+        },
+        "stroke_only_svg": {
+          "passed": true
+        },
+        "print_size_mm": {
+          "passed": true
+        },
+        "red_is_heaviest_line": {
+          "passed": true
+        },
+        "shared_volume_and_planar_plants": {
+          "passed": true,
+          "planar_instances": 171,
+          "volume_leaf_faces": 3024
+        }
+      }
+    },
+    "native": {
+      "case": "recorded_route",
+      "view": "low",
+      "native_ray_samples": 1600,
+      "visible_violations": 0
+    }
+  }
+]
