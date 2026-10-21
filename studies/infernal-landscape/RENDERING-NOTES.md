@@ -98,3 +98,19 @@ behind the staff building, on every plate where that edge is red.
   reduces the collision but does not remove it.
 - Ridge oaks are volumetric ring clusters; the drawn Driftless oak reads
   better and could be instanced through the owner-aware buffer.
+
+## Second scene: spillway works
+
+[The spillway scene](SPILLWAY.md) applies those model-side suggestions with a
+new graph and building grammar. It retains these line weights and the critical
+path classification. Duration repeats horizontal sawtooth bays; release wait
+extends an access passage, whose exposed handrail carries the release red.
+The critical conduits run along the fronts. Route visibility, including the
+release marker, is gating for this profile; the original estate keeps its
+advisory status. The original cameras and geometry remain available.
+
+The new terrain gain is 0.24 + 0.20 × slope; its composition still uses the
+36-step incision field and actual receiver traces. Three volume trees remain,
+with owner-aware Driftless oaks on the ridge. Their actual silhouette masks
+now enter the zone measurements when available. `tree-zones-VIEW.npz` is audit
+metadata; it is not embedded in the SVG.

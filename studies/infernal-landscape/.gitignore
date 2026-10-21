@@ -6,3 +6,5 @@ output/*
 !output/architecture-cases.json
 !output/erosion-preview.jpg
 !output/erosion-validation.json
+!output/spillway-preview.jpg
+!output/spillway-validation.json

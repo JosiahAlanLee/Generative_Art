@@ -23,7 +23,7 @@ INK='#242820';RED='#a32b24'
 # masonry; a plinth is lighter than the storeys it carries; open ground is the
 # lightest drawn surface. Gains multiply the lit darkness before allocation.
 FURNITURE=('Meadow fence','Service support','Service tray','Entry pier')
-PLINTH=(' foundation',' entrance base','Release lift landing')
+PLINTH=(' foundation',' entrance base','Release lift landing',' waiting passage')
 GAIN=dict(terrain=.28,plinth=.62,furniture=.55)
 
 
@@ -129,10 +129,12 @@ def structure():
         projected=[(q,s['width']) for q in B.stroke_project(np.asarray(s['pts']))]
         if s['ink']!=2:detail.extend(projected);continue
         m=re.match(r'Dependency (\S+) to (\S+)$',s['name'])
-        if m and (m.group(1),m.group(2)) not in red_edges:
+        wait=re.match(r'Release wait (\S+)$',s['name'])
+        wait_active=wait and any(n['id']==wait.group(1) and n.get('release_mark') for n in arch['nodes'])
+        if (m and (m.group(1),m.group(2)) not in red_edges) or (wait and not wait_active):
             detail.extend((q,MM['crease']*20) for q,_ in projected)
         else:red.extend(projected)
-    red.extend(release_marks(arch))
+    if arch.get('scene_profile')!='spillway':red.extend(release_marks(arch))
     return paths+detail,red,arch
 
 
@@ -181,7 +183,9 @@ def engrave(field,edges):
         m=st.attr['surf']==k
         if k==0:
             normals[m]=B.terrain.normal(st.world[m,0],st.world[m,1]);gain[m]=GAIN['terrain']
-            if B.TERRAIN_MODE!='original':gain[m]=.42+.42*np.clip((1-normals[m,2])/.30,0,1)
+            if B.TERRAIN_MODE!='original':
+                gain[m]=(.24+.20*np.clip((1-normals[m,2])/.30,0,1) if B.D['architecture'].get('scene_profile')=='spillway'
+                         else .42+.42*np.clip((1-normals[m,2])/.30,0,1))
         else:
             f=B.FACES[-1-int(k)];normals[m]=B.D['normals'][-1-int(k)]
             albedo[m]=.64 if f['mat']==2 else .77 if f['mat'] in (3,4) else 1.
@@ -208,7 +212,7 @@ def place(patches):
         out.append(M.Instance(p,p.get('origin',[20,40]),[x,y,z],h/p.get('height',p.get('h',20)),MM['foliage']*20))
     # A foreground engraved oak remains a drawing-plane symbol. Volumetric
     # trees at the building interfaces are in Blender, cast shadows, and turn.
-    add(patches['oak'],-12.5,-.6,7.0)
+    for x,y,h in B.D.get('planar_trees',[(-12.5,-.6,7.0)]):add(patches['oak'],x,y,h)
     for _ in range(290):
         x,y=rng.uniform(-18,18),rng.uniform(-8,13)
         if abs(x)<2.3 or (y>0 and abs(x)<8):continue
@@ -226,6 +230,12 @@ if __name__=='__main__':
     instances=place(patches);buf=np.full((B.H*M.K,B.W*M.K),np.inf)
     for inst in instances:M.stamp(buf,inst)
     depth=M.model_depth(buf);pens,audit=M.plant_strokes(instances,buf,return_audit=True)
+    # A raster zone mask is measurement metadata, never SVG content. Include
+    # the actual owner-aware planar silhouettes in oak coverage measurements.
+    treebuf=np.full_like(buf,np.inf)
+    for inst in instances[:len(B.D.get('planar_trees',[None]))]:M.stamp(treebuf,inst)
+    tree_zone=(np.isfinite(treebuf)&(treebuf<=depth+M.EPS_MODEL)).reshape(B.H,M.K,B.W,M.K).any(axis=(1,3))
+    np.savez_compressed(OUT/f'tree-zones-{B.VIEW_NAME}.npz',oak=tree_zone)
     clipped=[(label,M.clip_screen_paths(paths,buf,depth),col) for label,paths,col in groups]
     # The source Driftless pens collapse to one black plotting pen. The
     # dependency centerline is the sole red ink and is drawn last.
@@ -241,7 +251,7 @@ if __name__=='__main__':
                   red_heavier_than_black=bool(max(widths,default=0)<MM['vermilion']*20),
                   architecture=arch,red_edges=[[e['source'],e['target']] for e in arch['edges'] if e['red']],
                   release_marks=[n['id'] for n in arch['nodes'] if n.get('release_mark')],
-                  gains=GAIN,elapsed_seconds=round(time.time()-start,2),
+                  gains={**GAIN,'eroded_terrain':'.24 + .20 × slope' if arch.get('scene_profile')=='spillway' else '.42 + .42 × slope'},elapsed_seconds=round(time.time()-start,2),
                   driftless_sha256=hashlib.sha256((B.ROOT/'vendor/driftless-engine.js').read_bytes()).hexdigest())
     manifest['terrain_mode']=B.TERRAIN_MODE
     (OUT/f'manifest-{B.VIEW_NAME}.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest),flush=True)

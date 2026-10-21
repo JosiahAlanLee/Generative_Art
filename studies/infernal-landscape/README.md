@@ -2,6 +2,10 @@
 
 ![Four architectural readings of the same task graph](output/preview.jpg)
 
+[Spillway works](SPILLWAY.md) is a new scene following Claude's PR #23 review:
+horizontal sawtooth bays, an access passage for release wait, visible front
+conduits, a closer camera, Driftless ridge oaks and measured eroded-ground tone.
+
 [Eroded terrain comparison](EROSION.md) combines the estate with the repo's
 catchment-incision process: three matched terrain exposures, protected building
 sites, actual 3D cut banks, and contours and channels derived from the field.

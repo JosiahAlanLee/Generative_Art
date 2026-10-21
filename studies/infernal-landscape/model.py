@@ -144,73 +144,6 @@ def story_nodes(name,cx,cy,z,w,d,count):
     return count*1.04
 
 
-TOP={};BASE={};FOOTPRINTS=[]
-for node in A['nodes']:
-    name=node['id'];x,y=node['x'],node['y'];z=float(terrain_z(x,y))+.14+node['plinth']
-    w,d=(3.3,3.0) if name=='approval' else (4.1,3.6) if name=='staff' else (3.6,3.2)
-    BASE[name]=(x,y,z);FOOTPRINTS.append([x-w/2-.55,y-d/2-.5,x+w/2+.55,y+d/2+.5])
-    box(name+' foundation',(x-w/2-.2,y-d/2-.2,float(terrain_z(x,y))-.8),(x+w/2+.2,y+d/2+.2,z))
-    # A grounded 0.8-unit entrance base gives the one-bay building a portal
-    # taller than its windows without pushing the portcullis through its roof.
-    box(name+' entrance base',(x-w/2,y-d/2,z),(x+w/2,y+d/2,z+.8))
-    h=.8+story_nodes(name,x,y,z+.8,w,d,node['bays']);TOP[name]=z+h
-    roof(name+' roof',x,y,z+h+.02,w+.65,d+.60,1.0 if name=='approval' else .7)
-    arch(name+' portal',x,y-d/2-.12,z,1.15,1.75)
-    # Foundation courses remain fixed to the building; surface marks are separate.
-    for dz in np.arange(float(terrain_z(x,y))-.1,z,.24):
-        ink('Rusticated foundation',[(x-w/2-.21,y-d/2-.21,dz),(x+w/2+.21,y-d/2-.21,dz),(x+w/2+.21,y+d/2+.21,dz)],.10)
-    if node['release_at']:
-        # Late release is drawn as a real lift tower, not extra duration bays.
-        for dx in (-.9,.9):beam('Release lift upright',(x+dx,y-d/2-.5,float(terrain_z(x,y))),(x+dx,y-d/2-.5,z+.3),.09)
-        for dz in np.arange(float(terrain_z(x,y)),z,.55):
-            beam('Release lift bracing',(x-.9,y-d/2-.5,dz),(x+.9,y-d/2-.5,dz+.5),.04)
-        box('Release lift landing',(x-1,y-d/2-.75,z-.12),(x+1,y-d/2+.1,z),2)
-    if not node['available']:
-        for dx in np.linspace(-.48,.48,7):beam('Unavailable portcullis',(x+dx,y-d/2-.27,z),(x+dx,y-d/2-.27,z+1.5),.035)
-
-# Two prerequisites join at restore: two independent supported service routes.
-ROUTES=[]
-for k,e in enumerate(A['edges']):
-    a,b=e['source'],e['target'];x,y,z=BASE[a];X,Y,Z=BASE[b]
-    # A raised cable tray leaves a separate socket on the right of each facade.
-    p=np.array([(x+1.2,y,z+.75),(x+2.3,y,z+.75),(x+2.3,y,Z+.75),(X+2.3,Y,Z+.75),(X+1.2,Y,Z+.75)])
-    p=p[np.r_[True,np.linalg.norm(np.diff(p,axis=0),axis=1)>1e-5]]
-    for j,(u,v) in enumerate(zip(p,p[1:])):
-        beam('Service tray '+str(k),u+[0,0,-.10],v+[0,0,-.10],.055,2)
-        if np.linalg.norm((v-u)[:2])>.3:
-            for t in np.linspace(0,1,max(2,int(np.linalg.norm(v-u)/1.8))):
-                q=u*(1-t)+v*t
-                beam('Service support',q+[0,0,-.15],[q[0],q[1],float(terrain_z(q[0],q[1]))-.10],.045)
-    # Ink-only lifted centerline, so the tray does not swallow its own route.
-    ink('Dependency '+a+' to '+b,p+[0,0,.035],.32,2)
-    ROUTES.append(dict(source=a,target=b,pts=p.tolist()))
-
-# Restoration powerhouse: a grounded chimney, fluted vat and flywheel.
-x,y,z=BASE[A['target']]
-beam('Powerhouse chimney',(x+.8,y+.6,z),(x+.8,y+.6,TOP[A['target']]+2.4),.34,3,10)
-for r in (.76,.94):
-    t=np.linspace(0,2*np.pi,97)
-    ink('External flywheel',np.c_[x+np.cos(t)*r,np.full(len(t),y-1.88),z+1.05+np.sin(t)*r],.16)
-for t in np.arange(8)*np.pi/4:
-    ink('Flywheel spoke',[(x,y-1.88,z+1.05),(x+np.cos(t)*.76,y-1.88,z+1.05+np.sin(t)*.76)],.12)
-beam('Wheel pedestal',(x,y-1.88,float(terrain_z(x,y))),(x,y-1.88,z+.35),.18)
-
-# Open field gateway: masonry and threshold give plant occlusion thin blockers.
-for x in (-1.9,1.9):
-    z=float(terrain_z(x,-.3));box('Entry pier',(x-.22,-.6,z-.2),(x+.22,-.1,z+2.3))
-arch('Open approach arch',0,-.35,float(terrain_z(0,-.35)),3.8,4.1,.30)
-
-# Fence rooted independently along an undulating contour.
-posts=[]
-for x in np.arange(-15,15.1,1.7):
-    if abs(x)<2.5:posts.append(None);continue
-    y=-.1+.10*x;z=float(terrain_z(x,y))-.08
-    beam('Meadow fence post',(x,y,z),(x,y,z+1.0),.07);posts.append(np.array([x,y,z]))
-for a,b in zip(posts,posts[1:]):
-    if a is None or b is None:continue
-    for h in (.40,.79):beam('Meadow fence rail',a+[0,0,h],b+[0,0,h],.035)
-
-
 def oak(name,x,y,height,seed):
     """A branching volume tree with leaf diamonds distributed in 3D crowns."""
     rng=np.random.default_rng((seed+int(A['seed'])-314159)%(2**32));root=np.array([x,y,float(terrain_z(x,y))-.07]);tips=[]
@@ -237,21 +170,96 @@ def oak(name,x,y,height,seed):
             fs.append(tuple(range(off,off+8)))
     mesh(name+' leaf volume',vs,fs,6,False)
 
-oak('Volume oak near',10.3,9.5,6.7,371)
-oak('Volume oak far',-11.8,20,6.5,521)
-for i,(x,y,h) in enumerate([(-20,27,4.6),(-15,29,4.4),(-7,31,4.5),(0,31,5.2),(8,30,4.8),(16,29,5.1)]):
-    oak('Ridge oak '+str(i),x,y,h,900+i)
+PROFILE=A.get('scene_profile','estate')
+if PROFILE=='spillway':
+    from spillway import build_scene
+    TOP,BASE,FOOTPRINTS,ROUTES=build_scene(A,globals())
+else:
+    TOP={};BASE={};FOOTPRINTS=[]
+    for node in A['nodes']:
+        name=node['id'];x,y=node['x'],node['y'];z=float(terrain_z(x,y))+.14+node['plinth']
+        w,d=(3.3,3.0) if name=='approval' else (4.1,3.6) if name=='staff' else (3.6,3.2)
+        BASE[name]=(x,y,z);FOOTPRINTS.append([x-w/2-.55,y-d/2-.5,x+w/2+.55,y+d/2+.5])
+        box(name+' foundation',(x-w/2-.2,y-d/2-.2,float(terrain_z(x,y))-.8),(x+w/2+.2,y+d/2+.2,z))
+        # A grounded 0.8-unit entrance base gives the one-bay building a portal
+        # taller than its windows without pushing the portcullis through its roof.
+        box(name+' entrance base',(x-w/2,y-d/2,z),(x+w/2,y+d/2,z+.8))
+        h=.8+story_nodes(name,x,y,z+.8,w,d,node['bays']);TOP[name]=z+h
+        roof(name+' roof',x,y,z+h+.02,w+.65,d+.60,1.0 if name=='approval' else .7)
+        arch(name+' portal',x,y-d/2-.12,z,1.15,1.75)
+        # Foundation courses remain fixed to the building; surface marks are separate.
+        for dz in np.arange(float(terrain_z(x,y))-.1,z,.24):
+            ink('Rusticated foundation',[(x-w/2-.21,y-d/2-.21,dz),(x+w/2+.21,y-d/2-.21,dz),(x+w/2+.21,y+d/2+.21,dz)],.10)
+        if node['release_at']:
+            # Late release is drawn as a real lift tower, not extra duration bays.
+            for dx in (-.9,.9):beam('Release lift upright',(x+dx,y-d/2-.5,float(terrain_z(x,y))),(x+dx,y-d/2-.5,z+.3),.09)
+            for dz in np.arange(float(terrain_z(x,y)),z,.55):
+                beam('Release lift bracing',(x-.9,y-d/2-.5,dz),(x+.9,y-d/2-.5,dz+.5),.04)
+            box('Release lift landing',(x-1,y-d/2-.75,z-.12),(x+1,y-d/2+.1,z),2)
+        if not node['available']:
+            for dx in np.linspace(-.48,.48,7):beam('Unavailable portcullis',(x+dx,y-d/2-.27,z),(x+dx,y-d/2-.27,z+1.5),.035)
 
-# Limestone bluff slabs, their strata give the field a recognisable region.
-for j in range(3):
-    # Every exposed stratum follows the ridge, with its lower edge buried.
-    xs=np.linspace(-25,-8,20);ys=23+.17*xs+j*.65
-    zs=terrain_z(xs,ys)-.10
-    vs=np.vstack([np.c_[xs,ys,zs],np.c_[xs,ys+.22,zs+.28]])
-    mesh('Limestone ledge '+str(j),vs,[(i,i+1,i+21,i+20) for i in range(19)],1)
+    # Two prerequisites join at restore: two independent supported service routes.
+    ROUTES=[]
+    for k,e in enumerate(A['edges']):
+        a,b=e['source'],e['target'];x,y,z=BASE[a];X,Y,Z=BASE[b]
+        # A raised cable tray leaves a separate socket on the right of each facade.
+        p=np.array([(x+1.2,y,z+.75),(x+2.3,y,z+.75),(x+2.3,y,Z+.75),(X+2.3,Y,Z+.75),(X+1.2,Y,Z+.75)])
+        p=p[np.r_[True,np.linalg.norm(np.diff(p,axis=0),axis=1)>1e-5]]
+        for j,(u,v) in enumerate(zip(p,p[1:])):
+            beam('Service tray '+str(k),u+[0,0,-.10],v+[0,0,-.10],.055,2)
+            if np.linalg.norm((v-u)[:2])>.3:
+                for t in np.linspace(0,1,max(2,int(np.linalg.norm(v-u)/1.8))):
+                    q=u*(1-t)+v*t
+                    beam('Service support',q+[0,0,-.15],[q[0],q[1],float(terrain_z(q[0],q[1]))-.10],.045)
+        # Ink-only lifted centerline, so the tray does not swallow its own route.
+        ink('Dependency '+a+' to '+b,p+[0,0,.035],.32,2)
+        ROUTES.append(dict(source=a,target=b,pts=p.tolist()))
+
+    # Restoration powerhouse: a grounded chimney, fluted vat and flywheel.
+    x,y,z=BASE[A['target']]
+    beam('Powerhouse chimney',(x+.8,y+.6,z),(x+.8,y+.6,TOP[A['target']]+2.4),.34,3,10)
+    for r in (.76,.94):
+        t=np.linspace(0,2*np.pi,97)
+        ink('External flywheel',np.c_[x+np.cos(t)*r,np.full(len(t),y-1.88),z+1.05+np.sin(t)*r],.16)
+    for t in np.arange(8)*np.pi/4:
+        ink('Flywheel spoke',[(x,y-1.88,z+1.05),(x+np.cos(t)*.76,y-1.88,z+1.05+np.sin(t)*.76)],.12)
+    beam('Wheel pedestal',(x,y-1.88,float(terrain_z(x,y))),(x,y-1.88,z+.35),.18)
+
+    # Open field gateway: masonry and threshold give plant occlusion thin blockers.
+    for x in (-1.9,1.9):
+        z=float(terrain_z(x,-.3));box('Entry pier',(x-.22,-.6,z-.2),(x+.22,-.1,z+2.3))
+    arch('Open approach arch',0,-.35,float(terrain_z(0,-.35)),3.8,4.1,.30)
+
+    # Fence rooted independently along an undulating contour.
+    posts=[]
+    for x in np.arange(-15,15.1,1.7):
+        if abs(x)<2.5:posts.append(None);continue
+        y=-.1+.10*x;z=float(terrain_z(x,y))-.08
+        beam('Meadow fence post',(x,y,z),(x,y,z+1.0),.07);posts.append(np.array([x,y,z]))
+    for a,b in zip(posts,posts[1:]):
+        if a is None or b is None:continue
+        for h in (.40,.79):beam('Meadow fence rail',a+[0,0,h],b+[0,0,h],.035)
+
+
+    oak('Volume oak near',10.3,9.5,6.7,371)
+    oak('Volume oak far',-11.8,20,6.5,521)
+    for i,(x,y,h) in enumerate([(-20,27,4.6),(-15,29,4.4),(-7,31,4.5),(0,31,5.2),(8,30,4.8),(16,29,5.1)]):
+        oak('Ridge oak '+str(i),x,y,h,900+i)
+
+    # Limestone bluff slabs, their strata give the field a recognisable region.
+    for j in range(3):
+        # Every exposed stratum follows the ridge, with its lower edge buried.
+        xs=np.linspace(-25,-8,20);ys=23+.17*xs+j*.65
+        zs=terrain_z(xs,ys)-.10
+        vs=np.vstack([np.c_[xs,ys,zs],np.c_[xs,ys+.22,zs+.28]])
+        mesh('Limestone ledge '+str(j),vs,[(i,i+1,i+21,i+20) for i in range(19)],1)
 
 CAMERAS={}
-for name,eye,target,focal in [('main',(27,-38,23),(0,9.5,3),3500.),('low',(30,-38,13),(0,9,3),3500.)]:
+camera_specs=[('main',(27,-38,23),(0,9.5,3),3500.),('low',(30,-38,13),(0,9,3),3500.)]
+if PROFILE=='spillway':
+    from spillway import CAMERAS as camera_specs
+for name,eye,target,focal in camera_specs:
     d=bpy.data.cameras.new('IE '+name);ob=bpy.data.objects.new('Camera '+name,d);SC.collection.objects.link(ob)
     ob.location=eye;ob.rotation_euler=(Vector(target)-ob.location).to_track_quat('-Z','Y').to_euler()
     d.type='PERSP';d.sensor_fit='HORIZONTAL';d.sensor_width=36;d.lens=focal*36/W;d.clip_start=.25;d.clip_end=300
@@ -288,6 +296,9 @@ data=dict(vertices=vertices,faces=faces,materials=mats,normals=normals,names=nam
           blender=bpy.app.version_string,host='Host terrain',architecture=A,footprints=FOOTPRINTS,
           routes=ROUTES,terrain_modifier=dict(type='DISPLACE',strength=.08),geometry_nodes=gn_objects)
 data['terrain_mode']=TERRAIN_MODE
+if PROFILE=='spillway':
+    from spillway import PLANAR_TREES
+    data['planar_trees']=PLANAR_TREES
 if EROSION_STATE is not None:
     data['terrain_state']={k:EROSION_STATE[k].tolist() for k in ('x','y','height','area','receiver','fixed_mask')}
 (OUT/'scene.json').write_text(json.dumps(data,separators=(',',':')))

@@ -1,0 +1,199 @@
+{
+  "scene": "spillway",
+  "all_passed": true,
+  "checks": {
+    "completion_14_meets_deadline": true,
+    "release_wait_4_is_separate_from_duration_3": true,
+    "only_release_then_permit_gates_restart_are_red": true,
+    "survey_horizontal_gn_extent": true,
+    "crew_horizontal_gn_extent": true,
+    "permit_horizontal_gn_extent": true,
+    "gates_horizontal_gn_extent": true,
+    "restart_horizontal_gn_extent": true,
+    "erosion_changes_ground_but_preserves_access_pads": true,
+    "original_specimen_arithmetic_preserved": true,
+    "main_common_checks": true,
+    "main_independent_blender_rays": true,
+    "main_subject_framing": true,
+    "low_common_checks": true,
+    "low_independent_blender_rays": true,
+    "low_subject_framing": true
+  },
+  "views": {
+    "main": {
+      "measured": {
+        "cell_mm": 4,
+        "plate_mean_ink": 0.1082,
+        "cell_max": 0.582,
+        "cell_p90": 0.305,
+        "zones": {
+          "sky": {
+            "area_fraction": 0.2682,
+            "mean_ink": 0.002,
+            "cells": 300,
+            "cell_median": 0.0,
+            "cell_p90": 0.0,
+            "cell_max": 0.153
+          },
+          "terrain": {
+            "area_fraction": 0.616,
+            "mean_ink": 0.096,
+            "cells": 682,
+            "cell_median": 0.092,
+            "cell_p90": 0.185,
+            "cell_max": 0.36
+          },
+          "building": {
+            "area_fraction": 0.0907,
+            "mean_ink": 0.417,
+            "cells": 90,
+            "cell_median": 0.421,
+            "cell_p90": 0.503,
+            "cell_max": 0.582
+          },
+          "oak": {
+            "area_fraction": 0.0171,
+            "mean_ink": 0.319,
+            "cells": 9,
+            "cell_median": 0.371,
+            "cell_p90": 0.44,
+            "cell_max": 0.455
+          },
+          "furniture": {
+            "area_fraction": 0.0081,
+            "mean_ink": 0.687,
+            "cells": 0,
+            "cell_median": null,
+            "cell_p90": null,
+            "cell_max": null
+          }
+        },
+        "red": {
+          "release wait permit": {
+            "projected_mm": 7.0,
+            "visible_fraction": 1.0,
+            "longest_hidden_mm": 0.0
+          },
+          "permit to gates": {
+            "projected_mm": 34.9,
+            "visible_fraction": 1.0,
+            "longest_hidden_mm": 0.0
+          },
+          "gates to restart": {
+            "projected_mm": 45.0,
+            "visible_fraction": 0.993,
+            "longest_hidden_mm": 0.3
+          }
+        }
+      },
+      "native": {
+        "case": "spillway",
+        "view": "main",
+        "native_ray_samples": 1600,
+        "visible_violations": 0
+      }
+    },
+    "low": {
+      "measured": {
+        "cell_mm": 4,
+        "plate_mean_ink": 0.0963,
+        "cell_max": 0.667,
+        "cell_p90": 0.281,
+        "zones": {
+          "sky": {
+            "area_fraction": 0.2882,
+            "mean_ink": 0.004,
+            "cells": 318,
+            "cell_median": 0.0,
+            "cell_p90": 0.0,
+            "cell_max": 0.174
+          },
+          "terrain": {
+            "area_fraction": 0.6083,
+            "mean_ink": 0.086,
+            "cells": 675,
+            "cell_median": 0.079,
+            "cell_p90": 0.182,
+            "cell_max": 0.338
+          },
+          "building": {
+            "area_fraction": 0.0834,
+            "mean_ink": 0.411,
+            "cells": 80,
+            "cell_median": 0.415,
+            "cell_p90": 0.489,
+            "cell_max": 0.581
+          },
+          "oak": {
+            "area_fraction": 0.0129,
+            "mean_ink": 0.31,
+            "cells": 9,
+            "cell_median": 0.338,
+            "cell_p90": 0.425,
+            "cell_max": 0.432
+          },
+          "furniture": {
+            "area_fraction": 0.0072,
+            "mean_ink": 0.687,
+            "cells": 0,
+            "cell_median": null,
+            "cell_p90": null,
+            "cell_max": null
+          }
+        },
+        "red": {
+          "release wait permit": {
+            "projected_mm": 6.8,
+            "visible_fraction": 1.0,
+            "longest_hidden_mm": 0.0
+          },
+          "permit to gates": {
+            "projected_mm": 33.5,
+            "visible_fraction": 1.0,
+            "longest_hidden_mm": 0.0
+          },
+          "gates to restart": {
+            "projected_mm": 43.3,
+            "visible_fraction": 0.993,
+            "longest_hidden_mm": 0.3
+          }
+        }
+      },
+      "native": {
+        "case": "spillway",
+        "view": "low",
+        "native_ray_samples": 1600,
+        "visible_violations": 0
+      }
+    }
+  },
+  "evaluator": {
+    "feasible": true,
+    "arithmetic_completion": 14,
+    "executable_completion": 14,
+    "reason": "feasible within model",
+    "schedule": {
+      "survey": [
+        0,
+        2
+      ],
+      "permit": [
+        6,
+        9
+      ],
+      "crew": [
+        0,
+        4
+      ],
+      "gates": [
+        9,
+        11
+      ],
+      "restart": [
+        11,
+        14
+      ]
+    }
+  },
+  "source_pr": 23
+}

@@ -1,0 +1,14 @@
+{
+  "scene_profile": "spillway",
+  "target": "restart",
+  "deadline": 14,
+  "seed": 271828,
+  "bay_unit": 1,
+  "tasks": {
+    "survey": {"duration": 2, "position": [-11, 9]},
+    "crew": {"duration": 4, "position": [-0.2, 19]},
+    "permit": {"duration": 3, "needs": ["survey"], "release_at": 6, "position": [-5.6, 12]},
+    "gates": {"duration": 2, "needs": ["permit", "crew"], "position": [1, 10]},
+    "restart": {"duration": 3, "needs": ["gates"], "position": [7.8, 10.2]}
+  }
+}
