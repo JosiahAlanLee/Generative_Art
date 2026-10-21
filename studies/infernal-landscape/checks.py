@@ -1,13 +1,18 @@
-"""Checks of model arithmetic, print dimensions, provenance and delivered rays."""
+"""Checks of model arithmetic, print dimensions, provenance, delivered rays,
+and what a reader can see: tone hierarchy by zone and red on the page."""
 from pathlib import Path
 import ast,hashlib,json,xml.etree.ElementTree as ET
 import numpy as np
 import build as B
-from compile import compile_case,CASES
+from compile import compile_case,CASES,classify_routes
 import occlusion as M
+import measure as Mz
 
-checks={}
+checks={};advisory={}
 def record(name,ok,**detail):checks[name]=dict(passed=bool(ok),**detail)
+def advise(name,ok,**detail):
+    """Measured and reported, not gating: the remedy is in the geometry, not here."""
+    advisory[name]=dict(passed=bool(ok),**detail)
 
 expected={'recorded_route':10,'rehearsed_route':5,'late_opening':11,'gate_unavailable':None}
 record('specimen_arithmetic_preserved',all(compile_case(k)['result']['executable_completion']==v for k,v in expected.items()))
@@ -38,8 +43,23 @@ record('stroke_only_svg',not any(x in text for x in ('<image','<mask','<clipPath
 record('print_size_mm',root.attrib['width']=='156mm' and root.attrib['height']=='117.000mm')
 manifest=json.loads((B.OUT/f'manifest-{B.VIEW_NAME}.json').read_text())
 record('red_is_heaviest_line',manifest['red_heavier_than_black'])
+# The red rule is arithmetic on the evaluator's schedule and must agree with the record.
+expected_red={'recorded_route':[['read','approval'],['approval','restore']],
+              'rehearsed_route':[['read','approval'],['staff','restore'],['approval','restore']],
+              'late_opening':[['approval','restore']],'gate_unavailable':[['read','approval']]}
+record('red_follows_critical_path',manifest['red_edges']==expected_red.get(B.CASE,manifest['red_edges']),
+       red_edges=manifest['red_edges'],release_marks=manifest['release_marks'])
+# What a reader sees, measured on the rasterised plate at the master resolution.
+seen=Mz.measure(B.D,B.VIEW_NAME,text,B.W,B.H,manifest['px_per_mm'],manifest['red_edges'])
+z=seen['zones'];mean=lambda k:z[k]['mean_ink'] if k in z else 0.
+record('tone_hierarchy_buildings_lead',mean('building')>mean('oak')>mean('terrain')>mean('sky'),
+       mean_ink={k:v['mean_ink'] for k,v in z.items()},cell_max=seen['cell_max'],cell_p90=seen['cell_p90'])
+record('open_ground_is_the_lightest_surface',mean('terrain')<.5*mean('building') and mean('sky')<.02)
+for route,r in seen['red'].items():
+    advise('red_route_visible: '+route,r['visible_fraction']>=.6 and r['longest_hidden_mm']<=8,**r)
 record('shared_volume_and_planar_plants',manifest['plants']>20 and manifest['volume_leaf_faces']>1000,
        planar_instances=manifest['plants'],volume_leaf_faces=manifest['volume_leaf_faces'])
-result=dict(case=B.CASE,view=B.VIEW_NAME,all_passed=all(x['passed'] for x in checks.values()),checks=checks)
+result=dict(case=B.CASE,view=B.VIEW_NAME,all_passed=all(x['passed'] for x in checks.values()),checks=checks,
+            advisory=advisory,measured=seen)
 (B.OUT/f'checks-{B.VIEW_NAME}.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
 if not result['all_passed']:raise SystemExit(1)

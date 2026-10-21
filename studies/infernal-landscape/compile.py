@@ -54,7 +54,7 @@ def compile_tasks(tasks, case, *, target, deadline, positions=None, seed=314159,
                           release_at=task.release_at, plinth=.34 * task.release_at,
                           available=task.available, needs=list(task.needs),
                           start=result.schedule[name][0], finish=result.schedule[name][1]))
-    return dict(schema='infernal-architecture/0.2', case=case, seed=seed,
+    return classify_routes(dict(schema='infernal-architecture/0.2', case=case, seed=seed,
                 target=target, deadline=deadline, bay_unit=bay_unit,nodes=nodes,
                 edges=[dict(source=p, target=n) for n, t in tasks.items() for p in t.needs],
                 result=dict(feasible=result.feasible, arithmetic_completion=result.completion,
@@ -62,7 +62,64 @@ def compile_tasks(tasks, case, *, target, deadline, positions=None, seed=314159,
                             reason=result.reason, schedule=dict(result.schedule)),
                 interpretation='Artistic mappings from an exact scheduling specimen; no institutional simulation.',
                 source=dict(path='sources/codex-intervallorum/books/02_intervallorum/generator/reachability.py',
-                            sha256=hashlib.sha256((ROOT/'vendor/reachability.py').read_bytes()).hexdigest()))
+                            sha256=hashlib.sha256((ROOT/'vendor/reachability.py').read_bytes()).hexdigest())))
+
+
+def classify_routes(arch):
+    """Decide which recorded dependencies are drawn in red.
+
+    Black records an arrangement; red marks what happened. Every prerequisite is
+    a black tray. The red centerline is reserved for edges on the critical path
+    to the target: an edge p -> n is critical when n is critical and p's finish
+    is what set n's start. A node whose start was set by its release time rather
+    than by a prerequisite gets a red release mark instead, and the edges into
+    it carry slack and stay black. When no executable completion exists, red
+    follows the critical path only as far as the first unavailable ancestor:
+    the route reached a closed gate and nothing downstream is reached.
+
+    The classification is pure arithmetic on the evaluator's schedule; it adds
+    no model of priority, blame or intent. The engraving stage recomputes it
+    from the embedded record, so earlier scene records need no rebuild.
+    """
+    nodes={n['id']:n for n in arch['nodes']}
+    ins={}
+    for e in arch['edges']:ins.setdefault(e['target'],[]).append(e['source'])
+    binding={}
+    for name,n in nodes.items():
+        latest=max((nodes[p]['finish'] for p in ins.get(name,[]) if p in nodes),default=0)
+        if n['release_at']>0 and n['release_at']>=latest and n['start']==n['release_at']:binding[name]='release'
+        elif ins.get(name) and n['start']==latest:binding[name]='prerequisite'
+        else:binding[name]='start'
+    critical_nodes=set();critical_edges=set();stack=[arch['target']]
+    while stack:
+        name=stack.pop()
+        if name in critical_nodes:continue
+        critical_nodes.add(name)
+        if binding[name]!='prerequisite':continue
+        for p in ins.get(name,[]):
+            if nodes[p]['finish']==nodes[name]['start']:
+                critical_edges.add((p,name));stack.append(p)
+    executable=all(n['available'] for n in nodes.values())
+    red_edges=set(critical_edges)
+    if not executable:
+        # Red reaches the closed gate and stops: only the critical edges that
+        # lead into an unavailable node, or into its own critical ancestors.
+        upstream=set();frontier=[n for n in critical_nodes if not nodes[n]['available']]
+        while frontier:
+            name=frontier.pop()
+            if name in upstream:continue
+            upstream.add(name)
+            frontier.extend(p for (p,q) in critical_edges if q==name)
+        red_edges={(p,q) for (p,q) in critical_edges if q in upstream}
+    for e in arch['edges']:
+        key=(e['source'],e['target'])
+        e['critical']=key in critical_edges;e['red']=key in red_edges
+    for n in arch['nodes']:
+        n['binding']=binding[n['id']]
+        n['release_mark']=binding[n['id']]=='release' and n['id'] in critical_nodes and (executable or n['available'])
+    arch['red_rule']=('the critical path to the target; a release that set a start is marked on its lift; '
+                      'with no executable completion, red stops at the first closed gate')
+    return arch
 
 
 def compile_document(doc,case='custom'):
