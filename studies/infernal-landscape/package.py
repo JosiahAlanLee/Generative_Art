@@ -24,8 +24,8 @@ TITLES={'recorded_route':'The estate of prerequisites', 'rehearsed_route':'The g
 CAPTIONS={
 'recorded_route':'Reading takes 2 units; staffing takes 3. Approval follows reading and takes 6. Restoration needs both staffing and approval, then takes 2. The earliest completion is 10, meeting the deadline of 10. The six-storey approval tower is an artistic scale for the six-unit task.',
 'rehearsed_route':'Approval takes 1 unit instead of 6. Reading and staffing remain unchanged, as do the dependency edges. The earliest completion falls to 5. One approval storey replaces six; the smaller building is a rendering of the changed input, not evidence that small organisations work better.',
-'late_opening':'Approval still takes only 1 unit, but it cannot start until time 8. It finishes at 9; restoration finishes at 11 and misses the deadline of 10. The raised foundation and access frame signify the release time. They do not add a second delay to the calculation.',
-'gate_unavailable':'The approval task is unavailable. Its gate closes. The source evaluator still calculates 5 under the duration assumptions, while reporting infeasibility. This adapter keeps that arithmetic separately and reports no executable completion. The visible conduits record prerequisites; they do not imply that the circuit can operate.'}
+'late_opening':'Approval still takes only 1 unit, but it cannot start until time 8. It finishes at 9; restoration finishes at 11 and misses the deadline of 10. The raised foundation and access frame signify the release time, and the lift carries the red because the release is what set the finish. They do not add a second delay to the calculation.',
+'gate_unavailable':'The approval task is unavailable. Its gate closes. The source evaluator still calculates 5 under the duration assumptions, while reporting infeasibility. This adapter keeps that arithmetic separately and reports no executable completion. The red stops at the closed gate; the other conduits record prerequisites in black and do not imply that the circuit can operate.'}
 
 
 def wrap(c,text,x,y,width,size=10,leading=14,font='Serif'):
@@ -57,12 +57,14 @@ def proof_pdf():
         page_base(c,i+1,f'PLATE {i+1:02d}  /  '+case.replace('_',' ').upper(),TITLES[case])
         # Vector plate is merged at exact physical size after reportlab draws text.
         c.setFillColor(HexColor(INK));y=wrap(c,CAPTIONS[case],43,220,418,10.5,15)
-        y-=12;wrap(c,'156 x 117 mm / black and vermilion / shared evaluated geometry',43,y,418,7.5,11,'Plex')
+        y-=12;wrap(c,'156 x 117 mm / black and vermilion / shared evaluated geometry / red: the critical path; black: every other prerequisite',43,y,418,7.5,11,'Plex')
         c.showPage()
     page_base(c,5,'MODEL / MATERIAL / LIMIT','A grammar that can be changed')
     c.setFillColor(HexColor(INK));y=590
-    rows=[('DURATION','ceil(duration / bay_unit) complete bays'),('PREREQUISITE','supported red service route'),
-          ('RELEASE','raised foundation and access frame'),('UNAVAILABLE','closed gate; no executable completion')]
+    rows=[('DURATION','ceil(duration / bay_unit) complete bays'),('PREREQUISITE','supported service tray, black'),
+          ('CRITICAL PATH','red centerline on the edges that set the finish; red stops at a closed gate'),
+          ('RELEASE','raised foundation and access frame; red on the lift where the release set the start'),
+          ('UNAVAILABLE','closed gate; no executable completion')]
     for label,text in rows:
         c.setFont('Plex',8);c.setFillColor(HexColor(RED));c.drawString(43,y,label)
         c.setFillColor(HexColor(INK));y=wrap(c,text,156,y,300,9.5,13);y-=14

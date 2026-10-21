@@ -4,19 +4,27 @@ The nine extracted hatch bodies and the Driftless engine remain unchanged.
 All choices about spacing, lighting, tone, ink, and composition live here.
 """
 from pathlib import Path
-import hashlib,json,time
+import hashlib,json,re,time
 import numpy as np
 from PIL import Image,ImageDraw
 from scipy.ndimage import gaussian_filter
 import build as B
 import occlusion as M
+from compile import classify_routes
 
 OUT=B.OUT
 PX_PER_MM=20
 PRINT_WIDTH_MM=156
 MM=dict(hatch=.10,gap=.22,silhouette=.25,crease=.16,ornament=.12,
-        foliage=.11,field=.10,vermilion=.32)
+        foliage=.08,branch=.10,field=.085,vermilion=.32)
 INK='#242820';RED='#a32b24'
+# Tone hierarchy (measured in checks.py): buildings lead; fence, service
+# supports and piers are furniture at crease weight; foliage is lighter than
+# masonry; a plinth is lighter than the storeys it carries; open ground is the
+# lightest drawn surface. Gains multiply the lit darkness before allocation.
+FURNITURE=('Meadow fence','Service support','Service tray','Entry pier')
+PLINTH=(' foundation',' entrance base','Release lift landing')
+GAIN=dict(terrain=.28,plinth=.62,furniture=.55)
 
 
 def densify(p,step):
@@ -75,7 +83,7 @@ def surface_paths(patches):
         if candidate.any():seen[candidate]=B.visible(world[candidate],*B.BVH[:6])
         keep=candidate&seen
         width=(MM['field'] if B.TERRAIN_MODE=='original' else
-               .16 if kind=='channel' else .10 if kind=='field' else .095)
+               .16 if kind=='channel' else MM['field'] if kind=='field' else .095)
         pens[pen].extend((q,width*20) for q in B.split_paths(np.c_[x,y],keep))
         audit.append(world[keep])
         st=stats.setdefault(kind,dict(candidates=0,hidden_by_model=0,survives=0))
@@ -97,21 +105,61 @@ def structure():
         for a,b in zip(f,f[1:]+f[:1]):edges.setdefault(tuple(sorted([a,b])),[]).append(k)
     for (a,b),owners in edges.items():
         leaf=any(B.FACES[k]['mat']==6 for k in owners)
-        if not leaf and not any(front[owners]):continue
+        # Leaf polygons are two-sided drawing geometry; the crown's outline is
+        # carried by the front-facing ones, so back-facing leaves are not inked.
+        if not any(front[owners]):continue
         silhouette=len(owners)==1 or not all(front[owners])
         if silhouette or leaf or n[owners[0]]@n[owners[-1]]<.85:
             p=B.V[[a,b]];zc=max(.25,(p.mean(0)-B.EYE)@B.FWD)
             # Cap at 1.24 so 0.25 mm silhouettes stay below the 0.32 mm route.
             depth=np.clip(np.linalg.norm(B.TARGET-B.EYE)/zc,.80,1.24)
-            if leaf:width=MM['foliage']*20*.88
-            elif 'branch' in B.FACES[owners[0]]['name']:width=MM['ornament']*20
+            name=B.FACES[owners[0]]['name']
+            if leaf:width=MM['foliage']*20
+            elif 'branch' in name:width=MM['branch']*20
+            elif name.startswith(FURNITURE):width=MM['crease']*20*depth
             else:width=(MM['silhouette'] if silhouette else MM['crease'])*20*depth
             paths.extend((q,width) for q in B.stroke_project(p))
+    # Black records an arrangement; red marks what happened. Every dependency
+    # tray is drawn; only the edges classify_routes puts on the critical path
+    # keep the red centerline. The rest become black lines at crease weight.
+    arch=classify_routes(json.loads(json.dumps(B.D['architecture'])))
+    red_edges={(e['source'],e['target']) for e in arch['edges'] if e['red']}
     red=[]
     for s in B.D['strokes']:
         projected=[(q,s['width']) for q in B.stroke_project(np.asarray(s['pts']))]
-        (red if s['ink']==2 else detail).extend(projected)
-    return paths+detail,red
+        if s['ink']!=2:detail.extend(projected);continue
+        m=re.match(r'Dependency (\S+) to (\S+)$',s['name'])
+        if m and (m.group(1),m.group(2)) not in red_edges:
+            detail.extend((q,MM['crease']*20) for q,_ in projected)
+        else:red.extend(projected)
+    red.extend(release_marks(arch))
+    return paths+detail,red,arch
+
+
+def release_marks(arch):
+    """A red mark on the lift of a node whose start was set by its release.
+
+    The lift already exists in the model; the mark is an ink-only vertical on
+    the upright nearest the camera, from the ground to the landing, so that the
+    thing that set the finish is the thing drawn in red.
+    """
+    marks=[]
+    for n in arch['nodes']:
+        if not n.get('release_mark'):continue
+        ups=[f['p'] for f in B.FACES if f['name'].startswith('Release lift upright')]
+        landing=[f['p'] for f in B.FACES if f['name'].startswith('Release lift landing')]
+        if not ups:continue
+        cols={}
+        for p in ups:
+            key=(round(float(p[:,0].mean()),1),round(float(p[:,1].mean()),1))
+            cols.setdefault(key,[]).append(p)
+        def dist(key):return np.linalg.norm(np.array([key[0],key[1],0])-B.EYE*np.array([1,1,0]))
+        key=min(cols,key=dist);pts=np.vstack(cols[key])
+        z0=float(pts[:,2].min());z1=float(np.vstack(landing)[:,2].max()) if landing else float(pts[:,2].max())
+        x,y=key;toward=(B.EYE[:2]-np.array([x,y]));toward/=np.linalg.norm(toward)
+        x,y=x+toward[0]*.12,y+toward[1]*.12
+        marks.extend((q,MM['vermilion']*20) for q in B.stroke_project(np.array([[x,y,z0],[x,y,z1]])))
+    return marks
 
 
 def engrave(field,edges):
@@ -132,11 +180,14 @@ def engrave(field,edges):
     for k in np.unique(st.attr['surf']):
         m=st.attr['surf']==k
         if k==0:
-            normals[m]=B.terrain.normal(st.world[m,0],st.world[m,1]);gain[m]=.40
+            normals[m]=B.terrain.normal(st.world[m,0],st.world[m,1]);gain[m]=GAIN['terrain']
             if B.TERRAIN_MODE!='original':gain[m]=.42+.42*np.clip((1-normals[m,2])/.30,0,1)
         else:
             f=B.FACES[-1-int(k)];normals[m]=B.D['normals'][-1-int(k)]
             albedo[m]=.64 if f['mat']==2 else .77 if f['mat'] in (3,4) else 1.
+            name=f['name']
+            if any(name.endswith(t) or t in name for t in PLINTH):gain[m]=GAIN['plinth']
+            elif name.startswith(FURNITURE):gain[m]=GAIN['furniture']
     x,y=st.xy.T;frame=(x>14)&(x<B.W-14)&(y>14)&(y<B.H-14)&(st.z>B.NEAR)
     seen=np.zeros(len(st.world),bool);seen[frame]=B.visible(st.world[frame],*B.BVH[:6])
     d=np.zeros(len(st.world));d[seen]=np.clip(1-B.light(st.world[seen],normals[seen],*B.BVH[:6])*albedo[seen],0,1)*gain[seen]
@@ -170,7 +221,7 @@ def place(patches):
 if __name__=='__main__':
     start=time.time();patches=json.loads((OUT/'driftless-meadow-patches.json').read_text())
     field,stats=surface_paths(patches);print('Terrain',stats,flush=True)
-    edges,red=structure();print('Architecture paths',len(edges),'route paths',len(red),flush=True)
+    edges,red,arch=structure();print('Architecture paths',len(edges),'route paths',len(red),flush=True)
     groups=engrave(field,edges)+field
     instances=place(patches);buf=np.full((B.H*M.K,B.W*M.K),np.inf)
     for inst in instances:M.stamp(buf,inst)
@@ -188,7 +239,9 @@ if __name__=='__main__':
                   px_per_mm=PX_PER_MM,mm=MM,faces=len(B.FACES),paths=sum(len(p) for _,p,_ in final),
                   plants=len(instances),volume_leaf_faces=sum(m==6 for m in B.D['materials']),surface=stats,
                   red_heavier_than_black=bool(max(widths,default=0)<MM['vermilion']*20),
-                  architecture=B.D['architecture'],elapsed_seconds=round(time.time()-start,2),
+                  architecture=arch,red_edges=[[e['source'],e['target']] for e in arch['edges'] if e['red']],
+                  release_marks=[n['id'] for n in arch['nodes'] if n.get('release_mark')],
+                  gains=GAIN,elapsed_seconds=round(time.time()-start,2),
                   driftless_sha256=hashlib.sha256((B.ROOT/'vendor/driftless-engine.js').read_bytes()).hexdigest())
     manifest['terrain_mode']=B.TERRAIN_MODE
     (OUT/f'manifest-{B.VIEW_NAME}.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest),flush=True)
