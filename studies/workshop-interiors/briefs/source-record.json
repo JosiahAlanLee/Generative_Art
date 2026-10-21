@@ -1,0 +1,38 @@
+{
+  "repository": "JosiahAlanLee/Codex-Intervallorum",
+  "commit": "02e1155ca3e33aa339436263c4d3b1f4992392ab",
+  "records": [
+    {
+      "key": "maintained-workshop",
+      "brief_path": "books/01_matricis_intervallorum/assets/frontispiece-prompt.txt",
+      "local_brief": "maintained-workshop.txt",
+      "brief_sha256": "d8ee4d4b382f20570678e5580332c1e2efaa73a18e24788d27decc39ae5fd9d4",
+      "asset_path": "books/01_matricis_intervallorum/assets/the-maintained-workshop.jpg",
+      "asset_sha256": "8811616d5a8fb78bdb68f5a01391c37c188857dc984d64eb88edb129a3518568"
+    },
+    {
+      "key": "empty-cabinet",
+      "brief_path": "books/07_septimus/assets/the-empty-cabinet-prompt.txt",
+      "local_brief": "empty-cabinet.txt",
+      "brief_sha256": "83d41ecc849dbe4c17d56bc6c760eb825e052e96c282c5a9256ab5824798e1b7",
+      "asset_path": "books/07_septimus/assets/the-empty-cabinet.jpg",
+      "asset_sha256": "58d22fa782509d967fb8dfc26fe2f3ef058c44a17384f88995f39fa005837c3e"
+    },
+    {
+      "key": "extraction-of-the-hand",
+      "brief_path": "references/raster/integrated-01/prompts.json#scene_briefs.runbook",
+      "local_brief": "extraction-of-the-hand.txt",
+      "brief_sha256": "390e32e7a2623bc7b85e5b736a2e4949fb3b4eef80d66d2c0655905cd7afa196",
+      "asset_path": "references/raster/integrated-01/extraction-of-the-hand-v01.jpg",
+      "asset_sha256": "4efdfcf51612010a26f526971a01dfdc7539444bee37ccef713c63dbeb6b4aa5"
+    },
+    {
+      "key": "office-without-a-seal",
+      "brief_path": "references/raster/integrated-01/prompts.json#scene_briefs.cord",
+      "local_brief": "office-without-a-seal.txt",
+      "brief_sha256": "2379209ff0ab89887081808168e36949d872a720ae6ec259221064060f9b5cf2",
+      "asset_path": "references/raster/integrated-01/office-without-a-seal-v01.jpg",
+      "asset_sha256": "73a4490fbe6dcf42350e51c46e1ae92a42a72157bdf2c4b4adc50b19835d11b8"
+    }
+  ]
+}
