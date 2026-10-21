@@ -1,0 +1,84 @@
+THE OFFICE WITHOUT A SEAL / brief, second pass
+Book III, Pseudomonarchia Escalationum, "The office without a seal" (STOP WORK
+AUTHORITY / UNISSUED). Printed 95 x 119 mm, 4:5, borderless, on a text page.
+Text it sits above: "There is a mounting point. There is a job description.
+There is no continuous path from the worker to the stop. ... The empty place
+is preserved at full size."
+
+THE SCENE
+A narrow alcove of plaster and carved lattice, frontal, taller than wide. At
+upper centre a mounting bracket; from it a short cord hangs and ends in the
+air. At the bottom, a pull ring at hand height on a peg; from it a cord rises
+and ends in the air. Between the two ends, the recess: a rectangular blank
+cut into the back wall, reserved paper, framed by a plain black rule, and
+larger than the gap between the cord ends on every side. Cantilevered shelves
+on each side of the recess carry a few simple instruments: a ring on a stand,
+a rod, a sphere, a stack of rules; nothing figurative. Lattice tracery runs in
+the side bays and over the crown. The floor shows only as a shadow band at the
+foot of the back wall and fades to paper; no grid.
+
+The gap is the subject. It is not drawn. The ends are.
+
+CAMERA
+Frontal, level, centred on the recess, long focal length (horizontal field
+about 24 degrees) so the side walls do not splay. The recess is about 30
+percent of the plate's width and sits a little above centre.
+
+READING ORDER
+1 the recess, pure paper
+2 the upper cord's end and the lower cord's end, red
+3 the bracket above and the ring below
+4 the instrument shelves
+5 the lattice
+The tracery must never outrank the cords.
+
+TONE PLAN
+  inner corners of the alcove, both sides          0.65-0.75
+  the recess's cut edges (the reveal)              0.50, a narrow band
+  shelves' undersides                              0.50
+  the instruments                                  0.35
+  side bays with lattice                           0.25-0.35
+  the back wall away from the recess               0.20
+  a halo 8 mm wide around the recess               < 0.08, the lightest hatch
+  floor shadow                                     0.25 at the wall to 0
+  reserved paper: the recess, and nothing else
+Light falls from the upper left; the recess is lit by nothing and is the
+brightest thing on the plate because it is paper.
+
+CORDS AND RED (author's decision; see end)
+As written here: both cords black, 0.14 mm, the route as the manuals wrote it.
+Each cord ends in a vermilion terminal: a short red length, 0.40 mm, 4 mm
+long, on the free end. Four millimetres of red at each end is the first
+pass's two dots made visible. The gap carries no mark.
+
+INK
+Black for everything, including all tracery and the instruments. Vermilion:
+the two terminals only. No brass.
+
+WHAT CHANGES FROM THE FIRST PASS
+- Engraved at 95 mm with the print weights.
+- Long focal length; the alcove stops folding open.
+- The floor band replaces the trench-like shadow strip and the grid.
+- Instruments on the shelves; empty shelves read as unfinished.
+- Tracery in black and thinned by half; in the first pass the brass layer was
+  longer than all the black edges together.
+- Red terminals at a visible weight; the first pass delivered 2 mm of red.
+
+CHECKS
+- Cord gap clears the recess on every side, as before (3.64 units).
+- No stroke of any layer crosses the recess, as before; recess coverage < 0.01.
+- Halo: coverage within 8 mm of the recess edge < 0.08.
+- Red: two paths, each >= 4 mm printed, each at a cord's free end and nowhere
+  else.
+- Hierarchy as measured: inner corners > reveal > shelf undersides > lattice
+  > back wall > halo.
+- 600 dpi proof at 95 mm: both cord ends identifiable as ends, not as lines
+  that leave the picture.
+
+AUTHOR'S DECISIONS
+A. Red terminals on black cords (as written), or the lower cord red for its
+   whole length as the worker's reach. The first keeps to "red is what happens
+   to the incident": what happened is that both ends stopped. The second says
+   more than the text does.
+B. Whether the bracket carries an empty seal-mount (a bare ring where a seal
+   would hang). Recommended: yes, small, black; it is the "mounting point".

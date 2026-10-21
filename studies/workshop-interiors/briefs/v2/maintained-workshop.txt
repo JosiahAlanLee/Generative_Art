@@ -1,0 +1,94 @@
+THE MAINTAINED WORKSHOP / brief, second pass
+Frontispiece, Clavicula Matricis et Intervallorum. Printed 156 x 208 mm, 3:4,
+inside an unclosed printer's rule. Caption it must answer:
+"One hand checks the instrument. Another keeps the room warm."
+
+THE SCENE
+A nocturnal library-workshop cut away on two levels. A raised work gallery on
+timber supports, with an open service bay beneath it and access stairs at the
+right. On the gallery, left: a brass observation wheel on two pillars, its
+centre open, a removable ruler resting on a bracket below the hub. Right: a
+glass reserve vessel hung from the ceiling on a yoke, directly above a small
+iron stove whose door stands open. A flue leaves the stove and rises to the
+ceiling. Between wheel and vessel: an open instrument gate (two jambs, one leaf
+swung out) and, beyond it, an unfinished shelf board carried on one trestle,
+its far end in the air. Bookcases on the rear wall either side; sloped shelves
+of blank folded records on the lower level. Branching filaments in the plaster
+and inside the glass.
+
+The red route: one continuous vermilion line from the wheel's hub, through the
+open gate, to the end of the unfinished shelf, where it stops. Nothing else is
+red.
+
+HANDS (author's decision; see end)
+Two clerks, built as paper-reserved silhouettes: hooded, no face, no features,
+outline only, each with one drawn hand. The left clerk's hand rests on the
+ruler. The right clerk's hand holds the stove door. Their bodies carry no
+hatching and no ornament; they are the two largest reserved shapes on the
+plate after the stove mouth and the vessel. They are present because the
+caption names them; they are reserved because the series does not draw faces.
+
+CAMERA
+Three-quarter from front-left, not frontal. Eye height a little above the
+gallery floor (about 1.6 m over the deck), so the gallery reads as a stage and
+the service bay reads as the space under it. Horizontal field about 40
+degrees. The wheel is the largest single object; the vessel is second.
+
+READING ORDER
+1 the wheel (darkest instrument, left)
+2 the red route leaving it
+3 the gate and the shelf end where the route stops
+4 the vessel (bright) above the stove mouth (brightest)
+5 the two hands
+Nothing in the room may outrank these: bookcases, filaments and the stairs are
+supporting tone.
+
+TONE PLAN (coverage in 4 mm cells)
+  service bay under the gallery          0.70-0.80   the darkest pocket
+  stove body and flue                    0.60-0.65
+  underside of the gallery and bench     0.55
+  wheel rim, pillars, bracket            0.50
+  bookcases and the folded records       0.35-0.45
+  rear wall                              0.15 at centre rising to 0.40 in the
+                                         upper corners (night, not daylight)
+  gallery deck and bench top             0.15-0.25
+  floor of the bay                       0.10 at the back, 0 at the front rule
+  reserved paper, no hatch, outline only:
+     the stove mouth (the fire is light, not drawn flames)
+     the interior of the glass vessel (contour, cage and filaments only)
+     the open centre of the wheel
+     both clerks
+The stove mouth and the open wheel centre are the two brightest points, one on
+each side; the plate is lit from the stove, and the hatch on the stove side of
+every object is lighter than on the far side.
+
+INK
+Black: all structure, bookcases, tracery, filaments, ruler and wheel ticks.
+Vermilion: the route only, 0.32 mm, drawn last and unbroken by thin tracery.
+No brass.
+
+WHAT CHANGES FROM THE FIRST PASS
+- Not frontal; the frontal camera flattened it.
+- Clerks in, as reserved silhouettes, or the caption changes.
+- The stove must read as a heat source: open door, reserved mouth, flue.
+- The vessel hangs where the stove's heat reaches it, visibly.
+- Floor lines stop at the rule; nothing extends past the room.
+- The wheel does not overlap the bookcase at the hub; move the shelf bank so
+  the wheel sits against plain plaster.
+
+CHECKS (in addition to the first pass's)
+- Red route: one connected polyline; printed length >= 60 mm; at no point
+  occluded for more than 3 mm; the heaviest line on the plate.
+- Reserved regions listed above: coverage < 0.02 each.
+- Hierarchy: mean coverage of the service bay > stove > bookcases > rear wall
+  centre > gallery deck, as measured, not as intended.
+- Two silhouettes present, each with exactly one hand stroke group, no face
+  strokes inside the hood outline.
+- Legibility at printed size: 600 dpi binary proof shows the ruler ticks and
+  the wheel ticks as separate marks.
+
+AUTHOR'S DECISIONS
+A. Hands as reserved silhouettes (as written here), or no hands and a caption
+   that does not name them. The plate and the caption must agree.
+B. Whether the night is in the plate (corner vignette) or the frontispiece is
+   timeless; the tone plan assumes night.

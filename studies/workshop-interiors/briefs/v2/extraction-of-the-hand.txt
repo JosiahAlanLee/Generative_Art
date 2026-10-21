@@ -1,0 +1,92 @@
+THE EXTRACTION OF THE HAND / brief, second pass
+Book III, Pseudomonarchia Escalationum, "The extraction of the hand"
+(COPY / ORDER / REMOVE). Printed 95 x 119 mm, 4:5, borderless, on a text
+page. Caption strip it sits under: "The hand becomes a sequence; the sequence
+becomes a replacement; the replacement asks for the hand." The text beside
+it: the compiler copied the repairer's movements, made a heading called ONE OF
+THE TIMES with a blank table under it, and a system later filled the table.
+
+This plate prints at about half the size of the first-pass master. It is
+designed at 95 mm. Fewer objects, larger.
+
+THE SCENE
+A repairer's workbench, deserted. On it, clamped at the wrist to a plinth, a
+wooden repair jig in the shape of a hand: palm, five jointed fingers, no
+skin, no nails, visibly an instrument. From each fingertip, strands leave and
+run down across the bench to an open ledger lying flat, where each strand
+becomes one ruled row of the page. Twenty-three strands; twenty-three rules.
+The pages are otherwise blank. An empty stool in front of the bench. A
+bookcase at the right edge as background weight. No room beyond that: the
+floor exists only where the bench and stool cast their shadow, and the plate
+fades to unmarked paper by omission at all four edges. No arch, no partial
+wall, no floating line.
+
+The red (author's decision; see end): as written here, the twenty-third strand
+is vermilion and stops short of the ledger, ending in the air above the page's
+last rule. Twenty-two strands become rows; one does not arrive. That strand is
+the thing the blank table was made for.
+
+CAMERA
+Three-quarter from front-left, eye a little above bench height, close. The
+jig, the strands and the ledger fill about 80 percent of the plate's width.
+The stool is cut by the lower margin if need be. Field about 36 degrees.
+
+READING ORDER
+1 the jig
+2 the strands, as a sheaf, and where they land
+3 the red strand that does not
+4 the empty stool
+5 the ledger's blank rules, then the bookcase
+The bench itself is furniture and must not compete.
+
+TONE PLAN
+  the pocket under the bench top, behind the stool     0.70-0.80
+  the jig's plinth and wrist clamp                      0.55
+  the jig (palm and fingers)                            0.45, lit from the left
+  the bench apron and legs                              0.35-0.45
+  the bookcase                                          0.30
+  the bench top                                         0.12-0.20
+  the floor shadow                                      0.25 under, 0 at 25 mm
+  reserved paper:
+     the ledger pages (rules only, 0.14 mm, the strands continuing)
+     the stool seat top
+     a halo 4 mm wide around the sheaf of strands where they cross the bench,
+     so that 23 black lines read against paper and not against hatching
+
+STRANDS
+Black, 0.14 mm, continuous from fingertip to the row they become. They are
+the plate. At the ledger their spacing is >= 0.35 mm so they are countable;
+across the bench they may bundle but never cross one another. Hidden-line
+breaks on a strand are disallowed; nothing is modelled in front of them.
+
+INK
+Black for everything but one strand. Vermilion: the one strand, 0.32 mm,
+plus nothing else; the thread across the desk of the first brief is withdrawn,
+its job is done by the strand.
+
+WHAT CHANGES FROM THE FIRST PASS
+- Engraved at 95 mm with the print weights; the first pass's 0.04 mm printed
+  hatch is withdrawn.
+- The arc is removed. The partial room is a shadow and nothing else.
+- The floor grid is removed; omission does the fading.
+- The jig moves nearer the ledger so the sheaf is short and dense.
+- The bookcase is reduced to one bay.
+
+CHECKS
+- Five fingers, twenty-three strands, four stool feet, as before.
+- 22 black strands each end on a distinct ledger rule; the red strand's end
+  is >= 3 mm from the nearest page edge and from every rule.
+- Strand separation at the ledger >= 0.35 mm printed; no strand occluded.
+- Halo: coverage within 2 mm of any strand over the bench top < 0.06.
+- Hierarchy as measured: under-bench pocket > plinth > jig > apron > bookcase
+  > bench top.
+- 600 dpi proof at 95 mm: all 23 strands countable by a reader without a
+  loupe.
+
+AUTHOR'S DECISIONS
+A. The red strand that does not arrive (as written), or the original thin red
+   thread lying across the desk with all 23 strands black. The first makes the
+   red an event in the plate; the second keeps it an accent. One or the other,
+   not both.
+B. Whether the ledger shows a heading strip (a reserved band above the rules,
+   no letters) for ONE OF THE TIMES. Recommended: no; the text carries it.

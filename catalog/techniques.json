@@ -1081,25 +1081,28 @@
   },
   {
     "id": "workshop-interiors",
-    "title": "Recorded workshop briefs to Blender and hatched SVG",
+    "title": "Printed-size Blender workshop engravings",
     "family": "08-scene-studies",
     "status": "study",
-    "use": "Reconstruct workshop apparatus and architecture as editable scenes with evaluated-mesh visibility and surface hatching",
+    "use": "Reconstruct four workshop plates from medium-specific briefs with physical line weights, reserved paper, native visibility and 600 dpi print checks",
     "guide": "studies/workshop-interiors/README.md",
     "sources": [
       "studies/workshop-interiors/model.py",
-      "studies/workshop-interiors/engrave.py",
+      "studies/workshop-interiors/scenes_v2.py",
+      "studies/workshop-interiors/render_v2.py",
+      "studies/workshop-interiors/checks_v2.py",
       "studies/workshop-interiors/verify_blender.py",
-      "studies/workshop-interiors/checks.py"
+      "studies/workshop-interiors/replay_v2.py"
     ],
     "symbols": [
-      "observation_wheel",
-      "maintained",
+      "construct",
+      "workshop",
       "cabinet",
       "extraction",
       "office",
       "visible",
-      "light"
+      "light",
+      "owner_map"
     ]
   }
 ]
