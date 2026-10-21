@@ -10,10 +10,12 @@ import numpy as np
 from mathutils import Vector
 from bpy_extras.object_utils import world_to_camera_view
 from compile import compile_case,compile_document
+from terrain_height import base_height as terrain_z,sampler
 
 ROOT = Path(__file__).resolve().parent
 CASE = os.environ.get('INFERNAL_CASE', 'recorded_route')
-OUT = ROOT/'output'/CASE
+TERRAIN_MODE = os.environ.get('INFERNAL_TERRAIN','original')
+OUT = ROOT/'output'/(CASE if TERRAIN_MODE=='original' else CASE+'-'+TERRAIN_MODE)
 OUT.mkdir(parents=True, exist_ok=True)
 A = (compile_document(json.loads(Path(os.environ['INFERNAL_INPUT']).read_text()),CASE)
      if os.environ.get('INFERNAL_INPUT') else compile_case(CASE))
@@ -33,10 +35,11 @@ for name, col in zip(['Ground','Limestone','Timber','Oxide','Roof','Paper','Foli
     MATERIALS.append(m)
 
 
-def terrain_z(x,y):
-    return (.20+.018*y+.30*np.sin(x*.19+y*.13)
-            +2.3*np.exp(-((y-24-.17*x)/3.1)**2)
-            +.65*np.exp(-((x+17)/4.1)**2)+.08*np.cos(x*.6-y*.3))
+EROSION_STATE=None
+if TERRAIN_MODE!='original':
+    source=OUT/'terrain-state.npz'
+    if not source.exists():raise FileNotFoundError('Prepare terrain with the engraving Python: python erosion.py')
+    EROSION_STATE=dict(np.load(source));terrain_z=sampler(EROSION_STATE)
 
 
 def mesh(name,verts,faces,mat=1,hatch=True,link=True):
@@ -90,7 +93,8 @@ def arch(name,x,y,z,w,h,depth=.20):
 
 
 # Evaluated, displaced host. All plants and marks subsequently project onto it.
-gx=np.linspace(-30,30,101);gy=np.linspace(-20,44,105)
+gx=np.linspace(-30,30,101) if EROSION_STATE is None else EROSION_STATE['x']
+gy=np.linspace(-20,44,105) if EROSION_STATE is None else EROSION_STATE['y']
 xx,yy=np.meshgrid(gx,gy);zz=terrain_z(xx,yy);fs=[]
 for j in range(len(gy)-1):
     for i in range(len(gx)-1):
@@ -283,6 +287,9 @@ data=dict(vertices=vertices,faces=faces,materials=mats,normals=normals,names=nam
           terrain_faces=terrain_faces,strokes=STROKES,colors=COLORS,cameras=CAMERAS,
           blender=bpy.app.version_string,host='Host terrain',architecture=A,footprints=FOOTPRINTS,
           routes=ROUTES,terrain_modifier=dict(type='DISPLACE',strength=.08),geometry_nodes=gn_objects)
+data['terrain_mode']=TERRAIN_MODE
+if EROSION_STATE is not None:
+    data['terrain_state']={k:EROSION_STATE[k].tolist() for k in ('x','y','height','area','receiver','fixed_mask')}
 (OUT/'scene.json').write_text(json.dumps(data,separators=(',',':')))
 errors=[]
 for name,c in CAMERAS.items():

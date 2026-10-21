@@ -70,5 +70,7 @@ const out = {
   plants, plantOrigin: [20, 40],
   farm: patch(farm),
 };
-fs.writeFileSync(path.join(__dirname, 'output', process.env.INFERNAL_CASE || 'recorded_route', 'driftless-meadow-patches.json'), JSON.stringify(out));
+const caseName=process.env.INFERNAL_CASE || 'recorded_route';
+const terrainMode=process.env.INFERNAL_TERRAIN || 'original';
+fs.writeFileSync(path.join(__dirname, 'output', terrainMode==='original'?caseName:caseName+'-'+terrainMode, 'driftless-meadow-patches.json'), JSON.stringify(out));
 console.log({ oak: out.oak.strokes.length, plants: plants.length, plantStrokes: plants.reduce((s, p) => s + p.strokes.length, 0), farm: out.farm.strokes.length });

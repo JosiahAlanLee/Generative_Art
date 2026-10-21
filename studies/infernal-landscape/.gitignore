@@ -4,3 +4,5 @@ output/*
 !output/preview.jpg
 !output/validation.json
 !output/architecture-cases.json
+!output/erosion-preview.jpg
+!output/erosion-validation.json

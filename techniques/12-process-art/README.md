@@ -112,3 +112,12 @@ equations, implementation choices, model scope and follow-up experiments.
 ## Textile scaffold extension
 
 The [textile/process study](TEXTILE.md) treats a shared geometric grammar as a portable element. It supplies a control, adaptive conduit transport, wall-constrained reaction–diffusion, irreversible dissolution, and placement/clipping examples. Run `python examples/make_textile_study.py` for the comparison.
+
+## Eroded Blender landscapes
+
+The [Infernal Engine erosion study](../../studies/infernal-landscape/EROSION.md)
+uses the runoff/incision model on a supplied terrain with protected building
+sites. Three exposures share the same initial field and task architecture.
+`lib/process_art/terrain.py:erode_heightfield` provides the reusable adapter;
+the original `catchment` generator remains unchanged. Evaluated Blender
+triangles, Driftless marks, volume foliage and crosshatching share visibility.
