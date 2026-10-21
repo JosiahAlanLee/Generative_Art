@@ -13,7 +13,9 @@ import contourpy
 import os
 ROOT=Path(__file__).resolve().parent
 CASE=os.environ.get('INFERNAL_CASE','recorded_route')
-OUT=ROOT/'output'/CASE;OUT.mkdir(parents=True,exist_ok=True)
+TERRAIN_MODE=os.environ.get('INFERNAL_TERRAIN','original')
+OUT=ROOT/'output'/(CASE if TERRAIN_MODE=='original' else CASE+'-'+TERRAIN_MODE)
+OUT.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(ROOT/'vendor'))
 import raycore as rc
 import claude_hatching as CH

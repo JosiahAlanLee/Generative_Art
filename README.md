@@ -51,6 +51,11 @@ The existing studies use their own dependencies and build instructions. Their ma
 
 [Infernal Engine 0.2](studies/infernal-landscape/README.md) turns the book's executable task graph into generative buildings: duration bays, dependency conduits, release lifts and unavailable gates. The four exterior studies combine Driftless field marks and foreground symbols with actual 3D trees, evaluated Blender geometry and print-sized engraving.
 
+The [erosion comparison](studies/infernal-landscape/EROSION.md) gives the same
+estate a raised terrain shelf and three matched erosion exposures. It combines
+the repo's runoff/incision model with protected building sites, actual cut-bank
+geometry, field marks that retreat from steep slopes, and shared ray visibility.
+
 [Workshop interiors](studies/workshop-interiors/README.md) reconstructs four remaining diffusion-based workshop plates from their recorded briefs as editable Blender scenes and layered, stroke-only SVGs. The study includes the maintained workshop, empty cabinet, extraction of the hand and office without a seal, with native Blender visibility and scene-specific checks.
 
 The separate [development-art manifest](catalog/development-art-manifest.json) records the authorized art-only additions. Book manuscripts, personal records and repository history are excluded.

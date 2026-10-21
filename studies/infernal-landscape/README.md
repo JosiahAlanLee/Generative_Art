@@ -2,6 +2,10 @@
 
 ![Four architectural readings of the same task graph](output/preview.jpg)
 
+[Eroded terrain comparison](EROSION.md) combines the estate with the repo's
+catchment-incision process: three matched terrain exposures, protected building
+sites, actual 3D cut banks, and contours and channels derived from the field.
+
 Buildings generated from the book's executable reachability specimen, placed in
 an evaluated Blender landscape and engraved with Driftless marks. This extends
 the [Infernal Engine starter](../infernal-engine/README.md) and the

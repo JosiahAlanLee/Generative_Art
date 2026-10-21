@@ -1,0 +1,85 @@
+{
+  "all_passed": true,
+  "checks": {
+    "identical_initial_height_field": {
+      "passed": true
+    },
+    "zero_steps_control_is_unchanged": {
+      "passed": true
+    },
+    "protected_sites_and_edges_retained": {
+      "passed": true
+    },
+    "task_program_and_cameras_unchanged": {
+      "passed": true
+    },
+    "explicit_architecture_routes_and_detail_unchanged": {
+      "passed": true
+    },
+    "actual_height_changes": {
+      "passed": true,
+      "maximum_world_unit_change": {
+        "control": 0.0,
+        "incised": 3.08081980232138,
+        "ravined": 4.5442303517833835
+      }
+    },
+    "control_routing_descends_and_conserves_runoff": {
+      "passed": true
+    },
+    "control_visibility_and_print_checks": {
+      "passed": true,
+      "native": {
+        "case": "recorded_route",
+        "view": "main",
+        "native_ray_samples": 1600,
+        "visible_violations": 0
+      }
+    },
+    "incised_routing_descends_and_conserves_runoff": {
+      "passed": true
+    },
+    "incised_visibility_and_print_checks": {
+      "passed": true,
+      "native": {
+        "case": "recorded_route",
+        "view": "main",
+        "native_ray_samples": 1600,
+        "visible_violations": 0
+      }
+    },
+    "ravined_routing_descends_and_conserves_runoff": {
+      "passed": true
+    },
+    "ravined_visibility_and_print_checks": {
+      "passed": true,
+      "native": {
+        "case": "recorded_route",
+        "view": "main",
+        "native_ray_samples": 1600,
+        "visible_violations": 0
+      }
+    }
+  },
+  "runoff": {
+    "control": {
+      "outlets": 17673.0,
+      "cells": 17673
+    },
+    "incised": {
+      "outlets": 17673.0,
+      "cells": 17673
+    },
+    "ravined": {
+      "outlets": 17673.0,
+      "cells": 17673
+    }
+  },
+  "native_ray_samples": 4800,
+  "process_tests": 21,
+  "steps": {
+    "control": 0,
+    "incised": 36,
+    "ravined": 110
+  }
+}

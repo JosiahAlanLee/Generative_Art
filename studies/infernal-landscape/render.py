@@ -31,31 +31,58 @@ def surface_paths(patches):
     for s in patches['farm']['strokes']:
         q=np.asarray(s['pts']).reshape(-1,2)
         if len(q)>1:sources.append(('field',np.c_[-19+q[:,0]*38/200,-9+q[:,1]*39/160],0))
-    # Strata/contour marks are in the terrain atlas, never projected onto roofs.
-    for y in np.arange(21,31,.42):
-        x=np.linspace(-26,24,301)
-        sources.append(('contour',np.c_[x,y+.24*np.sin(x*.22)],0))
+    if B.TERRAIN_MODE=='original':
+        for y in np.arange(21,31,.42):
+            x=np.linspace(-26,24,301)
+            sources.append(('contour',np.c_[x,y+.24*np.sin(x*.22)],0))
+    else:
+        import contourpy
+        from erosion import channels
+        state={k:np.asarray(v) for k,v in B.D['terrain_state'].items()}
+        cg=contourpy.contour_generator(x=state['x'],y=state['y'],z=state['height'])
+        for level in np.arange(float(state['height'].min()),float(state['height'].max()),.19):
+            sources.extend(('contour',p,0) for p in cg.lines(level) if len(p)>4)
+        sources.extend(('channel',p,0) for p in channels(state))
     pens=[[],[],[],[]];audit=[];stats={};saved=[]
     for kind,xy,pen in sources:
-        xy=densify(xy,.018);world,ok,_=B.drape(xy)
+        if B.TERRAIN_MODE!='original' and kind in ('channel','contour'):
+            from scipy.ndimage import gaussian_filter1d
+            # Cartographic smoothing changes only drawing paths, not the
+            # physical height field or recorded receiver graph.
+            xy=gaussian_filter1d(xy,.9,axis=0,mode='nearest')
+        xy=densify(xy,.018);world,ok,host_hit=B.drape(xy)
         ok&=(abs(xy[:,0])<27)&(xy[:,1]>-9)&(xy[:,1]<32)
+        if B.TERRAIN_MODE!='original' and kind in ('channel','contour'):
+            ok&=(abs(xy[:,0])<21)&(xy[:,1]>-7.5)&(xy[:,1]<30)
         # Two trails bend to the gate, giving the foreground room to breathe.
         if kind=='field':
             lane=.5*np.sin(xy[:,1]*.2)
             ok&=(abs(xy[:,0]-lane)>1.0)|(xy[:,1]>-.5)
             for x0,y0,x1,y1 in B.D['footprints']:
                 ok&=~((xy[:,0]>x0)&(xy[:,0]<x1)&(xy[:,1]>y0)&(xy[:,1]<y1))
+            if B.TERRAIN_MODE!='original':
+                # Cultivated marks retreat from steep banks, rather than being
+                # drawn across the new ravines as another uniform wallpaper.
+                ok &= B.TBVH[7][np.maximum(host_hit,0),2]>.965
+                # Leave a white channel corridor at large actual accumulations.
+                from scipy.ndimage import map_coordinates
+                u=(xy[:,0]-state['x'][0])/(state['x'][-1]-state['x'][0])*(len(state['x'])-1)
+                v=(xy[:,1]-state['y'][0])/(state['y'][-1]-state['y'][0])*(len(state['y'])-1)
+                ok &= map_coordinates(state['area'],[v,u],order=1,mode='nearest')<65
         safe=np.nan_to_num(world);x,y,z=B.project(safe)
         framed=(x>14)&(x<B.W-14)&(y>14)&(y<B.H-14)&(z>B.NEAR)
         candidate=ok&framed;seen=np.zeros(len(world),bool)
         if candidate.any():seen[candidate]=B.visible(world[candidate],*B.BVH[:6])
         keep=candidate&seen
-        pens[pen].extend((q,MM['field']*20) for q in B.split_paths(np.c_[x,y],keep))
+        width=(MM['field'] if B.TERRAIN_MODE=='original' else
+               .16 if kind=='channel' else .10 if kind=='field' else .095)
+        pens[pen].extend((q,width*20) for q in B.split_paths(np.c_[x,y],keep))
         audit.append(world[keep])
         st=stats.setdefault(kind,dict(candidates=0,hidden_by_model=0,survives=0))
         st['candidates']+=int(candidate.sum());st['hidden_by_model']+=int((candidate&~seen).sum());st['survives']+=int(keep.sum())
     np.savez_compressed(OUT/f'surface-audit-{B.VIEW_NAME}.npz',world=np.vstack(audit))
-    return [('03 Driftless field and contour',pens[0],INK)],stats
+    label='03 Driftless field and contour' if B.TERRAIN_MODE=='original' else '03 Driftless field and terrain traces'
+    return [(label,pens[0],INK)],stats
 
 
 def structure():
@@ -106,6 +133,7 @@ def engrave(field,edges):
         m=st.attr['surf']==k
         if k==0:
             normals[m]=B.terrain.normal(st.world[m,0],st.world[m,1]);gain[m]=.40
+            if B.TERRAIN_MODE!='original':gain[m]=.42+.42*np.clip((1-normals[m,2])/.30,0,1)
         else:
             f=B.FACES[-1-int(k)];normals[m]=B.D['normals'][-1-int(k)]
             albedo[m]=.64 if f['mat']==2 else .77 if f['mat'] in (3,4) else 1.
@@ -162,4 +190,5 @@ if __name__=='__main__':
                   red_heavier_than_black=bool(max(widths,default=0)<MM['vermilion']*20),
                   architecture=B.D['architecture'],elapsed_seconds=round(time.time()-start,2),
                   driftless_sha256=hashlib.sha256((B.ROOT/'vendor/driftless-engine.js').read_bytes()).hexdigest())
+    manifest['terrain_mode']=B.TERRAIN_MODE
     (OUT/f'manifest-{B.VIEW_NAME}.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest),flush=True)
