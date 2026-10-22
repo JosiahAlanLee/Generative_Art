@@ -13,6 +13,14 @@ python examples/make_sampler.py
 
 Open `examples/out/technique-sampler.svg` or its PNG. The six panels call the imported line hand, grain hand, lattice, transcription, Notoria agent model and robe-flow routines. The field uses small demonstration parameters; its manifest records the full specification and source hash. SVG is the editable output; its panel labels are ordinary SVG text. This sampler is not a plot master.
 
+## Use the local graphical workbench
+
+For Driftless Plates and Farm Remnants, plus the Infernal pipeline adapter, see
+the [workbench setup and runtime guide](../workbench/README.md). Run
+`python -m workbench.server` from the repository root, then open
+`http://127.0.0.1:8765`. Node is required for Driftless; Farm uses its own
+requirements. Each render keeps an independent output directory.
+
 ## Build a complete native book plate
 
 The fonts and public source inputs needed by the native Notoria plates are included. This command uses the original agent parameters and writes its results outside the source snapshot:

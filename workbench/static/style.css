@@ -1,0 +1,289 @@
+:root {
+  color-scheme: light;
+  --paper: #fbfaf4;
+  --bg: #e9ece5;
+  --ink: #20332b;
+  --soft: #59675e;
+  --line: #c6cfc2;
+  --accent: #9a482f;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    14px/1.5 system-ui,
+    sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+h1 {
+  font:
+    32px/1.1 Georgia,
+    serif;
+  margin: 7px 0 0;
+}
+h2 {
+  font:
+    20px Georgia,
+    serif;
+  margin: 4px 0 8px;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.7px;
+  font-weight: 650;
+}
+.muted {
+  color: var(--soft);
+  font-size: 12px;
+}
+.error,
+#message {
+  color: var(--accent);
+}
+main {
+  display: grid;
+  grid-template-columns: 280px minmax(300px, 1fr) 224px;
+  min-height: 86vh;
+}
+aside {
+  background: #f2f3ec;
+  padding: 22px 18px;
+  border-right: 1px solid var(--line);
+}
+aside.history {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+}
+label {
+  display: block;
+  font-size: 12px;
+  margin: 0 0 12px;
+}
+input,
+select,
+button,
+.button,
+.file-label {
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  padding: 8px 10px;
+}
+input:not([type="checkbox"]),
+select {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+input[type="checkbox"] {
+  margin-right: 8px;
+}
+button,
+.button,
+.file-label {
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+button:hover,
+.button:hover,
+.file-label:hover {
+  border-color: var(--ink);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.primary {
+  background: var(--ink);
+  color: var(--paper);
+  width: 100%;
+  margin: 12px 0;
+}
+.recipe-actions {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.file-label input {
+  display: none;
+}
+.studio {
+  min-width: 0;
+  padding: 24px;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.toolbar label {
+  min-width: 80px;
+}
+#paper {
+  height: 480px;
+  overflow: auto;
+  display: block;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 20px;
+}
+#paper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: none;
+}
+#paper img[hidden] {
+  display: none;
+}
+#empty {
+  text-align: center;
+  margin: auto;
+  color: var(--soft);
+  font:
+    18px/1.8 Georgia,
+    serif;
+}
+details {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin: 14px 0;
+}
+summary {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.control-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 10px;
+}
+.exportbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 0;
+}
+.exportbar label {
+  flex: 1;
+  min-width: 170px;
+}
+#inspection {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+#layers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+#layers label {
+  margin: 0;
+}
+pre {
+  font:
+    12px/1.5 ui-monospace,
+    monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#log {
+  height: 190px;
+  overflow: auto;
+  background: #1d2b24;
+  color: #e5ebdf;
+  padding: 14px;
+  border-radius: 4px;
+}
+#job-location {
+  overflow-wrap: anywhere;
+}
+.job {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 9px 0;
+  padding: 12px;
+  overflow-wrap: anywhere;
+}
+.job[aria-pressed="true"] {
+  border-color: var(--ink);
+  box-shadow: inset 3px 0 var(--ink);
+}
+.job small {
+  display: block;
+  color: var(--soft);
+}
+.job .failed,
+.job .cancelled {
+  color: var(--accent);
+}
+#artifacts a {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  margin: 8px 0;
+  color: var(--ink);
+}
+footer {
+  padding: 14px 24px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--soft);
+}
+@media (max-width: 1100px) {
+  main {
+    grid-template-columns: 250px minmax(300px, 1fr);
+  }
+  aside.history {
+    grid-column: 1/-1;
+    border-top: 1px solid var(--line);
+  }
+  #jobs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .job {
+    width: 200px;
+  }
+}
+@media (max-width: 650px) {
+  main {
+    display: block;
+  }
+  .studio {
+    padding: 18px;
+  }
+  #paper {
+    height: 370px;
+  }
+  header {
+    padding: 18px;
+  }
+  .exportbar {
+    align-items: stretch;
+  }
+  h1 {
+    font-size: 26px;
+  }
+}
