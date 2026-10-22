@@ -8,3 +8,5 @@ output/*
 !output/erosion-validation.json
 !output/spillway-preview.jpg
 !output/spillway-validation.json
+!output/face-patterns-preview.jpg
+!output/face-patterns-validation.json

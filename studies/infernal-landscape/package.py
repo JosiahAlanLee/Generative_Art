@@ -108,6 +108,7 @@ def package():
     summaries=[]
     for case in CASES:
         checks=json.loads((O/case/'checks-main.json').read_text())
+        if checks.get('backend','blender')!='blender':raise RuntimeError('Refusing to package a dry run: deliver from the Blender model: '+case)
         native=json.loads((O/case/'blender-visibility.json').read_text())
         scene=json.loads((O/case/'scene.json').read_text())
         rendered=json.loads((O/case/'manifest-main.json').read_text())
@@ -121,7 +122,7 @@ def package():
     (O/'validation.json').write_text(json.dumps(summaries,indent=2))
     (O/'architecture-cases.json').write_text(json.dumps({x:compile_case(x) for x in CASES},indent=2))
     files=[p for p in R.rglob('*') if p.is_file() and not any(t in p.parts for t in ('__pycache__','dist'))
-           and not p.name.endswith(('.log','.blend1','.pyc','.nbc','.nbi'))]
+           and not any(t.endswith('-dryrun') for t in p.parts) and not p.name.endswith(('.log','.blend1','.pyc','.nbc','.nbi'))]
     manifest={str(p.relative_to(R)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}
     (D/'manifest.json').write_text(json.dumps(manifest,indent=2))
     with zipfile.ZipFile(D/'Infernal_Engine_0_2_Source_and_Scenes.zip','w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:

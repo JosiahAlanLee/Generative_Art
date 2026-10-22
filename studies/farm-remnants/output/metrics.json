@@ -1,0 +1,295 @@
+{
+  "barn-22-d72": {
+    "layers": {
+      "01 structure": {
+        "paths": 1305,
+        "pen_down_m": 7.919
+      },
+      "02 shade": {
+        "paths": 89,
+        "pen_down_m": 0.073
+      },
+      "03 material": {
+        "paths": 332,
+        "pen_down_m": 5.887
+      },
+      "04 rust": {
+        "paths": 105,
+        "pen_down_m": 0.314
+      }
+    },
+    "faces": 1810,
+    "rays": 248804,
+    "hidden_samples": 143197,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 15.12413952203827
+  },
+  "tractor-23-d72": {
+    "layers": {
+      "01 structure": {
+        "paths": 826,
+        "pen_down_m": 3.459
+      },
+      "02 shade": {
+        "paths": 1010,
+        "pen_down_m": 4.867
+      },
+      "03 material": {
+        "paths": 330,
+        "pen_down_m": 1.496
+      },
+      "04 rust": {
+        "paths": 230,
+        "pen_down_m": 0.856
+      }
+    },
+    "faces": 1831,
+    "rays": 206873,
+    "hidden_samples": 125820,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 44.734040558992476
+  },
+  "disk_harrow-24-d72": {
+    "layers": {
+      "01 structure": {
+        "paths": 264,
+        "pen_down_m": 1.554
+      },
+      "02 shade": {
+        "paths": 697,
+        "pen_down_m": 3.686
+      },
+      "03 material": {
+        "paths": 58,
+        "pen_down_m": 0.935
+      },
+      "04 rust": {
+        "paths": 50,
+        "pen_down_m": 0.167
+      }
+    },
+    "faces": 432,
+    "rays": 80688,
+    "hidden_samples": 33109,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 58.115459876136725
+  },
+  "hay_rake-25-d72": {
+    "layers": {
+      "01 structure": {
+        "paths": 553,
+        "pen_down_m": 4.073
+      },
+      "02 shade": {
+        "paths": 1036,
+        "pen_down_m": 2.933
+      },
+      "03 material": {
+        "paths": 45,
+        "pen_down_m": 1.183
+      },
+      "04 rust": {
+        "paths": 32,
+        "pen_down_m": 0.121
+      }
+    },
+    "faces": 588,
+    "rays": 81805,
+    "hidden_samples": 19711,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 50.76842603598402
+  },
+  "wagon-26-d72": {
+    "layers": {
+      "01 structure": {
+        "paths": 1054,
+        "pen_down_m": 5.719
+      },
+      "02 shade": {
+        "paths": 461,
+        "pen_down_m": 1.41
+      },
+      "03 material": {
+        "paths": 148,
+        "pen_down_m": 1.534
+      },
+      "04 rust": {
+        "paths": 16,
+        "pen_down_m": 0.047
+      }
+    },
+    "faces": 1452,
+    "rays": 137747,
+    "hidden_samples": 72728,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 40.76855799700839
+  },
+  "barn-22-d00": {
+    "layers": {
+      "01 structure": {
+        "paths": 761,
+        "pen_down_m": 8.064
+      },
+      "02 shade": {
+        "paths": 91,
+        "pen_down_m": 0.078
+      },
+      "03 material": {
+        "paths": 360,
+        "pen_down_m": 8.661
+      }
+    },
+    "faces": 1946,
+    "rays": 303938,
+    "hidden_samples": 180623,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 15.613719083201714
+  },
+  "barn-22-d38": {
+    "layers": {
+      "01 structure": {
+        "paths": 1202,
+        "pen_down_m": 8.025
+      },
+      "02 shade": {
+        "paths": 89,
+        "pen_down_m": 0.073
+      },
+      "03 material": {
+        "paths": 327,
+        "pen_down_m": 6.688
+      },
+      "04 rust": {
+        "paths": 55,
+        "pen_down_m": 0.159
+      }
+    },
+    "faces": 1896,
+    "rays": 270431,
+    "hidden_samples": 159621,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 15.142604588332228
+  },
+  "barn-22-d90": {
+    "layers": {
+      "01 structure": {
+        "paths": 1424,
+        "pen_down_m": 8.081
+      },
+      "02 shade": {
+        "paths": 88,
+        "pen_down_m": 0.072
+      },
+      "03 material": {
+        "paths": 328,
+        "pen_down_m": 5.333
+      },
+      "04 rust": {
+        "paths": 107,
+        "pen_down_m": 0.325
+      }
+    },
+    "faces": 1794,
+    "rays": 239526,
+    "hidden_samples": 136675,
+    "page_mm": [
+      190,
+      140
+    ],
+    "view": [
+      1.0,
+      -1.7,
+      1.0
+    ],
+    "world_to_mm": 15.114382118308676
+  },
+  "farmyard": {
+    "layers": {
+      "01 structure": {
+        "paths": 3545,
+        "pen_down_m": 11.594
+      },
+      "02 shade": {
+        "paths": 905,
+        "pen_down_m": 1.102
+      },
+      "03 material": {
+        "paths": 1232,
+        "pen_down_m": 8.097
+      },
+      "04 rust": {
+        "paths": 401,
+        "pen_down_m": 0.671
+      }
+    },
+    "faces": 6113,
+    "rays": 362974,
+    "hidden_samples": 195593,
+    "page_mm": [
+      280,
+      210
+    ],
+    "view": [
+      1.0,
+      -1.55,
+      1.05
+    ],
+    "world_to_mm": 13.868926858250589
+  }
+}

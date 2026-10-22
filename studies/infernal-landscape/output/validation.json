@@ -4,6 +4,7 @@
     "checks": {
       "case": "recorded_route",
       "view": "main",
+      "backend": "blender",
       "all_passed": true,
       "checks": {
         "specimen_arithmetic_preserved": {
@@ -24,21 +25,42 @@
           "objects": [
             {
               "name": "read | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "staff | duration bays",
-              "faces": 162
+              "faces": 162,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "approval | duration bays",
-              "faces": 324
+              "faces": 324,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 6.16991704838199e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "restore | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 6.103515612920773e-07,
+              "bays_socket": "Socket_0"
             }
           ]
+        },
+        "geometry_nodes_match_numpy_repetition": {
+          "passed": true,
+          "max_vertex_error": 6.16991704838199e-07
+        },
+        "closed_solids_face_outward": {
+          "passed": true,
+          "audited_objects": 407,
+          "inward_objects": []
         },
         "closed_gate_fits_beneath_roof": {
           "passed": true
@@ -50,7 +72,7 @@
         },
         "hatch_delivered_samples_visible": {
           "passed": true,
-          "samples": 13975,
+          "samples": 16513,
           "violations": 0
         },
         "plant_owners_respected": {
@@ -96,14 +118,14 @@
           "passed": true,
           "mean_ink": {
             "sky": 0.0,
-            "terrain": 0.078,
-            "building": 0.371,
-            "oak": 0.223,
-            "furniture": 0.553,
-            "other": 0.363
+            "terrain": 0.073,
+            "building": 0.434,
+            "oak": 0.262,
+            "furniture": 0.584,
+            "other": 0.376
           },
-          "cell_max": 0.564,
-          "cell_p90": 0.234
+          "cell_max": 0.568,
+          "cell_p90": 0.252
         },
         "open_ground_is_the_lightest_surface": {
           "passed": true
@@ -128,11 +150,12 @@
           "longest_hidden_mm": 22.9
         }
       },
+      "skipped": {},
       "measured": {
         "cell_mm": 4,
-        "plate_mean_ink": 0.0705,
-        "cell_max": 0.564,
-        "cell_p90": 0.234,
+        "plate_mean_ink": 0.0739,
+        "cell_max": 0.568,
+        "cell_p90": 0.252,
         "zones": {
           "sky": {
             "area_fraction": 0.3637,
@@ -143,32 +166,32 @@
             "cell_max": 0.049
           },
           "terrain": {
-            "area_fraction": 0.5614,
-            "mean_ink": 0.078,
-            "cells": 605,
-            "cell_median": 0.051,
-            "cell_p90": 0.199,
+            "area_fraction": 0.5507,
+            "mean_ink": 0.073,
+            "cells": 592,
+            "cell_median": 0.05,
+            "cell_p90": 0.189,
             "cell_max": 0.39
           },
           "building": {
             "area_fraction": 0.0481,
-            "mean_ink": 0.371,
+            "mean_ink": 0.434,
             "cells": 43,
-            "cell_median": 0.371,
-            "cell_p90": 0.536,
-            "cell_max": 0.564
+            "cell_median": 0.399,
+            "cell_p90": 0.534,
+            "cell_max": 0.568
           },
           "oak": {
-            "area_fraction": 0.0169,
-            "mean_ink": 0.223,
-            "cells": 9,
-            "cell_median": 0.216,
-            "cell_p90": 0.256,
-            "cell_max": 0.27
+            "area_fraction": 0.0275,
+            "mean_ink": 0.262,
+            "cells": 18,
+            "cell_median": 0.266,
+            "cell_p90": 0.327,
+            "cell_max": 0.349
           },
           "furniture": {
             "area_fraction": 0.0072,
-            "mean_ink": 0.553,
+            "mean_ink": 0.584,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -176,7 +199,7 @@
           },
           "other": {
             "area_fraction": 0.0028,
-            "mean_ink": 0.363,
+            "mean_ink": 0.376,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -209,6 +232,7 @@
     "checks": {
       "case": "rehearsed_route",
       "view": "main",
+      "backend": "blender",
       "all_passed": true,
       "checks": {
         "specimen_arithmetic_preserved": {
@@ -229,21 +253,42 @@
           "objects": [
             {
               "name": "read | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "staff | duration bays",
-              "faces": 162
+              "faces": 162,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "approval | duration bays",
-              "faces": 54
+              "faces": 54,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 4.5776367230132564e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "restore | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 6.103515612920773e-07,
+              "bays_socket": "Socket_0"
             }
           ]
+        },
+        "geometry_nodes_match_numpy_repetition": {
+          "passed": true,
+          "max_vertex_error": 6.103515612920773e-07
+        },
+        "closed_solids_face_outward": {
+          "passed": true,
+          "audited_objects": 407,
+          "inward_objects": []
         },
         "closed_gate_fits_beneath_roof": {
           "passed": true
@@ -255,7 +300,7 @@
         },
         "hatch_delivered_samples_visible": {
           "passed": true,
-          "samples": 11883,
+          "samples": 14433,
           "violations": 0
         },
         "plant_owners_respected": {
@@ -305,14 +350,14 @@
           "passed": true,
           "mean_ink": {
             "sky": 0.0,
-            "terrain": 0.079,
-            "building": 0.35,
-            "oak": 0.227,
-            "furniture": 0.553,
-            "other": 0.347
+            "terrain": 0.074,
+            "building": 0.431,
+            "oak": 0.263,
+            "furniture": 0.584,
+            "other": 0.358
           },
-          "cell_max": 0.564,
-          "cell_p90": 0.221
+          "cell_max": 0.568,
+          "cell_p90": 0.235
         },
         "open_ground_is_the_lightest_surface": {
           "passed": true
@@ -343,11 +388,12 @@
           "longest_hidden_mm": 22.9
         }
       },
+      "skipped": {},
       "measured": {
         "cell_mm": 4,
-        "plate_mean_ink": 0.0676,
-        "cell_max": 0.564,
-        "cell_p90": 0.221,
+        "plate_mean_ink": 0.0711,
+        "cell_max": 0.568,
+        "cell_p90": 0.235,
         "zones": {
           "sky": {
             "area_fraction": 0.3637,
@@ -358,32 +404,32 @@
             "cell_max": 0.049
           },
           "terrain": {
-            "area_fraction": 0.5695,
-            "mean_ink": 0.079,
-            "cells": 615,
-            "cell_median": 0.054,
-            "cell_p90": 0.202,
+            "area_fraction": 0.5589,
+            "mean_ink": 0.074,
+            "cells": 602,
+            "cell_median": 0.051,
+            "cell_p90": 0.189,
             "cell_max": 0.39
           },
           "building": {
             "area_fraction": 0.0379,
-            "mean_ink": 0.35,
+            "mean_ink": 0.431,
             "cells": 33,
-            "cell_median": 0.352,
-            "cell_p90": 0.442,
-            "cell_max": 0.564
+            "cell_median": 0.415,
+            "cell_p90": 0.475,
+            "cell_max": 0.568
           },
           "oak": {
-            "area_fraction": 0.018,
-            "mean_ink": 0.227,
-            "cells": 10,
-            "cell_median": 0.217,
-            "cell_p90": 0.254,
-            "cell_max": 0.267
+            "area_fraction": 0.0287,
+            "mean_ink": 0.263,
+            "cells": 19,
+            "cell_median": 0.252,
+            "cell_p90": 0.326,
+            "cell_max": 0.349
           },
           "furniture": {
             "area_fraction": 0.0072,
-            "mean_ink": 0.553,
+            "mean_ink": 0.584,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -391,7 +437,7 @@
           },
           "other": {
             "area_fraction": 0.0037,
-            "mean_ink": 0.347,
+            "mean_ink": 0.358,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -429,6 +475,7 @@
     "checks": {
       "case": "late_opening",
       "view": "main",
+      "backend": "blender",
       "all_passed": true,
       "checks": {
         "specimen_arithmetic_preserved": {
@@ -449,21 +496,42 @@
           "objects": [
             {
               "name": "read | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "staff | duration bays",
-              "faces": 162
+              "faces": 162,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "approval | duration bays",
-              "faces": 54
+              "faces": 54,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 4.5776367230132564e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "restore | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 6.103515612920773e-07,
+              "bays_socket": "Socket_0"
             }
           ]
+        },
+        "geometry_nodes_match_numpy_repetition": {
+          "passed": true,
+          "max_vertex_error": 6.103515612920773e-07
+        },
+        "closed_solids_face_outward": {
+          "passed": true,
+          "audited_objects": 416,
+          "inward_objects": []
         },
         "closed_gate_fits_beneath_roof": {
           "passed": true
@@ -475,7 +543,7 @@
         },
         "hatch_delivered_samples_visible": {
           "passed": true,
-          "samples": 12341,
+          "samples": 14870,
           "violations": 0
         },
         "plant_owners_respected": {
@@ -519,14 +587,14 @@
           "passed": true,
           "mean_ink": {
             "sky": 0.0,
-            "terrain": 0.079,
-            "building": 0.355,
-            "oak": 0.227,
-            "furniture": 0.571,
-            "other": 0.349
+            "terrain": 0.074,
+            "building": 0.426,
+            "oak": 0.263,
+            "furniture": 0.601,
+            "other": 0.36
           },
-          "cell_max": 0.564,
-          "cell_p90": 0.231
+          "cell_max": 0.568,
+          "cell_p90": 0.25
         },
         "open_ground_is_the_lightest_surface": {
           "passed": true
@@ -545,11 +613,12 @@
           "longest_hidden_mm": 22.9
         }
       },
+      "skipped": {},
       "measured": {
         "cell_mm": 4,
-        "plate_mean_ink": 0.0695,
-        "cell_max": 0.564,
-        "cell_p90": 0.231,
+        "plate_mean_ink": 0.073,
+        "cell_max": 0.568,
+        "cell_p90": 0.25,
         "zones": {
           "sky": {
             "area_fraction": 0.3637,
@@ -560,32 +629,32 @@
             "cell_max": 0.049
           },
           "terrain": {
-            "area_fraction": 0.5641,
-            "mean_ink": 0.079,
-            "cells": 609,
-            "cell_median": 0.053,
-            "cell_p90": 0.205,
+            "area_fraction": 0.5534,
+            "mean_ink": 0.074,
+            "cells": 596,
+            "cell_median": 0.051,
+            "cell_p90": 0.189,
             "cell_max": 0.39
           },
           "building": {
             "area_fraction": 0.0426,
-            "mean_ink": 0.355,
+            "mean_ink": 0.426,
             "cells": 38,
-            "cell_median": 0.369,
-            "cell_p90": 0.475,
-            "cell_max": 0.564
+            "cell_median": 0.407,
+            "cell_p90": 0.528,
+            "cell_max": 0.568
           },
           "oak": {
-            "area_fraction": 0.0179,
-            "mean_ink": 0.227,
-            "cells": 10,
-            "cell_median": 0.217,
-            "cell_p90": 0.254,
-            "cell_max": 0.267
+            "area_fraction": 0.0286,
+            "mean_ink": 0.263,
+            "cells": 19,
+            "cell_median": 0.252,
+            "cell_p90": 0.326,
+            "cell_max": 0.349
           },
           "furniture": {
             "area_fraction": 0.008,
-            "mean_ink": 0.571,
+            "mean_ink": 0.601,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -593,7 +662,7 @@
           },
           "other": {
             "area_fraction": 0.0037,
-            "mean_ink": 0.349,
+            "mean_ink": 0.36,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -621,6 +690,7 @@
     "checks": {
       "case": "gate_unavailable",
       "view": "main",
+      "backend": "blender",
       "all_passed": true,
       "checks": {
         "specimen_arithmetic_preserved": {
@@ -641,21 +711,42 @@
           "objects": [
             {
               "name": "read | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "staff | duration bays",
-              "faces": 162
+              "faces": 162,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "approval | duration bays",
-              "faces": 54
+              "faces": 54,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 4.5776367230132564e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "restore | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 6.103515612920773e-07,
+              "bays_socket": "Socket_0"
             }
           ]
+        },
+        "geometry_nodes_match_numpy_repetition": {
+          "passed": true,
+          "max_vertex_error": 6.103515612920773e-07
+        },
+        "closed_solids_face_outward": {
+          "passed": true,
+          "audited_objects": 414,
+          "inward_objects": []
         },
         "closed_gate_fits_beneath_roof": {
           "passed": true
@@ -667,7 +758,7 @@
         },
         "hatch_delivered_samples_visible": {
           "passed": true,
-          "samples": 11924,
+          "samples": 14473,
           "violations": 0
         },
         "plant_owners_respected": {
@@ -709,14 +800,14 @@
           "passed": true,
           "mean_ink": {
             "sky": 0.0,
-            "terrain": 0.079,
-            "building": 0.357,
-            "oak": 0.227,
-            "furniture": 0.553,
-            "other": 0.344
+            "terrain": 0.074,
+            "building": 0.438,
+            "oak": 0.263,
+            "furniture": 0.583,
+            "other": 0.358
           },
-          "cell_max": 0.564,
-          "cell_p90": 0.221
+          "cell_max": 0.568,
+          "cell_p90": 0.235
         },
         "open_ground_is_the_lightest_surface": {
           "passed": true
@@ -735,11 +826,12 @@
           "longest_hidden_mm": 1.4
         }
       },
+      "skipped": {},
       "measured": {
         "cell_mm": 4,
-        "plate_mean_ink": 0.0679,
-        "cell_max": 0.564,
-        "cell_p90": 0.221,
+        "plate_mean_ink": 0.0713,
+        "cell_max": 0.568,
+        "cell_p90": 0.235,
         "zones": {
           "sky": {
             "area_fraction": 0.3637,
@@ -750,32 +842,32 @@
             "cell_max": 0.049
           },
           "terrain": {
-            "area_fraction": 0.5695,
-            "mean_ink": 0.079,
-            "cells": 615,
-            "cell_median": 0.054,
-            "cell_p90": 0.202,
+            "area_fraction": 0.5589,
+            "mean_ink": 0.074,
+            "cells": 602,
+            "cell_median": 0.051,
+            "cell_p90": 0.189,
             "cell_max": 0.39
           },
           "building": {
             "area_fraction": 0.0379,
-            "mean_ink": 0.357,
+            "mean_ink": 0.438,
             "cells": 34,
-            "cell_median": 0.359,
-            "cell_p90": 0.471,
-            "cell_max": 0.564
+            "cell_median": 0.413,
+            "cell_p90": 0.52,
+            "cell_max": 0.568
           },
           "oak": {
-            "area_fraction": 0.018,
-            "mean_ink": 0.227,
-            "cells": 10,
-            "cell_median": 0.217,
-            "cell_p90": 0.254,
-            "cell_max": 0.267
+            "area_fraction": 0.0287,
+            "mean_ink": 0.263,
+            "cells": 19,
+            "cell_median": 0.252,
+            "cell_p90": 0.326,
+            "cell_max": 0.349
           },
           "furniture": {
             "area_fraction": 0.0072,
-            "mean_ink": 0.553,
+            "mean_ink": 0.583,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -783,7 +875,7 @@
           },
           "other": {
             "area_fraction": 0.0037,
-            "mean_ink": 0.344,
+            "mean_ink": 0.358,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -812,6 +904,7 @@
     "checks": {
       "case": "recorded_route",
       "view": "low",
+      "backend": "blender",
       "all_passed": true,
       "checks": {
         "specimen_arithmetic_preserved": {
@@ -832,21 +925,42 @@
           "objects": [
             {
               "name": "read | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "staff | duration bays",
-              "faces": 162
+              "faces": 162,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 3.8146972691777137e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "approval | duration bays",
-              "faces": 324
+              "faces": 324,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 6.16991704838199e-07,
+              "bays_socket": "Socket_0"
             },
             {
               "name": "restore | duration bays",
-              "faces": 108
+              "faces": 108,
+              "realised_matches_numpy": true,
+              "max_vertex_error": 6.103515612920773e-07,
+              "bays_socket": "Socket_0"
             }
           ]
+        },
+        "geometry_nodes_match_numpy_repetition": {
+          "passed": true,
+          "max_vertex_error": 6.16991704838199e-07
+        },
+        "closed_solids_face_outward": {
+          "passed": true,
+          "audited_objects": 407,
+          "inward_objects": []
         },
         "closed_gate_fits_beneath_roof": {
           "passed": true
@@ -858,7 +972,7 @@
         },
         "hatch_delivered_samples_visible": {
           "passed": true,
-          "samples": 12806,
+          "samples": 14622,
           "violations": 0
         },
         "plant_owners_respected": {
@@ -903,15 +1017,15 @@
         "tone_hierarchy_buildings_lead": {
           "passed": true,
           "mean_ink": {
-            "sky": 0.004,
-            "terrain": 0.074,
-            "building": 0.387,
-            "oak": 0.226,
-            "furniture": 0.545,
-            "other": 0.426
+            "sky": 0.001,
+            "terrain": 0.071,
+            "building": 0.429,
+            "oak": 0.267,
+            "furniture": 0.575,
+            "other": 0.44
           },
-          "cell_max": 0.549,
-          "cell_p90": 0.249
+          "cell_max": 0.545,
+          "cell_p90": 0.264
         },
         "open_ground_is_the_lightest_surface": {
           "passed": true
@@ -936,47 +1050,48 @@
           "longest_hidden_mm": 26.9
         }
       },
+      "skipped": {},
       "measured": {
         "cell_mm": 4,
-        "plate_mean_ink": 0.0634,
-        "cell_max": 0.549,
-        "cell_p90": 0.249,
+        "plate_mean_ink": 0.0656,
+        "cell_max": 0.545,
+        "cell_p90": 0.264,
         "zones": {
           "sky": {
-            "area_fraction": 0.4529,
-            "mean_ink": 0.004,
-            "cells": 500,
+            "area_fraction": 0.4477,
+            "mean_ink": 0.001,
+            "cells": 495,
             "cell_median": 0.0,
             "cell_p90": 0.0,
-            "cell_max": 0.376
+            "cell_max": 0.103
           },
           "terrain": {
-            "area_fraction": 0.4773,
-            "mean_ink": 0.074,
-            "cells": 525,
-            "cell_median": 0.021,
-            "cell_p90": 0.243,
+            "area_fraction": 0.4713,
+            "mean_ink": 0.071,
+            "cells": 516,
+            "cell_median": 0.018,
+            "cell_p90": 0.232,
             "cell_max": 0.491
           },
           "building": {
             "area_fraction": 0.0459,
-            "mean_ink": 0.387,
+            "mean_ink": 0.429,
             "cells": 41,
-            "cell_median": 0.413,
-            "cell_p90": 0.507,
-            "cell_max": 0.549
+            "cell_median": 0.434,
+            "cell_p90": 0.52,
+            "cell_max": 0.545
           },
           "oak": {
-            "area_fraction": 0.0137,
-            "mean_ink": 0.226,
-            "cells": 6,
-            "cell_median": 0.219,
-            "cell_p90": 0.25,
-            "cell_max": 0.262
+            "area_fraction": 0.025,
+            "mean_ink": 0.267,
+            "cells": 17,
+            "cell_median": 0.262,
+            "cell_p90": 0.36,
+            "cell_max": 0.376
           },
           "furniture": {
             "area_fraction": 0.0076,
-            "mean_ink": 0.545,
+            "mean_ink": 0.575,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,
@@ -984,7 +1099,7 @@
           },
           "other": {
             "area_fraction": 0.0026,
-            "mean_ink": 0.426,
+            "mean_ink": 0.44,
             "cells": 0,
             "cell_median": null,
             "cell_p90": null,

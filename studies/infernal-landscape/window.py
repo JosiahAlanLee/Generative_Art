@@ -54,19 +54,11 @@ def prepare(out):
 
 
 def build_scene(A,T):
-    box,beam,ink,mesh,arch,ground=(T[k] for k in ('box','beam','ink','mesh','arch','terrain_z'))
-    def roof(name,x,y,z,w,d,rise):
-        # Outward winding fixes both the visible gable and sloping roof normals.
-        p=[(x-w/2,y-d/2,z),(x+w/2,y-d/2,z),(x,y-d/2,z+rise),
-           (x-w/2,y+d/2,z),(x+w/2,y+d/2,z),(x,y+d/2,z+rise)]
-        ob=mesh(name,p,[(0,1,2),(3,5,4),(0,2,5,3),(1,4,5,2)],4)
-        for q in np.linspace(-d/2+.13,d/2-.13,max(3,int(d/.30))):
-            ink(name+' standing seam',[(x-w/2,y+q,z+.018),(x,y+q,z+rise+.018),(x+w/2,y+q,z+.018)],.10)
-        return ob
+    box,beam,ink,mesh,arch,ground,roof=T.box,T.beam,T.ink,T.mesh,T.arch,T.terrain_z,T.roof
     # One task: duration repeats complete storeys in the mill body.
     x,y=1.,17.;z=float(ground(x,y))+.1;w,d=7.,5.
     box('mill foundation',(x-w/2-.25,y-d/2-.25,z-1.8),(x+w/2+.25,y+d/2+.25,z))
-    h=T['story_nodes']('mill',x,y,z,w,d,A['nodes'][0]['bays'])
+    h=T.story_nodes('mill',x,y,z,w,d,A['nodes'][0]['bays'])
     for floor in range(A['nodes'][0]['bays']):
         for dx in (-1.5,0,1.5):
             if floor<2 and dx==0:continue
@@ -120,15 +112,10 @@ def build_scene(A,T):
         ink('Window right mortar',[(3.66,-6.78,Z),(3.66,-5.56,Z)],.10)
     # A continuous water surface occupies the cut channel, occludes ground
     # marks and carries broken, flow-aligned engraving strokes.
-    import bpy
-    mat=bpy.data.materials.new('IE | Stream water');mat.diffuse_color=(.22,.39,.43,1)
-    mat.use_nodes=True;bsdf=mat.node_tree.nodes.get('Principled BSDF')
-    bsdf.inputs['Base Color'].default_value=mat.diffuse_color
-    bsdf.inputs['Roughness'].default_value=.3
-    T['MATERIALS'].append(mat);T['COLORS'].append('#385f6b')
+    water=T.material('Stream water','#385f6b',roughness=.3)
     xs=np.linspace(-26,25,221);ys=river_y(xs);zs=water_z(xs);ws=river_width(xs)
     verts=np.vstack([np.c_[xs,ys-ws,zs],np.c_[xs,ys+ws,zs]])
-    mesh('Stream water surface',verts,[(i,i+1,i+222,i+221) for i in range(220)],7,False)
+    mesh('Stream water surface',verts,[(i,i+1,i+222,i+221) for i in range(220)],water,False)
     rng=np.random.default_rng(611)
     for off in np.linspace(-.86,.86,17):
         start=-25.+rng.uniform(0,1)
@@ -142,11 +129,11 @@ def build_scene(A,T):
     for j in range(5):
         q=np.linspace(-.35,.35,24)
         ink('Wheel wake',np.c_[cx+.3+j*.23+q,cy-.45-j*.07+.06*np.cos(q*8),water_z(cx+.3+j*.23+q)+.032],.10)
-    T['oak']('Volume oak west',-11,19,6.7,614)
-    T['oak']('Volume oak east',9.8,24,5.8,617)
+    T.oak('Volume oak west',-11,19,6.7,614)
+    T.oak('Volume oak east',9.8,24,5.8,617)
     return {'mill':z+h},{'mill':(x,y,z)},[[-3,13.9,7.9,20.4]],[]
 
 
 if __name__=='__main__':
-    from pathlib import Path
-    prepare(Path(__file__).resolve().parent/'output/window-incised')
+    from scene import output_dir
+    prepare(output_dir('window','incised'))

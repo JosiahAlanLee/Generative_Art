@@ -1104,5 +1104,200 @@
       "light",
       "owner_map"
     ]
+  },
+  {
+    "id": "halftone-dither-trace",
+    "title": "Dithered bitmap traced into pen runs",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Quantise a raster with error-diffusion or Bayer screens and consume it into hairline runs per pen",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/halftone/dither.py",
+      "lib/halftone/trace.py",
+      "lib/halftone/studies.py"
+    ],
+    "symbols": [
+      "error_diffuse",
+      "ordered_dither",
+      "masks",
+      "trace_runs",
+      "to_mm",
+      "halftone_plate",
+      "kernels_plate"
+    ]
+  },
+  {
+    "id": "poisson-stipples",
+    "title": "Tone-driven Poisson and stratified stipples",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Carry tone by dot density or dot size with variable-radius Poisson-disc or jittered grids",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/halftone/poisson.py",
+      "lib/halftone/studies.py"
+    ],
+    "symbols": [
+      "poisson_sample",
+      "stratified_grid",
+      "tone_radius",
+      "stipple_plate",
+      "spiral_dot"
+    ]
+  },
+  {
+    "id": "fuzzy-passes-fills",
+    "title": "Fuzzy multi-pass outlines and composable fills",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Redraw a shape in jittered passes and fill it with hatching at any angle, dot screens or both",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/fuzz/fuzz.py",
+      "lib/fuzz/studies.py"
+    ],
+    "symbols": [
+      "fuzzy_polygon",
+      "fuzzy_line",
+      "hatch_fill",
+      "dot_fill",
+      "compose",
+      "hatch_pen",
+      "dot_pen",
+      "passes_plate",
+      "fills_plate"
+    ]
+  },
+  {
+    "id": "subdivision-splines",
+    "title": "Subdivision curves and polygon-to-B\u00e9zier",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Smooth, interpolate or roughen a polygon by Chaikin, cubic, Dyn\u2013Levin\u2013Gregory or displacement, or convert it to cubic segments",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/fuzz/curves.py",
+      "lib/fuzz/studies.py"
+    ],
+    "symbols": [
+      "subdivide",
+      "polygon_to_cubic",
+      "cubic_points",
+      "cubics_to_polyline",
+      "subdivision_plate"
+    ]
+  },
+  {
+    "id": "sdf2d-fields",
+    "title": "2-D distance fields with blended booleans and repeats",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Build figures from analytic shapes joined with chamfered, rounded, smooth or stepped booleans and tiled by grid, mirror or polar repeat",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/sdf2d/sdf.py",
+      "lib/sdf2d/studies.py"
+    ],
+    "symbols": [
+      "circle",
+      "box",
+      "polygon",
+      "union_smooth",
+      "subtract_steps",
+      "repeat_mirror",
+      "repeat_polar",
+      "band",
+      "apparatus_plate",
+      "tiling_plate"
+    ]
+  },
+  {
+    "id": "sdf2d-contours-hatching",
+    "title": "Field contours and sign-tested hatching",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Draw a distance field as nested offsets or hatch its depth bands without building a polygon",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/sdf2d/grid.py",
+      "lib/sdf2d/studies.py"
+    ],
+    "symbols": [
+      "sample",
+      "contours",
+      "levels",
+      "hatch_by_sign",
+      "band_count"
+    ]
+  },
+  {
+    "id": "farm-remnants",
+    "title": "Seeded farm objects and structural decay",
+    "family": "16-farm-objects",
+    "status": "collection",
+    "use": "Generate decaying timber barns, tractors and abandoned farm implements as 3D meshes and occluded pen paths",
+    "guide": "techniques/16-farm-objects/README.md",
+    "sources": [
+      "lib/farm_objects/objects.py",
+      "lib/farm_objects/render.py",
+      "lib/farm_objects/blender.py"
+    ],
+    "symbols": [
+      "make_object",
+      "FarmObject.add_to",
+      "write_obj",
+      "render_svg",
+      "import_record"
+    ]
+  },
+  {
+    "id": "wisconsin-flora",
+    "title": "Seeded southwestern Wisconsin plants",
+    "family": "17-wisconsin-flora",
+    "status": "collection",
+    "use": "Generate species-informed 3D vegetation and hidden-line plotter SVGs",
+    "guide": "techniques/17-wisconsin-flora/README.md",
+    "sources": [
+      "lib/flora/species.py",
+      "lib/flora/model.py",
+      "lib/flora/render.py",
+      "lib/flora/adapters.py"
+    ],
+    "symbols": [
+      "generate",
+      "Plant",
+      "render",
+      "add_to_scene_builder",
+      "to_blender"
+    ]
+  },
+  {
+    "id": "face-patterns",
+    "title": "2D generators on flat faces",
+    "family": "08-scene-studies",
+    "status": "collection",
+    "use": "Draw strata, quilts, hatching or any planar generator on a 3D scene's flat walls, world-anchored across faces, with camera-set spacing",
+    "guide": "studies/infernal-landscape/FACE-PATTERNS.md",
+    "sources": [
+      "lib/face_patterns/mapping.py",
+      "lib/face_patterns/sources.py",
+      "studies/infernal-landscape/surface_patterns.py",
+      "studies/infernal-landscape/face_patterns_preview.py"
+    ],
+    "symbols": [
+      "plane_frame",
+      "to_uv",
+      "lift",
+      "clip_polyline",
+      "hatch_polygon",
+      "contour_on_face",
+      "level_spacing_px",
+      "stride_for_spacing",
+      "world_spacing",
+      "Strata",
+      "quilt",
+      "face_patterns"
+    ]
   }
 ]

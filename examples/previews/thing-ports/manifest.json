@@ -1,0 +1,629 @@
+{
+  "title": "thi.ng ports — selected demonstrations",
+  "date": "2026-10-22",
+  "preview_widths_px": [
+    2000
+  ],
+  "svg_policy": "SVGs under about 700 kB are committed beside this manifest; the halftone and stipple plates are heavier and are recorded here by hash and size only. Rebuild them with examples/make_thing_ports.py.",
+  "selection_basis": "One or two plates per study, chosen after rendering every variant and reviewing them individually and on the contact sheet. No numeric beauty ranking.",
+  "items": [
+    {
+      "study": "halftone",
+      "stem": "halftone-floyd-steinberg",
+      "label": "Two-ink halftone runs",
+      "reason": "Three tones from serpentine Floyd–Steinberg at 0.38 mm; black traced in ink, mid in red. Run direction follows the dither's grain, so the sphere's shadow turns to short dashes.",
+      "svg_in_previews": false,
+      "settings": {
+        "study": "halftone",
+        "seed": 0,
+        "kernel": "floyd-steinberg",
+        "cell_mm": 0.38,
+        "levels": 3,
+        "serpentine": true,
+        "directions": [
+          "h",
+          "v",
+          "d1",
+          "d2",
+          "p"
+        ],
+        "pixels": [
+          368,
+          458
+        ],
+        "counts": {
+          "tone_0": {
+            "pixels": 19947,
+            "segments": 4881,
+            "points": 4717
+          },
+          "tone_1": {
+            "pixels": 91796,
+            "segments": 21456,
+            "points": 10478
+          }
+        },
+        "input": "synthetic specimen",
+        "limits": "runs are straight between pixel centres; no contour tracing; run order is raster order, not pen-travel order",
+        "stroke_count": 41538,
+        "pen_down_m": 35.82,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "3bba6102696eec0ee5d3e026ce1abe1eda8526a4f55e8e5246d6d41e6a8c6a42",
+        "svg_bytes": 5342517
+      }
+    },
+    {
+      "study": "kernels",
+      "stem": "kernels",
+      "label": "Six dithers on one crop",
+      "reason": "Floyd–Steinberg, Atkinson, Jarvis–Judice–Ninke, Stucki, Sierra-lite and an 8 × 8 Bayer screen, traced identically. Atkinson keeps the highlight open; Bayer gives the regular screen.",
+      "svg_in_previews": false,
+      "settings": {
+        "study": "kernels",
+        "seed": 0,
+        "cell_mm": 0.3,
+        "cells": [
+          {
+            "kernel": "floyd-steinberg",
+            "column": 0,
+            "row": 0,
+            "black_pixels": 15670,
+            "segments": 4586,
+            "points": 2787
+          },
+          {
+            "kernel": "atkinson",
+            "column": 1,
+            "row": 0,
+            "black_pixels": 14948,
+            "segments": 4615,
+            "points": 1965
+          },
+          {
+            "kernel": "jarvis-judice-ninke",
+            "column": 0,
+            "row": 1,
+            "black_pixels": 15613,
+            "segments": 5282,
+            "points": 2130
+          },
+          {
+            "kernel": "stucki",
+            "column": 1,
+            "row": 1,
+            "black_pixels": 15618,
+            "segments": 5082,
+            "points": 2096
+          },
+          {
+            "kernel": "sierra-lite",
+            "column": 0,
+            "row": 2,
+            "black_pixels": 15667,
+            "segments": 4760,
+            "points": 2710
+          },
+          {
+            "kernel": "bayer-8",
+            "column": 1,
+            "row": 2,
+            "black_pixels": 15755,
+            "segments": 2083,
+            "points": 4514
+          }
+        ],
+        "reading_order": "left to right, then down; the red frames bound each crop",
+        "bayer_matrix_8": [
+          [
+            0,
+            32,
+            8,
+            40,
+            2,
+            34,
+            10,
+            42
+          ],
+          [
+            48,
+            16,
+            56,
+            24,
+            50,
+            18,
+            58,
+            26
+          ],
+          [
+            12,
+            44,
+            4,
+            36,
+            14,
+            46,
+            6,
+            38
+          ],
+          [
+            60,
+            28,
+            52,
+            20,
+            62,
+            30,
+            54,
+            22
+          ],
+          [
+            3,
+            35,
+            11,
+            43,
+            1,
+            33,
+            9,
+            41
+          ],
+          [
+            51,
+            19,
+            59,
+            27,
+            49,
+            17,
+            57,
+            25
+          ],
+          [
+            15,
+            47,
+            7,
+            39,
+            13,
+            45,
+            5,
+            37
+          ],
+          [
+            63,
+            31,
+            55,
+            23,
+            61,
+            29,
+            53,
+            21
+          ]
+        ],
+        "input": "synthetic specimen",
+        "stroke_count": 42623,
+        "pen_down_m": 24.38,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "76c5ca7fc67cc7203cbe99c6c0e6e313975581f2d6a31515e074adcae9619527",
+        "svg_bytes": 4777995
+      }
+    },
+    {
+      "study": "stipple",
+      "stem": "stipple-v1",
+      "label": "Tone-driven Poisson stipples",
+      "reason": "Exclusion radius 0.5–2.8 mm from the tone; dots are spirals at pen pitch. Chosen over the uniform and stratified variants because the density alone carries the sphere.",
+      "svg_in_previews": false,
+      "settings": {
+        "study": "stipple",
+        "seed": 0,
+        "variant": 1,
+        "method": "tone-driven Poisson disc, 0.5–2.8 mm, dots sized by tone",
+        "dots": 7404,
+        "dot_radius_mm": [
+          0.1,
+          0.23916870921171973
+        ],
+        "input": "synthetic specimen",
+        "limits": "dots above 0.15 mm are spirals at 0.11 mm pitch, smaller ones rings; candidate order; no pen-travel ordering",
+        "stroke_count": 7412,
+        "pen_down_m": 7.99,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "0d160b1a7abf6cd00ca029e550e6f5bdb79040fb0e54a8d3f59b6baa16a1c880",
+        "svg_bytes": 2093588
+      }
+    },
+    {
+      "study": "stipple",
+      "stem": "stipple-v2",
+      "label": "Stratified screen with sized dots",
+      "reason": "One dot per 1.6 mm cell, radius from tone: the halftone screen's logic with a pen.",
+      "svg_in_previews": false,
+      "settings": {
+        "study": "stipple",
+        "seed": 0,
+        "variant": 2,
+        "method": "stratified grid, 1.6 mm cells, dots sized by tone",
+        "dots": 7969,
+        "dot_radius_mm": [
+          0.07005049302183626,
+          0.5437072290545291
+        ],
+        "input": "synthetic specimen",
+        "limits": "dots above 0.15 mm are spirals at 0.11 mm pitch, smaller ones rings; candidate order; no pen-travel ordering",
+        "stroke_count": 7977,
+        "pen_down_m": 16.48,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "62b56e0855ccb34492210b5baa95d6b60ec87aba608c5866ccbb14a0fc722ce5",
+        "svg_bytes": 3274877
+      }
+    },
+    {
+      "study": "passes",
+      "stem": "passes",
+      "label": "Fuzzy passes",
+      "reason": "Rows: exact, one, two and three passes; straight on the left, curved through the jittered vertices on the right. The curved rectangle shows what break-point tangents do to a corner.",
+      "svg_in_previews": true,
+      "settings": {
+        "study": "passes",
+        "seed": 0,
+        "cells": [
+          {
+            "row": 0,
+            "column": 0,
+            "passes": 0,
+            "jitter_mm": 0.0,
+            "curve": false,
+            "strokes": 3
+          },
+          {
+            "row": 0,
+            "column": 1,
+            "passes": 0,
+            "jitter_mm": 0.0,
+            "curve": true,
+            "strokes": 3
+          },
+          {
+            "row": 1,
+            "column": 0,
+            "passes": 1,
+            "jitter_mm": 0.25,
+            "curve": false,
+            "strokes": 3
+          },
+          {
+            "row": 1,
+            "column": 1,
+            "passes": 1,
+            "jitter_mm": 0.25,
+            "curve": true,
+            "strokes": 3
+          },
+          {
+            "row": 2,
+            "column": 0,
+            "passes": 2,
+            "jitter_mm": 0.4,
+            "curve": false,
+            "strokes": 6
+          },
+          {
+            "row": 2,
+            "column": 1,
+            "passes": 2,
+            "jitter_mm": 0.4,
+            "curve": true,
+            "strokes": 6
+          },
+          {
+            "row": 3,
+            "column": 0,
+            "passes": 3,
+            "jitter_mm": 0.6,
+            "curve": false,
+            "strokes": 9
+          },
+          {
+            "row": 3,
+            "column": 1,
+            "passes": 3,
+            "jitter_mm": 0.6,
+            "curve": true,
+            "strokes": 9
+          }
+        ],
+        "reading_order": "rows: exact, 1, 2, 3 passes; left column straight, right curved",
+        "stroke_count": 56,
+        "pen_down_m": 4.75,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "022c009f6d42b44235620d9c3a791c39b02bf7eaa4b16aa9af29591d35c52add",
+        "svg_bytes": 19721
+      }
+    },
+    {
+      "study": "fills",
+      "stem": "fills",
+      "label": "Composable fills",
+      "reason": "Hatch at any angle, inset, jittered, crossed in two passes, a dot screen, and hatch and dots composed; each outline is a two-pass fuzzy edge in red.",
+      "svg_in_previews": true,
+      "settings": {
+        "study": "fills",
+        "seed": 0,
+        "cells": [
+          {
+            "cell": 0,
+            "fill": "hatch 45°, 1.1 mm",
+            "lines": 37
+          },
+          {
+            "cell": 1,
+            "fill": "hatch 160°, 0.8 mm, inset 0.6",
+            "lines": 56
+          },
+          {
+            "cell": 2,
+            "fill": "hatch 30°, jitter 0.25",
+            "lines": 42
+          },
+          {
+            "cell": 3,
+            "fill": "cross hatch pen, two passes",
+            "lines": 123
+          },
+          {
+            "cell": 4,
+            "fill": "dot screen 1.3 mm",
+            "lines": 961
+          },
+          {
+            "cell": 5,
+            "fill": "hatch 100° + dots, composed",
+            "lines": 586
+          }
+        ],
+        "reading_order": "left to right, then down",
+        "stroke_count": 1823,
+        "pen_down_m": 12.27,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "2aa0db469d3e81e07e5c8ff160103b2678c903dd2dd848129e2e086dc4c309a6",
+        "svg_bytes": 463183
+      }
+    },
+    {
+      "study": "subdivision",
+      "stem": "subdivision",
+      "label": "Subdivision schemes",
+      "reason": "Chaikin, Lane–Riesenfeld cubic, Dyn–Levin–Gregory and midpoint displacement on one rough octagon, one to four iterations. DLG stays on the red control points; the others pull inside.",
+      "svg_in_previews": true,
+      "settings": {
+        "study": "subdivision",
+        "seed": 0,
+        "cells": [
+          {
+            "cell": 0,
+            "scheme": "chaikin",
+            "points_after_1_to_4": [
+              16,
+              32,
+              64,
+              128
+            ]
+          },
+          {
+            "cell": 1,
+            "scheme": "cubic",
+            "points_after_1_to_4": [
+              16,
+              32,
+              64,
+              128
+            ]
+          },
+          {
+            "cell": 2,
+            "scheme": "dlg",
+            "points_after_1_to_4": [
+              16,
+              32,
+              64,
+              128
+            ]
+          },
+          {
+            "cell": 3,
+            "scheme": "displace",
+            "points_after_1_to_4": [
+              16,
+              32,
+              64,
+              128
+            ]
+          }
+        ],
+        "schemes_not_drawn": [
+          "midpoint",
+          "thirds"
+        ],
+        "reading_order": "chaikin, cubic / dlg, displace; four iterations as shrinking copies, the outermost is one iteration",
+        "stroke_count": 28,
+        "pen_down_m": 3.16,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "de685c6360be46df1a8c9f1cc3ed0f2745048e6bafd7ac8e08e923e040810ab6",
+        "svg_bytes": 18890
+      }
+    },
+    {
+      "study": "apparatus",
+      "stem": "apparatus-v0",
+      "label": "Distance-field apparatus, contours",
+      "reason": "A vessel from smooth, rounded, chamfered and stepped booleans drawn as 2 mm inner contours and two red outer offsets. The stairs of the notch run inward because the field carries them.",
+      "svg_in_previews": true,
+      "settings": {
+        "study": "apparatus",
+        "seed": 0,
+        "variant": 0,
+        "method": "nested inner contours every 2 mm, two red outer offsets",
+        "resolution_mm": 0.25,
+        "deepest_mm": 27.879,
+        "inner_isos": [
+          0.0,
+          -2.0,
+          -4.0,
+          -6.0,
+          -8.0,
+          -10.0,
+          -12.0,
+          -14.0,
+          -16.0,
+          -18.0,
+          -20.0,
+          -22.0,
+          -24.0,
+          -26.0
+        ],
+        "outer_isos": [
+          3.0,
+          6.0
+        ],
+        "contour_count": 22,
+        "shape": "union_smooth(circle, rounded_box, 12); union_round(neck box, 5); subtract_chamfer(port circle, 4); subtract_steps(notch box, 7, 3); union_round(rotated arm, 3)",
+        "stroke_count": 28,
+        "pen_down_m": 3.36,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "2cac854ee4324b706bee8ba297e7541e6c28c59af7fe8d88abde80f8309ee0e9",
+        "svg_bytes": 33202
+      }
+    },
+    {
+      "study": "apparatus",
+      "stem": "apparatus-v1",
+      "label": "Distance-field apparatus, hatched bands",
+      "reason": "The same field hatched by sign in 4 mm depth bands, alternating 45° and 135°: a hatched solid without a polygon.",
+      "svg_in_previews": true,
+      "settings": {
+        "study": "apparatus",
+        "seed": 0,
+        "variant": 1,
+        "method": "sign-tested hatching in 4 mm bands, alternating 45° and 135°",
+        "resolution_mm": 0.25,
+        "deepest_mm": 27.879,
+        "bands": 7,
+        "band_width_mm": 4.0,
+        "hatch_lines": 661,
+        "shape": "union_smooth(circle, rounded_box, 12); union_round(neck box, 5); subtract_chamfer(port circle, 4); subtract_steps(notch box, 7, 3); union_round(rotated arm, 3)",
+        "stroke_count": 668,
+        "pen_down_m": 5.05,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "6c80d3a65f4314ddce4d5fa615853ff8406954677b6733cefaa0ae4371c45bc4",
+        "svg_bytes": 69372
+      }
+    },
+    {
+      "study": "tiling",
+      "stem": "tiling-v0",
+      "label": "Mirrored tiling",
+      "reason": "A stepped glyph repeated with mirroring every 15 mm and clipped to a rounded frame.",
+      "svg_in_previews": true,
+      "settings": {
+        "study": "tiling",
+        "seed": 0,
+        "variant": 0,
+        "method": "mirrored grid of a stepped glyph, 18 mm period, clipped to a rounded frame",
+        "resolution_mm": 0.2,
+        "period_mm": 15.0,
+        "glyph_scale": 1.15,
+        "isos": [
+          0.0,
+          -1.2
+        ],
+        "contour_count": 198,
+        "glyph": "union_steps(circle 3.2, box 6.5 × 1.4 rotated 30°, r 2.6, 4 steps)",
+        "stroke_count": 206,
+        "pen_down_m": 7.47,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "f9de588b3368bbe808c12f964ec0f5c4b3c8dd56783799b64a61d9d962b4297d",
+        "svg_bytes": 167806
+      }
+    },
+    {
+      "study": "tiling",
+      "stem": "tiling-v1",
+      "label": "Nine-fold rosette",
+      "reason": "A polar repeat smoothly joined to an annular ring, with five inner offsets; the seams of the polar repeat show as spikes, a known limit of sector folding.",
+      "svg_in_previews": true,
+      "settings": {
+        "study": "tiling",
+        "seed": 0,
+        "variant": 1,
+        "method": "nine-fold polar repeat of the glyph around an annular ring",
+        "resolution_mm": 0.2,
+        "fold": 9,
+        "isos": [
+          0.0,
+          -1.5,
+          -3.0,
+          -4.5,
+          -6.0
+        ],
+        "contour_count": 14,
+        "glyph": "union_steps(circle 3.2, box 6.5 × 1.4 rotated 30°, r 2.6, 4 steps)",
+        "stroke_count": 30,
+        "pen_down_m": 3.46,
+        "size_mm": [
+          170,
+          220
+        ],
+        "preview_width_px": 2000,
+        "transparent_preview": false,
+        "svg_sha256": "cbff459889ee8782557e1d742f66f076a630aff98fb079962d6afaa47498e2c8",
+        "svg_bytes": 51649
+      }
+    }
+  ]
+}

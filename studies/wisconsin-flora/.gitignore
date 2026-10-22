@@ -1,0 +1,4 @@
+output/*.obj
+output/*.model.json
+output/first-smoke.*
+output/*.blend

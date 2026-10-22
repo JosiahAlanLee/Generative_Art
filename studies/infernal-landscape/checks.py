@@ -5,28 +5,49 @@ import ast,hashlib,json,xml.etree.ElementTree as ET
 import numpy as np
 import build as B
 from compile import compile_case,CASES,classify_routes
+import geometry as G
 import occlusion as M
 import measure as Mz
 
-checks={};advisory={}
+checks={};advisory={};skipped={}
 def record(name,ok,**detail):checks[name]=dict(passed=bool(ok),**detail)
 def advise(name,ok,**detail):
     """Measured and reported, not gating: the remedy is in the geometry, not here."""
     advisory[name]=dict(passed=bool(ok),**detail)
+def skip(name,reason):
+    """Not run: a NumPy dry run has no Blender evaluation to audit against."""
+    skipped[name]=reason
 
 expected={'recorded_route':10,'rehearsed_route':5,'late_opening':11,'gate_unavailable':None}
 record('specimen_arithmetic_preserved',all(compile_case(k)['result']['executable_completion']==v for k,v in expected.items()))
 record('unavailability_not_reported_as_late_execution',compile_case('gate_unavailable')['result']['executable_completion'] is None)
 record('release_time_not_added_to_duration',next(n for n in compile_case('late_opening')['nodes'] if n['id']=='approval')['bays']==1 and compile_case('late_opening')['result']['arithmetic_completion']==11)
-native=json.loads((B.OUT/'blender-checks.json').read_text())
-record('native_blender_camera',native['native_camera_max_error_px']<.002,maximum_error_px=native['native_camera_max_error_px'])
-record('geometry_nodes_executed',all(x['faces']>0 for x in native['geometry_nodes']),objects=native['geometry_nodes'])
+native=json.loads((B.OUT/'blender-checks.json').read_text());BACKEND=native.get('backend','blender')
+if BACKEND=='blender':
+    record('native_blender_camera',native['native_camera_max_error_px']<.002,maximum_error_px=native['native_camera_max_error_px'])
+    record('geometry_nodes_executed',all(x['faces']>0 for x in native['geometry_nodes']),objects=native['geometry_nodes'])
+    # Blender's realised repetition is the builder's own instancing, so the
+    # dry run and the delivered model draw the same storeys.
+    record('geometry_nodes_match_numpy_repetition',all(x.get('realised_matches_numpy') for x in native['geometry_nodes']),
+           max_vertex_error=max((x.get('max_vertex_error',float('inf')) for x in native['geometry_nodes']),default=0))
+else:
+    for name in ('native_blender_camera','geometry_nodes_executed','geometry_nodes_match_numpy_repetition'):skip(name,'no Blender evaluation in a '+BACKEND+' dry run')
+# Every closed solid faces outward; an inside-out box or ring stone would
+# lose its hatching and near silhouette without any other check noticing.
+audit=G.outward_audit(B.D);inward={k:v for k,v in audit.items() if v['inward']}
+record('closed_solids_face_outward',len(audit)>0 and not inward,audited_objects=len(audit),
+       inward_objects=sorted({k.split('.')[0] for k in inward}))
 gate=[f['p'] for f in B.FACES if 'Unavailable portcullis' in f['name']]
 roof=[f['p'] for f in B.FACES if 'approval roof' in f['name']]
 record('closed_gate_fits_beneath_roof',not gate or max(p[:,2].max() for p in gate)<min(p[:,2].min() for p in roof))
 for prefix in ('surface','hatch'):
     a=np.load(B.OUT/f'{prefix}-audit-{B.VIEW_NAME}.npz')['world'];seen=B.visible(a,*B.BVH[:6])
     record(prefix+'_delivered_samples_visible',seen.all(),samples=len(a),violations=int((~seen).sum()))
+pattern_file=B.OUT/f'pattern-audit-{B.VIEW_NAME}.npz'
+if pattern_file.exists():
+    # Face patterns (FACE-PATTERNS.md) are delivered through the same ray test as the rest.
+    a=np.load(pattern_file)['world'];seen=B.visible(a,*B.BVH[:6]) if len(a) else np.zeros(0,bool)
+    record('face_pattern_samples_visible',len(a)>0 and seen.all(),samples=len(a),violations=int((~seen).sum()))
 p=np.load(B.OUT/f'plants-audit-{B.VIEW_NAME}.npz')
 record('plant_owners_respected',not (p['nearest_depth']<p['owner_depth']-M.EPS_PLANT).any(),samples=len(p['xy']))
 # Adversarial fixture: place a mark at ground level beneath a task building.
@@ -63,7 +84,7 @@ for route,r in seen['red'].items():
     (record if B.D['architecture'].get('scene_profile')=='spillway' else advise)('red_route_visible: '+route,r['visible_fraction']>=.6 and r['longest_hidden_mm']<=8,**r)
 record('shared_volume_and_planar_plants',manifest['plants']>20 and manifest['volume_leaf_faces']>1000,
        planar_instances=manifest['plants'],volume_leaf_faces=manifest['volume_leaf_faces'])
-result=dict(case=B.CASE,view=B.VIEW_NAME,all_passed=all(x['passed'] for x in checks.values()),checks=checks,
-            advisory=advisory,measured=seen)
+result=dict(case=B.CASE,view=B.VIEW_NAME,backend=BACKEND,all_passed=all(x['passed'] for x in checks.values()),checks=checks,
+            advisory=advisory,skipped=skipped,measured=seen)
 (B.OUT/f'checks-{B.VIEW_NAME}.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
 if not result['all_passed']:raise SystemExit(1)

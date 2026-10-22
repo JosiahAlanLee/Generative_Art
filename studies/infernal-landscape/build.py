@@ -14,7 +14,8 @@ import os
 ROOT=Path(__file__).resolve().parent
 CASE=os.environ.get('INFERNAL_CASE','recorded_route')
 TERRAIN_MODE=os.environ.get('INFERNAL_TERRAIN','original')
-OUT=ROOT/'output'/(CASE if TERRAIN_MODE=='original' else CASE+'-'+TERRAIN_MODE)
+from scene import output_dir
+OUT=output_dir(CASE,TERRAIN_MODE)
 OUT.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(ROOT/'vendor'))
 import raycore as rc
@@ -128,7 +129,8 @@ def split_paths(xy,keep,sid=None):
  if sid is not None:br|=np.diff(sid[ids])!=0
  return [q for g in np.split(ids,np.flatnonzero(br)+1) if len(g)>1 for q in [xy[g]] if np.linalg.norm(np.diff(q,axis=0),axis=1).sum()>1.5]
 
-def stroke_project(P):
+def stroke_project(P,return_world=False):
+ """Visible screen paths of a 3D polyline; with return_world, also the kept world samples."""
  P=np.asarray(P,float);parts=[]
  for a,b in zip(P[:-1],P[1:]):
   # Clip before resampling, so points behind the perspective camera cannot create huge paths.
@@ -139,10 +141,11 @@ def stroke_project(P):
   pa=project(np.vstack([a,b]));length=np.hypot(np.diff(pa[0])[0],np.diff(pa[1])[0])
   if length>20000:continue
   n=max(2,int(length/1.2)+1);parts.extend(np.linspace(a,b,n)[:-1])
- if not parts:return []
+ if not parts:return ([],np.zeros((0,3))) if return_world else []
  parts.append(P[-1]);p=np.asarray(parts);x,y,z=project(p)
  keep=visible(p,*BVH[:6]);keep&=(z>NEAR)&(x>4)&(x<W-4)&(y>4)&(y<H-4)
- return split_paths(np.column_stack([x,y]),keep)
+ paths=split_paths(np.column_stack([x,y]),keep)
+ return (paths,p[keep]) if return_world else paths
 
 def svg_write(name,groups):
  s=[f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="156mm" height="{156*H/W:.3f}mm" viewBox="0 0 {W} {H}">',

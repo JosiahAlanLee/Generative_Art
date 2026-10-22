@@ -1,5 +1,38 @@
 # Validation of this collection
 
+## Face patterns — 22 October 2026
+
+Prepared with Claude. Built with `bpy` 4.5.14 LTS in Python 3.11 and the
+Infernal Landscape engraving requirements (NumPy 2.2.6, Numba 0.61.2, SciPy
+1.17.0) in Python 3.12; Node 22 for the Driftless patches.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s lib/face_patterns/tests -v` | 13 passed: frames read right/up from outside and are right-handed; coplanar faces share coordinates; lift inverts the projection; a course meets itself at a corner; exact convex and concave (L-shaped) clipping; hatching inside, evenly spaced and continuous between neighbouring polygons; height contours are courses; a blank fault seam is not bridged; screen spacing, nested stride and world spacing under an orthographic Jacobian; strata levels that reach a corner end at the same height on both walls (24 here); level beds across the axis; seams blanked and repeatable; quilt regions tile the unit square |
+| `python -m unittest discover -s studies/infernal-landscape/tests -v` | 15 passed, including two new: variant output folders, and the same rule in `patches.cjs` and `run.py` |
+| Other `lib` suites | `process_art`, `codex_palette`, `barn_quilts` and `numerics` pass under `requirements-process-art.txt` (they need shapely) |
+| Patterns off | Recorded route, main camera: the SVG is byte-identical to the build before the change (`84235df0…`) |
+| Patterns on (Blender) | Same scene record (`a88e94b4…`); all 23 checks pass, including the new `face_pattern_samples_visible` (8,949 samples, none hidden); also passes as a NumPy dry run |
+| Comparison | `face_patterns_preview.py`: 247 pattern paths (0.319 m); crosshatching 214 paths (0.153 m) shorter; ink on the tower's lit walls 0.439 → 0.463, shaded 0.678 → 0.685; buildings zone 0.434 → 0.439; the sheet was inspected |
+
+Only the recorded route's main camera was examined. Physical plotting was not tested.
+
+## thi.ng ports — 22 October 2026
+
+Prepared with Claude. Checked with Python 3.13.16, NumPy 2.5.3, SciPy 1.18.1, Shapely 2.2.0, ContourPy 1.4.0 and Pillow 12.3.0, without numba. This covers `lib/halftone`, `lib/fuzz`, `lib/sdf2d`, their guide, the survey in `docs/THING_TECHNIQUES.md` and `examples/make_thing_ports.py`; no imported source file changed.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s lib/halftone/tests -v` | 17 passed: kernel weights sum to their divisor (Atkinson's 6/8 excepted) and only carry error forward; mid-grey diffuses to half black under six kernels; Atkinson lightens a 0.8 tone; three-level quantisation keeps the mean tone and its masks partition the image; Bayer matrices are permutations; ordered dithering keeps the mean; the tracer consumes every set pixel exactly once and the output rebuilds the mask; direction order, `min_len` and `max_len`; diagonal runs map to pixel coordinates; millimetre placement with and without a flipped y; uniform Poisson respects the radius and the bounds and repeats by seed; a black half is more than four times denser than a white half and every point was accepted clear of all earlier points; masks, seed points and `max_points`; one stratified point per cell; the three plates build inside the box with recorded counts; the book's `svgimport` reads a halftone plate with ink and coordinates intact |
+| `python -m unittest discover -s lib/fuzz/tests -v` | 15 passed: point counts and kept end points for all six schemes; Chaikin cuts at 1/4 and 3/4 and converges to 5/6 of a square's area; DLG keeps the control points on the curve with the 9/16 − 1/16 midpoint; the cubic scheme is Lane–Riesenfeld; displacement at zero amplitude is midpoint subdivision and repeats by seed; break-point splines pass through the vertices with handles of tightness × edge; midpoint splines pass through the edge midpoints and at 2/3 reproduce the quadratic; uniform handles; closed sampling; passes jitter within bounds, a jitter-free curve still passes through the vertices, repeat by seed; resampled fuzzy lines; hatch lines lie inside the polygon at five angles, are spaced exactly, alternate direction and respect inset; jittered hatch stays within the jitter; dots fall inside; composed fills concatenate; union merges |
+| `python -m unittest discover -s lib/sdf2d/tests -v` | 10 passed: circle, box, rounded box, segment, polyline exact; the polygon field equals the box field everywhere including sign, and a concave polygon's notch is outside; the ellipse is exact on its axes; plain booleans are min/max; chamfered, rounded, smooth and stepped unions never exceed the plain union and equal it where one shape dominates, and a rounded union fills the crease; intersection and subtraction variants satisfy De Morgan; translate, rotate about a centre, scale, mirror, grid repeat (periodic), mirrored repeat (alternating cells), polar repeat (six copies), offset, annular, band; contours of a circle lie on it within 0.02 mm at 0.25 mm sampling and inner levels at the expected radius; sign-tested hatching lands on the boundary, is spaced exactly, follows the angle and splits at a hole; the four plates build inside the box and repeat by seed |
+| Rebuild | All twelve plates rebuild byte for byte from a second run; the seven committed SVGs match the hashes in `examples/previews/thing-ports/manifest.json` |
+| Plate review | Halftone at four cells and two tone counts, six kernels, three stipple methods, fuzzy passes at four jitters straight and curved, six fills, six subdivision schemes (two not drawn: they only insert points), two apparatus and two tiling variants, reviewed individually and on the contact sheet. The specimen's ramp was lightened once so the three-level halftone's red layer no longer saturates the lower plate; the rotated arm of the apparatus was moved to rotate about its own centre; the tiling glyph is now repeated before translation |
+| Existing suites and verifier | Process-art tests 21 passed; Codex palette tests 23 passed; collection verifier: 241 public snapshot files, 58 selected development-art files, 68 techniques and all local guide links |
+| Weight | Halftone 41,538 strokes and 35.8 m pen-down at a 0.38 mm cell; kernels plate 42,623 strokes; stipples 7,412–8,960 dots; the other plates 28–1,823 strokes. Those two halftone SVGs (4.7–5.2 MB) and the stipple SVGs (2–3 MB) are not committed |
+
+Licence statements in the survey were checked on 22 October 2026 against the `umbrella` root `LICENSE`, package `package.json` files, the `genart-api` licence and the `toxiclibs` `LICENSE.txt`; the items that could not be checked are listed there. Physical plotting was not tested.
+
 ## Palette repair and combination studies — 20 October 2026
 
 Prepared with ChatGPT/Codex. The palette's 23 tests pass, including rounded

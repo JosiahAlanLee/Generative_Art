@@ -69,6 +69,20 @@ python -m unittest discover -s lib/barn_quilts/tests -v
 
 See [Barn quilt squares](../techniques/13-barn-quilts/README.md) for palette, paint, support, weathering, and outline controls, plus the source research.
 
+## Halftone a raster, redraw a shape in passes, or contour a distance field
+
+The thi.ng ports use the process-art requirements and no outside image:
+
+```sh
+python -m pip install -r requirements-process-art.txt
+python examples/make_thing_ports.py --study kernels
+python examples/make_thing_ports.py --study fills
+python examples/make_thing_ports.py --study apparatus --variants 1
+python -m unittest discover -s lib/halftone/tests -v
+```
+
+The plates land in `examples/out/thing-ports/`. See [thi.ng ports](../techniques/15-thing-ports/README.md) for the API of each package and the [survey](THING_TECHNIQUES.md) for what was and was not ported.
+
 ## Verify the collection
 
 ```sh

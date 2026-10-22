@@ -75,6 +75,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 | [Scan engraving and Trail First primitives](studies/scanned-statue-v2/engrave.py) | Recover mesh contours and place primitives along trails | study |
 | [Perspective 3D engraving with landscape strokes](studies/three-gates/README.md) | Draw structures, water and depth-ordered Driftless plants through one perspective camera | study |
 | [Evaluated Blender terrain and mapped symbols](studies/terrain-symbols/README.md) | Drape 2D field marks onto displaced terrain, keep vegetation upright, and share geometry / plant occlusion with crosshatching | study |
+| [2D generators on flat faces](studies/infernal-landscape/FACE-PATTERNS.md) | Draw strata, a barn quilt or any planar generator on a scene's flat walls, continuous across faces, with spacing set by the camera | collection |
 
 ## [Number systems](techniques/09-number-systems/README.md)
 
@@ -86,7 +87,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 
 ## Scope and absent implementations
 
-The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Driftless Plates seeds with `sfc32` as bryc published it; that is ordinary seeding, not entropy locking. Reaction–diffusion is newly implemented in the collection's [process-art studies](techniques/12-process-art/README.md), separately from imported source. Rival-contact braids and shared-substrate proposals remain unimplemented. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Data sources and further techniques tied to the book's text, with checked terms, are in the [Codex palette research](docs/CODEX_PALETTE_RESEARCH.md); four of its leads are implemented as the [Codex palette studies](techniques/14-codex-palette/README.md). Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
+The selected contour grain notes mention aebrer / Andrew Brereton’s entropy-locking study as an influence on placement. The current book does **not** contain that recursive glitch algorithm or SFC32 implementation. Driftless Plates seeds with `sfc32` as bryc published it; that is ordinary seeding, not entropy locking. Reaction–diffusion is newly implemented in the collection's [process-art studies](techniques/12-process-art/README.md), separately from imported source. Rival-contact braids and shared-substrate proposals remain unimplemented. Entropy locking, pixel sorting, CLIP-guided imagery and grammar text are listed with their code and license status in [HEN × CCRU techniques](docs/HEN_CCRU_TECHNIQUES.md); none of them is implemented here. Data sources and further techniques tied to the book's text, with checked terms, are in the [Codex palette research](docs/CODEX_PALETTE_RESEARCH.md); four of its leads are implemented as the [Codex palette studies](techniques/14-codex-palette/README.md). Karsten Schmidt's thi.ng and toxiclibs tools are surveyed with their licence status in [thi.ng and toxiclibs](docs/THING_TECHNIQUES.md); three groups are implemented as the [thi.ng ports](techniques/15-thing-ports/README.md), and the survey records which of his tools duplicate SciPy, Shapely and ContourPy and which do not apply to an iDraw. Trail First and primitive growth are present in the existing statue study; the book’s image-fed growth renderer is a different program.
 
 The source snapshot omits large raster art and edition PDFs. Every included and omitted source path is recorded in [the manifest](catalog/source-manifest.json); the original public-book snapshot is separate from the later art-only development import. The root [notices](NOTICES.md) explain attribution and inherited terms.
 
@@ -156,3 +157,28 @@ A reusable tile grammar supplies joined curves and steps. Adaptive transport fol
 | [Guilloché credentials](lib/codex_palette/guilloche.py) | Rose-engine rosettes, reeded rims and wave bands from declared catalogue numbers | collection |
 
 [Research: data and techniques from the text](docs/CODEX_PALETTE_RESEARCH.md) · [Selected demonstrations](examples/previews/codex-palette/manifest.json). New collection studies, not installed book plates.
+
+## [thi.ng ports](techniques/15-thing-ports/README.md)
+
+| Technique | Use | Status |
+| --- | --- | --- |
+| [Dithered bitmap traced into pen runs](lib/halftone/trace.py) | Eleven error-diffusion kernels and Bayer screens; a bitmap consumed into horizontal, vertical and diagonal runs per pen | collection |
+| [Tone-driven Poisson and stratified stipples](lib/halftone/poisson.py) | Dot density or dot size from a tone array; dart throwing with a per-candidate radius | collection |
+| [Fuzzy multi-pass outlines and composable fills](lib/fuzz/fuzz.py) | Jittered redraws, straight or curved; hatching at any angle, dot screens, composed fills and pen presets | collection |
+| [Subdivision curves and polygon-to-Bézier](lib/fuzz/curves.py) | Chaikin, cubic, Dyn–Levin–Gregory and displacement; break-point and midpoint cubic splines | collection |
+| [2-D distance fields with blended booleans and repeats](lib/sdf2d/sdf.py) | Analytic shapes with chamfered, rounded, smooth and stepped booleans; grid, mirrored and polar repeats | collection |
+| [Field contours and sign-tested hatching](lib/sdf2d/grid.py) | Nested offsets from one sampled field; depth bands hatched without a polygon | collection |
+
+[Research: thi.ng and toxiclibs](docs/THING_TECHNIQUES.md) · [Selected demonstrations](examples/previews/thing-ports/manifest.json). Independent implementations after Karsten Schmidt's packages, not installed book plates.
+
+## [Farm objects](techniques/16-farm-objects/README.md)
+
+Seeded timber barns, open-seat tractors, disk harrows, dump rakes and slatted wagons. Actual mesh gaps and sag combine with surface-attached grain and corrosion, with four-layer stroke-only SVGs and shared 3D visibility. [Object study and specimens](studies/farm-remnants/README.md).
+
+## [Southwestern Wisconsin flora](techniques/17-wisconsin-flora/README.md)
+
+| Technique | Use | Status |
+| --- | --- | --- |
+| [Species-informed plant grammars](lib/flora/species.py) | Seeded stems, leaf surfaces and seasonal organs for six prairie/savanna species | collection |
+| [Plant hidden-line drawing](lib/flora/render.py) | Sampled 3D visibility with organ-layered millimetre SVG | collection |
+| [Landscape and Blender bridges](lib/flora/adapters.py) | Pass procedural plant geometry and ink to existing scenes | prototype |
