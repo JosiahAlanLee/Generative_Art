@@ -169,3 +169,11 @@ A reusable tile grammar supplies joined curves and steps. Adaptive transport fol
 | [Field contours and sign-tested hatching](lib/sdf2d/grid.py) | Nested offsets from one sampled field; depth bands hatched without a polygon | collection |
 
 [Research: thi.ng and toxiclibs](docs/THING_TECHNIQUES.md) · [Selected demonstrations](examples/previews/thing-ports/manifest.json). Independent implementations after Karsten Schmidt's packages, not installed book plates.
+
+## [Southwestern Wisconsin flora](techniques/16-wisconsin-flora/README.md)
+
+| Technique | Use | Status |
+| --- | --- | --- |
+| [Species-informed plant grammars](lib/flora/species.py) | Seeded stems, leaf surfaces and seasonal organs for six prairie/savanna species | collection |
+| [Plant hidden-line drawing](lib/flora/render.py) | Sampled 3D visibility with organ-layered millimetre SVG | collection |
+| [Landscape and Blender bridges](lib/flora/adapters.py) | Pass procedural plant geometry and ink to existing scenes | prototype |

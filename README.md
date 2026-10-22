@@ -24,6 +24,8 @@ The [additional development generators](techniques/10-development-generators/REA
 | Draw the manuscripts' revision history, slime-mould tubes, marbled endpapers or guilloché seals | [Codex palette](techniques/14-codex-palette/README.md) |
 | Halftone or stipple a raster for the pen, redraw shapes in sketchy passes, or build figures from distance fields | [thi.ng ports](techniques/15-thing-ports/README.md) |
 
+[Southwestern Wisconsin flora](studies/wisconsin-flora/README.md) adds six seeded species grammars for plotter studies: little bluestem, side-oats grama, leadplant, prairie smoke, wild bergamot and bur oak. The same 3D geometry supports different camera angles, organ layers and the existing landscape scene builder.
+
 ## Process art R&D
 
 [Process-art generators](techniques/12-process-art/README.md) add eroded catchments, folded/faulted strata, chemical fields coupled to vein growth, and CSV-driven recurrence seals or textiles. Includes [research and primary sources](docs/PROCESS_ART_RESEARCH.md), editable stroke exports and a curated demonstration pack.
