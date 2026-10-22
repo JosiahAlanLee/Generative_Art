@@ -1299,5 +1299,33 @@
       "quilt",
       "face_patterns"
     ]
+  },
+  {
+    "id": "plate-studies",
+    "title": "Close-camera plate studies",
+    "family": "08-scene-studies",
+    "status": "study",
+    "use": "Combine the face patterns, a farm-objects farmstead, Wisconsin flora and the sdf2d, fuzz and Poisson ports in two engraved Infernal Engine plates",
+    "guide": "studies/infernal-landscape/PLATES.md",
+    "sources": [
+      "studies/infernal-landscape/plates.py",
+      "studies/infernal-landscape/surface_patterns.py",
+      "studies/infernal-landscape/plates_preview.py",
+      "lib/face_patterns/mapping.py"
+    ],
+    "symbols": [
+      "add_farmstead",
+      "front_quilt",
+      "seal_shape",
+      "flora_instances",
+      "flora_library",
+      "zone_points",
+      "visible_ground",
+      "face_in_view",
+      "seal_on_tower",
+      "quilt_on_barn",
+      "cut_discs",
+      "keep_where"
+    ]
   }
 ]

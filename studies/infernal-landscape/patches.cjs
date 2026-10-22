@@ -72,8 +72,9 @@ const out = {
 };
 const caseName=process.env.INFERNAL_CASE || 'recorded_route';
 const terrainMode=process.env.INFERNAL_TERRAIN || 'original';
-// The same directory rule as scene.output_dir: a dry run and a face-pattern comparison keep their own folders.
-const outDir=(terrainMode==='original'?caseName:caseName+'-'+terrainMode)+(process.env.INFERNAL_FACE_PATTERNS==='1'?'-face-patterns':'')+(process.env.INFERNAL_DRYRUN==='1'?'-dryrun':'');
+// The same directory rule as scene.output_dir: a dry run, a face-pattern comparison and the plate studies keep their own folders.
+const variant=process.env.INFERNAL_PLATES==='1'?'-plates':(process.env.INFERNAL_FACE_PATTERNS==='1'?'-face-patterns':'');
+const outDir=(terrainMode==='original'?caseName:caseName+'-'+terrainMode)+variant+(process.env.INFERNAL_DRYRUN==='1'?'-dryrun':'');
 fs.mkdirSync(path.join(__dirname, 'output', outDir), { recursive: true });
 fs.writeFileSync(path.join(__dirname, 'output', outDir, 'driftless-meadow-patches.json'), JSON.stringify(out));
 console.log({ oak: out.oak.strokes.length, plants: plants.length, plantStrokes: plants.reduce((s, p) => s + p.strokes.length, 0), farm: out.farm.strokes.length });

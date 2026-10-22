@@ -37,6 +37,10 @@ def zone_of(name,terrain,index,nodes):
     low=name.lower()
     if any(low.startswith(n+' ') or low.startswith(n+'|') for n in nodes):return 'building'
     if low.startswith(('release lift','unavailable portcullis')):return 'building'
+    # The plate studies' farmstead (plates.py): the barn and its quilt board are
+    # buildings, the machines furniture. No delivered scene contains them.
+    if low.startswith(('farm barn','barn quilt board')):return 'building'
+    if low.startswith('farm '):return 'furniture'
     if 'oak' in low:return 'oak'
     if low.startswith(('meadow fence','service support','service tray','entry pier','open approach arch','bridge ')):return 'furniture'
     if low.startswith('window '):return 'aperture'

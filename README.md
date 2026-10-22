@@ -21,6 +21,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |
 | Generate hidden-line landscape plates sized to the book's pages | [Landscape plates](techniques/11-landscape-plates/README.md) |
 | Put a 2D generator (strata, a quilt, hatching) on a 3D scene's flat walls | [Face patterns](studies/infernal-landscape/FACE-PATTERNS.md) |
+| See the face patterns, farm objects, Wisconsin flora and thi.ng ports together in close-camera plates | [Plate studies](studies/infernal-landscape/PLATES.md) |
 | Generate painted quilt squares on wood or metal | [Barn quilts](techniques/13-barn-quilts/README.md) |
 | Draw the manuscripts' revision history, slime-mould tubes, marbled endpapers or guilloché seals | [Codex palette](techniques/14-codex-palette/README.md) |
 | Generate decaying barns, old tractors and abandoned farm implements | [Farm objects](techniques/16-farm-objects/README.md) |

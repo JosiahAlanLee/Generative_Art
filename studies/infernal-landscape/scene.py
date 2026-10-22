@@ -16,16 +16,19 @@ ROOT = Path(__file__).resolve().parent
 
 
 def output_dir(case=None, terrain_mode=None):
-    """output/<case>[-<terrain>][-face-patterns][-dryrun]: every stage of a build shares it.
+    """output/<case>[-<terrain>][-plates|-face-patterns][-dryrun]: every stage of a build shares it.
 
     INFERNAL_DRYRUN=1 keeps a NumPy dry run beside the delivered Blender
-    build instead of overwriting it, and INFERNAL_FACE_PATTERNS=1 keeps the
-    face-pattern comparison beside it too (see FACE-PATTERNS.md);
-    patches.cjs applies the same suffixes."""
+    build instead of overwriting it, INFERNAL_FACE_PATTERNS=1 keeps the
+    face-pattern comparison beside it too (see FACE-PATTERNS.md), and
+    INFERNAL_PLATES=1 keeps the plate studies' scene, which adds a farmstead
+    and two cameras, in its own folder (see PLATES.md); it includes the face
+    patterns. patches.cjs applies the same suffixes."""
     case = case or os.environ.get('INFERNAL_CASE', 'recorded_route')
     terrain_mode = terrain_mode or os.environ.get('INFERNAL_TERRAIN', 'original')
     name = case if terrain_mode == 'original' else case + '-' + terrain_mode
-    if os.environ.get('INFERNAL_FACE_PATTERNS') == '1': name += '-face-patterns'
+    if os.environ.get('INFERNAL_PLATES') == '1': name += '-plates'
+    elif os.environ.get('INFERNAL_FACE_PATTERNS') == '1': name += '-face-patterns'
     if os.environ.get('INFERNAL_DRYRUN') == '1': name += '-dryrun'
     return ROOT / 'output' / name
 
@@ -65,11 +68,24 @@ def profile_module(A):
 
 
 def assemble(builder, ctx):
-    """Terrain host, the profile's architecture, then its cameras."""
+    """Terrain host, the profile's architecture, then its cameras.
+
+    With INFERNAL_PLATES=1 the estate also receives the plate studies'
+    farmstead and their two cameras (plates.py)."""
     builder.terrain_grid(*grid(ctx))
     m = profile_module(ctx['A'])
     top, base, footprints, routes = m.build_scene(ctx['A'], builder)
-    for name, eye, target, focal in m.CAMERAS:
+    cameras = list(m.CAMERAS); plates_record = None
+    if os.environ.get('INFERNAL_PLATES') == '1':
+        if m.__name__ != 'estate':
+            raise ValueError('the plate studies are composed for the estate profile only')
+        import plates
+        extra, plates_record = plates.add_farmstead(builder)
+        footprints = footprints + extra; cameras += plates.CAMERAS
+        # The scene record's schema is unchanged; the farmstead's own record
+        # (seeds, decay, placement, where the quilt board went) sits beside it.
+        (ctx['out'] / 'plates-farmstead.json').write_text(json.dumps(plates_record, indent=2, default=float))
+    for name, eye, target, focal in cameras:
         builder.camera(name, eye, target, focal)
     return dict(top=top, base=base, footprints=footprints, routes=routes,
-                planar_trees=getattr(m, 'PLANAR_TREES', None))
+                planar_trees=getattr(m, 'PLANAR_TREES', None), plates=plates_record)

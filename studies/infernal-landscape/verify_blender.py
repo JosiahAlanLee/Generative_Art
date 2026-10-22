@@ -5,7 +5,11 @@ import bpy
 import numpy as np
 from mathutils import Vector
 R=Path(__file__).resolve().parent;case=os.environ.get('INFERNAL_CASE','recorded_route')
-mode=os.environ.get('INFERNAL_TERRAIN','original');O=R/'output'/(case if mode=='original' else case+'-'+mode)
+mode=os.environ.get('INFERNAL_TERRAIN','original')
+# The same folder rule as every other stage (scene.output_dir), so a face-pattern
+# or plate-study build audits its own .blend, scene record and samples.
+from scene import output_dir
+O=output_dir(case,mode)
 bpy.ops.wm.open_mainfile(filepath=str(O/('Infernal_'+case+'.blend')))
 SC=bpy.context.scene;bpy.context.view_layer.update();deps=bpy.context.evaluated_depsgraph_get()
 view=os.environ.get('TERRAIN_VIEW','main')

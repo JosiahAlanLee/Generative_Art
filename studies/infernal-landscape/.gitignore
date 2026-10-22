@@ -10,3 +10,5 @@ output/*
 !output/spillway-validation.json
 !output/face-patterns-preview.jpg
 !output/face-patterns-validation.json
+!output/plates-preview.jpg
+!output/plates-validation.json

@@ -228,3 +228,46 @@ def world_spacing(target_px, frame, uv, angle_deg, jacobian):
     jn = J @ across; jt = J @ along
     per_unit = np.abs(_cross(jn, jt)) / np.maximum(np.linalg.norm(jt, axis=1), 1e-12)
     return float(target_px / max(per_unit.min(), 1e-12))
+
+
+def _densify(line, step):
+    q = np.asarray(line, float)
+    seg = np.linalg.norm(np.diff(q, axis=0), axis=1); L = np.r_[0, np.cumsum(seg)]
+    t = np.unique(np.r_[L, np.arange(0, L[-1], step)]) if L[-1] > 0 else L[:1]
+    return np.column_stack([np.interp(t, L, q[:, 0]), np.interp(t, L, q[:, 1])])
+
+
+def _runs(points, keep):
+    ids = np.flatnonzero(keep)
+    return [points[g] for g in np.split(ids, np.flatnonzero(np.diff(ids) != 1) + 1) if len(g) > 1]
+
+
+def keep_where(lines, keep, step):
+    """The parts of 2D polylines where ``keep(x, y)`` holds, sampled every ``step``.
+
+    Returns the pieces and the fraction of the original length kept. Pieces
+    are cut at samples, so a boundary is located to within ``step``.
+    """
+    out, kept, total = [], 0., 0.
+    for line in lines:
+        d = _densify(line, step)
+        if len(d) < 2:
+            continue
+        total += float(np.linalg.norm(np.diff(d, axis=0), axis=1).sum())
+        for q in _runs(d, np.asarray(keep(d[:, 0], d[:, 1]), bool)):
+            out.append(q); kept += float(np.linalg.norm(np.diff(q, axis=0), axis=1).sum())
+    return out, (kept / total if total else 1.)
+
+
+def cut_discs(lines, discs, step=.01):
+    """The parts of 2D polylines outside every (centre, radius) disc."""
+    discs = [(np.asarray(c, float), float(r)) for c, r in discs]
+    if not discs:
+        return [np.asarray(l, float) for l in lines]
+
+    def outside(x, y):
+        ok = np.ones(len(x), bool)
+        for c, r in discs:
+            ok &= np.hypot(x - c[0], y - c[1]) > r
+        return ok
+    return keep_where(lines, outside, step)[0]
