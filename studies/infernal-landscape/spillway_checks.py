@@ -4,7 +4,8 @@ import json
 import numpy as np
 from compile import compile_document,compile_case
 
-R=Path(__file__).resolve().parent;O=R/'output/spillway-incised'
+from scene import output_dir
+R=Path(__file__).resolve().parent;O=output_dir('spillway','incised');DRY=O.name.endswith('-dryrun')
 A=compile_document(json.loads((R/'spillway-tasks.json').read_text()),'spillway')
 nodes={n['id']:n for n in A['nodes']};checks={}
 def check(name,ok):checks[name]=bool(ok)
@@ -21,16 +22,19 @@ for name,n in nodes.items():
 s=np.load(O/'terrain-state.npz');fixed=s['fixed_mask']
 check('erosion_changes_ground_but_preserves_access_pads',np.array_equal(s['height'][fixed],s['initial'][fixed]) and np.max(s['initial']-s['height'])>1)
 check('original_specimen_arithmetic_preserved',[compile_case(c)['result']['executable_completion'] for c in ('recorded_route','rehearsed_route','late_opening','gate_unavailable')]==[10,5,11,None])
-views={}
+views={};skipped={}
 for v in ('main','low'):
-    common=json.loads((O/f'checks-{v}.json').read_text())
-    native=json.loads((O/('blender-visibility.json' if v=='main' else 'blender-visibility-low.json')).read_text())
-    check(v+'_common_checks',common['all_passed']);check(v+'_independent_blender_rays',native['visible_violations']==0)
+    common=json.loads((O/f'checks-{v}.json').read_text());backend=common.get('backend','blender')
+    check(v+'_common_checks',common['all_passed'])
+    if backend=='blender':
+        native=json.loads((O/('blender-visibility.json' if v=='main' else 'blender-visibility-low.json')).read_text())
+        check(v+'_independent_blender_rays',native['visible_violations']==0)
+    else:native=None;skipped[v+'_independent_blender_rays']='no Blender evaluation in a '+backend+' dry run'
     zones=common['measured']['zones']
     check(v+'_subject_framing',zones['building']['area_fraction']>=.08 and zones['sky']['area_fraction']<.30)
-    views[v]=dict(measured=common['measured'],native=native)
-result=dict(scene='spillway',all_passed=all(checks.values()),checks=checks,views=views,
+    views[v]=dict(backend=backend,measured=common['measured'],native=native)
+result=dict(scene='spillway',all_passed=all(checks.values()),checks=checks,skipped=skipped,views=views,
             evaluator=A['result'],source_pr=23)
-(R/'output/spillway-validation.json').write_text(json.dumps(result,indent=2))
+(R/'output'/('spillway-validation-dryrun.json' if DRY else 'spillway-validation.json')).write_text(json.dumps(result,indent=2))
 print(json.dumps(result,indent=2))
 if not result['all_passed']:raise SystemExit(1)

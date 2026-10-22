@@ -4,9 +4,12 @@ import hashlib,json
 import numpy as np
 from terrain_height import sampler
 
+from scene import output_dir
 R=Path(__file__).resolve().parent;O=R/'output';modes=('control','incised','ravined')
-states={m:dict(np.load(O/('recorded_route-'+m)/'terrain-state.npz')) for m in modes}
-scenes={m:json.loads((O/('recorded_route-'+m)/'scene.json').read_text()) for m in modes}
+DIRS={m:output_dir('recorded_route',m) for m in modes}
+DRY=DIRS['control'].name.endswith('-dryrun')
+states={m:dict(np.load(DIRS[m]/'terrain-state.npz')) for m in modes}
+scenes={m:json.loads((DIRS[m]/'scene.json').read_text()) for m in modes}
 checks={}
 def record(n,ok,**data):checks[n]=dict(passed=bool(ok),**data)
 base=states['control'];fixed=base['fixed_mask']
@@ -22,11 +25,13 @@ for m,s in states.items():
     rec=s['receiver'].ravel();a=s['area'].ravel();h=s['routed_height'].ravel();active=rec>=0
     runoff[m]=dict(outlets=float(a[~active].sum()),cells=len(a))
     record(m+'_routing_descends_and_conserves_runoff',np.all(h[rec[active]]<h[active]) and np.isclose(a[~active].sum(),len(a)))
-    check=json.loads((O/('recorded_route-'+m)/'checks-main.json').read_text())
-    native=json.loads((O/('recorded_route-'+m)/'blender-visibility.json').read_text())
-    record(m+'_visibility_and_print_checks',check['all_passed'] and native['visible_violations']==0,native=native)
+    check=json.loads((DIRS[m]/'checks-main.json').read_text());backend=check.get('backend','blender')
+    if backend=='blender':
+        native=json.loads((DIRS[m]/'blender-visibility.json').read_text())
+        record(m+'_visibility_and_print_checks',check['all_passed'] and native['visible_violations']==0,native=native)
+    else:record(m+'_visibility_and_print_checks',check['all_passed'],native=None,skipped='no Blender evaluation in a '+backend+' dry run')
 summary=dict(all_passed=all(c['passed'] for c in checks.values()),checks=checks,runoff=runoff,
-             native_ray_samples=sum(checks[m+'_visibility_and_print_checks']['native']['native_ray_samples'] for m in modes),
+             native_ray_samples=sum((checks[m+'_visibility_and_print_checks']['native'] or {}).get('native_ray_samples',0) for m in modes),
              process_tests=21,steps={m:int(s['steps']) for m,s in states.items()})
-(O/'erosion-validation.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary,indent=2))
+(O/('erosion-validation-dryrun.json' if DRY else 'erosion-validation.json')).write_text(json.dumps(summary,indent=2));print(json.dumps(summary,indent=2))
 if not summary['all_passed']:raise SystemExit(1)

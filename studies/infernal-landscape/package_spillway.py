@@ -6,9 +6,10 @@ from PIL import Image,ImageDraw,ImageFont
 R=Path(__file__).resolve().parent;O=R/'output/spillway-incised';D=R/'dist';D.mkdir(exist_ok=True)
 validation=json.loads((R/'output/spillway-validation.json').read_text())
 if not validation['all_passed']:raise SystemExit('Refusing to package failed checks')
+if any(v.get('backend','blender')!='blender' for v in validation['views'].values()):raise SystemExit('Refusing to package a dry run: deliver from the Blender model')
 hero=D/'Infernal_Spillway.png';shutil.copyfile(O/'Infernal_spillway_main.png',hero)
 paper='#ede6d4';sheet=Image.new('RGB',(2400,1080),paper);draw=ImageDraw.Draw(sheet)
-font_path=R/'vendor/IBMPlexMono-Regular.ttf'
+font_path=R/'vendor/fonts/IBMPlexMono-Regular.ttf'
 font=ImageFont.truetype(str(font_path),24) if font_path.exists() else ImageFont.load_default(size=24)
 for i,(v,title) in enumerate((('main','01 / Spillway works'),('low','02 / Lower camera'))):
     im=Image.open(O/f'Infernal_spillway_{v}.png').convert('RGB');im.thumbnail((1160,920))

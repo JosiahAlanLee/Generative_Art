@@ -73,8 +73,9 @@ python run.py --blender-python /path/to/blender-env/bin/python \
   --engraving-python /path/to/engraving-env/bin/python
 ```
 
-For one case, append `--cases recorded_route`; `--no-clay` skips the Cycles PNG.
-The logs stay beside each result. To run individual stages:
+For one case, append `--cases recorded_route`; `--no-clay` skips the Cycles PNG;
+`--views main low` engraves both cameras (`package.py` needs the low view of
+the recorded route). The logs stay beside each result. To run individual stages:
 
 ```sh
 INFERNAL_CASE=recorded_route /path/to/blender-python model.py
@@ -86,6 +87,38 @@ INFERNAL_CASE=recorded_route /path/to/blender-python verify_blender.py
 
 Set `TERRAIN_VIEW=low` during engraving for the additional camera. The scene
 contains both cameras. Camera and visibility audits distinguish their views.
+
+### How the scene is built
+
+`geometry.py` is one NumPy builder for every scene: boxes, beams, gable
+roofs, arches of ring stones, repeated modules, volume oaks, the terrain grid
+and cameras. The three grammars (`estate.py`, `spillway.py`, `window.py`)
+compose their architecture from it and never touch bpy. `model.py` is the
+Blender backend: it mirrors each mesh into Blender, builds the Geometry Nodes
+tree that repeats a duration module (vertically for storeys, horizontally
+for halls), adds the terrain's Displace modifier, and exports the evaluated
+depsgraph. On every build it checks that Blender's realised repetition is the
+builder's own instancing, and that every closed solid faces outward. The
+engraver hatches only camera-facing faces, so an inside-out roof or ring
+stone would otherwise lose its hatching silently; the estate roofs and all
+arch voussoirs were in that state until 22 October 2026 (see
+[RENDERING-NOTES.md](RENDERING-NOTES.md)).
+
+`dryrun.py` builds the same `scene.json` without Blender, so `render.py`,
+`checks.py` and `measure.py` can be developed anywhere: each runner accepts
+`--dry-run` (no `--blender-python` needed), and with `INFERNAL_DRYRUN=1` the
+individual stages write to `output/<case>[-<terrain>]-dryrun/` beside the
+delivered build. It cannot supply Blender's part: no Displace on the terrain,
+no clay proof, no `.blend`, no native ray audit. Its records are marked
+`backend: numpy`, the Blender-only checks are reported as skipped, and the
+package scripts refuse them. Deliver from the Blender model.
+
+```sh
+python -m unittest discover -s studies/infernal-landscape/tests -v   # from the repo root
+```
+
+covers the primitives' windings, module repetition, Blender-style object
+naming, the record schema and all three grammars built without bpy.
 
 ### Use a different task graph
 
@@ -123,11 +156,13 @@ fraction and longest hidden run. `checks.py` gates on the tone hierarchy
 (buildings > oaks > open ground > sky, with open ground under half the
 buildings' density) and on the red rule matching the schedule; the per-route
 red visibility is recorded as advisory, because its remedy is in the geometry.
-Recorded Route, main camera: buildings 0.37 mean ink, oaks 0.22, open ground
-0.08, darkest 4 mm cell 0.56. The approval → restore route is 18% visible with
-a 23 mm run hidden behind the staff building on every plate where it is red;
-moving that tray to the camera side of the buildings is the open model-side
-item, with the camera itself (`model.py` places the main eye at (27, −38, 23)).
+Recorded Route, main camera: buildings 0.43 mean ink, oaks 0.26, open ground
+0.07, darkest 4 mm cell 0.57 (buildings were 0.37 while their roofs and
+arches went unhatched; see the review in the rendering notes). The approval →
+restore route is 18% visible with a 23 mm run hidden behind the staff building
+on every plate where it is red; moving that tray to the camera side of the
+buildings is the open model-side item, with the camera itself (`estate.py`
+places the main eye at (27, −38, 23)).
 
 The download includes four Blender files, the source, evaluated scene records,
 layered SVGs, PNG proofs, audit arrays and results. The visual PDF puts each
@@ -141,7 +176,9 @@ Josiah Alan-Lee's project, developed with ChatGPT/Codex, 21 October 2026.
 Architecture compiler, Geometry Nodes adaptation, volume-tree geometry,
 print controls, proof layout and checks: ChatGPT/Codex. Driftless engine,
 nine unchanged hatch bodies, ray kernel, and original meadow compositor:
-Claude, with the earlier terrain adapters credited in their files. The exact
+Claude, with the earlier terrain adapters credited in their files. Shared
+geometry builder, outward solids and their audit, the NumPy dry run, the
+window measurements and the re-engraved plates: Claude, 22 October 2026. The exact
 reachability evaluator is copied unchanged from the pinned public-book source;
 its SHA-256 is recorded in every architecture record. Repository notices and
 extraction hashes accompany the source. No new blanket licence is assigned.

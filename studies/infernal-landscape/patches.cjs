@@ -72,5 +72,8 @@ const out = {
 };
 const caseName=process.env.INFERNAL_CASE || 'recorded_route';
 const terrainMode=process.env.INFERNAL_TERRAIN || 'original';
-fs.writeFileSync(path.join(__dirname, 'output', terrainMode==='original'?caseName:caseName+'-'+terrainMode, 'driftless-meadow-patches.json'), JSON.stringify(out));
+// The same directory rule as scene.output_dir: a dry run keeps its own folder.
+const outDir=(terrainMode==='original'?caseName:caseName+'-'+terrainMode)+(process.env.INFERNAL_DRYRUN==='1'?'-dryrun':'');
+fs.mkdirSync(path.join(__dirname, 'output', outDir), { recursive: true });
+fs.writeFileSync(path.join(__dirname, 'output', outDir, 'driftless-meadow-patches.json'), JSON.stringify(out));
 console.log({ oak: out.oak.strokes.length, plants: plants.length, plantStrokes: plants.reduce((s, p) => s + p.strokes.length, 0), farm: out.farm.strokes.length });

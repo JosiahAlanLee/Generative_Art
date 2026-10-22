@@ -14,7 +14,8 @@ import os
 ROOT=Path(__file__).resolve().parent
 CASE=os.environ.get('INFERNAL_CASE','recorded_route')
 TERRAIN_MODE=os.environ.get('INFERNAL_TERRAIN','original')
-OUT=ROOT/'output'/(CASE if TERRAIN_MODE=='original' else CASE+'-'+TERRAIN_MODE)
+from scene import output_dir
+OUT=output_dir(CASE,TERRAIN_MODE)
 OUT.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(ROOT/'vendor'))
 import raycore as rc

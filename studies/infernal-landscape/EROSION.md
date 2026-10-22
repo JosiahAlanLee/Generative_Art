@@ -80,6 +80,11 @@ The source pack includes the source, the reusable process modules, three
 editable Blender scenes, the SVG plates, clay proofs, simulation fields and
 visibility audits. This is an exterior study; it changes no bound book pages.
 
+The three plates were re-engraved on 22 October 2026 after the estate's roofs
+and arch voussoirs were wound outward in the shared geometry builder; the
+terrain fields, task strokes and cameras are unchanged, and the comparison
+checks pass as before (see the review in [RENDERING-NOTES.md](RENDERING-NOTES.md)).
+
 Prepared for Josiah Alan-Lee with ChatGPT/Codex, 21 October 2026. New terrain
 adapter, composition and integration: ChatGPT/Codex. The inherited Driftless,
 hatching and visibility credits remain in the study README and vendor notices.

@@ -1,5 +1,5 @@
 {
-  "python": "3.12.14",
+  "python": "3.12.3",
   "blender": "4.5.14 LTS",
   "engraving": {
     "numpy": "2.2.6",

@@ -15,10 +15,22 @@ from terrain_height import base_height, sampler
 ROOT = Path(__file__).resolve().parent
 
 
+def output_dir(case=None, terrain_mode=None):
+    """output/<case>[-<terrain>][-dryrun]: every stage of a build shares it.
+
+    INFERNAL_DRYRUN=1 keeps a NumPy dry run beside the delivered Blender
+    build instead of overwriting it; patches.cjs applies the same suffix."""
+    case = case or os.environ.get('INFERNAL_CASE', 'recorded_route')
+    terrain_mode = terrain_mode or os.environ.get('INFERNAL_TERRAIN', 'original')
+    name = case if terrain_mode == 'original' else case + '-' + terrain_mode
+    if os.environ.get('INFERNAL_DRYRUN') == '1': name += '-dryrun'
+    return ROOT / 'output' / name
+
+
 def context():
     case = os.environ.get('INFERNAL_CASE', 'recorded_route')
     terrain_mode = os.environ.get('INFERNAL_TERRAIN', 'original')
-    out = ROOT / 'output' / (case if terrain_mode == 'original' else case + '-' + terrain_mode)
+    out = output_dir(case, terrain_mode)
     out.mkdir(parents=True, exist_ok=True)
     A = (compile_document(json.loads(Path(os.environ['INFERNAL_INPUT']).read_text()), case)
          if os.environ.get('INFERNAL_INPUT') else compile_case(case))

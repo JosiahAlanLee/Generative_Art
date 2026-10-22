@@ -99,6 +99,55 @@ behind the staff building, on every plate where that edge is red.
 - Ridge oaks are volumetric ring clusters; the drawn Driftless oak reads
   better and could be instanced through the owner-aware buffer.
 
+## Review of PRs #22–#25 (Claude, 22 October 2026)
+
+The three scenes rebuilt here with `bpy==4.5.14` and the pinned engraving
+environment, and reproduced the committed plates exactly before any change.
+
+**Inside-out solids.** The estate `roof()` wound all four faces inward, and
+`arch()` wound every voussoir inward, in every scene. The engraver hatches
+only faces whose stored normal faces the camera, and `structure()` keeps an
+edge only if one of its faces does, so the estate roofs had no hatching on
+either visible slope and no near eave, and every arch (estate portals and
+approach arch, spillway portals and the permit's waiting frames, the mill
+door) drew as an unhatched ring of outlines over hatched wall. PR #25 fixed
+the roof for the window only, as a local function. Both windings are outward
+in the shared `geometry.py`; the diff against the previous model is exactly
+the flipped normals of 16 estate roof faces and 60 voussoir faces per arch,
+nothing else. `closed_solids_face_outward` now gates every plate: the signed
+flux of each closed solid about its own centroid, per connected component,
+so a repeated module's parts and each ring stone are checked separately.
+
+**One builder, two backends.** The three grammars (`estate.py`, `spillway.py`,
+`window.py`) call the same primitives; `model.py` mirrors them into Blender
+and `dryrun.py` evaluates them in NumPy. Blender's realised Geometry Nodes
+repetition is compared with the builder's instancing on every build and
+recorded in `blender-checks.json` (`realised_matches_numpy`, float32 error
+about 1e-6). The dry run differs from the delivered model only by the
+terrain's Displace modifier (up to 0.036 units), which stays in Blender.
+
+**The window plate is now measured.** Zones `aperture` (the reveal) and
+`water` join the estate's; the bridge counts as furniture. Main camera: mill
+0.384 mean ink, oaks 0.301, aperture 0.153, open ground 0.154, sky 0.009.
+The mill leads the view, which gates. The footbridge measures 0.537, darker
+than the mill: sixty plank beams at crease weight, close to the eye, with the
+depth factor at its 1.24 cap. By the series' rule furniture stays lighter
+than the subject; this is advisory because the remedy is geometry (fewer or
+thinner planks near the sill, or planks as ink lines rather than beams).
+
+**Thin furniture reads dark by construction.** The spillway's furniture zone
+(posts, trays, revetment stakes) measures 0.69 mean ink over 1.5% of the
+plate: a beam a few pixels wide is mostly its two silhouette edges. Compare
+such zones by area and cell percentiles, not by mean.
+
+**Still open from the previous review.** The estate's approval → restore tray
+remains 18% visible from the main camera (advisory); the spillway answered
+the camera and height-axis items with a new scene rather than by moving the
+estate's services. A roof placed by Python does not follow the `Bays` socket
+when it is edited in Blender; the socket identifier is now recorded per host
+(`bays_socket`), so a driver on the roof's Z could read it. That is a
+model-side change and is not made here.
+
 ## Second scene: spillway works
 
 [The spillway scene](SPILLWAY.md) applies those model-side suggestions with a

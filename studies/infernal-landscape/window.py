@@ -135,5 +135,5 @@ def build_scene(A,T):
 
 
 if __name__=='__main__':
-    from pathlib import Path
-    prepare(Path(__file__).resolve().parent/'output/window-incised')
+    from scene import output_dir
+    prepare(output_dir('window','incised'))

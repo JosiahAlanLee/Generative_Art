@@ -65,8 +65,9 @@ if __name__=='__main__':
     case=os.environ.get('INFERNAL_CASE','recorded_route')
     architecture=(compile_document(json.loads(Path(os.environ['INFERNAL_INPUT']).read_text()),case)
                   if os.environ.get('INFERNAL_INPUT') else compile_case(case))
+    from scene import output_dir
     for mode in PRESETS:
-        out=ROOT/'output'/(case+'-'+mode);out.mkdir(parents=True,exist_ok=True)
+        out=output_dir(case,mode);out.mkdir(parents=True,exist_ok=True)
         state,_=make_terrain(mode,architecture,base_height)
         np.savez_compressed(out/'terrain-state.npz',**state)
         print(mode,'steps',PRESETS[mode],'cut total',float(state['incision_history'].sum()),flush=True)

@@ -36,6 +36,7 @@ def comparison():
 def package():
     checks=json.loads((O/'erosion-validation.json').read_text())
     if not checks['all_passed']:raise RuntimeError('Comparison checks failed')
+    if any(c.get('skipped') for c in checks['checks'].values()):raise RuntimeError('Refusing to package a dry run: deliver from the Blender model')
     files=[]
     for p in R.rglob('*'):
         if not p.is_file() or any(x in p.parts for x in ('__pycache__','dist')):continue
