@@ -174,3 +174,11 @@ A reusable tile grammar supplies joined curves and steps. Adaptive transport fol
 ## [Farm objects](techniques/16-farm-objects/README.md)
 
 Seeded timber barns, open-seat tractors, disk harrows, dump rakes and slatted wagons. Actual mesh gaps and sag combine with surface-attached grain and corrosion, with four-layer stroke-only SVGs and shared 3D visibility. [Object study and specimens](studies/farm-remnants/README.md).
+
+## [Southwestern Wisconsin flora](techniques/17-wisconsin-flora/README.md)
+
+| Technique | Use | Status |
+| --- | --- | --- |
+| [Species-informed plant grammars](lib/flora/species.py) | Seeded stems, leaf surfaces and seasonal organs for six prairie/savanna species | collection |
+| [Plant hidden-line drawing](lib/flora/render.py) | Sampled 3D visibility with organ-layered millimetre SVG | collection |
+| [Landscape and Blender bridges](lib/flora/adapters.py) | Pass procedural plant geometry and ink to existing scenes | prototype |

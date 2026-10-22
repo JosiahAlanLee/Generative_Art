@@ -1252,6 +1252,27 @@
     ]
   },
   {
+    "id": "wisconsin-flora",
+    "title": "Seeded southwestern Wisconsin plants",
+    "family": "17-wisconsin-flora",
+    "status": "collection",
+    "use": "Generate species-informed 3D vegetation and hidden-line plotter SVGs",
+    "guide": "techniques/17-wisconsin-flora/README.md",
+    "sources": [
+      "lib/flora/species.py",
+      "lib/flora/model.py",
+      "lib/flora/render.py",
+      "lib/flora/adapters.py"
+    ],
+    "symbols": [
+      "generate",
+      "Plant",
+      "render",
+      "add_to_scene_builder",
+      "to_blender"
+    ]
+  },
+  {
     "id": "face-patterns",
     "title": "2D generators on flat faces",
     "family": "08-scene-studies",

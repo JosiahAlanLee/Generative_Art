@@ -1,0 +1,60 @@
+{
+  "generator": "0.1.0",
+  "specimens": [
+    {
+      "species": "little_bluestem",
+      "seed": 22,
+      "stage": "seed",
+      "paths": 834,
+      "pen_down_metres": 3.529,
+      "surfaces": 48,
+      "organs": 48
+    },
+    {
+      "species": "side_oats_grama",
+      "seed": 33,
+      "stage": "seed",
+      "paths": 989,
+      "pen_down_metres": 4.458,
+      "surfaces": 468,
+      "organs": 475
+    },
+    {
+      "species": "leadplant",
+      "seed": 44,
+      "stage": "flowering",
+      "paths": 5539,
+      "pen_down_metres": 5.973,
+      "surfaces": 998,
+      "organs": 1026
+    },
+    {
+      "species": "prairie_smoke",
+      "seed": 55,
+      "stage": "seed",
+      "paths": 3725,
+      "pen_down_metres": 10.637,
+      "surfaces": 108,
+      "organs": 124
+    },
+    {
+      "species": "wild_bergamot",
+      "seed": 66,
+      "stage": "flowering",
+      "paths": 1556,
+      "pen_down_metres": 4.186,
+      "surfaces": 84,
+      "organs": 90
+    },
+    {
+      "species": "bur_oak",
+      "seed": 77,
+      "stage": "leafy",
+      "paths": 3345,
+      "pen_down_metres": 4.441,
+      "surfaces": 462,
+      "organs": 462
+    }
+  ],
+  "note": "Illustrative grammars. No physical plot test. Each specimen fitted independently."
+}
