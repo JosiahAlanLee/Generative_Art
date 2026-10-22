@@ -1,0 +1,69 @@
+{
+  "plates": {
+    "barn-22-d72": {
+      "paths": 1831,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "2dbac54b8351e5979ebd4a092ceb69079a8ab2e894dbce80dc483eec77b7b090"
+    },
+    "tractor-23-d72": {
+      "paths": 2396,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "9503f08f5443cb0fdcdc57f77fa6f59bd764d2350fdd49a5be2aab165ef6950f"
+    },
+    "disk_harrow-24-d72": {
+      "paths": 1069,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "abdff1092109cd708a9f26da7ae038d69d5c194ea1a15183e72381ed1617dce9"
+    },
+    "hay_rake-25-d72": {
+      "paths": 1666,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "f05dd695060dab628bda27cca6c7671cb1490ae1f5afa609c100ee71cc34bc3b"
+    },
+    "wagon-26-d72": {
+      "paths": 1679,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "11cbc4fcf05031265383cda6a5bf6902c075fbe379335971d205fd364d55676a"
+    },
+    "barn-22-d00": {
+      "paths": 1212,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "a628c2278b6c23269489c879fb5f71bda84a547e96550dea90b402c997560611"
+    },
+    "barn-22-d38": {
+      "paths": 1673,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "7df4474963ed2a3964526d32579a777555e90cae78e2cef41b9291aca3d60895"
+    },
+    "barn-22-d90": {
+      "paths": 1947,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "3379efe7b5a942e15999dc7433fcce8e35b8954fc1a6634915fb06b4d38c6dc5"
+    },
+    "farmyard": {
+      "paths": 6083,
+      "bounds": true,
+      "stroke_only": true,
+      "png_integrity": true,
+      "sha256": "485c319f44e3319a6d1e6104363856dc41461682cd518de85162ea4fea8412b9"
+    }
+  },
+  "physical_plot": false,
+  "native_blender": false
+}

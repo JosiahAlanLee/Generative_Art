@@ -1,0 +1,5 @@
+output/*.obj
+output/*.json
+!output/metrics.json
+!output/validation.json
+output/*.png
