@@ -1,3 +1,7 @@
 numpy>=1.24
 Pillow>=10
 shapely>=2
+# savanna_oak.py and lib/flora/oak_render.py only (the bur oak engraving):
+scipy>=1.10
+contourpy>=1.2
+numba>=0.59

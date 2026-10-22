@@ -1273,6 +1273,32 @@
     ]
   },
   {
+    "id": "savanna-oak",
+    "title": "Open-grown bur oak",
+    "family": "17-wisconsin-flora",
+    "status": "collection",
+    "use": "Build a mature savanna oak (crooked tapered limbs, foliage masses, bark furrows) and engrave it for any camera as scalloped cross-contour rows, broken outlines and furrows",
+    "guide": "studies/wisconsin-flora/README.md",
+    "sources": [
+      "lib/flora/oak.py",
+      "lib/flora/crown.py",
+      "lib/flora/oak_render.py",
+      "studies/wisconsin-flora/savanna_oak.py"
+    ],
+    "symbols": [
+      "savanna_oak",
+      "Oak",
+      "clump_mesh",
+      "tube",
+      "draw_masses",
+      "scallop",
+      "contact_tone",
+      "limb_outline",
+      "furrow_keep",
+      "render_oak"
+    ]
+  },
+  {
     "id": "face-patterns",
     "title": "2D generators on flat faces",
     "family": "08-scene-studies",
@@ -1305,7 +1331,7 @@
     "title": "Close-camera plate studies",
     "family": "08-scene-studies",
     "status": "study",
-    "use": "Combine the face patterns, a farm-objects farmstead, Wisconsin flora and the sdf2d, fuzz and Poisson ports in two engraved Infernal Engine plates",
+    "use": "Combine the face patterns, a farm-objects farmstead, Wisconsin flora, bur oaks and the sdf2d, fuzz and Poisson ports in two engraved Infernal Engine plates",
     "guide": "studies/infernal-landscape/PLATES.md",
     "sources": [
       "studies/infernal-landscape/plates.py",
@@ -1325,7 +1351,10 @@
       "seal_on_tower",
       "quilt_on_barn",
       "cut_discs",
-      "keep_where"
+      "keep_where",
+      "use_bur_oaks",
+      "oak_tree",
+      "draw_oaks"
     ]
   }
 ]

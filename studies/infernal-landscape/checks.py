@@ -48,6 +48,11 @@ if pattern_file.exists():
     # Face patterns (FACE-PATTERNS.md) are delivered through the same ray test as the rest.
     a=np.load(pattern_file)['world'];seen=B.visible(a,*B.BVH[:6]) if len(a) else np.zeros(0,bool)
     record('face_pattern_samples_visible',len(a)>0 and seen.all(),samples=len(a),violations=int((~seen).sum()))
+oak_file=B.OUT/f'oak-audit-{B.VIEW_NAME}.npz'
+if oak_file.exists():
+    # The plates' bur oaks (PLATES.md): crown marks, limb silhouettes and bark, re-tested.
+    a=np.load(oak_file)['world'];seen=B.visible(a,*B.BVH[:6]) if len(a) else np.zeros(0,bool)
+    record('oak_samples_visible',len(a)>0 and seen.all(),samples=len(a),violations=int((~seen).sum()))
 p=np.load(B.OUT/f'plants-audit-{B.VIEW_NAME}.npz')
 record('plant_owners_respected',not (p['nearest_depth']<p['owner_depth']-M.EPS_PLANT).any(),samples=len(p['xy']))
 # Adversarial fixture: place a mark at ground level beneath a task building.

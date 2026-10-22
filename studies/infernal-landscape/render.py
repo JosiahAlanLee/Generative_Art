@@ -101,6 +101,10 @@ def structure():
     n=np.asarray(B.D['normals']);centers=np.array([f['p'].mean(0) for f in B.FACES])
     front=np.einsum('ij,ij->i',n,B.EYE-centers)>0
     edges={};terrain=set(B.D['terrain_faces']);paths=[];detail=[]
+    if PLATES:
+        # The plates' bur oaks are drawn by plates.draw_oaks, not by their mesh edges.
+        import plates
+        terrain|={k for k,f in enumerate(B.FACES) if plates.is_oak_part(f['name'])}
     for k,f in enumerate(B.D['faces']):
         if k in terrain:continue
         # Leaf faces are two-sided drawing geometry; their silhouettes must
@@ -168,10 +172,11 @@ def release_marks(arch):
     return marks
 
 
-def engrave(field,edges,patterns=(),keepouts=()):
+def engrave(field,edges,patterns=(),keepouts=(),oaks=()):
     """Hatch for the remaining tone. Face patterns (surface_patterns.py, off by
-    default) reserve tone like architecture ink; a keep-out removes a face's
-    own hatching inside a painted region, whose paint replaces the light."""
+    default) and the plates' bur oaks reserve tone like architecture ink; a
+    keep-out removes a face's own hatching inside a painted region, whose
+    paint replaces the light."""
     ch=B.CH;w=MM['hatch']*20;gap=MM['gap']*20
     depth=np.linalg.norm(B.TARGET-B.EYE);delta=gap*depth/B.FOCAL
     ch.FAMILIES=((.64,delta,w),(-.72,delta*1.08,w))
@@ -222,7 +227,7 @@ def engrave(field,edges,patterns=(),keepouts=()):
         idx=np.flatnonzero(st.attr['surf']==-1-ko['face'])
         if len(idx):d[idx[inside(to_uv(st.world[idx],ko['frame']),ko['polygon'])]]=0
     used=Image.new('L',(B.W//5,B.H//5),0);draw=ImageDraw.Draw(used)
-    for paths in [edges,patterns]+[p for _,p,_ in field]:
+    for paths in [edges,patterns,oaks]+[p for _,p,_ in field]:
         for q,width in paths:draw.line([tuple(p/5) for p in q],fill=255,width=max(1,round(width/5)))
     used=gaussian_filter(np.asarray(used,float)/255,.7)*.32
     keep=ch.allocate_hatch(st,d,used,seen)
@@ -230,6 +235,7 @@ def engrave(field,edges,patterns=(),keepouts=()):
     # All emitted hatches have exactly the width budgeted above.
     layers=[('01 crosshatching',[(q,w) for q in B.split_paths(st.xy,keep,st.sid)],INK),('02 architecture and volume foliage',edges,INK)]
     if patterns:layers.append(('02 architecture face patterns',list(patterns),INK))
+    if oaks:layers.append(('02 bur oaks',list(oaks),INK))
     return layers
 
 
@@ -268,7 +274,14 @@ if __name__=='__main__':
         patterns,keepouts,pattern_audit,pattern_stats=SP.face_patterns()
         np.savez_compressed(OUT/f'pattern-audit-{B.VIEW_NAME}.npz',world=pattern_audit)
         print('Face patterns',json.dumps(pattern_stats),flush=True)
-    groups=engrave(field,edges,patterns,keepouts)+field
+    oaks=[]
+    if PLATES:
+        # The estate's oaks are bur oaks in the plates build (plates.use_bur_oaks).
+        import plates
+        oaks,oak_audit,PLATES_RECORD['oaks']=plates.draw_oaks(B,MM)
+        np.savez_compressed(OUT/f'oak-audit-{B.VIEW_NAME}.npz',world=oak_audit)
+        print('Oaks',json.dumps(PLATES_RECORD['oaks']['trees']),flush=True)
+    groups=engrave(field,edges,patterns,keepouts,oaks)+field
     instances=place(patches);buf=np.full((B.H*M.K,B.W*M.K),np.inf)
     for inst in instances:M.stamp(buf,inst)
     depth=M.model_depth(buf);pens,audit=M.plant_strokes(instances,buf,return_audit=True)

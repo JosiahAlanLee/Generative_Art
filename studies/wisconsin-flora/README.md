@@ -19,8 +19,9 @@ simulations of plant development.
 | Wild bergamot / *Monarda fistulosa* | Opposite leaf pairs rotated between nodes, toothed blades, terminal tubular flower clusters or dry heads | `flowering`, `seed` |
 | Bur oak / *Quercus macrocarpa* | Broad low forks, irregular branches, alternate lobed leaves with deep middle sinuses | `leafy`, `bare` |
 
-The bur oak is a **young open-grown tree study**, not the mature spreading oak
-already represented by the generic Driftless symbols. Individual specimens
+The bur oak is a **young open-grown tree study**. The mature spreading oak
+has its own generator, described in
+[Open-grown bur oak for landscapes](#open-grown-bur-oak-for-landscapes). Individual specimens
 are fitted independently on the comparison sheet; their displayed heights
 are not a comparison of real plant sizes.
 
@@ -98,6 +99,65 @@ optional full 3D ink curves. It never clears an existing scene. The Blender
 adapter is supplied but **was not executed in this environment**; no `.blend`
 or native Blender render is claimed. This version is Python procedural
 geometry, not a Geometry Nodes asset.
+
+## Open-grown bur oak for landscapes
+
+![Three seeds, and the first turned 90 degrees](output/savanna_oak.png)
+
+The bur oak above is a sapling drawn leaf by leaf. A mature savanna oak seen
+across a field needs a different drawing, so it has its own generator.
+[`lib/flora/oak.py`](../../lib/flora/oak.py) builds the tree's geometry, and
+[`lib/flora/crown.py`](../../lib/flora/crown.py) draws it for any camera.
+
+**The tree** (`savanna_oak(seed, height, spread=None, stage='leafy', detail=2)`)
+follows the open-grown habit, illustratively rather than as a growth model:
+
+- a short trunk with a flared foot;
+- four or five heavy scaffold limbs leaving it at staggered heights, some
+  nearly level, dipping before they rise;
+- a short leader;
+- branches and twigs running out to foliage masses spread over a broad crown
+  envelope, with sky between them.
+
+Limbs are tapered, crooked tubes. Each foliage mass is a lumpy ellipsoid with a
+flattened underside. `detail` changes mesh resolution only, never the tree.
+Every mesh is closed and wound outward.
+
+`bare` keeps the same limbs and adds short spurs. It is a skeleton, not yet a
+winter study: a winter bur oak's dense twig network is not modelled.
+
+**The marks** come from rasters that the host renderer supplies: which mass
+each pixel sees, how far, how high and how dark. `crown.draw_masses` turns them
+into:
+
+- rows: contours of world height across each mass, kept by darkness against a
+  bit-reversed rank and drawn as chains of small arches;
+- outlines: scalloped silhouettes, cut where something nearer passes in front
+  and opened on the lit side;
+- contact shadow, which darkens a mass where a nearer one overlaps it.
+
+`limb_outline` gives a tube's two silhouette lines analytically, so they are
+smooth whatever the mesh. `furrow_keep` chooses which bark furrows to draw from
+the bark's darkness and the furrows' spacing on the page.
+
+[`lib/flora/oak_render.py`](../../lib/flora/oak_render.py) draws one tree on its
+own, with an orthographic camera and the repository's BVH rays:
+
+```sh
+python -m lib.flora.oak_render --seed 371 --height 6.7 --out oak.svg
+python studies/wisconsin-flora/savanna_oak.py      # the sheet above
+```
+
+The pens are set per layer: rows 0.08 mm, outlines 0.10, bark 0.085, branches
+0.10, scaffold limbs 0.16 and the trunk 0.25.
+
+These need SciPy, ContourPy and Numba, as the Infernal Landscape engraving
+does; the rest of this study does not. In a landscape, the
+[plate studies](../infernal-landscape/PLATES.md) draw these oaks through their
+own camera, light and shadows.
+
+The masses are an engraver's convention, not leaves. Acorns, leaf lobes at
+this scale and the corky ridges of young twigs are not modelled.
 
 ## Plot characteristics and limits
 

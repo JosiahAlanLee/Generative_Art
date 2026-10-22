@@ -5,6 +5,7 @@ SceneBuilder over flat ground, the flora drawings come from lib/flora, and
 the seal is evaluated as a field. Run from the repository root:
     python -m unittest discover -s studies/infernal-landscape/tests -v
 """
+import json
 import sys
 import unittest
 from pathlib import Path
@@ -168,6 +169,44 @@ class HatchDomainTests(unittest.TestCase):
         np.testing.assert_allclose(f, [0., .5, 1., 1.], atol=1e-12)
         g = plates.edge_fade(np.c_[np.linspace(0, 29.9, 300), np.full(300, 10.)], mesh)
         self.assertTrue((np.diff(g) <= 1e-12).all())
+
+
+class BurOakTests(unittest.TestCase):
+    """The estate's oaks as lib/flora bur oaks (plates.use_bur_oaks)."""
+
+    def setUp(self):
+        self.T = G.SceneBuilder(dict(seed=7), lambda x, y: .2 + 0 * np.asarray(x, float))
+        self.record = plates.use_bur_oaks(self.T)
+        self.T.oak('Volume oak near', 10.3, 9.5, 6.7, 371)
+
+    def test_parts_are_named_wound_and_unhatched(self):
+        objs = {o['name'].split('.')[0]: o for o in self.T.objects}
+        self.assertEqual(set(objs), {'Volume oak near | limbs', 'Volume oak near | branches', 'Volume oak near | crown'})
+        crowns = [o for o in self.T.objects if o['name'].startswith('Volume oak near | crown')]
+        self.assertEqual(len(crowns), self.record[0]['clumps'])
+        self.assertTrue(all(o['mat'] == 6 and not o['hatch'] for o in crowns))
+        D = self.T.evaluate()
+        audit = G.outward_audit(D)
+        self.assertTrue(audit and not any(v['inward'] for v in audit.values()))
+        self.assertTrue(all(plates.is_oak_part(n) for n in D['names']))
+        self.assertFalse(plates.is_oak_part('Volume oak near leaf volume'))
+
+    def test_crown_keeps_clear_of_the_barn(self):
+        barn = next(s for s in plates.FARM if s['kind'] == 'barn')
+        _, _, lo, hi, _ = plates._core_extent(barn)
+        V = np.vstack([o['verts'] for o in self.T.objects])
+        x0 = lo[0] - .4                     # the barn's footprint, as add_farmstead records it
+        self.assertLess(V[:, 0].max(), x0)
+        self.assertLess(self.record[0]['spread'], .66 * 6.7)
+
+    def test_render_time_tree_is_the_scene_tree(self):
+        entry = json.loads(json.dumps(self.record[0]))          # as plates-farmstead.json stores it
+        tree = plates.oak_tree(entry)
+        crowns = [o['verts'] for o in self.T.objects if o['name'].startswith('Volume oak near | crown')]
+        again = [v for part, v, _ in tree.meshes() if part == 'crown']
+        self.assertEqual(len(crowns), len(again))
+        for a, b in zip(crowns, again):
+            np.testing.assert_array_equal(a, b)
 
 
 class SealTests(unittest.TestCase):

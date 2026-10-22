@@ -69,7 +69,8 @@ def main():
                   cameras={v: scene['cameras'][v] for v in VIEWS}, farmstead=farm,
                   face_patterns={v: manifests[v]['face_patterns'] for v in VIEWS},
                   flora={v: manifests[v]['plates']['flora'] for v in VIEWS},
-                  terrain_domain={v: manifests[v]['plates']['terrain_domain'] for v in VIEWS})
+                  terrain_domain={v: manifests[v]['plates']['terrain_domain'] for v in VIEWS},
+                  oaks={v: manifests[v]['plates']['oaks'] for v in VIEWS})
     (R / 'output' / 'plates-validation.json').write_text(json.dumps(record, indent=2))
 
     im = {v: Image.open(OUT / f'{name(v)}.png').convert('RGB') for v in VIEWS}
@@ -80,12 +81,14 @@ def main():
     seal_r = np.ptp(tower(np.array(seal['centre_world']) + np.array([[-seal['radius'], 0, 0], [seal['radius'], 0, 0]]))[:, 0])
     board = np.vstack([V[f] for f, n in zip(scene['faces'], scene['names']) if n.startswith('Barn quilt board')])
     board_px = barn(board); quilt_c = board_px.mean(0); quilt_half = .62 * np.ptp(board_px, axis=0).max()
-    # Flora where the Poisson sample is densest: along the farmyard's fence,
-    # and in the tower meadow against the approval tower's east wall.
+    # Flora where the Poisson sample is densest, along the farmyard's fence,
+    # and the near bur oak's trunk and lower crown, as the barn camera sees them.
+    near = next(o for o in farm['oaks'] if o['name'] == 'Volume oak near')
+    oak_at = np.array(near['root']) + [0, 0, .62 * near['height']]
     crops = [(im['tower'].crop(square(seal_px, 1.9 * seal_r)), 'Seal (lib/sdf2d) and strata, tower'),
              (im['barn'].crop(square(quilt_c, quilt_half)), 'Barn quilt painted with lib/fuzz'),
              (im['barn'].crop(square(barn([11.97, 3.67, .46])[0], 260)), 'Flora (lib/flora) at the farmyard fence'),
-             (im['tower'].crop(square(tower([-2.34, 11.45, .67])[0], 260)), 'Tower meadow: flora, field marks, route')]
+             (im['barn'].crop(square(barn(oak_at)[0], 420)), 'Bur oak (lib/flora oak.py, crown.py)')]
     font_path = R / 'vendor/fonts/IBMPlexMono-Regular.ttf'
     font = lambda size: ImageFont.truetype(str(font_path), size) if font_path.exists() else ImageFont.load_default(size=size)
     big = []

@@ -18,13 +18,15 @@ class Drawing:
     height: float
     paths: list = field(default_factory=list)
     metadata: dict = field(default_factory=dict)
+    widths: dict = field(default_factory=dict)      # pen per role in mm; 0.16 where unset
 
     def svg(self):
         out = [f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="{self.width}mm" height="{self.height}mm" viewBox="0 0 {self.width} {self.height}">',
                '<title>Southwest Wisconsin plant study</title>',
                '<metadata>'+escape(json.dumps(self.metadata))+'</metadata>']
         for role in sorted({r for r, _ in self.paths}):
-            out.append(f'<g id="{role}" inkscape:groupmode="layer" inkscape:label="{role}" fill="none" stroke="#202b24" stroke-width="0.16" stroke-linecap="round" stroke-linejoin="round">')
+            pen = self.widths.get(role, .16)
+            out.append(f'<g id="{role}" inkscape:groupmode="layer" inkscape:label="{role}" fill="none" stroke="#202b24" stroke-width="{pen:g}" stroke-linecap="round" stroke-linejoin="round">')
             for r, p in self.paths:
                 if r == role:
                     out.append('<path d="M'+' L'.join(f'{x:.3f},{y:.3f}' for x, y in p)+'"/>')
@@ -36,7 +38,7 @@ class Drawing:
         im = Image.new('RGB', (round(self.width*k), round(self.height*k)), '#f6f2e8')
         d = ImageDraw.Draw(im)
         for role, pts in self.paths:
-            d.line([tuple(v) for v in pts*k], fill='#202b24', width=max(1, round(.16*k)))
+            d.line([tuple(v) for v in pts*k], fill='#202b24', width=max(1, round(self.widths.get(role, .16)*k)))
         im.resize((pixels, round(self.height/self.width*pixels)), Image.Resampling.LANCZOS).save(path)
 
     def stats(self):

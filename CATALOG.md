@@ -183,3 +183,4 @@ Seeded timber barns, open-seat tractors, disk harrows, dump rakes and slatted wa
 | [Species-informed plant grammars](lib/flora/species.py) | Seeded stems, leaf surfaces and seasonal organs for six prairie/savanna species | collection |
 | [Plant hidden-line drawing](lib/flora/render.py) | Sampled 3D visibility with organ-layered millimetre SVG | collection |
 | [Landscape and Blender bridges](lib/flora/adapters.py) | Pass procedural plant geometry and ink to existing scenes | prototype |
+| [Open-grown bur oak](lib/flora/oak.py) | A mature savanna oak for landscapes: crooked tapered limbs, foliage masses and bark, engraved for any camera as scalloped rows, outlines and furrows ([crown.py](lib/flora/crown.py)) | collection |
