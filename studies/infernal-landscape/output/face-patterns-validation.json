@@ -1,0 +1,153 @@
+{
+  "case": "recorded_route",
+  "view": "main",
+  "backend": "blender",
+  "scene_sha256": "a88e94b4460c297d4aabef6a56ce1a33784a43116b0729258c2016065fd3e04c",
+  "svg_sha256": {
+    "current": "84235df0dfd6d80c67ee21387a903ee8df4b2bb25d685dc38641b1e004ec5bdf",
+    "patterns": "7a6bb489c55fce1a4aa53c61de6c36d092a6ab1166b9065134b8b589be392b73"
+  },
+  "all_passed": {
+    "current": true,
+    "patterns": true
+  },
+  "zones_mean_ink": {
+    "current": {
+      "sky": 0.0,
+      "terrain": 0.073,
+      "building": 0.434,
+      "oak": 0.262,
+      "furniture": 0.584,
+      "other": 0.376
+    },
+    "patterns": {
+      "sky": 0.0,
+      "terrain": 0.073,
+      "building": 0.439,
+      "oak": 0.262,
+      "furniture": 0.584,
+      "other": 0.376
+    }
+  },
+  "layers": {
+    "current": {
+      "01 crosshatching": {
+        "paths": 4358,
+        "pen_down_m": 3.396
+      },
+      "02 architecture and volume foliage": {
+        "paths": 5499,
+        "pen_down_m": 4.56
+      },
+      "03 Driftless field and contour": {
+        "paths": 4025,
+        "pen_down_m": 7.04
+      },
+      "04 Driftless foreground": {
+        "paths": 5039,
+        "pen_down_m": 2.164
+      },
+      "05 dependency routes": {
+        "paths": 5,
+        "pen_down_m": 0.021
+      }
+    },
+    "patterns": {
+      "01 crosshatching": {
+        "paths": 4144,
+        "pen_down_m": 3.243
+      },
+      "02 architecture and volume foliage": {
+        "paths": 5499,
+        "pen_down_m": 4.56
+      },
+      "02 architecture face patterns": {
+        "paths": 247,
+        "pen_down_m": 0.319
+      },
+      "03 Driftless field and contour": {
+        "paths": 4025,
+        "pen_down_m": 7.04
+      },
+      "04 Driftless foreground": {
+        "paths": 5039,
+        "pen_down_m": 2.164
+      },
+      "05 dependency routes": {
+        "paths": 5,
+        "pen_down_m": 0.021
+      }
+    }
+  },
+  "coverage": {
+    "current": {
+      "strata walls, lit": 0.439,
+      "strata walls, shaded": 0.678,
+      "quilt square": 0.257
+    },
+    "patterns": {
+      "strata walls, lit": 0.463,
+      "strata walls, shaded": 0.685,
+      "quilt square": 0.33
+    }
+  },
+  "region_px": {
+    "strata walls, lit": 54623,
+    "strata walls, shaded": 30637,
+    "quilt square": 2535
+  },
+  "face_patterns": {
+    "strata": {
+      "node": "approval",
+      "faces": 26,
+      "section": {
+        "seed": 11,
+        "n": 320,
+        "throw": 0.24,
+        "fold": 0.24,
+        "scale": 4.135293750201955,
+        "stretch": 2.0,
+        "origin": [
+          -4.8,
+          10.5,
+          4.252841651439667
+        ],
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bed_world": 0.28,
+      "level_step": 0.06770982109465035,
+      "min_bed_spacing_px": 7.39,
+      "stride": 1,
+      "lines": 158,
+      "paths": 216
+    },
+    "quilt": {
+      "node": "staff",
+      "face": "staff | duration bays",
+      "pattern": "ohio-star",
+      "seed": 23,
+      "size_world": 0.78,
+      "centre_world": [
+        4.3,
+        1.4,
+        3.987
+      ],
+      "fill_lines": {
+        "1": 20,
+        "2": 10
+      },
+      "paths": 31
+    },
+    "min_gap_px": 4.4,
+    "mm": {
+      "strata": 0.085,
+      "quilt_board": 0.12,
+      "quilt_seam": 0.12,
+      "quilt_fill": 0.085
+    }
+  }
+}

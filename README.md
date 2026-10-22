@@ -20,6 +20,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Build a Blender scene, a light-aware culture or a scan engraving | [Existing scene studies](techniques/08-scene-studies/README.md) |
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |
 | Generate hidden-line landscape plates sized to the book's pages | [Landscape plates](techniques/11-landscape-plates/README.md) |
+| Put a 2D generator (strata, a quilt, hatching) on a 3D scene's flat walls | [Face patterns](studies/infernal-landscape/FACE-PATTERNS.md) |
 | Generate painted quilt squares on wood or metal | [Barn quilts](techniques/13-barn-quilts/README.md) |
 | Draw the manuscripts' revision history, slime-mould tubes, marbled endpapers or guilloché seals | [Codex palette](techniques/14-codex-palette/README.md) |
 | Generate decaying barns, old tractors and abandoned farm implements | [Farm objects](techniques/16-farm-objects/README.md) |
@@ -37,7 +38,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | --- | --- |
 | `techniques/` | Guides grouped by visual operation, with source links and tuning advice |
 | `examples/` | Small working examples and committed visual samplers |
-| `lib/` | Small implementations written for this collection, not imported from the book: AQ, numogram and Tic Xenotation; process art; barn quilts; the Codex palette studies; the thi.ng ports (halftone, fuzz, sdf2d) |
+| `lib/` | Small implementations written for this collection, not imported from the book: AQ, numogram and Tic Xenotation; process art; barn quilts; the Codex palette studies; the thi.ng ports (halftone, fuzz, sdf2d); face patterns (2D generators on flat 3D faces) |
 | `sources/development-art/` | Art-only generators selected from the development repository, with portability changes recorded |
 | `sources/codex-intervallorum/` | Unchanged source snapshot; original internal paths preserved |
 | `studies/` | Infernal Engine, Photophobic, Scanned Statue, Driftless Plates, and the Three Gates perspective integration |

@@ -2,6 +2,10 @@
 
 ![Four architectural readings of the same task graph](output/preview.jpg)
 
+[Face patterns](FACE-PATTERNS.md) puts the collection's 2D generators on flat
+walls: process-art strata on the approval tower and a barn quilt on the staff
+building, compared against the delivered plate. Off by default.
+
 [Window onto the coulee mill](WINDOW.md) adds a deep, ray-tested masonry aperture,
 waterwheel and bridge to the eroded Blender/Driftless workflow.
 

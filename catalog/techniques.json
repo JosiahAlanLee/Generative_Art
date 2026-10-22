@@ -1271,5 +1271,33 @@
       "add_to_scene_builder",
       "to_blender"
     ]
+  },
+  {
+    "id": "face-patterns",
+    "title": "2D generators on flat faces",
+    "family": "08-scene-studies",
+    "status": "collection",
+    "use": "Draw strata, quilts, hatching or any planar generator on a 3D scene's flat walls, world-anchored across faces, with camera-set spacing",
+    "guide": "studies/infernal-landscape/FACE-PATTERNS.md",
+    "sources": [
+      "lib/face_patterns/mapping.py",
+      "lib/face_patterns/sources.py",
+      "studies/infernal-landscape/surface_patterns.py",
+      "studies/infernal-landscape/face_patterns_preview.py"
+    ],
+    "symbols": [
+      "plane_frame",
+      "to_uv",
+      "lift",
+      "clip_polyline",
+      "hatch_polygon",
+      "contour_on_face",
+      "level_spacing_px",
+      "stride_for_spacing",
+      "world_spacing",
+      "Strata",
+      "quilt",
+      "face_patterns"
+    ]
   }
 ]
