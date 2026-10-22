@@ -37,6 +37,14 @@ function renderPlate(spec) {
     textZone: spec.zone || 'none', zoneMode: spec.zoneMode || spec['zone-mode'] || 'fade',
   };
   if (spec.compat) P.compat = String(spec.compat);
+  // Nib width in mm, as on the page. It sets hatch spacing and the occlusion halos as well as the
+  // stroke width, so a plate drawn for another nib has different lines. Absent = the engine's 0.35.
+  const nib = spec.penWidth !== undefined ? spec.penWidth : spec['pen-width'];
+  if (nib !== undefined) {
+    const pw = Number(nib);
+    if (nib === true || !(pw >= 0.1 && pw <= 2)) throw new Error('--penWidth expects a nib width in mm, 0.1 to 2');
+    P.penWidth = pw;
+  }
   const res = E.generate(P);
   const svg = E.toSVG(res, {
     palette, strength: num(spec.strength, 100) / 100, background: !!spec.paper, optimize: !spec['no-optimize'],
@@ -72,6 +80,8 @@ function main() {
   --compat 1.1         draw a plate as engine 1.1 did
   --flora --land --built --sky 0-100   motif weights
   --density 50-160 --imperfection 0-100
+  --penWidth MM        nib width in mm (default 0.35; the page offers 0.2-0.8). It changes
+                       hatch spacing and occlusion as well as the stroke, so the lines differ
   --paper              include a paper rectangle layer
   --no-optimize        keep drawing order instead of minimising pen travel
   --riso               offset colour layers like a risograph pass (not for codexPlot)

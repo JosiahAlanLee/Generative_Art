@@ -11,6 +11,7 @@ import hashlib
 import mimetypes
 import os
 from pathlib import Path
+import re
 import secrets
 import shutil
 import signal
@@ -18,11 +19,134 @@ import subprocess
 import threading
 from urllib.parse import unquote, urlsplit
 import uuid
+import xml.etree.ElementTree as ET
 
 from . import adapters
 
 STATIC = Path(__file__).parent / 'static'
+# Fixed types rather than mimetypes: a Windows registry that maps .js to text/plain would
+# otherwise make the browser refuse app.js under nosniff.
+STATIC_FILES = {'/': ('index.html', 'text/html; charset=utf-8'),
+                '/app.js': ('app.js', 'text/javascript; charset=utf-8'),
+                '/style.css': ('style.css', 'text/css; charset=utf-8')}
 ACTIVE = {'queued', 'running'}
+SVG_NS = 'http://www.w3.org/2000/svg'
+INK_NS = 'http://www.inkscape.org/namespaces/inkscape'
+DRAWN = {f'{{{SVG_NS}}}{t}' for t in ('path', 'rect', 'line', 'polyline', 'polygon', 'circle', 'ellipse')}
+SUMMARY = ('id', 'created', 'status', 'error', 'returncode', 'recipe')
+
+
+def inks(element):
+    """Stroke colours used in an element and its descendants (attribute or inline style)."""
+    found = set()
+    for el in element.iter():
+        style = re.search(r'(?:^|;)\s*stroke\s*:\s*([^;]+)', el.get('style') or '')
+        for value in (el.get('stroke'), style.group(1) if style else None):
+            if value and value.strip() != 'none':
+                found.add(value.strip().lower())
+    return found
+
+
+def vpype_layers(svg_path):
+    """Top-level layers in document order: (name, vpype layer number, inks).
+
+    vpype's rule (`vpype read --help`): the first digits of inkscape:label (0 means 1), else of
+    the id, else the group's position. Drawn elements outside any group go to layer 1.
+    """
+    try:
+        root = ET.parse(svg_path).getroot()
+    except ET.ParseError as exc:
+        raise ValueError(f'could not read {Path(svg_path).name}: {exc}') from None
+    layers = []
+    groups = [el for el in root if el.tag == f'{{{SVG_NS}}}g']
+    for position, group in enumerate(groups, 1):
+        label = group.get(f'{{{INK_NS}}}label') or ''
+        number = None
+        for value in (label, group.get('id') or ''):
+            match = re.search(r'\d+', value)
+            if match:
+                number = int(match.group()) or 1
+                break
+        layers.append((label or group.get('id') or f'group {position}', number or position, inks(group)))
+    loose = [el for el in root if el.tag in DRAWN]
+    if loose:
+        layers.append(('elements outside any layer', 1, set().union(*(inks(el) for el in loose))))
+    return layers
+
+
+def merged_layers(layers):
+    """Layers vpype puts together. Same-ink layers sharing a number (e.g. several "02 …" layers
+    drawn with one pen) merge as intended; a merge across inks, or with a layer that has no
+    stroke such as a paper rectangle, would plot the wrong thing, so it is refused."""
+    by_number = {}
+    for name, number, ink in layers:
+        by_number.setdefault(number, []).append((name, ink))
+    notes = []
+    for number, members in sorted(by_number.items()):
+        if len(members) < 2:
+            continue
+        names = ' and '.join(name for name, _ in members)
+        if any(not ink for _, ink in members) or len(set().union(*(ink for _, ink in members))) > 1:
+            hint = ('; render without "Include paper rectangle" to prepare a plot copy'
+                    if any('paper' in name for name, _ in members) else '')
+            raise ValueError(f'vpype would merge {names} into one layer ({number}) although they '
+                             f'are not the same ink{hint}')
+        notes.append(f'layer {number}: {names} share one ink and become one layer')
+    return notes
+
+
+def restore_layer_order(prepared, numbers, dest):
+    """vpype writes layers in number order; put them back in the source's document order.
+
+    `numbers` are the source's vpype layer numbers in document order. Returns True if the
+    order changed. The geometry inside each layer is untouched.
+    """
+    try:
+        # Keep vpype's prefixes (inkscape:, dc:, …) rather than ElementTree's ns0:. They are all
+        # declared before the root element starts, so reading stops there.
+        with open(prepared, 'rb') as stream:
+            for event, node in ET.iterparse(stream, events=['start-ns', 'start']):
+                if event == 'start':
+                    break
+                try:
+                    ET.register_namespace(*node)
+                except ValueError:  # an "ns0"-style prefix ElementTree reserves; it writes its own
+                    pass
+        tree = ET.parse(prepared)
+    except ET.ParseError as exc:
+        raise ValueError(f'vpype wrote an unreadable SVG: {exc}') from None
+    root = tree.getroot()
+    groups = [el for el in root if el.tag == f'{{{SVG_NS}}}g']
+    by_id = {g.get('id'): g for g in groups}
+    ordered = []
+    for number in numbers:
+        group = by_id.get(f'layer{number}')
+        if group is not None and all(group is not g for g in ordered):
+            ordered.append(group)
+    ordered += [g for g in groups if all(g is not o for o in ordered)]
+    if all(a is b for a, b in zip(ordered, groups)):
+        os.replace(prepared, dest)
+        return False
+    first = list(root).index(groups[0])
+    for group in groups:
+        root.remove(group)
+    for offset, group in enumerate(ordered):
+        root.insert(first + offset, group)
+    tree.write(prepared, encoding='utf-8', xml_declaration=True)
+    os.replace(prepared, dest)
+    return True
+
+
+def command_line(pid):
+    """A process's command line on POSIX, or '' if it cannot be read."""
+    try:
+        proc = Path(f'/proc/{pid}/cmdline')
+        if proc.exists():
+            return proc.read_bytes().replace(b'\0', b' ').decode(errors='replace')
+        return subprocess.run(['ps', '-ww', '-o', 'command=', '-p', str(pid)],
+                              capture_output=True, text=True, timeout=5).stdout
+    except (OSError, subprocess.SubprocessError):
+        return ''
 
 
 def dump(path, data):
@@ -50,26 +174,64 @@ class Jobs:
         self.process = None
         self.current = None
         self.stopping = False
+        self.preparing = None
+        self.prepare_process = None
         for file in self.root.glob('*/job.json'):
             job = json.loads(file.read_text())
             if job['status'] in ACTIVE:
-                job.update(status='interrupted', error='Server stopped; submit the saved recipe to retry')
+                error = 'Server stopped; submit the saved recipe to retry'
+                if self.stop_leftover(job):
+                    error = ('Server stopped while this job ran; its process was still running and was '
+                             'stopped on restart. Submit the saved recipe to retry')
+                job.update(status='interrupted', error=error)
                 dump(file, job)
             self.jobs[job['id']] = job
+
+    @staticmethod
+    def stop_leftover(job):
+        """Stop a render left running by a server that was killed (POSIX only).
+
+        Only a live process whose command line names this job's folder is stopped, so a
+        recycled pid is never touched. On Windows os.kill(pid, 0) would terminate any process,
+        so nothing is attempted there.
+        """
+        pid = job.get('pid')
+        if not pid or os.name == 'nt':
+            return False
+        try:
+            os.kill(pid, 0)
+        except OSError:
+            return False
+        if job['id'] not in command_line(pid):
+            return False
+        try:
+            os.killpg(pid, signal.SIGKILL)
+        except OSError:
+            return False
+        return True
 
     def snapshot(self, job_id=None):
         with self.lock:
             value = self.jobs[job_id] if job_id else sorted(self.jobs.values(), key=lambda j: j['created'], reverse=True)
             return json.loads(json.dumps(value))
 
+    def summaries(self):
+        """The history list: no file lists, commands or source hashes, which only the job view needs."""
+        with self.lock:
+            rows = sorted(self.jobs.values(), key=lambda j: j['created'], reverse=True)
+            return json.loads(json.dumps([{k: j.get(k) for k in SUMMARY} for j in rows]))
+
     def save(self, job):
-        dump(self.root / job['id'] / 'job.json', job)
+        with self.lock:  # every writer shares job.tmp, so writes must not overlap
+            dump(self.root / job['id'] / 'job.json', job)
 
     def submit(self, data):
         recipe = adapters.validate(data)
         with self.lock:
             if self.stopping:
                 raise ValueError('server is stopping')
+            if self.preparing:
+                raise ValueError('a vpype copy is being made; render again when it finishes')
             if sum(j['status'] in ACTIVE for j in self.jobs.values()) >= 8:
                 raise ValueError('queue is full (8 jobs); wait for a job to finish')
             job_id = uuid.uuid4().hex
@@ -126,6 +288,9 @@ class Jobs:
                     self.process = subprocess.Popen(job['command'], cwd=job['cwd'], env=env,
                                                     stdout=log, stderr=subprocess.STDOUT,
                                                     start_new_session=(os.name != 'nt'))
+                    # Recorded so a restart after a hard stop can find and stop this process.
+                    job['pid'] = self.process.pid
+                    self.save(job)
                 try:
                     code = self.process.wait(timeout=self.timeout)
                 except subprocess.TimeoutExpired:
@@ -190,8 +355,16 @@ class Jobs:
             return self.snapshot(job_id)
 
     def prepare(self, job_id, relative):
-        """Explicit optional vpype pass; original is immutable. Queue must be idle."""
+        """Explicit optional vpype pass; the original is immutable. Needs an idle queue.
+
+        The lock covers only the checks and the bookkeeping, so status, logs and previews keep
+        answering while vpype runs; new renders are refused until it finishes.
+        """
         with self.lock:
+            if self.stopping:
+                raise ValueError('server is stopping')
+            if self.preparing:
+                raise ValueError('a vpype copy is already being made; wait for it to finish')
             if any(j['status'] in ACTIVE for j in self.jobs.values()):
                 raise ValueError('wait for the render queue to finish before preparing an export')
             job = self.jobs[job_id]
@@ -206,30 +379,57 @@ class Jobs:
             dest = source.with_name(source.stem + '.vpype.svg')
             if dest.exists():
                 raise ValueError('prepared copy already exists')
-            # linesort only: no joining/simplification which could change marks.
-            cmd = [executable, 'read', str(source), 'linesort', 'write', str(dest)]
-            log = source.with_name(source.stem + '.vpype.log')
-            try:
-                with log.open('wb') as stream:
-                    stream.write(('argv: ' + json.dumps(cmd) + '\n').encode()); stream.flush()
-                    subprocess.run(cmd, stdout=stream, stderr=subprocess.STDOUT, timeout=120, check=True)
-            except Exception:
-                dest.unlink(missing_ok=True)
-                job['files'] = self.files(job_id); self.save(job)
-                raise
-            job['files'] = self.files(job_id)
-            self.save(job)
-            return self.snapshot(job_id)
+            self.preparing = job_id
+        partial = dest.with_name(dest.name + '.part')
+        log = source.with_name(source.stem + '.vpype.log')
+        try:
+            layers = vpype_layers(source)
+            merges = merged_layers(layers)
+            # Path order only. --no-crop keeps lines past the sheet edge, as the original has them;
+            # the layer order vpype writes (by number) is put back to the original's afterwards.
+            cmd = [executable, 'read', '--no-crop', str(source), 'linesort',
+                   'write', '--format', 'svg', '--dont-set-date', str(partial)]
+            with log.open('wb') as stream:
+                stream.write(('argv: ' + json.dumps(cmd) + '\n').encode()); stream.flush()
+                with self.lock:
+                    if self.stopping:
+                        raise ValueError('server is stopping')
+                    self.prepare_process = subprocess.Popen(cmd, stdout=stream, stderr=subprocess.STDOUT)
+                try:
+                    code = self.prepare_process.wait(timeout=600)
+                except subprocess.TimeoutExpired:
+                    self.prepare_process.kill(); self.prepare_process.wait()
+                    raise ValueError('vpype took longer than 10 minutes')
+                if code:
+                    raise ValueError(f'vpype exited {code}; see {log.name}')
+                moved = restore_layer_order(partial, [number for _, number, _ in layers], dest)
+                order = ', '.join(name for name, _, _ in layers)
+                stream.write(''.join(note + '\n' for note in merges).encode())
+                stream.write((f'layer order: {order}' + (' (restored after vpype)' if moved else '') + '\n').encode())
+        finally:
+            partial.unlink(missing_ok=True)
+            with self.lock:
+                self.preparing = None
+                self.prepare_process = None
+                job['files'] = self.files(job_id)
+                self.save(job)
+        return self.snapshot(job_id)
 
     def close(self):
         with self.lock:
             self.stopping = True
             for job_id in self.jobs:
                 self.cancel(job_id)
+            if self.prepare_process and self.prepare_process.poll() is None:
+                self.prepare_process.kill()
         self.executor.shutdown(wait=True)
 
 
-def handler(jobs, token, port):
+def handler(jobs, token, port, instance=None):
+    # Changes with every server start; the page compares it on each poll and fetches the new
+    # session token when it changes, instead of failing every action until it is reloaded.
+    instance = instance or secrets.token_hex(8)
+
     class Handler(BaseHTTPRequestHandler):
         def send(self, data, status=200, kind='application/json', attachment=None):
             raw = data if isinstance(data, bytes) else json.dumps(data).encode()
@@ -237,6 +437,7 @@ def handler(jobs, token, port):
             self.send_header('Content-Type', kind)
             self.send_header('Content-Length', str(len(raw)))
             self.send_header('Cache-Control', 'no-store')
+            self.send_header('X-Workbench-Instance', instance)
             self.send_header('X-Content-Type-Options', 'nosniff')
             self.send_header('Content-Security-Policy', "default-src 'self'; img-src 'self' blob:; style-src 'self'; script-src 'self'; object-src 'none'; frame-ancestors 'none'")
             if attachment:
@@ -274,9 +475,10 @@ def handler(jobs, token, port):
                 url = urlsplit(self.path)
                 parts = unquote(url.path).strip('/').split('/')
                 if url.path == '/api/config':
-                    return self.send(dict(token=token, runtimes={k: shutil.which(v) if v else None for k, v in jobs.config.items()}, output_root=str(jobs.root)))
+                    return self.send(dict(token=token, instance=instance, output_root=str(jobs.root),
+                                          runtimes={k: shutil.which(v) if v else None for k, v in jobs.config.items()}))
                 if url.path == '/api/jobs':
-                    return self.send(jobs.snapshot())
+                    return self.send(jobs.summaries())
                 if len(parts) >= 3 and parts[:2] == ['api', 'jobs']:
                     job_id = parts[2]
                     if len(parts) == 3:
@@ -294,10 +496,9 @@ def handler(jobs, token, port):
                     if parts[3] == 'files':
                         file = jobs.artifact(job_id, '/'.join(parts[4:]))
                         return self.send_file(file, download=url.query == 'download')
-                static = {'/': 'index.html', '/app.js': 'app.js', '/style.css': 'style.css'}.get(url.path)
-                if static:
-                    file = STATIC / static
-                    return self.send(file.read_bytes(), kind=mimetypes.guess_type(file.name)[0])
+                if url.path in STATIC_FILES:
+                    name, kind = STATIC_FILES[url.path]
+                    return self.send((STATIC / name).read_bytes(), kind=kind)
                 self.send({'error': 'not found'}, 404)
             except (KeyError, ValueError, FileNotFoundError) as exc:
                 self.send({'error': str(exc)}, 404)
@@ -339,12 +540,23 @@ def main():
     token = secrets.token_urlsafe(32)
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler(jobs, token, args.port))
     server.daemon_threads = True
+
+    # Renders run in their own process group, so closing the terminal (SIGHUP) or `kill`
+    # (SIGTERM) would otherwise end only the server and leave the render running unwatched.
+    # Treat both like Ctrl-C: stop the active job and close the queue.
+    def stop(*_):
+        raise KeyboardInterrupt
+    stops = [getattr(signal, name) for name in ('SIGTERM', 'SIGHUP', 'SIGBREAK') if hasattr(signal, name)]
+    for sig in stops:
+        signal.signal(sig, stop)
     print(f'Workbench: http://127.0.0.1:{args.port}  |  outputs: {jobs.root}', flush=True)
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         pass
     finally:
+        for sig in stops:
+            signal.signal(sig, signal.SIG_IGN)
         server.server_close(); jobs.close()
 
 

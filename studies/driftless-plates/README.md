@@ -23,6 +23,7 @@ node cli.js --seeds e2,f1 --zone codex --zone-mode tint  # lighten the Codex tex
 node cli.js --count 6 --format codexPlot                 # A4 plot masters
 node cli.js --count 6 --rock limestone                   # dolomite ledges instead of sandstone
 node cli.js --seeds g8 --focal bluff                     # bluffs over a lake
+node cli.js --seeds e2 --penWidth 0.5                    # drawn for a 0.5 mm nib, as the page's Nib setting
 node cli.js --help                                       # every option
 node test.js                                             # the checks below
 ```
@@ -95,6 +96,8 @@ No plans, photographs or images were traced; the forms are drawn from published 
 A seed with the same settings and engine version draws the same plate. `test.js` regenerates the nine plates in `plates.json` and compares their SVG hashes with `manifest.json`. That holds within one JavaScript engine: `Math.sin`, `Math.exp` and the like are not required to round identically everywhere, so another browser can shift a plate slightly.
 
 Engine 1.2 draws about half of all seeds differently from 1.1, because rock type and the new subjects enter the composition. Plates kept in the browser under 1.1 still redraw as they were: the page draws them with `compat: '1.1'` until their seed or a setting changes. `--compat 1.1` does the same from the command line. `test.js` checks it against geometry recorded from engine 1.1 for its six preview plates.
+
+The nib width is part of the settings, not only the stroke: it sets hatch spacing and the halos that hide lines behind nearer ones, so seed e2 has 22,978 strokes at the default 0.35 mm and 21,404 at 0.5 mm. `--penWidth` gives the command line the page's Nib setting; without it the CLI draws for 0.35 mm, as before.
 
 ## Limits
 
