@@ -9,7 +9,7 @@ Prepared with Claude, in the same environments as the plate studies below.
 | `python -m unittest discover -s lib/flora/tests -v` | 25 passed. The 16 new tests cover the tree, the marks and the standalone renderer, below |
 | `python -m unittest discover -s studies/infernal-landscape/tests -v` | 31 passed. Three are new: the oak builder's parts are named, wound outward and never hatched; the near oak's crown clears the barn; the tree regenerated at render time is the scene's, vertex for vertex |
 | Other `lib` suites | `face_patterns` 15 and `farm_objects` 8 pass |
-| `python tools/verify_collection.py` | 73 techniques and all local guide links |
+| `python tools/verify_collection.py` | 74 techniques (with main merged) and all local guide links |
 | Plates (Blender) | One scene record (`eeab83ca…`). All 24 checks pass on the main, tower and barn views; the new one, `oak_samples_visible`, re-tests 4,365, 5,414 and 9,908 samples of the oak marks, none hidden. Native Blender rays: 1,600 samples per view, none hidden. Volume foliage faces: 76,480 |
 | Tone | Oaks stay lighter than buildings on every view: 0.213 against 0.220 on the barn plate, 0.243 against 0.314 on the tower plate, 0.261 against 0.483 on the main view |
 | Plates (dry run) | All 21 checks pass on each view (the three Blender-only checks do not apply). Oak tones match the Blender build to 0.001; every zone is within 0.003 (the tower's furniture) |
