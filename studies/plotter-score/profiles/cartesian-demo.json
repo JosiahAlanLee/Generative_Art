@@ -1,0 +1,7 @@
+{
+  "name": "illustrative-cartesian-NOT-CALIBRATED",
+  "matrix": [[80, 0], [0, 80]],
+  "pulses_per_cycle": [16, 16],
+  "max_pulses_s": 8000,
+  "max_speed_mm_s": 80
+}

@@ -18,6 +18,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Make meaningful script, encoded ornament or sentence-derived seals | [Ciphers and seals](techniques/04-ciphers-seals/README.md) |
 | Bring a raster figure into a drawn page | [Compositing](techniques/05-compositing/README.md) |
 | Export physical pen paths or single-stroke lettering | [Plotter and SVG](techniques/06-plotter-export/README.md) |
+| Generate a drawing and intended pitches from one timed motor score | [Motor counterpoint](studies/plotter-score/README.md) |
 | Finish pages with vellum, specks and sparse pen flourishes | [Page finishing](techniques/07-page-finishing/README.md) |
 | Build a Blender scene, a light-aware culture or a scan engraving | [Existing scene studies](techniques/08-scene-studies/README.md) |
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |
