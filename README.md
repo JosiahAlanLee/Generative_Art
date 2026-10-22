@@ -22,6 +22,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Generate hidden-line landscape plates sized to the book's pages | [Landscape plates](techniques/11-landscape-plates/README.md) |
 | Generate painted quilt squares on wood or metal | [Barn quilts](techniques/13-barn-quilts/README.md) |
 | Draw the manuscripts' revision history, slime-mould tubes, marbled endpapers or guilloché seals | [Codex palette](techniques/14-codex-palette/README.md) |
+| Generate decaying barns, old tractors and abandoned farm implements | [Farm objects](techniques/16-farm-objects/README.md) |
 | Halftone or stipple a raster for the pen, redraw shapes in sketchy passes, or build figures from distance fields | [thi.ng ports](techniques/15-thing-ports/README.md) |
 
 ## Process art R&D

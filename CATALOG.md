@@ -169,3 +169,7 @@ A reusable tile grammar supplies joined curves and steps. Adaptive transport fol
 | [Field contours and sign-tested hatching](lib/sdf2d/grid.py) | Nested offsets from one sampled field; depth bands hatched without a polygon | collection |
 
 [Research: thi.ng and toxiclibs](docs/THING_TECHNIQUES.md) · [Selected demonstrations](examples/previews/thing-ports/manifest.json). Independent implementations after Karsten Schmidt's packages, not installed book plates.
+
+## [Farm objects](techniques/16-farm-objects/README.md)
+
+Seeded timber barns, open-seat tractors, disk harrows, dump rakes and slatted wagons. Actual mesh gaps and sag combine with surface-attached grain and corrosion, with four-layer stroke-only SVGs and shared 3D visibility. [Object study and specimens](studies/farm-remnants/README.md).
