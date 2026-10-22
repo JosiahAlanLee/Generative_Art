@@ -1230,5 +1230,25 @@
       "hatch_by_sign",
       "band_count"
     ]
+  },
+  {
+    "id": "farm-remnants",
+    "title": "Seeded farm objects and structural decay",
+    "family": "16-farm-objects",
+    "status": "collection",
+    "use": "Generate decaying timber barns, tractors and abandoned farm implements as 3D meshes and occluded pen paths",
+    "guide": "techniques/16-farm-objects/README.md",
+    "sources": [
+      "lib/farm_objects/objects.py",
+      "lib/farm_objects/render.py",
+      "lib/farm_objects/blender.py"
+    ],
+    "symbols": [
+      "make_object",
+      "FarmObject.add_to",
+      "write_obj",
+      "render_svg",
+      "import_record"
+    ]
   }
 ]
