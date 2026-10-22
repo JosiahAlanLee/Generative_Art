@@ -14,4 +14,4 @@ Check physical pen width and page units, then inspect the exported ink passes. F
 
 Useful symbols are indexed in [catalog/techniques.json](../../catalog/techniques.json). Every retained Python file, including other native plate constructions, is in the [source index](../../docs/SOURCE_INDEX.md).
 
-[Start here](../../docs/GETTING_STARTED.md) · [Recipes](../../docs/RECIPES.md) · [Full catalog](../../CATALOG.md)
+[Start here](../../docs/GETTING_STARTED.md) · [Recipes](../../docs/RECIPES.md) · [Full catalog](../../CATALOG.md) · [History and buying a plotter](../../docs/GENERATIVE_ART_AND_PLOTTERS.md)
