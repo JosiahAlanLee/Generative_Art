@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Generative Art · Local Workbench</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <span class="eyebrow">GENERATIVE ART / LOCAL STUDIO</span>
+        <h1>Plot workbench</h1>
+      </div>
+      <span id="connection" role="status">Connecting…</span>
+    </header>
+    <main>
+      <aside>
+        <form id="recipe">
+          <label
+            >Generator<select id="generator">
+              <option value="driftless">Driftless Plates</option>
+              <option value="farm">Farm Remnants</option>
+              <option value="infernal">Infernal Landscape</option>
+            </select></label
+          >
+          <p id="generator-note" class="muted"></p>
+          <div id="controls"></div>
+          <button type="submit" class="primary">
+            Render to new job folder
+          </button>
+        </form>
+        <div class="recipe-actions">
+          <button id="save-recipe">Save recipe</button
+          ><label class="file-label"
+            >Load recipe<input
+              id="load-recipe"
+              type="file"
+              accept=".json,application/json"
+          /></label>
+        </div>
+        <details>
+          <summary>Runtime paths</summary>
+          <pre id="runtimes"></pre>
+        </details>
+      </aside>
+      <section class="studio">
+        <div class="toolbar">
+          <div>
+            <span class="eyebrow">PROOF / SVG INSPECTION</span>
+            <h2 id="proof-title">Choose a recipe, then render</h2>
+          </div>
+          <label
+            >Zoom<select id="zoom">
+              <option value="100">Fit</option>
+              <option value="150">150%</option>
+              <option value="250">250%</option>
+              <option value="400">400%</option>
+            </select></label
+          >
+        </div>
+        <div id="paper">
+          <p id="empty">
+            A seed fixes the drawing.<br />Each render keeps its own recipe,
+            logs and exports.
+          </p>
+          <img id="preview" alt="Generated artwork preview" hidden />
+        </div>
+        <div id="inspection" hidden>
+          <p id="dimensions"></p>
+          <div id="layers"></div>
+          <p id="inspection-note" class="muted"></p>
+        </div>
+        <div class="exportbar">
+          <label
+            >Preview file<select id="preview-file" disabled>
+              <option>No render selected</option>
+            </select></label
+          ><a id="download" class="button" hidden>Download original</a
+          ><button id="prepare" disabled>Make vpype copy</button>
+        </div>
+        <p class="muted">
+          vpype copy: reorder paths only. Inspect dimensions, layers and marks
+          before plotting. Open the downloaded SVG in DrawingBot V3 using its
+          file workflow; no application API is assumed.
+        </p>
+        <p id="message" role="alert"></p>
+        <section class="jobdetail">
+          <div class="toolbar">
+            <h2>Job log</h2>
+            <button id="cancel" disabled>Cancel job</button>
+          </div>
+          <p id="job-location" class="muted"></p>
+          <pre id="log">No job selected.</pre>
+          <details>
+            <summary>All artifacts &amp; stage logs</summary>
+            <div id="artifacts"></div>
+          </details>
+        </section>
+      </section>
+      <aside class="history">
+        <span class="eyebrow">RENDER HISTORY</span>
+        <p class="muted">
+          Queued jobs run one at a time. Selecting a job restores its preview.
+        </p>
+        <div id="jobs"></div>
+      </aside>
+    </main>
+    <footer>
+      Local processes · Original generators preserved ·
+      <span id="output-root"></span>
+    </footer>
+  </body>
+</html>
