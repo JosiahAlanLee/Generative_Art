@@ -1,0 +1,181 @@
+{
+ "version": "scan-portraits-1",
+ "subject": "lps",
+ "view": "bust",
+ "sheet": "a4",
+ "pen_mm": 0.15,
+ "spacing_pen_widths": 1.75,
+ "candidate_spacing_mm": 0.2625,
+ "credit": "Infinite, 3D Head Scan by Lee Perry-Smith (Infinite-Realities), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/), as distributed with three.js r150. Changed: Loop-subdivided twice and drawn as a line engraving.",
+ "licence": "CC-BY-3.0",
+ "source_triangles": 17684,
+ "drawn_triangles": 282944,
+ "loop_subdivisions": 2,
+ "eye": [
+  -1.703531,
+  -3.003282,
+  0.97633
+ ],
+ "section_normals": [
+  [
+   0.381194,
+   0.336292,
+   0.861161
+  ],
+  [
+   0.532954,
+   -0.600776,
+   0.595843
+  ],
+  [
+   -0.786764,
+   0.161163,
+   0.595843
+  ]
+ ],
+ "head_mm": 92.0,
+ "view_settings": {
+  "azimuth": -30.0,
+  "elevation": 5.0,
+  "distance": 3.4,
+  "head_mm": 92.0,
+  "center": [
+   0.5,
+   0.33
+  ],
+  "key_azimuth": 40.0,
+  "fill_azimuth": -45.0,
+  "offset": [
+   0.0,
+   0.03,
+   -0.06
+  ],
+  "fade": {
+   "dx": 0.0,
+   "dy": 0.62,
+   "rx": 1.45,
+   "ry": 1.25,
+   "soft": 0.45,
+   "below_only": true
+  },
+  "ground": {
+   "dy": 0.3,
+   "rx": 1.0,
+   "ry": 1.05
+  }
+ },
+ "light": {
+  "key_azimuth": 40.0,
+  "key_elevation": 38.0,
+  "key_distance": 3.0,
+  "key_size": 1.2,
+  "key_samples": 7,
+  "fill_azimuth": -45.0,
+  "fill_elevation": 8.0,
+  "ao_samples": 40,
+  "ao_radius": 0.06,
+  "ambient": 0.12,
+  "key": 0.8,
+  "fill": 0.18,
+  "occlusion": 0.85
+ },
+ "tone": {
+  "light_gamma": 1.0,
+  "paper": 0.06,
+  "gamma": 1.25,
+  "scale": 0.85,
+  "cross": 0.34,
+  "cross_from": 0.45,
+  "cross_ramp": 0.3,
+  "cross_min_deg": 30.0,
+  "cross_full_deg": 50.0,
+  "smooth_samples": 1.5,
+  "albedo_gamma": 1.0,
+  "fold_threshold": 5.0,
+  "fold_min_pens": 6,
+  "valley_threshold": 20.0,
+  "ridge_threshold": 70.0,
+  "crease_min_pens": 12,
+  "crease_smooth": 1,
+  "crease_strong": 2.5,
+  "crease_light": 0.55
+ },
+ "paths_by_layer": {
+  "ground": 475,
+  "hatch": 977,
+  "cross": 738,
+  "folds": 114,
+  "outlines": 38
+ },
+ "line_m_by_layer": {
+  "ground": 14.05,
+  "hatch": 20.59,
+  "cross": 6.74,
+  "folds": 0.51,
+  "outlines": 0.36
+ },
+ "pen_down_m": 42.26,
+ "pen_up_m": 6.3,
+ "plot_hours_at_25mm_s": 0.67,
+ "extent_mm": [
+  8.0,
+  10.0,
+  202.0,
+  288.0
+ ],
+ "placement_shift_mm": [
+  -0.4,
+  15.566
+ ],
+ "head_xy_mm": [
+  104.6,
+  117.306
+ ],
+ "bounds_mm": [
+  14.7,
+  53.279,
+  195.3,
+  222.481
+ ],
+ "fold_info": {
+  "edge": 0.0019761623847452826,
+  "kr_range": [
+   -166.31095570820574,
+   136.53098523357684
+  ],
+  "strength_pct": [
+   -0.000924895594905431,
+   0.10399765526165776,
+   3.594798839439098
+  ]
+ },
+ "ground": {
+  "kind": "oval",
+  "lines": 475,
+  "metres": 14.05,
+  "spacing_mm": 0.2363,
+  "halo_mm": 2.5
+ },
+ "creases": {
+  "valley": {
+   "kind": "valley",
+   "chains": 487,
+   "crossings": 8177,
+   "k_scaled_pct": [
+    7.731822792880254,
+    76.1964947784037,
+    416.5774916366972
+   ]
+  },
+  "ridge": {
+   "kind": "ridge",
+   "chains": 238,
+   "crossings": 3652,
+   "k_scaled_pct": [
+    7.918267559620761,
+    67.4408888935565,
+    202.2861379827887
+   ]
+  }
+ }
+}

@@ -108,5 +108,6 @@ Keep these environments separate from the book environment:
 | [Infernal Engine](../studies/infernal-engine/README.md) | Blender 4.5 LTS; open its supplied `.blend` or follow its rebuild instructions |
 | [Photophobic](../studies/photophobic/README.md) | Install its own requirements; run `python build.py hortus` from that study folder |
 | [Scanned Statue v2](../studies/scanned-statue-v2/README.md) | Install its own requirements; follow its engraving or Trail First commands |
+| [Scan portraits](../studies/scan-portraits/README.md) | The same requirements as Scanned Statue v2; run `python build.py`, then `python checks.py`, from that study folder |
 
 The study READMEs document their own limitations and recorded validations. They were not rebuilt during this source-organization change.

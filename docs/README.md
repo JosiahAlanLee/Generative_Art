@@ -18,6 +18,7 @@ Browse by what you want to make. Each project or family guide contains its setup
 | [Workshop interiors](../studies/workshop-interiors/README.md) | Four editable Blender interiors and layered, stroke-only SVGs based on the workshop briefs |
 | [Photophobic](../studies/photophobic/README.md) | Light-aware culture studies |
 | [Scanned Statue v2](../studies/scanned-statue-v2/README.md) | Scan engraving and Trail First workflows |
+| [Scan portraits](../studies/scan-portraits/README.md) | CC head scans drawn as ray-lit A4 portrait engravings, with hidden lines removed |
 | [Motor counterpoint](../studies/plotter-score/README.md) | Drawing form and intended motor pitches generated from one timed score |
 
 ### Landscape comparisons and integrations
