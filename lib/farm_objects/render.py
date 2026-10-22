@@ -13,12 +13,22 @@ import numpy as np
 from .objects import G
 
 _PATH=Path(__file__).resolve().parents[2]/'studies/infernal-landscape/vendor/raycore.py'
-_SPEC=importlib.util.spec_from_file_location('_farm_raycore',_PATH)
-rc=importlib.util.module_from_spec(_SPEC)
-# Numba's cache needs the module importable when a later process loads it.
+# Numba caches the compiled kernel beside its source and records the name of
+# the module that compiled it; a later process loading that cache imports the
+# module by that name. The Infernal Landscape study imports this file as
+# `raycore`, so it is loaded under the same name here: under a second name,
+# whichever of the two ran second failed on the other's cache ("No module
+# named 'raycore'"). `_farm_raycore`, the name used before, stays as an alias
+# so caches written under it still load.
 import sys
-sys.modules[_SPEC.name]=rc
-_SPEC.loader.exec_module(rc)
+rc=sys.modules.get('raycore')
+if rc is None or Path(getattr(rc,'__file__','') or '').resolve()!=_PATH:
+    # Another `raycore` already loaded in this process keeps its name.
+    _SPEC=importlib.util.spec_from_file_location('raycore' if rc is None else '_farm_raycore',_PATH)
+    rc=importlib.util.module_from_spec(_SPEC)
+    sys.modules[_SPEC.name]=rc
+    _SPEC.loader.exec_module(rc)
+sys.modules.setdefault('_farm_raycore',rc)
 
 
 def _unit(x):

@@ -157,7 +157,19 @@ SC = B.SC; W, H = B.W, B.H; errors = []
 for name, c in B.cameras.items():
     cam = bpy.data.objects['Camera ' + name]; eye = np.array(c['eye'], float); fwd = np.array(c['target'], float) - eye; fwd /= np.linalg.norm(fwd)
     right = np.cross(fwd, [0, 0, 1]); right /= np.linalg.norm(right); up = np.cross(right, fwd)
-    for p in [(-7, 5, 3), (3, 8, 5), (0, 16, 2), (7, -2, .5)]:
+    def page(p):
+        q = np.array(p) - eye; z = q @ fwd
+        if z <= 0: return False
+        x, y = W / 2 + c['focal_px'] * (q @ right) / z, H / 2 - c['focal_px'] * (q @ up) / z
+        return 0 <= x <= W and 0 <= y <= H
+    # The four reference points lie on the estate cameras' pages. A closer
+    # camera (the plate studies') sees few or none of them; far off its page
+    # or near its lens, Blender's single-precision projection departs by
+    # thousandths of a pixel, so it is measured beside its own target instead.
+    refs = [p for p in [(-7, 5, 3), (3, 8, 5), (0, 16, 2), (7, -2, .5)] if page(p)]
+    t = np.array(c['target'], float)
+    refs += [tuple(t + right * a + up * b) for a, b in ((-1.5, -1.), (1.5, -1.), (1.5, 1.), (-1.5, 1.))][:4 - len(refs)]
+    for p in refs:
         q = np.array(p) - eye; z = q @ fwd
         xy = np.array([W / 2 + c['focal_px'] * (q @ right) / z, H / 2 - c['focal_px'] * (q @ up) / z])
         uv = world_to_camera_view(SC, cam, Vector(p)); errors.append(float(np.max(abs(np.array([uv.x * W, (1 - uv.y) * H]) - xy))))

@@ -19,6 +19,9 @@ OUT=output_dir(CASE,TERRAIN_MODE)
 OUT.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(ROOT/'vendor'))
 import raycore as rc
+# lib/farm_objects once loaded this file as `_farm_raycore`; a numba cache it
+# wrote under that name loads here too (lib/farm_objects/render.py).
+sys.modules.setdefault('_farm_raycore',rc)
 import claude_hatching as CH
 W,H=3120,2340
 D=json.loads((OUT/'scene.json').read_text())

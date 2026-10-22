@@ -22,7 +22,11 @@ INK='#242820';RED='#a32b24'
 # supports and piers are furniture at crease weight; foliage is lighter than
 # masonry; a plinth is lighter than the storeys it carries; open ground is the
 # lightest drawn surface. Gains multiply the lit darkness before allocation.
-FURNITURE=('Meadow fence','Service support','Service tray','Entry pier')
+# The plate studies' farm objects (plates.py) are drawn at furniture weight too,
+# as their own study draws them; no delivered scene contains them.
+FURNITURE=('Meadow fence','Service support','Service tray','Entry pier','Farm ')
+PLATES=os.environ.get('INFERNAL_PLATES')=='1'
+PLATES_RECORD={}
 PLINTH=(' foundation',' entrance base','Release lift landing',' waiting passage')
 GAIN=dict(terrain=.28,plinth=.62,furniture=.55)
 
@@ -173,12 +177,24 @@ def engrave(field,edges,patterns=(),keepouts=()):
     ch.FAMILIES=((.64,delta,w),(-.72,delta*1.08,w))
     ch.C_MAX=.82;ch.GAMMA=1.05;ch.C_SPLIT=.20;ch.MIN_GAP=gap
     st=ch.Strokes()
+    close=PLATES and B.VIEW_NAME in ('tower','barn');mesh=None
+    if PLATES:
+        # The plates build's hatching domain: the main view adds the farmyard to
+        # the atlas; the plate cameras hatch the ground and faces they see, out
+        # to the terrain mesh (plates.yard_atlas, close_atlas, face_in_view).
+        import plates
+        if close:
+            mesh=plates.close_atlas(B)
+            PLATES_RECORD['terrain_domain']=dict(hatched=[round(v,2) for v in (B.terrain.u0,B.terrain.v0,B.terrain.u1,B.terrain.v1)],
+                                                 mesh=[round(v,2) for v in mesh],edge_fade_m=plates.EDGE_FADE)
+        else:PLATES_RECORD['terrain_domain']=plates.yard_atlas(B.terrain)
     # Continuous terrain hatching; field ink reserves much of its local tone.
     ch.hatch_on_surface(st,B.terrain,.48)
     for i,f in enumerate(B.FACES):
         if not f['hatch']:continue
         n=np.asarray(B.D['normals'][i])
         if n@(B.EYE-f['p'].mean(0))<=0:continue
+        if close and not plates.face_in_view(B,f['p']):continue
         ch.hatch_on_face(st,f['p'],n,.82,i)
     st.finish();print('Hatch samples',len(st.world),flush=True)
     normals=np.empty_like(st.world);gain=np.ones(len(st.world));albedo=np.ones(len(st.world))
@@ -199,6 +215,8 @@ def engrave(field,edges,patterns=(),keepouts=()):
     x,y=st.xy.T;frame=(x>14)&(x<B.W-14)&(y>14)&(y<B.H-14)&(st.z>B.NEAR)
     seen=np.zeros(len(st.world),bool);seen[frame]=B.visible(st.world[frame],*B.BVH[:6])
     d=np.zeros(len(st.world));d[seen]=np.clip(1-B.light(st.world[seen],normals[seen],*B.BVH[:6])*albedo[seen],0,1)*gain[seen]
+    if mesh is not None:
+        ground=st.attr['surf']==0;d[ground]*=plates.edge_fade(st.world[ground,:2],mesh)
     for ko in keepouts:
         from lib.face_patterns import inside,to_uv
         idx=np.flatnonzero(st.attr['surf']==-1-ko['face'])
@@ -229,6 +247,14 @@ def place(patches):
         if rng.random()<.22:continue
         if any(x0-.3<x<x1+.3 and y0-.3<y<y1+.3 for x0,y0,x1,y1 in B.D['footprints']):continue
         add(patches['plants'][int(rng.integers(len(patches['plants'])))],x,y,rng.uniform(.35,.9))
+    if PLATES:
+        # The plate studies plant southwest Wisconsin flora in their two zones,
+        # replacing the Driftless meadow plants there (plates.py).
+        import plates
+        trees=len(B.D.get('planar_trees',[None]))
+        out=out[:trees]+[i for i in out[trees:] if not plates.in_flora_zone(i.root[0],i.root[1])]
+        flora,PLATES_RECORD['flora']=plates.flora_instances(B,M,B.D['footprints'],MM['foliage']*20)
+        out+=flora
     return out
 
 
@@ -237,7 +263,7 @@ if __name__=='__main__':
     field,stats=surface_paths(patches);print('Terrain',stats,flush=True)
     edges,red,arch=structure();print('Architecture paths',len(edges),'route paths',len(red),flush=True)
     patterns,keepouts,pattern_stats=[],[],None
-    if os.environ.get('INFERNAL_FACE_PATTERNS')=='1':
+    if os.environ.get('INFERNAL_FACE_PATTERNS')=='1' or PLATES:
         import surface_patterns as SP
         patterns,keepouts,pattern_audit,pattern_stats=SP.face_patterns()
         np.savez_compressed(OUT/f'pattern-audit-{B.VIEW_NAME}.npz',world=pattern_audit)
@@ -250,6 +276,15 @@ if __name__=='__main__':
     # the actual owner-aware planar silhouettes in oak coverage measurements.
     treebuf=np.full_like(buf,np.inf)
     for inst in instances[:len(B.D.get('planar_trees',[None]))]:M.stamp(treebuf,inst)
+    if PLATES:
+        # The plate studies' planar flora are vegetation in the tone zones, as
+        # the planar oak is: their silhouettes join the oak zone, not the ground.
+        # A plant's zone is its convex outline, the area a reader sees as the
+        # plant, as an oak's is its crown; a halo around each mark would be ink.
+        for inst in instances[len(instances)-PLATES_RECORD['flora']['instances']:]:
+            if inst.patch['hull']:
+                M.stamp(treebuf,M.Instance(dict(occluders=[dict(t='rings',rings=[inst.patch['hull']])]),
+                                            (inst.ox,inst.oy),inst.root,inst.s,inst.width))
     tree_zone=(np.isfinite(treebuf)&(treebuf<=depth+M.EPS_MODEL)).reshape(B.H,M.K,B.W,M.K).any(axis=(1,3))
     np.savez_compressed(OUT/f'tree-zones-{B.VIEW_NAME}.npz',oak=tree_zone)
     clipped=[(label,M.clip_screen_paths(paths,buf,depth),col) for label,paths,col in groups]
@@ -271,4 +306,5 @@ if __name__=='__main__':
                   driftless_sha256=hashlib.sha256((B.ROOT/'vendor/driftless-engine.js').read_bytes()).hexdigest())
     manifest['terrain_mode']=B.TERRAIN_MODE
     if pattern_stats is not None:manifest['face_patterns']=pattern_stats
+    if PLATES:manifest['plates']=PLATES_RECORD
     (OUT/f'manifest-{B.VIEW_NAME}.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest),flush=True)

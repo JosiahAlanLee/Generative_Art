@@ -1,5 +1,51 @@
 # Validation of this collection
 
+## Plate studies — 22 October 2026
+
+Prepared with Claude. Built with `bpy` 4.5.14 LTS in Python 3.11, and the
+Infernal Landscape engraving requirements in Python 3.12: NumPy 2.2.6, Numba
+0.61.2, SciPy 1.17.0, and Shapely 2.2.0, which `lib/fuzz` needs and
+`requirements.txt` now lists. Node 22 builds the Driftless patches.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s lib/face_patterns/tests -v` | 15 passed. Two are new: `cut_discs` leaves nothing inside a disc and every length outside it; `keep_where` keeps only where its test holds and reports the kept fraction |
+| `python -m unittest discover -s studies/infernal-landscape/tests -v` | 28 passed. The 13 new ones in `test_plates.py` cover: the quilt board fits the wall clear of the door and rail (seed 22's gable is too short); farmstead objects, board and footprints; the board hangs in front of the siding; bases sit 5 cm into the ground; zone points stay inside their zone, off footprints and the track, keep their minimum spacing, repeat by seed and are denser at edges; flora drawings are in plate millimetres with the root at the origin; thinning keeps every second seed and every leaf; the seal's core, slot, ring and ninefold symmetry; the main view's atlas takes in the farmyard and nothing else; every farmyard plant and every footprint stands on hatched ground; close views hatch what they see inside the mesh; the edge fade |
+| Other `lib` suites | `barn_quilts`, `codex_palette`, `farm_objects`, `flora`, `fuzz`, `halftone`, `numerics`, `process_art` and `sdf2d` pass |
+| `python tools/verify_collection.py` | 241 public snapshot files, 58 selected development-art files, 72 techniques and all local guide links |
+| Plates off | Recorded route, main camera, re-rendered with the final code: the delivered SVG (`84235df0…`) and the face-pattern comparison (`7a6bb489…`) are byte-identical to the builds before the change |
+| Plates on (Blender) | One scene record (`07258dc8…`). All 23 checks pass on the main, tower and barn views. Native Blender rays: 1,600 samples per view, none hidden. Face-pattern samples re-tested: 30,313 tower, 5,143 barn, 13,625 main, none hidden |
+| Plates on (dry run) | All 20 checks pass on each view; the three Blender-only checks do not apply. Zone tones are within 0.003 of the Blender build (the tower's furniture), within 0.001 elsewhere |
+| Preview | `plates_preview.py`. The sheet and each plate were inspected. The first barn plate stopped hatching the ground at the main view's vignette (x = 20), right behind the tractor; the plate cameras now hatch the ground they see, out to the terrain mesh, and the main view takes in the farmyard (see PLATES.md) |
+
+Found and fixed on the way:
+
+- **Camera audit.** `model.py`'s audit measured the plate cameras at reference
+  points off the page and reported 0.0075 px, over its 0.002 px limit. It now
+  uses the points on the page, and adds points around the target when fewer
+  than four are visible. The largest error is now 0.0006 px; the main and low
+  cameras measure as before.
+- **Native-ray verifier.** `verify_blender.py` audited the delivered folder
+  for every variant. It now reads each build's own folder. Re-run on the
+  face-pattern comparison: 1,600 samples, none hidden.
+- **Close-camera memory.** The first tower render ran out of memory: hatch
+  lines laid behind a close camera project to enormous lengths. The plate
+  cameras now hatch only the ground and faces they see.
+- **Numba cache.** `lib/farm_objects` loaded the study's ray kernel as
+  `_farm_raycore`, while the study imports it as `raycore`. Numba's cache
+  beside the file records the module name, so whichever ran second crashed
+  with "No module named …". After an Infernal Landscape build, the farm
+  objects' render test failed this way.
+  - The farm objects now load the kernel as `raycore`, and both sides alias the
+    old name so existing caches still load.
+  - In a scratch copy, every order passes: farm then study, study then farm,
+    and an old-style cache followed by either. The old loader fails the second
+    of these.
+  - The farm-remnants tractor and hay rake proofs rebuild byte-identical to
+    the committed SVGs.
+
+Only the recorded route was examined. Physical plotting was not tested.
+
 ## Face patterns — 22 October 2026
 
 Prepared with Claude. Built with `bpy` 4.5.14 LTS in Python 3.11 and the

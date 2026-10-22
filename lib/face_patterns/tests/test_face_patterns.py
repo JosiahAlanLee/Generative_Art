@@ -11,8 +11,9 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
-from lib.face_patterns import (clip_polyline, contour_on_face, hatch_polygon, inside, level_spacing_px,  # noqa: E402
-                               lift, plane_frame, stride_for_spacing, to_uv, world_spacing)
+from lib.face_patterns import (clip_polyline, contour_on_face, cut_discs, hatch_polygon, inside,  # noqa: E402
+                               keep_where, level_spacing_px, lift, plane_frame, stride_for_spacing, to_uv,
+                               world_spacing)
 from lib.face_patterns.sources import Strata, quilt  # noqa: E402
 
 
@@ -130,6 +131,25 @@ class ContourTests(unittest.TestCase):
         self.assertEqual(stride_for_spacing(px, 9.), 2)
         self.assertEqual(stride_for_spacing(px, 18.), 4)
         self.assertAlmostEqual(world_spacing(5., f, poly, 45., orthographic(20.)), .25)
+
+
+class CutTests(unittest.TestCase):
+    def test_cut_discs_leaves_nothing_inside_and_everything_outside(self):
+        line = np.array([(-2., 0.), (2., 0.)])
+        pieces = cut_discs([line], [((0, 0), .5)], step=.01)
+        self.assertEqual(len(pieces), 2)
+        pts = np.vstack(pieces)
+        self.assertTrue((np.hypot(*pts.T) > .5).all())
+        self.assertAlmostEqual(length(pieces), 3.0, delta=.03)   # 4 minus the 1.0 diameter
+        self.assertAlmostEqual(length(cut_discs([line], [])), 4.0)
+
+    def test_keep_where_reports_the_kept_fraction(self):
+        lines = [np.array([(0., y), (10., y)]) for y in (0., 1.)]
+        kept, fraction = keep_where(lines, lambda x, y: x < 2.5, step=.05)
+        self.assertAlmostEqual(fraction, .25, delta=.01)
+        self.assertTrue(all((q[:, 0] < 2.5).all() for q in kept))
+        none, zero = keep_where(lines, lambda x, y: np.zeros(len(x), bool), step=.05)
+        self.assertEqual((none, zero), ([], 0.))
 
 
 class SourceTests(unittest.TestCase):

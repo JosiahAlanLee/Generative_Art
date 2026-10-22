@@ -10,7 +10,8 @@ tower's limestone walls, and an Ohio Star barn quilt on the staff building's top
 storey, through the same camera, rays and tone allocator as everything else on
 the plate.
 
-It is off by default. With it off, the recorded route's main SVG is
+The [plate studies](PLATES.md) show both patterns at close range, with a third
+(a seal) and a barn quilt on an actual barn. It is off by default. With it off, the recorded route's main SVG is
 byte-identical to the build before this change (SHA-256 `84235df0…`).
 
 ## How it works

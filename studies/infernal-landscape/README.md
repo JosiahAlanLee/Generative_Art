@@ -6,6 +6,11 @@
 walls: process-art strata on the approval tower and a barn quilt on the staff
 building, compared against the delivered plate. Off by default.
 
+[Plate studies](PLATES.md) brings two close cameras to the estate: the approval
+tower, with its strata and a seal from 2-D distance fields, and a farmstead built
+from the farm objects, with a barn quilt painted in jittered passes and southwest
+Wisconsin flora planted by Poisson sampling. Off by default.
+
 [Window onto the coulee mill](WINDOW.md) adds a deep, ray-tested masonry aperture,
 waterwheel and bridge to the eroded Blender/Driftless workflow.
 
