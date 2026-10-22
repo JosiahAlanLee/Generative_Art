@@ -170,7 +170,11 @@ A reusable tile grammar supplies joined curves and steps. Adaptive transport fol
 
 [Research: thi.ng and toxiclibs](docs/THING_TECHNIQUES.md) · [Selected demonstrations](examples/previews/thing-ports/manifest.json). Independent implementations after Karsten Schmidt's packages, not installed book plates.
 
-## [Southwestern Wisconsin flora](techniques/16-wisconsin-flora/README.md)
+## [Farm objects](techniques/16-farm-objects/README.md)
+
+Seeded timber barns, open-seat tractors, disk harrows, dump rakes and slatted wagons. Actual mesh gaps and sag combine with surface-attached grain and corrosion, with four-layer stroke-only SVGs and shared 3D visibility. [Object study and specimens](studies/farm-remnants/README.md).
+
+## [Southwestern Wisconsin flora](techniques/17-wisconsin-flora/README.md)
 
 | Technique | Use | Status |
 | --- | --- | --- |
