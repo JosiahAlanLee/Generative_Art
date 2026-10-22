@@ -43,6 +43,11 @@ record('closed_gate_fits_beneath_roof',not gate or max(p[:,2].max() for p in gat
 for prefix in ('surface','hatch'):
     a=np.load(B.OUT/f'{prefix}-audit-{B.VIEW_NAME}.npz')['world'];seen=B.visible(a,*B.BVH[:6])
     record(prefix+'_delivered_samples_visible',seen.all(),samples=len(a),violations=int((~seen).sum()))
+pattern_file=B.OUT/f'pattern-audit-{B.VIEW_NAME}.npz'
+if pattern_file.exists():
+    # Face patterns (FACE-PATTERNS.md) are delivered through the same ray test as the rest.
+    a=np.load(pattern_file)['world'];seen=B.visible(a,*B.BVH[:6]) if len(a) else np.zeros(0,bool)
+    record('face_pattern_samples_visible',len(a)>0 and seen.all(),samples=len(a),violations=int((~seen).sum()))
 p=np.load(B.OUT/f'plants-audit-{B.VIEW_NAME}.npz')
 record('plant_owners_respected',not (p['nearest_depth']<p['owner_depth']-M.EPS_PLANT).any(),samples=len(p['xy']))
 # Adversarial fixture: place a mark at ground level beneath a task building.

@@ -4,7 +4,7 @@ The nine extracted hatch bodies and the Driftless engine remain unchanged.
 All choices about spacing, lighting, tone, ink, and composition live here.
 """
 from pathlib import Path
-import hashlib,json,re,time
+import hashlib,json,os,re,time
 import numpy as np
 from PIL import Image,ImageDraw
 from scipy.ndimage import gaussian_filter
@@ -164,7 +164,10 @@ def release_marks(arch):
     return marks
 
 
-def engrave(field,edges):
+def engrave(field,edges,patterns=(),keepouts=()):
+    """Hatch for the remaining tone. Face patterns (surface_patterns.py, off by
+    default) reserve tone like architecture ink; a keep-out removes a face's
+    own hatching inside a painted region, whose paint replaces the light."""
     ch=B.CH;w=MM['hatch']*20;gap=MM['gap']*20
     depth=np.linalg.norm(B.TARGET-B.EYE);delta=gap*depth/B.FOCAL
     ch.FAMILIES=((.64,delta,w),(-.72,delta*1.08,w))
@@ -196,14 +199,20 @@ def engrave(field,edges):
     x,y=st.xy.T;frame=(x>14)&(x<B.W-14)&(y>14)&(y<B.H-14)&(st.z>B.NEAR)
     seen=np.zeros(len(st.world),bool);seen[frame]=B.visible(st.world[frame],*B.BVH[:6])
     d=np.zeros(len(st.world));d[seen]=np.clip(1-B.light(st.world[seen],normals[seen],*B.BVH[:6])*albedo[seen],0,1)*gain[seen]
+    for ko in keepouts:
+        from lib.face_patterns import inside,to_uv
+        idx=np.flatnonzero(st.attr['surf']==-1-ko['face'])
+        if len(idx):d[idx[inside(to_uv(st.world[idx],ko['frame']),ko['polygon'])]]=0
     used=Image.new('L',(B.W//5,B.H//5),0);draw=ImageDraw.Draw(used)
-    for paths in [edges]+[p for _,p,_ in field]:
+    for paths in [edges,patterns]+[p for _,p,_ in field]:
         for q,width in paths:draw.line([tuple(p/5) for p in q],fill=255,width=max(1,round(width/5)))
     used=gaussian_filter(np.asarray(used,float)/255,.7)*.32
     keep=ch.allocate_hatch(st,d,used,seen)
     np.savez_compressed(OUT/f'hatch-audit-{B.VIEW_NAME}.npz',world=st.world[keep][::3],shade=d[keep][::3])
     # All emitted hatches have exactly the width budgeted above.
-    return [('01 crosshatching',[(q,w) for q in B.split_paths(st.xy,keep,st.sid)],INK),('02 architecture and volume foliage',edges,INK)]
+    layers=[('01 crosshatching',[(q,w) for q in B.split_paths(st.xy,keep,st.sid)],INK),('02 architecture and volume foliage',edges,INK)]
+    if patterns:layers.append(('02 architecture face patterns',list(patterns),INK))
+    return layers
 
 
 def place(patches):
@@ -227,7 +236,13 @@ if __name__=='__main__':
     start=time.time();patches=json.loads((OUT/'driftless-meadow-patches.json').read_text())
     field,stats=surface_paths(patches);print('Terrain',stats,flush=True)
     edges,red,arch=structure();print('Architecture paths',len(edges),'route paths',len(red),flush=True)
-    groups=engrave(field,edges)+field
+    patterns,keepouts,pattern_stats=[],[],None
+    if os.environ.get('INFERNAL_FACE_PATTERNS')=='1':
+        import surface_patterns as SP
+        patterns,keepouts,pattern_audit,pattern_stats=SP.face_patterns()
+        np.savez_compressed(OUT/f'pattern-audit-{B.VIEW_NAME}.npz',world=pattern_audit)
+        print('Face patterns',json.dumps(pattern_stats),flush=True)
+    groups=engrave(field,edges,patterns,keepouts)+field
     instances=place(patches);buf=np.full((B.H*M.K,B.W*M.K),np.inf)
     for inst in instances:M.stamp(buf,inst)
     depth=M.model_depth(buf);pens,audit=M.plant_strokes(instances,buf,return_audit=True)
@@ -255,4 +270,5 @@ if __name__=='__main__':
                   gains={**GAIN,'eroded_terrain':'.24 + .20 × slope' if arch.get('scene_profile') in ('spillway','window') else '.42 + .42 × slope'},elapsed_seconds=round(time.time()-start,2),
                   driftless_sha256=hashlib.sha256((B.ROOT/'vendor/driftless-engine.js').read_bytes()).hexdigest())
     manifest['terrain_mode']=B.TERRAIN_MODE
+    if pattern_stats is not None:manifest['face_patterns']=pattern_stats
     (OUT/f'manifest-{B.VIEW_NAME}.json').write_text(json.dumps(manifest,indent=2));print(json.dumps(manifest),flush=True)

@@ -1,5 +1,22 @@
 # Validation of this collection
 
+## Face patterns — 22 October 2026
+
+Prepared with Claude. Built with `bpy` 4.5.14 LTS in Python 3.11 and the
+Infernal Landscape engraving requirements (NumPy 2.2.6, Numba 0.61.2, SciPy
+1.17.0) in Python 3.12; Node 22 for the Driftless patches.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s lib/face_patterns/tests -v` | 13 passed: frames read right/up from outside and are right-handed; coplanar faces share coordinates; lift inverts the projection; a course meets itself at a corner; exact convex and concave (L-shaped) clipping; hatching inside, evenly spaced and continuous between neighbouring polygons; height contours are courses; a blank fault seam is not bridged; screen spacing, nested stride and world spacing under an orthographic Jacobian; strata levels that reach a corner end at the same height on both walls (24 here); level beds across the axis; seams blanked and repeatable; quilt regions tile the unit square |
+| `python -m unittest discover -s studies/infernal-landscape/tests -v` | 15 passed, including two new: variant output folders, and the same rule in `patches.cjs` and `run.py` |
+| Other `lib` suites | `process_art`, `codex_palette`, `barn_quilts` and `numerics` pass under `requirements-process-art.txt` (they need shapely) |
+| Patterns off | Recorded route, main camera: the SVG is byte-identical to the build before the change (`84235df0…`) |
+| Patterns on (Blender) | Same scene record (`a88e94b4…`); all 23 checks pass, including the new `face_pattern_samples_visible` (8,949 samples, none hidden); also passes as a NumPy dry run |
+| Comparison | `face_patterns_preview.py`: 247 pattern paths (0.319 m); crosshatching 214 paths (0.153 m) shorter; ink on the tower's lit walls 0.439 → 0.463, shaded 0.678 → 0.685; buildings zone 0.434 → 0.439; the sheet was inspected |
+
+Only the recorded route's main camera was examined. Physical plotting was not tested.
+
 ## Palette repair and combination studies — 20 October 2026
 
 Prepared with ChatGPT/Codex. The palette's 23 tests pass, including rounded

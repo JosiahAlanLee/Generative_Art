@@ -16,13 +16,16 @@ ROOT = Path(__file__).resolve().parent
 
 
 def output_dir(case=None, terrain_mode=None):
-    """output/<case>[-<terrain>][-dryrun]: every stage of a build shares it.
+    """output/<case>[-<terrain>][-face-patterns][-dryrun]: every stage of a build shares it.
 
     INFERNAL_DRYRUN=1 keeps a NumPy dry run beside the delivered Blender
-    build instead of overwriting it; patches.cjs applies the same suffix."""
+    build instead of overwriting it, and INFERNAL_FACE_PATTERNS=1 keeps the
+    face-pattern comparison beside it too (see FACE-PATTERNS.md);
+    patches.cjs applies the same suffixes."""
     case = case or os.environ.get('INFERNAL_CASE', 'recorded_route')
     terrain_mode = terrain_mode or os.environ.get('INFERNAL_TERRAIN', 'original')
     name = case if terrain_mode == 'original' else case + '-' + terrain_mode
+    if os.environ.get('INFERNAL_FACE_PATTERNS') == '1': name += '-face-patterns'
     if os.environ.get('INFERNAL_DRYRUN') == '1': name += '-dryrun'
     return ROOT / 'output' / name
 
