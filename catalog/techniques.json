@@ -1104,5 +1104,131 @@
       "light",
       "owner_map"
     ]
+  },
+  {
+    "id": "halftone-dither-trace",
+    "title": "Dithered bitmap traced into pen runs",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Quantise a raster with error-diffusion or Bayer screens and consume it into hairline runs per pen",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/halftone/dither.py",
+      "lib/halftone/trace.py",
+      "lib/halftone/studies.py"
+    ],
+    "symbols": [
+      "error_diffuse",
+      "ordered_dither",
+      "masks",
+      "trace_runs",
+      "to_mm",
+      "halftone_plate",
+      "kernels_plate"
+    ]
+  },
+  {
+    "id": "poisson-stipples",
+    "title": "Tone-driven Poisson and stratified stipples",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Carry tone by dot density or dot size with variable-radius Poisson-disc or jittered grids",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/halftone/poisson.py",
+      "lib/halftone/studies.py"
+    ],
+    "symbols": [
+      "poisson_sample",
+      "stratified_grid",
+      "tone_radius",
+      "stipple_plate",
+      "spiral_dot"
+    ]
+  },
+  {
+    "id": "fuzzy-passes-fills",
+    "title": "Fuzzy multi-pass outlines and composable fills",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Redraw a shape in jittered passes and fill it with hatching at any angle, dot screens or both",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/fuzz/fuzz.py",
+      "lib/fuzz/studies.py"
+    ],
+    "symbols": [
+      "fuzzy_polygon",
+      "fuzzy_line",
+      "hatch_fill",
+      "dot_fill",
+      "compose",
+      "hatch_pen",
+      "dot_pen",
+      "passes_plate",
+      "fills_plate"
+    ]
+  },
+  {
+    "id": "subdivision-splines",
+    "title": "Subdivision curves and polygon-to-B\u00e9zier",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Smooth, interpolate or roughen a polygon by Chaikin, cubic, Dyn\u2013Levin\u2013Gregory or displacement, or convert it to cubic segments",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/fuzz/curves.py",
+      "lib/fuzz/studies.py"
+    ],
+    "symbols": [
+      "subdivide",
+      "polygon_to_cubic",
+      "cubic_points",
+      "cubics_to_polyline",
+      "subdivision_plate"
+    ]
+  },
+  {
+    "id": "sdf2d-fields",
+    "title": "2-D distance fields with blended booleans and repeats",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Build figures from analytic shapes joined with chamfered, rounded, smooth or stepped booleans and tiled by grid, mirror or polar repeat",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/sdf2d/sdf.py",
+      "lib/sdf2d/studies.py"
+    ],
+    "symbols": [
+      "circle",
+      "box",
+      "polygon",
+      "union_smooth",
+      "subtract_steps",
+      "repeat_mirror",
+      "repeat_polar",
+      "band",
+      "apparatus_plate",
+      "tiling_plate"
+    ]
+  },
+  {
+    "id": "sdf2d-contours-hatching",
+    "title": "Field contours and sign-tested hatching",
+    "family": "15-thing-ports",
+    "status": "collection",
+    "use": "Draw a distance field as nested offsets or hatch its depth bands without building a polygon",
+    "guide": "techniques/15-thing-ports/README.md",
+    "sources": [
+      "lib/sdf2d/grid.py",
+      "lib/sdf2d/studies.py"
+    ],
+    "symbols": [
+      "sample",
+      "contours",
+      "levels",
+      "hatch_by_sign",
+      "band_count"
+    ]
   }
 ]
