@@ -91,25 +91,37 @@
   "crease_min_pens": 12,
   "crease_smooth": 1,
   "crease_strong": 2.5,
-  "crease_light": 0.55
+  "crease_light": 0.55,
+  "dots": 0.5,
+  "dots_from": 0.25,
+  "dots_until": 0.75,
+  "dot_gain": 1.0,
+  "dot_ring_mm": 0.05,
+  "dot_gap_mm": 0.05,
+  "dot_r_min_mm": 0.38,
+  "dot_r_max_mm": 1.6,
+  "dot_quality": 600,
+  "dot_raster_mm": 0.1
  },
  "paths_by_layer": {
   "ground": 524,
-  "hatch": 2925,
-  "cross": 1402,
+  "hatch": 2712,
+  "cross": 1382,
+  "dots": 3260,
   "folds": 724,
   "outlines": 361
  },
  "line_m_by_layer": {
   "ground": 14.53,
-  "hatch": 20.95,
-  "cross": 6.12,
+  "hatch": 18.16,
+  "cross": 6.0,
+  "dots": 1.01,
   "folds": 4.05,
   "outlines": 1.0
  },
- "pen_down_m": 46.65,
- "pen_up_m": 11.37,
- "plot_hours_at_25mm_s": 0.99,
+ "pen_down_m": 44.74,
+ "pen_up_m": 17.22,
+ "plot_hours_at_25mm_s": 1.22,
  "extent_mm": [
   8.0,
   10.0,
@@ -170,5 +182,23 @@
     89.6855163660163
    ]
   }
+ },
+ "stipple": {
+  "dots": 3260,
+  "asked": 3317,
+  "passes": [
+   {
+    "packing": 0.64,
+    "dots": 4772
+   },
+   {
+    "packing": 0.9208,
+    "dots": 3260
+   }
+  ],
+  "seed": 2617134503,
+  "raster_mm": 0.1,
+  "ink_radius_mm": 0.125,
+  "allowed_mm2": 3495.9
  }
 }
