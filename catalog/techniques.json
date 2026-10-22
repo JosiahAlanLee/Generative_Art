@@ -511,11 +511,12 @@
     "title": "Scan portraits",
     "family": "08-scene-studies",
     "status": "study",
-    "use": "Draw a CC head scan as an A4 portrait engraving with hidden lines removed: per-vertex key, fill and occlusion; plane-section hatching with a cross family chosen per point for its crossing angle; ridge and valley lines; a ruled ground with a halo; a vignette",
+    "use": "Draw a CC head scan as an A4 portrait engraving with hidden lines removed: per-vertex key, fill and occlusion; plane-section hatching with a cross family chosen per point for its crossing angle; stipple between the lines in the light half-tones, placed by the thi.ng Poisson-disc port; ridge and valley lines; a ruled ground with a halo; a vignette",
     "guide": "techniques/08-scene-studies/README.md",
     "sources": [
       "studies/scan-portraits/portrait.py",
       "studies/scan-portraits/subjects.py",
+      "studies/scan-portraits/stipple.py",
       "studies/scan-portraits/light.py",
       "studies/scan-portraits/creases.py",
       "studies/scan-portraits/ground.py",
@@ -536,7 +537,12 @@
       "crease_lines",
       "vertex_curvature",
       "ruled",
-      "loop"
+      "loop",
+      "darkness",
+      "dot_share",
+      "dots",
+      "line_clearance",
+      "surface_raster"
     ]
   },
   {

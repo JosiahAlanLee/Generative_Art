@@ -51,6 +51,7 @@ import suggestive   # noqa: E402  Scanned Statue v2, unchanged: suggestive conto
 import creases      # noqa: E402
 import light        # noqa: E402
 import ground       # noqa: E402
+import stipple      # noqa: E402
 import subjects     # noqa: E402
 
 INK = '#161918'      # Codex ink (common/plot/plotkit.py INK)
@@ -71,9 +72,9 @@ SHEETS = {
 # (see crossing()), because no single family of planes crosses it well everywhere: near a
 # silhouette every section runs nearly parallel to the edge.
 FAMILIES = ((.18, 1., -.45), (1., .75, .40), (-1., .75, .40))
-LAYERS = (('ground', '1 ground'), ('hatch', '2 hatch'), ('cross', '3 cross-hatch'),
-          ('folds', '4 fold lines'), ('outlines', '5 outlines'))
-REL = dict(hatch=1.0, cross=.9, folds=1.0, outlines=1.25, ground=.9)   # stroke width, in pens
+LAYERS = (('ground', '1 ground'), ('hatch', '2 hatch'), ('cross', '3 cross-hatch'), ('dots', '4 stipple'),
+          ('folds', '5 fold lines'), ('outlines', '6 outlines'))
+REL = dict(hatch=1.0, cross=.9, dots=1.0, folds=1.0, outlines=1.25, ground=.9)   # stroke width, in pens
 
 
 def log(*a):
@@ -405,6 +406,14 @@ def crossing(cam, p, n, normals, min_deg, full_deg):
     return q, best
 
 
+def darkness(light_, albedo, tone):
+    """Darkness d in [0, 1] after the paper threshold, and the ink coverage it asks for (before any fade)."""
+    lit = np.clip(light_ * np.power(np.clip(albedo, .05, 2), tone['albedo_gamma']), 0, 1)
+    d = 1 - np.power(lit, tone['light_gamma'])
+    d = np.clip((d - tone['paper']) / (1 - tone['paper']), 0, 1)     # the lights stay paper
+    return d, tone['scale'] * np.power(d, tone['gamma'])
+
+
 def draw(cands, vis, pp, cam, pen, tone, fade, normals):
     paths = {k: [] for k, _ in LAYERS}
     start = 0
@@ -413,11 +422,9 @@ def draw(cands, vis, pp, cam, pen, tone, fade, normals):
         xy = pp[sl, :2]; keep = vis[sl].copy(); kind = c['kind']
         f = fade_at(xy, fade)
         if kind == 'hatch':
-            lit = np.clip(c['light'] * np.power(np.clip(c['albedo'], .05, 2), tone['albedo_gamma']), 0, 1)
-            d = 1 - np.power(lit, tone['light_gamma'])
-            d = np.clip((d - tone['paper']) / (1 - tone['paper']), 0, 1)     # the lights stay paper
+            d, desired = darkness(c['light'], c['albedo'], tone)
+            desired = desired * f * (1 - stipple.dot_share(d, tone))       # the lights' share goes to dots
             spacing = projected_spacing(cam, c['p'], c['n'], c['normal'], c['step'])   # mm on paper
-            desired = tone['scale'] * np.power(d, tone['gamma']) * f
             split = tone['cross'] * np.clip((d - tone['cross_from']) / tone['cross_ramp'], 0, 1)
             nn = c['n'] * np.sign((c['n'] * (cam.eye - c['p'])).sum(1))[:, None]
             q, best = crossing(cam, c['p'], nn, normals, tone['cross_min_deg'], tone['cross_full_deg'])
@@ -603,6 +610,16 @@ def run(subject_key, view_key, sheet_key='a4', pen_mm=.15, spacing=1.75, out=Non
     fade = dict(cx=head_xy[0] + fade['dx'], cy=head_xy[1] + fade['dy'], rx=fade['rx'] * view['head_mm'],
                 ry=fade['ry'] * view['head_mm'], soft=fade['soft'], below_only=fade.get('below_only', False))
     paths = draw(cands, vis, pp, cam, pen_mm, tone, fade, normals)
+    dot_info = dict(dots=0)
+    if tone['dots'] > 0:
+        seen = pp[vis, :2]
+        region = (*(seen.min(0) - 1), *(seen.max(0) + 1))
+        head = [p for k in ('hatch', 'cross', 'folds', 'outlines') for p in paths[k]]
+        albedo_uv = (lambda uv: subjects.sample_albedo(scan.albedo, uv)) if scan.albedo is not None else None
+        pts, dot_info = stipple.dots(cam, bvh, scan, vlight, albedo_uv, head, region, lambda xy: fade_at(xy, fade),
+                                     lambda L, a: darkness(L, a, tone), pen_mm, tone, f'{subject_key}-{view_key}-{sheet_key}')
+        paths['dots'] = [stipple.ring(x, y, tone['dot_ring_mm']) for x, y in pts]
+        log(f"  stipple: {dot_info['dots']} dots ({dot_info['asked']} asked for)")
 
     gspec = dict(subject.ground); gspec.update(view.get('ground', {}))
     if gspec.get('dark_side', 'auto') == 'auto':
@@ -640,7 +657,7 @@ def run(subject_key, view_key, sheet_key='a4', pen_mm=.15, spacing=1.75, out=Non
         head_xy_mm=[round(float(v), 3) for v in (head_xy[:2] + shift)],
         bounds_mm=[round(float(v), 3) for v in (pts.min(0).tolist() + pts.max(0).tolist())] if len(pts) else None,
         fold_info={k: (v if not isinstance(v, tuple) else list(v)) for k, v in fold_info.items()},
-        ground=ground_info, creases=crease_info,
+        ground=ground_info, creases=crease_info, stipple=dot_info,
     )
     (out / f'{name}-report.json').write_text(json.dumps(report, indent=1, default=float) + '\n')
     log(f'  {sum(len(v) for v in paths.values())} paths, {down / 1000:.1f} m pen down, {up / 1000:.1f} m travel; '
@@ -663,7 +680,13 @@ def main():
     overrides = {}
     for kv in a.set:
         k, v = kv.split('=', 1)
-        overrides[k] = json.loads(v)
+        try:
+            overrides[k] = json.loads(v)
+        except json.JSONDecodeError:
+            try:
+                overrides[k] = float(v)      # .85 as well as 0.85
+            except ValueError:
+                overrides[k] = v
     run(a.subject, a.view, a.sheet, a.pen_mm, a.spacing, a.out, a.prefix, overrides, not a.no_png)
 
 

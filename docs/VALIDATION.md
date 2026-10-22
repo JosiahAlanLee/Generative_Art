@@ -1,5 +1,18 @@
 # Validation of this collection
 
+## Scan portraits stipple — 22 October 2026
+
+Prepared with Claude, in the Scan portraits environment below. This covers `studies/scan-portraits/stipple.py` and the plates rebuilt with it; `lib/halftone`, Scanned Statue v2 and every imported source file are unchanged.
+
+| Check | Observed result |
+| --- | --- |
+| `python studies/scan-portraits/checks.py` | 47 passed. The seven new or extended checks: on each plate the closest dot is 0.206–0.209 mm from a line's centre, with 0.200 mm touching; each plate's dot count is within 5 % of what its light asks for (3,260, 4,967 and 3,342 dots); stipple dots lie on the ray-cast scan; on a uniform field `lib/halftone`'s sampler packs at 0.641 points per r², against the 0.64 assumed. The rest are as below, including the byte-for-byte rebuild of `lps-bust` |
+| `python studies/scan-portraits/build.py` | Three A4 plates in 3 min 16 s: 44.7, 42.0 and 40.6 m of line, with estimated plots of 1.2, 1.4 and 0.9 h, of which pen lifts for dots are 14–21 minutes |
+| Visual review | Faces at 14 px/mm with and without the stipple, two dot shares on each head, and the plates side by side |
+| Collection verifier | 241 public snapshot files, 58 selected development-art files, 75 techniques and all local guide links |
+
+Physical plotting was not tested.
+
 ## Scan portraits — 22 October 2026
 
 Prepared with Claude, on Linux with Python 3.13.16 and Scanned Statue v2's pinned requirements (NumPy 2.5.3, SciPy 1.18.1, Numba 0.68.0, trimesh 5.1.1, CairoSVG 2.9.1) on two cores. This covers `studies/scan-portraits`; no imported source file and no file in Scanned Statue v2 changed.

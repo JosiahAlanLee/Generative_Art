@@ -8,7 +8,8 @@
 2. Each committed plate is stroke-only, inside the Codex plot-master extent, and its report's
    line totals match the SVG.
 3. Drawn lines sit where the camera sees the scan: every head-layer point lies on the scan's
-   silhouette (to within a line's smoothing), every ground point clear of it.
+   silhouette (to within a line's smoothing), every ground point clear of it. Stipple dots sit
+   between the lines, and their count matches what the light asks for.
 4. Loop subdivision keeps a flat sheet flat and its UV layout aligned with the positions.
 5. Ridge and valley lines on a corrugated sheet land on its crests and troughs.
 6. The key light on a sphere is the cosine law, and a convex sphere has no occlusion.
@@ -115,7 +116,7 @@ def placement():
 
         tol = int(math.ceil(.6 / res))   # 0.6 mm: the Gaussian easing of feature lines and RDP simplification
         grown = binary_dilation(mask, iterations=tol)
-        head = [p for k in ('hatch', 'cross', 'folds', 'outlines') for p in layers.get(k, [])]
+        head = [p for k in ('hatch', 'cross', 'dots', 'folds', 'outlines') for p in layers.get(k, [])]
         r, c = cells(head)
         frac = grown[r, c].mean()
         check(f'{svg.name}: head lines lie on the scan as the camera sees it', frac > .999, f'{frac:.5f} of points')
@@ -132,6 +133,37 @@ def densify(p, step=.2):
         n = max(1, int(np.linalg.norm(b - a) / step))
         out.append(a + (b - a) * (np.arange(1, n + 1) / n)[:, None])
     return np.concatenate(out)
+
+
+def stipple_checks():
+    from scipy.spatial import cKDTree
+    for svg in sorted(OUT.glob('*.svg')):
+        rep = json.loads(svg.with_name(svg.stem + '-report.json').read_text())
+        layers, _ = svg_paths(svg.read_text())
+        dots = np.array([p[:-1].mean(0) for p in layers.get('dots', [])])
+        info = rep['stipple']
+        if not len(dots):
+            check(f'{svg.name}: no stipple asked for', info['dots'] == 0)
+            continue
+        check(f'{svg.name}: stipple count within 5 % of what the light asks for',
+              abs(info['dots'] / info['asked'] - 1) <= .05, f"{info['dots']} dots, {info['asked']} asked")
+        lines = np.concatenate([densify(p, .05) for k in ('hatch', 'cross', 'folds', 'outlines') for p in layers.get(k, [])])
+        gap, _ = cKDTree(lines).query(dots)
+        need = rep['pen_mm'] / 2 + info['ink_radius_mm']        # line edge to dot edge just touching
+        check(f'{svg.name}: dots sit between the lines, not on them', gap.min() >= need,
+              f'closest {gap.min():.3f} mm centre to line, touching at {need:.3f} mm')
+
+
+def packing():
+    import stipple
+    from lib.halftone import poisson_sample
+    rng = np.random.default_rng(1)
+    r = .6
+    pts = poisson_sample((0, 0, 30, 30), lambda p: r, rng, min_radius=r, quality=600, iterations=3)
+    inner = ((pts > 3) & (pts < 27)).all(1).sum()
+    k = inner * r * r / 24 ** 2
+    check('Poisson stipple packs as stipple.PACKING assumes on a uniform field', abs(k - stipple.PACKING) < .02,
+          f'{k:.3f} against {stipple.PACKING}')
 
 
 # ------------------------------------------------------------- 4-6. geometry
@@ -226,7 +258,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--quick', action='store_true', help='skip the from-scratch rebuild')
     a = ap.parse_args()
-    models(); plates(); placement(); subdivision(); corrugated(); sphere_light(); ordering()
+    models(); plates(); placement(); stipple_checks(); packing(); subdivision(); corrugated(); sphere_light(); ordering()
     if not a.quick:
         rebuild()
     failed = [n for n, ok in RESULTS if not ok]

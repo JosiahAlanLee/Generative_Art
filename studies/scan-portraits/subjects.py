@@ -178,13 +178,17 @@ SUBJECTS = {
 }
 
 # Tone: darkness d = 1 - light^light_gamma, remapped so that d below `paper` stays bare;
-# ink coverage = scale * d^gamma, with cross-hatching taking `cross` of it once d passes cross_from. Scanned Statue v2 used
+# ink coverage = scale * d^gamma, with cross-hatching taking `cross` of it once d passes cross_from.
+# In the lights, `dots` of the coverage goes to stipple instead of lines, fading to none by
+# dots_until (stipple.py). Scanned Statue v2 used
 # 1 - sqrt(light), .68 and 1.3, which leaves a lit face almost bare at portrait scale.
 TONE = dict(light_gamma=1., paper=.06, gamma=1.25, scale=.85, cross=.34, cross_from=.45, cross_ramp=.30,
             cross_min_deg=30., cross_full_deg=50.,
             smooth_samples=1.5, albedo_gamma=1.0, fold_threshold=5., fold_min_pens=6,
             valley_threshold=20., ridge_threshold=70., crease_min_pens=12, crease_smooth=1,
-            crease_strong=2.5, crease_light=.55)
+            crease_strong=2.5, crease_light=.55,
+            dots=.85, dots_from=.15, dots_until=.75, dot_gain=1., dot_ring_mm=.05, dot_gap_mm=.05,
+            dot_r_min_mm=.38, dot_r_max_mm=1.6, dot_quality=600, dot_raster_mm=.1)
 
 # A rig is given about the subject's frame: azimuth 0 is in front, positive toward +x
 # (the viewer's right when facing the sitter), elevation up from the horizontal.
@@ -193,7 +197,8 @@ STUDIO = dict(key_azimuth=-50., key_elevation=38., key_distance=3., key_size=1.2
               ambient=.12, key=.80, fill=.18, occlusion=.85)
 
 SUBJECTS['washington'].light = dict(STUDIO)
-SUBJECTS['washington'].tone = {}
+# Marble keeps more of its lines in the lights: dots take half of the light half-tones, between the lines.
+SUBJECTS['washington'].tone = dict(dots=.5, dots_from=.25)
 # Views. Washington's head is turned to his right (toward -x): azimuth -35 sees the face full on,
 # 15 a strong three-quarter, 62 the profile.
 SUBJECTS['washington'].views = {
