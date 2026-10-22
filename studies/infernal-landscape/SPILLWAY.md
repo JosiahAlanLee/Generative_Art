@@ -58,7 +58,7 @@ uncertainty, OR dependencies or institutional behaviour is inferred.
 | --- | --- | --- |
 | Building area / whole plate | 9.1% | 8.3% |
 | Sky area / whole plate | 26.8% | 28.8% |
-| Mean ink: building / oak / ground | 0.417 / 0.319 / 0.096 | 0.411 / 0.310 / 0.086 |
+| Mean ink: building / oak / ground | 0.421 / 0.319 / 0.096 | 0.415 / 0.310 / 0.086 |
 | Release marker visible | 100% | 100% |
 | Permit → gates visible | 100% | 100% |
 | Gates → restart visible | 99.3% | 99.3% |
@@ -66,7 +66,10 @@ uncertainty, OR dependencies or institutional behaviour is inferred.
 | Independent Blender rays / violations | 1,600 / 0 | 1,600 / 0 |
 
 Both views pass the shared print, tone, provenance and ray checks, with red
-visibility gating. Scene checks also verify the horizontal Geometry Nodes
+visibility gating. The plates were re-engraved on 22 October 2026 with the
+portal and waiting-frame ring stones wound outward (they had drawn as
+unhatched outlines); the building means above rose by 0.004 and nothing
+else in the table moved. Scene checks also verify the horizontal Geometry Nodes
 extents, separate four-unit wait, exact schedule, protected pads, and subject
 framing (buildings at least 8%, sky under 30%). The 21 process-art unit tests
 pass in the repository. These are development proofs; they have not been

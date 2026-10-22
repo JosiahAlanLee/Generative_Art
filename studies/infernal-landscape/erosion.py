@@ -26,7 +26,9 @@ def make_terrain(mode,architecture,base_height):
             from spillway import dimensions
             w,d=dimensions(n)
             fixed|=(abs(xx-n['x'])<.95)&(yy>n['y']-d/2-n['wait_length']-.35)&(yy<n['y']-d/2)
-        else:w,d=(3.3,3.0) if n['id']=='approval' else (4.1,3.6) if n['id']=='staff' else (3.6,3.2)
+        else:
+            from estate import dimensions
+            w,d=dimensions(n)
         fixed|=(abs(xx-n['x'])<w/2+.85)&(abs(yy-n['y'])<d/2+.85)
     fixed|=(abs(xx)<2.4)&(yy> -1.2)&(yy<1.2)
     # Fade the perturbation into service pads; their original level is retained.
@@ -63,8 +65,9 @@ if __name__=='__main__':
     case=os.environ.get('INFERNAL_CASE','recorded_route')
     architecture=(compile_document(json.loads(Path(os.environ['INFERNAL_INPUT']).read_text()),case)
                   if os.environ.get('INFERNAL_INPUT') else compile_case(case))
+    from scene import output_dir
     for mode in PRESETS:
-        out=ROOT/'output'/(case+'-'+mode);out.mkdir(parents=True,exist_ok=True)
+        out=output_dir(case,mode);out.mkdir(parents=True,exist_ok=True)
         state,_=make_terrain(mode,architecture,base_height)
         np.savez_compressed(out/'terrain-state.npz',**state)
         print(mode,'steps',PRESETS[mode],'cut total',float(state['incision_history'].sum()),flush=True)

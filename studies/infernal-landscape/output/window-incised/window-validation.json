@@ -1,5 +1,6 @@
 {
   "all_passed": true,
+  "backend": "blender",
   "checks": {
     "surface_visible": {
       "passed": true,
@@ -8,7 +9,7 @@
     },
     "hatch_visible": {
       "passed": true,
-      "samples": 83144,
+      "samples": 83201,
       "violations": 0
     },
     "plant_ownership": {
@@ -45,6 +46,11 @@
     "porch_roof_outward_normals": {
       "passed": true
     },
+    "closed_solids_face_outward": {
+      "passed": true,
+      "audited_objects": 317,
+      "inward_objects": []
+    },
     "wheel_intersects_stream": {
       "passed": true,
       "immersion": 0.1048822879791258
@@ -53,14 +59,14 @@
       "passed": true,
       "visible_samples": 60
     },
-    "native_camera": {
-      "passed": true,
-      "error_px": 0.00014277153786679264
-    },
     "bridge_reaches_exterior_sill": {
       "passed": true,
       "near_y": -5.300000190734863,
       "far_y": 11.199999809265137
+    },
+    "native_camera": {
+      "passed": true,
+      "error_px": 0.00014277153786679264
     },
     "geometry_nodes": {
       "passed": true
@@ -89,6 +95,101 @@
     },
     "nine_hatch_bodies_unchanged": {
       "passed": true
+    },
+    "mill_leads_the_view": {
+      "passed": true,
+      "mean_ink": {
+        "sky": 0.009,
+        "terrain": 0.154,
+        "building": 0.384,
+        "oak": 0.301,
+        "furniture": 0.537,
+        "aperture": 0.153,
+        "water": 0.27
+      },
+      "area": {
+        "sky": 0.1947,
+        "terrain": 0.2085,
+        "building": 0.0509,
+        "oak": 0.0343,
+        "furniture": 0.0307,
+        "aperture": 0.4722,
+        "water": 0.0086
+      },
+      "cell_max": 0.82
     }
+  },
+  "advisory": {
+    "bridge_lighter_than_mill": {
+      "passed": false,
+      "furniture": 0.537,
+      "building": 0.384
+    }
+  },
+  "skipped": {},
+  "measured": {
+    "cell_mm": 4,
+    "plate_mean_ink": 0.1547,
+    "cell_max": 0.82,
+    "cell_p90": 0.318,
+    "zones": {
+      "sky": {
+        "area_fraction": 0.1947,
+        "mean_ink": 0.009,
+        "cells": 204,
+        "cell_median": 0.0,
+        "cell_p90": 0.02,
+        "cell_max": 0.16
+      },
+      "terrain": {
+        "area_fraction": 0.2085,
+        "mean_ink": 0.154,
+        "cells": 202,
+        "cell_median": 0.131,
+        "cell_p90": 0.296,
+        "cell_max": 0.471
+      },
+      "building": {
+        "area_fraction": 0.0509,
+        "mean_ink": 0.384,
+        "cells": 48,
+        "cell_median": 0.346,
+        "cell_p90": 0.462,
+        "cell_max": 0.672
+      },
+      "oak": {
+        "area_fraction": 0.0343,
+        "mean_ink": 0.301,
+        "cells": 34,
+        "cell_median": 0.279,
+        "cell_p90": 0.39,
+        "cell_max": 0.477
+      },
+      "furniture": {
+        "area_fraction": 0.0307,
+        "mean_ink": 0.537,
+        "cells": 28,
+        "cell_median": 0.52,
+        "cell_p90": 0.686,
+        "cell_max": 0.82
+      },
+      "aperture": {
+        "area_fraction": 0.4722,
+        "mean_ink": 0.153,
+        "cells": 534,
+        "cell_median": 0.123,
+        "cell_p90": 0.295,
+        "cell_max": 0.339
+      },
+      "water": {
+        "area_fraction": 0.0086,
+        "mean_ink": 0.27,
+        "cells": 0,
+        "cell_median": null,
+        "cell_p90": null,
+        "cell_max": null
+      }
+    },
+    "red": {}
   }
 }

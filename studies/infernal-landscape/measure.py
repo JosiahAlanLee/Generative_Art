@@ -16,7 +16,9 @@ from PIL import Image,ImageDraw
 import cairosvg
 
 CELL_MM=4
-ZONES=('sky','terrain','building','oak','furniture','other')
+# Pixel values of the zone image; the first six are the original estate zones,
+# the window plate adds its masonry reveal and the stream it looks out on.
+ZONES=('sky','terrain','building','oak','furniture','other','aperture','water')
 
 
 def _camera(scene,view):
@@ -36,7 +38,9 @@ def zone_of(name,terrain,index,nodes):
     if any(low.startswith(n+' ') or low.startswith(n+'|') for n in nodes):return 'building'
     if low.startswith(('release lift','unavailable portcullis')):return 'building'
     if 'oak' in low:return 'oak'
-    if low.startswith(('meadow fence','service support','service tray','entry pier','open approach arch')):return 'furniture'
+    if low.startswith(('meadow fence','service support','service tray','entry pier','open approach arch','bridge ')):return 'furniture'
+    if low.startswith('window '):return 'aperture'
+    if low.startswith('stream water'):return 'water'
     return 'other'
 
 

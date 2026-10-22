@@ -57,6 +57,15 @@ masonry blockers and checks the opening and former timber sightlines. It also
 checks doorway alignment, roof normals, wheel immersion and visible stream samples. These are sampled checks;
 they do not prove visibility at every infinitesimal point.
 
+Since 22 October 2026 every closed solid is audited for outward winding (the
+mill door's ring stones were inside-out and drew as an unhatched outline; they
+now hatch as masonry), and the plate is measured by zone like the other
+scenes: the reveal is `aperture`, the stream `water`, the bridge furniture.
+Main camera: mill 0.384 mean ink, oaks 0.301, open ground 0.154, aperture
+0.153, sky 0.009; the mill leading the view gates. The footbridge measures
+0.537, darker than the mill, which is reported as advisory: the planks are
+beams at crease weight close to the eye, and the remedy is in the geometry.
+
 ## Credits
 
 Josiah Alan-Lee's project; scene, window geometry, terrain composition and
