@@ -21,7 +21,7 @@ Plotter code by two artists from [awesome-plotters](https://github.com/beardicus
 | Technique | Their version | This collection |
 | --- | --- | --- |
 | Millimetre SVG, one Inkscape layer per pen | `createSVG` writes one layer; svg5 writes unitless pixels and plain groups | Driftless `toSVG` ([engine.js](../studies/driftless-plates/engine.js)), Photophobic `write_svg` ([physarum_plot.py](../studies/photophobic/common/physarum_plot.py)), the book's `PlotDoc` ([plotkit.py](../sources/codex-intervallorum/common/plot/plotkit.py)) |
-| Nearest-neighbour pen-travel ordering with path reversal, searching from the end just drawn | svgjoin `optimisePaths`; Makio's saxi change | Driftless `orderPaths` (grid buckets); Photophobic `order_lines` (KD-tree) |
+| Nearest-neighbour pen-travel ordering with path reversal, searching from the end just drawn | svgjoin `optimisePaths`; Makio's saxi change | Driftless `orderPaths` (grid buckets); Photophobic `order_lines` (KD-tree). The Blender-backed studies do not use either |
 | Joining paths whose ends touch | svgjoin `joinPaths`: repeated global passes over all four end pairings | Photophobic `order_lines` joins consecutive picks within `join_tol`. Driftless `orderPaths` does not join |
 | Clipping lines to a polygon | yyyseed `cullOutside`, which its own header calls unreliable | The book's `clip_lines` and `hatch_lines` on shapely geometry, holes included ([core.py](../sources/codex-intervallorum/common/geometry/core.py)); `clipped` ([drawing.py](../lib/process_art/drawing.py)) |
 | Hatching polygons | The `Polygon` class in Makio's `utilities` notebook (source not seen) | The book's `hatch_lines` and `lattice`; `hatch_on_surface` and `hatch_on_face` ([claude_hatching.py](../studies/three-gates/vendor/claude_hatching.py)); Photophobic `hatch_fill` |
@@ -30,7 +30,7 @@ Plotter code by two artists from [awesome-plotters](https://github.com/beardicus
 
 ## Gaps neither source fills
 
-- **Joining in the Driftless export.** Touching strokes leave `toSVG` as separate subpaths, so the plotter lifts between them unless its own software merges them. Photophobic's `order_lines` already shows the method; [vpype](https://github.com/abey79/vpype)'s `linemerge` (MIT) does it to any exported SVG.
+- **Ordering and joining in the scene-study exporters.** The Blender-backed studies (Infernal Engine, Infernal Landscape, Three Gates, Terrain Symbols, Workshop Interiors, Scanned Statue v2) write their paths without sorting or merging them. Driftless `toSVG` sorts when `optimize` is set but does not merge, so touching strokes stay separate subpaths and the plotter lifts between them. [vpype](https://github.com/abey79/vpype)'s `linesort` and `linemerge` (MIT) do both to an exported SVG. Keep the merge tolerance below the smallest occlusion gap, or it will bridge gaps the visibility pass cut, and keep sorting away from carrier marks (see [Recipes](RECIPES.md)).
 - **Duplicate-segment removal across a plate.** Only the barn-quilt `unique_edges` ([generator.py](../lib/barn_quilts/generator.py)) removes shared edges, and only for its own patch geometry. vpype 1.15 has no equivalent command.
 - **G-code.** Nothing in the collection writes it. See the `createGCODE` note before modelling a writer on it.
 - **Exact hidden-line removal for flat drawings.** The Driftless mask is a raster of about 0.13 mm cells. [occult](https://github.com/LoicGoulefert/occult) (vpype plugin, MIT, 0.4.0) removes lines covered by later closed polygons, layer by layer, which is the vector form of Dan Catt's white-fill method.
@@ -39,7 +39,7 @@ Plotter code by two artists from [awesome-plotters](https://github.com/beardicus
 
 **drawing-machines-101.** Course code. `createSVG` writes one layer with placeholder Inkscape metadata (a fixed `inkscape:version` and `sodipodi:docname="test.svg"`), and `addMargins` is an empty stub. `createGCODE` lowers the pen to Z8 and lifts it to Z15, pauses with `M0` for a pen change, and flips Y; a machine whose pen lift is a servo command needs different moves. Driftless `toSVG` already does more than `createSVG`.
 
-**svgjoin.** The most useful plotting code Dan Catt has published, and the one worth asking him to license. It parses only the single-path SVGs his own tools write, takes its join threshold in SVG user units, and is quadratic per pass.
+**svgjoin.** The most useful plotting code Dan Catt has published, and the one worth asking him to license. It parses only the single-path SVGs his own tools write, takes its join threshold in SVG user units, and is quadratic per pass. His newsletter [#048](https://newsletter.revdancatt.com/p/048-truncated-optimisation) (14 November 2024) says the same: the tool was written for his generator's SVGs, and vpype can do everything it does, faster.
 
 **Dan Catt's artwork repositories.** Each `index.js` header says the code is his copyright and not for NFT projects. The READMEs (all but HLR-example) say the code is there for learning, and that outputs may be kept, printed and displayed for personal use but not sold or minted. Their MIT files say otherwise. This collection archives work made for NFT platforms, the use his terms exclude, so read them and don't copy them.
 
