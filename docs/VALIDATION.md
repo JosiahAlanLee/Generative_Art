@@ -1,5 +1,20 @@
 # Validation of this collection
 
+## Workbench review fixes — 22 October 2026
+
+Prepared with Claude, on Linux with Python 3.13 (the Infernal engraving requirements), Node 22, vpype 1.15.0 in its own environment and Chromium through Playwright. This covers `workbench/` and the Driftless CLI's new `--penWidth`; no generator algorithm changed.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s workbench/tests -v` | 19 passed with `WORKBENCH_VPYPE` set, none skipped. Ten are new: engine and nib arguments; vpype layer numbers, allowed merges, layer-order restore and the paper-layer refusal; a copy that leaves status reads immediate and refuses renders meanwhile (stand-in vpype); a real vpype copy keeping every stroke and the layer order; instance id, history summaries and static types; restart stopping only its own leftover render; SIGTERM and SIGHUP stopping the active render |
+| `node studies/driftless-plates/test.js` | 42 passed. Three are new: `--penWidth 0.35` is the default plate byte for byte, 0.5 mm redraws (e2: 21,404 strokes against 22,978) and bad widths are refused. The nine preview plates still regenerate byte for byte; 18 seed and format combinations also matched the previous CLI byte for byte |
+| Other suites | `lib/farm_objects` 8 pass; `node --check workbench/static/app.js`; `python tools/verify_collection.py` (74 techniques and all local guide links) |
+| Browser | A recipe with an unknown setting (`cells`) or value (`tabloid`) is refused whole; an engine 1.1 recipe renders c2 as the kept sandstone tower (the current engine draws a limestone outcrop); focus, a log selection and a scrolled-up log survive refreshes; a preview polled half written recovers when the file completes; a tab left open across a restart renders without reloading; inert settings are greyed out with the reason; zoom 100% shows A4 at 794 px wide |
+| vpype copies | e2 at A4 (0.5 mm nib) and the Infernal tower plate: every stroke kept (21,404 and 31,825), line length per layer within 0.012 mm, layers in the original order (Driftless 4-tint, 2-flora, 3-accent, 1-key, restored after vpype). Layer switches work on the copies. During the 23 s copy of the 23.6 MB tower plate, status reads took 1–2 ms |
+| Shutdown | SIGTERM and SIGHUP to the server stopped a running Infernal dry run and marked it cancelled. After SIGKILL, the next start stopped the leftover render and marked the job interrupted |
+
+Not tested: Windows, a native bpy render through the workbench, DrawingBot V3 and physical plotting.
+
 ## Bur oaks — 22 October 2026
 
 Prepared with Claude, in the same environments as the plate studies below.

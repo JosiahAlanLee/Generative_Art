@@ -6,6 +6,7 @@
 //  4. Text blocks land where the book sets type, one per page on a spread.
 //  5. index.html is the current build of src/ and engine.js.
 //  6. Plates made under engine 1.1 draw the same geometry with compat '1.1'.
+//  7. The nib option: 0.35 mm is the default plate byte for byte; other nibs redraw; bad widths are refused.
 'use strict';
 const crypto = require('crypto');
 const fs = require('fs');
@@ -104,6 +105,15 @@ for (const rec of ref11) {
   const { res } = renderPlate(Object.assign({}, rec.spec, { compat: '1.1' }));
   check(`1.1 plate ${rec.spec.seed} (${rec.spec.format}) draws the same with compat '1.1'`, geometry(res) === rec.geometry_sha256);
 }
+
+// 7. Nib width from the command line (the page's Nib setting)
+const nibBase = renderPlate({ seed: 'e2', format: 'a4' });
+check('--penWidth 0.35 is the default plate byte for byte', renderPlate({ seed: 'e2', format: 'a4', penWidth: '0.35' }).svg === nibBase.svg);
+const nibWide = renderPlate({ seed: 'e2', format: 'a4', penWidth: '0.5' });
+check('--penWidth 0.5 redraws the lines and sets the stroke', geometry(nibWide.res) !== geometry(nibBase.res) && nibWide.svg.includes('stroke-width="0.5"'));
+check('--penWidth refuses a missing or out-of-range width', [true, '0', 'x', '3'].every((v) => {
+  try { renderPlate({ seed: 'e2', format: 'a5', penWidth: v }); return false; } catch (e) { return true; }
+}));
 
 console.log(`\n${passes} passed, ${failures} failed`);
 process.exit(failures ? 1 : 0);

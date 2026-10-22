@@ -53,11 +53,16 @@ def validate(data):
                      time=('auto day dusk night'.split(), 'auto'),
                      rock=('auto sandstone limestone quartzite'.split(), 'auto'),
                      zone=('none codex top middle bottom'.split(), 'none'),
-                     zoneMode=(['fade', 'tint'], 'fade'))
+                     zoneMode=(['fade', 'tint'], 'fade'),
+                     # '' = the current engine; '1.1' redraws plates kept under engine 1.1 (CLI --compat).
+                     compat=(['', '1.1'], ''))
         for k, (opts, default) in enums.items():
             q[k] = choice(p.get(k, default), opts, k)
-        for k, default in dict(density=100, imperfection=50, flora=60, land=60, built=50, sky=50, strength=100).items():
-            q[k] = number(p.get(k, default), 50 if k == 'density' else 0, 160 if k == 'density' else 100, k)
+        # (default, low, high). penWidth is the page's Nib (mm): it changes the lines, not only the stroke.
+        ranges = dict(density=(100, 50, 160), imperfection=(50, 0, 100), flora=(60, 0, 100), land=(60, 0, 100),
+                      built=(50, 0, 100), sky=(50, 0, 100), strength=(100, 0, 100), penWidth=(.35, .2, .8))
+        for k, (default, low, high) in ranges.items():
+            q[k] = number(p.get(k, default), low, high, k)
         for k in ['landscape', 'bleed', 'paper', 'riso', 'no-optimize']:
             q[k] = flag(p.get(k, False))
     elif gen == 'farm':
@@ -101,7 +106,7 @@ def plan(recipe, job_dir, config):
     if gen == 'driftless':
         cmd = [config['node'], str(ROOT / 'studies/driftless-plates/cli.js'), '--out', str(output), '--seeds', p['seed']]
         for k, v in p.items():
-            if k == 'seed':
+            if k == 'seed' or (k == 'compat' and not v):
                 continue
             if isinstance(v, bool):
                 if v:

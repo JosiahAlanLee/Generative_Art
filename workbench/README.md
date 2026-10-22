@@ -34,8 +34,12 @@ python -m workbench.server --port 8765 --output-root "/path/to/plot jobs" --time
 Use a single server for a given output root. It binds to IPv4 loopback only;
 keep it local. Host, Origin and session-token checks guard job mutations.
 It is a development server, without remote access or multi-user support.
-Ctrl-C stops active jobs and closes the queue. A hard shutdown leaves an
-interrupted job on the next start; render its saved recipe to retry.
+Ctrl-C, `kill` (SIGTERM) and closing the terminal window (SIGHUP) all stop the
+active job and close the queue. If the server dies without that chance (a force
+quit, a crash), the next start marks the job interrupted and, on Linux and macOS,
+stops its render if that process is still running; it only stops a process whose
+command line names the job's folder. Render the saved recipe to retry. An open
+browser tab picks up a restarted server's new session on its next refresh.
 
 ## Why a localhost application?
 
@@ -54,15 +58,21 @@ shell without changing the generators.
 
 1. Choose Driftless or Farm; set an explicit seed and controls. Render creates a
    unique UUID folder. Jobs run one at a time; up to eight may be active/queued.
-2. Select the SVG or PNG from **Preview file**. SVGs show physical dimensions,
-   viewBox, drawing-element counts and labeled layers. Toggle layers and zoom to
-   inspect the proof. Layer switches affect the preview only; exported originals
-   always contain every layer. Browser viewing is not a physical pen simulation.
+2. Select the SVG or PNG from **Preview file**. SVGs show the sheet size in mm,
+   viewBox, drawing-element and stroke counts and labeled layers. The sheet is
+   drawn with its edge outlined. **Fit** shows the whole sheet; 100% is its
+   physical size on screen (96 px per inch) and 200–800% enlarge from there.
+   Layer switches affect the preview only; exported originals always contain
+   every layer. Browser viewing is not a physical pen simulation. A file still
+   being written is shown once it is complete.
 3. Download an artifact or use its displayed disk path. All artifacts and stage
    logs have download links. Original SVG, PNG and geometry are kept together.
 4. **Save recipe** downloads JSON; **Load recipe** restores controls without
-   rendering. Every job also retains `recipe.json` on disk. Loading one and
-   rendering again creates a new output directory. History survives a restart.
+   rendering. A recipe with a setting or value the form cannot show is refused
+   whole rather than loaded without it. Selecting a job in the history shows its
+   proof and log; **Use these settings** loads its recipe into the controls.
+   Every job also retains `recipe.json` on disk. Rendering again creates a new
+   output directory. History survives a restart.
 5. The job record includes exact argv, runtime paths, source SHA-256 hashes,
    status and exit code. `job.log` captures stdout/stderr; its UI view shows the
    latest 64 KiB, with a full download available. Files from failed/cancelled jobs
@@ -70,18 +80,24 @@ shell without changing the generators.
    launch commands are accepted from the browser.
 
 Driftless exposes its existing page formats, landscape/bleed, palette/strength,
-text zone, density, imperfection, motif weights, subject, season, light and frame.
-Native travel optimization is on unless **Keep original drawing order** is checked.
-`codexPlot` keeps the CLI's enforced sheet/inset rules; bleed/riso/landscape settings
-that the CLI ignores remain ignored. SVG is the proof and export; no raster preview
-package is needed.
+nib, text zone, density, imperfection, motif weights, subject, season, light and
+frame, and the engine version. **Nib (mm)** is the page's nib width, passed as
+`--penWidth`; it changes hatch spacing and occlusion, not only the stroke, so a
+plate for a 0.5 mm pen has different lines. **Engine 1.1** passes `--compat 1.1`,
+which redraws plates kept under engine 1.1 as they were (sandstone only, so Rock
+is disabled). Native travel optimization is on unless **Keep original drawing
+order** is checked. `codexPlot` keeps the CLI's enforced sheet/inset rules, so
+landscape, bleed and riso are disabled for it. Settings with no effect in the
+current combination are greyed out with the reason. SVG is the proof and export;
+no raster preview package is needed.
 
 Farm exposes object/comparison selection, base seed, decay and optional PNG export.
 Its CLI offsets the seed by family index even with `--only`: barn +0, tractor +1,
 disk harrow +2, rake +3, wagon +4. The recipe and generated JSON record both make
 that distinction inspectable. Page sizes remain the generator's 190 × 140 mm
 specimens and 280 × 210 mm yard. OBJ/scene JSON exports remain available. Decay
-is an artistic control, not a model of elapsed years.
+is an artistic control, not a model of elapsed years; the comparison always draws
+decay 0, 0.38 and 0.9, so the control is disabled for it.
 
 ## Runtime configuration and Infernal
 
@@ -111,8 +127,10 @@ python -m workbench.server
 ```
 
 The adapter invokes the existing `run.py` with case, camera, dry run, no-clay,
-face-pattern and plates flags. Plates includes face patterns; tower/barn cameras
-require Plates. Infernal currently has fixed scene seeds, so the GUI does **not**
+face-pattern and plates flags. Plates includes face patterns, so ticking Plates
+unticks them; tower/barn cameras require Plates and are disabled without it; Skip
+clay preview is disabled for dry runs, which make no clay preview. History entries
+name the case, camera, Plates and dry run. Infernal currently has fixed scene seeds, so the GUI does **not**
 pretend to offer a working seed control for it. Arbitrary task JSON/erosion presets
 are outside this initial adapter.
 
@@ -133,21 +151,42 @@ No package install is performed by the GUI.
 ## vpype and DrawingBot V3
 
 **Make vpype copy** is optional and explicit. It requires a successful render and
-an idle queue. Install vpype in its own environment if its dependency constraints
+an idle queue; the button says why when it is unavailable, including when vpype is
+not installed. Install vpype in its own environment if its dependency constraints
 conflict with engraving, then point `WORKBENCH_VPYPE` at its executable. The tested
 contract is vpype **1.15.0**:
 
 ```sh
-vpype read original.svg linesort write original.vpype.svg
+vpype read --no-crop original.svg linesort write --format svg --dont-set-date original.vpype.svg.part
 ```
 
 The fixed argv invokes no shell. The original is never overwritten; the prepared
-copy and command log remain beside it. This initial preset only sorts paths within
-layers (vpype may also reverse direction). It performs no line merge, simplify,
-page scaling, pen mapping or plotter transmission. vpype imports/exports can change
-SVG grouping, styling and curve representation; inspect the prepared file's page,
-layers and linework and do a physical proof. A prepared copy cannot overwrite an
-existing copy. Commands can also be run manually on downloaded SVGs.
+copy and command log remain beside it, and the copy is selected for inspection
+when it is ready. The preset only sorts paths within layers (vpype may also
+reverse a path). It performs no line merge, simplify, page scaling, pen mapping or
+plotter transmission, and it keeps every line:
+
+- `--no-crop`: vpype otherwise crops to the sheet. A Driftless A4 plate can draw a
+  few tenths of a millimetre past its edges (seed e2: about 20 cm of line, 23
+  strokes of it entirely); the copy keeps it, as the original has it. Crop in vpype
+  yourself if your plotter needs it.
+- Layer order: vpype writes layers in number order, which would put Driftless's
+  `1-key` first and `4-tint` last. The workbench puts the layers back in the
+  original's document order afterwards (Driftless: tint, flora, accent, key).
+- vpype reads every layer whose label starts with the same number as one layer.
+  Same-ink layers merge as one pen, e.g. the Infernal plates' three `02 …` layers
+  (noted in the copy's log). A merge across inks, or with a layer that has no
+  stroke, is refused: in particular a plate rendered with **Include paper
+  rectangle**, whose `0-paper` layer vpype would read into `1-key` and plot as a
+  frame.
+- vpype runs without blocking the workbench: status, logs and previews keep
+  updating, and new renders are refused until the copy is done.
+
+vpype imports/exports can still change SVG grouping, styling (stroke widths that
+vary within a layer become one width) and curve representation; inspect the
+prepared file's page, layers and linework and do a physical proof. A prepared copy
+cannot overwrite an existing copy. Commands can also be run manually on downloaded
+SVGs.
 
 DrawingBot V3 uses **manual file handoff**: download/open the original or inspected
 prepared SVG using your installed application's supported file workflow; verify
@@ -164,12 +203,20 @@ python -m unittest discover -s lib/farm_objects/tests -v
 node --check workbench/static/app.js
 ```
 
-The workbench tests cover recipe validation, source isolation, separate runtime
-argv, clearing inherited scene flags, path confinement, Host/Origin/token checks,
-process failure/restart, cancellation, a repeated real Driftless render and a real
-Farm SVG/PNG/OBJ/JSON render. Node-dependent and Farm-dependent tests skip when the
-required runtime/packages are absent; inspect the test output before claiming a
-render was exercised. The GUI has no effect on existing generator commands.
+The workbench tests cover recipe validation (including the engine and nib
+arguments), source isolation, separate runtime argv, clearing inherited scene
+flags, path confinement, Host/Origin/token checks, the server instance id, the
+short history list and fixed static content types, process failure/restart,
+cancellation, a repeated real Driftless render and a real Farm SVG/PNG/OBJ/JSON
+render. For vpype they cover the layer-number rule, which merges are allowed, the
+layer-order restore, the paper-layer refusal and that status reads stay
+immediate during a copy (with a stand-in vpype); with `WORKBENCH_VPYPE` or
+`vpype` on PATH, a real copy keeps every stroke and the layer order. On Linux and
+macOS they check that SIGTERM and SIGHUP stop the active render and that a
+restart stops only its own leftover render. Node-, Farm-, vpype- and
+POSIX-dependent tests skip when those are absent; inspect the test output before
+claiming a render was exercised. The GUI has no effect on existing generator
+commands; the Driftless CLI gained `--penWidth`, and without it draws as before.
 
 ### Prototype verification (2026-10-22)
 
@@ -182,3 +229,20 @@ render was exercised. The GUI has no effect on existing generator commands.
   advisory measurements and explicitly skipped three Blender-only checks.
 - The existing collection verifier passed. No native bpy render, Windows process
   cancellation, DrawingBot round trip or physical plotting was tested.
+
+### Review fixes (2026-10-22)
+
+- 19 workbench tests passed with vpype 1.15.0 configured, none skipped; Driftless
+  `test.js` 42 passed (three new nib checks; the preview plates still regenerate
+  byte for byte).
+- Browser checks (Chromium): a recipe with an unknown setting or value is refused;
+  an engine 1.1 recipe renders seed c2 as the kept sandstone tower; a 0.5 mm nib
+  renders e2 with 21,404 strokes instead of 22,978. Focus, a log selection and a
+  scrolled-up log survive refreshes; a preview caught half written recovers when the
+  file completes; a tab left open across a server restart renders without reloading.
+- vpype copies of e2 (A4) and the Infernal tower plate kept every stroke and line
+  length (to 0.01 mm per layer) and the original layer order; layer switches work on
+  them; status reads took about 2 ms during the 23 s copy of the 23.6 MB tower plate.
+- SIGTERM and SIGHUP to the server stopped a running Infernal dry run; after SIGKILL,
+  the next start stopped the leftover render and marked the job interrupted.
+- Not tested: Windows, a native bpy render, DrawingBot, physical plotting.
