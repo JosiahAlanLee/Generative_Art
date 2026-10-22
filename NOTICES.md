@@ -1,5 +1,13 @@
 # Attribution and inherited terms
 
+Motor counterpoint (`lib/plotter_score`, `studies/plotter-score`) was prepared
+with ChatGPT/Codex on 22 October 2026 from Josiah Alan-Lee's photograph and
+description of a Geometry Nodes / pen-plotter score. Original score generation,
+kinematics and exporters; no external DSP or controller source was copied.
+DSP_Emulation is used through MIDI, WAV and its existing qlist renderer.
+Profiles and audio are explicitly illustrative, uncalibrated models. The
+reference photograph is not bundled. No new blanket license is assigned.
+
 Project and original artwork: Josiah Alan-Lee. The imported Matricis geometry and mark vocabulary were developed primarily with Claude; the divergent editions and later drawing/compositing work were prepared with ChatGPT/Codex. Individual source files and the retained book notices give more specific attribution. This collection’s navigation, catalog, snapshot tooling and small examples were prepared with ChatGPT/Codex on 20 October 2026.
 
 The `lib/numerics` modules and tests, the number-systems guide and sampler, and the HEN × CCRU technique list were prepared with Claude on 20 October 2026. They restate arithmetic rules from the cited sources and contain no Ccru prose, demon names or drawings.

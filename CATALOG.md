@@ -57,6 +57,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 | [Two-layer, two-ink stroke export](sources/codex-intervallorum/common/plot/plotkit.py) | Write separate art/text layers and ink passes | book |
 | [Centreline and outline lettering](sources/codex-intervallorum/common/plot/plotkit.py) | Choose actual pen lettering or reading-edition outlines | book |
 | [Restricted SVG stroke import](sources/codex-intervallorum/common/plot/svgimport.py) | Reuse the book’s generated seal geometry in new plates | book |
+| [Timed motor counterpoint](studies/plotter-score/README.md) | Couple motor-rate voices to geometry; SVG, motion JSON, MIDI and audio auditions | study |
 
 ## [Paper, scribal marks and finishing](techniques/07-page-finishing/README.md)
 

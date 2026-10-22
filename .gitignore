@@ -22,3 +22,6 @@ studies/driftless-plates/node_modules/
 
 # Local workbench recipes, logs, private render workspaces and exports
 .workbench/
+
+# Timed plotter-score rebuilds (audio, MIDI and full motion records)
+studies/plotter-score/out/
