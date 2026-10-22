@@ -6,6 +6,8 @@ The [additional development generators](techniques/10-development-generators/REA
 
 **Choose an effect in the [technique catalog](CATALOG.md), then follow its family guide.** For a first runnable result, see [Getting started](docs/GETTING_STARTED.md). [Recipes](docs/RECIPES.md) cover combining techniques and choosing an output format. New to the subject, or about to buy a plotter? Read [Generative art and the pen plotter](docs/GENERATIVE_ART_AND_PLOTTERS.md) first: a short sourced history from the harmonograph to the platform closures, and what the machine will and will not do.
 
+[Local plot workbench](workbench/README.md) provides a browser GUI for Driftless Plates and Farm Remnants, with an Infernal pipeline adapter, isolated render jobs, SVG inspection and optional vpype export copies. Start it with `python -m workbench.server`.
+
 ![Six techniques from the book, generated from the imported source](examples/previews/technique-sampler.png)
 
 | I want to… | Start with |
@@ -16,6 +18,7 @@ The [additional development generators](techniques/10-development-generators/REA
 | Make meaningful script, encoded ornament or sentence-derived seals | [Ciphers and seals](techniques/04-ciphers-seals/README.md) |
 | Bring a raster figure into a drawn page | [Compositing](techniques/05-compositing/README.md) |
 | Export physical pen paths or single-stroke lettering | [Plotter and SVG](techniques/06-plotter-export/README.md) |
+| Generate a drawing and intended pitches from one timed motor score | [Motor counterpoint](studies/plotter-score/README.md) |
 | Finish pages with vellum, specks and sparse pen flourishes | [Page finishing](techniques/07-page-finishing/README.md) |
 | Build a Blender scene, a light-aware culture or a scan engraving | [Existing scene studies](techniques/08-scene-studies/README.md) |
 | Turn phrases into AQ values, prime glyphs or numogram routes | [Number systems](techniques/09-number-systems/README.md) |

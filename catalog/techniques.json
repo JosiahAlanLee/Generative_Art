@@ -400,7 +400,7 @@
     "title": "Restricted SVG stroke import",
     "family": "06-plotter-export",
     "status": "book",
-    "use": "Reuse the book\u2019s generated seal geometry in new plates",
+    "use": "Reuse the book’s generated seal geometry in new plates",
     "guide": "techniques/06-plotter-export/README.md",
     "sources": [
       "sources/codex-intervallorum/common/plot/svgimport.py"
@@ -1061,7 +1061,7 @@
   },
   {
     "id": "guilloche-credentials",
-    "title": "Guilloch\u00e9 rosettes, reeded rims and wave bands",
+    "title": "Guilloché rosettes, reeded rims and wave bands",
     "family": "14-codex-palette",
     "status": "collection",
     "use": "Engrave authority as rose-engine ornament from declared catalogue numbers",
@@ -1171,10 +1171,10 @@
   },
   {
     "id": "subdivision-splines",
-    "title": "Subdivision curves and polygon-to-B\u00e9zier",
+    "title": "Subdivision curves and polygon-to-Bézier",
     "family": "15-thing-ports",
     "status": "collection",
-    "use": "Smooth, interpolate or roughen a polygon by Chaikin, cubic, Dyn\u2013Levin\u2013Gregory or displacement, or convert it to cubic segments",
+    "use": "Smooth, interpolate or roughen a polygon by Chaikin, cubic, Dyn–Levin–Gregory or displacement, or convert it to cubic segments",
     "guide": "techniques/15-thing-ports/README.md",
     "sources": [
       "lib/fuzz/curves.py",
@@ -1355,6 +1355,29 @@
       "use_bur_oaks",
       "oak_tree",
       "draw_oaks"
+    ]
+  },
+  {
+    "id": "motor-counterpoint",
+    "title": "Timed motor counterpoint",
+    "family": "06-plotter-export",
+    "status": "study",
+    "use": "Generate ordered drawing paths and intended pitches from signed motor rates and durations; export motion JSON, SVG, MIDI and audio auditions",
+    "guide": "studies/plotter-score/README.md",
+    "sources": [
+      "lib/plotter_score/score.py",
+      "lib/plotter_score/export.py",
+      "studies/plotter-score/build.py"
+    ],
+    "symbols": [
+      "Profile",
+      "compose",
+      "velocity",
+      "write_svg",
+      "write_midi",
+      "write_wav",
+      "write_csv",
+      "write_vastish_sequence"
     ]
   }
 ]

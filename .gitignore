@@ -19,3 +19,9 @@ sources/development-art/**/plotter/a4/
 # Driftless Plates batch output and the optional preview dependency
 studies/driftless-plates/out/
 studies/driftless-plates/node_modules/
+
+# Local workbench recipes, logs, private render workspaces and exports
+.workbench/
+
+# Timed plotter-score rebuilds (audio, MIDI and full motion records)
+studies/plotter-score/out/
