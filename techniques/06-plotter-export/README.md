@@ -14,4 +14,6 @@ Check physical pen width and page units, then inspect the exported ink passes. F
 
 Useful symbols are indexed in [catalog/techniques.json](../../catalog/techniques.json). Every retained Python file, including other native plate constructions, is in the [source index](../../docs/SOURCE_INDEX.md).
 
+Before importing plotter code from other artists, check [Dan Catt and Makio: plotter code and where it stands](../../docs/PLOTTER_OUTSIDE_CODE.md): it maps their tools to the collection's own export, ordering, clipping and hatching code, with each license.
+
 [Start here](../../docs/GETTING_STARTED.md) · [Recipes](../../docs/RECIPES.md) · [Full catalog](../../CATALOG.md)
