@@ -14,10 +14,15 @@ to the estate's own:
   passes (lib/fuzz) and flora placed by variable-density Poisson sampling
   (lib/halftone).
 
-This module holds the scene-time part (`add_farmstead`, `CAMERAS`), which
-runs in either backend, and the render-time flora (`flora_instances`). The
-patterns themselves are in surface_patterns.py. Nothing here changes the
-delivered estate: without the flag no function in this file is called.
+The estate's own oaks are rebuilt as open-grown bur oaks (lib/flora/oak.py)
+and engraved per camera with lib/flora/crown.py: scalloped rows and outlines
+on the foliage masses, smooth limb silhouettes, bark furrows.
+
+This module holds the scene-time part (`add_farmstead`, `use_bur_oaks`,
+`CAMERAS`), which runs in either backend, and the render-time parts
+(`flora_instances`, `draw_oaks`, the hatching domains). The patterns
+themselves are in surface_patterns.py. Nothing here changes the delivered
+estate: without the flag no function in this file is called.
 """
 from pathlib import Path
 import os
@@ -101,22 +106,27 @@ def front_quilt(record):
     return None
 
 
+def _core_extent(spec):
+    """A farm object, its record, and the plan box (lo, hi) and height of its
+    core: the object itself, not its fallen planks."""
+    from lib.farm_objects import make_object
+    obj = make_object(spec['kind'], seed=spec['seed'], decay=spec['decay'])
+    rec = obj.record(); V = np.asarray(rec['vertices'])
+    core = [V[f] for f, n in zip(rec['faces'], rec['names']) if 'fallen' not in n]
+    P = _transform(np.vstack(core), spec['at'], spec['rotation'], 0.)
+    return obj, rec, P[:, :2].min(0), P[:, :2].max(0), float(P[:, 2].max())
+
+
 def add_farmstead(T):
     """Place the farm objects and the quilt board; returns (footprints, record).
 
     Runs at scene time in either backend, through the builder's own `mesh` and
     `ink`, so the Blender model and the dry run receive identical geometry.
     """
-    from lib.farm_objects import make_object
     ground = T.terrain_z
     footprints, placed = [], []
     for spec in FARM:
-        obj = make_object(spec['kind'], seed=spec['seed'], decay=spec['decay'])
-        rec = obj.record(); V = np.asarray(rec['vertices'])
-        # The footprint of the object itself, not its fallen planks.
-        core = [V[f] for f, n in zip(rec['faces'], rec['names']) if 'fallen' not in n]
-        P = _transform(np.vstack(core), spec['at'], spec['rotation'], 0.)
-        lo, hi = P[:, :2].min(0), P[:, :2].max(0)
+        obj, rec, lo, hi, _ = _core_extent(spec)
         heights = _ground_under(ground, (lo[0], lo[1], hi[0], hi[1]))
         # A barn's boards hang free above its sills, so it sits at the low
         # quarter of its footprint; wheels sit on the ground at the centre.
@@ -139,6 +149,78 @@ def add_farmstead(T):
             entry['quilt_board'] = fit
         placed.append(entry)
     return footprints, dict(objects=placed)
+
+
+# ---- scene time: the estate's oaks as bur oaks (lib/flora/oak.py) -----------------
+# The plates build replaces the estate's volume oaks (geometry.SceneBuilder.oak:
+# straight beams and eight-sided leaf cards, made for the main camera) with
+# open-grown bur oaks: tapered, crooked limbs and lumpy foliage masses, drawn at
+# render time by `draw_oaks`. Positions, heights and seeds are the estate's own.
+OAK_DETAIL = {'Volume oak near': 3}                  # mesh resolution; other oaks use 2
+OAK_PARTS = (' | limbs', ' | branches', ' | crown')  # the trees' mesh-name suffixes
+OAK_CLEARANCE = .25                                  # metres between a crown and a taller farm building
+
+
+def is_oak_part(name):
+    """True for a face of a bur oak; render.structure leaves these to draw_oaks."""
+    return any(part in name for part in OAK_PARTS)
+
+
+def _rect_distance(x, y, rect):
+    x0, y0, x1, y1 = rect
+    return float(np.hypot(max(x0 - x, 0., x - x1), max(y0 - y, 0., y - y1)))
+
+
+def _merge(meshes):
+    verts, faces, off = [], [], 0
+    for v, f in meshes:
+        verts.append(np.asarray(v, float)); faces += [tuple(i + off for i in face) for face in f]; off += len(v)
+    return (np.vstack(verts) if verts else np.zeros((0, 3))), faces
+
+
+def use_bur_oaks(T):
+    """Make the builder's `oak` build bur oaks; returns the list it records them in.
+
+    A crown's spread is kept clear of any farm building taller than the
+    crown's base (here, the barn by the near oak)."""
+    from lib.flora.oak import savanna_oak
+    tall = []
+    for spec in FARM:
+        _, _, lo, hi, top = _core_extent(spec)
+        tall.append(([float(lo[0]) - .4, float(lo[1]) - .4, float(hi[0]) + .4, float(hi[1]) + .4], top))
+    record = []
+
+    def oak(name, x, y, height, seed):
+        spread = .66 * height
+        for rect, top in tall:
+            if top > .24 * height:
+                spread = min(spread, _rect_distance(x, y, rect) - OAK_CLEARANCE)
+        detail = OAK_DETAIL.get(name, 2)
+        yaw = float((seed * 2.39996323) % (2 * np.pi))
+        root = [float(x), float(y), float(T.terrain_z(x, y))]
+        tree = savanna_oak(int(seed), float(height), spread=float(spread), detail=detail).placed(root, yaw)
+        parts = {}
+        for part, verts, faces in tree.meshes():
+            parts.setdefault(part, []).append((verts, faces))
+        for part in ('limbs', 'branches'):
+            V, F = _merge(parts.get(part, []))
+            if F:
+                T.mesh(f'{name} | {part}', V, F, 2, hatch=False, kind='beam')
+        for verts, faces in parts.get('crown', []):
+            # One mesh per mass, so the renderer can tell the masses apart.
+            T.mesh(f'{name} | crown', verts, faces, 6, hatch=False, kind='leaf')
+        # Exact values: draw_oaks regenerates the same tree from them.
+        record.append(dict(name=name, seed=int(seed), height=float(height), spread=float(spread),
+                           detail=detail, root=root, yaw=yaw, **tree.summary()))
+    T.oak = oak
+    return record
+
+
+def oak_tree(entry):
+    """A recorded oak, regenerated and placed: the same tree as the scene's."""
+    from lib.flora.oak import savanna_oak
+    return savanna_oak(entry['seed'], entry['height'], spread=entry['spread'],
+                       detail=entry['detail']).placed(entry['root'], entry['yaw'])
 
 
 # ---- render time: Wisconsin flora as planar instances ----------------------------
@@ -382,6 +464,135 @@ def face_in_view(B, p, pad=60):
     if (z <= B.NEAR).any():
         return False
     return x.max() > -pad and x.min() < B.W + pad and y.max() > -pad and y.min() < B.H + pad
+
+
+# ---- render time: drawing the bur oaks (lib/flora/crown.py) -----------------------
+# Per camera, from the model's own rays: each tree's window of the page is ray
+# cast at OAK_INK['step'] px, which gives the masses' rasters (who is seen,
+# how far, how high, how dark under the scene's light and shadows), and
+# crown.draw_masses turns them into rows and outlines. Limb silhouettes are
+# computed from the regenerated tree's centrelines and radii, so they are
+# smooth whatever the mesh, and bark furrows are kept by darkness and by their
+# spacing on the page. Both go through the model's ray test (stroke_project).
+OAK_INK = dict(step=2., row_gap_mm=.34, gain=.86, bark_albedo=.64, bark_gain=.95, bark_cap=.28, thin_px=3., pad=6.)
+
+
+def _window(B, P):
+    """Screen box (x0, y0, x1, y1) of world points in front of the camera, on the page, or None."""
+    x, y, z = B.project(P); front = z > B.NEAR
+    if not front.any():
+        return None
+    pad = OAK_INK['pad']
+    x0, x1 = max(0., x[front].min() - pad), min(float(B.W), x[front].max() + pad)
+    y0, y1 = max(0., y[front].min() - pad), min(float(B.H), y[front].max() + pad)
+    return (x0, y0, x1, y1) if x1 - x0 > 2 and y1 - y0 > 2 else None
+
+
+def draw_oaks(B, MM, px_per_mm=20):
+    """Every bur oak in view, as screen paths with widths; also world samples of
+    the drawn marks, for the ray audit (checks.oak_samples_visible), and a record."""
+    import json, zlib
+    from lib.flora import crown as CR
+    entries = json.loads((B.OUT / 'plates-farmstead.json').read_text()).get('oaks', [])
+    names = [f['name'] for f in B.FACES]
+    face_of = np.asarray(B.OWNER)[np.asarray(B.BVH[8])]     # leaf-order triangle -> face
+    face_tree = np.full(len(names), -1); face_mass = np.full(len(names), -1)
+    masses = {}
+    for i, n in enumerate(names):
+        base, _, suffix = n.partition(' | crown')
+        if _ == ' | crown':
+            masses.setdefault(base, set()).add(n)
+    index = {e['name']: k for k, e in enumerate(entries)}
+    for base, group in masses.items():
+        order = sorted(group, key=lambda n: (n != base + ' | crown', n))
+        lookup = {n: j for j, n in enumerate(order)}
+        for i, n in enumerate(names):
+            if n in lookup:
+                face_tree[i] = index.get(base, -1); face_mass[i] = lookup[n]
+    paths, audit, record = [], [], []
+    for t, e in enumerate(entries):
+        rng = np.random.default_rng([e['seed'], zlib.crc32(B.VIEW_NAME.encode())])
+        tree = oak_tree(e)
+        stat = dict(name=e['name'], masses=0, rows=0, outlines=0, silhouettes=0, bark=0)
+        # ---- foliage masses
+        crown_faces = np.flatnonzero(face_tree == t)
+        box = _window(B, np.vstack([B.FACES[i]['p'] for i in crown_faces])) if len(crown_faces) else None
+        if box is not None:
+            step = OAK_INK['step']
+            xs = np.arange(box[0], box[2], step); ys = np.arange(box[1], box[3], step)
+            gx, gy = np.meshgrid(xs, ys)
+            O, Dir = B.primary_rays(np.column_stack([gx.ravel(), gy.ravel()]))
+            dist, hit = B.rc.first_hits(O, Dir, 1e3, *B.BVH[:6])
+            ok = hit >= 0
+            owner = np.full(len(hit), CR.SKY); depth = np.full(len(hit), np.inf)
+            faces = face_of[hit[ok]]
+            owner[ok] = np.where(face_tree[faces] == t, face_mass[faces], CR.OTHER)
+            depth[ok] = dist[ok]
+            P = O + Dir * np.where(ok, dist, 0)[:, None]
+            tone = np.zeros(len(hit)); mass = owner >= 0
+            if mass.any():
+                lit = B.light(P[mass], B.BVH[7][hit[mass]], *B.BVH[:6])
+                tone[mass] = np.clip(1 - lit, 0, 1) * OAK_INK['gain']
+            shape = gx.shape
+            raster = CR.CrownRaster(owner.reshape(shape), depth.reshape(shape), P[:, 2].reshape(shape),
+                                    tone.reshape(shape), float(box[0]), float(box[1]), step, px_per_mm)
+            centre = np.vstack([B.FACES[i]['p'] for i in crown_faces]).mean(0)
+            dz = OAK_INK['row_gap_mm'] * px_per_mm / float(B.pixels_per_world(centre))
+            drawn = CR.draw_masses(raster, rng, dz)
+            for kind, width in (('rows', MM['foliage']), ('outlines', MM['branch'])):
+                for q in drawn[kind]:
+                    paths.append((q, width * px_per_mm))
+                    ij = np.rint((q - box[:2]) / step).astype(int)
+                    i_, j_ = np.clip(ij[:, 1], 0, shape[0] - 1), np.clip(ij[:, 0], 0, shape[1] - 1)
+                    flat = i_ * shape[1] + j_
+                    on = owner[flat] >= 0
+                    audit.append(P[flat[on]][::3])
+            stat.update(masses=drawn['stats']['masses'], rows=drawn['stats']['rows'],
+                        outlines=drawn['stats']['outlines'])
+        # ---- limbs: silhouettes, or a centre line where a limb is thinner than the pen
+        span = np.linalg.norm(B.TARGET - B.EYE)
+        for limb in tree.limbs:
+            if _window(B, limb.points) is None:
+                continue
+            ppw = B.pixels_per_world(limb.points)
+            if (2 * limb.radii * ppw).max() < OAK_INK['thin_px']:
+                lines, width = [limb.points], MM['branch']
+            else:
+                lines = CR.limb_outline(limb.points, limb.radii, B.EYE)
+                zc = max(.25, float((limb.points.mean(0) - B.EYE) @ B.FWD))
+                width = (MM['silhouette'] * float(np.clip(span / zc, .8, 1.24)) if limb.order == 0
+                         else MM['crease'] if limb.order == 1 else MM['branch'])
+            for line in lines:
+                kept, world = B.stroke_project(line, return_world=True)
+                paths += [(q, width * px_per_mm) for q in kept]; audit.append(world[::4])
+                stat['silhouettes'] += len(kept)
+        # ---- bark furrows, by darkness and spacing on the page
+        furrows = tree.furrows()
+        if furrows:
+            pts = np.vstack([f.points for f in furrows]); nrm = np.vstack([f.normals for f in furrows])
+            arc = np.concatenate([f.spacing for f in furrows])
+            cut = np.cumsum([len(f.points) for f in furrows])[:-1]
+            view = B.EYE - pts; vd = np.linalg.norm(view, axis=1)
+            facing = np.einsum('ij,ij->i', nrm, view) / vd
+            x, y, z = B.project(pts)
+            on = (facing > .03) & (z > B.NEAR) & (x > -40) & (x < B.W + 40) & (y > -40) & (y < B.H + 40)
+            dark = np.zeros(len(pts))
+            if on.any():
+                lit = B.light(pts[on], nrm[on], *B.BVH[:6])
+                dark[on] = np.clip(1 - lit * OAK_INK['bark_albedo'], 0, 1) * OAK_INK['bark_gain']
+            spacing_mm = arc * B.pixels_per_world(pts) * np.clip(facing, 0, 1) / px_per_mm
+            for f, P_, on_, dark_, sp_ in zip(furrows, np.split(pts, cut), np.split(on, cut),
+                                              np.split(dark, cut), np.split(spacing_mm, cut)):
+                keep = on_ & CR.furrow_keep(f.k, f.count, dark_, sp_, MM['field'], OAK_INK['bark_cap'])
+                for g in CR._runs(keep):
+                    kept, world = B.stroke_project(P_[g], return_world=True)
+                    paths += [(q, MM['field'] * px_per_mm) for q in kept]; audit.append(world[::4])
+                    stat['bark'] += len(kept)
+        if any(stat[k] for k in ('rows', 'outlines', 'silhouettes', 'bark')):
+            record.append(stat)
+    audit = np.vstack([a for a in audit if len(a)] or [np.zeros((0, 3))])
+    return paths, audit, dict(trees=record, ink=dict(OAK_INK), pens_mm=dict(rows=MM['foliage'], outlines=MM['branch'],
+                                                                         bark=MM['field']))
 
 
 # ---- the seal's shape (drawn by surface_patterns.seal_on_tower) ----------------------

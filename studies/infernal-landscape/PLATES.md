@@ -7,13 +7,14 @@ pieces into one scene, at a scale where they can be read:
 
 - the [face patterns](FACE-PATTERNS.md);
 - a farmstead from [`lib/farm_objects`](../../lib/farm_objects);
-- southwest Wisconsin plants from [`lib/flora`](../../lib/flora);
+- southwest Wisconsin plants from [`lib/flora`](../../lib/flora), and its
+  open-grown bur oaks in place of the estate's leaf-card oaks;
 - three of the thi.ng ports: [`lib/halftone`](../../lib/halftone) places the plants,
   [`lib/fuzz`](../../lib/fuzz) paints a barn quilt and [`lib/sdf2d`](../../lib/sdf2d)
   shapes a seal.
 
 Everything is drawn through the study's own camera, model rays and tone
-allocator, and all 23 checks pass on each plate.
+allocator, and all 24 checks pass on each plate.
 
 The plates are off by default. `run.py --plates` writes to `output/<case>-plates/`.
 Without the flag none of this code runs, and two earlier outputs are
@@ -134,6 +135,50 @@ view-facing instance in the estate's compositor (`occlusion.py`):
 - for the tone zones, each plant's convex outline counts as vegetation, as an
   oak's crown does.
 
+**Bur oaks (`lib/flora/oak.py`, `crown.py`).** The estate's eight volume oaks
+(`geometry.SceneBuilder.oak`) were made for the main camera, about 60 m off.
+Their limbs are straight five-sided beams with hatching off. Their foliage is
+about 380 flat eight-sided cards each, every card outlined. Close up, the cards
+read as a pile of octagons and the trunk as a white Y. The plates build swaps
+the builder (`plates.use_bur_oaks`) and keeps each oak's position, height and
+seed:
+
+- **Form.** `savanna_oak` grows an open-grown bur oak:
+  - a short trunk with a flared foot;
+  - four or five heavy scaffold limbs leaving it at staggered heights, some
+    nearly level and dipping before they rise;
+  - a short leader;
+  - branches and twigs running out to foliage masses over a broad crown, with
+    sky between them.
+
+  Limbs are tapered, crooked tubes. Masses are lumpy ellipsoids with flattened
+  undersides, and each mass is its own mesh. The near oak's spread is held
+  0.25 m clear of the barn.
+- **Masses** (`crown.draw_masses`). Each camera ray-casts the tree's window of
+  the page at 0.1 mm. The hits say which mass a pixel sees and how far, high
+  and dark it is under the scene's own light and shadows. From them come:
+  - **rows**: contours of world height across each mass, 0.34 mm apart at the
+    tree, kept where the darkness exceeds each row's bit-reversed rank (as the
+    hatcher keeps lines) and drawn as chains of small arches;
+  - **outlines**: each mass's silhouette as scallops bulging outward, cut where
+    anything nearer passes in front and opened on the lit side;
+  - **contact shadow**: rows crowd where a nearer mass or limb overlaps.
+- **Limbs.** Silhouettes come from the regenerated tree's centrelines and
+  radii, so they are smooth whatever the mesh. A limb thinner than 3 px on the
+  page is one line.
+- **Bark.** Furrow candidates wander around each thick limb and break into
+  ridges. A camera keeps a furrow where the bark's darkness exceeds its rank and
+  the furrows' spacing on the page leaves room for the pen, so furrows crowd on
+  the shaded side and thin toward the light and the limb's edges.
+- **In the model.** The masses are foliage faces. They count as volume
+  foliage, cast shadows and hide what is behind them, but are never hatched or
+  edge-inked. Every oak mark goes through the model's ray test into its own
+  layer, `02 bur oaks`, and `checks.py` re-tests sampled points of each
+  (`oak_samples_visible`).
+
+The [flora study](../wisconsin-flora/README.md#open-grown-bur-oak-for-landscapes)
+shows the generator on its own.
+
 **Where the terrain is hatched.** The estate's terrain atlas (x −20 to 20, y −11
 to 35) is also the main view's vignette: the drawing stops along its edges.
 
@@ -158,21 +203,27 @@ four are visible, it adds points around the target. The largest error is
 
 ## Result: recorded route, Blender build
 
-All three views come from one scene record (SHA-256 `07258dc8…`).
+All three views come from one scene record (SHA-256 `eeab83ca…`).
 
 | Measure | Tower | Barn | Main |
 | --- | --- | --- | --- |
-| Checks | 23 of 23 | 23 of 23 | 23 of 23 |
+| Checks | 24 of 24 | 24 of 24 | 24 of 24 |
 | Native Blender rays (samples, hidden) | 1,600, 0 | 1,600, 0 | 1,600, 0 |
 | Face-pattern samples re-tested (hidden) | 30,313 (0) | 5,143 (0) | 13,625 (0) |
-| Crosshatching | 17,017 paths, 18.30 m | 2,913 paths, 2.89 m | 4,474 paths, 3.62 m |
-| Architecture, farm objects, volume foliage | 2,283 paths, 5.03 m | 4,691 paths, 10.30 m | 8,369 paths, 8.55 m |
+| Bur oak samples re-tested (hidden) | 5,414 (0) | 9,908 (0) | 4,365 (0) |
+| Crosshatching | 17,015 paths, 18.25 m | 2,929 paths, 2.90 m | 4,455 paths, 3.62 m |
+| Architecture and farm objects | 754 paths, 4.31 m | 3,025 paths, 9.00 m | 4,556 paths, 7.42 m |
+| Bur oaks | 824 paths, 2.37 m | 1,047 paths, 3.85 m | 945 paths, 1.90 m |
 | Face patterns | 466 paths, 2.08 m | 177 paths, 0.38 m | 348 paths, 0.41 m |
-| Driftless field and contour | 781 paths, 3.45 m | 1,034 paths, 3.67 m | 3,464 paths, 5.82 m |
-| Planar plants and trees (Driftless and flora) | 11,980 paths, 5.97 m | 16,426 paths, 10.61 m | 14,464 paths, 6.46 m |
+| Driftless field and contour | 781 paths, 3.45 m | 1,025 paths, 3.15 m | 3,272 paths, 5.60 m |
+| Planar plants and trees (Driftless and flora) | 11,980 paths, 5.97 m | 16,349 paths, 10.57 m | 14,405 paths, 6.45 m |
 | Red critical path | 25 paths, 0.08 m | out of view | 12 paths, 0.02 m |
-| Pen-down in all | 34.9 m | 27.8 m | 24.9 m |
-| Mean ink: buildings, oaks, terrain, sky | 0.314, 0.276, 0.083, 0.003 | 0.220, 0.210, 0.089, 0.002 | 0.483, 0.319, 0.073, 0.000 |
+| Pen-down in all | 36.5 m | 29.9 m | 25.4 m |
+| Mean ink: buildings, oaks, terrain, sky | 0.314, 0.243, 0.086, 0.005 | 0.220, 0.213, 0.088, 0.004 | 0.483, 0.261, 0.074, 0.001 |
+
+The eight oaks have 18–26 masses each; the near oak has 23 and is held to a
+3.09 m spread by the barn. Each view draws only the masses it sees: 20 of the near
+oak's on the barn plate, eight of the far oak's behind the tower.
 
 The tone hierarchy holds on every view: buildings lead, then oaks, then
 terrain, then sky, and open ground is the lightest drawn surface. On the barn
@@ -180,9 +231,9 @@ plate the margin between buildings and oaks is narrow (see Limits).
 
 The full record is in
 [output/plates-validation.json](output/plates-validation.json). It holds the
-SVG hashes, the cameras, the farmstead as placed (including where the quilt
-board went), every face-pattern statistic, the flora per camera and the
-hatched domains.
+SVG hashes, the cameras, the farmstead and the oaks as placed (including
+where the quilt board went), every face-pattern statistic, the flora and the
+oaks per camera, and the hatched domains.
 
 ## Rebuild
 
@@ -198,11 +249,14 @@ python plates_preview.py
 - **Views.** `--plates` renders the main, tower and barn views; `--views`
   picks some of them. The tower and barn cameras exist only with `--plates`,
   which already includes the face patterns.
-- **Time.** On two cores the Blender build takes about 25 minutes.
+- **Time.** With `--no-clay`, the Blender build takes about 12 minutes on
+  two cores.
 - **Dry runs.** `--dry-run` works too, but `plates_preview.py` refuses dry runs
   and failed checks.
-- **Where things go.** Farmstead placement, the zones and the cameras are in
-  `plates.py`. The seal and the barn quilt are in `surface_patterns.py`.
+- **Where things go.** Farmstead placement, the oaks, the zones and the
+  cameras are in `plates.py`. The seal and the barn quilt are in
+  `surface_patterns.py`. The oak's form and marks are in `lib/flora/oak.py`
+  and `crown.py`.
 
 ## Limits
 
@@ -220,7 +274,15 @@ python plates_preview.py
   generated for x −19 to 19 and y −9 to 30. Ground east of the field carries
   hatching only.
 - **The barn plate.** It shows no red, because the critical path is out of its
-  view. Its building–oak margin is narrow (0.220 against 0.210).
+  view. Its building–oak margin is narrow (0.220 against 0.213). The barn is
+  open boarding, and foliage is held lighter than buildings, as the study's
+  tone rule asks.
+- **Oaks.** The masses are an engraver's convention, not leaves. The near
+  oak's crown is held narrower than the generator's default (3.09 m against
+  4.42 m) to clear the barn. The main view's foreground oak is still the
+  Driftless planar drawing, and it reads denser than the bur oaks beside it.
+  The delivered estate keeps its leaf-card oaks: changing them there would
+  re-baseline its validated main drawing.
 - **Tone and plotting.** Tone reservation is the allocator's existing
   approximation. Physical plotting was not tested.
 

@@ -1,0 +1,94 @@
+[
+ {
+  "seed": 371,
+  "azimuth": 20.0,
+  "paths": 1317,
+  "pen_down_metres": 8.465,
+  "limbs": 32,
+  "clumps": 20,
+  "orders": {
+   "0": 1,
+   "1": 5,
+   "2": 10,
+   "3": 16
+  },
+  "trunk_radius": 0.342,
+  "crown": {
+   "masses": 20,
+   "rows": 947,
+   "outlines": 66,
+   "levels_kept": 597,
+   "levels_seen": 816
+  },
+  "scale_mm_per_metre": 12.2043
+ },
+ {
+  "seed": 521,
+  "azimuth": 20.0,
+  "paths": 1278,
+  "pen_down_metres": 8.16,
+  "limbs": 30,
+  "clumps": 20,
+  "orders": {
+   "0": 1,
+   "1": 6,
+   "2": 8,
+   "3": 15
+  },
+  "trunk_radius": 0.341,
+  "crown": {
+   "masses": 20,
+   "rows": 913,
+   "outlines": 55,
+   "levels_kept": 548,
+   "levels_seen": 718
+  },
+  "scale_mm_per_metre": 12.66
+ },
+ {
+  "seed": 900,
+  "azimuth": 20.0,
+  "paths": 1307,
+  "pen_down_metres": 7.813,
+  "limbs": 33,
+  "clumps": 20,
+  "orders": {
+   "0": 1,
+   "1": 5,
+   "2": 10,
+   "3": 17
+  },
+  "trunk_radius": 0.37,
+  "crown": {
+   "masses": 20,
+   "rows": 891,
+   "outlines": 67,
+   "levels_kept": 604,
+   "levels_seen": 762
+  },
+  "scale_mm_per_metre": 11.8078
+ },
+ {
+  "seed": 371,
+  "azimuth": 110.0,
+  "paths": 1163,
+  "pen_down_metres": 10.675,
+  "limbs": 32,
+  "clumps": 20,
+  "orders": {
+   "0": 1,
+   "1": 5,
+   "2": 10,
+   "3": 16
+  },
+  "trunk_radius": 0.342,
+  "crown": {
+   "masses": 20,
+   "rows": 835,
+   "outlines": 62,
+   "levels_kept": 687,
+   "levels_seen": 832
+  },
+  "scale_mm_per_metre": 11.5253
+ }
+]

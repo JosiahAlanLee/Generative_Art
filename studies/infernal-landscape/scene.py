@@ -71,19 +71,25 @@ def assemble(builder, ctx):
     """Terrain host, the profile's architecture, then its cameras.
 
     With INFERNAL_PLATES=1 the estate also receives the plate studies'
-    farmstead and their two cameras (plates.py)."""
+    farmstead and their two cameras, and its oaks are built as bur oaks
+    (plates.py)."""
     builder.terrain_grid(*grid(ctx))
     m = profile_module(ctx['A'])
-    top, base, footprints, routes = m.build_scene(ctx['A'], builder)
-    cameras = list(m.CAMERAS); plates_record = None
-    if os.environ.get('INFERNAL_PLATES') == '1':
+    plates_on = os.environ.get('INFERNAL_PLATES') == '1'
+    if plates_on:
         if m.__name__ != 'estate':
             raise ValueError('the plate studies are composed for the estate profile only')
         import plates
+        oaks = plates.use_bur_oaks(builder)       # the estate's T.oak calls now build bur oaks
+    top, base, footprints, routes = m.build_scene(ctx['A'], builder)
+    cameras = list(m.CAMERAS); plates_record = None
+    if plates_on:
         extra, plates_record = plates.add_farmstead(builder)
+        plates_record['oaks'] = oaks
         footprints = footprints + extra; cameras += plates.CAMERAS
-        # The scene record's schema is unchanged; the farmstead's own record
-        # (seeds, decay, placement, where the quilt board went) sits beside it.
+        # The scene record's schema is unchanged; the plates' own record (the
+        # farmstead's seeds, decay, placement and quilt board, and the oaks as
+        # built, which draw_oaks regenerates from) sits beside it.
         (ctx['out'] / 'plates-farmstead.json').write_text(json.dumps(plates_record, indent=2, default=float))
     for name, eye, target, focal in cameras:
         builder.camera(name, eye, target, focal)

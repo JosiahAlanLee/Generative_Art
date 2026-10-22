@@ -1,11 +1,11 @@
 {
   "case": "recorded_route",
   "backend": "blender",
-  "scene_sha256": "07258dc87ddd504fe8cf39256402aa82526ea333dc224be0285f34f131aa2c58",
+  "scene_sha256": "eeab83ca1517907b25322b62329a7449543933a880ebc66c0501962fc6fdb281",
   "svg_sha256": {
-    "tower": "f92e132b77d4c4b172c1482c3bf4756b957a4bca426600fda8d8cdc6e8efd937",
-    "barn": "da1a0141384b8a4e5add81a401d03aaa69e9d0716fb4c21d96799c0b39e7ddbd",
-    "main": "dd8e717d3771318ae26ebbfdf2442d813b6e0dc8d4b9c0e1ed94259794321b84"
+    "tower": "4fd608128edac8bb0c8b51be3925ec83b1f619625fded17a94a1b3de01876676",
+    "barn": "bce5dbd25f2f4ad15fb7cdc5016407d1d51797b2994946244aa8e7795ba1076f",
+    "main": "82e75f48242d0707576914b53d18287c7c2363f162b67e75eaa463ae5d2d4be9"
   },
   "all_passed": {
     "tower": true,
@@ -13,48 +13,52 @@
     "main": true
   },
   "checks": {
-    "tower": 23,
-    "barn": 23,
-    "main": 23
+    "tower": 24,
+    "barn": 24,
+    "main": 24
   },
   "zones_mean_ink": {
     "tower": {
-      "sky": 0.003,
-      "terrain": 0.083,
+      "sky": 0.005,
+      "terrain": 0.086,
       "building": 0.314,
-      "oak": 0.276,
+      "oak": 0.243,
       "furniture": 0.436,
       "other": 0.173
     },
     "barn": {
-      "sky": 0.002,
-      "terrain": 0.089,
+      "sky": 0.004,
+      "terrain": 0.088,
       "building": 0.22,
-      "oak": 0.21,
+      "oak": 0.213,
       "furniture": 0.335
     },
     "main": {
-      "sky": 0.0,
-      "terrain": 0.073,
+      "sky": 0.001,
+      "terrain": 0.074,
       "building": 0.483,
-      "oak": 0.319,
+      "oak": 0.261,
       "furniture": 0.561,
-      "other": 0.376
+      "other": 0.377
     }
   },
   "layers": {
     "tower": {
       "01 crosshatching": {
-        "paths": 17017,
-        "pen_down_m": 18.302
+        "paths": 17015,
+        "pen_down_m": 18.247
       },
       "02 architecture and volume foliage": {
-        "paths": 2283,
-        "pen_down_m": 5.025
+        "paths": 754,
+        "pen_down_m": 4.306
       },
       "02 architecture face patterns": {
         "paths": 466,
         "pen_down_m": 2.08
+      },
+      "02 bur oaks": {
+        "paths": 824,
+        "pen_down_m": 2.373
       },
       "03 Driftless field and contour": {
         "paths": 781,
@@ -71,24 +75,28 @@
     },
     "barn": {
       "01 crosshatching": {
-        "paths": 2913,
-        "pen_down_m": 2.894
+        "paths": 2929,
+        "pen_down_m": 2.902
       },
       "02 architecture and volume foliage": {
-        "paths": 4691,
-        "pen_down_m": 10.296
+        "paths": 3025,
+        "pen_down_m": 8.997
       },
       "02 architecture face patterns": {
         "paths": 177,
         "pen_down_m": 0.38
       },
+      "02 bur oaks": {
+        "paths": 1047,
+        "pen_down_m": 3.854
+      },
       "03 Driftless field and contour": {
-        "paths": 1034,
-        "pen_down_m": 3.674
+        "paths": 1025,
+        "pen_down_m": 3.153
       },
       "04 Driftless foreground": {
-        "paths": 16426,
-        "pen_down_m": 10.609
+        "paths": 16349,
+        "pen_down_m": 10.567
       },
       "05 dependency routes": {
         "paths": 0,
@@ -97,24 +105,28 @@
     },
     "main": {
       "01 crosshatching": {
-        "paths": 4474,
-        "pen_down_m": 3.619
+        "paths": 4455,
+        "pen_down_m": 3.616
       },
       "02 architecture and volume foliage": {
-        "paths": 8369,
-        "pen_down_m": 8.554
+        "paths": 4556,
+        "pen_down_m": 7.42
       },
       "02 architecture face patterns": {
         "paths": 348,
         "pen_down_m": 0.413
       },
+      "02 bur oaks": {
+        "paths": 945,
+        "pen_down_m": 1.9
+      },
       "03 Driftless field and contour": {
-        "paths": 3464,
-        "pen_down_m": 5.823
+        "paths": 3272,
+        "pen_down_m": 5.596
       },
       "04 Driftless foreground": {
-        "paths": 14464,
-        "pen_down_m": 6.462
+        "paths": 14405,
+        "pen_down_m": 6.451
       },
       "05 dependency routes": {
         "paths": 12,
@@ -267,6 +279,184 @@
           "wheel_radius": 0.653,
           "missing_teeth": 2
         }
+      }
+    ],
+    "oaks": [
+      {
+        "name": "Volume oak near",
+        "seed": 371,
+        "height": 6.7,
+        "spread": 3.087743612767687,
+        "detail": 3,
+        "root": [
+          10.3,
+          9.5,
+          0.27729989716177006
+        ],
+        "yaw": 4.457230017678349,
+        "limbs": 38,
+        "clumps": 23,
+        "orders": {
+          "0": 1,
+          "1": 5,
+          "2": 10,
+          "3": 22
+        },
+        "trunk_radius": 0.336
+      },
+      {
+        "name": "Volume oak far",
+        "seed": 521,
+        "height": 6.5,
+        "spread": 4.29,
+        "detail": 2,
+        "root": [
+          -11.8,
+          20.0,
+          2.385609606833897
+        ],
+        "yaw": 0.026966701262232107,
+        "limbs": 30,
+        "clumps": 20,
+        "orders": {
+          "0": 1,
+          "1": 6,
+          "2": 8,
+          "3": 15
+        },
+        "trunk_radius": 0.331
+      },
+      {
+        "name": "Ridge oak 0",
+        "seed": 900,
+        "height": 4.6,
+        "spread": 3.036,
+        "detail": 2,
+        "root": [
+          -20.0,
+          27.0,
+          1.0383499204178104
+        ],
+        "yaw": 4.834346637401914,
+        "limbs": 33,
+        "clumps": 20,
+        "orders": {
+          "0": 1,
+          "1": 5,
+          "2": 10,
+          "3": 17
+        },
+        "trunk_radius": 0.254
+      },
+      {
+        "name": "Ridge oak 1",
+        "seed": 901,
+        "height": 4.4,
+        "spread": 2.9040000000000004,
+        "detail": 2,
+        "root": [
+          -15.0,
+          29.0,
+          1.5118522725936607
+        ],
+        "yaw": 0.9511245602224676,
+        "limbs": 35,
+        "clumps": 19,
+        "orders": {
+          "0": 1,
+          "1": 6,
+          "2": 10,
+          "3": 18
+        },
+        "trunk_radius": 0.232
+      },
+      {
+        "name": "Ridge oak 2",
+        "seed": 902,
+        "height": 4.5,
+        "spread": 2.97,
+        "detail": 2,
+        "root": [
+          -7.0,
+          31.0,
+          0.9376434553673477
+        ],
+        "yaw": 3.3510877902221523,
+        "limbs": 34,
+        "clumps": 22,
+        "orders": {
+          "0": 1,
+          "1": 6,
+          "2": 10,
+          "3": 17
+        },
+        "trunk_radius": 0.235
+      },
+      {
+        "name": "Ridge oak 3",
+        "seed": 903,
+        "height": 5.2,
+        "spread": 3.4320000000000004,
+        "detail": 2,
+        "root": [
+          0.0,
+          31.0,
+          0.45984007508103575
+        ],
+        "yaw": 5.751051020222292,
+        "limbs": 37,
+        "clumps": 26,
+        "orders": {
+          "0": 1,
+          "1": 6,
+          "2": 11,
+          "3": 19
+        },
+        "trunk_radius": 0.284
+      },
+      {
+        "name": "Ridge oak 4",
+        "seed": 904,
+        "height": 4.8,
+        "spread": 3.168,
+        "detail": 2,
+        "root": [
+          8.0,
+          30.0,
+          0.7175770961225709
+        ],
+        "yaw": 1.867828943042845,
+        "limbs": 33,
+        "clumps": 22,
+        "orders": {
+          "0": 1,
+          "1": 5,
+          "2": 10,
+          "3": 17
+        },
+        "trunk_radius": 0.241
+      },
+      {
+        "name": "Ridge oak 5",
+        "seed": 905,
+        "height": 5.1,
+        "spread": 3.366,
+        "detail": 2,
+        "root": [
+          16.0,
+          29.0,
+          2.26162986485191
+        ],
+        "yaw": 4.26779217304253,
+        "limbs": 30,
+        "clumps": 18,
+        "orders": {
+          "0": 1,
+          "1": 6,
+          "2": 8,
+          "3": 15
+        },
+        "trunk_radius": 0.259
       }
     ]
   },
@@ -639,6 +829,185 @@
         24.2,
         6.6
       ]
+    }
+  },
+  "oaks": {
+    "tower": {
+      "trees": [
+        {
+          "name": "Volume oak far",
+          "masses": 8,
+          "rows": 77,
+          "outlines": 16,
+          "silhouettes": 8,
+          "bark": 14
+        },
+        {
+          "name": "Ridge oak 0",
+          "masses": 13,
+          "rows": 47,
+          "outlines": 15,
+          "silhouettes": 23,
+          "bark": 29
+        },
+        {
+          "name": "Ridge oak 2",
+          "masses": 14,
+          "rows": 100,
+          "outlines": 34,
+          "silhouettes": 41,
+          "bark": 82
+        },
+        {
+          "name": "Ridge oak 3",
+          "masses": 25,
+          "rows": 162,
+          "outlines": 56,
+          "silhouettes": 37,
+          "bark": 84
+        }
+      ],
+      "ink": {
+        "step": 2.0,
+        "row_gap_mm": 0.34,
+        "gain": 0.86,
+        "bark_albedo": 0.64,
+        "bark_gain": 0.95,
+        "bark_cap": 0.28,
+        "thin_px": 3.0,
+        "pad": 6.0
+      },
+      "pens_mm": {
+        "rows": 0.08,
+        "outlines": 0.1,
+        "bark": 0.085
+      }
+    },
+    "barn": {
+      "trees": [
+        {
+          "name": "Volume oak near",
+          "masses": 20,
+          "rows": 402,
+          "outlines": 44,
+          "silhouettes": 69,
+          "bark": 253
+        },
+        {
+          "name": "Ridge oak 4",
+          "masses": 6,
+          "rows": 5,
+          "outlines": 7,
+          "silhouettes": 11,
+          "bark": 9
+        },
+        {
+          "name": "Ridge oak 5",
+          "masses": 15,
+          "rows": 111,
+          "outlines": 37,
+          "silhouettes": 27,
+          "bark": 73
+        }
+      ],
+      "ink": {
+        "step": 2.0,
+        "row_gap_mm": 0.34,
+        "gain": 0.86,
+        "bark_albedo": 0.64,
+        "bark_gain": 0.95,
+        "bark_cap": 0.28,
+        "thin_px": 3.0,
+        "pad": 6.0
+      },
+      "pens_mm": {
+        "rows": 0.08,
+        "outlines": 0.1,
+        "bark": 0.085
+      }
+    },
+    "main": {
+      "trees": [
+        {
+          "name": "Volume oak near",
+          "masses": 23,
+          "rows": 60,
+          "outlines": 37,
+          "silhouettes": 45,
+          "bark": 86
+        },
+        {
+          "name": "Volume oak far",
+          "masses": 20,
+          "rows": 53,
+          "outlines": 33,
+          "silhouettes": 7,
+          "bark": 7
+        },
+        {
+          "name": "Ridge oak 0",
+          "masses": 14,
+          "rows": 5,
+          "outlines": 9,
+          "silhouettes": 18,
+          "bark": 21
+        },
+        {
+          "name": "Ridge oak 1",
+          "masses": 8,
+          "rows": 3,
+          "outlines": 7,
+          "silhouettes": 10,
+          "bark": 6
+        },
+        {
+          "name": "Ridge oak 2",
+          "masses": 16,
+          "rows": 26,
+          "outlines": 22,
+          "silhouettes": 33,
+          "bark": 45
+        },
+        {
+          "name": "Ridge oak 3",
+          "masses": 25,
+          "rows": 29,
+          "outlines": 39,
+          "silhouettes": 29,
+          "bark": 46
+        },
+        {
+          "name": "Ridge oak 4",
+          "masses": 18,
+          "rows": 31,
+          "outlines": 27,
+          "silhouettes": 32,
+          "bark": 36
+        },
+        {
+          "name": "Ridge oak 5",
+          "masses": 15,
+          "rows": 39,
+          "outlines": 30,
+          "silhouettes": 26,
+          "bark": 48
+        }
+      ],
+      "ink": {
+        "step": 2.0,
+        "row_gap_mm": 0.34,
+        "gain": 0.86,
+        "bark_albedo": 0.64,
+        "bark_gain": 0.95,
+        "bark_cap": 0.28,
+        "thin_px": 3.0,
+        "pad": 6.0
+      },
+      "pens_mm": {
+        "rows": 0.08,
+        "outlines": 0.1,
+        "bark": 0.085
+      }
     }
   }
 }

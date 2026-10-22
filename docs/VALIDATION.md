@@ -1,5 +1,42 @@
 # Validation of this collection
 
+## Bur oaks — 22 October 2026
+
+Prepared with Claude, in the same environments as the plate studies below.
+
+| Check | Observed result |
+| --- | --- |
+| `python -m unittest discover -s lib/flora/tests -v` | 25 passed. The 16 new tests cover the tree, the marks and the standalone renderer, below |
+| `python -m unittest discover -s studies/infernal-landscape/tests -v` | 31 passed. Three are new: the oak builder's parts are named, wound outward and never hatched; the near oak's crown clears the barn; the tree regenerated at render time is the scene's, vertex for vertex |
+| Other `lib` suites | `face_patterns` 15 and `farm_objects` 8 pass |
+| `python tools/verify_collection.py` | 74 techniques (with main merged) and all local guide links |
+| Plates (Blender) | One scene record (`eeab83ca…`). All 24 checks pass on the main, tower and barn views; the new one, `oak_samples_visible`, re-tests 4,365, 5,414 and 9,908 samples of the oak marks, none hidden. Native Blender rays: 1,600 samples per view, none hidden. Volume foliage faces: 76,480 |
+| Tone | Oaks stay lighter than buildings on every view: 0.213 against 0.220 on the barn plate, 0.243 against 0.314 on the tower plate, 0.261 against 0.483 on the main view |
+| Plates (dry run) | All 21 checks pass on each view (the three Blender-only checks do not apply). Oak tones match the Blender build to 0.001; every zone is within 0.003 (the tower's furniture) |
+| Unchanged outputs | Re-rendered with the final code: the delivered main SVG (`84235df0…`) and the face-pattern comparison (`7a6bb489…`) are byte-identical. `studies/wisconsin-flora/build.py` rebuilds every committed SVG, PNG and manifest byte for byte after `Drawing` gained per-layer pens |
+| Review | The plates, the preview sheet and the specimen sheet were inspected at full size. Tuning on dry runs, in order: rows thinned and broken in the light; outlines opened on the lit side, ranked so a darkness asks for its fraction of openings; scaffold limbs staggered up the trunk (a single fork read as a knot); masses enlarged, flattened and lumped at three scales; crowns lightened to keep the tone rule |
+
+The new `lib/flora` tests:
+
+- the tree repeats by seed and varies between seeds;
+- its habit: foliage tops within 10% of the height, reach within the spread,
+  the trunk set into the ground and flared, four to six scaffold limbs;
+- limbs taper and start inside their parent, no thicker than it;
+- meshes are closed (every edge used twice) with positive volume;
+- `bare` and `detail` keep the limbs;
+- furrows ride the bark;
+- placement moves and turns;
+- bad parameters are refused;
+- scallops keep their ends and bulge to one side;
+- marks stay on their masses and off a nearer post;
+- shade draws at least twice the row length of light;
+- outlines lie within a scallop of a silhouette;
+- contact shadow darkens behind nearer things;
+- limb outlines are tangent to the view;
+- furrows are kept by rank, darkness and room.
+
+Only the recorded route was examined. Physical plotting was not tested.
+
 ## Plate studies — 22 October 2026
 
 Prepared with Claude. Built with `bpy` 4.5.14 LTS in Python 3.11, and the
