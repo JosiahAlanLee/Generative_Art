@@ -1,5 +1,18 @@
 # Validation of this collection
 
+## Scan portraits — 22 October 2026
+
+Prepared with Claude, on Linux with Python 3.13.16 and Scanned Statue v2's pinned requirements (NumPy 2.5.3, SciPy 1.18.1, Numba 0.68.0, trimesh 5.1.1, CairoSVG 2.9.1) on two cores. This covers `studies/scan-portraits`; no imported source file and no file in Scanned Statue v2 changed.
+
+| Check | Observed result |
+| --- | --- |
+| `python studies/scan-portraits/checks.py` | 40 passed. Model files match their pinned upstream hashes, and both licence files are present. Each plate is stroke-only, inside 8–202 × 10–288 mm, carries its credit, and matches its report. Head lines lie on the ray-cast scan to within 0.6 mm; ground points stay at least 0.3 mm clear. Loop subdivision keeps a flat sheet flat and its UVs aligned across a seam. Ridges and valleys land on a corrugated sheet's crests and troughs. The key light follows the cosine law on a sphere. Path ordering keeps every path and cuts travel. `lps-bust` rebuilds byte for byte from scratch |
+| `python studies/scan-portraits/build.py` | Three A4 plates in 2 min 26 s: `washington-bust` 46.7 m of line, `washington-front` 44.8 m, `lps-bust` 42.3 m |
+| Visual review | Plates, layer-by-layer renders and 14 px/mm crops of each face inspected; the four presets not in the build (Washington `head` and `profile`, Lee Perry-Smith `head` and `front`) rendered and inspected; a Codex 7 × 10 in sheet stays inside its extent |
+| Collection verifier | 241 public snapshot files, 58 selected development-art files, 75 techniques and all local guide links |
+
+Physical plotting was not tested.
+
 ## Workbench review fixes — 22 October 2026
 
 Prepared with Claude, on Linux with Python 3.13 (the Infernal engraving requirements), Node 22, vpype 1.15.0 in its own environment and Chromium through Playwright. This covers `workbench/` and the Driftless CLI's new `--penWidth`; no generator algorithm changed.

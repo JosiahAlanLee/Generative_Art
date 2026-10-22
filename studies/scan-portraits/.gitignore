@@ -1,0 +1,7 @@
+# Recreated by build.py or portrait.py
+__pycache__/
+output/cache/
+output/*.png
+output/.*-detail.png
+*.log
+output/checks.json

@@ -14,6 +14,8 @@ The `lib/numerics` modules and tests, the number-systems guide and sampler, and 
 
 The review of Dan Catt's and Makio's plotter code in [docs/PLOTTER_OUTSIDE_CODE.md](docs/PLOTTER_OUTSIDE_CODE.md) was prepared with Claude on 22 October 2026. It links to their code and copies none of it.
 
+Scan portraits (`studies/scan-portraits`) was prepared with Claude on 22 October 2026. It imports Scanned Statue v2's `raycore.py`, `meshlines.py` and `suggestive.py` unchanged, and its hatch retention rule is Sol's, from *Scanned Statue*. It bundles two scans under their own terms. The *Bust of George Washington* after Giuseppe Ceracchi (Smithsonian National Portrait Gallery, NPG.70.4) was released by the Smithsonian under CC0. *Infinite, 3D Head Scan* by Lee Perry-Smith is licensed under CC BY 3.0, as distributed with three.js r150; its plates and SVGs carry that credit and say what was changed. Neither licence is replaced, and CC BY covers the scan, not the sitter's likeness.
+
 Driftless Plates (`studies/driftless-plates`) and the landscape-plates guide were prepared with Claude on 20 October 2026. The plates follow the density and vegetation of Zancan's plotter landscapes and the ruled buildings and simulated print imperfections of Yazid's *Hashed Cities*; no code from either artist is used. The engine seeds with `xmur3` and `sfc32` as published by bryc, who marks them public domain, and grows trees by space colonization after Runions, Lane and Prusinkiewicz (2007). Its page loads IM Fell English SC and IBM Plex from Google Fonts when online; no font files are bundled. The Codex page geometry is read from the pinned snapshot, and no snapshot file was changed. Engine 1.2's quartzite bluffs follow published descriptions of Devil's Lake, and its houses follow Frank Lloyd Wright's Prairie houses and Taliesin and Alex Jordan's House on the Rock; no plans, photographs or images were traced.
 
 No blanket license is introduced by this reorganization or by those additions. Keep the source notices and do not infer permission for book art or code from a font’s license. The bundled fonts retain their existing notices; this import does not represent a new audit of completeness for upstream font licensing.
@@ -23,6 +25,7 @@ No blanket license is introduced by this reorganization or by those additions. K
 - [Shared font notices](sources/codex-intervallorum/common/fonts/licenses/)
 - [Photophobic attribution and source record](studies/photophobic/README.md)
 - [Scanned Statue v2 scan attribution](studies/scanned-statue-v2/README.md)
+- [Scan portraits: Washington bust (CC0) and Lee Perry-Smith head scan (CC BY 3.0)](studies/scan-portraits/README.md#provenance)
 - [Infernal Engine references](studies/infernal-engine/RESEARCH.md)
 
 The drawn sigils and English Semiphoras adaptation are project inventions, not claims to reproduce living ritual signs or historical divine names. Existing source text states where the Notoria model is adapted from Jones (2010); this import makes no additional biological or institutional claim.

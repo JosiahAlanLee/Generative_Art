@@ -1,0 +1,34 @@
+{
+ "files": {
+  ".gitattributes": "2bba16a8690baf0f6757d959a8070d0c8c77f655f5494e7a7f6fad1643e4f522",
+  ".gitignore": "b4060fcb962dc6a29fa638288f133cc2d74436d83dc9c4d126fd626394cf3502",
+  "README.md": "074f6e46d6bd9775080d6013fdd0feb219f797de55c317a1f2ceedec88f39ca9",
+  "build.py": "1ef38c9a40a8048cc9e6cc243def2dcfda17a0af05c7331b75419747c6eb5626",
+  "checks.py": "ebe9c58e179c6760a60e60739c22aaae11a0c003d58d222494ac16505204799f",
+  "creases.py": "c3183817a4d4958954e6dec36f4f200ee21b63283df32760daeeaeb690ecd52b",
+  "detail.jpg": "ae968ad6f6b4decdc007dc09cd75cca3118cbe1338ac62c2c5df682f588c275f",
+  "ground.py": "01b360cf278210a7251220e7cd1179013a167674575669f7a8f5dad249d94ca4",
+  "light.py": "a3d86bb6cc0f349949df8fa222f5c3430a66b6ebc9fd65b98cb344163f49c239",
+  "models/lee-perry-smith/LeePerrySmith.glb": "402b8a8ac9f03232e6d64b5962929703a069daf99d3c49ac8eb0e48bedc9c576",
+  "models/lee-perry-smith/LeePerrySmith_License.txt": "7cf4da43a6ae6d32f7f7d063fe129a19468af6f4fe7c53b937f83959709fcb50",
+  "models/lee-perry-smith/Map-COL.jpg": "e976d73b31407f8d0967412bf468019ed26a5d5a32cf5811aabff7e816458a65",
+  "models/washington-bust/LICENSE": "470cd25f1f1620d1733c9870f96aa058292b557148a5e93cbe8b4df22f5b76d3",
+  "models/washington-bust/washington_bust.obj.gz": "473a90e1c7b30b279a7245eedb2468ccbf356c0b91b7323ef348a90d42f70b19",
+  "output/lps-bust-report.json": "e93d91ce838f6bd044361e501012b3af37fcd37ba9acaaf8dcfeecf22baba1b4",
+  "output/lps-bust.svg": "79a1f48b564703dedd9b0265b87c814bb41e5037100d9d77ce54ee851261cff2",
+  "output/washington-bust-report.json": "5d942d1135cedc12afcd826f22b7d3b60f0b7b93cb8f89bbb99c14148dbb57a9",
+  "output/washington-bust.svg": "893a667aa5cf0de954939877c8429773f18c4cf1ad079d66319690eb7b47fdb9",
+  "output/washington-front-report.json": "64bc4bad5b1471de1cd47b8dfe4c80a0c881e5c4409e06879fea2e7c31d138b3",
+  "output/washington-front.svg": "6477e1fc80f28c1756a16a681cfec0364836293677064c9eb8d62b03ff056266",
+  "portrait.py": "7bbbd1501e56f75b07a75c72605bf7c2983e7767c28fb30ad57d3bd196dcac4d",
+  "preview.jpg": "85dc86ac41174f109a90cd439927cc7ec3c4f228e39d323d5790ead58be90206",
+  "requirements.txt": "01e302e400a428507c528293f33b2eaadf264247d94cd2637dac320b718e1fa6",
+  "subdivide.py": "3c8cf601ab0f269f8f47b7063855599dc5e4d6da90b7350bcc188bb33dc4cf51",
+  "subjects.py": "e36ca94eb01974000b20660095333db6ba84fcde2be20399c2d1d3732d65d864"
+ },
+ "regenerated": {
+  "output/lps-bust.png": "33aeeb9da68d7b56b3872abd9b441914c984fa913809a730c9659391fe3508e4",
+  "output/washington-bust.png": "1a0eacf75761e42ea6db5500ff6ee8ac97f70fd46044ab83515932caf7ec3417",
+  "output/washington-front.png": "e480c33d9be3b49975f0dbd771d2442169522bbf2154001c8573f8364121ebb1"
+ }
+}

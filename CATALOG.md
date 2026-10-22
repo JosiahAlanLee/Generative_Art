@@ -74,6 +74,7 @@ The snapshot is `JosiahAlanLee/Codex-Intervallorum@b789e03f30034bc8403f8a40aaf83
 | [Infernal Engine / Blender nodes](studies/infernal-engine/build_infernal.py) | Construct procedural interior/exterior scene studies | study |
 | [Ray-lit scenes with photophobic cultures](studies/photophobic/common/mould.py) | Grow two shade-seeking strains over scene surfaces | study |
 | [Scan engraving and Trail First primitives](studies/scanned-statue-v2/engrave.py) | Recover mesh contours and place primitives along trails | study |
+| [Scan portraits](studies/scan-portraits/README.md) | Draw CC head scans as ray-lit portrait engravings: section hatching, cross-hatch that chooses its direction, ridge and valley lines, a ruled ground with a halo | study |
 | [Perspective 3D engraving with landscape strokes](studies/three-gates/README.md) | Draw structures, water and depth-ordered Driftless plants through one perspective camera | study |
 | [Evaluated Blender terrain and mapped symbols](studies/terrain-symbols/README.md) | Drape 2D field marks onto displaced terrain, keep vegetation upright, and share geometry / plant occlusion with crosshatching | study |
 | [2D generators on flat faces](studies/infernal-landscape/FACE-PATTERNS.md) | Draw strata, a barn quilt or any planar generator on a scene's flat walls, continuous across faces, with spacing set by the camera | collection |

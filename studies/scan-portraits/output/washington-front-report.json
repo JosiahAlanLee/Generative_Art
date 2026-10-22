@@ -1,0 +1,163 @@
+{
+ "version": "scan-portraits-1",
+ "subject": "washington",
+ "view": "front",
+ "sheet": "a4",
+ "pen_mm": 0.15,
+ "spacing_pen_widths": 1.75,
+ "candidate_spacing_mm": 0.2625,
+ "credit": "Bust of George Washington, marble, ca. 1819, after Giuseppe Ceracchi (1792). Smithsonian National Portrait Gallery, NPG.70.4. 3D scan released by the Smithsonian under CC0.",
+ "licence": "CC0-1.0",
+ "source_triangles": 150000,
+ "drawn_triangles": 600000,
+ "loop_subdivisions": 1,
+ "eye": [
+  -1.85846,
+  -2.601312,
+  1.078898
+ ],
+ "section_normals": [
+  [
+   0.409054,
+   0.301789,
+   0.861161
+  ],
+  [
+   0.478564,
+   -0.64494,
+   0.595843
+  ],
+  [
+   -0.769724,
+   0.229121,
+   0.595843
+  ]
+ ],
+ "head_mm": 140.0,
+ "view_settings": {
+  "azimuth": -35.0,
+  "elevation": 5.0,
+  "distance": 3.2,
+  "head_mm": 140.0,
+  "center": [
+   0.5,
+   0.34
+  ],
+  "key_azimuth": -85.0,
+  "fill_azimuth": -10.0
+ },
+ "light": {
+  "key_azimuth": -85.0,
+  "key_elevation": 38.0,
+  "key_distance": 3.0,
+  "key_size": 1.2,
+  "key_samples": 7,
+  "fill_azimuth": -10.0,
+  "fill_elevation": 8.0,
+  "ao_samples": 40,
+  "ao_radius": 0.06,
+  "ambient": 0.12,
+  "key": 0.8,
+  "fill": 0.18,
+  "occlusion": 0.85
+ },
+ "tone": {
+  "light_gamma": 1.0,
+  "paper": 0.06,
+  "gamma": 1.25,
+  "scale": 0.85,
+  "cross": 0.34,
+  "cross_from": 0.45,
+  "cross_ramp": 0.3,
+  "cross_min_deg": 30.0,
+  "cross_full_deg": 50.0,
+  "smooth_samples": 1.5,
+  "albedo_gamma": 1.0,
+  "fold_threshold": 5.0,
+  "fold_min_pens": 6,
+  "valley_threshold": 20.0,
+  "ridge_threshold": 70.0,
+  "crease_min_pens": 12,
+  "crease_smooth": 1,
+  "crease_strong": 2.5,
+  "crease_light": 0.55
+ },
+ "paths_by_layer": {
+  "ground": 603,
+  "hatch": 3275,
+  "cross": 1631,
+  "folds": 615,
+  "outlines": 363
+ },
+ "line_m_by_layer": {
+  "ground": 11.14,
+  "hatch": 23.3,
+  "cross": 5.55,
+  "folds": 3.58,
+  "outlines": 1.22
+ },
+ "pen_down_m": 44.78,
+ "pen_up_m": 12.11,
+ "plot_hours_at_25mm_s": 1.02,
+ "extent_mm": [
+  8.0,
+  10.0,
+  202.0,
+  288.0
+ ],
+ "placement_shift_mm": [
+  0.25,
+  26.083
+ ],
+ "head_xy_mm": [
+  105.25,
+  130.603
+ ],
+ "bounds_mm": [
+  19.65,
+  40.163,
+  190.35,
+  235.597
+ ],
+ "fold_info": {
+  "edge": 0.002953316120229833,
+  "kr_range": [
+   -144.3343182937778,
+   112.00928770573873
+  ],
+  "strength_pct": [
+   0.004512945006310414,
+   0.3839687682420215,
+   1.0320330398105866
+  ]
+ },
+ "ground": {
+  "kind": "oval",
+  "lines": 603,
+  "metres": 11.14,
+  "spacing_mm": 0.2363,
+  "halo_mm": 2.5
+ },
+ "creases": {
+  "valley": {
+   "kind": "valley",
+   "chains": 1323,
+   "crossings": 25964,
+   "k_scaled_pct": [
+    3.608645952200443,
+    44.2096557213989,
+    136.02839634471843
+   ]
+  },
+  "ridge": {
+   "kind": "ridge",
+   "chains": 529,
+   "crossings": 6985,
+   "k_scaled_pct": [
+    4.811931804518248,
+    42.49560783537837,
+    89.6855163660163
+   ]
+  }
+ }
+}

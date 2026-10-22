@@ -507,6 +507,39 @@
     "symbols": []
   },
   {
+    "id": "scan-portraits",
+    "title": "Scan portraits",
+    "family": "08-scene-studies",
+    "status": "study",
+    "use": "Draw a CC head scan as an A4 portrait engraving with hidden lines removed: per-vertex key, fill and occlusion; plane-section hatching with a cross family chosen per point for its crossing angle; ridge and valley lines; a ruled ground with a halo; a vignette",
+    "guide": "techniques/08-scene-studies/README.md",
+    "sources": [
+      "studies/scan-portraits/portrait.py",
+      "studies/scan-portraits/subjects.py",
+      "studies/scan-portraits/light.py",
+      "studies/scan-portraits/creases.py",
+      "studies/scan-portraits/ground.py",
+      "studies/scan-portraits/subdivide.py",
+      "studies/scan-portraits/checks.py"
+    ],
+    "symbols": [
+      "run",
+      "make_camera",
+      "family_normals",
+      "section_strokes",
+      "crossing",
+      "draw",
+      "place",
+      "order_paths",
+      "shade",
+      "combine",
+      "crease_lines",
+      "vertex_curvature",
+      "ruled",
+      "loop"
+    ]
+  },
+  {
     "id": "three-gates-perspective",
     "title": "Perspective 3D engraving with depth-ordered landscape strokes",
     "family": "08-scene-studies",
