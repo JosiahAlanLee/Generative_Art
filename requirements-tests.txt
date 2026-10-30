@@ -1,0 +1,14 @@
+# Test environment for lib/flora, lib/farm_objects, lib/face_patterns,
+# lib/plotter_score and workbench. The plant and farm engravers load the
+# Numba ray kernel in studies/infernal-landscape/vendor/, whose pin sets the
+# NumPy ceiling; the versions match studies/infernal-landscape/requirements.txt.
+pytest>=8
+numpy>=1.24,<2.3
+numba==0.61.2
+llvmlite==0.44.0
+scipy>=1.10
+contourpy>=1.2
+shapely>=2,<3
+Pillow>=10
+# Farm PNG proofs in the workbench; the SVG-only tests run without it.
+cairosvg>=2.7

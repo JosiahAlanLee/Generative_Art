@@ -99,6 +99,17 @@ python tools/verify_collection.py
 
 This verifies each imported file against both SHA-256 and the upstream Git blob identity, parses every imported Python module, checks complete Python coverage and checks navigation links. It does not rebuild the full illustrated book.
 
+## Run the Python test suites
+
+The plant, farm-object, face-pattern, plotter-score and workbench suites share one environment. The engravers need Numba and Shapely, which the book environment does not install:
+
+```sh
+python -m pip install -r requirements-tests.txt
+python -m pytest -q lib/flora/tests lib/farm_objects/tests lib/face_patterns/tests lib/plotter_score/tests workbench/tests
+```
+
+Each directory also runs on its own with `python -m unittest discover -s <dir>`. The first render compiles the Numba kernel and takes longer than later runs. Two workbench tests run a real Driftless render and a vpype copy; they need Node 18+ and a `vpype` on `PATH` (or `WORKBENCH_VPYPE`) and skip when either is missing.
+
 ## Existing studies
 
 Keep these environments separate from the book environment:
