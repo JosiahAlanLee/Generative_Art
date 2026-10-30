@@ -44,13 +44,13 @@ def _world(scene, look):
     specs = {
         "overcast": dict(
             top=(.50, .57, .63), horizon=(.68, .72, .72),
-            strength=1.12, haze=.00010),
+            strength=1.18, haze=.00032),
         "low_sun": dict(
             top=(.08, .16, .30), horizon=(.57, .31, .17),
-            strength=.86, haze=.00020),
+            strength=.95, haze=.00030),
         "night": dict(
             top=(.004, .012, .035), horizon=(.075, .13, .22),
-            strength=.28, haze=.00012),
+            strength=.28, haze=.00022),
     }[look]
     bg.inputs["Strength"].default_value = specs["strength"]
     coord = nodes.new("ShaderNodeTexCoord")
@@ -175,7 +175,10 @@ def _camera(scene, look, data, requested):
     cam_data.clip_end = max(1000, (hi - lo).length * 12)
     if "axon" in str(spec.get("name", "")).lower():
         cam_data.type = "ORTHO"
-        cam_data.ortho_scale = max(hi.x - lo.x, hi.y - lo.y, (hi.z - lo.z) * 1.4) * 1.18
+        cam_data.ortho_scale = float(spec.get(
+            "ortho_scale",
+            max(hi.x - lo.x, hi.y - lo.y, (hi.z - lo.z) * 1.55) * 1.18,
+        ))
     else:
         cam_data.type = "PERSP"
         cam_data.dof.use_dof = True
@@ -196,13 +199,13 @@ def _light_rig(scene, look, data):
     if look == "overcast":
         _area(scene, "Overcast key", (lo.x - extent.x * .3, lo.y - extent.y * .4,
                                       hi.z + extent.z * .9),
-              center, 13500, max(extent.x, extent.y) * .18, (.88, .93, 1))
+              center, 18000, max(extent.x, extent.y) * .18, (.88, .93, 1))
         _area(scene, "Overcast bounce", (hi.x * .1, hi.y, hi.z * .2),
-              center, 6200, max(extent.x, extent.y) * .22, (.75, .84, .93))
+              center, 7600, max(extent.x, extent.y) * .22, (.75, .84, .93))
     elif look == "low_sun":
-        _sun(scene, "Low sun", (.72, -.46, -.31), 4.8, (1.0, .53, .24), math.radians(.8))
+        _sun(scene, "Low sun", (.72, -.46, -.31), 5.8, (1.0, .57, .28), math.radians(.8))
         _area(scene, "Cold sky fill", (-extent.x, extent.y * .3, hi.z + extent.z),
-              center, 6200, extent.x * .18, (.42, .58, .78))
+              center, 8200, extent.x * .18, (.42, .58, .78))
     else:
         _sun(scene, "Moon", (-.38, .52, -.76), .80, (.35, .52, 1.0),
              math.radians(.7))
@@ -297,7 +300,7 @@ def configure_scene(scene, data, look, camera, res=(3840, 2160),
     scene.render.pixel_aspect_x = scene.render.pixel_aspect_y = 1
     _engine(scene, samples, preview)
     scene.view_settings.exposure = {
-        "overcast": -.05, "low_sun": .20, "night": .45,
+        "overcast": .05, "low_sun": .35, "night": .55,
     }[look]
     return cam, spec
 

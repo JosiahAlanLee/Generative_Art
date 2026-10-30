@@ -99,6 +99,17 @@ class SchemaTests(unittest.TestCase):
             for key, n in (("blocks", st["blocks"]), ("beams", st["beams"]), ("details", st["details"])):
                 self.assertIsInstance(n, int)
 
+    def test_site_and_camera_hints_are_render_ready(self):
+        for preset in PRESET_NAMES:
+            scene = generate(7, preset, "medium")
+            ground = [b for b in scene["blocks"] if "ground" in b["tags"]]
+            self.assertEqual(len(ground), 1, preset)
+            self.assertAlmostEqual(ground[0]["center"][2] + ground[0]["size"][2] / 2.0, 0.0)
+            hints = {h["name"]: h for h in scene["camera_hints"]}
+            self.assertIn("worm", hints)
+            self.assertIn("axon", hints)
+            self.assertGreater(hints["axon"]["ortho_scale"], 0.0)
+
 
 class SupportTests(unittest.TestCase):
     def test_floating_beam_is_rejected(self):

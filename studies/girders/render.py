@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Caller-side CLI: build and render a girders scene with Blender 5.2."""
+"""Caller-side CLI: generate, build and render a girders scene with Blender 5.2."""
 
 from __future__ import annotations
 
@@ -11,12 +11,23 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
+REPO = ROOT.parents[1]
 DEFAULT_BLENDER = Path.home() / "dev/blender-5.2.3-linux-x64/blender"
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("scene", type=Path)
+    p.add_argument("scene", type=Path, nargs="?",
+                   help="existing girders-scene-1 JSON or JSON.GZ")
+    p.add_argument("--preset",
+                   choices=("dense-core", "bridge-field", "stacked-gantries", "ruin"),
+                   help="generate a scene instead of reading positional SCENE")
+    p.add_argument("--seed", type=int, default=7,
+                   help="generator seed (default: 7)")
+    p.add_argument("--scale", choices=("small", "medium", "large"),
+                   default="medium", help="generator scale (default: medium)")
+    p.add_argument("--validate", action="store_true",
+                   help="validate generated scene before building")
     p.add_argument("--look", choices=("overcast", "low_sun", "night"),
                    default="low_sun")
     p.add_argument("--camera", default="auto",
@@ -31,15 +42,34 @@ def main():
                    default=Path(os.environ.get("BLENDER", DEFAULT_BLENDER)))
     a = p.parse_args()
 
-    if not a.scene.is_file():
-        p.error(f"scene does not exist: {a.scene}")
+    if bool(a.scene) == bool(a.preset):
+        p.error("provide exactly one of SCENE or --preset")
     if not a.blender.is_file():
         p.error(f"Blender executable does not exist: {a.blender}")
     a.out.mkdir(parents=True, exist_ok=True)
+    if a.preset:
+        if str(REPO) not in sys.path:
+            sys.path.insert(0, str(REPO))
+        from lib.girders import generate, save_scene
+
+        data = generate(a.seed, a.preset, a.scale)
+        if a.validate:
+            from lib.girders import validate
+            errors = validate(data)
+            if errors:
+                for error in errors[:20]:
+                    print(f"INVALID: {error}", file=sys.stderr)
+                raise SystemExit(2)
+        scene_path = a.out / "generated-scene.json.gz"
+        save_scene(data, scene_path)
+    else:
+        scene_path = a.scene
+    if not scene_path.is_file():
+        p.error(f"scene does not exist: {scene_path}")
     log_path = a.out / "blender.log"
     command = [
         str(a.blender), "-b", "--python", str(ROOT / "build.py"), "--",
-        "--scene", str(a.scene.resolve()), "--out", str((a.out / "scene.blend").resolve()),
+        "--scene", str(scene_path.resolve()), "--out", str((a.out / "scene.blend").resolve()),
         "--stats-out", str((a.out / "build-stats.json").resolve()),
         "--render-look", a.look, "--camera", str(a.camera),
         "--res", a.res, "--samples", str(a.samples),

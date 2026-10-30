@@ -67,6 +67,8 @@ def _material(name: str):
     bsdf = n.new("ShaderNodeBsdfPrincipled")
     bsdf.location = (390, 0)
     links.new(bsdf.outputs["BSDF"], out.inputs["Surface"])
+    geometry = n.new("ShaderNodeNewGeometry")
+    geometry.location = (-900, 120)
     tex = n.new("ShaderNodeTexNoise")
     tex.location = (-620, 120)
     tex.inputs["Scale"].default_value = 5.0
@@ -78,6 +80,7 @@ def _material(name: str):
     bump.location = (100, -180)
     bump.inputs["Strength"].default_value = .16
     bump.inputs["Distance"].default_value = .018
+    links.new(geometry.outputs["Position"], tex.inputs["Vector"])
     links.new(tex.outputs["Fac"], ramp.inputs["Fac"])
     links.new(tex.outputs["Fac"], bump.inputs["Height"])
     links.new(bump.outputs["Normal"], bsdf.inputs["Normal"])
@@ -86,23 +89,23 @@ def _material(name: str):
     _socket(bsdf, "Metallic").default_value = .0
 
     if name == "concrete":
-        ramp.color_ramp.elements[0].color = (.19, .18, .165, 1)
-        ramp.color_ramp.elements[1].color = (.43, .41, .36, 1)
-        tex.inputs["Scale"].default_value = 7.5
-        bump.inputs["Distance"].default_value = .035
+        ramp.color_ramp.elements[0].color = (.12, .115, .105, 1)
+        ramp.color_ramp.elements[1].color = (.36, .35, .315, 1)
+        tex.inputs["Scale"].default_value = 2.4
+        bump.inputs["Distance"].default_value = .025
         _socket(bsdf, "Roughness").default_value = .86
     elif name == "steel":
-        ramp.color_ramp.elements[0].color = (.055, .065, .070, 1)
-        ramp.color_ramp.elements[1].color = (.19, .21, .22, 1)
-        tex.inputs["Scale"].default_value = 24
+        ramp.color_ramp.elements[0].color = (.035, .048, .055, 1)
+        ramp.color_ramp.elements[1].color = (.16, .19, .21, 1)
+        tex.inputs["Scale"].default_value = 7.5
         _socket(bsdf, "Metallic").default_value = .78
         _socket(bsdf, "Roughness").default_value = .47
         bump.inputs["Strength"].default_value = .11
         bump.inputs["Distance"].default_value = .0035
     elif name == "steel_painted":
-        ramp.color_ramp.elements[0].color = (.055, .085, .085, 1)
-        ramp.color_ramp.elements[1].color = (.20, .27, .27, 1)
-        tex.inputs["Scale"].default_value = 9
+        ramp.color_ramp.elements[0].color = (.045, .075, .073, 1)
+        ramp.color_ramp.elements[1].color = (.17, .235, .225, 1)
+        tex.inputs["Scale"].default_value = 4.5
         _socket(bsdf, "Metallic").default_value = .30
         _socket(bsdf, "Roughness").default_value = .63
         bump.inputs["Strength"].default_value = .094
@@ -110,7 +113,7 @@ def _material(name: str):
     elif name == "rust":
         ramp.color_ramp.elements[0].color = (.065, .025, .013, 1)
         ramp.color_ramp.elements[1].color = (.38, .095, .028, 1)
-        tex.inputs["Scale"].default_value = 4.5
+        tex.inputs["Scale"].default_value = 3.2
         _socket(bsdf, "Metallic").default_value = .08
         _socket(bsdf, "Roughness").default_value = .89
         bump.inputs["Strength"].default_value = .28
@@ -118,7 +121,7 @@ def _material(name: str):
     elif name == "glass":
         ramp.color_ramp.elements[0].color = (.018, .045, .052, 1)
         ramp.color_ramp.elements[1].color = (.10, .20, .22, 1)
-        tex.inputs["Scale"].default_value = 2.5
+        tex.inputs["Scale"].default_value = 1.8
         _socket(bsdf, "Metallic").default_value = .0
         _socket(bsdf, "Roughness").default_value = .13
         _socket(bsdf, "Transmission Weight", "Transmission").default_value = .68
@@ -126,7 +129,7 @@ def _material(name: str):
     elif name == "grating":
         ramp.color_ramp.elements[0].color = (.038, .043, .041, 1)
         ramp.color_ramp.elements[1].color = (.125, .14, .13, 1)
-        tex.inputs["Scale"].default_value = 38
+        tex.inputs["Scale"].default_value = 18
         _socket(bsdf, "Metallic").default_value = .42
         _socket(bsdf, "Roughness").default_value = .72
         bump.inputs["Strength"].default_value = .35
@@ -603,9 +606,13 @@ def build_asset_collections(materials, profiles):
         verts, faces = _prism_mesh(profile, materials["steel"])
         for mat_i, mat_name in enumerate(MATERIAL_NAMES):
             mat = materials.get(mat_name, materials["steel"])
-            _mesh_object(f"p{profile_i:03d} m{mat_i:03d} {name} {mat_name}",
-                         assets["profiles"],
-                         verts, faces, mat)
+            obj = _mesh_object(f"p{profile_i:03d} m{mat_i:03d} {name} {mat_name}",
+                               assets["profiles"], verts, faces, mat)
+            bevel = obj.modifiers.new("Edge highlight", "BEVEL")
+            bevel.width = .002
+            bevel.segments = 1
+            bevel.limit_method = "ANGLE"
+            bevel.angle_limit = math.radians(35)
     cv, cf = _unit_cube()
     for mat_i, mat_name in enumerate(MATERIAL_NAMES):
         _mesh_object(f"b{mat_i:03d} {mat_name}", assets["blocks"], cv, cf,

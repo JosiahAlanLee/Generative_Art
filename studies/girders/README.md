@@ -2,7 +2,8 @@
 
 Native Blender builder, look library and headless renderer for
 `girders-scene-1` scenes. The geometry source is independent of the Python
-generator: this directory imports nothing from `lib/girders/`.
+generator: the Blender builder imports nothing from `lib/girders/`. The
+caller-side renderer can generate a scene directly for convenience.
 
 ## Build and render
 
@@ -14,10 +15,16 @@ $B -b --python studies/girders/build.py -- \
 python studies/girders/render.py /tmp/girders-fixture.json.gz \
   --look low_sun --camera worm --res 3840x2160 --samples 128 \
   --out ~/dev/shared/codex/girders-20261030/worm
+
+python studies/girders/render.py --preset dense-core --seed 7 --scale medium \
+  --validate --look overcast --camera axon --res 3840x2160 --samples 128 \
+  --out ~/dev/shared/codex/girders-20261030/dense-axon --no-exr
 ```
 
 `render.py` is the caller-side CLI. It invokes Blender 5.2, builds the scene,
 saves the `.blend` and writes PNG, EXR, a render log and `provenance.json`.
+It accepts an existing JSON/JSON.GZ scene or `--preset/--seed/--scale`; generated
+input is saved as `generated-scene.json.gz` beside the render.
 Use `--preview` for a 960x540, low-sample proof. `--camera auto` chooses a
 worm's-eye or orthographic camera from the scene bounds.
 
@@ -35,7 +42,8 @@ settings, OptiX denoising, volumetric atmosphere and a mist pass. Camera hints
 are honoured; names containing `axon` use an orthographic camera.
 
 ```sh
-python studies/girders/verify.py --out ~/dev/shared/codex/girders-20261030/verify
+~/miniconda3/envs/hydrapy/bin/python studies/girders/verify.py \
+  --out ~/dev/shared/codex/girders-20261030/verify
 ```
 
 The wrapper generates the fixture, runs native Blender checks and renders one
@@ -52,6 +60,9 @@ performance fixture.
 The instanced profiles are exact solid section approximations, not fabrication
 models. Grating, surface wear and exposure are shader detail. Volumetric haze
 is an art direction control and is not a physical atmospheric simulation.
+
+The canonical scene contract is `lib/girders/SCHEMA.md`; the local `SCHEMA.md`
+is only a pointer so the two implementations cannot drift.
 
 ## Provenance
 

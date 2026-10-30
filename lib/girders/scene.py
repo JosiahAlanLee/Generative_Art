@@ -134,21 +134,54 @@ class SceneBuilder:
         return mn, mx
 
     def camera_hints(self, mn, mx):
-        """A worm's-eye, a 3/4 aerial and a mid-span detail view."""
+        """A worm's-eye, an orthographic axon and a mid-span detail view."""
         center = (np.asarray(mn) + np.asarray(mx)) / 2.0
-        ground = mn[2]
+        extent = np.asarray(mx) - np.asarray(mn)
+        ground = 0.0
+        if self.preset == "bridge-field":
+            worm_location = [
+                float(center[0] + max(55.0, extent[1] * 0.82)),
+                float(center[1]),
+                float(ground + 1.9),
+            ]
+            worm_target = [
+                float(center[0]), float(center[1]), float(mx[2] * 0.48),
+            ]
+            worm_lens = 42
+        else:
+            worm_location = [
+                float(center[0] + 3.0), float(mn[1] - 5.0),
+                float(ground + 1.9),
+            ]
+            worm_target = [
+                float(center[0]), float(center[1]), float(mx[2] * 0.55),
+            ]
+            worm_lens = 26
+        if extent[0] >= extent[1]:
+            axon_location = [
+                float(center[0] - extent[0] * 0.45),
+                float(center[1] - extent[1] * 1.15),
+                float(mx[2] + extent[2] * 0.72),
+            ]
+        else:
+            axon_location = [
+                float(center[0] + extent[0] * 1.15),
+                float(center[1] - extent[1] * 0.45),
+                float(mx[2] + extent[2] * 0.72),
+            ]
         hints = [
             {
                 "name": "worm",
-                "location": [float(center[0] + 6.0), float(mn[1] - 6.0), float(ground + 1.8)],
-                "target": [float(center[0]), float(center[1]), float(mx[2] * 0.55)],
-                "lens_mm": 24,
+                "location": worm_location,
+                "target": worm_target,
+                "lens_mm": worm_lens,
             },
             {
-                "name": "overview",
-                "location": [float(mx[0] * 0.85), float(mx[1] * 0.85), float(mx[2] * 1.5)],
-                "target": [float(center[0]), float(center[1]), float(mx[2] * 0.35)],
-                "lens_mm": 50,
+                "name": "axon",
+                "location": axon_location,
+                "target": [float(center[0]), float(center[1]), float(mx[2] * 0.42)],
+                "lens_mm": 70,
+                "ortho_scale": float(max(extent[0], extent[1], extent[2] * 1.55) * 1.18),
             },
             {
                 "name": "detail",

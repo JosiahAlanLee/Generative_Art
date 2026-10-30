@@ -59,6 +59,19 @@ def generate(seed, preset="dense-core", scale="medium"):
                 "group": g,
             })
 
+    # A finite site apron supplies ground contact, cast shadows and an edge to
+    # the complex. Structural plinths sit exactly on its top at z=0.
+    margin = 18.0
+    min_x = min(t["x"] - t["sx"] / 2.0 for t in towers) - margin
+    max_x = max(t["x"] + t["sx"] / 2.0 for t in towers) + margin
+    min_y = min(t["y"] - t["sy"] / 2.0 for t in towers) - margin
+    max_y = max(t["y"] + t["sy"] / 2.0 for t in towers) + margin
+    sb.add_block(
+        ((min_x + max_x) / 2.0, (min_y + max_y) / 2.0, -0.8),
+        (max_x - min_x, max_y - min_y, 1.6),
+        "concrete", ["site", "ground"], 0,
+    )
+
     for t in towers:
         build_tower(ctx, t)
 
