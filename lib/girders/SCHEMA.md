@@ -63,3 +63,37 @@ The format itself is unchanged.
 - `material` per role: concrete (cores, slabs, plinths, corbels, pedestals), steel (most framing),
   steel_painted (pipes, stairs, cranes, tanks), rust (ruin scenes, fallen spans), glass (facade panels),
   grating (catwalk/stair decks), accent (hooks, lights).
+
+### Generator v2 (0.2.0) conventions
+
+The `fault-spine` and `suspended-delta` presets extend the conventions
+above; the format is unchanged.
+
+- **Groups** (parent 0 unless noted): `block-NN` (inhabited base stacks),
+  `setback-NN-k` (stepped upper stacks), `cantilever-NN` (trussed
+  cantilever decks), `rib-NN` (deep canyon trusses), `canyon-pipe`,
+  `canyon-nets`, `hub-NN` / `hub-tower` / `hub-mast`, `deck-NN` (layered
+  delta tiers), `buttress-NN`, `stays` / `hub-stays` / `cable-nets`.
+  Delta deck ends tie into their frames with `transfer` columns,
+  `raker`s, `strut`s and `knee`s (tagged `deck` + role).
+- **Hierarchy tags**: hand-built v2 beams carry `primary` (columns,
+  spandrels, anchors) or `secondary` (lattice, joists,
+  stringers, webs, ties, pipes, cables).  Beams expanded by
+  `trusses.TrussBridge` keep the shared `truss`/`chord`/`web` tags without
+  a hierarchy tag.  `stats.secondary_frac` reports the share of beams
+  tagged `secondary` (>= 20% by design).
+- **Membership guarantees** (pinned by `tests/test_girders_v2.py`):
+  `stats` carries extra keys — `secondary_beams`, `secondary_frac`,
+  `glass_blocks`, `glass_frac`, `floor_slots`, `floor_kept`,
+  `floor_omission` (optional inhabitable plates omitted; >= 50%),
+  `cantilever_groups`, `setback_groups`, `deep_trusses`,
+  `truss_depth_min`/`max` (8–18 m), `lattice_pitch` (0.6–1.2 m).
+  Secondary lattice uses L70/L90/TUBE90 sections (0.07–0.09 m wide),
+  cables are ROD30, pipes/rails TUBE50 and up, so they read at 4K.
+- Long members are split into <= ~2.4 m segments with shared endpoints
+  (splice joints carry `bolt_plate` / `rivet_row` details); this keeps the
+  validator's member-proximity queries local on 250k+ beam scenes.  Every
+  `rib-NN`/`deck-NN` group's bottom chords sit at the group's deck
+  elevation (never at ground), and the site apron is a tile grid (`site`
+  + `ground` on one tile, `site` + `apron` on the rest) so block-size
+  queries stay local.

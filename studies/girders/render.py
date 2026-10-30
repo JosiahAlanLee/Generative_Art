@@ -20,7 +20,8 @@ def main():
     p.add_argument("scene", type=Path, nargs="?",
                    help="existing girders-scene-1 JSON or JSON.GZ")
     p.add_argument("--preset",
-                   choices=("dense-core", "bridge-field", "stacked-gantries", "ruin"),
+                   choices=("dense-core", "bridge-field", "stacked-gantries", "ruin",
+                            "fault-spine", "suspended-delta"),
                    help="generate a scene instead of reading positional SCENE")
     p.add_argument("--seed", type=int, default=7,
                    help="generator seed (default: 7)")
@@ -28,7 +29,7 @@ def main():
                    default="medium", help="generator scale (default: medium)")
     p.add_argument("--validate", action="store_true",
                    help="validate generated scene before building")
-    p.add_argument("--look", choices=("overcast", "low_sun", "night"),
+    p.add_argument("--look", choices=("overcast", "low_sun", "night", "mineral", "ink"),
                    default="low_sun")
     p.add_argument("--camera", default="auto",
                    help="camera_hints name, index, or auto")

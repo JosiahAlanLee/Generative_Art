@@ -34,6 +34,11 @@ def generate(seed, preset="dense-core", scale="medium"):
     sb = SceneBuilder(seed, preset, params)
     ctx = Ctx(sb, params, rng)
 
+    # ---- v2 megastructures have their own builders (site_v2.py)
+    if params.get("v2"):
+        from .site_v2 import build as build_v2
+        return build_v2(ctx)
+
     # ---- site layout: towers on a jittered grid
     nx, ny = params["grid"]
     sx_sp, sy_sp = params["spacing"]

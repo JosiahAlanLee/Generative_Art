@@ -50,7 +50,7 @@ def main():
     run([a.blender, "-b", "--python", ROOT / "verify_blender.py", "--",
          "--scene", scene, "--out", a.out], log)
     if not a.skip_renders:
-        for look in ("overcast", "low_sun", "night"):
+        for look in ("overcast", "low_sun", "night", "mineral", "ink"):
             run([sys.executable, ROOT / "render.py", scene,
                  "--look", look, "--camera", "worm", "--preview",
                  "--res", "3840x2160", "--samples", "32",
@@ -58,7 +58,7 @@ def main():
     report = json.loads((a.out / "verify.json").read_text())
     report["renders"] = {} if a.skip_renders else {
         look: sorted(str(x) for x in (a.out / look).glob("*.png"))
-        for look in ("overcast", "low_sun", "night")
+        for look in ("overcast", "low_sun", "night", "mineral", "ink")
     }
     (a.out / "verification.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"passed": report["passed"], "renders": report["renders"]}, indent=2))

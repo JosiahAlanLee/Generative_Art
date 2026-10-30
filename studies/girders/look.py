@@ -15,7 +15,7 @@ from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
-LOOKS = ("overcast", "low_sun", "night")
+LOOKS = ("overcast", "low_sun", "night", "mineral", "ink")
 
 
 def _set(node, names, value):
@@ -42,6 +42,10 @@ def _world(scene, look):
     bg = nodes.new("ShaderNodeBackground")
     links.new(bg.outputs["Background"], out.inputs["Surface"])
     specs = {
+        "mineral": dict(top=(.19, .23, .26), horizon=(.60, .64, .65),
+                        strength=.85, haze=.0018),
+        "ink": dict(top=(.82, .81, .77), horizon=(.82, .81, .77),
+                    strength=.8, haze=0),
         "overcast": dict(
             top=(.50, .57, .63), horizon=(.68, .72, .72),
             strength=1.18, haze=.00032),
@@ -141,6 +145,29 @@ def _bounds(data):
 
 def _camera_selection(data, requested):
     hints = list(data.get("camera_hints", []))
+    # Look-development cameras work with any generator without rewriting its data.
+    lo, hi = _bounds(data)
+    center, extent = (lo + hi) * .5, hi - lo
+    preset = data.get("generator", {}).get("params", {}).get("preset")
+    if preset == "fault-spine" and requested in ("worm", "canyon", "auto", None, ""):
+        return {"name": "worm", "location": [lo.x - extent.x * .04, -2.8, 5.8],
+                "target": [center.x + extent.x * .18, 1.2, lo.z + extent.z * .44],
+                "lens_mm": 24}
+    if requested == "section" and preset == "suspended-delta":
+        span = max(extent.x, extent.y)
+        return {"name": "section", "location": [center.x + span * 1.4,
+                center.y - span * .8, lo.z + extent.z * .58],
+                "target": [center.x, center.y, lo.z + extent.z * .43], "lens_mm": 52}
+    if requested == "section":
+        return {"name": "section", "location": [hi.x + extent.x * .48,
+                lo.y - extent.y * .58, lo.z + extent.z * .35],
+                "target": [center.x, center.y, lo.z + extent.z * .48], "lens_mm": 48}
+    if requested == "print-axon":
+        span = max(extent.x, extent.y, extent.z)
+        return {"name": "print-axon", "location": [center.x + span * 1.8,
+                center.y - span * 1.1, center.z + span * 1.5],
+                "target": list(center), "ortho_scale": span * 1.12}
+
     if requested not in (None, "", "auto"):
         for hint in hints:
             if hint.get("name") == str(requested):
@@ -214,11 +241,25 @@ def _camera(scene, look, data, requested):
     return obj, spec
 
 
-def _light_rig(scene, look, data):
+def _light_rig(scene, look, data, camera=None):
     lo, hi = _bounds(data)
     center = (lo + hi) * .5
     extent = hi - lo
-    if look == "overcast":
+    if look == "mineral":
+        fault = data.get("generator", {}).get("params", {}).get("preset") == "fault-spine"
+        direction = ((.8, .15, -.45) if fault and camera in ("worm", "canyon", "auto", None, "")
+                     else (-.6, .45, -.55))
+        _sun(scene, "Pale raking sun", direction, 3.4,
+             (1, .94, .84), math.radians(2.2))
+        _area(scene, "Canyon sky", (lo.x, lo.y, hi.z + extent.z),
+              center, 22000, max(extent.x, extent.y) * .6, (.78, .86, 1))
+        if fault:
+            _area(scene, "Canyon entrance bounce", (lo.x - 15, 0, hi.z * .45),
+                  center, 90000, 30, (.80, .88, 1))
+    elif look == "ink":
+        _sun(scene, "Print key", (.4, .2, -.8), 2.6,
+             (1, 1, 1), math.radians(7))
+    elif look == "overcast":
         _sun(scene, "Break in cloud", (.5, .3, -.7), 1.8, (.82, .9, 1), math.radians(12))
         _area(scene, "Overcast key", (lo.x - extent.x * .3, lo.y - extent.y * .4,
                                       hi.z + extent.z * .9),
@@ -303,15 +344,67 @@ def _engine(scene, samples, preview):
     }.get(scene.get("girders_look", "overcast"), 0)
 
 
+def _art_materials(look):
+    """Two restrained palettes; AO preserves joints without expensive edge geometry."""
+    if look not in ("mineral", "ink"):
+        return
+    ink = look == "ink"
+    palette = {
+        "concrete": (.48, .46, .41) if ink else (.31, .32, .30),
+        "steel": (.035, .038, .038) if ink else (.095, .115, .12),
+        "steel_painted": (.075, .078, .075) if ink else (.18, .22, .22),
+        "rust": (.13, .125, .11) if ink else (.17, .16, .14),
+        "grating": (.08, .085, .08) if ink else (.12, .15, .15),
+        "glass": (.22, .23, .22) if ink else (.16, .20, .21),
+        "accent": (.46, .105, .025),
+    }
+    for name, color in palette.items():
+        mat = bpy.data.materials.get(name)
+        if not mat or not mat.use_nodes:
+            continue
+        mat.diffuse_color = (*color, 1)
+        nodes, links = mat.node_tree.nodes, mat.node_tree.links
+        bsdf = next(n for n in nodes if n.type == "BSDF_PRINCIPLED")
+        # Replace the color chain only; retain physically scaled surface wear.
+        for link in list(bsdf.inputs["Base Color"].links):
+            links.remove(link)
+        ao = nodes.new("ShaderNodeAmbientOcclusion")
+        ao.inputs["Color"].default_value = (*color, 1)
+        ao.inputs["Distance"].default_value = .8 if ink else 1.6
+        ao.samples = 8
+        if not ink:
+            noise = next((n for n in nodes if n.type == "TEX_NOISE"), None)
+            if noise:
+                mineral = nodes.new("ShaderNodeValToRGB")
+                mineral.color_ramp.elements[0].color = tuple(c * .65 for c in color) + (1,)
+                mineral.color_ramp.elements[1].color = tuple(c * 1.25 for c in color) + (1,)
+                links.new(noise.outputs["Fac"], mineral.inputs["Fac"])
+                links.new(mineral.outputs["Color"], ao.inputs["Color"])
+        links.new(ao.outputs["Color"], bsdf.inputs["Base Color"])
+        _set(bsdf, ("Metallic",), 0 if ink else (.45 if "steel" in name else .05))
+        _set(bsdf, ("Roughness",), .85 if ink else .64)
+        _set(bsdf, ("Transmission Weight", "Transmission"), 0)
+        if ink:
+            for link in list(bsdf.inputs["Normal"].links):
+                links.remove(link)
+        if name == "accent":
+            _set(bsdf, ("Emission Color",), (*color, 1))
+            _set(bsdf, ("Emission Strength",), .1 if ink else .8)
+
+
 def configure_scene(scene, data, look, camera, res=(3840, 2160),
                     samples=128, preview=False):
     if look not in LOOKS:
         raise ValueError(f"look must be one of {LOOKS}")
     scene["girders_look"] = look
+    _art_materials(look)
     haze = _world(scene, look)
+    if look == "mineral" and camera == "section":
+        haze *= .38  # longer sight line: keep the near structure legible
+    scene["girders_haze_density"] = haze
     if haze:
         _haze_box(scene, data, haze, look)
-    _light_rig(scene, look, data)
+    _light_rig(scene, look, data, camera)
     lo, hi = _bounds(data)
     bpy.ops.mesh.primitive_plane_add(size=max((hi - lo).length * 80, 10000),
                                     location=((lo.x + hi.x) / 2, (lo.y + hi.y) / 2, lo.z - .03))
@@ -320,7 +413,7 @@ def configure_scene(scene, data, look, camera, res=(3840, 2160),
     ground_mat = bpy.data.materials.new("Girders | ground")
     ground_mat.use_nodes = True
     ground_bsdf = ground_mat.node_tree.nodes.get("Principled BSDF")
-    ground_bsdf.inputs["Base Color"].default_value = (.12, .135, .14, 1)
+    ground_bsdf.inputs["Base Color"].default_value = ((.76, .74, .69, 1) if look == "ink" else (.12, .135, .14, 1))
     ground_bsdf.inputs["Roughness"].default_value = .93
     ground.data.materials.append(ground_mat)
     width, height = res
@@ -335,7 +428,14 @@ def configure_scene(scene, data, look, camera, res=(3840, 2160),
     _engine(scene, samples, preview)
     scene.view_settings.exposure = {
         "overcast": .05, "low_sun": .35, "night": .55,
+        "mineral": .65, "ink": .1,
     }[look]
+    if look == "ink":
+        cam.data.dof.use_dof = False
+        scene.cycles.adaptive_threshold = .008
+        scene.cycles.use_denoising = False
+        scene.view_settings.view_transform = "Standard"
+        scene.view_settings.look = "None"
     return cam, spec
 
 
@@ -445,10 +545,12 @@ def render_scene(scene, data, materials, scene_path, out_dir, look, camera,
         "script_sha256": script_hashes,
         "generator": data.get("generator", {}),
         "look": look,
+        "atmosphere_density": scene.get("girders_haze_density", 0),
         "camera": camera_spec,
         "resolution": [scene.render.resolution_x, scene.render.resolution_y],
         "samples": scene.cycles.samples,
-        "denoiser": scene.cycles.denoiser,
+        "denoiser": scene.cycles.denoiser if scene.cycles.use_denoising else None,
+        "denoising": scene.cycles.use_denoising,
         "preview": bool(preview),
         "build": build_stats,
         "render_seconds": round(elapsed, 3),
