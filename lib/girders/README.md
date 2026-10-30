@@ -42,13 +42,40 @@ with the same flags from inside `lib/` (or with `lib` on `PYTHONPATH`).
 - **ruin** — the dense-core plan decayed: rust, missing secondary members,
   sagged cables, fallen spans and collapsed roof corners; the primary
   structure still stands.
+- **fault-spine** (v2) — an asymmetric industrial canyon: two irregular
+  rows of tall inhabited blocks facing each other, terraced setbacks, huge
+  trussed cantilevers off the rims, deep truss ribs (8–18 m) across the
+  gap at several levels, draped cable nets, and more than half of the
+  floor plates omitted so the secondary lattice reads through.
+- **suspended-delta** (v2) — a horizontal, layered inhabited bridge
+  megastructure: a squat central hub with 3–7 deck tiers radiating like a
+  river delta, each tier a deep-trussed inhabited bridge ending at a
+  sparse irregular buttress, cable stays and nets lacing the tops, large
+  voids between the branches.
 
 ## Scales
 
-`small` (< 2 s, ~1–3k beams), `medium` (~4–11k beams), `large`
-(≈10^5 beams in ~1 s, plus ~1 s to save the gzipped file).  Generation is
-deterministic: the same `(seed, preset, scale)` always yields byte-identical
-files.
+`small` (< 2 s, ~1–11k beams), `medium` (~5–65k beams), `large`
+(≈10^5 beams for the v1 presets, 250k+ for the v2 presets, in 2–4 s, plus
+~1–2 s to save the gzipped file).  Generation is deterministic: the same
+`(seed, preset, scale)` always yields byte-identical files.
+
+Measured for seed 7 (generator 0.2.0 presets):
+
+| preset            | scale  | blocks | beams  | details | secondary | glass | plates omitted |
+|-------------------|--------|-------:|-------:|--------:|----------:|------:|---------------:|
+| fault-spine       | small  |    342 | 10 829 |     301 |       89% |  0.6% |            59% |
+| fault-spine       | medium |  1 565 | 64 544 |   1 796 |       93% |  0.3% |            63% |
+| fault-spine       | large  |  1 898 | 273 916 | 12 779 |       95% |  0.6% |            68% |
+| suspended-delta   | small  |     38 |  7 652 |     540 |       79% |  0.0% |            50% |
+| suspended-delta   | medium |    107 | 46 850 |   3 295 |       86% |  2.8% |            54% |
+| suspended-delta   | large  |    479 | 317 899 | 17 750 |       88% |  2.1% |            63% |
+
+Large fault-spine: 8 cantilever groups + 21 setback groups, 16 deep truss
+ribs at 8.2–17.8 m depth.  Large suspended-delta: 8 cantilever groups, 42
+deep-trussed deck tiers at 9.3–13.0 m depth.  Both keep secondary lattice
+pitch in [0.6, 1.2] m with L70/L90/TUBE90 sections (0.07–0.09 m wide),
+ROD30 cable nets, and TUBE50+ pipes/rails, so the fine members read at 4K.
 
 ## Validation
 
@@ -63,7 +90,9 @@ may cantilever.  See the docstring in `schema.py` for the tolerances.
 
 - `presets.py` — named presets + per-scale parameters
 - `scene.py` — SceneBuilder, 4×4 detail transforms, bounds, camera hints
-- `site.py` — towers, bridges, gantries, catwalks, pipes, stairs, ruins
+- `site.py` — v1 towers, bridges, gantries, catwalks, pipes, stairs, ruins
+- `site_v2.py` — v2 megastructures: inhabited blocks, cantilevers, deep
+  ribs, buttresses, layered decks, cable nets (fault-spine, suspended-delta)
 - `trusses.py` — truss expansion into chords/webs/verticals/laterals
 - `generate.py` — top-level `generate()`, file I/O, CLI
 - `schema.py` — validator
@@ -71,3 +100,5 @@ may cantilever.  See the docstring in `schema.py` for the tolerances.
 - `profiles.py` — cross-section and material libraries
 
 Tests: `python -m pytest lib/girders/tests/` from the repository root.
+The v2 numeric guarantees live in `tests/test_girders_v2.py`; the slow
+large-scene validator there runs with `GIRDERS_SLOW=1`.
