@@ -153,14 +153,20 @@ def _camera_selection(data, requested):
         return {"name": "worm", "location": [lo.x - extent.x * .04, -2.8, 5.8],
                 "target": [center.x + extent.x * .18, 1.2, lo.z + extent.z * .44],
                 "lens_mm": 24}
+    if requested == "section" and preset == "suspended-delta":
+        span = max(extent.x, extent.y)
+        return {"name": "section", "location": [center.x + span * 1.4,
+                center.y - span * .8, lo.z + extent.z * .58],
+                "target": [center.x, center.y, lo.z + extent.z * .43], "lens_mm": 52}
     if requested == "section":
         return {"name": "section", "location": [hi.x + extent.x * .48,
                 lo.y - extent.y * .58, lo.z + extent.z * .35],
                 "target": [center.x, center.y, lo.z + extent.z * .48], "lens_mm": 48}
     if requested == "print-axon":
-        return {"name": "print-axon", "location": [hi.x + extent.x,
-                lo.y - extent.y * 1.7, hi.z + extent.z * .8],
-                "target": list(center), "ortho_scale": max(extent) * 1.12}
+        span = max(extent.x, extent.y, extent.z)
+        return {"name": "print-axon", "location": [center.x + span * 1.8,
+                center.y - span * 1.1, center.z + span * 1.5],
+                "target": list(center), "ortho_scale": span * 1.12}
 
     if requested not in (None, "", "auto"):
         for hint in hints:
@@ -235,13 +241,14 @@ def _camera(scene, look, data, requested):
     return obj, spec
 
 
-def _light_rig(scene, look, data):
+def _light_rig(scene, look, data, camera=None):
     lo, hi = _bounds(data)
     center = (lo + hi) * .5
     extent = hi - lo
     if look == "mineral":
         fault = data.get("generator", {}).get("params", {}).get("preset") == "fault-spine"
-        direction = (.8, .15, -.45) if fault else (-.6, .45, -.55)
+        direction = ((.8, .15, -.45) if fault and camera in ("worm", "canyon", "auto", None, "")
+                     else (-.6, .45, -.55))
         _sun(scene, "Pale raking sun", direction, 3.4,
              (1, .94, .84), math.radians(2.2))
         _area(scene, "Canyon sky", (lo.x, lo.y, hi.z + extent.z),
@@ -355,6 +362,7 @@ def _art_materials(look):
         mat = bpy.data.materials.get(name)
         if not mat or not mat.use_nodes:
             continue
+        mat.diffuse_color = (*color, 1)
         nodes, links = mat.node_tree.nodes, mat.node_tree.links
         bsdf = next(n for n in nodes if n.type == "BSDF_PRINCIPLED")
         # Replace the color chain only; retain physically scaled surface wear.
@@ -391,9 +399,12 @@ def configure_scene(scene, data, look, camera, res=(3840, 2160),
     scene["girders_look"] = look
     _art_materials(look)
     haze = _world(scene, look)
+    if look == "mineral" and camera == "section":
+        haze *= .38  # longer sight line: keep the near structure legible
+    scene["girders_haze_density"] = haze
     if haze:
         _haze_box(scene, data, haze, look)
-    _light_rig(scene, look, data)
+    _light_rig(scene, look, data, camera)
     lo, hi = _bounds(data)
     bpy.ops.mesh.primitive_plane_add(size=max((hi - lo).length * 80, 10000),
                                     location=((lo.x + hi.x) / 2, (lo.y + hi.y) / 2, lo.z - .03))
@@ -534,6 +545,7 @@ def render_scene(scene, data, materials, scene_path, out_dir, look, camera,
         "script_sha256": script_hashes,
         "generator": data.get("generator", {}),
         "look": look,
+        "atmosphere_density": scene.get("girders_haze_density", 0),
         "camera": camera_spec,
         "resolution": [scene.render.resolution_x, scene.render.resolution_y],
         "samples": scene.cycles.samples,
