@@ -220,9 +220,9 @@ def bridge(s: Scene, x0: float, x1: float, y: float, z: float, group: int,
     # Hanger cables are separate small members, useful to the scale test.
     for i in range(1, 12, 2):
         x = xs[i]
-        s.detail("cable", (x, y0, top + 1.9), (.035, .035, 3.5),
+        s.detail("cable", (x, y0, (z + top) * .5), (.035, .035, depth),
                  material="steel", group=group)
-        s.detail("cable", (x, y1, top + 1.9), (.035, .035, 3.5),
+        s.detail("cable", (x, y1, (z + top) * .5), (.035, .035, depth),
                  material="steel", group=group)
 
 
@@ -318,16 +318,22 @@ def fixture() -> dict:
                      rotation=(0, math.pi / 2, 0),
                      material="steel", group=7)
             prev = p
-    # Small repeated modules make 4K crops legible.
+    # Small repeated modules make 4K crops legible while remaining attached to
+    # tower facades; floating equipment would read as an authoring error.
     for i in range(48):
-        x = s.rng.uniform(-48, 52)
-        y = s.rng.uniform(-32, 35)
-        z = s.rng.uniform(.2, 8)
-        s.detail("vent", (x, y, z), (s.rng.uniform(.7, 2.4), .15,
-                                    s.rng.uniform(.35, 1.3)),
+        tower_x, tower_y, tower_depth, height = (
+            (-13, 0, 15, 43) if i % 2 else (21, 6, 12, 56)
+        )
+        bay = i % 8
+        level = i // 8
+        x = tower_x - 3.5 + bay * 1.18
+        z = 2.1 + level * height / 9
+        s.detail("vent", (x, tower_y - tower_depth * .5 - .09, z),
+                 (s.rng.uniform(.55, .82), .15, s.rng.uniform(.35, .7)),
                  material="grating", group=8)
         if i % 2:
-            s.detail("bolt_plate", (x + .5, y, z + .8), (.28, .28, .06),
+            s.detail("bolt_plate", (x + .55, tower_y - tower_depth * .5 - .08, z),
+                     (.24, .24, .06), rotation=(math.pi / 2, 0, 0),
                      material="rust", group=8)
     return s.record(((-70, -50, -3), (75, 47, 62)))
 
