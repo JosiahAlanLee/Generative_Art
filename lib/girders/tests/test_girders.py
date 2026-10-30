@@ -99,6 +99,23 @@ class SchemaTests(unittest.TestCase):
             for key, n in (("blocks", st["blocks"]), ("beams", st["beams"]), ("details", st["details"])):
                 self.assertIsInstance(n, int)
 
+    def test_catwalk_decks_align_with_members_and_ladders_stand_up(self):
+        for preset in PRESET_NAMES:
+            scene = generate(7, preset, "medium")
+            for block in scene["blocks"]:
+                if "catwalk" not in block["tags"] or "bracket" in block["tags"]:
+                    continue
+                members = [b for b in scene["beams"] if b["group"] == block["group"]
+                           and "catwalk" in b["tags"]]
+                member = max(members, key=lambda b: np.linalg.norm(np.subtract(b["b"], b["a"])))
+                direction = np.subtract(member["b"], member["a"])
+                direction = direction / np.linalg.norm(direction)
+                axis = np.array([np.cos(block["yaw"]), np.sin(block["yaw"]), 0])
+                self.assertGreater(abs(np.dot(axis, direction)), .999, (preset, block["id"]))
+            for detail in scene["details"]:
+                if detail["kind"] == "ladder":
+                    self.assertTrue(np.allclose(detail["transform"][8:11], [0, 0, 1]))
+
     def test_site_and_camera_hints_are_render_ready(self):
         for preset in PRESET_NAMES:
             scene = generate(7, preset, "medium")

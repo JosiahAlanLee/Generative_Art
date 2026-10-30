@@ -391,7 +391,7 @@ def _ladders(ctx, t, g):
             continue
         lx = x + rng.uniform(-sx / 3.0, sx / 3.0)
         ly = y + sy / 2.0 + 0.35
-        sb.add_detail_at("ladder", (lx, ly, 2.0), (0, 0, 1), (0, 1, 0),
+        sb.add_detail_at("ladder", (lx, ly, 2.0), (1, 0, 0), (0, 0, 1),
                          [0.6, 0.6, 5.0], ctx.steel(), g)
 
 
@@ -514,12 +514,12 @@ def bridge_between(ctx, ta, tb, level_frac=None):
             sb.add_beam(bw.W(0.0, yoff, zc), bw.W(span, yoff, zc), "C160",
                         ctx.steel(), ["bridge", "catwalk"], g)
         sb.add_block(bw.W(span / 2.0, 0.0, zc + 0.05), (span, width + 1.6, 0.08), "grating",
-                     ["bridge", "catwalk"], g)
+                     ["bridge", "catwalk"], g, yaw=math.atan2(bw.sa, bw.ca))
         for k in range(max(1, int(span / 2.6))):
             lx = 2.6 * k + 1.3
             for sgn in (-1.0, 1.0):
                 sb.add_detail_at("railing", bw.W(lx, sgn * (width / 2.0 + 0.85), zc + 0.95),
-                                 (1, 0, 0), (0, 0, 1), [0.06, 0.06, 0.9], ctx.steel(), g)
+                                 bw._dir((1, 0, 0)), (0, 0, 1), [2.6, 0.06, 0.9], ctx.steel(), g)
     return g
 
 
@@ -681,13 +681,13 @@ def catwalk_between(ctx, ta, tb, level_frac=0.5):
                     ["catwalk", "cross"], g)
     # deck, railings
     sb.add_block(W(span / 2.0, 0.0, z + 0.05), (span, w, 0.08), "grating",
-                 ["catwalk", "deck"], g)
+                 ["catwalk", "deck"], g, yaw=ang)
     for q in range(max(1, int(span / 2.6))):
         lx = 2.6 * q + 1.3
-        sb.add_detail_at("railing", W(lx, w / 2.0 + 0.05, z + 1.1), (1, 0, 0), (0, 0, 1),
-                         [0.06, 0.06, 1.0], ctx.steel(), g)
-        sb.add_detail_at("railing", W(lx, -w / 2.0 - 0.05, z + 1.1), (1, 0, 0), (0, 0, 1),
-                         [0.06, 0.06, 1.0], ctx.steel(), g)
+        sb.add_detail_at("railing", W(lx, w / 2.0 + 0.05, z + 1.1), (ca, sa, 0), (0, 0, 1),
+                         [2.6, 0.06, 1.0], ctx.steel(), g)
+        sb.add_detail_at("railing", W(lx, -w / 2.0 - 0.05, z + 1.1), (ca, sa, 0), (0, 0, 1),
+                         [2.6, 0.06, 1.0], ctx.steel(), g)
     # knee braces and bearing brackets at both ends (anchor into the towers)
     for (cx, cy) in (fa, fb):
         slab_z = ta["floors"][klvl] if (cx, cy) == fa else tb["floors"][klvl]

@@ -82,7 +82,9 @@ vertical members. Source group IDs are retained in each point cloud's
 Axon cameras fit the projected bounds at the requested image aspect ratio;
 explicit larger `ortho_scale` hints remain valid. The bridge-field generator's
 worm camera is offset along the field so the first tower does not hide its
-spans. This is the only new generator change in the second integration review.
+spans. Generator catwalk decks and railings also follow their span yaw; ladders use
+local Z for height, matching the renderer. These are minimal orientation and
+size corrections in `lib/girders/site.py`, with a numeric regression test.
 The inherited site apron and camera hints are retained. Looks add surrounding
 ground, cloud-break illumination and metre-scale gravity-aligned material
 runoff. The low sun illuminates the front of the structure to reveal its webs.
