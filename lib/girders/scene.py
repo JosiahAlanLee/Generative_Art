@@ -141,7 +141,7 @@ class SceneBuilder:
         if self.preset == "bridge-field":
             worm_location = [
                 float(center[0] + max(55.0, extent[1] * 0.82)),
-                float(center[1]),
+                float(mn[1] + extent[1] * .20),
                 float(ground + 1.9),
             ]
             worm_target = [

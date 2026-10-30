@@ -70,3 +70,33 @@ Original procedural work for Josiah Alan-Lee, October 2026. No downloaded
 models, textures or reference imagery are used. Mood references were treated
 as direction only; this is not derived from a specific Landlinesart or Ge1doot
 composition.
+
+## Integrated generator review (2026-10-30)
+
+The builder reads all generator profiles and all eight detail kinds, including
+column-major detail transforms. Beam roll follows the schema even for downward
+vertical members. Source group IDs are retained in each point cloud's
+`source_group` attribute and the group hierarchy in scene property
+`girders_groups`. The canonical spec remains `lib/girders/SCHEMA.md`.
+
+Axon cameras fit the projected bounds at the requested image aspect ratio;
+explicit larger `ortho_scale` hints remain valid. The bridge-field generator's
+worm camera is offset along the field so the first tower does not hide its
+spans. This is the only new generator change in the second integration review.
+The inherited site apron and camera hints are retained. Looks add surrounding
+ground, cloud-break illumination and metre-scale gravity-aligned material
+runoff. The low sun illuminates the front of the structure to reveal its webs.
+
+Immediately before every Cycles render, the renderer checks `/proc` for Rack,
+`python -m gorgon.capture`, and the workstation's `capture_existing_jack.py`;
+it waits in ten-second intervals while any is running. This also applies to
+direct `build.py` renders and verification proofs.
+
+Outward winding is corrected for the atmosphere box, block cubes and I-beam
+profiles. The inward atmosphere previously suppressed direct sunlight, making
+even lit scenes look flat. Surrounding ground uses a smooth material to avoid
+distant procedural texture aliasing.
+
+Verification now checks mesh winding and beam frames for horizontal, upward, downward and near
+vertical members; source groups; and complete 16:9 axon framing. Run the commands
+above with a generated scene as well as the fixture (`verify.py --scene FILE`).

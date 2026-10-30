@@ -83,7 +83,9 @@ def _haze_box(scene, data, density, look):
         (1, 3, 7, 5), (3, 2, 6, 7), (2, 0, 4, 6),
     ]
     mesh = bpy.data.meshes.new("Girders atmosphere")
-    mesh.from_pydata(verts, [], faces)
+    # Outward winding is essential: inward volume normals extinguish sunlight
+    # outside the box rather than containing the atmosphere inside it.
+    mesh.from_pydata(verts, [], [tuple(reversed(face)) for face in faces])
     mesh.update()
     obj = bpy.data.objects.new("Girders atmosphere", mesh)
     scene.collection.objects.link(obj)
@@ -189,6 +191,26 @@ def _camera(scene, look, data, requested):
     obj.location = location
     obj.rotation_euler = (target - obj.location).to_track_quat("-Z", "Y").to_euler()
     scene.camera = obj
+    if cam_data.type == "ORTHO":
+        # Fit all eight bounds corners in camera space, including aspect ratio.
+        # A world-axis maximum clips tall/diagonal structures in a wide image.
+        inverse = obj.rotation_euler.to_matrix().transposed()
+        corners = [inverse @ Vector((x, y, z))
+                   for x in (lo.x, hi.x) for y in (lo.y, hi.y)
+                   for z in (lo.z, hi.z)]
+        left, right = min(v.x for v in corners), max(v.x for v in corners)
+        bottom, top = min(v.y for v in corners), max(v.y for v in corners)
+        aspect = scene.render.resolution_x / scene.render.resolution_y
+        cam_data.ortho_scale = max(cam_data.ortho_scale,
+                                   max(right - left, (top - bottom) * aspect) * 1.06)
+        frame_center = obj.rotation_euler.to_matrix() @ Vector(
+            ((left + right) / 2, (bottom + top) / 2, 0))
+        projected_location = inverse @ obj.location
+        obj.location += frame_center - obj.rotation_euler.to_matrix() @ Vector(
+            (projected_location.x, projected_location.y, 0))
+        spec["ortho_scale"] = cam_data.ortho_scale
+        spec["location"] = list(obj.location)
+        spec["target"] = list(obj.location + (target - location))
     return obj, spec
 
 
@@ -197,13 +219,14 @@ def _light_rig(scene, look, data):
     center = (lo + hi) * .5
     extent = hi - lo
     if look == "overcast":
+        _sun(scene, "Break in cloud", (.5, .3, -.7), 1.8, (.82, .9, 1), math.radians(12))
         _area(scene, "Overcast key", (lo.x - extent.x * .3, lo.y - extent.y * .4,
                                       hi.z + extent.z * .9),
               center, 18000, max(extent.x, extent.y) * .18, (.88, .93, 1))
         _area(scene, "Overcast bounce", (hi.x * .1, hi.y, hi.z * .2),
               center, 7600, max(extent.x, extent.y) * .22, (.75, .84, .93))
     elif look == "low_sun":
-        _sun(scene, "Low sun", (.72, -.46, -.31), 5.8, (1.0, .57, .28), math.radians(.8))
+        _sun(scene, "Low sun", (-.55, .65, -.35), 5.8, (1.0, .72, .48), math.radians(.8))
         _area(scene, "Cold sky fill", (-extent.x, extent.y * .3, hi.z + extent.z),
               center, 8200, extent.x * .18, (.42, .58, .78))
     else:
@@ -289,7 +312,17 @@ def configure_scene(scene, data, look, camera, res=(3840, 2160),
     if haze:
         _haze_box(scene, data, haze, look)
     _light_rig(scene, look, data)
-    cam, spec = _camera(scene, look, data, camera)
+    lo, hi = _bounds(data)
+    bpy.ops.mesh.primitive_plane_add(size=max((hi - lo).length * 80, 10000),
+                                    location=((lo.x + hi.x) / 2, (lo.y + hi.y) / 2, lo.z - .03))
+    ground = bpy.context.object
+    ground.name = "Girders | surrounding ground"
+    ground_mat = bpy.data.materials.new("Girders | ground")
+    ground_mat.use_nodes = True
+    ground_bsdf = ground_mat.node_tree.nodes.get("Principled BSDF")
+    ground_bsdf.inputs["Base Color"].default_value = (.12, .135, .14, 1)
+    ground_bsdf.inputs["Roughness"].default_value = .93
+    ground.data.materials.append(ground_mat)
     width, height = res
     if preview:
         width, height = max(1, width // 4), max(1, height // 4)
@@ -298,6 +331,7 @@ def configure_scene(scene, data, look, camera, res=(3840, 2160),
     scene.render.resolution_y = int(height)
     scene.render.resolution_percentage = 100
     scene.render.pixel_aspect_x = scene.render.pixel_aspect_y = 1
+    cam, spec = _camera(scene, look, data, camera)
     _engine(scene, samples, preview)
     scene.view_settings.exposure = {
         "overcast": .05, "low_sun": .35, "night": .55,
@@ -322,6 +356,31 @@ def _gpu_info():
         ], text=True, timeout=5).strip()
     except Exception:
         return "unavailable"
+
+
+def _wait_for_capture():
+    """Respect the shared GPU even when build.py is invoked directly."""
+    while True:
+        busy = []
+        for proc in Path("/proc").iterdir():
+            if not proc.name.isdigit():
+                continue
+            try:
+                args = (proc / "cmdline").read_bytes().decode().split("\0")
+            except (OSError, UnicodeError):
+                continue
+            if not args:
+                continue
+            executable = Path(args[0]).name
+            if (executable == "Rack" or
+                    (executable.startswith("python") and
+                     ("gorgon.capture" in args or
+                      any(Path(arg).name == "capture_existing_jack.py" for arg in args)))):
+                busy.append(proc.name)
+        if not busy:
+            return
+        print("GIRDERS_GPU_WAIT capture/Rack PIDs=" + ",".join(busy), flush=True)
+        time.sleep(10)
 
 
 def render_scene(scene, data, materials, scene_path, out_dir, look, camera,
@@ -358,6 +417,7 @@ def render_scene(scene, data, materials, scene_path, out_dir, look, camera,
     bpy.ops.wm.save_as_mainfile(filepath=str(blend.resolve()))
     print(f"GIRDERS_RENDERING {first_output} {scene.render.resolution_x}x{scene.render.resolution_y} "
           f"samples={scene.cycles.samples}", flush=True)
+    _wait_for_capture()
     bpy.ops.render.render(write_still=True)
     elapsed = time.perf_counter() - start
     if want_exr:

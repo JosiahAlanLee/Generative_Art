@@ -19,6 +19,9 @@ import bpy
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 import build
+import look
+import numpy as np
+from mathutils import Vector
 
 
 def args():
@@ -97,6 +100,52 @@ def main():
         "all_profile_assets_built": len(built_profile_indices) == len(data["profiles"]),
         "multiple_detail_kinds_selected": len(used_detail_kinds) >= 5,
     }
+    # Check the schema frame for horizontal, upward/downward and nearly
+    # vertical members. These directions exposed an incorrect downward web.
+    frame_ok = True
+    for direction in ((1, 0, 0), (0, 0, 1), (0, 0, -1), (.001, 0, -1)):
+        x = Vector(direction).normalized()
+        zero = build._beam_rotation(np.array(x), 0).to_matrix()
+        quarter = build._beam_rotation(np.array(x), np.pi / 2).to_matrix()
+        frame_ok &= (zero @ Vector((1, 0, 0)) - x).length < 1e-5
+        expected_web = ((Vector((1, 0, 0)) - x * x.x).normalized()
+                        if abs(x.z) > .9999 else
+                        (Vector((0, 0, 1)) - x * x.z).normalized())
+        frame_ok &= (zero @ Vector((0, 0, 1)) - expected_web).length < 1e-5
+        frame_ok &= (quarter @ Vector((0, 0, 1)) - x.cross(expected_web)).length < 1e-5
+    checks["beam_frame_matches_schema"] = bool(frame_ok)
+    def signed_volume(mesh):
+        mesh.calc_loop_triangles()
+        return sum(mesh.vertices[t.vertices[0]].co.dot(
+            mesh.vertices[t.vertices[1]].co.cross(mesh.vertices[t.vertices[2]].co))
+            for t in mesh.loop_triangles) / 6
+    checks["profile_and_block_normals_outward"] = all(
+        signed_volume(obj.data) > 0
+        for name in ("profiles", "blocks")
+        for obj in bpy.data.collections["Girders assets | " + name].objects)
+    haze = look._haze_box(scene, data, .0003, "overcast")
+    checks["atmosphere_normals_outward"] = signed_volume(haze.data) > 0
+    bpy.data.objects.remove(haze, do_unlink=True)
+    checks["groups_preserved"] = json.loads(scene["girders_groups"]) == data.get("groups", [])
+    for obj, rows in ((next(o for o in instancer_objects if o.name.startswith("BEAMS")), data["beams"]),
+                      (next(o for o in instancer_objects if o.name.startswith("BLOCKS")), data["blocks"])):
+        checks[obj.name.split(" |")[0].lower() + "_group_ids_preserved"] = [
+            a.value for a in obj.data.attributes["source_group"].data
+        ] == [row.get("group", -1) for row in rows]
+    for hint in data.get("camera_hints", []):
+        if "axon" not in hint.get("name", ""):
+            continue
+        scene.render.resolution_x, scene.render.resolution_y = 3840, 2160
+        cam, _ = look._camera(scene, "overcast", data, hint["name"])
+        # Update matrix_world before projecting to the camera frame.
+        bpy.context.view_layer.update()
+        inverse = cam.matrix_world.inverted()
+        lo, hi = look._bounds(data)
+        projected = [inverse @ Vector((x, y, z))
+                     for x in (lo.x, hi.x) for y in (lo.y, hi.y) for z in (lo.z, hi.z)]
+        checks["axon_fits_bounds_at_16_9"] = all(
+            abs(v.x) <= cam.data.ortho_scale / 2 and
+            abs(v.y) <= cam.data.ortho_scale / 2 * 2160 / 3840 for v in projected)
     bpy.ops.wm.save_as_mainfile(filepath=str((a.out / "verified.blend").resolve()))
     report = {
         "passed": all(checks.values()),

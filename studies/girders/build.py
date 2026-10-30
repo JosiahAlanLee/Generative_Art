@@ -144,6 +144,29 @@ def _material(name: str):
         _socket(bsdf, "Emission Strength").default_value = .16
     else:
         raise ValueError(f"unknown material {name!r}")
+    if name in ("concrete", "rust"):
+        # Metre-scale runoff follows gravity across all instances, independent
+        # of their aspect ratios; fine grain above supplies the surface tooth.
+        stretch = n.new("ShaderNodeVectorMath")
+        stretch.operation = "MULTIPLY"
+        stretch.inputs[1].default_value = (.65, .65, .035)
+        links.new(geometry.outputs["Position"], stretch.inputs[0])
+        runoff = n.new("ShaderNodeTexNoise")
+        runoff.inputs["Scale"].default_value = 2.0
+        runoff.inputs["Detail"].default_value = 3.0
+        links.new(stretch.outputs["Vector"], runoff.inputs["Vector"])
+        stain = n.new("ShaderNodeValToRGB")
+        stain.color_ramp.elements[0].color = (.25, .23, .20, 1)
+        stain.color_ramp.elements[0].position = .27
+        stain.color_ramp.elements[1].color = (1, 1, 1, 1)
+        stain.color_ramp.elements[1].position = .68
+        links.new(runoff.outputs["Fac"], stain.inputs["Fac"])
+        multiply = n.new("ShaderNodeMixRGB")
+        multiply.blend_type = "MULTIPLY"
+        multiply.inputs[0].default_value = .7
+        links.new(ramp.outputs["Color"], multiply.inputs[1])
+        links.new(stain.outputs["Color"], multiply.inputs[2])
+        links.new(multiply.outputs["Color"], bsdf.inputs["Base Color"])
     m.diffuse_color = tuple(ramp.color_ramp.elements[1].color)
     return m
 
@@ -222,6 +245,11 @@ def _prism_mesh(profile: dict, material):
     else:
         raise ValueError(f"unknown profile kind {kind!r}")
 
+    # Cross-sections must wind counterclockwise in YZ for outward normals.
+    area = sum(a[0] * b[1] - b[0] * a[1]
+               for a, b in zip(section, section[1:] + section[:1]))
+    if area < 0:
+        section.reverse()
     n = len(section)
     verts = [(-.5, y, z) for y, z in section] + [(.5, y, z) for y, z in section]
     faces = [tuple(reversed(range(n))), tuple(range(n, 2 * n))]
@@ -324,7 +352,7 @@ def _unit_cube():
         (0, 2, 3, 1), (4, 5, 7, 6), (0, 1, 5, 4),
         (1, 3, 7, 5), (3, 2, 6, 7), (2, 0, 4, 6),
     ]
-    return verts, faces
+    return verts, [tuple(reversed(face)) for face in faces]
 
 
 def _set_point_vector(mesh, name, values):
@@ -445,8 +473,8 @@ def _beam_rotation(direction: np.ndarray, roll: float):
     x = Vector((float(direction[0]), float(direction[1]), float(direction[2])))
     x.normalize()
     if abs(x.z) > .9999:
-        y = Vector((0, -1, 0))
-        z = x.cross(y).normalized()
+        z = (Vector((1, 0, 0)) - x * x.x).normalized()
+        y = z.cross(x).normalized()
     else:
         y = Vector((0, 0, 1)).cross(x).normalized()
         z = x.cross(y).normalized()
@@ -488,6 +516,7 @@ def _build_beams(data, collection, materials, profile_order, profile_collection)
     rng = np.random.default_rng(int(data.get("seed", 0)) & 0xffffffff)
     variation = rng.random(n).astype(np.float32)
     points = _points_object("BEAMS | instanced members", collection, midpoint, {
+        "source_group": ("int", [b.get("group", -1) for b in beams]),
         "profile_index": ("int", profile_index),
         "source_material_index": ("int", material_index),
         "beam_length": ("float", lengths),
@@ -519,6 +548,7 @@ def _build_blocks(data, collection, materials, block_collection):
         "source_material_index": ("int", material_index),
         "instance_rotation": ("vector", rotations),
         "block_size": ("vector", scales),
+        "source_group": ("int", [b.get("group", -1) for b in blocks]),
     })
     # Blocks reuse the same graph and use block_size as XYZ instance scale.
     _instancer("Blocks", points, block_collection,
@@ -573,6 +603,7 @@ def _build_details(data, collection, materials, detail_collection):
         material_index[i] = material_lookup[detail["material"]]
         kind_index[i] = kind_lookup[detail["kind"]]
     points = _points_object("DETAILS | instanced parts", collection, positions, {
+        "source_group": ("int", [d.get("group", -1) for d in rows]),
         "profile_index": ("int", kind_index),
         "source_material_index": ("int", material_index),
         "instance_rotation": ("vector", rotations),
@@ -651,6 +682,7 @@ def build_scene(data: dict, fresh=True) -> tuple:
     scene["girders_format"] = FORMAT
     scene["girders_seed"] = int(data.get("seed", 0))
     scene["girders_generator"] = json.dumps(data.get("generator", {}))
+    scene["girders_groups"] = json.dumps(data.get("groups", []))
     assets, profile_order = build_asset_collections(materials, data["profiles"])
     instancers = bpy.data.collections.new("GIRDERS | instancers")
     scene.collection.children.link(instancers)
