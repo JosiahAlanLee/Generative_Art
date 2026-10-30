@@ -64,18 +64,24 @@ Measured for seed 7 (generator 0.2.0 presets):
 
 | preset            | scale  | blocks | beams  | details | secondary | glass | plates omitted |
 |-------------------|--------|-------:|-------:|--------:|----------:|------:|---------------:|
-| fault-spine       | small  |    342 | 10 829 |     301 |       89% |  0.6% |            59% |
-| fault-spine       | medium |  1 565 | 64 544 |   1 796 |       93% |  0.3% |            63% |
-| fault-spine       | large  |  1 898 | 273 916 | 12 779 |       95% |  0.6% |            68% |
-| suspended-delta   | small  |     38 |  7 652 |     540 |       79% |  0.0% |            50% |
-| suspended-delta   | medium |    107 | 46 850 |   3 295 |       86% |  2.8% |            54% |
-| suspended-delta   | large  |    479 | 317 899 | 17 750 |       88% |  2.1% |            63% |
+| fault-spine       | small  |     90 | 11 624 |     325 |       86% |  0.0% |            71% |
+| fault-spine       | medium |  1 246 | 63 066 |   1 618 |       90% |  0.4% |            74% |
+| fault-spine       | large  |  2 509 | 268 493 | 12 400 |       93% |  0.5% |            64% |
+| suspended-delta   | small  |     86 | 13 201 |     758 |       72% |  0.0% |            75% |
+| suspended-delta   | medium |    204 | 49 755 |   2 667 |       67% |  1.0% |            79% |
+| suspended-delta   | large  |    536 | 329 853 | 16 198 |       71% |  1.7% |            73% |
 
-Large fault-spine: 8 cantilever groups + 21 setback groups, 16 deep truss
-ribs at 8.2–17.8 m depth.  Large suspended-delta: 8 cantilever groups, 42
-deep-trussed deck tiers at 9.3–13.0 m depth.  Both keep secondary lattice
-pitch in [0.6, 1.2] m with L70/L90/TUBE90 sections (0.07–0.09 m wide),
-ROD30 cable nets, and TUBE50+ pipes/rails, so the fine members read at 4K.
+Large fault-spine: 8 cantilever + 26 setback groups, 22 deep truss ribs at
+9.4–17.3 m depth.  Large suspended-delta: a hub tower and 7 radiating
+branches of 5 tier decks each (one tier intentionally missing per branch),
+8 cantilever groups, 35 deep-trussed tiers at 9.0–13.0 m depth, buttress
+frames and hub tower rising past the top tier with transfer columns,
+struts, knees and rakers tying every deck end in.  Both keep secondary
+lattice pitch in [0.6, 1.2] m with L70/L90/TUBE90 sections (0.07–0.09 m
+wide), ROD30 cable nets, and TUBE50+ pipes/rails, so the fine members read
+at 4K.  Every rib/deck truss sits at its deck elevation (regression-tested
+against ground-level trusses), and long members are split into <= ~2.4 m
+segments so the validator stays fast on 250k+ beam scenes.
 
 ## Validation
 

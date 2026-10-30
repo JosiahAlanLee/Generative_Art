@@ -122,7 +122,7 @@ def _lattice_face_mapped(sb, ctx, group, P, z0, width, height, pitch, split,
                     px, py = P(width * i / nv)
                     z = z0 + height * j / nh
                     sb.add_detail_at("bolt_plate", (px, py, z), (1.0, 0.0, 0.0),
-                                     (0.0, 0.0, 1.0), [0.26, 0.26, 0.02],
+                                     (0.0, 0.0, 1.0), [0.55, 0.40, 0.02],
                                      mat, group)
     return added
 
@@ -276,11 +276,11 @@ def build_block(ctx, bx, by, w, d, storeys, floor_h, idx, stats, canyon_side=-1,
                     for lx in np.arange(xs[0] + 1.3, xs[-1] - 0.5, 2.6):
                         if rng.random() < 0.8:
                             sb.add_detail_at("railing", (lx, face_y0 + 0.45, z + 0.5),
-                                             (1, 0, 0), (0, 0, 1), [2.6, 0.06, 1.0],
+                                             (1, 0, 0), (0, 0, 1), [2.6, 0.08, 1.1],
                                              ctx.steel(), stk_gid)
                         if rng.random() < 0.8:
                             sb.add_detail_at("railing", (lx, face_y1 - 0.45, z + 0.5),
-                                             (1, 0, 0), (0, 0, 1), [2.6, 0.06, 1.0],
+                                             (1, 0, 0), (0, 0, 1), [2.6, 0.08, 1.1],
                                              ctx.steel(), stk_gid)
             # secondary floor lattice, kept or not (omitted plates expose it)
             if ctx.roll("secondary"):
@@ -358,6 +358,13 @@ def build_block(ctx, bx, by, w, d, storeys, floor_h, idx, stats, canyon_side=-1,
                         ctx.steel(), ["secondary", "block", "vent"], gid)
             sb.add_detail_at("vent", (vx, vy, roof + vh), (1, 0, 0), (0, 0, 1),
                              [0.7, 0.7, 0.5], ctx.steel(), gid)
+    # occasional orange light cluster on the roof
+    if ctx.roll("detail") and rng.random() < 0.7:
+        for _ in range(rng.integers(2, 4)):
+            lx = bxr - wr / 2.0 + wr * int(rng.integers(rw + 1)) / rw
+            ly = byr - dr / 2.0 + dr * int(rng.integers(rd + 1)) / rd
+            sb.add_detail_at("light", (lx, ly, roof + 0.9), (1, 0, 0), (0, 0, 1),
+                             [0.35, 0.35, 0.35], "accent", gid)
 
     # ---- exterior stair on the outer face, pipes, ladders
     _block_stair(ctx, bx, by, w, d, floors, gid, canyon_side)
@@ -509,11 +516,14 @@ def build_cantilever(ctx, stats, anchor, idx):
         for side in (-w / 2.0, w / 2.0):
             if rng.random() < 0.85:
                 sb.add_detail_at("railing", W(lx, side + 0.05, z + 1.0), (1, 0, 0),
-                                 (0, 0, 1), [2.6, 0.06, 1.0], ctx.steel(), g)
+                                 (0, 0, 1), [2.6, 0.08, 1.1], ctx.steel(), g)
     if rng.random() < 0.8:
         sb.add_detail_at("railing", W(L + 0.05, 0.0, z + 1.0),
-                         (uy, -ux, 0.0), (0, 0, 1), [w - 0.3, 0.06, 1.0],
+                         (uy, -ux, 0.0), (0, 0, 1), [w - 0.3, 0.08, 1.1],
                          ctx.steel(), g)
+    if rng.random() < 0.6:
+        sb.add_detail_at("light", W(L - 0.6, 0.0, z + 1.6), (1, 0, 0), (0, 0, 1),
+                         [0.35, 0.35, 0.35], "accent", g)
     for k in range(0, len(xs), 2):
         if rng.random() < 0.6:
             sb.add_detail_at("bolt_plate", W(xs[k], w / 2.0, z), (1, 0, 0),
@@ -539,6 +549,7 @@ def deep_rib(ctx, stats, fa, fb, deck_z, depth, width, own_a, own_b):
     bw.build()
     stats.deep_trusses += 1
     stats.truss_depths.append(round(depth, 3))
+    _split_group_beams(sb, g, p["split"])
     # corbel bearings at both ends (anchor the truss into the block faces)
     corbel_size = ((1.0, width + 0.8, 0.9) if abs(direction[0]) >= abs(direction[1])
                    else (width + 0.8, 1.0, 0.9))
@@ -672,8 +683,15 @@ def build_fault_spine(ctx):
 
 # ------------------------------------------------------- suspended-delta
 
-def _build_buttress(ctx, bx, by, wb, h_b, idx):
-    """A sparse irregular buttress: corner columns, lattice faces, mast."""
+def _build_buttress(ctx, bx, by, wb, h_b, idx, ux=1.0, uy=0.0, tier_ends=None):
+    """A sparse irregular buttress: corner columns, lattice faces, mast.
+
+    ``tier_ends`` lists (end_offset, half_width, deck_z) for every deck tier
+    that lands at this buttress; a pair of transfer columns rises for each,
+    standing just outside the face the decks meet, so the deck ends can tie
+    into the frame instead of hanging from stays alone.  Returns the group
+    id, the mast top and the inboard face origin.
+    """
     sb, p, rng = ctx.sb, ctx.p, ctx.rng
     g = sb.group(f"buttress-{idx:02d}")
     sb.add_block((bx, by, 0.8), (wb + 2.5, wb + 2.5, 1.6), "concrete",
@@ -683,19 +701,47 @@ def _build_buttress(ctx, bx, by, wb, h_b, idx):
     for (cx, cy) in corners:
         _beam_split(sb, (cx, cy, 1.6), (cx, cy, h_b), p["split"], "BOX350",
                     ctx.steel(), ["primary", "buttress", "column"], g)
-    for (x0, y0, ux, uy) in [(bx - hw, by - hw, 1.0, 0.0), (bx + hw, by + hw, -1.0, 0.0),
-                             (bx - hw, by + hw, 0.0, -1.0), (bx + hw, by - hw, 0.0, 1.0)]:
-        if ctx.roll("secondary"):
-            lattice_face(sb, ctx, g, x0, y0, 1.6, ux, uy, wb, h_b - 1.6,
-                         p["pitch"], p["split"], ["secondary", "buttress", "lattice"],
-                         "L70", diag_rate=p.get("diag_rate", 0.06),
-                         splice_rate=p.get("splice_rate", 0.05))
+    for (x0, y0, ux2, uy2) in [(bx - hw, by - hw, 1.0, 0.0), (bx + hw, by + hw, -1.0, 0.0),
+                               (bx - hw, by + hw, 0.0, -1.0), (bx + hw, by - hw, 0.0, 1.0)]:
+        lattice_face(sb, ctx, g, x0, y0, 1.6, ux2, uy2, wb, h_b - 1.6,
+                     p["pitch"], p["split"], ["secondary", "buttress", "lattice"],
+                     "L70", diag_rate=p.get("diag_rate", 0.06),
+                     splice_rate=p.get("splice_rate", 0.05))
     for (a, b) in [(corners[0], corners[2]), (corners[1], corners[3])]:
         sb.add_beam((a[0], a[1], h_b), (b[0], b[1], h_b), "I450",
                     ctx.steel(), ["primary", "buttress", "cap"], g)
+    # purlins along the cap edges, seated on the corner-column tops
+    if ctx.roll("secondary"):
+        for yedge in (by - hw, by + hw):
+            sb.add_beam((bx - hw, yedge, h_b + 0.25), (bx + hw, yedge, h_b + 0.25),
+                        "I240", ctx.steel(), ["secondary", "buttress", "purlin"], g)
+            if rng.random() < 0.7:
+                sb.add_detail_at("rivet_row", (bx, yedge, h_b + 0.25), (1, 0, 0),
+                                 (0, 0, 1), [0.8, 0.12, 0.12], ctx.steel(), g)
+    # transfer columns for the deck tier ends
+    fx, fy = bx - ux * hw, by - uy * hw   # inboard face center
+    px, py = -uy, ux                       # perpendicular (along the face)
+    if tier_ends:
+        for (off, half_w, z) in tier_ends:
+            for sgn in (-1.0, 1.0):
+                cx = fx + px * sgn * half_w - ux * off
+                cy = fy + py * sgn * half_w - uy * off
+                _beam_split(sb, (cx, cy, 1.6), (cx, cy, z), p["split"], "BOX350",
+                            ctx.steel(), ["primary", "buttress", "transfer"], g)
+                # raker back to the plinth face: the ground path for columns
+                # standing out in the void
+                _beam_split(sb, (cx, cy, z), (fx, fy, 1.6), p["split"], "C250",
+                            ctx.steel(), ["primary", "buttress", "raker"], g)
     mast_h = rng.uniform(*p.get("mast_h", [10.0, 16.0]))
     _beam_split(sb, (bx, by, h_b), (bx, by, h_b + mast_h), p["split"], "TUBE300",
                 ctx.steel(), ["primary", "buttress", "mast"], g)
+    # orange light cluster on the cap
+    if ctx.roll("detail"):
+        for _ in range(rng.integers(2, 4)):
+            lx = bx + rng.uniform(-hw + 0.5, hw - 0.5)
+            ly = by + rng.uniform(-hw + 0.5, hw - 0.5)
+            sb.add_detail_at("light", (lx, ly, h_b + 0.9), (1, 0, 0), (0, 0, 1),
+                             [0.35, 0.35, 0.35], "accent", g)
     return g, (bx, by, h_b + mast_h)
 
 
@@ -731,7 +777,7 @@ def _build_tier(ctx, stats, origin, direction, deck_z, span, deck_w, depth,
                             ctx.steel(), ["secondary", "deck", "stringer"], g)
                 if rng.random() < 0.5:
                     sb.add_detail_at("rivet_row", bw.W(k * bw.panel, side, fz),
-                                     (1, 0, 0), (0, 0, 1), [0.16, 0.1, 0.1],
+                                     (1, 0, 0), (0, 0, 1), [0.8, 0.12, 0.12],
                                      ctx.steel(), g)
         for xk in (0.0, span):
             sb.add_beam(bw.W(xk, -hw, fz), bw.W(xk, hw, fz), "I240",
@@ -752,7 +798,11 @@ def _build_tier(ctx, stats, origin, direction, deck_z, span, deck_w, depth,
                                       frame(bw.W(lx, side, fz + 1.0),
                                             bw._dir((1.0, 0.0, 0.0)),
                                             bw._dir((0.0, 0.0, 1.0))),
-                                      [1.7, 0.06, 1.0], ctx.steel(), g)
+                                      [1.7, 0.08, 1.1], ctx.steel(), g)
+    # TrussBridge emits span-length handrails and width-length crosses;
+    # split them so member-proximity queries stay local on large scenes
+    _split_group_beams(sb, g, split)
+
     # one narrow glazed bay at the outer end (well under the glass cap)
     if glass and rng.random() < p.get("glass_rate", 0.22):
         fz0 = p["floors_in"][0]
@@ -765,7 +815,36 @@ def _build_tier(ctx, stats, origin, direction, deck_z, span, deck_w, depth,
         for ty in (side - 0.9, side + 0.9):
             sb.add_beam(bw.W(xk, ty, fz0), bw.W(xk, ty, fz0 + 3.0), "TUBE50",
                         ctx.steel(), ["secondary", "deck", "mullion"], g)
+    if rng.random() < 0.3:
+        sb.add_detail_at("light", bw.W(span - 1.5, hw - 1.2, depth - 0.4),
+                         (1, 0, 0), (0, 0, 1), [0.35, 0.35, 0.35], "accent", g)
     return bw
+
+
+def _hub_tower(ctx, tw, z0, z1):
+    """A lattice tower rising from the hub to above the top deck tier."""
+    sb, p, rng = ctx.sb, ctx.p, ctx.rng
+    g = sb.group("hub-tower")
+    hw = tw / 2.0
+    corners = [(-hw, -hw), (hw, -hw), (hw, hw), (-hw, hw)]
+    for (cx, cy) in corners:
+        _beam_split(sb, (cx, cy, z0), (cx, cy, z1), p["split"], "BOX500",
+                    ctx.steel(), ["primary", "hub", "column"], g)
+    for (x0, y0, ux, uy) in [(-hw, -hw, 1.0, 0.0), (hw, hw, -1.0, 0.0),
+                             (-hw, hw, 0.0, -1.0), (hw, -hw, 0.0, 1.0)]:
+        lattice_face(sb, ctx, g, x0, y0, z0, ux, uy, tw, z1 - z0,
+                     p["pitch"], p["split"], ["secondary", "hub", "lattice"], "L70",
+                     diag_rate=p.get("diag_rate", 0.06) * 0.5,
+                     splice_rate=p.get("splice_rate", 0.05))
+    for (a, b) in [(corners[0], corners[2]), (corners[1], corners[3])]:
+        sb.add_beam((a[0], a[1], z1), (b[0], b[1], z1), "I450",
+                    ctx.steel(), ["primary", "hub", "cap"], g)
+    if ctx.roll("detail"):
+        for _ in range(rng.integers(3, 5)):
+            lx, ly = rng.uniform(-hw + 0.4, hw - 0.4), rng.uniform(-hw + 0.4, hw - 0.4)
+            sb.add_detail_at("light", (lx, ly, z1 + 0.7), (1, 0, 0), (0, 0, 1),
+                             [0.35, 0.35, 0.35], "accent", g)
+    return g, (0.0, 0.0, z1)
 
 
 def build_suspended_delta(ctx):
@@ -774,10 +853,14 @@ def build_suspended_delta(ctx):
     stats = V2Stats()
     nb = p["branches"]
     nt = p["tiers"]
+    skip_tiers = p.get("skip_tiers", 0)
     hub_w = rng.uniform(*p["hub_w"])
     pitch, split = p["pitch"], p["split"]
+    deck_z0 = p["deck_z0"]
+    tier_h = p["tier_h"]
+    depth_max = p["truss_depth"][1]
 
-    # ---- hub: stacked irregular blocks with lattice faces and a mast
+    # ---- hub: stacked irregular blocks with lattice faces
     hw2 = hub_w / 2.0
     sb.add_block((0.0, 0.0, 0.8), (hub_w + 5.0, hub_w + 5.0, 1.6), "concrete",
                  ["hub", "plinth"], sb.group("hub-01"))
@@ -794,24 +877,29 @@ def build_suspended_delta(ctx):
                          (jx - sw * hub_w / 2.0, jy + sd * hub_w / 2.0)]:
             _beam_split(sb, (cx, cy, zbase), (cx, cy, zbase + sh), split,
                         "BOX500", ctx.steel(), ["primary", "hub", "column"], g)
-        for (x0, y0, ux, uy, wf) in [
+        for (x0, y0, ux2, uy2, wf) in [
                 (jx - sw * hub_w / 2.0, jy - sd * hub_w / 2.0, 1.0, 0.0, sw * hub_w),
                 (jx + sw * hub_w / 2.0, jy + sd * hub_w / 2.0, -1.0, 0.0, sw * hub_w),
                 (jx - sw * hub_w / 2.0, jy + sd * hub_w / 2.0, 0.0, -1.0, sd * hub_w),
                 (jx + sw * hub_w / 2.0, jy - sd * hub_w / 2.0, 0.0, 1.0, sd * hub_w)]:
-            if ctx.roll("secondary"):
-                lattice_face(sb, ctx, g, x0, y0, zbase, ux, uy, wf, sh,
-                             pitch, split, ["secondary", "hub", "lattice"], "L70",
-                             diag_rate=p.get("diag_rate", 0.06),
-                             splice_rate=p.get("splice_rate", 0.05))
+            lattice_face(sb, ctx, g, x0, y0, zbase, ux2, uy2, wf, sh,
+                         pitch, split, ["secondary", "hub", "lattice"], "L70",
+                         diag_rate=p.get("diag_rate", 0.06),
+                         splice_rate=p.get("splice_rate", 0.05))
         hub_blocks.append({"g": g, "x": jx, "y": jy,
                            "w": sw * hub_w, "d": sd * hub_w,
                            "z0": zbase, "z1": zbase + sh})
     hub_top = hub_blocks[-1]["z1"]
+
+    # ---- hub tower rising above the top deck tier, then a short mast
+    top_deck = deck_z0 + (nt - 1) * tier_h
+    tower_top_z = top_deck + depth_max + 8.0
+    tw = p.get("tower_w", 0.32) * hub_w
+    gt, tower_top = _hub_tower(ctx, tw, hub_top, tower_top_z)
     gm = sb.group("hub-mast")
-    _beam_split(sb, (0.0, 0.0, hub_top), (0.0, 0.0, hub_top + 18.0), split,
-                "TUBE300", ctx.steel(), ["primary", "hub", "mast"], gm)
-    mast_top = (0.0, 0.0, hub_top + 18.0)
+    _beam_split(sb, (0.0, 0.0, tower_top_z), (0.0, 0.0, tower_top_z + 14.0),
+                split, "TUBE300", ctx.steel(), ["primary", "hub", "mast"], gm)
+    mast_top = (0.0, 0.0, tower_top_z + 14.0)
     g_stays = sb.group("stays")
     g_hubstays = sb.group("hub-stays")
     g_nets = sb.group("cable-nets")
@@ -824,44 +912,108 @@ def build_suspended_delta(ctx):
         L = rng.uniform(*p["branch_len"])
         bx, by = ux * L, uy * L
         wb = rng.uniform(*p["buttress_w"])
-        h_b = rng.uniform(*p["buttress_h"])
-        bg, mtop = _build_buttress(ctx, bx, by, wb, h_b, i + 1)
-        mast_tops.append(mtop)
-        span = L - (hw2 + 9.0) - wb / 2.0 - 1.0
+        j_skip = int(rng.integers(nt)) if skip_tiers > 0 else nt
+
+        # 1. decide the tier geometry up front.  Starts, ends and widths come
+        # from permuted offset sets, so per-branch variety is guaranteed
+        # (>= 8 m of start/end spread, >= 20% of width spread) instead of
+        # just likely.  The sets are scaled per branch so the shortest tier
+        # keeps at least 30 m of span at every scale.
+        max_avail = max(0.0, (L - wb / 2.0 - 1.0) - (hw2 + 9.0) - 30.0)
+        off_scale = min(1.0, max_avail / 48.0)
+        r0_offs = rng.permutation(np.arange(5) * 4.0) * off_scale   # 0..16 m
+        end_offs = rng.permutation(np.arange(5) * 8.0) * off_scale  # 0..32 m
+        w_facts = rng.permutation(np.array([0.80, 0.90, 1.00, 1.10, 1.20]))
+        w_base = rng.uniform(*p["deck_w"])
+        tier_geos = []
+        k_built = 0
         for j in range(nt):
-            deck_z = p["deck_z0"] + j * p["tier_h"]
-            r0 = hw2 + 9.0 + j * 1.4
-            deck_w = rng.uniform(*p["deck_w"])
-            depth = min(rng.uniform(*p["truss_depth"]), p["tier_h"] - 2.0)
+            if j == j_skip:
+                tier_geos.append(None)
+                continue
+            deck_z = deck_z0 + j * tier_h
+            r0 = hw2 + 9.0 + float(r0_offs[k_built])
+            end_off = float(end_offs[k_built])
+            deck_w = w_base * float(w_facts[k_built])
+            k_built += 1
+            depth = min(rng.uniform(*p["truss_depth"]), tier_h - 2.0)
             kind = p["deck_kinds"][int(rng.integers(len(p["deck_kinds"])))]
-            bw = _build_tier(ctx, stats, (ux * r0, uy * r0, deck_z), (ux, uy),
-                             deck_z, span - j * 1.4, deck_w, depth,
-                             i * 10 + j, kind)
+            tier_geos.append({"deck_z": deck_z, "r0": r0, "end_off": end_off,
+                              "deck_w": deck_w, "hw": deck_w / 2.0, "depth": depth,
+                              "kind": kind})
+        built = [g2 for g2 in tier_geos if g2 is not None]
+        span_base = L - wb / 2.0 - 1.0
+
+        # 2. buttress tall enough to carry the top tier, with transfer columns
+        h_b = top_deck + max(g2["depth"] for g2 in built) + rng.uniform(*p["buttress_over"])
+        bg, mtop = _build_buttress(ctx, bx, by, wb, h_b, i + 1, ux, uy,
+                                   tier_ends=[(g2["end_off"], g2["hw"], g2["deck_z"])
+                                              for g2 in built])
+        mast_tops.append(mtop)
+        fx, fy = bx - ux * wb / 2.0, by - uy * wb / 2.0   # inboard face center
+        px, py = -uy, ux
+
+        # 3. build the tiers, tie each end into the frames
+        for j, geo in enumerate(tier_geos):
+            if geo is None:
+                continue
+            span = span_base - geo["r0"] - geo["end_off"]
+            bw = _build_tier(ctx, stats, (ux * geo["r0"], uy * geo["r0"], geo["deck_z"]),
+                             (ux, uy), geo["deck_z"], span, geo["deck_w"],
+                             geo["depth"], i * 10 + j, geo["kind"])
+            # ---- outer end: struts and knees into the buttress transfer columns
+            for sgn in (-1.0, 1.0):
+                end = bw.W(span, sgn * geo["hw"], 0.0)
+                top = bw.W(span, sgn * geo["hw"], geo["depth"])
+                col = (fx + px * sgn * geo["hw"] - ux * geo["end_off"],
+                       fy + py * sgn * geo["hw"] - uy * geo["end_off"])
+                _beam_split(sb, (end[0], end[1], end[2]), (col[0], col[1], geo["deck_z"]),
+                            split, "I240", ctx.steel(),
+                            ["secondary", "deck", "strut"], bg)
+                _beam_split(sb, (top[0], top[1], top[2]), (col[0], col[1], geo["deck_z"]),
+                            split, "C180", ctx.steel(),
+                            ["secondary", "deck", "knee"], bg)
+            # ---- inner end: struts into the hub tower / hub block columns
+            hk = next((hb for hb in hub_blocks
+                       if hb["z0"] - 0.2 <= geo["deck_z"] <= hb["z1"] + 0.2), None)
+            for sgn in (-1.0, 1.0):
+                end = bw.W(0.0, sgn * geo["hw"], 0.0)
+                if hk is not None:
+                    tx = hk["x"] + (hk["w"] / 2.0) * (1.0 if ux > 0 else -1.0)
+                    ty = hk["y"] + (hk["d"] / 2.0) * (1.0 if uy > 0 else -1.0)
+                    tgt_g = hk["g"]
+                else:
+                    tx = (tw / 2.0) * (1.0 if ux > 0 else -1.0)
+                    ty = (tw / 2.0) * (1.0 if uy > 0 else -1.0)
+                    tgt_g = gt
+                _beam_split(sb, (end[0], end[1], end[2]), (tx, ty, geo["deck_z"]),
+                            split, "I240", ctx.steel(),
+                            ["secondary", "deck", "strut"], tgt_g)
             # stays from the buttress mast to the outer deck top chord
-            # (structural: they carry the deck end, so they are never gated)
             if j % 2 == 0:
                 for k in range(0, bw.panels - 1, 4):
-                    node = bw.W(k * bw.panel, -deck_w / 2.0, depth)
-                    _beam_split(sb, mtop, (node[0], node[1], deck_z + depth),
+                    node = bw.W(k * bw.panel, -geo["hw"], geo["depth"])
+                    _beam_split(sb, mtop, (node[0], node[1], node[2]),
                                 split, "ROD30", ctx.steel(),
                                 ["secondary", "deck", "cable"], g_stays)
-                    node = bw.W(k * bw.panel, deck_w / 2.0, depth)
-                    _beam_split(sb, mtop, (node[0], node[1], deck_z + depth),
+                    node = bw.W(k * bw.panel, geo["hw"], geo["depth"])
+                    _beam_split(sb, mtop, (node[0], node[1], node[2]),
                                 split, "ROD30", ctx.steel(),
                                 ["secondary", "deck", "cable"], g_stays)
-            # hub stays from the hub mast to the inner top chords
-            for side in (-deck_w / 2.0, deck_w / 2.0):
-                node = bw.W(0.0, side, depth)
-                _beam_split(sb, mast_top, (node[0], node[1], deck_z + depth),
+            # hub stays from the tower top to the inner top chords
+            for sgn in (-1.0, 1.0):
+                node = bw.W(0.0, sgn * geo["hw"], geo["depth"])
+                _beam_split(sb, tower_top, (node[0], node[1], node[2]),
                             split, "ROD30", ctx.steel(),
                             ["secondary", "deck", "cable"], g_hubstays)
+
         # lateral mid-span buttress beside the longest branches
         if L > 0.9 * p["branch_len"][1] and p.get("buttress_extra", 0) > 0 \
                 and i < p["buttress_extra"]:
             mx = ux * L * 0.55 - uy * (p["deck_w"][1] + 4.0)
             my = uy * L * 0.55 + ux * (p["deck_w"][1] + 4.0)
             _build_buttress(ctx, mx, my, rng.uniform(*p["buttress_w"]),
-                            deck_z + rng.uniform(2.0, 6.0), 90 + i + 1)
+                            deck_z0 + rng.uniform(6.0, 14.0), 90 + i + 1, ux, uy)
 
     # ---- cable nets between adjacent buttress masts (draped in the middle)
     for i in range(nb):
@@ -901,22 +1053,50 @@ def build_suspended_delta(ctx):
     return _finalize(ctx, stats)
 
 
-def _ground_apron(ctx, margin=18.0):
-    """One site apron block: ground contact, cast shadows, a site edge.
+def _split_group_beams(sb, gid, maxlen):
+    """Split every beam of ``gid`` longer than ``maxlen`` into segments.
 
-    The v1 presets add the same block (tags ``["site", "ground"]``, top at
-    z = 0); every preset must have exactly one so the Blender builder can
-    treat it as the site ground.
+    Geometry is unchanged (segments share endpoints and keep profile,
+    material, tags, roll); only the instance count grows, and the scene
+    validator stays fast on dense scenes.  Beam ids are renumbered later
+    in _finalize.
+    """
+    idxs = [i for i, b in enumerate(sb.beams)
+            if b["group"] == gid and np.linalg.norm(np.subtract(b["b"], b["a"])) > maxlen]
+    for i in reversed(idxs):
+        b = sb.beams[i]
+        _beam_split(sb, b["a"], b["b"], maxlen, b["profile"], b["material"],
+                    b["tags"], b["group"], b["roll"])
+        del sb.beams[i]
+
+
+def _ground_apron(ctx, margin=18.0, tile=24.0):
+    """A site apron of concrete tiles: ground contact, cast shadows, a site
+    edge.  The tile under the site centre carries ``["site", "ground"]``
+    (exactly one such block, top at z = 0, as the render-ready tests
+    require); the rest are ``["site", "apron"]``.  Tiling keeps every
+    block small, which keeps the scene validator's block-proximity queries
+    local on megastructure-size scenes.
     """
     sb = ctx.sb
     mn, mx = sb.bounds(pad=0.0)
-    mn[2] = 0.0
-    mx[2] = 0.0
     min_x, min_y = float(mn[0]) - margin, float(mn[1]) - margin
     max_x, max_y = float(mx[0]) + margin, float(mx[1]) + margin
-    sb.add_block(((min_x + max_x) / 2.0, (min_y + max_y) / 2.0, -0.8),
-                 (max_x - min_x, max_y - min_y, 1.6),
-                 "concrete", ["site", "ground"], 0)
+    nx = max(1, int(math.ceil((max_x - min_x) / tile)))
+    ny = max(1, int(math.ceil((max_y - min_y) / tile)))
+    cx, cy = (min_x + max_x) / 2.0, (min_y + max_y) / 2.0
+    i0 = min(nx - 1, int((cx - min_x) * nx / (max_x - min_x)))
+    j0 = min(ny - 1, int((cy - min_y) * ny / (max_y - min_y)))
+    for i in range(nx):
+        for j in range(ny):
+            x0 = min_x + (max_x - min_x) * i / nx
+            x1 = min_x + (max_x - min_x) * (i + 1) / nx
+            y0 = min_y + (max_y - min_y) * j / ny
+            y1 = min_y + (max_y - min_y) * (j + 1) / ny
+            tags = ["site", "ground"] if (i == i0 and j == j0) \
+                else ["site", "apron"]
+            sb.add_block(((x0 + x1) / 2.0, (y0 + y1) / 2.0, -0.8),
+                         (x1 - x0, y1 - y0, 1.6), "concrete", tags, 0)
 
 
 def _finalize(ctx, stats):
@@ -927,6 +1107,8 @@ def _finalize(ctx, stats):
     blocks = scene["blocks"]
     n = len(beams)
     nsec = sum(1 for b in beams if "secondary" in (b.get("tags") or ()))
+    for i, b in enumerate(scene["beams"]):
+        b["id"] = i
     scene["stats"].update({
         "secondary_beams": nsec,
         "secondary_frac": round(nsec / n, 4) if n else 0.0,

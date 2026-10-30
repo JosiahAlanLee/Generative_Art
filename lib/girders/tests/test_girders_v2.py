@@ -170,3 +170,156 @@ class SlowLargeValidation(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def _groups_by_name(scene):
+    return {g["name"]: g["id"] for g in scene["groups"]}
+
+
+def _deck_geometry(scene, gid):
+    """Deck axis, extent, elevation and width of a rib/deck group.
+
+    Reconstructed from the truss chords (always complete, unlike the deck
+    plate blocks, which the density gate may drop) and the deck blocks
+    (for the width).
+    """
+    chords = [b for b in scene["beams"] if b["group"] == gid
+              and "chord" in b["tags"]]
+    assert len(chords) > 8, "group has no chord truss"
+    longest = max(chords, key=lambda b: np.linalg.norm(np.subtract(b["b"], b["a"])))
+    u = np.subtract(longest["b"][:2], longest["a"][:2])
+    u = u / np.linalg.norm(u)
+    ss = [min(np.array(b["a"][:2]) @ u, np.array(b["b"][:2]) @ u) for b in chords]
+    s_min, s_max = min(ss), max(ss)
+    deck_z = min(min(b["a"][2], b["b"][2]) for b in chords)
+    blocks = [b for b in scene["blocks"] if b["group"] == gid
+              and "deck" in b["tags"]]
+    width = max(b["size"][1] for b in blocks) if blocks else None
+    return u, s_min, s_max, deck_z, width
+
+
+class TrussElevationTests(unittest.TestCase):
+    """Every rib/deck truss sits at its deck elevation, never at ground."""
+
+    def _check(self, preset, scale):
+        scene = generate(SEED, preset, scale)
+        names = _groups_by_name(scene)
+        checked = 0
+        for g in scene["groups"]:
+            if not (g["name"].startswith("rib-") or g["name"].startswith("deck-")):
+                continue
+            chords = [b for b in scene["beams"] if b["group"] == g["id"]
+                      and "chord" in b["tags"]]
+            self.assertGreater(len(chords), 8, g["name"])
+            zs = [z for b in chords for z in (b["a"][2], b["b"][2])]
+            chord_min, chord_max = min(zs), max(zs)
+            _, _, _, deck_z, _ = _deck_geometry(scene, g["id"])
+            self.assertAlmostEqual(chord_min, deck_z, delta=0.6, msg=g["name"])
+            self.assertGreater(chord_min, 6.0, g["name"])
+            self.assertLessEqual(chord_max - deck_z, 18.0 + 0.6, g["name"])
+            checked += 1
+        self.assertGreater(checked, 0, preset)
+
+    def test_fault_spine_ribs_sit_at_deck_elevation(self):
+        self._check("fault-spine", "medium")
+
+    def test_delta_tiers_sit_at_deck_elevation(self):
+        self._check("suspended-delta", "medium")
+
+    def test_large_scenes_have_no_ground_level_trusses(self):
+        for preset in V2_PRESETS:
+            scene = generate(SEED, preset, "large")
+            for g in scene["groups"]:
+                if not (g["name"].startswith("rib-") or g["name"].startswith("deck-")):
+                    continue
+                chords = [b for b in scene["beams"] if b["group"] == g["id"]
+                          and "chord" in b["tags"]]
+                zs = [z for b in chords for z in (b["a"][2], b["b"][2])]
+                self.assertGreater(min(zs), 6.0, (preset, g["name"]))
+
+
+class TierConnectionTests(unittest.TestCase):
+    """Connecting steel physically reaches both ends of every deck tier."""
+
+    def _check(self, scale):
+        scene = generate(SEED, "suspended-delta", scale)
+        for g in scene["groups"]:
+            if not g["name"].startswith("deck-"):
+                continue
+            gid = g["id"]
+            u, s_min, s_max, deck_z, _ = _deck_geometry(scene, gid)
+
+            def s_of(b):
+                return (np.array(b["a"][:2]) + np.array(b["b"][:2])) @ u / 2.0
+
+            # stringers span the inhabited floors end to end
+            stringers = [b for b in scene["beams"] if b["group"] == gid
+                         and "stringer" in b["tags"]]
+            self.assertGreaterEqual(len(stringers), 4, g["name"])
+            str_s = sorted(s_of(b) for b in stringers)
+            self.assertLessEqual(str_s[0], s_min + 1.5, g["name"])
+            self.assertGreaterEqual(str_s[-1], s_max - 1.5, g["name"])
+            # struts and knees (they live in the buttress/hub groups) reach
+            # the deck's own ends
+            def near_end(b, s_end, tol=2.5):
+                return (abs(np.array(b["a"][:2]) @ u - s_end) < tol or
+                        abs(np.array(b["b"][:2]) @ u - s_end) < tol)
+
+            for kind, s_end in (("strut", s_max), ("strut", s_min), ("knee", s_max)):
+                members = [b for b in scene["beams"] if kind in b["tags"]]
+                near = sum(1 for b in members if near_end(b, s_end))
+                self.assertGreaterEqual(near, 2, (g["name"], kind, round(s_end, 1)))
+
+    def test_medium_tiers_are_tied_at_both_ends(self):
+        self._check("medium")
+
+    def test_large_tiers_are_tied_at_both_ends(self):
+        self._check("large")
+
+    def test_buttress_frames_reach_the_upper_tiers(self):
+        scene = generate(SEED, "suspended-delta", "large")
+        deck_zs = [_deck_geometry(scene, g["id"])[3]
+                   for g in scene["groups"] if g["name"].startswith("deck-")]
+        self.assertGreater(len(deck_zs), 10)
+        transfer_tops = []
+        for g in scene["groups"]:
+            if g["name"].startswith("buttress-"):
+                cols = [b for b in scene["beams"] if b["group"] == g["id"]
+                        and "transfer" in b["tags"]]
+                corners = [b for b in scene["beams"] if b["group"] == g["id"]
+                           and b["tags"][1:3] == ["buttress", "column"]]
+                transfer_tops += [max(b["a"][2], b["b"][2]) for b in cols]
+                if corners and int(g["name"].split("-")[1]) <= 7:
+                    top = max(max(b["a"][2], b["b"][2]) for b in corners)
+                    self.assertGreaterEqual(top, max(deck_zs) + 3.0, g["name"])
+        self.assertGreaterEqual(max(transfer_tops), max(deck_zs) - 0.5)
+        # the hub tower rises above the top tier
+        tower = _groups_by_name(scene).get("hub-tower")
+        self.assertIsNotNone(tower)
+        cols = [b for b in scene["beams"] if b["group"] == tower
+                and "column" in b["tags"]]
+        top = max(max(b["a"][2], b["b"][2]) for b in cols)
+        self.assertGreaterEqual(top, max(deck_zs) + 4.0)
+
+
+class DeltaTierVarietyTests(unittest.TestCase):
+    """Large delta tiers vary in extent and width, with one tier missing."""
+
+    def test_tier_variety_and_missing_tier(self):
+        scene = generate(SEED, "suspended-delta", "large")
+        nt = scene["generator"]["params"]["tiers"]
+        by_branch = {}
+        for g in scene["groups"]:
+            if not g["name"].startswith("deck-"):
+                continue
+            branch = int(g["name"][5:7]) // 10
+            _, s_min, s_max, _, width = _deck_geometry(scene, g["id"])
+            by_branch.setdefault(branch, []).append((s_min, s_max, width))
+        for branch, tiers in sorted(by_branch.items()):
+            self.assertEqual(len(tiers), nt - 1, (branch, nt))
+            starts = [t[0] for t in tiers]
+            ends = [t[1] for t in tiers]
+            widths = [t[2] for t in tiers]
+            self.assertGreaterEqual(max(starts) - min(starts), 8.0, branch)
+            self.assertGreaterEqual(max(ends) - min(ends), 8.0, branch)
+            self.assertGreaterEqual(max(widths) / min(widths), 1.2, branch)

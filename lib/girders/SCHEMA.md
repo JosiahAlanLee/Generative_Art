@@ -72,8 +72,10 @@ above; the format is unchanged.
 - **Groups** (parent 0 unless noted): `block-NN` (inhabited base stacks),
   `setback-NN-k` (stepped upper stacks), `cantilever-NN` (trussed
   cantilever decks), `rib-NN` (deep canyon trusses), `canyon-pipe`,
-  `canyon-nets`, `hub-NN` / `hub-mast`, `deck-NN` (layered delta tiers),
-  `buttress-NN`, `stays` / `hub-stays` / `cable-nets`.
+  `canyon-nets`, `hub-NN` / `hub-tower` / `hub-mast`, `deck-NN` (layered
+  delta tiers), `buttress-NN`, `stays` / `hub-stays` / `cable-nets`.
+  Delta deck ends tie into their frames with `transfer` columns,
+  `raker`s, `strut`s and `knee`s (tagged `deck` + role).
 - **Hierarchy tags**: every v2 generator beam carries `primary` (columns,
   spandrels, truss chords, anchors) or `secondary` (lattice, joists,
   stringers, webs, ties, pipes, cables).  Beams expanded by
@@ -90,4 +92,8 @@ above; the format is unchanged.
   cables are ROD30, pipes/rails TUBE50 and up, so they read at 4K.
 - Long members are split into <= ~2.4 m segments with shared endpoints
   (splice joints carry `bolt_plate` / `rivet_row` details); this keeps the
-  validator's member-proximity queries local on 250k+ beam scenes.
+  validator's member-proximity queries local on 250k+ beam scenes.  Every
+  `rib-NN`/`deck-NN` group's bottom chords sit at the group's deck
+  elevation (never at ground), and the site apron is a tile grid (`site`
+  + `ground` on one tile, `site` + `apron` on the rest) so block-size
+  queries stay local.
