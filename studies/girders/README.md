@@ -102,3 +102,25 @@ distant procedural texture aliasing.
 Verification now checks mesh winding and beam frames for horizontal, upward, downward and near
 vertical members; source groups; and complete 16:9 axon framing. Run the commands
 above with a generated scene as well as the fixture (`verify.py --scene FILE`).
+
+## V2 art direction
+
+`mineral` uses a graphite, mineral-grey and safety-orange palette, raking pale
+sunlight, contact AO and a denser finite atmosphere for depth. `ink` is a warm
+paper and graphite print treatment with the same single accent: diffuse steel,
+no procedural bump or depth of field, and no denoising to erase fine members.
+Both operate on the original instances; neither adds an object per member.
+`--camera section` supplies a medium-height oblique perspective, while
+`--camera print-axon` supplies an orthographic view fitted to the whole site.
+The original camera hints and three original looks remain available.
+
+Use the `hydrapy` Python environment (NumPy and SciPy required), for example:
+
+```sh
+~/miniconda3/envs/hydrapy/bin/python studies/girders/render.py \
+  --preset fault-spine --scale large --seed 7 --look mineral --camera worm \
+  --res 3840x2160 --samples 128 --validate --no-exr --out /path/to/output
+```
+
+`verify.py` now renders proofs for all five looks. Every saved render includes
+its source scene, native Blender file, script hashes and camera in provenance.
