@@ -76,8 +76,8 @@ above; the format is unchanged.
   delta tiers), `buttress-NN`, `stays` / `hub-stays` / `cable-nets`.
   Delta deck ends tie into their frames with `transfer` columns,
   `raker`s, `strut`s and `knee`s (tagged `deck` + role).
-- **Hierarchy tags**: every v2 generator beam carries `primary` (columns,
-  spandrels, truss chords, anchors) or `secondary` (lattice, joists,
+- **Hierarchy tags**: hand-built v2 beams carry `primary` (columns,
+  spandrels, anchors) or `secondary` (lattice, joists,
   stringers, webs, ties, pipes, cables).  Beams expanded by
   `trusses.TrussBridge` keep the shared `truss`/`chord`/`web` tags without
   a hierarchy tag.  `stats.secondary_frac` reports the share of beams
