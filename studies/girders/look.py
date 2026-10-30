@@ -148,6 +148,11 @@ def _camera_selection(data, requested):
     # Look-development cameras work with any generator without rewriting its data.
     lo, hi = _bounds(data)
     center, extent = (lo + hi) * .5, hi - lo
+    preset = data.get("generator", {}).get("params", {}).get("preset")
+    if preset == "fault-spine" and requested in ("worm", "canyon", "auto", None, ""):
+        return {"name": "worm", "location": [lo.x - extent.x * .04, -2.8, 5.8],
+                "target": [center.x + extent.x * .18, 1.2, lo.z + extent.z * .44],
+                "lens_mm": 24}
     if requested == "section":
         return {"name": "section", "location": [hi.x + extent.x * .48,
                 lo.y - extent.y * .58, lo.z + extent.z * .35],
@@ -235,10 +240,15 @@ def _light_rig(scene, look, data):
     center = (lo + hi) * .5
     extent = hi - lo
     if look == "mineral":
-        _sun(scene, "Pale raking sun", (-.6, .45, -.55), 3.4,
+        fault = data.get("generator", {}).get("params", {}).get("preset") == "fault-spine"
+        direction = (.8, .15, -.45) if fault else (-.6, .45, -.55)
+        _sun(scene, "Pale raking sun", direction, 3.4,
              (1, .94, .84), math.radians(2.2))
         _area(scene, "Canyon sky", (lo.x, lo.y, hi.z + extent.z),
               center, 22000, max(extent.x, extent.y) * .6, (.78, .86, 1))
+        if fault:
+            _area(scene, "Canyon entrance bounce", (lo.x - 15, 0, hi.z * .45),
+                  center, 90000, 30, (.80, .88, 1))
     elif look == "ink":
         _sun(scene, "Print key", (.4, .2, -.8), 2.6,
              (1, 1, 1), math.radians(7))
