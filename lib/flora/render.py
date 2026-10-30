@@ -72,6 +72,15 @@ def raster_triangle(buf, owners, triangle, owner):
     buf[sl][hit] = z[hit]; owners[sl][hit] = owner
 
 
+raster_triangle_numpy = raster_triangle
+
+# Optional kernel acceleration preserves the engraving algorithm and fallback.
+try:
+    from .raster_fast import raster_triangle
+except ImportError:
+    pass
+
+
 def silhouettes(surface, toward, owner):
     verts, tri = surface.vertices, surface.triangles
     normal = np.cross(verts[tri[:, 1]]-verts[tri[:, 0]], verts[tri[:, 2]]-verts[tri[:, 0]])

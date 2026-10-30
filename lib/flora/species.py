@@ -221,6 +221,20 @@ def bur_oak(p, rng, stage):
         branch(q, radial(phi, rng.uniform(.35, .95)), rng.uniform(.75, 1.1), .039, 2)
 
 
+# Imported lazily by generate: woodland uses the geometry helpers above.
+WOODLAND = {
+    'maidenhair': ('Northern maidenhair fern', 'Adiantum pedatum'),
+    'wild_ginger': ('Wild ginger', 'Asarum canadense'),
+    'bloodroot': ('Bloodroot', 'Sanguinaria canadensis'),
+    'dutchmans_breeches': ("Dutchman's breeches", 'Dicentra cucullaria'),
+    'solomons_seal': ("Solomon's seal", 'Polygonatum biflorum'),
+}
+for _key, (_common, _latin) in WOODLAND.items():
+    SPECIES[_key] = dict(common=_common, latin=_latin,
+        stages=('leafy',) if _key == 'maidenhair' else ('flowering', 'leafy'),
+        habitat='eastern woodland')
+
+
 def generate(species, seed=1, *, stage=None, vigor=1.0, wind=0.0):
     if species not in SPECIES:
         raise ValueError(f"unknown species {species!r}; choose {', '.join(SPECIES)}")
@@ -236,7 +250,10 @@ def generate(species, seed=1, *, stage=None, vigor=1.0, wind=0.0):
     p = Plant(dict(species=species, **info, seed=seed, stage=stage, vigor=vigor,
                    wind=wind, generator_version="0.1.0", units="metres"))
     rng = random.Random(seed)
-    if species in ("little_bluestem", "side_oats_grama"):
+    if species in WOODLAND:
+        from . import woodland
+        getattr(woodland, species)(p, rng, stage)
+    elif species in ("little_bluestem", "side_oats_grama"):
         grass(p, rng, stage, species == "side_oats_grama")
     else:
         {"leadplant": leadplant, "prairie_smoke": prairie_smoke,
