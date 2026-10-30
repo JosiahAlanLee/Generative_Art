@@ -354,6 +354,14 @@ def _art_materials(look):
         ao.inputs["Color"].default_value = (*color, 1)
         ao.inputs["Distance"].default_value = .8 if ink else 1.6
         ao.samples = 8
+        if not ink:
+            noise = next((n for n in nodes if n.type == "TEX_NOISE"), None)
+            if noise:
+                mineral = nodes.new("ShaderNodeValToRGB")
+                mineral.color_ramp.elements[0].color = tuple(c * .65 for c in color) + (1,)
+                mineral.color_ramp.elements[1].color = tuple(c * 1.25 for c in color) + (1,)
+                links.new(noise.outputs["Fac"], mineral.inputs["Fac"])
+                links.new(mineral.outputs["Color"], ao.inputs["Color"])
         links.new(ao.outputs["Color"], bsdf.inputs["Base Color"])
         _set(bsdf, ("Metallic",), 0 if ink else (.45 if "steel" in name else .05))
         _set(bsdf, ("Roughness",), .85 if ink else .64)
